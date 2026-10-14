@@ -1,0 +1,166 @@
+{
+  "version": "2.0.0",
+  "description": "五重索引期刊字典（ISSN-L / Print ISSN / E-ISSN / NlmUniqueID / 标准缩写）与三级信源权重",
+  "tiers": {
+    "S": {
+      "label": "S级 · 医学四大刊与肿瘤顶刊",
+      "score_bonus": 15,
+      "whitelist_exempt": true
+    },
+    "A": {
+      "label": "A级 · 胸外科/呼吸/影像权威期刊",
+      "score_bonus": 8,
+      "whitelist_exempt": true
+    },
+    "B": {
+      "label": "B级 · 广谱肿瘤学期刊与预印本",
+      "score_bonus": 0,
+      "whitelist_exempt": false
+    }
+  },
+  "journals": [
+    {
+      "id": "nejm",
+      "title": "New England Journal of Medicine",
+      "iso_abbr": "N Engl J Med",
+      "tier": "S",
+      "if_2025": 96.2,
+      "jcr_quartile": "Q1",
+      "cas_zone": "中科院1区 Top",
+      "issn_l": "0028-4793",
+      "p_issn": "0028-4793",
+      "e_issn": "1533-4406",
+      "nlm_id": "0255562"
+    },
+    {
+      "id": "lancet",
+      "title": "The Lancet",
+      "iso_abbr": "Lancet",
+      "tier": "S",
+      "if_2025": 98.4,
+      "jcr_quartile": "Q1",
+      "cas_zone": "中科院1区 Top",
+      "issn_l": "0140-6736",
+      "p_issn": "0140-6736",
+      "e_issn": "1474-547X",
+      "nlm_id": "2985213R"
+    },
+    {
+      "id": "jco",
+      "title": "Journal of Clinical Oncology",
+      "iso_abbr": "J Clin Oncol",
+      "tier": "S",
+      "if_2025": 42.1,
+      "jcr_quartile": "Q1",
+      "cas_zone": "中科院1区 Top",
+      "issn_l": "0732-183X",
+      "p_issn": "0732-183X",
+      "e_issn": "1527-7755",
+      "nlm_id": "8309333"
+    },
+    {
+      "id": "jto",
+      "title": "Journal of Thoracic Oncology",
+      "iso_abbr": "J Thorac Oncol",
+      "tier": "S",
+      "if_2025": 21.0,
+      "jcr_quartile": "Q1",
+      "cas_zone": "中科院1区 Top",
+      "issn_l": "1556-0864",
+      "p_issn": "1556-0864",
+      "e_issn": "1556-1380",
+      "nlm_id": "101274235"
+    },
+    {
+      "id": "jtcvs",
+      "title": "Journal of Thoracic and Cardiovascular Surgery",
+      "iso_abbr": "J Thorac Cardiovasc Surg",
+      "tier": "A",
+      "if_2025": 4.9,
+      "jcr_quartile": "Q1",
+      "cas_zone": "中科院1区 Top (外科)",
+      "issn_l": "0022-5223",
+      "p_issn": "0022-5223",
+      "e_issn": "1097-685X",
+      "nlm_id": "0376343"
+    },
+    {
+      "id": "ats",
+      "title": "The Annals of Thoracic Surgery",
+      "iso_abbr": "Ann Thorac Surg",
+      "tier": "A",
+      "if_2025": 3.6,
+      "jcr_quartile": "Q1",
+      "cas_zone": "中科院2区 (胸心外科)",
+      "issn_l": "0003-4975",
+      "p_issn": "0003-4975",
+      "e_issn": "1552-6259",
+      "nlm_id": "15030100R"
+    },
+    {
+      "id": "chest",
+      "title": "CHEST",
+      "iso_abbr": "Chest",
+      "tier": "A",
+      "if_2025": 9.5,
+      "jcr_quartile": "Q1",
+      "cas_zone": "中科院1区 Top",
+      "issn_l": "0012-3692",
+      "p_issn": "0012-3692",
+      "e_issn": "1931-3543",
+      "nlm_id": "0231335"
+    },
+    {
+      "id": "medcomm",
+      "title": "MedComm",
+      "iso_abbr": "MedComm (2020)",
+      "tier": "A",
+      "if_2025": 10.7,
+      "jcr_quartile": "Q1",
+      "cas_zone": "中科院1区",
+      "issn_l": "2688-2663",
+      "p_issn": "2688-2663",
+      "e_issn": "2688-2663",
+      "nlm_id": "101767808"
+    },
+    {
+      "id": "jtd",
+      "title": "Journal of Thoracic Disease",
+      "iso_abbr": "J Thorac Dis",
+      "tier": "A",
+      "if_2025": 2.1,
+      "jcr_quartile": "Q2",
+      "cas_zone": "中科院3区 (胸外专科)",
+      "issn_l": "2072-1439",
+      "p_issn": "2072-1439",
+      "e_issn": "2077-6624",
+      "nlm_id": "101533916"
+    },
+    {
+      "id": "gs",
+      "title": "Gland Surgery",
+      "iso_abbr": "Gland Surg",
+      "tier": "B",
+      "if_2025": 1.8,
+      "jcr_quartile": "Q2",
+      "cas_zone": "中科院3区 (外科)",
+      "issn_l": "2227-684X",
+      "p_issn": "2227-684X",
+      "e_issn": "2227-8575",
+      "nlm_id": "101592602"
+    },
+    {
+      "id": "scirep",
+      "title": "Scientific Reports",
+      "iso_abbr": "Sci Rep",
+      "tier": "B",
+      "if_2025": 3.8,
+      "jcr_quartile": "Q1",
+      "cas_zone": "中科院3区",
+      "issn_l": "2045-2322",
+      "p_issn": "2045-2322",
+      "e_issn": "2045-2322",
+      "nlm_id": "101563288"
+    }
+  ]
+}

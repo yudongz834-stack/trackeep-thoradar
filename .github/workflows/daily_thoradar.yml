@@ -1,0 +1,53 @@
+name: ThorRadar Daily Pipeline
+
+on:
+  schedule:
+    # 北京时间 07:30（UTC 23:30）每日运行
+    - cron: '30 23 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: thoradar-daily
+  cancel-in-progress: true
+
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Self-test then run pipeline
+        env:
+          NCBI_API_KEY: ${{ secrets.NCBI_API_KEY }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
+          LLM_MODEL: ${{ secrets.LLM_MODEL }}
+          MAX_DAILY_COST_USD: ${{ secrets.MAX_DAILY_COST_USD || '0.10' }}
+        run: |
+          python3 thoradar_engine.py --self-test
+          python3 thoradar_engine.py
+
+      - name: Guard — data must actually change (fail loud on silent no-op)
+        run: |
+          if git diff --quiet -- index.html data/; then
+            echo "::error::流水线运行后 index.html 与 data/ 均无变化——疑似静默断粮，判失败"
+            exit 1
+          fi
+
+      - name: Commit and push updated data
+        run: |
+          git config user.name "thoradar-bot"
+          git config user.email "bot@thoradar.local"
+          git add index.html data/
+          git commit -m "chore(daily): 胸科雷达 $(date -u +%F) 文献雷达更新 [skip ci]"
+          git push
