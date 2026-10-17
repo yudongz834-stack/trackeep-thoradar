@@ -35,6 +35,7 @@ jobs:
           MAX_DAILY_COST_USD: ${{ secrets.MAX_DAILY_COST_USD || '0.10' }}
         run: |
           python3 thoradar_engine.py --self-test
+          python3 thoradar_engine.py --regression || echo "::warning::工程回归有漏拦/误拦，见 data/regression/report.json（不阻断当日发布，人工看板跟进）"
           python3 thoradar_engine.py
 
       - name: Guard — data must actually change (fail loud on silent no-op)

@@ -1,0 +1,990 @@
+{
+ "generated_at": "2026-10-17T13:26:13.228576",
+ "cases": [
+  {
+   "id": "reg_35403841",
+   "pmid": "35403841",
+   "title": "Neoadjuvant Nivolumab plus Chemotherapy in Resectable Lung Cancer.",
+   "abstract": "BACKGROUND: Neoadjuvant or adjuvant chemotherapy confers a modest benefit over surgery alone for resectable non-small-cell lung cancer (NSCLC). In early-phase trials, nivolumab-based neoadjuvant regimens have shown promising clinical activity; however, data from phase 3 trials are needed to confirm these findings. METHODS: In this open-label, phase 3 trial, we randomly assigned patients with stage IB to IIIA resectable NSCLC to receive nivolumab plus platinum-based chemotherapy or platinum-based chemotherapy alone, followed by resection. The primary end points were event-free survival and pathological complete response (0% viable tumor in resected lung and lymph nodes), both evaluated by blinded independent review. Overall survival was a key secondary end point. Safety was assessed in all treated patients. RESULTS: The median event-free survival was 31.6 months (95% confidence interval [CI], 30.2 to not reached) with nivolumab plus chemotherapy and 20.8 months (95% CI, 14.0 to 26.7) with chemotherapy alone (hazard ratio for disease progression, disease recurrence, or death, 0.63; 97.38% CI, 0.43 to 0.91; P = 0.005). The percentage of patients with a pathological complete response was 24.0% (95% CI, 18.0 to 31.0) and 2.2% (95% CI, 0.6 to 5.6), respectively (odds ratio, 13.94; 99% CI, 3.49 to 55.75; P<0.001). Results for event-free survival and pathological complete response across most subgroups favored nivolumab plus chemotherapy over chemotherapy alone. At the first prespecified interim analysis, the hazard ratio for death was 0.57 (99.67% CI, 0.30 to 1.07) and did not meet the criterion for significance. Of the patients who underwent randomization, 83.2% of those in the nivolumab-plus-chemotherapy group and 75.4% of those in the chemotherapy-alone group underwent surgery. Grade 3 or 4 treatment-related adverse events occurred in 33.5% of the patients in the nivolumab-plus-chemotherapy group and in 36.9% of those in the chemotherapy-alone group. CONCLUSIONS: In patients with resectable NSCLC, neoadjuvant nivolumab plus chemotherapy resulted in significantly longer event-free survival and a higher percentage of patients with a pathological complete response than chemotherapy alone. The addition of nivolumab to neoadjuvant chemotherapy did not increase the incidence of adverse events or impede the feasibility of surgery. (Funded by Bristol Myers Squibb; CheckMate 816 ClinicalTrials.gov number, NCT02998528.).",
+   "basis": "摘要原文（冻结于构建时点）",
+   "expected_numbers": [
+    "0%",
+    "31.6",
+    "30.2",
+    "20.8",
+    "14.0",
+    "26.7"
+   ],
+   "correct_summary": "研究纳入 0% 例，关键结果数值包括 0%、31.6、30.2、20.8。",
+   "mutations": [
+    {
+     "kind": "number_fabricated",
+     "orig": "0%",
+     "bad": "11%",
+     "summary": "结果为 11%（Neoadjuvant Nivolumab plus Chemotherapy …）",
+     "expect": "block"
+    },
+    {
+     "kind": "number_fabricated",
+     "orig": "31.6",
+     "bad": "31.7",
+     "summary": "结果为 31.7（Neoadjuvant Nivolumab plus Chemotherapy …）",
+     "expect": "block"
+    },
+    {
+     "kind": "population_swap",
+     "summary": "上述结果来自全人群（ITT）分析",
+     "expect": "semantic_pending"
+    },
+    {
+     "kind": "endpoint_swap",
+     "summary": "上述数值为主要终点结果",
+     "expect": "semantic_pending"
+    }
+   ],
+   "frozen_at": "2026-10-17"
+  },
+  {
+   "id": "reg_39288781",
+   "pmid": "39288781",
+   "title": "Neoadjuvant pembrolizumab plus chemotherapy followed by adjuvant pembrolizumab compared with neoadjuvant chemotherapy alone in patients with early-stage non-small-cell lung cancer (KEYNOTE-671): a randomised, double-blind, placebo-controlled, phase 3 trial.",
+   "abstract": "BACKGROUND: At the first interim analysis of the KEYNOTE-671 trial, adding perioperative pembrolizumab to neoadjuvant chemotherapy significantly improved event-free survival in participants with early-stage non-small-cell lung cancer (NSCLC). We report overall survival and health-related quality of life outcomes from the second interim analysis. METHODS: KEYNOTE-671 was a global phase 3 trial done at 189 medical centres. Eligible participants (aged ≥18 years) with resectable stage II, IIIA, or IIIB (N2) NSCLC were randomly assigned (1:1) to four cycles of neoadjuvant pembrolizumab (200 mg administered intravenously every 3 weeks) plus cisplatin-based chemotherapy followed by surgery and 13 cycles of adjuvant pembrolizumab (200 mg administered intravenously every 3 weeks) or to four cycles of neoadjuvant placebo (administered intravenously every 3 weeks) plus cisplatin-based chemotherapy followed by surgery and 13 cycles of adjuvant placebo (administered intravenously every 3 weeks). Randomisation was done centrally using an interactive response technology system and was stratified by disease stage, PD-L1 expression, histology, and geographical region in blocks of four. Participants, investigators, and sponsor personnel were masked to treatment assignments; local pharmacists were unmasked to support treatment preparation. The dual primary endpoints were overall survival and event-free survival evaluated in the intention-to-treat population. This study is registered at ClinicalTrials.gov, NCT03425643, and is ongoing but closed to enrolment. FINDINGS: Between May 11, 2018, and Dec 15, 2021, 797 participants were randomly assigned to the pembrolizumab group (n=397) or the placebo group (n=400). Median study follow-up at the second interim analysis was 36·6 months (IQR 27·6-47·8). 36-month overall survival estimates were 71% (95% CI 66-76) in the pembrolizumab group and 64% (58-69) in the placebo group (hazard ratio 0·72 [95% CI 0·56-0·93]; one-sided p=0·0052; threshold, one-sided p=0·0054). Median event-free survival was 47·2 months (95% CI 32·9 to not reached) in the pembrolizumab group and 18·3 months (14·8-22·1) in the placebo group (hazard ratio 0·59 [95% CI 0·48-0·72]). In the as-treated population, grade 3-5 treatment-related adverse events occurred in 179 (45%) of 396 participants in the pembrolizumab group and in 151 (38%) of 399 participants in the placebo group. Treatment-related adverse events led to death in four (1%) participants in the pembrolizumab group and three (1%) participants in the placebo group. INTERPRETATION: The significant overall survival benefit of neoadjuvant pembrolizumab plus chemotherapy followed by adjuvant pembrolizumab compared with neoadjuvant chemotherapy alone coupled with a manageable safety profile support the use of perioperative pembrolizumab in patients with resectable, early-stage NSCLC. FUNDING: Merck Sharp & Dohme, a subsidiary of Merck & Co, Rahway, NJ, USA.",
+   "basis": "摘要原文（冻结于构建时点）",
+   "expected_numbers": [
+    "671",
+    "671",
+    "189",
+    "18",
+    "200",
+    "13"
+   ],
+   "correct_summary": "研究纳入 671 例，关键结果数值包括 671、671、189、18。",
+   "mutations": [
+    {
+     "kind": "number_fabricated",
+     "orig": "671",
+     "bad": "688",
+     "summary": "结果为 688（Neoadjuvant pembrolizumab plus chemother…）",
+     "expect": "block"
+    },
+    {
+     "kind": "number_fabricated",
+     "orig": "671",
+     "bad": "679",
+     "summary": "结果为 679（Neoadjuvant pembrolizumab plus chemother…）",
+     "expect": "block"
+    },
+    {
+     "kind": "population_swap",
+     "summary": "上述结果来自全人群（ITT）分析",
+     "expect": "semantic_pending"
+    },
+    {
+     "kind": "endpoint_swap",
+     "summary": "上述数值为主要终点结果",
+     "expect": "semantic_pending"
+    }
+   ],
+   "frozen_at": "2026-10-17"
+  },
+  {
+   "id": "reg_38828946",
+   "pmid": "38828946",
+   "title": "Osimertinib after Chemoradiotherapy in Stage III EGFR-Mutated NSCLC.",
+   "abstract": "BACKGROUND: Osimertinib is a recommended treatment for advanced non-small-cell lung cancer (NSCLC) with an epidermal growth factor receptor (EGFR) mutation and as adjuvant treatment for resected EGFR-mutated NSCLC. EGFR tyrosine kinase inhibitors have shown preliminary efficacy in unresectable stage III EGFR-mutated NSCLC. METHODS: In this phase 3, double-blind, placebo-controlled trial, we randomly assigned patients with unresectable EGFR-mutated stage III NSCLC without progression during or after chemoradiotherapy to receive osimertinib or placebo until disease progression occurred (as assessed by blinded independent central review) or the regimen was discontinued. The primary end point was progression-free survival as assessed by blinded independent central review. RESULTS: A total of 216 patients who had undergone chemoradiotherapy were randomly assigned to receive osimertinib (143 patients) or placebo (73 patients). Osimertinib resulted in a significant progression-free survival benefit as compared with placebo: the median progression-free survival was 39.1 months with osimertinib versus 5.6 months with placebo, with a hazard ratio for disease progression or death of 0.16 (95% confidence interval [CI], 0.10 to 0.24; P<0.001). The percentage of patients who were alive and progression free at 12 months was 74% (95% CI, 65 to 80) with osimertinib and 22% (95% CI, 13 to 32) with placebo. Interim overall survival data (maturity, 20%) showed 36-month overall survival among 84% of patients with osimertinib (95% CI, 75 to 89) and 74% with placebo (95% CI, 57 to 85), with a hazard ratio for death of 0.81 (95% CI, 0.42 to 1.56; P = 0.53). The incidence of adverse events of grade 3 or higher was 35% in the osimertinib group and 12% in the placebo group; radiation pneumonitis (majority grade, 1 to 2) was reported in 48% and 38%, respectively. No new safety concerns emerged. CONCLUSIONS: Treatment with osimertinib resulted in significantly longer progression-free survival than placebo in patients with unresectable stage III EGFR-mutated NSCLC. (Funded by AstraZeneca; LAURA ClinicalTrials.gov number, NCT03521154.).",
+   "basis": "摘要原文（冻结于构建时点）",
+   "expected_numbers": [
+    "216",
+    "143",
+    "73",
+    "39.1",
+    "5.6",
+    "0.16"
+   ],
+   "correct_summary": "研究纳入 216 例，关键结果数值包括 216、143、73、39.1。",
+   "mutations": [
+    {
+     "kind": "number_fabricated",
+     "orig": "216",
+     "bad": "222",
+     "summary": "结果为 222（Osimertinib after Chemoradiotherapy in S…）",
+     "expect": "block"
+    },
+    {
+     "kind": "number_fabricated",
+     "orig": "143",
+     "bad": "161",
+     "summary": "结果为 161（Osimertinib after Chemoradiotherapy in S…）",
+     "expect": "block"
+    },
+    {
+     "kind": "population_swap",
+     "summary": "上述结果来自全人群（ITT）分析",
+     "expect": "semantic_pending"
+    },
+    {
+     "kind": "endpoint_swap",
+     "summary": "上述数值为主要终点结果",
+     "expect": "semantic_pending"
+    }
+   ],
+   "frozen_at": "2026-10-17"
+  },
+  {
+   "id": "reg_39268857",
+   "pmid": "39268857",
+   "title": "Durvalumab after Chemoradiotherapy in Limited-Stage Small-Cell Lung Cancer.",
+   "abstract": "BACKGROUND: Adjuvant therapy with durvalumab, with or without tremelimumab, may have efficacy in patients with limited-stage small-cell lung cancer who do not have disease progression after standard concurrent platinum-based chemoradiotherapy. METHODS: In a phase 3, double-blind, randomized, placebo-controlled trial, we assigned patients to receive durvalumab at a dose of 1500 mg, durvalumab (1500 mg) plus tremelimumab at a dose of 75 mg (four doses only), or placebo every 4 weeks for up to 24 months. Randomization was stratified according to disease stage (I or II vs. III) and receipt of prophylactic cranial irradiation (yes vs. no). Results of the first planned interim analysis of the two primary end points of overall survival and progression-free survival (assessed on the basis of blinded independent central review according to the Response Evaluation Criteria in Solid Tumors, version 1.1) with durvalumab as compared with placebo (data cutoff date, January 15, 2024) are reported; results in the durvalumab-tremelimumab group remain blinded. RESULTS: A total of 264 patients were assigned to the durvalumab group, 200 to the durvalumab-tremelimumab group, and 266 to the placebo group. Durvalumab therapy led to significantly longer overall survival than placebo (median, 55.9 months [95% confidence interval {CI}, 37.3 to not reached] vs. 33.4 months [95% CI, 25.5 to 39.9]; hazard ratio for death, 0.73; 98.321% CI, 0.54 to 0.98; P = 0.01), as well as to significantly longer progression-free survival (median 16.6 months [95% CI, 10.2 to 28.2] vs. 9.2 months [95% CI, 7.4 to 12.9]; hazard ratio for progression or death, 0.76; 97.195% CI, 0.59 to 0.98; P = 0.02). The incidence of adverse events with a maximum grade of 3 or 4 was 24.4% among patients receiving durvalumab and 24.2% among patients receiving placebo; adverse events led to discontinuation in 16.4% and 10.6% of the patients, respectively, and led to death in 2.7% and 1.9%. Pneumonitis or radiation pneumonitis with a maximum grade of 3 or 4 occurred in 3.1% of the patients in the durvalumab group and in 2.6% of those in the placebo group. CONCLUSIONS: Adjuvant therapy with durvalumab led to significantly longer overall survival and progression-free survival than placebo among patients with limited-stage small-cell lung cancer. (Funded by AstraZeneca; ADRIATIC ClinicalTrials.gov number, NCT03703297.).",
+   "basis": "摘要原文（冻结于构建时点）",
+   "expected_numbers": [
+    "1500",
+    "1500",
+    "75",
+    "24",
+    "1.1",
+    "15"
+   ],
+   "correct_summary": "研究纳入 1500 例，关键结果数值包括 1500、1500、75、24。",
+   "mutations": [
+    {
+     "kind": "number_fabricated",
+     "orig": "1500",
+     "bad": "1519",
+     "summary": "结果为 1519（Durvalumab after Chemoradiotherapy in Li…）",
+     "expect": "block"
+    },
+    {
+     "kind": "number_fabricated",
+     "orig": "1500",
+     "bad": "1519",
+     "summary": "结果为 1519（Durvalumab after Chemoradiotherapy in Li…）",
+     "expect": "block"
+    },
+    {
+     "kind": "population_swap",
+     "summary": "上述结果来自全人群（ITT）分析",
+     "expect": "semantic_pending"
+    },
+    {
+     "kind": "endpoint_swap",
+     "summary": "上述数值为主要终点结果",
+     "expect": "semantic_pending"
+    }
+   ],
+   "frozen_at": "2026-10-17"
+  },
+  {
+   "id": "reg_32979984",
+   "pmid": "32979984",
+   "title": "Neoadjuvant chemotherapy and nivolumab in resectable non-small-cell lung cancer (NADIM): an open-label, multicentre, single-arm, phase 2 trial.",
+   "abstract": "BACKGROUND: Non-small-cell lung cancer (NSCLC) is terminal in most patients with locally advanced stage disease. We aimed to assess the antitumour activity and safety of neoadjuvant chemoimmunotherapy for resectable stage IIIA NSCLC. METHODS: This was an open-label, multicentre, single-arm phase 2 trial done at 18 hospitals in Spain. Eligible patients were aged 18 years or older with histologically or cytologically documented treatment-naive American Joint Committee on Cancer-defined stage IIIA NSCLC that was deemed locally to be surgically resectable by a multidisciplinary clinical team, and an Eastern Cooperative Oncology Group performance status of 0 or 1. Patients received neoadjuvant treatment with intravenous paclitaxel (200 mg/m2) and carboplatin (area under curve 6; 6 mg/mL per min) plus nivolumab (360 mg) on day 1 of each 21-day cycle, for three cycles before surgical resection, followed by adjuvant intravenous nivolumab monotherapy for 1 year (240 mg every 2 weeks for 4 months, followed by 480 mg every 4 weeks for 8 months). The primary endpoint was progression-free survival at 24 months, assessed in the modified intention-to-treat population, which included all patients who received neoadjuvant treatment, and in the per-protocol population, which included all patients who had tumour resection and received at least one cycle of adjuvant treatment. Safety was assessed in the modified intention-to-treat population. This study is registered with ClinicalTrials.gov, NCT03081689, and is ongoing but no longer recruiting patients. FINDINGS: Between April 26, 2017, and Aug 25, 2018, we screened 51 patients for eligibility, of whom 46 patients were enrolled and received neoadjuvant treatment. At the time of data cutoff (Jan 31, 2020), the median duration of follow-up was 24·0 months (IQR 21·4-28·1) and 35 of 41 patients who had tumour resection were progression free. At 24 months, progression-free survival was 77·1% (95% CI 59·9-87·7). 43 (93%) of 46 patients had treatment-related adverse events during neoadjuvant treatment, and 14 (30%) had treatment-related adverse events of grade 3 or worse; however, none of the adverse events were associated with surgery delays or deaths. The most common grade 3 or worse treatment-related adverse events were increased lipase (three [7%]) and febrile neutropenia (three [7%]). INTERPRETATION: Our results support the addition of neoadjuvant nivolumab to platinum-based chemotherapy in patients with resectable stage IIIA NSCLC. Neoadjuvant chemoimmunotherapy could change the perception of locally advanced lung cancer as a potentially lethal disease to one that is curable. FUNDING: Bristol-Myers Squibb, Instituto de Salud Carlos III, European Union's Horizon 2020 research and innovation programme.",
+   "basis": "摘要原文（冻结于构建时点）",
+   "expected_numbers": [
+    "18",
+    "18",
+    "0",
+    "200",
+    "6",
+    "6"
+   ],
+   "correct_summary": "研究纳入 18 例，关键结果数值包括 18、18、0、200。",
+   "mutations": [
+    {
+     "kind": "number_fabricated",
+     "orig": "18",
+     "bad": "37",
+     "summary": "结果为 37（Neoadjuvant chemotherapy and nivolumab i…）",
+     "expect": "block"
+    },
+    {
+     "kind": "number_fabricated",
+     "orig": "18",
+     "bad": "36",
+     "summary": "结果为 36（Neoadjuvant chemotherapy and nivolumab i…）",
+     "expect": "block"
+    },
+    {
+     "kind": "population_swap",
+     "summary": "上述结果来自全人群（ITT）分析",
+     "expect": "semantic_pending"
+    },
+    {
+     "kind": "endpoint_swap",
+     "summary": "上述数值为主要终点结果",
+     "expect": "semantic_pending"
+    }
+   ],
+   "frozen_at": "2026-10-17"
+  },
+  {
+   "id": "reg_28885881",
+   "pmid": "28885881",
+   "title": "Durvalumab after Chemoradiotherapy in Stage III Non-Small-Cell Lung Cancer.",
+   "abstract": "BACKGROUND: Most patients with locally advanced, unresectable, non-small-cell lung cancer (NSCLC) have disease progression despite definitive chemoradiotherapy (chemotherapy plus concurrent radiation therapy). This phase 3 study compared the anti-programmed death ligand 1 antibody durvalumab as consolidation therapy with placebo in patients with stage III NSCLC who did not have disease progression after two or more cycles of platinum-based chemoradiotherapy. METHODS: We randomly assigned patients, in a 2:1 ratio, to receive durvalumab (at a dose of 10 mg per kilogram of body weight intravenously) or placebo every 2 weeks for up to 12 months. The study drug was administered 1 to 42 days after the patients had received chemoradiotherapy. The coprimary end points were progression-free survival (as assessed by means of blinded independent central review) and overall survival (unplanned for the interim analysis). Secondary end points included 12-month and 18-month progression-free survival rates, the objective response rate, the duration of response, the time to death or distant metastasis, and safety. RESULTS: Of 713 patients who underwent randomization, 709 received consolidation therapy (473 received durvalumab and 236 received placebo). The median progression-free survival from randomization was 16.8 months (95% confidence interval [CI], 13.0 to 18.1) with durvalumab versus 5.6 months (95% CI, 4.6 to 7.8) with placebo (stratified hazard ratio for disease progression or death, 0.52; 95% CI, 0.42 to 0.65; P<0.001); the 12-month progression-free survival rate was 55.9% versus 35.3%, and the 18-month progression-free survival rate was 44.2% versus 27.0%. The response rate was higher with durvalumab than with placebo (28.4% vs. 16.0%; P<0.001), and the median duration of response was longer (72.8% vs. 46.8% of the patients had an ongoing response at 18 months). The median time to death or distant metastasis was longer with durvalumab than with placebo (23.2 months vs. 14.6 months; P<0.001). Grade 3 or 4 adverse events occurred in 29.9% of the patients who received durvalumab and 26.1% of those who received placebo; the most common adverse event of grade 3 or 4 was pneumonia (4.4% and 3.8%, respectively). A total of 15.4% of patients in the durvalumab group and 9.8% of those in the placebo group discontinued the study drug because of adverse events. CONCLUSIONS: Progression-free survival was significantly longer with durvalumab than with placebo. The secondary end points also favored durvalumab, and safety was similar between the groups. (Funded by AstraZeneca; PACIFIC ClinicalTrials.gov number, NCT02125461 .).",
+   "basis": "摘要原文（冻结于构建时点）",
+   "expected_numbers": [
+    "10",
+    "12",
+    "42",
+    "12",
+    "18",
+    "713"
+   ],
+   "correct_summary": "研究纳入 10 例，关键结果数值包括 10、12、42、12。",
+   "mutations": [
+    {
+     "kind": "number_fabricated",
+     "orig": "10",
+     "bad": "25",
+     "summary": "结果为 25（Durvalumab after Chemoradiotherapy in St…）",
+     "expect": "block"
+    },
+    {
+     "kind": "number_fabricated",
+     "orig": "12",
+     "bad": "17",
+     "summary": "结果为 17（Durvalumab after Chemoradiotherapy in St…）",
+     "expect": "block"
+    },
+    {
+     "kind": "population_swap",
+     "summary": "上述结果来自全人群（ITT）分析",
+     "expect": "semantic_pending"
+    },
+    {
+     "kind": "endpoint_swap",
+     "summary": "上述数值为主要终点结果",
+     "expect": "semantic_pending"
+    }
+   ],
+   "frozen_at": "2026-10-17"
+  },
+  {
+   "id": "reg_38749033",
+   "pmid": "38749033",
+   "title": "Perioperative Nivolumab in Resectable Lung Cancer.",
+   "abstract": "BACKGROUND: Standard treatment with neoadjuvant nivolumab plus chemotherapy significantly improves outcomes in patients with resectable non-small-cell lung cancer (NSCLC). Perioperative treatment (i.e., neoadjuvant therapy followed by surgery and adjuvant therapy) with nivolumab may further improve clinical outcomes. METHODS: In this phase 3, randomized, double-blind trial, we assigned adults with resectable stage IIA to IIIB NSCLC to receive neoadjuvant nivolumab plus chemotherapy or neoadjuvant chemotherapy plus placebo every 3 weeks for 4 cycles, followed by surgery and adjuvant nivolumab or placebo every 4 weeks for 1 year. The primary outcome was event-free survival according to blinded independent review. Secondary outcomes were pathological complete response and major pathological response according to blinded independent review, overall survival, and safety. RESULTS: At this prespecified interim analysis (median follow-up, 25.4 months), the percentage of patients with 18-month event-free survival was 70.2% in the nivolumab group and 50.0% in the chemotherapy group (hazard ratio for disease progression or recurrence, abandoned surgery, or death, 0.58; 97.36% confidence interval [CI], 0.42 to 0.81; P<0.001). A pathological complete response occurred in 25.3% of the patients in the nivolumab group and in 4.7% of those in the chemotherapy group (odds ratio, 6.64; 95% CI, 3.40 to 12.97); a major pathological response occurred in 35.4% and 12.1%, respectively (odds ratio, 4.01; 95% CI, 2.48 to 6.49). Grade 3 or 4 treatment-related adverse events occurred in 32.5% of the patients in the nivolumab group and in 25.2% of those in the chemotherapy group. CONCLUSIONS: Perioperative treatment with nivolumab resulted in significantly longer event-free survival than chemotherapy in patients with resectable NSCLC. No new safety signals were observed. (Funded by Bristol Myers Squibb; CheckMate 77T ClinicalTrials.gov number, NCT04025879.).",
+   "basis": "摘要原文（冻结于构建时点）",
+   "expected_numbers": [
+    "25.4",
+    "18",
+    "70.2%",
+    "50.0%",
+    "0.58",
+    "97.36%"
+   ],
+   "correct_summary": "研究纳入 25.4 例，关键结果数值包括 25.4、18、70.2%、50.0%。",
+   "mutations": [
+    {
+     "kind": "number_fabricated",
+     "orig": "25.4",
+     "bad": "25.7",
+     "summary": "结果为 25.7（Perioperative Nivolumab in Resectable Lu…）",
+     "expect": "block"
+    },
+    {
+     "kind": "number_fabricated",
+     "orig": "18",
+     "bad": "26",
+     "summary": "结果为 26（Perioperative Nivolumab in Resectable Lu…）",
+     "expect": "block"
+    },
+    {
+     "kind": "population_swap",
+     "summary": "上述结果来自全人群（ITT）分析",
+     "expect": "semantic_pending"
+    },
+    {
+     "kind": "endpoint_swap",
+     "summary": "上述数值为主要终点结果",
+     "expect": "semantic_pending"
+    }
+   ],
+   "frozen_at": "2026-10-17"
+  },
+  {
+   "id": "reg_39581197",
+   "pmid": "39581197",
+   "title": "Perioperative tislelizumab plus neoadjuvant chemotherapy for patients with resectable non-small-cell lung cancer (RATIONALE-315): an interim analysis of a randomised clinical trial.",
+   "abstract": "BACKGROUND: Treatment guidelines recommend neoadjuvant or adjuvant chemotherapy, with or without immune checkpoint inhibitors, for resectable non-small-cell lung cancer (NSCLC). We report the interim results for the phase 3 RATIONALE-315 study, which aimed to investigate perioperative tislelizumab for the treatment of resectable NSCLC. METHODS: RATIONALE-315 is a randomised, double-blind, placebo-controlled phase 3 trial conducted at 50 sites (hospitals or academic research centres) in China. Patients (aged ≥18 years) with untreated stage II-IIIA squamous or non-squamous NSCLC were randomly assigned (1:1) to neoadjuvant tislelizumab 200 mg or placebo intravenously every 3 weeks, plus platinum-based doublet chemotherapy followed by surgery and adjuvant tislelizumab 400 mg or placebo every 6 weeks. Dual primary endpoints were major pathological response rate and event-free survival, analysed by intention to treat. Safety was also assessed in all patients who received at least one dose of study treatment. RATIONALE-315 is registered with ClinicalTrials.gov, NCT04379635, and is active but not recruiting. FINDINGS: Between June 8, 2020, and Aug 31, 2022, 453 patients were assigned to tislelizumab (n=226) or placebo (n=227). The median age of patients was 62·0 years (IQR 56·0-67·0). 410 (91%) of 453 patients were male and 43 (9%) were female. As of Aug 21, 2023 (data cutoff for the interim analysis of event-free survival), median duration of follow-up was 22·0 months (IQR 15·5-28·0). Tislelizumab significantly improved event-free survival versus placebo (stratified hazard ratio 0·56 [95% CI 0·40-0·79]; one-sided p=0·0003). The major pathological response rate was significantly higher in the tislelizumab group (56% [95% CI 50-63]) than in the placebo group (15% [11-20]; difference 41% [33-49]; one-sided p<0·0001). Grade 3 or worse adverse events and serious treatment-related adverse events occurred in 163 (72%) of 226 patients and 35 (15%) of 226 patients, respectively, in the tislelizumab group, and in 150 (66%) and 18 (8%) patients, respectively, in the placebo group. The most common grade 3 or worse treatment-related adverse event was decreased neutrophil count (138 [61%] of 226 in the tislelizumab group vs 134 [59%] of 226 in the placebo group). 31 (14%) of 226 patients in the tislelizumab group and 45 (20%) of 227 patients in the placebo group died during the study. INTERPRETATION: Perioperative tislelizumab plus neoadjuvant chemotherapy showed a clinically meaningful and statistically significant improvement in efficacy and a manageable safety profile compared with neoadjuvant chemotherapy in patients with resectable stage II-IIIA NSCLC. FUNDING: BeiGene.",
+   "basis": "摘要原文（冻结于构建时点）",
+   "expected_numbers": [
+    "315",
+    "315",
+    "50",
+    "18",
+    "200",
+    "400"
+   ],
+   "correct_summary": "研究纳入 315 例，关键结果数值包括 315、315、50、18。",
+   "mutations": [
+    {
+     "kind": "number_fabricated",
+     "orig": "315",
+     "bad": "323",
+     "summary": "结果为 323（Perioperative tislelizumab plus neoadjuv…）",
+     "expect": "block"
+    },
+    {
+     "kind": "number_fabricated",
+     "orig": "315",
+     "bad": "326",
+     "summary": "结果为 326（Perioperative tislelizumab plus neoadjuv…）",
+     "expect": "block"
+    },
+    {
+     "kind": "population_swap",
+     "summary": "上述结果来自全人群（ITT）分析",
+     "expect": "semantic_pending"
+    },
+    {
+     "kind": "endpoint_swap",
+     "summary": "上述数值为主要终点结果",
+     "expect": "semantic_pending"
+    }
+   ],
+   "frozen_at": "2026-10-17"
+  },
+  {
+   "id": "reg_28709816",
+   "pmid": "28709816",
+   "title": "[Current knowledge on perioperative treatments of non-small cell lung carcinomas].",
+   "abstract": "Surgery is still the main treatment in early-stage of non-small cell lung cancer with 5-year survival of stage IA patients exceeding 80%, but 5-year survival of stage II patients rapidly decreasing with tumor size, N status, and visceral pleura invasion. The major metastatic risk in such patients has supported clinical research assessing systemic or loco-regional perioperative treatments. Modern phase 3 trials clearly validated adjuvant or neo-adjuvant platinum-based chemotherapy in resected stage I-III patients as a standard treatment of which value has been reassessed several independent meta-analyses, showing a 5% benefit in 5y-survival, and a decrease of the relative risk for death around from 12 to 25%. Conversely perioperative treatments were not validated for stage IA and IB patients. In more advanced stage patients, neo-adjuvant radio-chemotherapy has not been validated either. Adjuvant radiotherapy for N2 patients is currently tested in the large international phase 3 trial Lung-ART/IFCT-0503. The development of video-assisted thoracic surgery (VATS) has helped adjuvant chemotherapies for elderly patients. Perioperative targeted treatments in NSCLC with EGFR or ALK molecular alterations is currently assessed in the U.S. ALCHEMIST prospective trial. Finally, the role of immune check-points inhibitors is currently evaluated in a large international phase 3 trial testing adjuvant anti-PD-L1 monoclonal antibody, the BR31/IFCT-1401 trial, while a proof-of principle neo-adjuvant trial IONESCO/IFCT-1601, has just begun by the end of the 2016 year, with survival results of both trials expected in 5 to 7 years.",
+   "basis": "摘要原文（冻结于构建时点）",
+   "expected_numbers": [
+    "80%",
+    "5%",
+    "12",
+    "25%",
+    "0503",
+    "1401"
+   ],
+   "correct_summary": "研究纳入 80% 例，关键结果数值包括 80%、5%、12、25%。",
+   "mutations": [
+    {
+     "kind": "number_fabricated",
+     "orig": "80%",
+     "bad": "93%",
+     "summary": "结果为 93%（[Current knowledge on perioperative trea…）",
+     "expect": "block"
+    },
+    {
+     "kind": "number_fabricated",
+     "orig": "5%",
+     "bad": "22%",
+     "summary": "结果为 22%（[Current knowledge on perioperative trea…）",
+     "expect": "block"
+    },
+    {
+     "kind": "population_swap",
+     "summary": "上述结果来自全人群（ITT）分析",
+     "expect": "semantic_pending"
+    },
+    {
+     "kind": "endpoint_swap",
+     "summary": "上述数值为主要终点结果",
+     "expect": "semantic_pending"
+    }
+   ],
+   "frozen_at": "2026-10-17"
+  },
+  {
+   "id": "reg_42508850",
+   "pmid": "42508850",
+   "title": "Trends and Outcomes of Antithrombotic Strategies for Valve-in-Valve TAVR: The STS/ACC TVT Registry.",
+   "abstract": "BACKGROUND: The optimal antithrombotic strategy after valve-in-valve (ViV) transcatheter aortic valve replacement (TAVR) for degenerated aortic bioprostheses remains undetermined, and current practice patterns in the United States are not well characterized. OBJECTIVES: The aim of this study was to evaluate temporal trends, variability, and clinical outcomes of antithrombotic strategies in patients undergoing ViV TAVR in the United States. METHODS: Patients who underwent ViV TAVR between January 2015 and March 2024 in the Society of Thoracic Surgeons/American College of Cardiology TVT (Transcatheter Valve Therapy) Registry were included, excluding those with established indications for dual antiplatelet therapy (DAPT) or oral anticoagulation (OAC). Antithrombotic strategies were categorized as single antiplatelet therapy (SAPT), DAPT, or OAC-based therapy on discharge. In the cohort eligible for 1-year assessment (January 2015 to January 2023), the endpoints of all-cause mortality, stroke, and bleeding at 1 year were compared using inverse probability of treatment weighting. RESULTS: A total of 18,414 patients were included (SAPT, 27.3%; DAPT, 53.5%; OAC-based therapy, 19.2%). Between the first quarter of 2015 and the first quarter of 2024, DAPT use significantly declined, whereas SAPT use increased, becoming the predominant strategy. OAC-based therapy remained the least used. Practice patterns varied widely among operators and sites, with proportion of each antithrombotic strategy ranging from nearly 0% to 100%. After adjustment, DAPT and OAC-based therapy were not associated with differences in all-cause mortality (DAPT: adjusted HR [HRadj]: 0.91 [95% CI: 0.74-1.11]; OAC-based therapy: HRadj: 1.14 [95% CI: 0.89-1.46]), stroke (DAPT: HRadj: 0.98 [95% CI: 0.73-1.30]; OAC-based therapy: HRadj: 1.09 [95% CI: 0.76-1.55]), or bleeding (DAPT: HRadj: 0.86 [95% CI: 0.71-1.04]; OAC-based therapy: HRadj: 0.88 [95% CI: 0.70-1.11]) compared with SAPT at 1 year. CONCLUSIONS: Analysis of a national U.S. registry revealed wide variation in antithrombotic regimens following ViV TAVR, likely reflecting the absence of robust evidence to guide treatment decisions. Although no differences in outcomes were identified in this large retrospective analysis, a randomized trial with long-term follow-up is necessary to inform optimal management in this growing patient population.",
+   "basis": "摘要原文（冻结于构建时点）",
+   "expected_numbers": [
+    "2015",
+    "2024",
+    "2015",
+    "2023",
+    "18414",
+    "27.3%"
+   ],
+   "correct_summary": "研究纳入 2015 例，关键结果数值包括 2015、2024、2015、2023。",
+   "mutations": [
+    {
+     "kind": "number_fabricated",
+     "orig": "2015",
+     "bad": "2022",
+     "summary": "结果为 2022（Trends and Outcomes of Antithrombotic St…）",
+     "expect": "block"
+    },
+    {
+     "kind": "number_fabricated",
+     "orig": "2024",
+     "bad": "2027",
+     "summary": "结果为 2027（Trends and Outcomes of Antithrombotic St…）",
+     "expect": "block"
+    },
+    {
+     "kind": "population_swap",
+     "summary": "上述结果来自全人群（ITT）分析",
+     "expect": "semantic_pending"
+    },
+    {
+     "kind": "endpoint_swap",
+     "summary": "上述数值为主要终点结果",
+     "expect": "semantic_pending"
+    }
+   ],
+   "frozen_at": "2026-10-17"
+  },
+  {
+   "id": "reg_35461558",
+   "pmid": "35461558",
+   "title": "Segmentectomy versus lobectomy in small-sized peripheral non-small-cell lung cancer (JCOG0802/WJOG4607L): a multicentre, open-label, phase 3, randomised, controlled, non-inferiority trial.",
+   "abstract": "BACKGROUND: Lobectomy is the standard of care for early-stage non-small-cell lung cancer (NSCLC). The survival and clinical benefits of segmentectomy have not been investigated in a randomised trial setting. We aimed to investigate if segmentectomy was non-inferior to lobectomy in patients with small-sized peripheral NSCLC. METHODS: We conducted this randomised, controlled, non-inferiority trial at 70 institutions in Japan. Patients with clinical stage IA NSCLC (tumour diameter ≤2 cm; consolidation-to-tumour ratio >0·5) were randomly assigned 1:1 to receive either lobectomy or segmentectomy. Randomisation was done via the minimisation method, with balancing for the institution, histological type, sex, age, and thin-section CT findings. Treatment allocation was not concealed from investigators and patients. The primary endpoint was overall survival for all randomly assigned patients. The secondary endpoints were postoperative respiratory function (6 months and 12 months), relapse-free survival, proportion of local relapse, adverse events, proportion of segmentectomy completion, duration of hospital stay, duration of chest tube placement, duration of surgery, amount of blood loss, and the number of automatic surgical staples used. Overall survival was analysed on an intention-to-treat basis with a non-inferiority margin of 1·54 for the upper limit of the 95% CI of the hazard ratio (HR) and estimated using a stratified Cox regression model. This study is registered with UMIN Clinical Trials Registry, UMIN000002317. FINDINGS: Between Aug, 10, 2009, and Oct 21, 2014, 1106 patients (intention-to-treat population) were enrolled to receive lobectomy (n=554) or segmentectomy (n=552). Patient baseline clinicopathological factors were well balanced between the groups. In the segmentectomy group, 22 patients were switched to lobectomies and one patient received wide wedge resection. At a median follow-up of 7·3 years (range 0·0-10·9), the 5-year overall survival was 94·3% (92·1-96·0) for segmentectomy and 91·1% for lobectomy (95% CI 88·4-93·2); superiority and non-inferiority in overall survival were confirmed using a stratified Cox regression model (HR 0·663; 95% CI 0·474-0·927; one-sided p<0·0001 for non-inferiority; p=0·0082 for superiority). Improved overall survival was observed consistently across all predefined subgroups in the segmentectomy group. At 1 year follow-up, the significant difference in the reduction of median forced expiratory volume in 1 sec between the two groups was 3·5% (p<0·0001), which did not reach the predefined threshold for clinical significance of 10%. The 5-year relapse-free survival was 88·0% (95% CI 85·0-90·4) for segmentectomy and 87·9% (84·8-90·3) for lobectomy (HR 0·998; 95% CI 0·753-1·323; p=0·9889). The proportions of patients with local relapse were 10·5% for segmentectomy and 5·4% for lobectomy (p=0·0018). 52 (63%) of 83 patients and 27 (47%) of 58 patients died of other diseases after lobectomy and segmentectomy, respectively. No 30-day or 90-day mortality was observed. One or more postoperative complications of grade 2 or worse occurred at similar frequencies in both groups (142 [26%] patients who received lobectomy, 148 [27%] who received segmentectomy). INTERPRETATION: To our knowledge, this study was the first phase 3 trial to show the benefits of segmentectomy versus lobectomy in overall survival of patients with small-peripheral NSCLC. The findings suggest that segmentectomy should be the standard surgical procedure for this population of patients. FUNDING: National Cancer Center Research and the Ministry of Health, Labour, and Welfare of Japan.",
+   "basis": "摘要原文（冻结于构建时点）",
+   "expected_numbers": [
+    "70",
+    "0.5",
+    "6",
+    "12",
+    "1.54",
+    "10"
+   ],
+   "correct_summary": "研究纳入 70 例，关键结果数值包括 70、0.5、6、12。",
+   "mutations": [
+    {
+     "kind": "number_fabricated",
+     "orig": "70",
+     "bad": "78",
+     "summary": "结果为 78（Segmentectomy versus lobectomy in small-…）",
+     "expect": "block"
+    },
+    {
+     "kind": "number_fabricated",
+     "orig": "0.5",
+     "bad": "0.6",
+     "summary": "结果为 0.6（Segmentectomy versus lobectomy in small-…）",
+     "expect": "block"
+    },
+    {
+     "kind": "population_swap",
+     "summary": "上述结果来自全人群（ITT）分析",
+     "expect": "semantic_pending"
+    },
+    {
+     "kind": "endpoint_swap",
+     "summary": "上述数值为主要终点结果",
+     "expect": "semantic_pending"
+    }
+   ],
+   "frozen_at": "2026-10-17"
+  },
+  {
+   "id": "reg_36780674",
+   "pmid": "36780674",
+   "title": "Lobar or Sublobar Resection for Peripheral Stage IA Non-Small-Cell Lung Cancer.",
+   "abstract": "BACKGROUND: The increased detection of small-sized peripheral non-small-cell lung cancer (NSCLC) has renewed interest in sublobar resection in lieu of lobectomy. METHODS: We conducted a multicenter, noninferiority, phase 3 trial in which patients with NSCLC clinically staged as T1aN0 (tumor size, ≤2 cm) were randomly assigned to undergo sublobar resection or lobar resection after intraoperative confirmation of node-negative disease. The primary end point was disease-free survival, defined as the time between randomization and disease recurrence or death from any cause. Secondary end points were overall survival, locoregional and systemic recurrence, and pulmonary functions. RESULTS: From June 2007 through March 2017, a total of 697 patients were assigned to undergo sublobar resection (340 patients) or lobar resection (357 patients). After a median follow-up of 7 years, sublobar resection was noninferior to lobar resection for disease-free survival (hazard ratio for disease recurrence or death, 1.01; 90% confidence interval [CI], 0.83 to 1.24). In addition, overall survival after sublobar resection was similar to that after lobar resection (hazard ratio for death, 0.95; 95% CI, 0.72 to 1.26). The 5-year disease-free survival was 63.6% (95% CI, 57.9 to 68.8) after sublobar resection and 64.1% (95% CI, 58.5 to 69.0) after lobar resection. The 5-year overall survival was 80.3% (95% CI, 75.5 to 84.3) after sublobar resection and 78.9% (95% CI, 74.1 to 82.9) after lobar resection. No substantial difference was seen between the two groups in the incidence of locoregional or distant recurrence. At 6 months postoperatively, a between-group difference of 2 percentage points was measured in the median percentage of predicted forced expiratory volume in 1 second, favoring the sublobar-resection group. CONCLUSIONS: In patients with peripheral NSCLC with a tumor size of 2 cm or less and pathologically confirmed node-negative disease in the hilar and mediastinal lymph nodes, sublobar resection was not inferior to lobectomy with respect to disease-free survival. Overall survival was similar with the two procedures. (Funded by the National Cancer Institute and others; CALGB 140503 ClinicalTrials.gov number, NCT00499330.).",
+   "basis": "摘要原文（冻结于构建时点）",
+   "expected_numbers": [
+    "2007",
+    "2017",
+    "697",
+    "340",
+    "357",
+    "7"
+   ],
+   "correct_summary": "研究纳入 2007 例，关键结果数值包括 2007、2017、697、340。",
+   "mutations": [
+    {
+     "kind": "number_fabricated",
+     "orig": "2007",
+     "bad": "2012",
+     "summary": "结果为 2012（Lobar or Sublobar Resection for Peripher…）",
+     "expect": "block"
+    },
+    {
+     "kind": "number_fabricated",
+     "orig": "2017",
+     "bad": "2031",
+     "summary": "结果为 2031（Lobar or Sublobar Resection for Peripher…）",
+     "expect": "block"
+    },
+    {
+     "kind": "population_swap",
+     "summary": "上述结果来自全人群（ITT）分析",
+     "expect": "semantic_pending"
+    },
+    {
+     "kind": "endpoint_swap",
+     "summary": "上述数值为主要终点结果",
+     "expect": "semantic_pending"
+    }
+   ],
+   "frozen_at": "2026-10-17"
+  },
+  {
+   "id": "reg_40996213",
+   "pmid": "40996213",
+   "title": "Segment 4b/5 Versus Wedge Resection for Gallbladder Adenocarcinoma: A Randomized Controlled Trial.",
+   "abstract": "BACKGROUND AND OBJECTIVES: The 2 techniques for liver resection during radical cholecystectomy for gallbladder cancer (GBC) are: nonanatomical wedge resection (wedge) and anatomic segment 4b+5 resection (4b/5). There is a lack of prospective studies and randomized controlled trials (RCT) comparing these 2 techniques. So we conducted this RCT to compare these 2 techniques with respect to surgical and oncological outcomes. PATIENTS AND METHODS: It was a single-center, phase 3, balanced allocation (1:1), and open-label RCT. Patients undergoing surgery for GBC were randomized intraoperatively to wedge or segment 4b/5 resection after ruling out metastatic or unresectable disease. RESULTS: A total of 163 patients were included in final analysis (4b/5=83, wedge=80). Both the groups were similar in baseline characteristics. Segment 4b/5 group had significantly longer duration of surgery (318 vs. 287 min, P =0.009) and higher blood loss (265 mL vs. 223 mL, P =0.05). But there was no difference in morbidity, mortality, and R0 resection rates. At a median follow-up of 27 months mean DFS for segment 4b/5 and wedge group was 41.8 months and 44.7 months, respectively (HR: 0.8, 95% CI: 0.47-1.4, P =0.50). Mean OS for segment 4b/5 and wedge group was 45.3 months and 50.7 months, respectively (HR:0.6, 95% CI: 0.36-1.14, P =0.12). CONCLUSIONS: Anatomic segment 4b/5 resection and wedge resection had similar morbidity, mortality, DFS, and OS. So type of liver resection in radical cholecystectomy did not have any impact on long-term oncological outcomes.",
+   "basis": "摘要原文（冻结于构建时点）",
+   "expected_numbers": [
+    "163",
+    "83",
+    "80",
+    "318",
+    "287",
+    "0.009"
+   ],
+   "correct_summary": "研究纳入 163 例，关键结果数值包括 163、83、80、318。",
+   "mutations": [
+    {
+     "kind": "number_fabricated",
+     "orig": "163",
+     "bad": "176",
+     "summary": "结果为 176（Segment 4b/5 Versus Wedge Resection for …）",
+     "expect": "block"
+    },
+    {
+     "kind": "number_fabricated",
+     "orig": "83",
+     "bad": "98",
+     "summary": "结果为 98（Segment 4b/5 Versus Wedge Resection for …）",
+     "expect": "block"
+    },
+    {
+     "kind": "population_swap",
+     "summary": "上述结果来自全人群（ITT）分析",
+     "expect": "semantic_pending"
+    },
+    {
+     "kind": "endpoint_swap",
+     "summary": "上述数值为主要终点结果",
+     "expect": "semantic_pending"
+    }
+   ],
+   "frozen_at": "2026-10-17"
+  },
+  {
+   "id": "reg_22185865",
+   "pmid": "22185865",
+   "title": "NELSON lung cancer screening study.",
+   "abstract": "The Dutch-Belgian Randomized Lung Cancer Screening Trial (Dutch acronym: NELSON study) was designed to investigate whether screening for lung cancer by low-dose multidetector computed tomography (CT) in high-risk subjects will lead to a decrease in 10-year lung cancer mortality of at least 25% compared with a control group without screening. Since the start of the NELSON study in 2003, 7557 participants underwent CT screening, with scan rounds in years 1, 2, 4 and 6. In the current review, the design of the NELSON study including participant selection and the lung nodule management protocol, as well as results on validation of CT screening and first results on lung cancer screening are described.",
+   "basis": "摘要原文（冻结于构建时点）",
+   "expected_numbers": [
+    "10",
+    "25%",
+    "2003",
+    "7557",
+    "6"
+   ],
+   "correct_summary": "研究纳入 10 例，关键结果数值包括 10、25%、2003、7557。",
+   "mutations": [
+    {
+     "kind": "number_fabricated",
+     "orig": "10",
+     "bad": "29",
+     "summary": "结果为 29（NELSON lung cancer screening study.…）",
+     "expect": "block"
+    },
+    {
+     "kind": "number_fabricated",
+     "orig": "25%",
+     "bad": "38%",
+     "summary": "结果为 38%（NELSON lung cancer screening study.…）",
+     "expect": "block"
+    },
+    {
+     "kind": "population_swap",
+     "summary": "上述结果来自全人群（ITT）分析",
+     "expect": "semantic_pending"
+    },
+    {
+     "kind": "endpoint_swap",
+     "summary": "上述数值为主要终点结果",
+     "expect": "semantic_pending"
+    }
+   ],
+   "frozen_at": "2026-10-17"
+  },
+  {
+   "id": "reg_40193077",
+   "pmid": "40193077",
+   "title": "Comorbidity in Midlife and Cancer Outcomes.",
+   "abstract": "IMPORTANCE: Comorbidities in midlife are common but how these conditions are associated with cancer outcomes is poorly understood. OBJECTIVE: To investigate the association between different comorbidities and risk of incident cancer and cancer mortality. DESIGN, SETTING, AND PARTICIPANTS: This cohort study is a secondary analysis of the prospective Prostate, Lung, Colorectal, and Ovarian (PLCO) screening trial conducted at 10 PLCO screening centers across the US. Participants included adults aged 55 to 74 years without a history of cancer enrolled between 1993 and 2001. Statistical analysis was performed from June 2023 to December 2024. EXPOSURES: Self-reported history of 12 comorbid conditions classified into 5 distinct classifications guided by World Health Organization categorization. MAIN OUTCOME AND MEASURES: Outcomes included risk of all cancers combined, risk of 19 individual cancer types, and cancer mortality. Multivariable Cox proportional hazards models were used to estimate the association between comorbidity classifications and cancer outcomes. RESULTS: Among 128 999 participants included in the analysis, 330 (0.3%) were American Indian, 5414 (4.2%) were Asian or Pacific Islander, 6704 (5.2%) were non-Hispanic Black, and 114 073 (88.4%) were non-Hispanic White; 64 171 (49.7%) were male; and the median (IQR) age was 62 (58-66) years. After a median (IQR) follow-up of 20 (19-22) years, the risk of any incident cancer was significantly higher for individuals with a history of respiratory (hazard ratio [HR], 1.07 [95% CI, 1.02-1.12]) and cardiovascular conditions (HR, 1.02 [95% CI, 1.00-1.05]). History of each comorbid condition evaluated was significantly associated with incidence of at least 1 cancer type. The strongest association was between history of liver conditions and risk of liver cancer (HR, 5.57 [95% CI, 4.03-7.71]), whereas metabolic conditions (obesity or type 2 diabetes) were significantly associated with higher risk of 9 cancer types and lower risk of 4 cancer types. Respiratory (HR, 1.19 [95% CI, 1.11-1.28]), cardiovascular (HR, 1.08 [95% CI, 1.04-1.13]), and metabolic (HR, 1.09 [95% CI, 1.05-1.14]) conditions were positively associated with a higher hazard of cancer death. CONCLUSIONS AND RELEVANCE: In this cohort study of 128 999 adults without a history of cancer, comorbidities in midlife were associated with the overall risk of cancer and more strongly associated with risk of multiple individual cancer types, with the direction of association differing across cancer types. These results may inform clinical management of patients at risk for cancer.",
+   "basis": "摘要原文（冻结于构建时点）",
+   "expected_numbers": [
+    "10",
+    "55",
+    "74",
+    "1993",
+    "2001",
+    "2023"
+   ],
+   "correct_summary": "研究纳入 10 例，关键结果数值包括 10、55、74、1993。",
+   "mutations": [
+    {
+     "kind": "number_fabricated",
+     "orig": "10",
+     "bad": "28",
+     "summary": "结果为 28（Comorbidity in Midlife and Cancer Outcom…）",
+     "expect": "block"
+    },
+    {
+     "kind": "number_fabricated",
+     "orig": "55",
+     "bad": "70",
+     "summary": "结果为 70（Comorbidity in Midlife and Cancer Outcom…）",
+     "expect": "block"
+    },
+    {
+     "kind": "population_swap",
+     "summary": "上述结果来自全人群（ITT）分析",
+     "expect": "semantic_pending"
+    },
+    {
+     "kind": "endpoint_swap",
+     "summary": "上述数值为主要终点结果",
+     "expect": "semantic_pending"
+    }
+   ],
+   "frozen_at": "2026-10-17"
+  },
+  {
+   "id": "reg_39922207",
+   "pmid": "39922207",
+   "title": "Safety and immunogenicity of a bivalent Ebola virus and Sudan virus ChAdOx1 vectored vaccine in adults in the UK: an open-label, non-randomised, first-in-human, phase 1 clinical trial.",
+   "abstract": "BACKGROUND: Four Orthoebolavirus species can cause Ebola disease, with Ebola virus (species Orthoebolavirus zairense) and Sudan virus (species Orthoebolavirus sudanense) responsible for the majority of outbreaks and cases. No vaccines have been approved against orthoebolaviruses other than Ebola virus. We aimed to evaluate the safety and immunogenicity of a non-replicating single-adenoviral vaccine (ChAdOx1 biEBOV) encoding both Ebola virus and Sudan virus glycoproteins. METHODS: In this open-label, non-randomised, first-in-human, phase 1, dose-escalation clinical trial of ChAdOx1 biEBOV, participants aged 18-55 years without clinically significant medical comorbidities or previous adenovirus vaccine exposure were recruited at a single site (Oxford, UK). Participants were non-randomly enrolled to a low-dose group (5 × 10⁹ viral particles [vp] of ChAdOx1 biEBOV), a medium-dose group (2·5 × 101⁰ vp), and a high-dose group (5 × 101⁰ vp). All doses were administered intramuscularly. After recruitment of all participants, the protocol was amended so that a subgroup from the high-dose group received a second high dose of vaccine 12 weeks after the first dose. Primary outcome measures were assessment of solicited adverse events for 7 days after vaccinations, unsolicited adverse events for 28 days after vaccinations, changes in clinical laboratory measures within 28 days after vaccination, and serious adverse events and adverse events of special interest for the study duration. Secondary outcomes were assessment of humoral and cellular immunity to Ebola virus and Sudan virus glycoprotein. This study is registered with ClinicalTrials.gov, NCT05079750. FINDINGS: Between Nov 11, 2021, and April 7, 2022, 40 individuals attended the trial screening visit, of whom 26 were enrolled (six in the low-dose group, six in the medium-dose group, and 14 in the high-dose group). Seven participants in the high-dose group received one vaccine dose and seven received two vaccine doses. Local solicited adverse events were reported by 17 (65%) of 26 participants after dose 1 and five (71%) of seven after dose 2. Systemic solicited adverse events were reported by 23 (88%) participants after dose 1 and five (71%) after dose 2. All solicited adverse events were mild or moderate, with no severe events reported. No serious adverse reactions were reported. Unsolicited adverse events related to vaccination were mostly mild or moderate and short-lived, such as joint pain or upper respiratory symptoms. One adverse event of special interest, thrombocytopenia, occurred transiently in one participant in the high-dose group. Rapidly resolving lymphopenia was common at the early post-vaccination timepoint. A single 5 × 101⁰ vp dose vaccination elicited seropositivity to Ebola virus in 14 (100%) participants in the high-dose group and elicited seropositivity to Sudan virus in 12 (86%) participants in the high-dose group; antibody titres were boosted in the two-dose group. INTERPRETATION: Our results suggest that the ChAdOx1 biEBOV vaccine was safe and well tolerated. Safety and tolerability data are consistent with other vaccines using the same vaccine backbone. A single 5 × 101⁰ vp dose of the vaccine was immunogenic, generating binding antibodies against both Ebola virus and Sudan virus glycoproteins, with antibody responses boosted in the subgroup receiving a second immunisation. Future research should focus on approaches to enhance antibody responses and to elicit neutralising antibodies to Sudan virus. FUNDING: UK Research and Innovation.",
+   "basis": "摘要原文（冻结于构建时点）",
+   "expected_numbers": [
+    "18",
+    "55",
+    "10",
+    "2.5",
+    "101",
+    "101"
+   ],
+   "correct_summary": "研究纳入 18 例，关键结果数值包括 18、55、10、2.5。",
+   "mutations": [
+    {
+     "kind": "number_fabricated",
+     "orig": "18",
+     "bad": "30",
+     "summary": "结果为 30（Safety and immunogenicity of a bivalent …）",
+     "expect": "block"
+    },
+    {
+     "kind": "number_fabricated",
+     "orig": "55",
+     "bad": "68",
+     "summary": "结果为 68（Safety and immunogenicity of a bivalent …）",
+     "expect": "block"
+    },
+    {
+     "kind": "population_swap",
+     "summary": "上述结果来自全人群（ITT）分析",
+     "expect": "semantic_pending"
+    },
+    {
+     "kind": "endpoint_swap",
+     "summary": "上述数值为主要终点结果",
+     "expect": "semantic_pending"
+    }
+   ],
+   "frozen_at": "2026-10-17"
+  },
+  {
+   "id": "reg_28240562",
+   "pmid": "28240562",
+   "title": "Guidelines for Management of Incidental Pulmonary Nodules Detected on CT Images: From the Fleischner Society 2017.",
+   "abstract": "The Fleischner Society Guidelines for management of solid nodules were published in 2005, and separate guidelines for subsolid nodules were issued in 2013. Since then, new information has become available; therefore, the guidelines have been revised to reflect current thinking on nodule management. The revised guidelines incorporate several substantive changes that reflect current thinking on the management of small nodules. The minimum threshold size for routine follow-up has been increased, and recommended follow-up intervals are now given as a range rather than as a precise time period to give radiologists, clinicians, and patients greater discretion to accommodate individual risk factors and preferences. The guidelines for solid and subsolid nodules have been combined in one simplified table, and specific recommendations have been included for multiple nodules. These guidelines represent the consensus of the Fleischner Society, and as such, they incorporate the opinions of a multidisciplinary international group of thoracic radiologists, pulmonologists, surgeons, pathologists, and other specialists. Changes from the previous guidelines issued by the Fleischner Society are based on new data and accumulated experience. © RSNA, 2017 Online supplemental material is available for this article. An earlier incorrect version of this article appeared online. This article was corrected on March 13, 2017.",
+   "basis": "摘要原文（冻结于构建时点）",
+   "expected_numbers": [
+    "2005",
+    "2013",
+    "2017",
+    "13",
+    "2017"
+   ],
+   "correct_summary": "研究纳入 2005 例，关键结果数值包括 2005、2013、2017、13。",
+   "mutations": [
+    {
+     "kind": "number_fabricated",
+     "orig": "2005",
+     "bad": "2019",
+     "summary": "结果为 2019（Guidelines for Management of Incidental …）",
+     "expect": "block"
+    },
+    {
+     "kind": "number_fabricated",
+     "orig": "2013",
+     "bad": "2028",
+     "summary": "结果为 2028（Guidelines for Management of Incidental …）",
+     "expect": "block"
+    },
+    {
+     "kind": "population_swap",
+     "summary": "上述结果来自全人群（ITT）分析",
+     "expect": "semantic_pending"
+    },
+    {
+     "kind": "endpoint_swap",
+     "summary": "上述数值为主要终点结果",
+     "expect": "semantic_pending"
+    }
+   ],
+   "frozen_at": "2026-10-17"
+  },
+  {
+   "id": "reg_38300206",
+   "pmid": "38300206",
+   "title": "ACR Lung-RADS v2022: Assessment Categories and Management Recommendations.",
+   "abstract": "The American College of Radiology created the Lung CT Screening Reporting and Data System (Lung-RADS) in 2014 to standardize the reporting and management of screen-detected pulmonary nodules. Lung-RADS was updated to version 1.1 in 2019 and revised size thresholds for nonsolid nodules, added classification criteria for perifissural nodules, and allowed for short-interval follow-up of rapidly enlarging nodules that may be infectious in etiology. Lung-RADS v2022, released in November 2022, provides several updates including guidance on the classification and management of atypical pulmonary cysts, juxtapleural nodules, airway-centered nodules, and potentially infectious findings. This new release also provides clarification for determining nodule growth and introduces stepped management for nodules that are stable or decreasing in size. This article summarizes the current evidence and expert consensus supporting Lung-RADS v2022.",
+   "basis": "摘要原文（冻结于构建时点）",
+   "expected_numbers": [
+    "2014",
+    "1.1",
+    "2019",
+    "2022"
+   ],
+   "correct_summary": "研究纳入 2014 例，关键结果数值包括 2014、1.1、2019、2022。",
+   "mutations": [
+    {
+     "kind": "number_fabricated",
+     "orig": "2014",
+     "bad": "2027",
+     "summary": "结果为 2027（ACR Lung-RADS v2022: Assessment Categori…）",
+     "expect": "block"
+    },
+    {
+     "kind": "number_fabricated",
+     "orig": "1.1",
+     "bad": "1.8",
+     "summary": "结果为 1.8（ACR Lung-RADS v2022: Assessment Categori…）",
+     "expect": "block"
+    },
+    {
+     "kind": "population_swap",
+     "summary": "上述结果来自全人群（ITT）分析",
+     "expect": "semantic_pending"
+    },
+    {
+     "kind": "endpoint_swap",
+     "summary": "上述数值为主要终点结果",
+     "expect": "semantic_pending"
+    }
+   ],
+   "frozen_at": "2026-10-17"
+  },
+  {
+   "id": "reg_37133431",
+   "pmid": "37133431",
+   "title": "Cost-effectiveness of the tubeless automated insulin delivery system vs standard of care in the management of type 1 diabetes in the United States.",
+   "abstract": "BACKGROUND: A tubeless, on-body automated insulin delivery (AID) system (Omnipod 5 Automated Insulin Delivery System) demonstrated improved glycated hemoglobin A1c levels and increased time in range (70 mg/dL to 180 mg/dL) for both adults and children with type 1 diabetes in a 13-week multicenter, single-arm study. OBJECTIVE: To assess the cost-effectiveness of the tubeless AID system compared with standard of care (SoC) in the management of type 1 diabetes (T1D) in the United States. METHODS: Cost-effectiveness analyses were conducted from a US payer's perspective, using the IQVIA Core Diabetes Model (version 9.5), with a time horizon of 60 years and an annual discount of 3.0% on both costs and effects. Simulated patients received either tubeless AID or SoC, the latter being defined as either continuous subcutaneous insulin infusion (86% of patients) or multiple daily injections. Two cohorts (children: <18 years; adults: ≥18 years) of patients with T1D and 2 thresholds for nonsevere hypoglycemia (nonsevere hypoglycemia event [NSHE] <54 mg/dL and <70 mg/dL) were considered. Baseline cohort characteristics and treatment effects of different risk factors for tubeless AID were sourced from the clinical trial. Utilities and cost of diabetes-related complications were obtained from published sources. Treatment costs were derived from US national database sources. Scenario analyses and probabilistic sensitivity analyses were performed to test the robustness of the results. RESULTS: Treating children with T1D with tubeless AID, considering an NSHE threshold of less than 54 mg/dL, brings incremental life-years (1.375) and quality-adjusted life-years (QALYs) (1.521) at an incremental cost of $15,099 compared with SoC, resulting in an incremental cost-effectiveness ratio of $9,927 per QALY gained. Similar results were obtained for adults with T1D assuming an NSHE threshold of less than 54 mg/dL (incremental cost-effectiveness ratio = $10,310 per QALY gained). Furthermore, tubeless AID is a dominant treatment option for children and adults with T1D assuming an NSHE threshold of less than 70 mg/dL compared with SoC. The probabilistic sensitivity analyses results showed that compared with SoC, in both children and adults with T1D, tubeless AID was cost-effective in more than 90% of simulations, assuming a willingness-to-pay threshold of $100,000 per QALY gained. The key drivers of the model were the cost of ketoacidosis, duration of treatment effect, threshold of NSHE, and definition of severe hypoglycemia. CONCLUSIONS: The current analyses suggest that the tubeless AID system can be considered a cost-effective treatment compared with SoC in people with T1D from a US payer's perspective. DISCLOSURES: This research was funded by Insulet. Mr Hopley, Ms Boyd, and Mr Swift are full-time Insulet employees and own stock in Insulet Corporation. IQVIA, the employer of Ms Ramos and Dr Lamotte, received consulting fees for this work. Dr Biskupiak is receiving research support and consulting fees from Insulet. Dr Brixner has received consulting fees from Insulet. The University of Utah has received research funding from Insulet. Dr Levy is a consultant with Dexcom and Eli Lilly and has received grant/research support from Insulet, Tandem, Dexcom, and Abbott Diabetes. Dr Forlenza conducted research sponsored by Medtronic, Dexcom, Abbott, Tandem, Insulet, Beta Bionics, and Lilly. He has been speaker/consultant/advisory board member for Medtronic, Dexcom, Abbott, Tandem, Insulet, Beta Bionics, and Lilly.",
+   "basis": "摘要原文（冻结于构建时点）",
+   "expected_numbers": [
+    "70",
+    "180",
+    "13",
+    "9.5",
+    "60",
+    "3.0%"
+   ],
+   "correct_summary": "研究纳入 70 例，关键结果数值包括 70、180、13、9.5。",
+   "mutations": [
+    {
+     "kind": "number_fabricated",
+     "orig": "70",
+     "bad": "82",
+     "summary": "结果为 82（Cost-effectiveness of the tubeless autom…）",
+     "expect": "block"
+    },
+    {
+     "kind": "number_fabricated",
+     "orig": "180",
+     "bad": "194",
+     "summary": "结果为 194（Cost-effectiveness of the tubeless autom…）",
+     "expect": "block"
+    },
+    {
+     "kind": "population_swap",
+     "summary": "上述结果来自全人群（ITT）分析",
+     "expect": "semantic_pending"
+    },
+    {
+     "kind": "endpoint_swap",
+     "summary": "上述数值为主要终点结果",
+     "expect": "semantic_pending"
+    }
+   ],
+   "frozen_at": "2026-10-17"
+  },
+  {
+   "id": "reg_39924850",
+   "pmid": "39924850",
+   "title": "Minimally invasive lung surgery with an intraoperative completely or partially tubeless protocol: randomized clinical trial.",
+   "abstract": "BACKGROUND: Thoracic surgery is an invasive procedure and there has been a move towards minimally invasive approaches. This includes video-assisted thoracoscopic surgery. Non-intubated video-assisted thoracoscopic surgery without endotracheal intubation has been developed with a view to avoiding complications associated with intubation including tracheal injury, vocal cord injury and lung impairment due to mechanical ventilation. This study aims to compare outcomes from non-intubated 'completely tubeless' versus intubated 'partially tubeless' minimally invasive thoracic surgery. METHODS: A single-institution, prospective randomized clinical trial was conducted comparing patients who underwent minimally invasive lung completely tubeless versus partially tubeless surgery, both with enhanced recovery. The primary outcome was the short-term postoperative complication rate. Binary logistic regression analysis was performed to determine the significant predictors of severe mediastinal shift and receiver operating characteristic (ROC) curve plots were drawn. RESULTS: Among the 348 patients, 174 patients were assigned to the completely tubeless group and 174 patients were assigned to the partially tubeless group. There was no difference in postoperative complications including pulmonary complications, supraventricular arrhythmia, acute myocardial infarction, acute cerebral stroke, venous thromboembolism and urinary retention. The completely tubeless protocol was associated with a higher proportion of early mobilization (66.7% versus 55.7%, P = 0.047), a shorter median duration of drainage (1.0 versus 2.0 days, P = 0.002), and a shorter median duration of postoperative hospital stay (2.0 versus 3.0 days, P = 0.001). The completely tubeless group had less of a difference in white blood cell count before and after the operation (P = 0.042). Binary logistic regression analysis revealed that weight was a significant predictor of mediastinal shift in the completely tubeless group. CONCLUSION: Under enhanced recovery after surgery protocols, there is no difference in postoperative complications in patients undergoing completely or partially tubeless surgery. However, patients having completely tubeless surgery have shorter durations of postoperative drainage, shorter durations of hospital stay, milder systemic inflammatory reactions, and better immune protection than patients who undergo lung resection with a partially tubeless protocol. The severity of mediastinal shift may be mainly related to body-weight. REGISTRATION NUMBER: NCT05269784 (http://www.clinicaltrials.gov).",
+   "basis": "摘要原文（冻结于构建时点）",
+   "expected_numbers": [
+    "348",
+    "174",
+    "174",
+    "66.7%",
+    "55.7%",
+    "0.047"
+   ],
+   "correct_summary": "研究纳入 348 例，关键结果数值包括 348、174、174、66.7%。",
+   "mutations": [
+    {
+     "kind": "number_fabricated",
+     "orig": "348",
+     "bad": "353",
+     "summary": "结果为 353（Minimally invasive lung surgery with an …）",
+     "expect": "block"
+    },
+    {
+     "kind": "number_fabricated",
+     "orig": "174",
+     "bad": "181",
+     "summary": "结果为 181（Minimally invasive lung surgery with an …）",
+     "expect": "block"
+    },
+    {
+     "kind": "population_swap",
+     "summary": "上述结果来自全人群（ITT）分析",
+     "expect": "semantic_pending"
+    },
+    {
+     "kind": "endpoint_swap",
+     "summary": "上述数值为主要终点结果",
+     "expect": "semantic_pending"
+    }
+   ],
+   "frozen_at": "2026-10-17"
+  },
+  {
+   "id": "reg_38610606",
+   "pmid": "38610606",
+   "title": "Ergonomic Assessment of Robotic versus Thoracoscopic Thymectomy.",
+   "abstract": "Introduction: Robotic and thoracoscopic surgery are being increasingly adopted as minimally invasive alternatives to open sternotomy for complete thymectomy. The superior maneuverability range and three-dimensional magnified vision are potential ergonomical advantages of robotic surgery. To compare the ergonomic characteristics of robotic versus thoracoscopic thymectomy, a previously developed scoring system based on impartial findings was employed. The relationship between ergonomic scores and perioperative endpoints was also analyzed. Methods: Perioperative data of patients undergoing robotic or thoracoscopic complete thymectomy between January 2014 and December 2022 at three institutions were retrospectively retrieved. Surgical procedures were divided into four standardized surgical steps: lower-horns, upper-horns, thymic veins and peri-thymic fat dissection. Three ergonomic domains including maneuverability, exposure and instrumentation were scored as excellent(score-3), satisfactory(score-2) and unsatisfactory(score-1) by three independent reviewers. Propensity score matching (2:1) was performed, including anterior mediastinal tumors only. The primary endpoint was the total maneuverability score. Secondary endpoints included the other ergonomic domain scores, intraoperative adverse events, conversion to sternotomy, operative time, post-operative complications and residual disease. Results: A total of 68 robotic and 34 thoracoscopic thymectomies were included after propensity score matching. The robotic group had a higher total maneuverability score (p = 0.039), particularly in the peri-thymic fat dissection (p = 0.003) and peri-thymic fat exposure score (p = 0.027). Moreover, the robotic group had lower intraoperative adverse events (p = 0.02). No differences were found in residual disease. Conclusions: Robotic thymectomy has shown better ergonomic maneuverability compared to thoracoscopy, leading to fewer intraoperative adverse events and comparable early oncological results.",
+   "basis": "摘要原文（冻结于构建时点）",
+   "expected_numbers": [
+    "2014",
+    "2022",
+    "68",
+    "34",
+    "0.039",
+    "0.003"
+   ],
+   "correct_summary": "研究纳入 2014 例，关键结果数值包括 2014、2022、68、34。",
+   "mutations": [
+    {
+     "kind": "number_fabricated",
+     "orig": "2014",
+     "bad": "2028",
+     "summary": "结果为 2028（Ergonomic Assessment of Robotic versus T…）",
+     "expect": "block"
+    },
+    {
+     "kind": "number_fabricated",
+     "orig": "2022",
+     "bad": "2038",
+     "summary": "结果为 2038（Ergonomic Assessment of Robotic versus T…）",
+     "expect": "block"
+    },
+    {
+     "kind": "population_swap",
+     "summary": "上述结果来自全人群（ITT）分析",
+     "expect": "semantic_pending"
+    },
+    {
+     "kind": "endpoint_swap",
+     "summary": "上述数值为主要终点结果",
+     "expect": "semantic_pending"
+    }
+   ],
+   "frozen_at": "2026-10-17"
+  },
+  {
+   "id": "reg_28709816",
+   "pmid": "28709816",
+   "title": "[Current knowledge on perioperative treatments of non-small cell lung carcinomas].",
+   "abstract": "Surgery is still the main treatment in early-stage of non-small cell lung cancer with 5-year survival of stage IA patients exceeding 80%, but 5-year survival of stage II patients rapidly decreasing with tumor size, N status, and visceral pleura invasion. The major metastatic risk in such patients has supported clinical research assessing systemic or loco-regional perioperative treatments. Modern phase 3 trials clearly validated adjuvant or neo-adjuvant platinum-based chemotherapy in resected stage I-III patients as a standard treatment of which value has been reassessed several independent meta-analyses, showing a 5% benefit in 5y-survival, and a decrease of the relative risk for death around from 12 to 25%. Conversely perioperative treatments were not validated for stage IA and IB patients. In more advanced stage patients, neo-adjuvant radio-chemotherapy has not been validated either. Adjuvant radiotherapy for N2 patients is currently tested in the large international phase 3 trial Lung-ART/IFCT-0503. The development of video-assisted thoracic surgery (VATS) has helped adjuvant chemotherapies for elderly patients. Perioperative targeted treatments in NSCLC with EGFR or ALK molecular alterations is currently assessed in the U.S. ALCHEMIST prospective trial. Finally, the role of immune check-points inhibitors is currently evaluated in a large international phase 3 trial testing adjuvant anti-PD-L1 monoclonal antibody, the BR31/IFCT-1401 trial, while a proof-of principle neo-adjuvant trial IONESCO/IFCT-1601, has just begun by the end of the 2016 year, with survival results of both trials expected in 5 to 7 years.",
+   "basis": "摘要原文（冻结于构建时点）",
+   "expected_numbers": [
+    "80%",
+    "5%",
+    "12",
+    "25%",
+    "0503",
+    "1401"
+   ],
+   "correct_summary": "研究纳入 80% 例，关键结果数值包括 80%、5%、12、25%。",
+   "mutations": [
+    {
+     "kind": "number_fabricated",
+     "orig": "80%",
+     "bad": "84%",
+     "summary": "结果为 84%（[Current knowledge on perioperative trea…）",
+     "expect": "block"
+    },
+    {
+     "kind": "number_fabricated",
+     "orig": "5%",
+     "bad": "17%",
+     "summary": "结果为 17%（[Current knowledge on perioperative trea…）",
+     "expect": "block"
+    },
+    {
+     "kind": "population_swap",
+     "summary": "上述结果来自全人群（ITT）分析",
+     "expect": "semantic_pending"
+    },
+    {
+     "kind": "endpoint_swap",
+     "summary": "上述数值为主要终点结果",
+     "expect": "semantic_pending"
+    }
+   ],
+   "frozen_at": "2026-10-17"
+  },
+  {
+   "id": "reg_37467930",
+   "pmid": "37467930",
+   "title": "Overall survival with adjuvant atezolizumab after chemotherapy in resected stage II-IIIA non-small-cell lung cancer (IMpower010): a randomised, multicentre, open-label, phase III trial.",
+   "abstract": "BACKGROUND: IMpower010 (NCT02486718) demonstrated significantly improved disease-free survival (DFS) with adjuvant atezolizumab versus best supportive care (BSC) following platinum-based chemotherapy in the programmed death-ligand 1 (PD-L1)-positive and all stage II-IIIA non-small-cell lung cancer (NSCLC) populations, at the DFS interim analysis. Results of the first interim analysis of overall survival (OS) are reported here. PATIENT AND METHODS: The design, participants, and primary-endpoint DFS outcomes have been reported for this phase III, open-label, 1 : 1 randomised study of atezolizumab (1200 mg q3w; 16 cycles) versus BSC after adjuvant platinum-based chemotherapy (1-4 cycles) in adults with completely resected stage IB (≥4 cm)-IIIA NSCLC (per the Union Internationale Contre le Cancer and American Joint Committee on Cancer staging system, 7th edition). Key secondary endpoints included OS in the stage IB-IIIA intent-to-treat (ITT) population and safety in randomised treated patients. The first pre-specified interim analysis of OS was conducted after 251 deaths in the ITT population. Exploratory analyses included OS by baseline PD-L1 expression level (SP263 assay). RESULTS: At a median of 45.3 months' follow-up on 18 April 2022, 127 of 507 patients (25%) in the atezolizumab arm and 124 of 498 (24.9%) in the BSC arm had died. The median OS in the ITT population was not estimable; the stratified hazard ratio (HR) was 0.995 [95% confidence interval (CI) 0.78-1.28]. The stratified OS HRs (95% CI) were 0.95 (0.74-1.24) in the stage II-IIIA (n = 882), 0.71 (0.49-1.03) in the stage II-IIIA PD-L1 tumour cell (TC) ≥1% (n = 476), and 0.43 (95% CI 0.24-0.78) in the stage II-IIIA PD-L1 TC ≥50% (n = 229) populations. Atezolizumab-related adverse event incidences remained unchanged since the previous analysis [grade 3/4 in 53 (10.7%) and grade 5 in 4 (0.8%) of 495 patients, respectively]. CONCLUSIONS: Although OS remains immature for the ITT population, these data indicate a positive trend favouring atezolizumab in PD-L1 subgroup analyses, primarily driven by the PD-L1 TC ≥50% stage II-IIIA subgroup. No new safety signals were observed after 13 months' additional follow-up. Together, these findings support the positive benefit-risk profile of adjuvant atezolizumab in this setting.",
+   "basis": "摘要原文（冻结于构建时点）",
+   "expected_numbers": [
+    "1200",
+    "16",
+    "251",
+    "45.3",
+    "18",
+    "2022"
+   ],
+   "correct_summary": "研究纳入 1200 例，关键结果数值包括 1200、16、251、45.3。",
+   "mutations": [
+    {
+     "kind": "number_fabricated",
+     "orig": "1200",
+     "bad": "1212",
+     "summary": "结果为 1212（Overall survival with adjuvant atezolizu…）",
+     "expect": "block"
+    },
+    {
+     "kind": "number_fabricated",
+     "orig": "16",
+     "bad": "28",
+     "summary": "结果为 28（Overall survival with adjuvant atezolizu…）",
+     "expect": "block"
+    },
+    {
+     "kind": "population_swap",
+     "summary": "上述结果来自全人群（ITT）分析",
+     "expect": "semantic_pending"
+    },
+    {
+     "kind": "endpoint_swap",
+     "summary": "上述数值为主要终点结果",
+     "expect": "semantic_pending"
+    }
+   ],
+   "frozen_at": "2026-10-17"
+  }
+ ]
+}

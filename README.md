@@ -33,15 +33,35 @@ LLM 精评（PICO 提取 + 反阳性偏倚条款）、四元组数值核验，�
 - 评分（AI 或启发式）只用于排序，不构成临床建议。
 - 期刊字典（`config/journals_taxonomy.json`）与 IF 值为静态快照，会过时；未收录期刊按 B 级处理。
 
+## 数据职责（权威源与派生物）
+
+| 文件 | 角色 | 规则 |
+| --- | --- | --- |
+| `data/archive/<date>.json` | **权威日档** | 保存当日抓到与发布的内容；当日重跑可覆写，**隔日永不回改**（撤稿/更正也不改它） |
+| `data/status.json` | **出版状态覆盖层** | 记录每篇文献最新状态（ok/撤稿/更正/关注声明）与回查时间；展示与导出统一应用最新状态 |
+| `data/daily_briefing_<date>.md` | 派生早报 | 引擎每日生成 |
+| `index.html` | 派生视图 | 数据经标记区间注入（SITE_DATA 块勿手改） |
+| 本地仓库 ↔ GitHub | 互为镜像 | 推送保持一致 |
+
+## 诚实边界（读数据前必读）
+
+- 全站**无人审校**：标题、结果陈述、疑点提示由程序与语言模型生成。数值核验为确定性文本比对（数值存在性＋句内语境锚），能拦编造数字；**语义核验（人群/终点错配）未上线，如实标注**。重要文献请点开 PubMed 原文。
+- **失败降级**：核验未通过/异常，或文献存在撤稿·更正（影响未明）·关注声明时，卡片自动「解读暂停」，只呈现题录与官方链接。
+- 期刊分区为 2025 年静态快照（字典内 `tiering.data_year`），页面标注「截至 2025」。
+- 摘要仅展示开头两句＋官方链接（版权属出版商，本站不做全文再发布）。
+- 评分只用于排序，不构成临床建议。
+- 反馈：卡片「反馈」按钮复制预填报错文本（含文献 ID 与核验状态），贴群即可；反馈触发自动重查，不直接作为修改事实的依据。
+
 ## 目录
 
 ```
 index.html                  单文件网站（数据经标记区间注入，勿手改 SITE_DATA 块）
-thoradar_engine.py          每日流水线引擎（采集→定级→预筛→精评→核验→产出）
-config/journals_taxonomy.json  期刊五重索引字典（S/A/B 三级）
-data/curated_literature.json   当日精选数据（引擎写）
-data/daily_briefing_*.md       每日简报 Markdown（引擎写）
-data/archive/                  按日归档
+thoradar_engine.py          每日流水线引擎（采集→定级→预筛→精评→核验→状态覆盖→产出）
+config/journals_taxonomy.json  期刊字典（身份/分区分开记录版本与年份）
+data/archive/<date>.json    权威日档（当日冷存，隔日不改）
+data/status.json            出版状态覆盖层（撤稿/更正/关注声明＋回查时间）
+data/daily_briefing_*.md    每日简报 Markdown（引擎写）
+data/regression/            工程回归集与报告（--build-regression / --regression）
 .github/workflows/daily_thoradar.yml  每日定时流水线（含静默断粮熔断闸）
 ```
 

@@ -1,6 +1,17 @@
 {
-  "version": "2.0.0",
-  "description": "五重索引期刊字典（ISSN-L / Print ISSN / E-ISSN / NlmUniqueID / 标准缩写）与三级信源权重",
+  "version": "3.0.0",
+  "description": "五重索引期刊字典（ISSN-L / Print ISSN / E-ISSN / NlmUniqueID / 标准缩写）与三级信源权重。身份与分区分开治理：identity_source 只证刊名/ISSN 有效，不证分区新鲜",
+  "identity": {
+    "source": "NCBI Journals (手工录入)",
+    "checked_at": "2026-10-15",
+    "note": "刊名/ISSN/NlmID 身份核对；重跑身份查新不更新分区年龄"
+  },
+  "tiering": {
+    "system": "自建 S/A/B 三级（参考 JCR 与中科院分区）",
+    "data_year": 2025,
+    "generated_at": "2026-10-15",
+    "note": "IF 与分区为 2025 静态快照；无可靠新数据时前端显示『分区数据截至 2025』，不静默沿用假装新鲜"
+  },
   "tiers": {
     "S": {
       "label": "S级 · 医学四大刊与肿瘤顶刊",

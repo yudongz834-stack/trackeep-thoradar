@@ -1,0 +1,20 @@
+{
+ "generated_at": "2026-10-17T13:26:13.448799",
+ "n_cases": 23,
+ "correct_samples": {
+  "n": 23,
+  "passed": 23,
+  "false_blocks": 0
+ },
+ "number_mutations": {
+  "n": 46,
+  "blocked": 46,
+  "missed": 0,
+  "missed_detail": []
+ },
+ "semantic_pending": {
+  "n": 46,
+  "note": "语义核验（人群/终点偷换）未上线，如实标未验证"
+ },
+ "verifier": "deterministic-text-v1"
+}
