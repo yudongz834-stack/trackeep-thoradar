@@ -1,0 +1,276 @@
+{
+  "tool": "tools/identity_check.py",
+  "purpose": "期刊身份查新（刊名/ISSN/NlmUniqueID）；身份核对通过不等于分区已更新",
+  "generated_at": "2026-10-17T13:46:10+08:00",
+  "source": "NCBI NLM Catalog (eutils db=nlmcatalog: esearch '\"<issn>\"[ISSN]' + efetch)",
+  "config": "D:\\trackeep-thoradar\\config\\journals_taxonomy.json",
+  "output": "D:\\trackeep-thoradar\\data\\identity_report.json",
+  "rate_limit": "0.4s/请求（无 api_key）",
+  "breaker": null,
+  "summary": {
+    "total": 11,
+    "match": 7,
+    "diff": 4,
+    "unreachable": 0,
+    "exit_code": 1
+  },
+  "tiering_age": {
+    "note": "重跑本脚本不清零分区年龄：本工具不写 tiering 字段，以下仅为当前年龄的事实陈述",
+    "generated_at": "2026-10-15",
+    "generated_age_days": 2,
+    "data_year": 2025,
+    "data_age_days": 290,
+    "data_age_anchor": "2025-12-31（自分区数据标称年份年末起算）"
+  },
+  "journals": [
+    {
+      "id": "nejm",
+      "local_title": "New England Journal of Medicine",
+      "status": "match",
+      "diffs": [],
+      "checked_at": "2026-10-17T13:46:10+08:00",
+      "query": "\"0028-4793\"[ISSN]",
+      "remote": {
+        "nlm_id": "0255562",
+        "title_main": "The New England journal of medicine.",
+        "medline_ta": "N Engl J Med",
+        "issn_print": [
+          "0028-4793"
+        ],
+        "issn_electronic": [
+          "1533-4406"
+        ]
+      }
+    },
+    {
+      "id": "lancet",
+      "local_title": "The Lancet",
+      "status": "match",
+      "diffs": [],
+      "checked_at": "2026-10-17T13:46:10+08:00",
+      "query": "\"0140-6736\"[ISSN]",
+      "remote": {
+        "nlm_id": "2985213R",
+        "title_main": "Lancet.",
+        "medline_ta": "Lancet",
+        "issn_print": [
+          "0140-6736"
+        ],
+        "issn_electronic": [
+          "1474-547X"
+        ]
+      }
+    },
+    {
+      "id": "jco",
+      "local_title": "Journal of Clinical Oncology",
+      "status": "diff",
+      "diffs": [
+        {
+          "field": "title",
+          "local": "Journal of Clinical Oncology",
+          "remote_main": [
+            "Journal of clinical oncology : official journal of the American Society of Clinical Oncology."
+          ],
+          "note": "归一化后与 TitleMain 不一致；与某 TitleAlternate 一致（低严重度，刊名变更史）"
+        }
+      ],
+      "checked_at": "2026-10-17T13:46:10+08:00",
+      "query": "\"0732-183X\"[ISSN]",
+      "remote": {
+        "nlm_id": "8309333",
+        "title_main": "Journal of clinical oncology : official journal of the American Society of Clinical Oncology.",
+        "medline_ta": "J Clin Oncol",
+        "issn_print": [
+          "0732-183X"
+        ],
+        "issn_electronic": [
+          "1527-7755"
+        ]
+      }
+    },
+    {
+      "id": "jto",
+      "local_title": "Journal of Thoracic Oncology",
+      "status": "diff",
+      "diffs": [
+        {
+          "field": "title",
+          "local": "Journal of Thoracic Oncology",
+          "remote_main": [
+            "Journal of thoracic oncology : official publication of the International Association for the Study of Lung Cancer."
+          ],
+          "note": "归一化后与 TitleMain 不一致"
+        }
+      ],
+      "checked_at": "2026-10-17T13:46:10+08:00",
+      "query": "\"1556-0864\"[ISSN]",
+      "remote": {
+        "nlm_id": "101274235",
+        "title_main": "Journal of thoracic oncology : official publication of the International Association for the Study of Lung Cancer.",
+        "medline_ta": "J Thorac Oncol",
+        "issn_print": [
+          "1556-0864"
+        ],
+        "issn_electronic": [
+          "1556-1380"
+        ]
+      }
+    },
+    {
+      "id": "jtcvs",
+      "local_title": "Journal of Thoracic and Cardiovascular Surgery",
+      "status": "match",
+      "diffs": [],
+      "checked_at": "2026-10-17T13:46:10+08:00",
+      "query": "\"0022-5223\"[ISSN]",
+      "remote": {
+        "nlm_id": "0376343",
+        "title_main": "The Journal of thoracic and cardiovascular surgery.",
+        "medline_ta": "J Thorac Cardiovasc Surg",
+        "issn_print": [
+          "0022-5223"
+        ],
+        "issn_electronic": [
+          "1097-685X"
+        ]
+      }
+    },
+    {
+      "id": "ats",
+      "local_title": "The Annals of Thoracic Surgery",
+      "status": "match",
+      "diffs": [],
+      "checked_at": "2026-10-17T13:46:10+08:00",
+      "query": "\"0003-4975\"[ISSN]",
+      "remote": {
+        "nlm_id": "15030100R",
+        "title_main": "The Annals of thoracic surgery.",
+        "medline_ta": "Ann Thorac Surg",
+        "issn_print": [
+          "0003-4975"
+        ],
+        "issn_electronic": [
+          "1552-6259"
+        ]
+      }
+    },
+    {
+      "id": "chest",
+      "local_title": "CHEST",
+      "status": "match",
+      "diffs": [],
+      "checked_at": "2026-10-17T13:46:10+08:00",
+      "query": "\"0012-3692\"[ISSN]",
+      "remote": {
+        "nlm_id": "0231335",
+        "title_main": "Chest.",
+        "medline_ta": "Chest",
+        "issn_print": [
+          "0012-3692"
+        ],
+        "issn_electronic": [
+          "1931-3543"
+        ]
+      }
+    },
+    {
+      "id": "medcomm",
+      "local_title": "MedComm",
+      "status": "diff",
+      "diffs": [
+        {
+          "field": "nlm_id",
+          "local": "101767808",
+          "remote": [
+            "101769925"
+          ],
+          "note": "ISSN 命中记录中无 NlmUniqueID 匹配"
+        }
+      ],
+      "checked_at": "2026-10-17T13:46:10+08:00",
+      "query": "\"2688-2663\"[ISSN]",
+      "checked_against": "nlm_id 不匹配，以下核对基准=记录 101769925",
+      "issn_notes": [
+        "p_issn=2688-2663 仅在记录的非常规 IssnType 中出现（Undetermined/历史值）"
+      ],
+      "remote": {
+        "nlm_id": "101769925",
+        "title_main": "MedComm.",
+        "medline_ta": "MedComm (2020)",
+        "issn_print": [],
+        "issn_electronic": [
+          "2688-2663"
+        ]
+      }
+    },
+    {
+      "id": "jtd",
+      "local_title": "Journal of Thoracic Disease",
+      "status": "match",
+      "diffs": [],
+      "checked_at": "2026-10-17T13:46:10+08:00",
+      "query": "\"2072-1439\"[ISSN]",
+      "remote": {
+        "nlm_id": "101533916",
+        "title_main": "Journal of thoracic disease.",
+        "medline_ta": "J Thorac Dis",
+        "issn_print": [
+          "2072-1439"
+        ],
+        "issn_electronic": [
+          "2077-6624"
+        ]
+      }
+    },
+    {
+      "id": "gs",
+      "local_title": "Gland Surgery",
+      "status": "diff",
+      "diffs": [
+        {
+          "field": "nlm_id",
+          "local": "101592602",
+          "remote": [
+            "101606638"
+          ],
+          "note": "ISSN 命中记录中无 NlmUniqueID 匹配"
+        }
+      ],
+      "checked_at": "2026-10-17T13:46:10+08:00",
+      "query": "\"2227-684X\"[ISSN]",
+      "checked_against": "nlm_id 不匹配，以下核对基准=记录 101606638",
+      "remote": {
+        "nlm_id": "101606638",
+        "title_main": "Gland surgery.",
+        "medline_ta": "Gland Surg",
+        "issn_print": [
+          "2227-684X"
+        ],
+        "issn_electronic": [
+          "2227-8575"
+        ]
+      }
+    },
+    {
+      "id": "scirep",
+      "local_title": "Scientific Reports",
+      "status": "match",
+      "diffs": [],
+      "checked_at": "2026-10-17T13:46:10+08:00",
+      "query": "\"2045-2322\"[ISSN]",
+      "issn_notes": [
+        "p_issn=2045-2322 仅在记录的非常规 IssnType 中出现（Undetermined/历史值）"
+      ],
+      "remote": {
+        "nlm_id": "101563288",
+        "title_main": "Scientific reports.",
+        "medline_ta": "Sci Rep",
+        "issn_print": [],
+        "issn_electronic": [
+          "2045-2322"
+        ]
+      }
+    }
+  ]
+}

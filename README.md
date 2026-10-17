@@ -26,13 +26,6 @@ LLM 精评（PICO 提取 + 反阳性偏倚条款）、四元组数值核验，�
 
 密钥永不入库（`.gitignore` 已挡 `.env`）；工作流通过 Secrets 注入。
 
-## 诚实边界（读数据前必读）
-
-- 四元组核验是**确定性文本比对**（数值存在性 + 语境锚定），能拦编造数字与明显错配；
-  **不能**识别「同一数值安到不同人群」的高级张冠李戴。卡片核验状态为 ⚠ 或用于临床决策前，请点开英文原摘要人工复核。
-- 评分（AI 或启发式）只用于排序，不构成临床建议。
-- 期刊字典（`config/journals_taxonomy.json`）与 IF 值为静态快照，会过时；未收录期刊按 B 级处理。
-
 ## 数据职责（权威源与派生物）
 
 | 文件 | 角色 | 规则 |
@@ -58,12 +51,19 @@ LLM 精评（PICO 提取 + 反阳性偏倚条款）、四元组数值核验，�
 index.html                  单文件网站（数据经标记区间注入，勿手改 SITE_DATA 块）
 thoradar_engine.py          每日流水线引擎（采集→定级→预筛→精评→核验→状态覆盖→产出）
 config/journals_taxonomy.json  期刊字典（身份/分区分开记录版本与年份）
+tools/identity_check.py     期刊身份查新（NCBI NLM Catalog，退出码 0/1/2）
 data/archive/<date>.json    权威日档（当日冷存，隔日不改）
 data/status.json            出版状态覆盖层（撤稿/更正/关注声明＋回查时间）
 data/daily_briefing_*.md    每日简报 Markdown（引擎写）
 data/regression/            工程回归集与报告（--build-regression / --regression）
 .github/workflows/daily_thoradar.yml  每日定时流水线（含静默断粮熔断闸）
 ```
+
+## 期刊身份查新（P6）
+
+- **用法**：`python tools/identity_check.py`（限速 0.4s/请求；`--api-key` 或环境变量 `NCBI_API_KEY` 提速至 0.12s；`--self-test` 离线自测退出码，不打网络）。报告写 `data/identity_report.json`，逐刊 match/diff/unreachable＋分区年龄独立节。
+- **退出码**：`0`＝全部 match；`1`＝有差异（diff）；`2`＝服务不可达（单请求重试 3 次失败，或连续 3 轮全败触发熔断、剩余刊未查）。
+- **身份/分区分治**：本脚本只核对刊名/ISSN/NlmUniqueID 身份信息；**身份核对通过 ≠ 分区已更新**——重跑不写 `tiering` 字段、不清零分区年龄，分区年龄（`tiering.generated_at` 与 `data_year` 距今天数）仅作事实陈述。
 
 ## 免责声明
 
