@@ -561,7 +561,7 @@ title: "${p.title_zh}"
 pmid: "${p.pmid}"
 doi: "${p.doi}"
 journal: "${p.journal_abbr}"
-if_2025: ${p.if_val}
+if_2025: ${p.if_val ?? '—'}
 score: ${p.score_total}
 category: "${p.category_label}"
 url: "${p.url}"
@@ -570,7 +570,7 @@ url: "${p.url}"
 # ${p.title_zh}
 
 - **英文原题**: *${p.title_en}*
-- **期刊与分区**: **${p.journal_abbr}** (IF: ${p.if_val} · ${p.zone}) | **发表日期**: ${p.pub_date}
+- **期刊与分区**: **${p.journal_abbr}** (IF: ${p.if_val ?? '—'} · ${p.zone}) | **发表日期**: ${p.pub_date}
 - **作者与团队**: ${p.authors} (${p.affiliation_highlight})
 - **原文链接**: [PubMed (PMID: ${p.pmid})](${p.url})${p.nct_id ? ` | [ClinicalTrials (${p.nct_id})](${p.trial_url})` : ''}
 
@@ -691,7 +691,7 @@ ${p.reason}
           <article class="paper-card">
             <div class="card-meta">
               <span class="badge badge-score" title="临床 ${p.score_breakdown?.clinical ?? 0}/35 · 方法学 ${p.score_breakdown?.methodology ?? 0}/30 · 专科 ${p.score_breakdown?.specialty ?? 0}/20 · 期刊 ${p.score_breakdown?.journal ?? 0}/15">${p.score_source === 'heuristic' ? '启发式' : 'AI'}评分 ${p.score_total} 分</span>
-              <span class="badge badge-tier-${p.tier}">${escapeHtml(p.tier)}级 · ${escapeHtml(p.journal_abbr)} · IF ${p.if_val}</span>
+              <span class="badge badge-tier-${p.tier}">${escapeHtml(p.tier)}级 · ${escapeHtml(p.journal_abbr)} · IF ${p.if_val ?? '—'}</span>
               ${p.study_type ? `<span class="badge badge-tier-B">${escapeHtml(p.study_type)}</span>` : ''}
               ${p.is_negative_highlight ? `<span class="badge badge-negative">⚖️ 关键阴性证据</span>` : ''}
               ${p.curated === true ? `<span class="badge badge-tier-S">⭐ 今日精选</span>` : ''}
@@ -842,7 +842,7 @@ ${p.reason}
       box.innerHTML = PAPERS.map((p, idx) => `
         <div style="margin-bottom:16px;padding-bottom:14px;border-bottom:1px dashed var(--border);">
           <div style="font-weight:700;font-size:15px;color:var(--text-main);">
-            ${idx + 1}. [${escapeHtml(p.journal_abbr)} · IF ${p.if_val} · 评分 ${p.score_total}${p.score_source === 'heuristic' ? ' · 启发式' : ''}] <a href="${p.url}" target="_blank">${escapeHtml(p.title_zh)}</a>
+            ${idx + 1}. [${escapeHtml(p.journal_abbr)} · IF ${p.if_val ?? '—'} · 评分 ${p.score_total}${p.score_source === 'heuristic' ? ' · 启发式' : ''}] <a href="${p.url}" target="_blank">${escapeHtml(p.title_zh)}</a>
           </div>
           ${(p.status && p.status.kind === 'retracted') ? '<div style="margin-top:4px;color:var(--rose);"><strong>🚫 已撤稿，请勿引用。</strong></div>' : ''}
           ${(p.status && p.status.kind === 'corrected') ? `<div style="margin-top:4px;color:var(--amber);"><strong>📄 有更正启事（影响未明），请核对最新版本。</strong>${p.notice_url ? ` <a href="${p.notice_url}" target="_blank">启事 ↗</a>` : ''}</div>` : ''}
@@ -860,7 +860,7 @@ ${p.reason}
       const lines = [
         `# 胸科雷达 ThorRadar 每日文献雷达 (${SITE_DATA.briefing_date || ''})`,
         "",
-        ...PAPERS.map((p, i) => `### ${i + 1}. [${p.journal_abbr} · IF ${p.if_val} · 评分 ${p.score_total}] [${p.title_zh}](${p.url})\n${(p.status && p.status.kind === 'retracted') ? '- 🚫 **已撤稿，请勿引用**\n' : ''}${(p.status && p.status.kind === 'corrected') ? '- 📄 **有更正启事（影响未明），请核对最新版本**\n' : ''}${(p.status && p.status.kind === 'concern') ? '- ⚠ **被发布关注声明，解读暂停**\n' : ''}${p.publish_state === 'degraded' ? '- **解读暂停**（自动核验未通过或状态存疑），请以原文为准\n' : `- **实际结果**：${p.results || ''}\n- **作者结论**：${p.authors_conclusion || ''}\n${p.ai_note ? `- **AI 疑点**：${p.ai_note}\n` : ''}`}- **核验状态**：${p.critic_verified === true ? '通过' : (p.critic_verified === false ? '未通过，解读暂停' : '无数值核验项')}`)
+        ...PAPERS.map((p, i) => `### ${i + 1}. [${p.journal_abbr} · IF ${p.if_val ?? '—'} · 评分 ${p.score_total}] [${p.title_zh}](${p.url})\n${(p.status && p.status.kind === 'retracted') ? '- 🚫 **已撤稿，请勿引用**\n' : ''}${(p.status && p.status.kind === 'corrected') ? '- 📄 **有更正启事（影响未明），请核对最新版本**\n' : ''}${(p.status && p.status.kind === 'concern') ? '- ⚠ **被发布关注声明，解读暂停**\n' : ''}${p.publish_state === 'degraded' ? '- **解读暂停**（自动核验未通过或状态存疑），请以原文为准\n' : `- **实际结果**：${p.results || ''}\n- **作者结论**：${p.authors_conclusion || ''}\n${p.ai_note ? `- **AI 疑点**：${p.ai_note}\n` : ''}`}- **核验状态**：${p.critic_verified === true ? '通过' : (p.critic_verified === false ? '未通过，解读暂停' : '无数值核验项')}`)
       ];
       navigator.clipboard.writeText(lines.join("\n\n"));
       showToast('📋 已复制今日 Markdown 文献雷达');
@@ -875,7 +875,7 @@ ${p.reason}
 
     function exportAllObsidian() {
       const list = getFilteredPapers();
-      const md = list.map(p => `## [${p.title_zh}](${p.url})\n- **期刊**: ${p.journal_abbr} (IF ${p.if_val}) | **PMID**: ${p.pmid}\n${(p.status && p.status.kind !== 'ok') ? `- **⚠ 出版状态**: ${p.status.note}\n` : ''}${p.publish_state === 'degraded' ? '- **解读暂停**（核验未通过或状态存疑），请以原文为准\n' : `- **实际结果**: ${p.results || ''}\n- **作者结论**: ${p.authors_conclusion || ''}${p.ai_note ? `\n- **AI 疑点**: ${p.ai_note}` : ''}`}`).join("\n\n");
+      const md = list.map(p => `## [${p.title_zh}](${p.url})\n- **期刊**: ${p.journal_abbr} (IF ${p.if_val ?? '—'}) | **PMID**: ${p.pmid}\n${(p.status && p.status.kind !== 'ok') ? `- **⚠ 出版状态**: ${p.status.note}\n` : ''}${p.publish_state === 'degraded' ? '- **解读暂停**（核验未通过或状态存疑），请以原文为准\n' : `- **实际结果**: ${p.results || ''}\n- **作者结论**: ${p.authors_conclusion || ''}${p.ai_note ? `\n- **AI 疑点**: ${p.ai_note}` : ''}`}`).join("\n\n");
       navigator.clipboard.writeText(md);
       showToast(`📝 已复制 ${list.length} 篇文献的 Obsidian 笔记合集`);
     }

@@ -1,0 +1,281 @@
+﻿cas_name,jcr_abbr,issn,cas_zone,cas_sheet,jcr_subject,impact_factor,jcr_q,include,relation,note
+ACADEMIC RADIOLOGY,ACAD RADIOL,1076-6332,2区,医学,"RADIOLOGY, NUCLEAR MEDICINE & MEDICAL IMAGING",4.7,Q1,yes,密切,综合影像刊，胸部影像与肺结节研究常见
+ACTA ONCOLOGICA,,0284-186X,3区,医学,,,,yes,密切,北欧肿瘤综合刊，肺癌与食管癌为常规病种
+AESTHETIC PLASTIC SURGERY,AESTHET PLAST SURG,0364-216X,3区,医学,SURGERY,2.7,Q1,no,无关,美容整形外科，与胸外科疾病无交集
+AMERICAN JOURNAL OF NEURORADIOLOGY,AM J NEURORADIOL,0195-6108,2区,医学,Multiple,3.5,Q2,no,无关,神经影像专科，不涉及胸部疾病
+AMERICAN JOURNAL OF PHYSIOLOGY-LUNG CELLULAR AND MOLECULAR PHYSIOLOGY,AM J PHYSIOL-LUNG C,1040-0605,3区,医学,Multiple,3.8,Q1,yes,密切,肺生理主刊，肺癌与肺损伤的转化研究常见
+AMERICAN JOURNAL OF RESPIRATORY AND CRITICAL CARE MEDICINE,AM J RESP CRIT CARE,1073-449X,1区,医学,Multiple,21.7,Q1,yes,密切,呼吸与重症顶刊，肺癌、结节与胸膜疾病常见
+AMERICAN JOURNAL OF RESPIRATORY CELL AND MOLECULAR BIOLOGY,AM J RESP CELL MOL,1044-1549,2区,医学,Multiple,5.4,Q1,yes,密切,呼吸细胞分子生物学刊，肺癌与肺部疾病机制常见
+AMERICAN JOURNAL OF SURGERY,AM J SURG,0002-9610,3区,医学,SURGERY,2.3,Q2,yes,相关,普外综合刊，胸外与食管稿偶发
+AMERICAN JOURNAL OF SURGICAL PATHOLOGY,AM J SURG PATHOL,0147-5185,1区,医学,Multiple,4.2,Q1,yes,密切,外科病理主刊，肺、胸膜、纵隔与食管病理常见
+ANNALS OF ONCOLOGY,ANN ONCOL,0923-7534,1区,医学,ONCOLOGY,80.4,Q1,yes,密切,临床肿瘤顶刊，肺癌是核心发文病种之一
+ANNALS OF SURGERY,ANN SURG,0003-4932,1区,医学,SURGERY,7.4,Q1,yes,密切,外科学顶刊，食管癌与胸外科临床研究常见
+ANNALS OF SURGICAL ONCOLOGY,ANN SURG ONCOL,1068-9265,2区,医学,Multiple,3.8,Q1,yes,密切,肿瘤外科主刊，肺癌与食管癌是常规板块
+ANNALS OF THORACIC SURGERY,ANN THORAC SURG,0003-4975,2区,医学,Multiple,5.3,Q1,yes,核心,胸心外科主刊，普胸手术与肺癌外科的主战场
+ARCHIVES OF ORTHOPAEDIC AND TRAUMA SURGERY,ARCH ORTHOP TRAUM SU,0936-8051,3区,医学,Multiple,2.2,Q2,no,无关,骨科与创伤骨科，不涉及胸外科疾病
+ARTHROSCOPY-THE JOURNAL OF ARTHROSCOPIC AND RELATED SURGERY,ARTHROSCOPY,0749-8063,2区,医学,Multiple,6.9,Q1,no,无关,关节镜与运动医学专科，与胸科无交集
+Abdominal Radiology,ABDOM RADIOL,2366-004X,3区,医学,"RADIOLOGY, NUCLEAR MEDICINE & MEDICAL IMAGING",2.3,Q2,yes,相关,腹部与消化道影像刊，食管癌影像研究可见
+Aesthetic Surgery Journal,AESTHET SURG J,1090-820X,3区,医学,SURGERY,4.2,Q1,no,无关,美容外科刊，与胸外科疾病无交集
+American Journal of Cancer Research,,2156-6976,3区,医学,,,,yes,密切,泛肿瘤研究刊，肺癌基础与转化稿常见
+Annals of Cardiothoracic Surgery,ANN CARDIOTHORAC SUR,2225-319X,2区,医学,Multiple,4.1,Q1,yes,核心,心胸外科专题主刊，普胸与肺癌外科为核心内容
+Annals of Gastroenterological Surgery,ANN GASTROENT SURG,2475-0328,3区,医学,GASTROENTEROLOGY & HEPATOLOGY,3.2,Q2,yes,密切,日本消化外科刊，食管癌手术为常规内容
+Annals of the American Thoracic Society,ANN AM THORAC SOC,1546-3222,2区,医学,RESPIRATORY SYSTEM,6,Q1,yes,密切,美国胸科学会临床刊，肺癌、结节与胸膜疾病常见
+Asian Journal of Surgery,ASIAN J SURG,1015-9584,3区,医学,SURGERY,5.2,Q1,yes,相关,亚洲普外综合刊，胸外稿偶发
+BMC CANCER,BMC CANCER,1471-2407,3区,医学,ONCOLOGY,4.1,Q2,yes,密切,开放获取肿瘤刊，肺癌临床与转化研究常见
+BMC MEDICAL IMAGING,BMC MED IMAGING,1471-2342,3区,医学,"RADIOLOGY, NUCLEAR MEDICINE & MEDICAL IMAGING",3.9,Q1,yes,密切,综合医学影像刊，胸部影像稿常见
+BMC Pulmonary Medicine,BMC PULM MED,1471-2466,3区,医学,RESPIRATORY SYSTEM,3.1,Q2,yes,密切,呼吸医学刊，肺癌、胸膜与气道疾病常见
+BMC Surgery,BMC SURG,1471-2482,3区,医学,SURGERY,2.4,Q2,yes,相关,普外综合刊，胸外科稿偶发
+BMJ Open Respiratory Research,BMJ OPEN RESPIR RES,2052-4439,3区,医学,RESPIRATORY SYSTEM,4,Q2,yes,密切,开放获取呼吸刊，肺部肿瘤与胸膜疾病可见
+BREAST CANCER RESEARCH,BREAST CANCER RES,1465-5411,2区,医学,ONCOLOGY,6.2,Q1,no,无关,乳腺癌专科，与胸外科疾病无交集
+BREAST CANCER RESEARCH AND TREATMENT,BREAST CANCER RES TR,0167-6806,3区,医学,ONCOLOGY,3.3,Q2,no,无关,乳腺癌专科，与胸科无交集
+BRITISH JOURNAL OF CANCER,BRIT J CANCER,0007-0920,2区,医学,ONCOLOGY,7.8,Q1,yes,密切,肿瘤综合刊，肺癌基础与临床研究常见
+BRITISH JOURNAL OF ORAL & MAXILLOFACIAL SURGERY,BRIT J ORAL MAX SURG,0266-4356,3区,医学,Multiple,2,Q2,no,无关,口腔颌面外科，不涉及胸科
+Biological Psychiatry-Cognitive Neuroscience and Neuroimaging,BIOL PSYCHIAT-COGN N,2451-9022,2区,医学,Multiple,4.9,Q1,no,无关,精神与认知神经影像，与胸科无交集
+Blood Cancer Discovery,BLOOD CANCER DISCOV,2643-3230,1区,医学,Multiple,12.2,Q1,no,无关,血液肿瘤专科，与胸外科疾病无交集
+Blood Cancer Journal,BLOOD CANCER J,2044-5385,1区,医学,Multiple,13.8,Q1,no,无关,血液肿瘤专科，与胸外科疾病无交集
+Blood and Lymphatic Cancer-Targets and Therapy,,1179-9889,2区,医学,,,,no,无关,血液与淋巴肿瘤专科，与胸科无交集
+Brain Tumor Pathology,,1433-7398,3区,医学,,,,no,无关,脑肿瘤病理专科，与胸科无交集
+Breast Cancer,BREAST CANCER-TOKYO,1340-6868,3区,医学,Multiple,3.7,Q1,no,无关,乳腺癌专科，与胸外科疾病无交集
+Breast Cancer-Targets and Therapy,BREAST CANCER-TARGET,1179-1314,3区,医学,ONCOLOGY,3.6,Q2,no,无关,乳腺癌专科，与胸科无交集
+British Journal of Surgery,,0007-1323,1区,医学,,,,yes,密切,外科学主刊，食管癌与胸部外科研究常见
+CA-A CANCER JOURNAL FOR CLINICIANS,CA-CANCER J CLIN,0007-9235,1区,医学,ONCOLOGY,685.2,Q1,yes,密切,临床肿瘤权威综述刊，肺癌统计与指南是核心内容
+CANADIAN ASSOCIATION OF RADIOLOGISTS JOURNAL-JOURNAL DE L ASSOCIATION CANADIENNE DES RADIOLOGISTES,CAN ASSOC RADIOL J,0846-5371,3区,医学,"RADIOLOGY, NUCLEAR MEDICINE & MEDICAL IMAGING",4,Q1,yes,密切,加拿大综合放射学刊，胸部影像常见
+CANADIAN JOURNAL OF SURGERY,CAN J SURG,0008-428X,3区,医学,SURGERY,2,Q2,yes,相关,加拿大普外刊，胸外稿偶发
+CANCER,CANCER-AM CANCER SOC,0008-543X,1区,医学,ONCOLOGY,5.6,Q1,yes,密切,美国癌症学会临床肿瘤刊，肺癌是主要病种
+CANCER BIOLOGY & THERAPY,CANCER BIOL THER,1538-4047,2区,医学,ONCOLOGY,5.7,Q1,yes,密切,肿瘤生物治疗刊，肺癌靶向与耐药研究常见
+CANCER CAUSES & CONTROL,,0957-5243,3区,医学,,,,yes,密切,肿瘤病因学刊，肺癌危险因素是经典主题
+CANCER CELL,CANCER CELL,1535-6108,1区,医学,Multiple,56.1,Q1,yes,密切,肿瘤生物学顶刊，肺癌机制与靶向研究常见
+CANCER CYTOPATHOLOGY,CANCER CYTOPATHOL,1934-662X,3区,医学,Multiple,2.9,Q2,yes,密切,肿瘤细胞学刊，肺穿刺与EBUS细胞学常见
+CANCER EPIDEMIOLOGY BIOMARKERS & PREVENTION,CANCER EPIDEM BIOMAR,1055-9965,2区,医学,Multiple,3.7,Q1,yes,密切,肿瘤流行病学刊，肺癌筛查与标志物是重点
+CANCER GENE THERAPY,CANCER GENE THER,0929-1903,3区,医学,Multiple,6.4,Q1,yes,相关,肿瘤基因治疗刊，肺癌基因治疗研究可见
+CANCER IMAGING,CANCER IMAGING,1740-5025,2区,医学,Multiple,4.8,Q1,yes,密切,肿瘤影像刊，肺癌影像是主要病种
+CANCER IMMUNOLOGY IMMUNOTHERAPY,CANCER IMMUNOL IMMUN,0340-7004,3区,医学,Multiple,5.8,Q1,yes,密切,肿瘤免疫刊，肺癌免疫治疗研究常见
+CANCER LETTERS,CANCER LETT,0304-3835,1区,医学,ONCOLOGY,11.8,Q1,yes,密切,肿瘤研究综合刊，肺癌稿常见
+CANCER NURSING,CANCER NURS,0162-220X,3区,医学,Multiple,2.6,Q1,yes,密切,肿瘤护理刊，肺癌患者护理研究常见
+CANCER RESEARCH,CANCER RES,0008-5472,1区,医学,ONCOLOGY,22.6,Q1,yes,密切,肿瘤研究旗舰刊，肺癌基础与转化是常规内容
+CANCER SCIENCE,CANCER SCI,1347-9032,2区,医学,ONCOLOGY,4.9,Q2,yes,密切,日本癌学会刊，肺癌与食管癌研究常见
+CARCINOGENESIS,CARCINOGENESIS,0143-3334,3区,医学,ONCOLOGY,3.8,Q2,yes,密切,癌变机制刊，吸烟相关肺癌发生是经典主题
+CARDIOVASCULAR AND INTERVENTIONAL RADIOLOGY,CARDIOVASC INTER RAD,0174-1551,3区,医学,Multiple,3.4,Q2,yes,密切,介入影像刊，肺肿瘤消融与胸部介入常见
+CELLULAR ONCOLOGY,CELL ONCOL,2211-3428,2区,医学,Multiple,5.6,Q1,yes,密切,肿瘤细胞生物学刊，肺癌机制研究常见
+CHEST,CHEST,0012-3692,1区,医学,Multiple,9.8,Q1,yes,密切,呼吸与胸科旗舰刊，肺癌、胸膜、气胸与结节诊治常见
+CLINICAL CANCER RESEARCH,CLIN CANCER RES,1078-0432,1区,医学,ONCOLOGY,10.9,Q1,yes,密切,转化肿瘤顶刊，肺癌靶向与生物标志研究极常见
+CLINICAL ONCOLOGY,,0936-6555,3区,医学,,,,yes,密切,英国临床肿瘤刊，肺癌放疗是主要病种
+COMPUTERIZED MEDICAL IMAGING AND GRAPHICS,COMPUT MED IMAG GRAP,0895-6111,2区,医学,Multiple,5.5,Q1,yes,密切,医学影像计算刊，肺结节与胸部CT算法常见
+Cancer Biology & Medicine,CANCER BIOL MED,2095-3941,2区,医学,Multiple,12.4,Q1,yes,密切,肿瘤综合刊，肺癌临床与转化研究常见
+Cancer Cell International,CANCER CELL INT,1475-2867,3区,医学,ONCOLOGY,7,Q1,yes,密切,肿瘤细胞学开放刊，肺癌机制研究常见
+Cancer Communications,CANCER COMMUN,2523-3548,1区,医学,ONCOLOGY,28.4,Q1,yes,密切,高影响力肿瘤刊，肺癌是重点方向
+Cancer Discovery,CANCER DISCOV,2159-8274,1区,医学,ONCOLOGY,29.5,Q1,yes,密切,肿瘤发现顶刊，肺癌靶点与耐药研究常见
+Cancer Epidemiology,CANCER EPIDEMIOL,1877-7821,3区,医学,Multiple,3,Q2,yes,密切,肿瘤流行病学刊，肺癌流行与筛查常见
+Cancer Immunology Research,CANCER IMMUNOL RES,2326-6066,1区,医学,Multiple,7.9,Q1,yes,密切,肿瘤免疫研究刊，肺癌免疫治疗是核心场景
+Cancer Medicine,CANCER MED-US,2045-7634,3区,医学,ONCOLOGY,3.5,Q2,yes,密切,开放获取临床肿瘤刊，肺癌稿常见
+Cancer Metabolism,CANCER METAB,2049-3002,2区,医学,Multiple,5.9,Q1,yes,相关,肿瘤代谢专题刊，肺癌代谢研究可见
+Cancer Nanotechnology,CANCER NANOTECHNOL,1868-6958,3区,医学,Multiple,5.8,Q1,yes,相关,肿瘤纳米技术刊，肺靶向递送研究可见
+Cancer Prevention Research,CANCER PREV RES,1940-6207,3区,医学,ONCOLOGY,3.4,Q2,yes,密切,肿瘤预防刊，肺癌筛查与化学预防是重点
+Cancer Research and Treatment,CANCER RES TREAT,1598-2998,2区,医学,ONCOLOGY,4.2,Q2,yes,密切,韩国癌学会临床刊，肺癌与食管癌常见
+Cancers,CANCERS,2072-6694,3区,医学,ONCOLOGY,4.8,Q2,yes,密切,开放获取肿瘤综合刊，肺癌论文与专刊极多
+Cardio-Oncology,CARDIO-ONCOLOGY,2057-3804,3区,医学,Multiple,3.4,Q2,yes,密切,肿瘤心脏病学刊，肺癌治疗相关心脏毒性常见
+Chinese Journal of Cancer Research,CHINESE J CANCER RES,1000-9604,2区,医学,ONCOLOGY,6.7,Q1,yes,密切,中国肿瘤临床刊，肺癌与食管癌是主要病种
+Chronic Obstructive Pulmonary Diseases-Journal of the COPD Foundation,COPD-J COPD FDN,2372-952X,3区,医学,RESPIRATORY SYSTEM,2.7,Q2,yes,相关,慢阻肺专科刊，合并肺癌与肺减容话题偶发
+Chronic Respiratory Disease,CHRON RESP DIS,1479-9723,3区,医学,RESPIRATORY SYSTEM,2.9,Q2,yes,相关,慢性呼吸病刊，肺癌共病与康复话题偶发
+Circulation-Cardiovascular Imaging,CIRC-CARDIOVASC IMAG,1941-9651,1区,医学,Multiple,9.1,Q1,no,无关,心血管影像专科，不刊发胸外科疾病
+Clinical Breast Cancer,,1526-8209,3区,医学,,,,no,无关,乳腺癌专科，与胸科无交集
+Clinical Colorectal Cancer,,1533-0028,3区,医学,,,,no,无关,结直肠癌专科，与胸科无交集
+Clinical Genitourinary Cancer,CLIN GENITOURIN CANC,1558-7673,3区,医学,Multiple,2.4,Q2,no,无关,泌尿生殖肿瘤专科，与胸科无交集
+Clinical Lung Cancer,CLIN LUNG CANCER,1525-7304,3区,医学,ONCOLOGY,3.9,Q2,yes,核心,肺癌临床专科主刊
+Clinical Medicine Insights-Endocrinology and Diabetes,,1179-5514,3区,医学,,,,no,无关,内分泌与糖尿病专科，与胸科无交集
+Clinical Neuroradiology,CLIN NEURORADIOL,1869-1439,3区,医学,Multiple,3.2,Q2,no,无关,神经放射专科，不涉及胸部疾病
+Clinical and Translational Radiation Oncology,CLIN TRANSL RAD ONCO,2405-6308,3区,医学,Multiple,3.6,Q1,yes,密切,转化放疗刊，肺癌放疗研究常见
+Clinics in Orthopedic Surgery,CLIN ORTHOP SURG,2005-291X,3区,医学,ORTHOPEDICS,2.5,Q2,no,无关,骨科专科，与胸科无交集
+Current Oncology,CURR ONCOL,1198-0052,3区,医学,ONCOLOGY,3.6,Q2,yes,密切,临床肿瘤综合刊，肺癌诊治稿常见
+DENTOMAXILLOFACIAL RADIOLOGY,DENTOMAXILLOFAC RAD,0250-832X,3区,医学,Multiple,4,Q1,no,无关,牙颌面影像专科，不涉及胸部
+DERMATOLOGIC SURGERY,DERMATOL SURG,1076-0512,3区,医学,Multiple,2.3,Q2,no,无关,皮肤外科专科，与胸外科疾病无交集
+Diagnostic and Interventional Imaging,DIAGN INTERV IMAG,2211-5684,2区,医学,"RADIOLOGY, NUCLEAR MEDICINE & MEDICAL IMAGING",11.1,Q1,yes,密切,诊断与介入影像刊，胸部影像与肺介入常见
+ENDOCRINE-RELATED CANCER,ENDOCR-RELAT CANCER,1351-0088,2区,医学,Multiple,4.4,Q2,yes,相关,内分泌相关肿瘤刊，肺与胸腺神经内分泌肿瘤可见
+EUROPEAN JOURNAL OF CANCER,EUR J CANCER,0959-8049,1区,医学,ONCOLOGY,7.9,Q1,yes,密切,欧洲临床肿瘤主刊，肺癌是主要病种
+EUROPEAN JOURNAL OF CARDIO-THORACIC SURGERY,EUR J CARDIO-THORAC,1010-7940,2区,医学,Multiple,3.3,Q1,yes,核心,欧洲心胸外科主刊，普胸与肺癌外科的核心阵地
+EUROPEAN JOURNAL OF NUCLEAR MEDICINE AND MOLECULAR IMAGING,EUR J NUCL MED MOL I,1619-7070,1区,医学,"RADIOLOGY, NUCLEAR MEDICINE & MEDICAL IMAGING",7.6,Q1,yes,密切,核医学影像刊，肺癌PET与分子影像是重点
+EUROPEAN JOURNAL OF RADIOLOGY,EUR J RADIOL,0720-048X,2区,医学,"RADIOLOGY, NUCLEAR MEDICINE & MEDICAL IMAGING",3.9,Q1,yes,密切,综合放射学刊，胸部影像稿量大
+EUROPEAN JOURNAL OF VASCULAR AND ENDOVASCULAR SURGERY,EUR J VASC ENDOVASC,1078-5884,1区,医学,Multiple,8.5,Q1,no,无关,血管外科专科，不涉及肺癌等胸外科疾病
+EUROPEAN RADIOLOGY,EUR RADIOL,0938-7994,2区,医学,"RADIOLOGY, NUCLEAR MEDICINE & MEDICAL IMAGING",6,Q1,yes,密切,欧洲放射学主刊，胸部影像与肺癌筛查常见
+EUROPEAN RESPIRATORY JOURNAL,EUR RESPIR J,0903-1936,1区,医学,RESPIRATORY SYSTEM,23.8,Q1,yes,密切,欧洲呼吸顶刊，肺癌、结节与胸膜疾病是常规内容
+Esophagus,ESOPHAGUS-TOKYO,1612-9059,3区,医学,GASTROENTEROLOGY & HEPATOLOGY,5.8,Q1,yes,核心,食管疾病主刊，食管癌外科与多学科是核心内容
+European Heart Journal-Cardiovascular Imaging,EUR HEART J-CARD IMG,2047-2404,1区,医学,Multiple,6.1,Q1,no,无关,心血管影像专科，不涉及胸外科疾病
+European Journal of Oncology Nursing,EUR J ONCOL NURS,1462-3889,3区,医学,Multiple,3.6,Q1,yes,密切,肿瘤护理刊，肺癌患者护理研究常见
+European Journal of Trauma and Emergency Surgery,EUR J TRAUMA EMERG S,1863-9933,3区,医学,EMERGENCY MEDICINE,2.3,Q2,yes,密切,创伤与急诊外科刊，胸部创伤与气胸常见
+European Radiology Experimental,EUR RADIOL EXP,2509-9280,2区,医学,"RADIOLOGY, NUCLEAR MEDICINE & MEDICAL IMAGING",4.7,Q1,yes,密切,实验放射学刊，胸部成像方法研究常见
+European Urology Oncology,EUR UROL ONCOL,2588-9311,1区,医学,Multiple,8.5,Q1,no,无关,泌尿肿瘤专科，与胸科无交集
+Experimental Hematology Oncology,EXP HEMATOL ONCOL,2162-3619,2区,医学,Multiple,17.5,Q1,yes,相关,血液与肿瘤实验刊，实体瘤含肺癌的稿件可见
+Facial Plastic Surgery & Aesthetic Medicine,FACIAL PLAST SURG AE,2689-3614,3区,医学,SURGERY,1.8,Q2,no,无关,面部美容整形外科，与胸科无交集
+Facial Plastic Surgery Clinics of North America,FACIAL PLAST SURG CL,1064-7406,2区,医学,SURGERY,1.9,Q2,no,无关,面部整形专科，与胸科无交集
+Foot and Ankle Surgery,FOOT ANKLE SURG,1268-7731,3区,医学,ORTHOPEDICS,2.4,Q2,no,无关,足踝外科专科，与胸科无交集
+Frontiers in Oncology,FRONT ONCOL,2234-943X,3区,医学,ONCOLOGY,3.4,Q2,yes,密切,肿瘤综合开放刊，肺癌专栏与论文极多
+GENES CHROMOSOMES & CANCER,GENE CHROMOSOME CANC,1045-2257,2区,医学,Multiple,2.3,Q3,yes,相关,肿瘤细胞遗传学刊，肺癌基因组研究可见
+Gastric Cancer,GASTRIC CANCER,1436-3291,2区,医学,Multiple,6.1,Q1,yes,密切,胃癌专科刊，食管胃结合部癌的胸外科手术研究常见
+Gynecologic Oncology,GYNECOL ONCOL,0090-8258,2区,医学,Multiple,4.5,Q1,no,无关,妇科肿瘤专科，与胸科无交集
+HEMATOLOGY-ONCOLOGY CLINICS OF NORTH AMERICA,HEMATOL ONCOL CLIN N,0889-8588,3区,医学,Multiple,3.1,Q2,yes,相关,血液肿瘤专题系列，亦出版肺癌等实体瘤专刊
+Hand-American Association for Hand Surgery,HAND-AM ASSOC HAND S,1558-9447,3区,医学,Multiple,1.3,Q3,no,无关,手外科专科，与胸科无交集
+Heart Lung and Circulation,,1443-9506,3区,医学,,,,yes,密切,澳新心脏与心胸学会刊，含普胸外科内容
+Hepatobiliary Surgery and Nutrition,HEPATOBIL SURG NUTR,2304-3881,1区,医学,Multiple,8.1,Q1,no,无关,肝胆外科专科，与胸科无交集
+IEEE TRANSACTIONS ON MEDICAL IMAGING,IEEE T MED IMAGING,0278-0062,1区,医学,Multiple,12.4,Q1,yes,密切,医学影像技术顶刊，肺部CT与结节算法是常见应用
+INTERNATIONAL JOURNAL OF CANCER,INT J CANCER,0020-7136,2区,医学,ONCOLOGY,4.9,Q2,yes,密切,肿瘤综合刊，肺癌流行病学与转化研究常见
+INTERNATIONAL JOURNAL OF GYNECOLOGICAL CANCER,INT J GYNECOL CANCER,1048-891X,3区,医学,Multiple,5.4,Q1,no,无关,妇科肿瘤专科，与胸科无交集
+INTERNATIONAL JOURNAL OF ONCOLOGY,INT J ONCOL,1019-6439,3区,医学,ONCOLOGY,7.3,Q1,yes,密切,肿瘤综合研究刊，肺癌实验与临床稿常见
+INTERNATIONAL JOURNAL OF ORAL AND MAXILLOFACIAL SURGERY,INT J ORAL MAX SURG,0901-5027,3区,医学,Multiple,2.5,Q2,no,无关,口腔颌面外科专科，不涉及胸科
+INTERNATIONAL JOURNAL OF RADIATION ONCOLOGY BIOLOGY PHYSICS,INT J RADIAT ONCOL,0360-3016,1区,医学,Multiple,7.4,Q1,yes,密切,放疗生物学主刊，肺癌是放疗最大病种之一
+INTERNATIONAL JOURNAL OF TUBERCULOSIS AND LUNG DISEASE,INT J TUBERC LUNG D,1027-3719,3区,医学,Multiple,3.6,Q2,yes,密切,结核与肺部疾病刊，结节鉴别与胸膜结核常见
+INVESTIGATIVE RADIOLOGY,INVEST RADIOL,0020-9996,1区,医学,"RADIOLOGY, NUCLEAR MEDICINE & MEDICAL IMAGING",7.9,Q1,yes,密切,实验与临床放射学刊，胸部成像研究常见
+Infectious Agents and Cancer,,1750-9378,3区,医学,,,,yes,相关,感染致癌刊，肺部微生物与癌变话题偶发
+Influenza and Other Respiratory Viruses,INFLUENZA OTHER RESP,1750-2640,3区,医学,Multiple,3.9,Q1,no,无关,流感与呼吸道病毒专科，不刊发胸外科疾病
+Insights into Imaging,INSIGHTS IMAGING,1869-4101,2区,医学,"RADIOLOGY, NUCLEAR MEDICINE & MEDICAL IMAGING",5.6,Q1,yes,密切,欧洲放射学会影像刊，胸部影像综述常见
+International Journal of Chronic Obstructive Pulmonary Disease,INT J CHRONIC OBSTR,1178-2005,3区,医学,RESPIRATORY SYSTEM,4.1,Q1,yes,相关,慢阻肺专科刊，合并肺癌话题偶发
+International Journal of Clinical Oncology,,1341-9625,3区,医学,,,,yes,密切,日本临床肿瘤学会刊，肺癌与食管癌常见
+International Journal of Medical Robotics and Computer Assisted Surgery,INT J MED ROBOT COMP,1478-5951,3区,医学,SURGERY,2.4,Q2,yes,密切,机器人与计算机辅助外科刊，机器人肺切除常见
+International Journal of Surgery,INT J SURG,1743-9191,2区,医学,SURGERY,9,Q1,yes,密切,泛外科高产刊，胸腔镜与食管手术稿常见
+JACC-Cardiovascular Imaging,JACC-CARDIOVASC IMAG,1936-878X,1区,医学,Multiple,19,Q1,no,无关,心血管影像专科，不涉及胸外科疾病
+JACC:CardioOncology,JACC-CARDIOONCOL,2666-0873,1区,医学,Multiple,15.5,Q1,yes,密切,肿瘤心脏病学刊，肺癌药物与胸部放疗的心脏毒性常见
+JAMA Oncology,JAMA ONCOL,2374-2437,1区,医学,ONCOLOGY,23.9,Q1,yes,密切,临床肿瘤顶刊，肺癌试验与评论是核心板块
+JAMA Otolaryngology-Head Neck Surgery,JAMA OTOLARYNGOL,2168-6181,1区,医学,Multiple,7,Q1,no,无关,耳鼻咽喉头颈外科，与胸科无交集
+JAMA Surgery,JAMA SURG,2168-6254,1区,医学,SURGERY,15.6,Q1,yes,密切,外科顶刊，食管癌与胸外科结局研究常见
+JCO Clinical Cancer Informatics,JCO CLIN CANCER INFO,2473-4276,3区,医学,ONCOLOGY,3.6,Q2,yes,相关,肿瘤信息学刊，肺癌真实世界数据与模型可见
+JCO Global Oncology,JCO GLOB ONCOL,2687-8941,3区,医学,ONCOLOGY,3.8,Q2,yes,密切,全球临床肿瘤刊，肺癌研究常见
+JCO Oncology Practice,JCO ONCOL PRACT,2688-1527,2区,医学,ONCOLOGY,5.5,Q1,yes,密切,肿瘤临床实践刊，肺癌诊疗路径研究常见
+JCO Precision Oncology,JCO PRECIS ONCOL,2473-4284,2区,医学,ONCOLOGY,4.7,Q2,yes,密切,精准肿瘤刊，肺癌是精准治疗最主要癌种
+JMIR Cancer,,2369-1999,3区,医学,,,,yes,相关,肿瘤数字健康刊，肺癌患者与远程研究可见
+JNCI Cancer Spectrum,JNCI CANCER SPECT,2515-5091,3区,医学,ONCOLOGY,4.8,Q2,yes,密切,JNCI系列肿瘤刊，肺癌临床与人群研究常见
+JNCI-Journal of the National Cancer Institute,JNCI-J NATL CANCER I,0027-8874,1区,医学,ONCOLOGY,7.7,Q1,yes,密切,美国国立癌症研究所旗舰刊，肺癌研究常见
+JOURNAL OF BONE AND JOINT SURGERY-AMERICAN VOLUME,J BONE JOINT SURG AM,0021-9355,1区,医学,Multiple,4.5,Q1,no,无关,骨科专科，与胸外科疾病无交集
+JOURNAL OF CATARACT AND REFRACTIVE SURGERY,J CATARACT REFR SURG,0886-3350,3区,医学,Multiple,3.7,Q1,no,无关,白内障与屈光眼科专科，与胸科无交集
+JOURNAL OF CLINICAL ONCOLOGY,J CLIN ONCOL,0732-183X,1区,医学,ONCOLOGY,44.7,Q1,yes,密切,临床肿瘤第一刊，肺癌试验是最重要板块之一
+JOURNAL OF CRANIO-MAXILLOFACIAL SURGERY,J CRANIO MAXILL SURG,1010-5182,2区,医学,Multiple,2.1,Q2,no,无关,颅颌面外科专科，不涉及胸科
+JOURNAL OF EXPERIMENTAL&CLINICAL CANCER RESEARCH,J EXP CLIN CANC RES,1756-9966,1区,医学,ONCOLOGY,14.3,Q1,yes,密切,转化与临床肿瘤刊，肺癌研究常见
+JOURNAL OF GASTROINTESTINAL SURGERY,J GASTROINTEST SURG,1091-255X,3区,医学,Multiple,2.8,Q1,yes,密切,胃肠外科刊，食管癌与食管良性疾病手术常见
+JOURNAL OF HAND SURGERY-AMERICAN VOLUME,J HAND SURG-AM,0363-5023,2区,医学,Multiple,2.4,Q2,no,无关,手外科专科，与胸科无交集
+JOURNAL OF HEART AND LUNG TRANSPLANTATION,J HEART LUNG TRANSPL,1053-2498,1区,医学,Multiple,6.7,Q1,yes,核心,心肺移植主刊，肺移植是胸外科核心术式
+JOURNAL OF MAGNETIC RESONANCE IMAGING,J MAGN RESON IMAGING,1053-1807,2区,医学,"RADIOLOGY, NUCLEAR MEDICINE & MEDICAL IMAGING",4.3,Q1,yes,密切,磁共振影像刊，胸部MRI应用常见
+JOURNAL OF NEURO-ONCOLOGY,J NEURO-ONCOL,0167-594X,2区,医学,Multiple,3.4,Q2,no,无关,神经肿瘤专科，与胸科无交集
+JOURNAL OF NEUROIMAGING,J NEUROIMAGING,1051-2284,3区,医学,Multiple,2.5,Q2,no,无关,神经影像专科，不涉及胸部
+JOURNAL OF NEUROLOGY NEUROSURGERY AND PSYCHIATRY,J NEUROL NEUROSUR PS,0022-3050,1区,医学,Multiple,7.7,Q1,no,无关,神经病学与精神科，与胸科无交集
+JOURNAL OF NEURORADIOLOGY,J NEURORADIOLOGY,0150-9861,3区,医学,Multiple,3.3,Q2,no,无关,神经放射专科，不涉及胸部
+JOURNAL OF NEUROSURGERY,J NEUROSURG,0022-3085,2区,医学,Multiple,3.8,Q1,no,无关,神经外科专科，与胸科无交集
+JOURNAL OF NEUROSURGERY-SPINE,J NEUROSURG-SPINE,1547-5654,2区,医学,Multiple,3.9,Q1,no,无关,脊柱神经外科专科，与胸科无交集
+JOURNAL OF NEUROSURGICAL ANESTHESIOLOGY,J NEUROSURG ANESTH,0898-4921,3区,医学,Multiple,2.7,Q1,no,无关,神经外科麻醉专科，不涉及胸科围术期
+JOURNAL OF ORAL AND MAXILLOFACIAL SURGERY,J ORAL MAXIL SURG,0278-2391,3区,医学,"DENTISTRY, ORAL SURGERY & MEDICINE",2.5,Q2,no,无关,口腔颌面外科专科，不涉及胸科
+JOURNAL OF RECONSTRUCTIVE MICROSURGERY,J RECONSTR MICROSURG,0743-684X,2区,医学,SURGERY,2.3,Q2,yes,相关,显微重建外科刊，胸壁游离皮瓣重建偶发
+JOURNAL OF REFRACTIVE SURGERY,J REFRACT SURG,1081-597X,2区,医学,Multiple,2.9,Q1,no,无关,屈光眼科专科，与胸科无交集
+JOURNAL OF SHOULDER AND ELBOW SURGERY,J SHOULDER ELB SURG,1058-2746,2区,医学,Multiple,3.4,Q1,no,无关,肩肘骨科专科，与胸科无交集
+JOURNAL OF SURGICAL ONCOLOGY,J SURG ONCOL,0022-4790,3区,医学,Multiple,1.9,Q2,yes,密切,肿瘤外科刊，肺癌与食管癌手术研究常见
+JOURNAL OF SURGICAL RESEARCH,J SURG RES,0022-4804,3区,医学,SURGERY,1.6,Q3,yes,相关,外科研究综合刊，胸外基础与临床稿偶发
+JOURNAL OF THE AMERICAN ACADEMY OF ORTHOPAEDIC SURGEONS,J AM ACAD ORTHOP SUR,1067-151X,3区,医学,Multiple,2.9,Q1,no,无关,骨科专科，与胸科无交集
+JOURNAL OF THE AMERICAN COLLEGE OF SURGEONS,J AM COLL SURGEONS,1072-7515,2区,医学,SURGERY,3.2,Q1,yes,密切,美国外科医师学会刊，食管与胸外科研究常见
+JOURNAL OF THORACIC AND CARDIOVASCULAR SURGERY,J THORAC CARDIOV SUR,0022-5223,2区,医学,Multiple,4.7,Q1,yes,核心,胸心血管外科旗舰刊，普胸外科的主战场
+JOURNAL OF VASCULAR AND INTERVENTIONAL RADIOLOGY,J VASC INTERV RADIOL,1051-0443,3区,医学,Multiple,3.1,Q2,yes,密切,介入放射主刊，肺肿瘤消融与胸部介入常见
+JOURNAL OF VASCULAR SURGERY,J VASC SURG,0741-5214,2区,医学,Multiple,3.9,Q1,no,无关,血管外科专科，不涉及胸外科肿瘤与胸膜疾病
+Joint Diseases and Related Surgery,JOINT DIS RELAT SURG,2687-4792,3区,医学,Multiple,2.5,Q2,no,无关,关节疾病与骨科专科，与胸科无交集
+Joumnal for ImmunoTherapy of Cancer,,2051-1426,1区,医学,,,,yes,密切,肿瘤免疫治疗主刊，肺癌免疫治疗是最大板块之一
+Journal of Bone Oncology,J BONE ONCOL,2212-1374,3区,医学,ONCOLOGY,3.6,Q2,yes,相关,骨肿瘤刊，胸壁骨原发肿瘤与肺癌骨转移偶有涉及
+Journal of Bronchology & Interventional Pulmonology,J BRONCHOL INTERN PU,1944-6586,2区,医学,RESPIRATORY SYSTEM,2.3,Q3,yes,核心,支气管镜与介入肺脏主刊，肺结节与肺癌诊断介入的主战场
+Journal of Cancer,J CANCER,1837-9664,3区,医学,ONCOLOGY,3.4,Q2,yes,密切,开放获取肿瘤刊，肺癌研究常见
+Journal of Cancer Survivorship,J CANCER SURVIV,1932-2259,2区,医学,Multiple,3.4,Q1,yes,相关,癌症生存者研究刊，肺癌生存者议题可见
+Journal of Cardiopulmonary Rehabilitation and Prevention,J CARDIOPULM REHABIL,1932-7501,3区,医学,CARDIAC & CARDIOVASCULAR SYSTEMS,2.9,Q2,yes,相关,心肺康复刊，肺癌术后康复与呼吸康复可见
+Journal of Clinical Medicine,J CLIN MED,2077-0383,3区,医学,"MEDICINE, GENERAL & INTERNAL",3.3,Q1,yes,相关,综合临床医学开放刊，胸科临床研究可以发表
+Journal of Geriatric Oncology,J GERIATR ONCOL,1879-4068,3区,医学,Multiple,2.9,Q3,yes,密切,老年肿瘤刊，肺癌是老年最常见肿瘤
+Journal of Gynecologic Oncology,J GYNECOL ONCOL,2005-0380,2区,医学,Multiple,4.2,Q1,no,无关,妇科肿瘤专科，与胸科无交集
+Journal of Hand Surgery-European Volume,J HAND SURG-EUR VOL,1753-1934,3区,医学,Multiple,2.1,Q2,no,无关,手外科专科，与胸科无交集
+Journal of Hematology Oncology,J HEMATOL ONCOL,1756-8722,1区,医学,Multiple,47.8,Q1,yes,密切,血液与肿瘤高影响力刊，肺癌免疫与转化研究常见
+Journal of Hepatocellular Carcinoma,J HEPATOCELL CARCINO,2253-5969,3区,医学,ONCOLOGY,3.9,Q2,no,无关,肝细胞癌专科，与胸科无交集
+Journal of Neurolnterventional Surgery,,1759-8478,2区,医学,,,,no,无关,神经介入专科，不涉及胸部疾病
+Journal of Neurosurgery-Pediatrics,J NEUROSURG-PEDIATR,1933-0707,3区,医学,Multiple,2.2,Q2,no,无关,小儿神经外科专科，与胸科无交集
+Journal of Orthopaedic Surgery and Research,J ORTHOP SURG RES,1749-799X,3区,医学,ORTHOPEDICS,3.8,Q1,no,无关,骨科专科，与胸科无交集
+Journal of Otolaryngology-Head & Neck Surgery,J OTOLARYNGOL-HEAD N,1916-0216,3区,医学,OTORHINOLARYNGOLOGY,2.5,Q1,no,无关,耳鼻咽喉头颈外科，与胸科无交集
+Journal of Pediatric Surgery,J PEDIATR SURG,0022-3468,2区,医学,Multiple,2.3,Q2,yes,密切,小儿外科主刊，先天肺病、食管闭锁与纵隔肿瘤常见
+Journal of Plastic Reconstructive and Aesthetic Surgery,J PLAST RECONSTR AES,1748-6815,3区,医学,SURGERY,2.4,Q2,yes,相关,整形重建刊，胸壁缺损重建偶发
+Journal of Robotic Surgery,J ROBOT SURG,1863-2483,3区,医学,SURGERY,4.2,Q1,yes,密切,机器人外科刊，机器人胸腔镜肺切除常见
+Journal of Thoracic Oncology,J THORAC ONCOL,1556-0864,1区,医学,Multiple,23.3,Q1,yes,核心,胸部肿瘤旗舰刊，肺癌与纵隔肿瘤的主战场
+Journal of Trauma and Acute Care Surgery,J TRAUMA ACUTE CARE,2163-0755,2区,医学,Multiple,3.9,Q1,yes,密切,创伤外科主刊，胸部创伤、气胸与血胸是常规内容
+Journal of Vascular Surgery-Venous and Lymphatic Disorders,J VASC SURG-VENOUS L,2213-333X,2区,医学,Multiple,3.1,Q1,yes,相关,静脉淋巴专科刊，胸导管与乳糜胸议题偶发
+Journal of the American College of Radiology,J AM COLL RADIOL,1546-1440,2区,医学,"RADIOLOGY, NUCLEAR MEDICINE & MEDICAL IMAGING",5.3,Q1,yes,密切,美国放射学会刊，肺癌筛查与胸部影像政策常见
+Journal of the National Cancer Center,J NATL CANCER CTR,2667-0054,3区,医学,ONCOLOGY,25.2,Q1,yes,密切,国家癌症中心刊，肺癌防控与临床研究常见
+Journal of the National Comprehensive Cancer Network,J NATL COMPR CANC NE,1540-1405,2区,医学,ONCOLOGY,17.5,Q1,yes,密切,NCCN刊，肺癌指南与实践研究是重点内容
+KNEE SURGERY SPORTS TRAUMATOLOGY ARTHROSCOPY,KNEE SURG SPORT TR A,0942-2056,2区,医学,Multiple,5.5,Q1,no,无关,膝关节与运动医学专科，与胸科无交集
+KOREAN JOURNAL OF RADIOLOGY,KOREAN J RADIOL,1229-6929,2区,医学,"RADIOLOGY, NUCLEAR MEDICINE & MEDICAL IMAGING",6.1,Q1,yes,密切,综合放射学刊，胸部影像研究常见
+Knee Surgery Related Research,KNEE SURG RELAT RES,2234-2451,1区,医学,Multiple,4.9,Q1,no,无关,膝关节外科专科，与胸科无交集
+LANCET ONCOLOGY,LANCET ONCOL,1470-2045,1区,医学,ONCOLOGY,33.7,Q1,yes,密切,临床肿瘤顶刊，肺癌重磅试验的主要发表阵地
+LANGENBECKS ARCHIVES OF SURGERY,LANGENBECK ARCH SURG,1435-2443,3区,医学,SURGERY,2.2,Q2,yes,相关,欧洲普外与消化外科刊，食管手术稿偶发
+LASERS IN SURGERY AND MEDICINE,LASER SURG MED,0196-8092,3区,医学,Multiple,2.1,Q2,yes,相关,激光外科刊，气道激光与光动力治疗偶发
+LUNG,LUNG,0341-2040,3区,医学,RESPIRATORY SYSTEM,4.3,Q1,yes,密切,肺部疾病综合刊，肺癌与胸膜疾病常见
+LUNG CANCER,LUNG CANCER,0169-5002,2区,医学,Multiple,5.3,Q1,yes,核心,肺癌专科主刊
+Lancet Respiratory Medicine,LANCET RESP MED,2213-2600,1区,医学,Multiple,34.7,Q1,yes,密切,呼吸医学顶刊，肺癌筛查、结节与胸膜疾病是重点
+Liver Cancer,LIVER CANCER,2235-1795,1区,医学,Multiple,10.5,Q1,no,无关,肝癌专科，与胸科无交集
+Lung Cancer-Targets and Therapy,,1179-2728,3区,医学,,,,yes,核心,肺癌专科刊，聚焦肺癌靶向与治疗
+MOLECULAR CANCER RESEARCH,MOL CANCER RES,1541-7786,2区,医学,Multiple,5.8,Q1,yes,密切,肿瘤分子研究刊，肺癌机制与标志物研究常见
+MOLECULAR CANCER THERAPEUTICS,MOL CANCER THER,1535-7163,2区,医学,ONCOLOGY,6.9,Q1,yes,密切,肿瘤药物临床前刊，肺癌模型与药效研究常见
+Maxillofacial Plastic and Reconstructive Surgery,MAX PLAST RECONSTR S,2288-8101,3区,医学,"DENTISTRY, ORAL SURGERY & MEDICINE",3.5,Q1,no,无关,颌面整形重建专科，不涉及胸科
+Molecular Cancer,MOL CANCER,1476-4598,1区,医学,Multiple,42.2,Q1,yes,密切,分子肿瘤高影响力刊，肺癌机制与靶点研究常见
+Molecular Oncology,MOL ONCOL,1574-7891,2区,医学,ONCOLOGY,4.5,Q2,yes,密切,转化肿瘤刊，肺癌分子分型与标志物常见
+NEURO-ONCOLOGY,NEURO-ONCOLOGY,1522-8517,1区,医学,Multiple,13.1,Q1,no,无关,神经肿瘤专科，与胸科无交集
+NEURORADIOLOGY,NEURORADIOLOGY,0028-3940,3区,医学,Multiple,2.8,Q2,no,无关,神经放射专科，不涉及胸部
+NEUROSURGERY,NEUROSURGERY,0148-396X,2区,医学,Multiple,3.8,Q1,no,无关,神经外科专科，与胸科无交集
+NEUROSURGERY CLINICS OF NORTH AMERICA,NEUROSURG CLIN N AM,1042-3680,3区,医学,Multiple,2.5,Q2,no,无关,神经外科专题专科，与胸科无交集
+NEUROSURGICAL REVIEW,NEUROSURG REV,0344-5607,3区,医学,Multiple,2.8,Q1,no,无关,神经外科专科，与胸科无交集
+Nature Cancer,NAT CANCER,2662-1347,1区,医学,ONCOLOGY,28,Q1,yes,密切,肿瘤综合顶刊，肺癌转化与临床研究常见
+Neuro-Oncology Advances,NEURO-ONCOL ADV,2632-2498,3区,医学,Multiple,4.6,Q1,no,无关,神经肿瘤专科，与胸科无交集
+Neurosurgical Focus,NEUROSURG FOCUS,1092-0684,2区,医学,Multiple,3.3,Q1,no,无关,神经外科专科，与胸科无交集
+OBESITY SURGERY,OBES SURG,0960-8923,3区,医学,SURGERY,3.4,Q1,no,无关,减重外科专科，不涉及胸外科疾病
+ONCOLOGIST,ONCOLOGIST,1083-7159,2区,医学,ONCOLOGY,4.7,Q2,yes,密切,临床肿瘤实践刊，肺癌诊治是核心内容之一
+ONCOLOGY REPORTS,ONCOL REP,1021-335X,3区,医学,ONCOLOGY,4.7,Q2,yes,密切,肿瘤研究刊，肺癌实验与临床稿常见
+ORAL ONCOLOGY,ORAL ONCOL,1368-8375,2区,医学,Multiple,4,Q1,no,无关,口腔与头颈肿瘤专科，与胸科无交集
+OTOLARYNGOLOGY-HEAD AND NECK SURGERY,OTOLARYNG HEAD NECK,0194-5998,3区,医学,Multiple,2.6,Q1,no,无关,耳鼻咽喉头颈外科，与胸科无交集
+Orthopaedics & Traumatology-Surgery & Research,ORTHOP TRAUMATOL-SUR,1877-0568,2区,医学,Multiple,2.7,Q1,no,无关,骨科与创伤骨科专科，与胸科无交集
+PEDIATRIC BLOOD & CANCER,PEDIATR BLOOD CANCER,1545-5009,3区,医学,Multiple,2.4,Q2,yes,密切,儿童血液与肿瘤刊，纵隔生殖细胞瘤与胸膜肺母细胞瘤常见
+PEDIATRIC RADIOLOGY,PEDIATR RADIOL,0301-0449,3区,医学,Multiple,2.5,Q1,yes,密切,儿科影像刊，先天性肺病与纵隔肿物影像常见
+PEDIATRIC SURGERY INTERNATIONAL,PEDIATR SURG INT,0179-0358,3区,医学,Multiple,1.8,Q2,yes,密切,小儿外科刊，食管闭锁与先天性肺畸形常见
+PLASTIC AND RECONSTRUCTIVE SURGERY,PLAST RECONSTR SURG,0032-1052,2区,医学,SURGERY,3.6,Q1,yes,相关,整形重建旗舰刊，胸壁与胸骨重建偶发
+PROSTATE CANCER AND PROSTATIC DISEASES,PROSTATE CANCER P D,1365-7852,2区,医学,Multiple,6.9,Q1,no,无关,前列腺癌专科，与胸科无交集
+PSYCHO-ONCOLOGY,PSYCHO-ONCOLOGY,1057-9249,2区,医学,Multiple,3.9,Q1,yes,密切,心理肿瘤学刊，肺癌患者心理研究常见
+PULMONARY PHARMACOLOGY & THERAPEUTICS,PULM PHARMACOL THER,1094-5539,3区,医学,Multiple,3.8,Q2,yes,相关,肺药理刊，以气道疾病为主，肺癌药物研究偶发
+Patient Safety in Surgery,PATIENT SAF SURG,1754-9493,3区,医学,SURGERY,3.3,Q1,yes,相关,外科患者安全刊，胸外手术安全议题可见
+Physics & Imaging in Radiation Oncology,PHYS IMAG RADIAT ONC,2405-6316,2区,医学,Multiple,3.2,Q2,yes,密切,放疗物理与影像刊，肺癌放疗计划研究常见
+Pneumonia,PNEUMONIA,2200-6133,3区,医学,RESPIRATORY SYSTEM,3.8,Q2,yes,相关,肺炎专科刊，胸腔积液等胸膜并发症偶发
+Practical Radiation Oncology,PRACT RADIAT ONCOL,1879-8500,3区,医学,Multiple,3.9,Q1,yes,密切,临床放疗实践刊，肺癌放疗是主要病种
+Precision Clinical Medicine,PRECIS CLIN MED,2096-5303,2区,医学,"MEDICINE, RESEARCH & EXPERIMENTAL",6.4,Q1,yes,相关,精准临床医学刊，肺癌精准诊疗研究可见
+Pulmonology,PULMONOLOGY,2531-0437,2区,医学,RESPIRATORY SYSTEM,5.3,Q1,yes,密切,呼吸病学刊，肺癌、胸膜与介入肺脏内容常见
+Quantitative Imaging in Medicine and Surgery,QUANT IMAG MED SURG,2223-4292,3区,医学,"RADIOLOGY, NUCLEAR MEDICINE & MEDICAL IMAGING",2.8,Q2,yes,密切,定量影像刊，胸部CT定量与结节研究常见
+RADIOLOGY,RADIOLOGY,0033-8419,1区,医学,"RADIOLOGY, NUCLEAR MEDICINE & MEDICAL IMAGING",17.6,Q1,yes,密切,放射学旗舰刊，胸部影像与肺癌筛查是核心板块
+RADIOTHERAPY AND ONCOLOGY,RADIOTHER ONCOL,0167-8140,2区,医学,Multiple,5.8,Q1,yes,密切,放疗主刊，肺癌放疗研究极常见
+RESPIRATION,RESPIRATION,0025-7931,3区,医学,RESPIRATORY SYSTEM,2.6,Q2,yes,密切,呼吸病学刊，肺癌、胸膜与介入内容常见
+RESPIRATORY MEDICINE,RESP MED,0954-6111,3区,医学,Multiple,3.3,Q2,yes,密切,呼吸医学刊，肺癌与胸膜疾病常见
+RESPIRATORY RESEARCH,RESP RES,1465-993X,2区,医学,RESPIRATORY SYSTEM,5.7,Q1,yes,密切,呼吸转化研究刊，肺癌与肺部疾病机制常见
+RESPIROLOGY,RESPIROLOGY,1323-7799,2区,医学,RESPIRATORY SYSTEM,7.2,Q1,yes,密切,亚太呼吸主刊，肺癌与胸膜疾病是常规内容
+Radiation Oncology,RADIAT ONCOL,1748-717X,2区,医学,Multiple,3.6,Q1,yes,密切,放疗开放刊，肺癌放疗稿常见
+Radiologia Medica,RADIOL MED,0033-8362,2区,医学,"RADIOLOGY, NUCLEAR MEDICINE & MEDICAL IMAGING",5.3,Q1,yes,密切,综合放射学刊，胸部影像常见
+Radiology-Artificial Intelligence,RADIOL-ARTIF INTELL,2638-6100,1区,医学,Multiple,20.1,Q1,yes,密切,影像人工智能刊，肺结节与胸部CT算法是最常见主题之一
+Radiology-Cardiothoracic Imaging,RADIOL-CARDIOTHORAC,2638-6135,3区,医学,"RADIOLOGY, NUCLEAR MEDICINE & MEDICAL IMAGING",4.5,Q1,yes,核心,心胸影像专科主刊，肺癌、结节与胸膜影像的主战场
+Radiology-Imaging Cancer,RADIOL-IMAG CANCER,2638-616X,2区,医学,Multiple,7.2,Q1,yes,密切,肿瘤影像刊，肺癌影像是重点内容
+SEMINARS IN RADIATION ONCOLOGY,SEMIN RADIAT ONCOL,1053-4296,3区,医学,Multiple,4.3,Q1,yes,密切,放疗专题综述刊，肺癌专刊常见
+SUPPORTIVE CARE IN CANCER,SUPPORT CARE CANCER,0941-4355,3区,医学,Multiple,3.4,Q1,yes,密切,肿瘤支持治疗刊，肺癌症状控制研究常见
+SURGEON-JOURNAL OF THE ROYAL COLLEGES OF SURGEONS OF EDINBURGH AND IRELAND,SURG-J R COLL SURG E,1479-666X,3区,医学,SURGERY,2.7,Q1,yes,相关,皇家外科学院综合刊，胸外综述与教学稿偶发
+SURGERY,SURGERY,0039-6060,2区,医学,SURGERY,3.2,Q1,yes,相关,普外综合刊，胸外与食管稿可见但不占主体
+SURGICAL CLINICS OF NORTH AMERICA,SURG CLIN N AM,0039-6109,3区,医学,SURGERY,2.5,Q2,yes,相关,外科专题综述系列，胸部外科专刊偶发
+SURGICAL ENDOSCOPY AND OTHER INTERVENTIONAL TECHNIQUES,SURG ENDOSC,0930-2794,2区,医学,SURGERY,3.3,Q1,yes,密切,腔镜与内镜外科主刊，胸腔镜与食管微创手术常见
+SURGICAL ONCOLOGY-OXFORD,SURG ONCOL,0960-7404,3区,医学,Multiple,2.1,Q2,yes,密切,肿瘤外科刊，肺癌与食管癌手术研究常见
+Scandinavian Journal of Surgery,SCAND J SURG,1457-4969,3区,医学,SURGERY,2.1,Q2,yes,相关,北欧外科综合刊，胸外稿偶发
+Seminars in Oncology Nursing,SEMIN ONCOL NURS,0749-2081,3区,医学,Multiple,3.2,Q1,yes,相关,肿瘤护理专题刊，肺癌护理内容可见
+Seminars in Thoracic and Cardiovascular Surgery,SEMIN THORAC CARDIOV,1043-0679,3区,医学,CARDIAC & CARDIOVASCULAR SYSTEMS,2.2,Q3,yes,核心,胸心血管外科专题刊，普胸手术技术的主阵地
+Surgery for Obesity and Related Diseases,SURG OBES RELAT DIS,1550-7289,2区,医学,SURGERY,3.2,Q1,no,无关,减重代谢外科专科，不涉及胸外科疾病
+Targeted Oncology,TARGET ONCOL,1776-2596,3区,医学,ONCOLOGY,5.1,Q1,yes,密切,靶向肿瘤治疗刊，肺癌靶向药物是核心内容
+Therapeutic Advances in Medical Oncology,THER ADV MED ONCOL,1758-8340,2区,医学,ONCOLOGY,4.1,Q2,yes,密切,临床肿瘤治疗刊，肺癌系统治疗常见
+Therapeutic Advances in Respiratory Disease,THER ADV RESPIR DIS,1753-4658,3区,医学,RESPIRATORY SYSTEM,3.2,Q2,yes,密切,呼吸病治疗刊，肺癌与胸膜疾病治疗可见
+Translational Lung Cancer Research,TRANSL LUNG CANCER R,2218-6751,3区,医学,Multiple,3.4,Q2,yes,核心,肺癌转化研究专科主刊
+Translational Oncology,TRANSL ONCOL,1936-5233,3区,医学,ONCOLOGY,4.9,Q2,yes,密切,转化肿瘤刊，肺癌转化研究常见
+Trauma Surgery & Acute Care Open,TRAUMA SURG ACUTE CA,2397-5776,3区,医学,Multiple,2.5,Q2,yes,密切,创伤与急症外科开放刊，胸部创伤与气胸常见
+Tumour Virus Research,TUMOUR VIRUS RES,2666-6790,2区,医学,VIROLOGY,3.8,Q2,no,无关,肿瘤病毒专科，肺癌非典型病毒驱动瘤，基本无交集
+ULTRASONIC IMAGING,,0161-7346,3区,医学,,,,yes,相关,超声成像技术刊，肺部超声研究可见
+UROLOGIC ONCOLOGY-SEMINARS AND ORIGINAL INVESTIGATIONS,UROL ONCOL-SEMIN ORI,1078-1439,3区,医学,Multiple,2.8,Q2,no,无关,泌尿肿瘤专科，与胸科无交集
+Updates in Surgery,UPDATES SURG,2038-131X,3区,医学,SURGERY,2.2,Q2,yes,相关,意大利外科综合刊，食管与胸外稿偶发
+WORLD JOURNAL OF SURGERY,WORLD J SURG,0364-2313,3区,医学,SURGERY,2.2,Q2,yes,相关,全球普外综合刊，胸外科稿可见
+World Journal of Emergency Surgery,WORLD J EMERG SURG,1749-7922,1区,医学,Multiple,7.7,Q1,yes,密切,急诊外科刊，胸部创伤、气胸与食管穿孔常见
+World Journal of Otorhinolaryngology-Head & Neck Surgery,WORLD J OTORHIN-HEAD,2095-8811,3区,医学,OTORHINOLARYNGOLOGY,1.5,Q2,no,无关,耳鼻咽喉头颈专科，与胸科无交集
+World Journal of Surgical Oncology,WORLD J SURG ONCOL,1477-7819,3区,医学,Multiple,2.8,Q1,yes,密切,肿瘤外科开放刊，肺癌与食管癌手术研究常见
+npj Breast Cancer,NPJ BREAST CANCER,2374-4677,2区,医学,ONCOLOGY,8.4,Q1,no,无关,乳腺癌专科，与胸科无交集
+npj Precision Oncology,NPJ PRECIS ONCOL,2397-768X,1区,医学,ONCOLOGY,9.9,Q1,yes,密切,精准肿瘤刊，肺癌精准治疗研究常见
+npj Primary Care Respiratory Medicine,NPJ PRIM CARE RESP M,2055-1010,2区,医学,Multiple,4.7,Q1,yes,相关,初级保健呼吸刊，疑似肺癌识别与慢性肺病管理偶发

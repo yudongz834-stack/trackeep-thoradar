@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>胸科雷达 ThorRadar · 2026-10-17</title>
+<style>
+:root{--bg:#F0EEE6;--card:#FAF9F5;--card-2:#F5F3EC;--line:#DFDACB;--text:#1F1E1D;--text-2:#46433C;--muted:#7A7568;--accent:#D97757;--accent-dark:#BC5F3F;--accent-soft:#F5E8E1;--accent-on-soft:#A34A28;--success:#2F9E44;--success-soft:#E7F3EA;--success-on-soft:#2B7A3F;--warning:#E8590C;--warning-soft:#FCEBDD;--warning-on-soft:#A64309;--danger:#C92A2A;--danger-soft:#FBE7E7;--danger-on-soft:#B02525;--shadow-sm:0 1px 2px rgba(31,30,29,.05);--shadow-card:0 1px 2px rgba(31,30,29,.04),0 10px 30px -14px rgba(31,30,29,.12)}
+html.dark{--bg:#26241f;--card:#302d27;--card-2:#2b2823;--line:#4a453d;--text:#ece7de;--text-2:#c5bfb2;--muted:#9c9488;--nav:#2b2823;--accent:#e08a6a;--accent-dark:#c9744f;--accent-soft:#3a2b23;--on-accent:#26241f;--accent-on-soft:#e8b49a;--success:#5cb974;--success-soft:#26372b;--success-on-soft:#8fd0a0;--warning-soft:#3a2f1e;--warning-on-soft:#e0a86a;--danger:#e07a7a;--danger-soft:#3a2626;--danger-on-soft:#e8a0a0;--shadow-sm:0 1px 2px rgba(0,0,0,.3);--shadow-card:0 1px 2px rgba(0,0,0,.3),0 10px 30px -14px rgba(0,0,0,.5);color-scheme:dark}
+:root{
+--font-sans:"Segoe UI Variable Text","Segoe UI","Noto Sans SC","Microsoft YaHei UI",system-ui,-apple-system,sans-serif;
+--font-serif:"Georgia","Cambria","Palatino Linotype","Noto Serif SC",serif;
+--font-mono:"Cascadia Mono","Consolas",ui-monospace,monospace;
+color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-sans);font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased}
+button,input{font:inherit}
+button,a{-webkit-tap-highlight-color:transparent}
+a{color:inherit;text-decoration:none}
+button{color:inherit}
+button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+::selection{background:var(--accent-soft);color:var(--accent-on-soft)}
+.shell{width:min(1360px,calc(100% - 64px));margin:0 auto}
+.topbar{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);gap:28px}
+.brand{display:flex;align-items:center;gap:12px;min-width:max-content}
+.brand-mark{width:38px;height:38px;color:var(--text);flex:none}
+.brand-name{font-weight:680;font-size:17px;letter-spacing:.04em;line-height:1.2}
+.brand-sub{font:10px/1.4 var(--font-mono);letter-spacing:.22em;color:var(--muted);margin-top:3px}
+.topnav{display:flex;align-self:stretch;gap:30px;margin-left:auto}
+.topnav a{position:relative;display:flex;align-items:center;color:var(--muted);font-size:13px}
+.topnav a:hover,.topnav a.active{color:var(--text)}
+.topnav a.active::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--accent)}
+.top-actions{display:flex;align-items:center;gap:12px;margin-left:28px}
+.edition{font:11px var(--font-mono);color:var(--muted);white-space:nowrap}
+.icon-btn,.theme-btn{border:1px solid var(--line);background:var(--card);height:36px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:var(--shadow-sm)}
+.theme-btn{gap:7px;padding:0 12px;font-size:12px}
+.theme-btn:hover,.icon-btn:hover{border-color:var(--accent);color:var(--accent-dark)}
+.theme-btn svg{width:15px;height:15px}
+.hero{display:grid;grid-template-columns:160px minmax(0,1fr) 230px;gap:38px;align-items:center;padding:38px 0 34px;border-bottom:1px solid var(--line)}
+.date-block{border-right:1px solid var(--line);min-height:166px;display:flex;flex-direction:column;justify-content:center}
+.date-day{font:76px/.9 var(--font-serif);letter-spacing:-.055em}
+.date-meta{font:12px/1.7 var(--font-mono);letter-spacing:.12em;color:var(--muted);margin-top:15px}
+.date-meta strong{color:var(--accent-dark);font-weight:500}
+.hero-copy{padding:4px 0}
+.eyebrow{font:10px/1.4 var(--font-mono);letter-spacing:.17em;text-transform:uppercase;color:var(--accent-on-soft);margin-bottom:14px;display:flex;align-items:center;gap:9px}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--accent)}
+.hero h1{font:400 clamp(32px,3.1vw,46px)/1.2 var(--font-serif);letter-spacing:-.035em;margin:0 0 14px;max-width:760px}
+.hero h1 em{font-style:normal;color:var(--accent-dark)}
+.hero-desc{color:var(--text-2);margin:0;max-width:690px;font-size:14px;line-height:1.8}
+.hero-status{display:inline-flex;align-items:center;gap:7px;margin-top:17px;padding:5px 10px;background:var(--success-soft);color:var(--success-on-soft);border-radius:99px;font-size:11px}
+.status-dot{width:6px;height:6px;border-radius:50%;background:var(--success);box-shadow:0 0 0 3px var(--success-soft)}
+.radar-wrap{display:flex;flex-direction:column;align-items:center;gap:12px}
+.radar{width:164px;height:164px;border:1px solid var(--line);border-radius:50%;position:relative;overflow:hidden;background:repeating-radial-gradient(circle at center,transparent 0,transparent 26px,var(--line) 27px,transparent 28px)}
+.radar::before,.radar::after{content:"";position:absolute;background:var(--line);z-index:1}
+.radar::before{left:0;right:0;top:50%;height:1px}
+.radar::after{top:0;bottom:0;left:50%;width:1px}
+.radar-sweep{position:absolute;inset:-1px;border-radius:50%;background:conic-gradient(from 18deg,var(--accent-soft) 0deg,transparent 74deg,transparent 360deg)}
+.radar-center{position:absolute;z-index:3;inset:45px;border-radius:50%;background:var(--bg);border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1}
+.radar-center strong{font:30px/1 var(--font-serif);font-weight:400}
+.radar-center span{font:8px/1 var(--font-mono);letter-spacing:.12em;color:var(--muted);margin-top:6px}
+.blip{position:absolute;z-index:2;width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.blip.one{left:34px;top:45px}.blip.two{right:29px;top:61px}.blip.three{left:57px;bottom:25px}
+.radar-caption{font:9px var(--font-mono);letter-spacing:.14em;color:var(--muted)}
+.pulse-strip{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
+.pulse-item{padding:18px 22px 18px 0;display:flex;align-items:baseline;gap:10px;min-width:0}
+.pulse-item+.pulse-item{border-left:1px solid var(--line);padding-left:24px}
+.pulse-item strong{font:27px/1 var(--font-serif);font-weight:400;white-space:nowrap}
+.pulse-item span{font-size:11px;color:var(--muted);white-space:nowrap}
+.pulse-item small{font-size:10px;color:var(--muted)}
+.content-grid{display:grid;grid-template-columns:190px minmax(0,1fr) 278px;gap:28px;padding:32px 0 54px;align-items:start}
+.sidebar,.right-rail{position:sticky;top:20px}
+.section-label{font:10px/1.4 var(--font-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;justify-content:space-between;margin:0 0 14px}
+.section-label span{letter-spacing:0;color:var(--accent-on-soft)}
+.search-box{position:relative;margin-bottom:22px}
+.search-box svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);width:15px;height:15px;color:var(--muted);pointer-events:none}
+.search-box input{width:100%;height:38px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--text);padding:0 10px 0 34px;font-size:12px;outline:none}
+.search-box input::placeholder{color:var(--muted)}
+.search-box input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.channels{display:flex;flex-direction:column;gap:3px;margin-bottom:22px}
+.channel{width:100%;border:0;background:transparent;border-radius:7px;padding:8px 9px;display:flex;align-items:center;justify-content:space-between;gap:8px;text-align:left;cursor:pointer;color:var(--text-2);font-size:12px;line-height:1.45}
+.channel span{display:flex;align-items:center;gap:8px;min-width:0}
+.channel span::before{content:"";width:4px;height:4px;border:1px solid var(--muted);border-radius:50%;flex:none}
+.channel b{font:10px var(--font-mono);font-weight:400;color:var(--muted);flex:none}
+.channel:hover{background:var(--card-2);color:var(--text)}
+.channel.active{background:var(--accent-soft);color:var(--accent-on-soft)}
+.channel.active span::before{background:var(--accent);border-color:var(--accent)}
+.channel.active b{color:var(--accent-on-soft)}
+.preference{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:15px 2px;margin-bottom:20px}
+.switch-row{display:flex;align-items:center;justify-content:space-between;gap:10px;cursor:pointer;font-size:12px;color:var(--text-2)}
+.switch-row input{position:absolute;opacity:0;pointer-events:none}
+.switch{width:30px;height:17px;border-radius:99px;background:var(--line);position:relative;transition:background .2s;flex:none}
+.switch::after{content:"";position:absolute;width:11px;height:11px;left:3px;top:3px;border-radius:50%;background:var(--card);box-shadow:var(--shadow-sm);transition:transform .2s}
+.switch-row input:checked+.switch{background:var(--accent)}
+.switch-row input:checked+.switch::after{transform:translateX(13px)}
+.switch-row input:focus-visible+.switch{outline:2px solid var(--accent);outline-offset:3px}
+.preference small{display:block;color:var(--muted);font-size:10px;margin-top:8px;line-height:1.55}
+.funnel{padding:14px;background:var(--card-2);border-radius:10px;border:1px solid var(--line)}
+.funnel-row{display:grid;grid-template-columns:34px 1fr 24px;gap:8px;align-items:center;font-size:10px;color:var(--muted);margin-top:9px}
+.funnel-row b{font:10px var(--font-mono);font-weight:400;color:var(--text-2);text-align:right}
+.funnel-bar{height:3px;background:var(--line);border-radius:3px;overflow:hidden}
+.funnel-bar i{display:block;height:100%;background:var(--accent);border-radius:3px}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:14px}
+.section-head h2{font:25px/1.25 var(--font-serif);font-weight:400;letter-spacing:-.02em;margin:0}
+.section-head p{font-size:10px;color:var(--muted);margin:0;text-align:right}
+.feature-card{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-card);overflow:hidden;margin-bottom:30px;scroll-margin-top:20px}
+.feature-top{height:4px;background:var(--accent)}
+.feature-inner{padding:24px 26px 22px}
+.paper-kicker{display:flex;align-items:center;flex-wrap:wrap;gap:7px;margin-bottom:11px;color:var(--muted);font-size:10px}
+.tag{display:inline-flex;align-items:center;min-height:22px;padding:2px 8px;border-radius:99px;background:var(--card-2);border:1px solid var(--line);line-height:1.4}
+.tag.accent{background:var(--accent-soft);border-color:transparent;color:var(--accent-on-soft)}
+.tag.neutral{color:var(--text-2)}
+.feature-card h3{font:400 25px/1.38 var(--font-serif);letter-spacing:-.018em;margin:0 0 12px;overflow-wrap:anywhere}
+.feature-journal{display:flex;align-items:center;flex-wrap:wrap;gap:8px 14px;font-size:11px;color:var(--muted);margin-bottom:20px}
+.feature-journal strong{font-weight:600;color:var(--text-2)}
+.feature-summary{border-left:2px solid var(--accent);padding:2px 0 2px 14px;color:var(--text-2);font-size:13px;line-height:1.85;margin-bottom:20px}
+.feature-summary b{color:var(--text);font-weight:650}
+.feature-stats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:10px;background:var(--card-2);margin-bottom:20px}
+.stat{padding:14px 16px;min-width:0}
+.stat+.stat{border-left:1px solid var(--line)}
+.stat strong{display:block;font:27px/1.1 var(--font-serif);font-weight:400;color:var(--accent-dark);white-space:nowrap}
+.stat span{display:block;font-size:10px;color:var(--text-2);margin-top:7px;line-height:1.5}
+.stat small{color:var(--muted);font-size:9px}
+.feature-footer{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.source-note{font-size:10px;color:var(--muted);line-height:1.5}
+.link-group{display:flex;align-items:center;gap:8px;flex:none}
+.btn{height:35px;padding:0 13px;border:1px solid var(--line);border-radius:8px;background:var(--card);display:inline-flex;align-items:center;justify-content:center;gap:7px;font-size:11px;cursor:pointer;white-space:nowrap}
+.btn:hover{border-color:var(--accent);color:var(--accent-dark)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent,var(--card))}
+.btn.primary:hover{background:var(--accent-dark);border-color:var(--accent-dark);color:var(--card)}
+.btn svg{width:13px;height:13px}
+.list-head{padding-top:2px;border-top:1px solid var(--line);padding-top:22px}
+.paper-list{display:flex;flex-direction:column}
+.paper-row{display:grid;grid-template-columns:34px minmax(0,1fr) 34px;gap:13px;padding:20px 0;border-bottom:1px solid var(--line);scroll-margin-top:20px;border-radius:4px}
+.paper-row.spotlight{background:var(--accent-soft);box-shadow:0 0 0 10px var(--accent-soft)}
+.paper-index{font:12px var(--font-mono);color:var(--muted);padding-top:4px}
+.paper-row h3{font:400 18px/1.48 var(--font-serif);letter-spacing:-.008em;margin:0 0 9px;overflow-wrap:anywhere}
+.paper-row .paper-kicker{margin-bottom:8px}
+.paper-meta{display:flex;flex-wrap:wrap;gap:4px 12px;color:var(--muted);font-size:10px}
+.paper-meta span{position:relative}
+.paper-meta span+span::before{content:"·";position:absolute;left:-8px}
+.paper-actions{display:flex;flex-direction:column;align-items:center;gap:9px}
+.bookmark-btn,.pub-link{width:31px;height:31px;border:1px solid transparent;background:transparent;border-radius:7px;display:flex;align-items:center;justify-content:center;color:var(--muted);cursor:pointer}
+.bookmark-btn:hover,.pub-link:hover{background:var(--card);border-color:var(--line);color:var(--accent-dark)}
+.bookmark-btn.saved{color:var(--accent-dark);background:var(--accent-soft)}
+.bookmark-btn svg,.pub-link svg{width:16px;height:16px}
+.bookmark-btn.saved svg{fill:currentColor}
+.abstract{margin-top:13px;max-width:720px}
+.abstract summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;color:var(--accent-on-soft);font-size:10px}
+.abstract summary::-webkit-details-marker{display:none}
+.abstract summary::before{content:"+";font:14px/1 var(--font-mono)}
+.abstract[open] summary::before{content:"−"}
+.abstract p{margin:10px 0 0;padding:12px 14px;background:var(--card-2);border-radius:8px;color:var(--text-2);font-size:12px;line-height:1.8;overflow-wrap:anywhere}
+.empty-list{padding:44px 20px;text-align:center;border:1px dashed var(--line);border-radius:10px;color:var(--muted)}
+.empty-list strong{display:block;color:var(--text);font:20px var(--font-serif);margin-bottom:6px}
+.more-btn{width:100%;margin-top:18px;height:42px;border:1px solid var(--line);border-radius:9px;background:var(--card);color:var(--text-2);cursor:pointer;font-size:12px}
+.more-btn:hover{border-color:var(--accent);color:var(--accent-dark)}
+.rail-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:18px;box-shadow:var(--shadow-sm)}
+.rail-card h2{font:20px/1.3 var(--font-serif);font-weight:400;margin:0 0 4px}
+.rail-sub{font-size:10px;color:var(--muted);margin:0 0 14px}
+.question-list{border-top:1px solid var(--line)}
+.question{width:100%;border:0;border-bottom:1px solid var(--line);background:transparent;padding:14px 0;text-align:left;cursor:pointer;display:grid;grid-template-columns:24px 1fr;gap:8px}
+.question:hover .question-title{color:var(--accent-dark)}
+.question-num{font:10px var(--font-mono);color:var(--accent-on-soft);padding-top:3px}
+.question-title{display:block;font-size:12px;line-height:1.65;color:var(--text);margin-bottom:5px;transition:color .15s}
+.question-desc{display:block;font-size:10px;line-height:1.65;color:var(--muted)}
+.boundary-card{background:var(--card-2);box-shadow:none}
+.boundary-list{list-style:none;margin:13px 0 0;padding:0}
+.boundary-list li{position:relative;padding-left:15px;color:var(--text-2);font-size:11px;line-height:1.75;margin-top:7px}
+.boundary-list li::before{content:"";position:absolute;left:0;top:.72em;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+.saved-empty{font-size:11px;line-height:1.7;color:var(--muted);margin:12px 0 0}
+.saved-list{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.saved-item{font-size:11px;line-height:1.55;border-bottom:1px solid var(--line);padding-bottom:8px;overflow-wrap:anywhere}
+.saved-item button{border:0;background:transparent;padding:0;text-align:left;cursor:pointer;color:var(--text-2)}
+.saved-item button:hover{color:var(--accent-dark)}
+.footer{border-top:1px solid var(--line);padding:22px 0 30px;display:flex;align-items:flex-start;justify-content:space-between;gap:30px;color:var(--muted);font-size:10px;line-height:1.8}
+.footer strong{color:var(--text-2);font-weight:600}
+.footer-right{text-align:right;font-family:var(--font-mono)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:1180px){
+ .shell{width:min(100% - 44px,1080px)}
+ .content-grid{grid-template-columns:180px minmax(0,1fr)}
+ .right-rail{grid-column:2;position:static;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+ .rail-card{margin-bottom:0}.saved-card{grid-column:1/-1}
+ .hero{grid-template-columns:130px minmax(0,1fr) 190px;gap:26px}.radar{width:150px;height:150px}.radar-center{inset:42px}
+ .topnav{gap:20px}.edition{display:none}
+}
+@media(max-width:760px){
+ .shell{width:calc(100% - 32px)}
+ .topbar{height:64px;gap:12px}.brand-mark{width:32px;height:32px}.brand-name{font-size:15px}.brand-sub{font-size:8px}
+ .topnav{display:none}.top-actions{margin-left:auto}.theme-btn{height:34px;padding:0 10px}
+ .hero{grid-template-columns:70px minmax(0,1fr);gap:18px;padding:25px 0 24px;align-items:start}
+ .date-block{min-height:112px;border-right:0;border-top:1px solid var(--line);padding-top:9px;justify-content:flex-start}
+ .date-day{font-size:51px}.date-meta{font-size:9px;line-height:1.6;letter-spacing:.04em;margin-top:9px}
+ .hero h1{font-size:29px;line-height:1.24;margin-bottom:12px}.hero-desc{font-size:12px;line-height:1.75}
+ .eyebrow{font-size:8px;letter-spacing:.11em;margin-bottom:11px}.hero-status{font-size:9px;margin-top:13px;padding:4px 8px}
+ .radar-wrap{display:none}
+ .pulse-strip{grid-template-columns:1fr 1fr}.pulse-item{padding:14px 10px 14px 0}.pulse-item+.pulse-item{padding-left:14px}
+ .pulse-item:nth-child(3){border-left:0;border-top:1px solid var(--line)}.pulse-item:nth-child(4){border-top:1px solid var(--line)}
+ .pulse-item strong{font-size:23px}.pulse-item span{font-size:10px}
+ .content-grid{display:flex;flex-direction:column;gap:26px;padding:24px 0 38px}
+ .sidebar,.right-rail{position:static;width:100%}.sidebar{order:0}.main-column{order:1;width:100%}.right-rail{order:2;display:block}
+ .search-box{margin-bottom:15px}.search-box input{height:42px;font-size:13px}
+ .sidebar .section-label{margin-bottom:9px}.channels{flex-direction:row;overflow-x:auto;padding-bottom:7px;margin-bottom:11px;gap:6px;scrollbar-width:thin}
+ .channel{width:auto;flex:none;border:1px solid var(--line);padding:7px 10px;background:var(--card)}.channel span{white-space:nowrap}.channel b{margin-left:4px}
+ .preference{padding:11px 2px;margin-bottom:0}.funnel{display:none}
+ .section-head h2{font-size:23px}.section-head p{max-width:145px;line-height:1.5}
+ .feature-inner{padding:19px 18px 18px}.feature-card{border-radius:12px;margin-bottom:25px}
+ .feature-card h3{font-size:21px;line-height:1.42}.feature-journal{margin-bottom:16px}.feature-summary{font-size:12px;margin-bottom:16px}
+ .feature-stats{margin-bottom:16px}.stat{padding:12px 9px}.stat strong{font-size:23px}.stat span{font-size:9px}
+ .feature-footer{align-items:flex-start;flex-direction:column}.link-group{width:100%}.link-group .btn{flex:1;height:38px}
+ .list-head{padding-top:18px}.paper-row{grid-template-columns:25px minmax(0,1fr) 30px;gap:8px;padding:17px 0}.paper-row h3{font-size:17px;line-height:1.48}
+ .paper-index{font-size:10px}.paper-actions{gap:5px}.bookmark-btn,.pub-link{width:29px;height:29px}
+ .rail-card{margin-bottom:14px}.saved-card{grid-column:auto}
+ .footer{flex-direction:column;gap:8px;padding-bottom:24px}.footer-right{text-align:left}
+}
+@media(max-width:390px){
+ .shell{width:calc(100% - 28px)}.hero{grid-template-columns:58px minmax(0,1fr);gap:14px}.date-day{font-size:45px}.hero h1{font-size:27px}
+ .feature-inner{padding-left:15px;padding-right:15px}.stat{padding-left:7px;padding-right:7px}.stat strong{font-size:21px}.stat span{font-size:8px}
+ .paper-row{grid-template-columns:21px minmax(0,1fr) 28px;gap:7px}.paper-meta{gap:3px 10px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <symbol id="i-theme" viewBox="0 0 24 24"><path d="M12 3v2M12 19v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M3 12h2M19 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+ <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4.2 4.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+ <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+ <symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M6.5 4.5a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v17L12 18l-5.5 3.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+</svg>
+<div class="shell">
+ <header class="topbar">
+  <a class="brand" href="#today" aria-label="胸科雷达首页">
+   <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="17" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="20" cy="20" r="10" fill="none" stroke="currentColor" stroke-width="1" opacity=".45"/><path d="M20 3v34M3 20h34" stroke="currentColor" stroke-width=".8" opacity=".35"/><path d="M20 20 33 11" stroke="#D97757" stroke-width="1.7" stroke-linecap="round"/><circle cx="29" cy="15" r="3" fill="#D97757"/></svg>
+   <span><span class="brand-name">胸科雷达</span><span class="brand-sub">THORRADAR</span></span>
+  </a>
+  <nav class="topnav" aria-label="页面导航"><a class="active" href="#today">今日早报</a><a href="#signals">全部信号</a><a href="#boundary">阅读说明</a></nav>
+  <div class="top-actions"><span class="edition">NO.290 / 2026</span><button class="theme-btn" id="themeToggle" type="button" aria-pressed="false" aria-label="切换深色主题"><svg><use href="#i-theme"/></svg><span>深色</span></button></div>
+ </header>
+
+ <main>
+  <section class="hero" id="today" aria-labelledby="heroTitle">
+   <div class="date-block" aria-label="2026年10月17日 星期六"><div class="date-day">17</div><div class="date-meta"><strong>OCT</strong> / 2026<br>SATURDAY</div></div>
+   <div class="hero-copy">
+    <div class="eyebrow">Daily thoracic literature briefing</div>
+    <h1 id="heroTitle">今天，哪些证据<br>值得带进<em>查房</em>？</h1>
+    <p class="hero-desc">从 56 篇新入库文献中筛出 36 个胸部肿瘤相关信号。先扫问题，再读摘要，最后回到原文做判断。</p>
+    <div class="hero-status"><span class="status-dot"></span>今日扫描完成 · 06:16 更新 · 36/36 状态已回查</div>
+   </div>
+   <div class="radar-wrap" aria-hidden="true"><div class="radar"><div class="radar-sweep"></div><i class="blip one"></i><i class="blip two"></i><i class="blip three"></i><div class="radar-center"><strong>36</strong><span>SIGNALS</span></div></div><div class="radar-caption">SCAN COMPLETE / 06:16</div></div>
+  </section>
+
+  <section class="pulse-strip" aria-label="今日数据概览">
+   <div class="pulse-item"><strong>56 → 36</strong><span>入库到收录</span></div>
+   <div class="pulse-item"><strong>8</strong><span>RCT 标记</span><small>启发式</small></div>
+   <div class="pulse-item"><strong>22</strong><span>来源期刊</span></div>
+   <div class="pulse-item"><strong>3</strong><span>附试验注册号</span></div>
+  </section>
+
+  <div class="content-grid">
+   <aside class="sidebar" aria-label="文献筛选">
+    <div class="search-box"><svg><use href="#i-search"/></svg><label class="sr-only" for="searchInput">搜索题名、期刊或 PMID</label><input id="searchInput" type="search" placeholder="题名 / 期刊 / PMID" autocomplete="off"></div>
+    <h2 class="section-label">Channels <span>06</span></h2>
+    <div class="channels" id="channels">
+     <button class="channel active" type="button" data-category="all"><span>全部信号</span><b>36</b></button>
+     <button class="channel" type="button" data-category="advanced"><span>晚期靶向 / 免疫</span><b>13</b></button>
+     <button class="channel" type="button" data-category="surgery"><span>微创 / 无管化</span><b>13</b></button>
+     <button class="channel" type="button" data-category="perioperative"><span>围术期治疗</span><b>5</b></button>
+     <button class="channel" type="button" data-category="esophageal"><span>食管 / 纵隔</span><b>2</b></button>
+     <button class="channel" type="button" data-category="nodule"><span>肺结节 / 早筛</span><b>2</b></button>
+     <button class="channel" type="button" data-category="ai_digital"><span>AI / 三维重建</span><b>1</b></button>
+    </div>
+    <div class="preference"><label class="switch-row"><span>只看 RCT 标记</span><input id="rctOnly" type="checkbox"><i class="switch" aria-hidden="true"></i></label><small>研究类型为规则初判，不等同于人工方法学复核。</small></div>
+    <div class="funnel" aria-label="今日筛选漏斗"><h2 class="section-label">Daily funnel</h2><div class="funnel-row"><span>新入库</span><div class="funnel-bar"><i style="width:100%"></i></div><b>56</b></div><div class="funnel-row"><span>期刊匹配</span><div class="funnel-bar"><i style="width:70%"></i></div><b>39</b></div><div class="funnel-row"><span>最终收录</span><div class="funnel-bar"><i style="width:64%"></i></div><b>36</b></div></div>
+   </aside>
+
+   <section class="main-column" id="signals" aria-label="今日文献">
+    <div id="featuredSection">
+     <div class="section-head"><h2>优先阅读</h2><p>雷达排序 01<br>排序不构成临床推荐</p></div>
+     <article class="feature-card" data-pmid="42887497">
+      <div class="feature-top"></div><div class="feature-inner">
+       <div class="paper-kicker"><span class="tag accent">晚期靶向 / 免疫</span><span class="tag neutral">Ⅰb 期 · 随机剂量</span><span>FURTHER · NCT05364073</span></div>
+       <h3 lang="en">Firmonertinib in advanced non-small cell lung cancer with epidermal growth factor receptor P-loop and αC-helix compressing mutations.</h3>
+       <div class="feature-journal"><strong>Cancer Cell</strong><span>2026-Oct-16</span><span>PMID 42887497</span></div>
+       <div class="feature-summary"><b>速读要点</b>　针对 EGFR PACC 突变晚期 NSCLC 的一线 firmonertinib：160 mg 与 240 mg 组确认 ORR 分别为 43% 和 68%，中位 PFS 分别为 11.1 与 16.0 个月；基线脑转移人群颅内 ORR 为 47%（8/17）。</div>
+       <div class="feature-stats" aria-label="主要结果"><div class="stat"><strong>68%</strong><span>240 mg 组确认 ORR<br><small>160 mg 组为 43%</small></span></div><div class="stat"><strong>16.0<small> 月</small></strong><span>240 mg 组中位 PFS<br><small>160 mg 组为 11.1 月</small></span></div><div class="stat"><strong>47%</strong><span>基线脑转移者颅内 ORR<br><small>8 / 17</small></span></div></div>
+       <div class="feature-footer"><span class="source-note">共 47 例；两个剂量组并列展示，不作组间优劣推断。</span><div class="link-group"><a class="btn" href="https://clinicaltrials.gov/study/NCT05364073" target="_blank" rel="noopener">试验注册</a><a class="btn primary" href="https://pubmed.ncbi.nlm.nih.gov/42887497/" target="_blank" rel="noopener">核对原文 <svg><use href="#i-arrow"/></svg></a></div></div>
+      </div>
+     </article>
+    </div>
+
+    <div class="section-head list-head"><h2 id="listTitle">其余信号</h2><p id="resultCount" aria-live="polite"></p></div>
+    <div class="paper-list" id="paperList"></div>
+    <button class="more-btn" id="moreBtn" type="button">继续加载</button>
+   </section>
+
+   <aside class="right-rail" aria-label="阅读辅助">
+    <section class="rail-card"><h2>带着问题读</h2><p class="rail-sub">从临床问题抵达对应题录</p><div class="question-list">
+     <button class="question" type="button" data-focus="42880121"><span class="question-num">01</span><span><span class="question-title">单肺通气时，雾化 PGE1 能否改善氧合？</span><span class="question-desc">160 例随机双盲试验；氧合改善，7 天肺部并发症未见显著差异。</span></span></button>
+     <button class="question" type="button" data-focus="42876373"><span class="question-num">02</span><span><span class="question-title">Trilaciclib 能否减轻化疗骨髓抑制？</span><span class="question-desc">10 项研究、1172 例；严重中性粒细胞减少 OR 0.14。</span></span></button>
+     <button class="question" type="button" data-focus="42882029"><span class="question-num">03</span><span><span class="question-title">CALLY 指数能预测吻合口漏吗？</span><span class="question-desc">131 例微创食管切除；对吻合口漏与严重并发症均无判别力。</span></span></button>
+    </div></section>
+    <section class="rail-card boundary-card" id="boundary"><h2>读之前，先看边界</h2><ul class="boundary-list"><li>今日为启发式筛选，题录与排序未经人工审校。</li><li>摘要只作定位；数字、结论与适用人群请核对原文。</li><li>出版状态已于 06:16 回查；后续变化以官方记录为准。</li></ul></section>
+    <section class="rail-card saved-card"><h2>查房清单 <span id="savedCount" class="section-label" style="display:inline;margin-left:5px">0</span></h2><p class="saved-empty" id="savedEmpty">点文献右侧的书签，把想带回团队讨论的题录暂存在这里。</p><div class="saved-list" id="savedList"></div></section>
+   </aside>
+  </div>
+ </main>
+
+ <footer class="footer"><div><strong>胸科雷达 ThorRadar</strong><br>文献检索与学习辅助工具，不构成医疗建议；临床决策请以原文与指南为准。</div><div class="footer-right">DATA / 2026-10-17<br>STATUS CHECK / 06:16</div></footer>
+</div>
+<noscript><div style="padding:20px;text-align:center">请启用 JavaScript 以浏览完整文献列表。</div></noscript>
+<script>
+const PAPERS = [{"pmid":"42887497","title":"Firmonertinib in advanced non-small cell lung cancer with epidermal growth factor receptor P-loop and αC-helix compressing mutations.","journal":"Cancer Cell","pubDate":"2026-Oct-16","category":"advanced","categoryLabel":"局晚期与晚期靶向/免疫","shortCategory":"晚期靶向 / 免疫","studyType":"RCT（启发式判定）","score":53,"url":"https://pubmed.ncbi.nlm.nih.gov/42887497/","nct":"NCT05364073","trialUrl":"https://clinicaltrials.gov/study/NCT05364073","snippet":"P-loop and αC-helix compressing (PACC) mutations comprise a structurally distinct subgroup of epidermal growth factor receptor (EGFR) mutations in non-small cell lung cancer (NSCLC) with limited treatment options. Firmon…"},{"pmid":"42887199","title":"A Randomized Phase III Trial of Concurrent Chemoradiotherapy Followed by Durvalumab Consolidation, With or Without Induction Chemo-Immunotherapy, in Patients With Unresectable Locally Advanced Non-Small Cell Lung Cancer: JCOG2510 (PRIME-CRT).","journal":"Clin Lung Cancer","pubDate":"2026-Sep-21","category":"advanced","categoryLabel":"局晚期与晚期靶向/免疫","shortCategory":"晚期靶向 / 免疫","studyType":"RCT（启发式判定）","score":53,"url":"https://pubmed.ncbi.nlm.nih.gov/42887199/","nct":"","trialUrl":"","snippet":"BACKGROUND: Definitive concurrent chemoradiotherapy (cCRT) followed by durvalumab consolidation is the current standard of care for unresectable locally advanced non-small-cell lung cancer (LA-NSCLC). However, survival o…"},{"pmid":"42882930","title":"A Totally Laparoscopic Transhiatal Approach for Esophageal Cancer During Mediastinoscopic Esophagectomy.","journal":"Cancers (Basel)","pubDate":"2026-Oct-08","category":"surgery","categoryLabel":"微创与无管化胸外科","shortCategory":"微创 / 无管化","studyType":"RCT（启发式判定）","score":53,"url":"https://pubmed.ncbi.nlm.nih.gov/42882930/","nct":"","trialUrl":"","snippet":"BACKGROUND: Mediastinoscopic esophagectomy is a minimally invasive approach that avoids thoracotomy and single-lung ventilation. We previously performed this procedure using hand-assisted laparoscopic surgery (HALS) and …"},{"pmid":"42882887","title":"From Thoracotomy to Robotic Platforms in Thoracic Surgery: Technical Evolution, Simulation-Based Training, and Surgical Outcomes.","journal":"Cancers (Basel)","pubDate":"2026-Oct-02","category":"surgery","categoryLabel":"微创与无管化胸外科","shortCategory":"微创 / 无管化","studyType":"RCT（启发式判定）","score":53,"url":"https://pubmed.ncbi.nlm.nih.gov/42882887/","nct":"","trialUrl":"","snippet":"Thoracic surgery has progressively moved from open thoracotomy to video-assisted and robot-assisted approaches, reducing access-related trauma while changing the technical environment in which pulmonary resections are pe…"},{"pmid":"42882041","title":"Systemic, Pleural, and Alveolar Cytokine Responses After Video-Assisted Thoracoscopic Versus Open Lobectomy for Non-Small Cell Lung Cancer: A Prospective Observational Study.","journal":"J Clin Med","pubDate":"2026-Sep-29","category":"surgery","categoryLabel":"微创与无管化胸外科","shortCategory":"微创 / 无管化","studyType":"RCT（启发式判定）","score":53,"url":"https://pubmed.ncbi.nlm.nih.gov/42882041/","nct":"","trialUrl":"","snippet":"Background/Objectives: Surgical access and one-lung ventilation (OLV) may generate distinct systemic and local inflammatory responses after lung resection. We compared perioperative cytokine profiles in serum, pleural fl…"},{"pmid":"42880121","title":"Aerosolized prostaglandin E1 improves oxygenation during one-lung ventilation: A dose-finding randomized controlled trial.","journal":"Clinics (Sao Paulo)","pubDate":"2026-Oct-15","category":"esophageal","categoryLabel":"食管与纵隔肿瘤","shortCategory":"食管 / 纵隔","studyType":"RCT（启发式判定）","score":53,"url":"https://pubmed.ncbi.nlm.nih.gov/42880121/","nct":"","trialUrl":"","snippet":"OBJECTIVES: This study aimed to investigate the effects of varying doses of aerosolized Prostaglandin E1 (PGE1) on oxygenation and intrapulmonary shunt fraction (Qs/Qt) during One-Lung Ventilation (OLV) under 60% Fractio…"},{"pmid":"42876373","title":"Efficacy and Safety of Trilaciclib for the Prevention of Chemotherapy-Induced Myelosuppression in Patients With Solid Tumors: A Systematic Review and Meta-Analysis.","journal":"Thorac Cancer","pubDate":"2026-Oct","category":"perioperative","categoryLabel":"围术期与新辅助治疗","shortCategory":"围术期","studyType":"RCT（启发式判定）","score":53,"url":"https://pubmed.ncbi.nlm.nih.gov/42876373/","nct":"","trialUrl":"","snippet":"Trilaciclib, a cyclin-dependent kinase 4 and 6 (CDK4/6) inhibitor administered before chemotherapy, reduces chemotherapy-induced myelosuppression (CIM) in extensive-stage small cell lung cancer (ES-SCLC), but its efficac…"},{"pmid":"42874870","title":"Effectiveness of Pharmaceutical Care in Reducing the Incidence of Immune Checkpoint Inhibitor-related Pneumonitis in Patients with NSCLC: A Randomized Controlled Trial.","journal":"J Am Pharm Assoc (2003)","pubDate":"2026-Oct-14","category":"perioperative","categoryLabel":"围术期与新辅助治疗","shortCategory":"围术期","studyType":"RCT（启发式判定）","score":53,"url":"https://pubmed.ncbi.nlm.nih.gov/42874870/","nct":"","trialUrl":"","snippet":"BACKGROUND: Immune checkpoint inhibitors (ICIs) have revolutionized the treatment of non-small cell lung cancer (NSCLC), yet immune checkpoint inhibitor-related pneumonitis (CIP) remains a potentially life-threatening ad…"},{"pmid":"42886246","title":"Thoracoscopic versus endoscopic resection for esophageal leiomyoma: a propensity score-matched retrospective cohort study.","journal":"Surg Endosc","pubDate":"2026-Oct-16","category":"surgery","categoryLabel":"微创与无管化胸外科","shortCategory":"微创 / 无管化","studyType":"队列研究（启发式判定）","score":45,"url":"https://pubmed.ncbi.nlm.nih.gov/42886246/","nct":"","trialUrl":"","snippet":"INTRODUCTION: Esophageal leiomyoma is the most common benign mesenchymal tumor of the esophagus. Minimally invasive management is performed by thoracoscopic surgery or endoscopic resection, but comparative evidence remai…"},{"pmid":"42882784","title":"Rethinking Age Limits for Robotic Lung Cancer Resection: Contemporary Short-Term Outcomes in Octogenarians.","journal":"Cancers (Basel)","pubDate":"2026-Sep-23","category":"surgery","categoryLabel":"微创与无管化胸外科","shortCategory":"微创 / 无管化","studyType":"队列研究（启发式判定）","score":45,"url":"https://pubmed.ncbi.nlm.nih.gov/42882784/","nct":"","trialUrl":"","snippet":"Objective: We sought to assess the outcomes of octogenarians compared to a reference group of younger patients undergoing robotic anatomic lung resection for non-small cell lung cancer (NSCLC) to better understand the po…"},{"pmid":"42886999","title":"Metastasis Extraction From Non-Small Cell Lung Cancer Clinical Notes Using Large Language Model-Based Classification: Retrospective Comparative Study.","journal":"JMIR Cancer","pubDate":"2026-Oct-16","category":"perioperative","categoryLabel":"围术期与新辅助治疗","shortCategory":"围术期","studyType":"队列研究（启发式判定）","score":40,"url":"https://pubmed.ncbi.nlm.nih.gov/42886999/","nct":"","trialUrl":"","snippet":"BACKGROUND: Identification of metastasis status in non-small cell lung cancer (NSCLC) is a critical part of understanding disease prognosis, treatment courses, trial eligibility, and population-level cancer surveillance.…"},{"pmid":"42882867","title":"Durvalumab Plus High-Dose Radiation in NSCLC III: Long-Term Results from the Austrian Radio-Oncological Lung Cancer Study Association Registry (ALLSTAR).","journal":"Cancers (Basel)","pubDate":"2026-Oct-01","category":"advanced","categoryLabel":"局晚期与晚期靶向/免疫","shortCategory":"晚期靶向 / 免疫","studyType":"研究类型待评定（启发式模式）","score":40,"url":"https://pubmed.ncbi.nlm.nih.gov/42882867/","nct":"","trialUrl":"","snippet":"PURPOSE: Chemoradioimmunotherapy (CRIT) with 60-66 Gy is the standard of care (SoC) for non-small-cell lung cancer (NSCLC) UICC stage III. The aim of this real-world data (RWD) study was to report the long-term impact of…"},{"pmid":"42882056","title":"Prognostic Value of Pretreatment Modified Glasgow Prognostic Score in Nivolumab-Treated Advanced Non-Small Cell Lung Cancer.","journal":"J Clin Med","pubDate":"2026-Sep-30","category":"advanced","categoryLabel":"局晚期与晚期靶向/免疫","shortCategory":"晚期靶向 / 免疫","studyType":"队列研究（启发式判定）","score":40,"url":"https://pubmed.ncbi.nlm.nih.gov/42882056/","nct":"","trialUrl":"","snippet":"Background/Objectives: Immune checkpoint inhibitors have become a standard treatment option for advanced/metastatic non-small cell lung cancer (NSCLC); however, considerable heterogeneity exists among patients regarding …"},{"pmid":"42882029","title":"Preoperative CRP-Albumin-Lymphocyte (CALLY) Index Is Associated with Survival but Does Not Predict Anastomotic Leak or Major Morbidity After Minimally Invasive Esophagectomy.","journal":"J Clin Med","pubDate":"2026-Sep-29","category":"surgery","categoryLabel":"微创与无管化胸外科","shortCategory":"微创 / 无管化","studyType":"队列研究（启发式判定）","score":40,"url":"https://pubmed.ncbi.nlm.nih.gov/42882029/","nct":"","trialUrl":"","snippet":"Background/Objectives: The CRP-albumin-lymphocyte (CALLY) index is promoted both as a marker of postoperative morbidity and as a prognostic factor for survival. These claims are rarely tested together, thresholds usually…"},{"pmid":"42881832","title":"Pulmonary Resection for Bronchiectasis: Perioperative and Follow-Up Outcomes in a VATS-Dominant Cohort.","journal":"J Clin Med","pubDate":"2026-Sep-23","category":"surgery","categoryLabel":"微创与无管化胸外科","shortCategory":"微创 / 无管化","studyType":"队列研究（启发式判定）","score":40,"url":"https://pubmed.ncbi.nlm.nih.gov/42881832/","nct":"","trialUrl":"","snippet":"Background/Objectives: Surgical resection remains an important treatment option for selected patients with bronchiectasis who have persistent symptoms, recurrent pulmonary infections, or hemoptysis despite medical therap…"},{"pmid":"42873309","title":"Routine pulmonary wound closure after thoracoscopic sublobar resection for congenital lung malformations in children: impact on early recovery, one-year CT-based lung expansion, and the learning curve.","journal":"Pediatr Surg Int","pubDate":"2026-Oct-14","category":"surgery","categoryLabel":"微创与无管化胸外科","shortCategory":"微创 / 无管化","studyType":"队列研究（启发式判定）","score":40,"url":"https://pubmed.ncbi.nlm.nih.gov/42873309/","nct":"","trialUrl":"","snippet":"BACKGROUND: The necessity of routine pulmonary parenchymal wound closure following thoracoscopic sublobar resection for congenital lung malformations (CLMs) in children remains uncertain. This study aimed to evaluate the…"},{"pmid":"42887461","title":"Lazertinib plus pemetrexed and carboplatin in patients with EGFR-mutant advanced non-small cell lung cancer after progression on lazertinib.","journal":"Eur J Cancer","pubDate":"2026-Oct-08","category":"advanced","categoryLabel":"局晚期与晚期靶向/免疫","shortCategory":"晚期靶向 / 免疫","studyType":"研究类型待评定（启发式模式）","score":35,"url":"https://pubmed.ncbi.nlm.nih.gov/42887461/","nct":"NCT05786430","trialUrl":"https://clinicaltrials.gov/study/NCT05786430","snippet":"BACKGROUND: Therapeutic strategies after progression on third-generation EGFR tyrosine kinase inhibitors (EGFR-TKIs) remain suboptimal in EGFR-mutant non-small cell lung cancer (NSCLC). We investigated whether continuing…"},{"pmid":"42886469","title":"Non-intubated video-assisted thoracoscopic McKeown oesophagectomy using i-gel™ and continuous pressure support ventilation: A case report.","journal":"J Minim Access Surg","pubDate":"2026-Oct-15","category":"surgery","categoryLabel":"微创与无管化胸外科","shortCategory":"微创 / 无管化","studyType":"研究类型待评定（启发式模式）","score":35,"url":"https://pubmed.ncbi.nlm.nih.gov/42886469/","nct":"","trialUrl":"","snippet":"Non-intubated video-assisted thoracoscopic surgery (NIVATS) minimises airway trauma and ventilator-induced lung injury, yet its application in complex, multi-phase McKeown oesophagectomy is seldom reported. A 32-year-old…"},{"pmid":"42886039","title":"Multimodal Transformer Integrating CT and Pathology for Postoperative Risk Stratification in Stage I Non-Small Cell Lung Cancer.","journal":"Radiol Imaging Cancer","pubDate":"2026-Nov","category":"ai_digital","categoryLabel":"胸外科 AI 与三维重建","shortCategory":"AI / 三维重建","studyType":"研究类型待评定（启发式模式）","score":35,"url":"https://pubmed.ncbi.nlm.nih.gov/42886039/","nct":"","trialUrl":"","snippet":"Purpose To develop and evaluate an interpretable, multimodal deep learning model to improve postoperative risk stratification and predict adjuvant therapy benefit in stage I non-small cell lung cancer (NSCLC). Materials …"},{"pmid":"42885537","title":"Nodule Dye-Localization Using Interventional Fluoroscopy for Image-Guided Sublobar Lung Resection.","journal":"Thorac Cancer","pubDate":"2026-Oct","category":"nodule","categoryLabel":"肺结节与早筛管理","shortCategory":"肺结节 / 早筛","studyType":"研究类型待评定（启发式模式）","score":35,"url":"https://pubmed.ncbi.nlm.nih.gov/42885537/","nct":"","trialUrl":"","snippet":"BACKGROUND: Precise localization is critical for sublobar resection of small pulmonary nodules. We evaluated the safety, technical efficiency, and clinical outcomes of preoperative percutaneous dye-localization using a c…"},{"pmid":"42882934","title":"The Dynamic Role of Liquid Biopsy in Patients with Non-Small Cell Lung Cancer Receiving Immune Checkpoint Inhibitors: Emerging Opportunities and Clinical Challenges.","journal":"Cancers (Basel)","pubDate":"2026-Oct-08","category":"advanced","categoryLabel":"局晚期与晚期靶向/免疫","shortCategory":"晚期靶向 / 免疫","studyType":"研究类型待评定（启发式模式）","score":35,"url":"https://pubmed.ncbi.nlm.nih.gov/42882934/","nct":"","trialUrl":"","snippet":"Immune checkpoint inhibitors (ICIs) have transformed the treatment of non-small-cell lung cancer (NSCLC), yet predicting durable benefit and detecting resistance remain major challenges. As immunotherapy expands across d…"},{"pmid":"42882902","title":"A Chronobiological Prognostic Model for Resected Stage I Non-Small-Cell Lung Cancer.","journal":"Cancers (Basel)","pubDate":"2026-Oct-04","category":"advanced","categoryLabel":"局晚期与晚期靶向/免疫","shortCategory":"晚期靶向 / 免疫","studyType":"研究类型待评定（启发式模式）","score":35,"url":"https://pubmed.ncbi.nlm.nih.gov/42882902/","nct":"","trialUrl":"","snippet":"OBJECTIVES: Chronobiology may influence outcomes in non-small-cell lung cancer (NSCLC), but its prognostic role in early-stage disease remains unclear. We evaluated the association between perioperative chronobiological …"},{"pmid":"42882853","title":"AI-Driven Multi-Omics Approaches for Deciphering Small-Cell Lung Cancer Heterogeneity Using Nucleic-Acid-Based Features.","journal":"Cancers (Basel)","pubDate":"2026-Sep-29","category":"advanced","categoryLabel":"局晚期与晚期靶向/免疫","shortCategory":"晚期靶向 / 免疫","studyType":"研究类型待评定（启发式模式）","score":35,"url":"https://pubmed.ncbi.nlm.nih.gov/42882853/","nct":"","trialUrl":"","snippet":"BACKGROUND: Small-cell lung cancer (SCLC) is a rare but highly aggressive malignancy defined by rapid progression, early metastasis, and profound therapeutic resistance. Its extensive heterogeneity across genomic, transc…"},{"pmid":"42882836","title":"Refining Lung Cancer Care: The Emerging Role of Liquid Biopsy in Screening, Diagnosis, and Precision Oncology.","journal":"Cancers (Basel)","pubDate":"2026-Sep-28","category":"nodule","categoryLabel":"肺结节与早筛管理","shortCategory":"肺结节 / 早筛","studyType":"研究类型待评定（启发式模式）","score":35,"url":"https://pubmed.ncbi.nlm.nih.gov/42882836/","nct":"","trialUrl":"","snippet":"Lung cancer (LC) remains the leading cause of cancer-related mortality worldwide, representing a major public health challenge. Although low-dose computed tomography is currently the standard screening method for high-ri…"},{"pmid":"42882792","title":"Longitudinal Assessment of EGFR and MET Transcriptional Activity Using Cell-Free Chromatin Immunoprecipitation in Two Patients with EGFR-Mutated Non-Small Cell Lung Cancer.","journal":"Cancers (Basel)","pubDate":"2026-Sep-23","category":"advanced","categoryLabel":"局晚期与晚期靶向/免疫","shortCategory":"晚期靶向 / 免疫","studyType":"研究类型待评定（启发式模式）","score":35,"url":"https://pubmed.ncbi.nlm.nih.gov/42882792/","nct":"","trialUrl":"","snippet":"Background/Objectives:MET amplification represents the most common bypass resistance mechanism to EGFR tyrosine kinase inhibitor (TKI) treatment in EGFR-mutated non-small cell lung cancer (NSCLC). Combination therapy wit…"},{"pmid":"42882103","title":"Biomarker Integration in the Perioperative Management of Early-Stage Non-Small-Cell Lung Cancer.","journal":"J Clin Med","pubDate":"2026-Oct-02","category":"advanced","categoryLabel":"局晚期与晚期靶向/免疫","shortCategory":"晚期靶向 / 免疫","studyType":"研究类型待评定（启发式模式）","score":35,"url":"https://pubmed.ncbi.nlm.nih.gov/42882103/","nct":"","trialUrl":"","snippet":"The concept of personalized medicine has tremendous appeal-tailoring diagnosis and treatment to an individual, rather than a \"one-size-fits-all\" approach. The management of non-small-cell lung cancer (NSCLC) has rapidly …"},{"pmid":"42881915","title":"Clinicopathological and Perioperative Factors Associated with Overall Survival and 90-Day Mortality Following Esophagectomy for Esophageal Cancer.","journal":"J Clin Med","pubDate":"2026-Sep-24","category":"surgery","categoryLabel":"微创与无管化胸外科","shortCategory":"微创 / 无管化","studyType":"研究类型待评定（启发式模式）","score":35,"url":"https://pubmed.ncbi.nlm.nih.gov/42881915/","nct":"","trialUrl":"","snippet":"Background/Objectives: Esophageal cancer (EC) is an aggressive malignancy, and outcomes following esophagectomy are influenced by both oncological and perioperative factors. This study aimed to identify clinicopathologic…"},{"pmid":"42881189","title":"Early functional reactivity to a CEACAM5 x CD3 T cell bispecific antibody in solid tumors associates with baseline immune contexture rather than target antigen density alone.","journal":"NPJ Precis Oncol","pubDate":"2026-Aug-14","category":"perioperative","categoryLabel":"围术期与新辅助治疗","shortCategory":"围术期","studyType":"研究类型待评定（启发式模式）","score":35,"url":"https://pubmed.ncbi.nlm.nih.gov/42881189/","nct":"NCT03539484","trialUrl":"https://clinicaltrials.gov/study/NCT03539484","snippet":"Clinical translation of T cell bispecific (TCB) therapies in solid tumors is hindered by the immunosuppressive tumor microenvironment and intratumoral heterogeneity, features poorly captured by standard preclinical model…"},{"pmid":"42880447","title":"Cost-Effectiveness of Telisotuzumab Vedotin-tllv for Previously Treated High c-Met Protein-Overexpressing Nonsquamous Non-Small Cell Lung Cancer in the United States.","journal":"Value Health","pubDate":"2026-Oct-15","category":"advanced","categoryLabel":"局晚期与晚期靶向/免疫","shortCategory":"晚期靶向 / 免疫","studyType":"研究类型待评定（启发式模式）","score":35,"url":"https://pubmed.ncbi.nlm.nih.gov/42880447/","nct":"","trialUrl":"","snippet":"OBJECTIVES: To estimate the incremental cost-effectiveness of telisotuzumab vedotin-tllv (teliso-V) versus docetaxel in previously treated high c-Met protein-overexpressing (≥50% of tumor cells with 3+ staining) advanced…"},{"pmid":"42878946","title":"Uniportal versus Multiportal Video-Assisted Thoracoscopic Surgery for Minimally Invasive Esophagectomy in Esophageal Cancer: A GRADE-Assessed Systematic Review and Meta-Analysis.","journal":"J Gastrointest Cancer","pubDate":"2026-Oct-15","category":"surgery","categoryLabel":"微创与无管化胸外科","shortCategory":"微创 / 无管化","studyType":"研究类型待评定（启发式模式）","score":35,"url":"https://pubmed.ncbi.nlm.nih.gov/42878946/","nct":"","trialUrl":"","snippet":"BACKGROUND: Minimally invasive esophagectomy has become the preferred surgical approach for esophageal cancer, with uniportal video-assisted thoracoscopic surgery (uVATS) emerging as a potential refinement over conventio…"},{"pmid":"42877868","title":"Carboplatin, Etoposide, and Durvalumab for Extensive-Stage Small Cell Lung Cancer in a Patient Undergoing Maintenance Hemodialysis: A Case Report.","journal":"Case Rep Oncol","pubDate":"2026","category":"advanced","categoryLabel":"局晚期与晚期靶向/免疫","shortCategory":"晚期靶向 / 免疫","studyType":"研究类型待评定（启发式模式）","score":35,"url":"https://pubmed.ncbi.nlm.nih.gov/42877868/","nct":"","trialUrl":"","snippet":"INTRODUCTION: Patients undergoing maintenance hemodialysis exhibit a unique immunological state characterized by chronic inflammation and T-cell dysfunction. Evidence regarding the efficacy and safety of combination chem…"},{"pmid":"42875306","title":"Sequential Liver, Kidney, and Heart Transplantation in a Single Recipient: Long-Term Survival Complicated by Chronic Renal Allograft Failure, Lung Cancer, and Recurrent Infection-A Case Report.","journal":"Transplant Proc","pubDate":"2026-Oct-14","category":"surgery","categoryLabel":"微创与无管化胸外科","shortCategory":"微创 / 无管化","studyType":"研究类型待评定（启发式模式）","score":35,"url":"https://pubmed.ncbi.nlm.nih.gov/42875306/","nct":"","trialUrl":"","snippet":"BACKGROUND: Multi-organ transplant recipients face a substantial long-term risk of infection, malignancy, and chronic rejection secondary to prolonged immunosuppression. Sequential liver, kidney, and heart transplantatio…"},{"pmid":"42874594","title":"Tumor DNA methylation subtypes and expression levels of CFISH predict response and overall survival to immunochemotherapy.","journal":"Med","pubDate":"2026-Oct-14","category":"esophageal","categoryLabel":"食管与纵隔肿瘤","shortCategory":"食管 / 纵隔","studyType":"研究类型待评定（启发式模式）","score":35,"url":"https://pubmed.ncbi.nlm.nih.gov/42874594/","nct":"","trialUrl":"","snippet":"BACKGROUND: Predicting patient response to immunochemotherapy is vital but challenging and poorly studied in the (neo)adjuvant setting. We showed that tumor monocyte content (TMC) predicts overall survival of advanced es…"},{"pmid":"42872517","title":"Real-World Experience With Multimodal Treatment of Resectable Stage II-III Non-Small Cell Lung Cancer: A Single Institutional Analysis.","journal":"Int J Cancer","pubDate":"2026-Oct-14","category":"advanced","categoryLabel":"局晚期与晚期靶向/免疫","shortCategory":"晚期靶向 / 免疫","studyType":"研究类型待评定（启发式模式）","score":35,"url":"https://pubmed.ncbi.nlm.nih.gov/42872517/","nct":"","trialUrl":"","snippet":"Neoadjuvant therapy has recently become an integral component of multimodal treatment for resectable lung cancer. However, real-world data on perioperative morbidity and treatment adherence remain limited."},{"pmid":"42871941","title":"The association between cirrhosis and outcomes among patients with lung cancer in Ontario between 2007 and 2017: A population-based study.","journal":"Can Liver J","pubDate":"2026-Aug","category":"perioperative","categoryLabel":"围术期与新辅助治疗","shortCategory":"围术期","studyType":"研究类型待评定（启发式模式）","score":35,"url":"https://pubmed.ncbi.nlm.nih.gov/42871941/","nct":"","trialUrl":"","snippet":"INTRODUCTION: We describe the association between cirrhosis and outcomes among patients treated for non-small cell lung cancer (NSCLC). METHODS: NSCLC cases in 2007-2017 in Ontario, Canada, were reviewed."},{"pmid":"42871886","title":"Anesthetic Management of a Patient With Myasthenia Gravis Undergoing Thoracoscopic Thymectomy: A Case Report and Literature Review.","journal":"Cureus","pubDate":"2026-Sep","category":"surgery","categoryLabel":"微创与无管化胸外科","shortCategory":"微创 / 无管化","studyType":"研究类型待评定（启发式模式）","score":35,"url":"https://pubmed.ncbi.nlm.nih.gov/42871886/","nct":"","trialUrl":"","snippet":"Myasthenia gravis is an autoimmune neuromuscular disorder characterized by fluctuating skeletal muscle weakness and fatigability. Perioperative management is challenging because patients may have bulbar or respiratory mu…"}];
+const state={category:'all',query:'',rctOnly:false,visible:5,saved:new Set()};
+const list=document.getElementById('paperList');
+const moreBtn=document.getElementById('moreBtn');
+const resultCount=document.getElementById('resultCount');
+const featuredSection=document.getElementById('featuredSection');
+const listTitle=document.getElementById('listTitle');
+const icons={bookmark:'<svg><use href="#i-bookmark"/></svg>',arrow:'<svg><use href="#i-arrow"/></svg>'};
+const esc=value=>String(value??'').replace(/[&<>'"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]));
+const safeUrl=value=>/^https:\/\//.test(value)?esc(value):'#';
+const shortType=type=>type.startsWith('RCT')?'RCT · 启发式':type.startsWith('队列')?'队列 · 启发式':'类型待评定';
+function filtered(){const q=state.query.trim().toLowerCase();return PAPERS.filter(p=>(state.category==='all'||p.category===state.category)&&(!state.rctOnly||p.studyType.startsWith('RCT'))&&(!q||[p.title,p.journal,p.pmid,p.categoryLabel].join(' ').toLowerCase().includes(q)));}
+function paperTemplate(p){const rank=PAPERS.findIndex(item=>item.pmid===p.pmid)+1;const saved=state.saved.has(p.pmid);return `<article class="paper-row" data-pmid="${esc(p.pmid)}"><div class="paper-index">${String(rank).padStart(2,'0')}</div><div><div class="paper-kicker"><span class="tag accent">${esc(p.shortCategory)}</span><span class="tag neutral">${esc(shortType(p.studyType))}</span></div><h3 lang="en">${esc(p.title)}</h3><div class="paper-meta"><span>${esc(p.journal)}</span><span>${esc(p.pubDate)}</span><span>PMID ${esc(p.pmid)}</span></div><details class="abstract"><summary>摘要开头</summary><p lang="en">${esc(p.snippet)}</p></details></div><div class="paper-actions"><button class="bookmark-btn ${saved?'saved':''}" type="button" data-save="${esc(p.pmid)}" aria-label="${saved?'移出':'加入'}查房清单" aria-pressed="${saved}">${icons.bookmark}</button><a class="pub-link" href="${safeUrl(p.url)}" target="_blank" rel="noopener" aria-label="打开 PubMed 原文">${icons.arrow}</a></div></article>`;}
+function render(){const matches=filtered();const pristine=state.category==='all'&&!state.query.trim()&&!state.rctOnly;featuredSection.hidden=!pristine;const source=pristine?matches.filter(p=>p.pmid!=='42887497'):matches;const shown=source.slice(0,state.visible);listTitle.textContent=pristine?'其余信号':`筛选结果 · ${matches.length} 篇`;resultCount.textContent=source.length?`当前显示 ${shown.length} / ${source.length} 篇`:'没有匹配结果';list.innerHTML=shown.length?shown.map(paperTemplate).join(''):'<div class="empty-list"><strong>雷达上没有这个信号</strong>试试缩短关键词，或切回「全部信号」。</div>';moreBtn.hidden=shown.length>=source.length||!source.length;moreBtn.textContent=`继续加载（剩余 ${Math.max(0,source.length-shown.length)} 篇）`;updateSaved();}
+function updateSaved(){document.getElementById('savedCount').textContent=state.saved.size;document.getElementById('savedEmpty').hidden=state.saved.size>0;document.getElementById('savedList').innerHTML=[...state.saved].map(id=>{const p=PAPERS.find(item=>item.pmid===id);return p?`<div class="saved-item"><button type="button" data-focus="${esc(id)}">${esc(p.title)}</button></div>`:''}).join('');}
+function focusPaper(id){state.category='all';state.query='';state.rctOnly=false;document.getElementById('searchInput').value='';document.getElementById('rctOnly').checked=false;document.querySelectorAll('.channel').forEach(btn=>btn.classList.toggle('active',btn.dataset.category==='all'));const index=PAPERS.findIndex(p=>p.pmid===id);state.visible=Math.max(5,index+2);render();requestAnimationFrame(()=>{const target=document.querySelector(`[data-pmid="${id}"]`);if(target){target.scrollIntoView({behavior:'smooth',block:'center'});target.classList.add('spotlight');setTimeout(()=>target.classList.remove('spotlight'),1800);}});}
+document.getElementById('channels').addEventListener('click',event=>{const btn=event.target.closest('[data-category]');if(!btn)return;state.category=btn.dataset.category;state.visible=8;document.querySelectorAll('.channel').forEach(item=>item.classList.toggle('active',item===btn));render();});
+document.getElementById('searchInput').addEventListener('input',event=>{state.query=event.target.value;state.visible=8;render();});
+document.getElementById('rctOnly').addEventListener('change',event=>{state.rctOnly=event.target.checked;state.visible=8;render();});
+moreBtn.addEventListener('click',()=>{state.visible+=6;render();});
+document.addEventListener('click',event=>{const save=event.target.closest('[data-save]');if(save){const id=save.dataset.save;state.saved.has(id)?state.saved.delete(id):state.saved.add(id);render();return;}const focus=event.target.closest('[data-focus]');if(focus)focusPaper(focus.dataset.focus);});
+const themeToggle=document.getElementById('themeToggle');
+function setTheme(dark){document.documentElement.classList.toggle('dark',dark);themeToggle.setAttribute('aria-pressed',String(dark));themeToggle.setAttribute('aria-label',dark?'切换浅色主题':'切换深色主题');themeToggle.querySelector('span').textContent=dark?'浅色':'深色';}
+themeToggle.addEventListener('click',()=>setTheme(!document.documentElement.classList.contains('dark')));
+if(location.hash==='#dark')setTheme(true);
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,602 @@
+[
+  {
+    "input_name": "New England Journal of Medicine",
+    "input_abbr": "N Engl J Med",
+    "nlm_found": true,
+    "nlm_id": "0255562",
+    "iso_abbr": "N Engl J Med",
+    "issn_l": "0028-4793",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "The Lancet",
+    "input_abbr": "Lancet",
+    "nlm_found": true,
+    "nlm_id": "2985213R",
+    "iso_abbr": "Lancet",
+    "issn_l": "0140-6736",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "JAMA",
+    "input_abbr": "JAMA",
+    "nlm_found": true,
+    "nlm_id": "7501160",
+    "iso_abbr": "JAMA",
+    "issn_l": "0098-7484",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Nature Medicine",
+    "input_abbr": "Nat Med",
+    "nlm_found": true,
+    "nlm_id": "9502015",
+    "iso_abbr": "Nat Med",
+    "issn_l": "1078-8956",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Lancet Oncology",
+    "input_abbr": "Lancet Oncol",
+    "nlm_found": true,
+    "nlm_id": "100957246",
+    "iso_abbr": "Lancet Oncol",
+    "issn_l": "1470-2045",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "JAMA Oncology",
+    "input_abbr": "JAMA Oncol",
+    "nlm_found": true,
+    "nlm_id": "101652861",
+    "iso_abbr": "JAMA Oncol",
+    "issn_l": "2374-2437",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Annals of Oncology",
+    "input_abbr": "Ann Oncol",
+    "nlm_found": true,
+    "nlm_id": "9007735",
+    "iso_abbr": "Ann Oncol",
+    "issn_l": "0923-7534",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Journal of Clinical Oncology",
+    "input_abbr": "J Clin Oncol",
+    "nlm_found": true,
+    "nlm_id": "8309333",
+    "iso_abbr": "J Clin Oncol",
+    "issn_l": "0732-183X",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Cancer Cell",
+    "input_abbr": "Cancer Cell",
+    "nlm_found": true,
+    "nlm_id": "101130617",
+    "iso_abbr": "Cancer Cell",
+    "issn_l": "1535-6108",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Cancer Discovery",
+    "input_abbr": "Cancer Discov",
+    "nlm_found": true,
+    "nlm_id": "101561693",
+    "iso_abbr": "Cancer Discov",
+    "issn_l": "2159-8274",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Journal of Thoracic Oncology",
+    "input_abbr": "J Thorac Oncol",
+    "nlm_found": true,
+    "nlm_id": "101274235",
+    "iso_abbr": "J Thorac Oncol",
+    "issn_l": "1556-0864",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Lancet Respiratory Medicine",
+    "input_abbr": "Lancet Respir Med",
+    "nlm_found": true,
+    "nlm_id": "101605555",
+    "iso_abbr": "Lancet Respir Med",
+    "issn_l": "2213-2600",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Journal of Thoracic and Cardiovascular Surgery",
+    "input_abbr": "J Thorac Cardiovasc Surg",
+    "nlm_found": true,
+    "nlm_id": "0376343",
+    "iso_abbr": "J Thorac Cardiovasc Surg",
+    "issn_l": "0022-5223",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Annals of Thoracic Surgery",
+    "input_abbr": "Ann Thorac Surg",
+    "nlm_found": true,
+    "nlm_id": "15030100R",
+    "iso_abbr": "Ann Thorac Surg",
+    "issn_l": "0003-4975",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "CHEST",
+    "input_abbr": "Chest",
+    "nlm_found": true,
+    "nlm_id": "0231335",
+    "iso_abbr": "Chest",
+    "issn_l": "0012-3692",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Thorax",
+    "input_abbr": "Thorax",
+    "nlm_found": true,
+    "nlm_id": "0417353",
+    "iso_abbr": "Thorax",
+    "issn_l": "0040-6376",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "European Journal of Cardio-Thoracic Surgery",
+    "input_abbr": "Eur J Cardiothorac Surg",
+    "nlm_found": true,
+    "nlm_id": "8804069",
+    "iso_abbr": "Eur J Cardiothorac Surg",
+    "issn_l": "1010-7940",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "European Respiratory Journal",
+    "input_abbr": "Eur Respir J",
+    "nlm_found": true,
+    "nlm_id": "8803460",
+    "iso_abbr": "Eur Respir J",
+    "issn_l": "0903-1936",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Annals of Surgery",
+    "input_abbr": "Ann Surg",
+    "nlm_found": true,
+    "nlm_id": "0372354",
+    "iso_abbr": "Ann Surg",
+    "issn_l": "0003-4932",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "JAMA Surgery",
+    "input_abbr": "JAMA Surg",
+    "nlm_found": true,
+    "nlm_id": "101589553",
+    "iso_abbr": "JAMA Surg",
+    "issn_l": "2168-6254",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Clinical Cancer Research",
+    "input_abbr": "Clin Cancer Res",
+    "nlm_found": true,
+    "nlm_id": "9502500",
+    "iso_abbr": "Clin Cancer Res",
+    "issn_l": "1078-0432",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Nature Reviews Clinical Oncology",
+    "input_abbr": "Nat Rev Clin Oncol",
+    "nlm_found": true,
+    "nlm_id": "101500077",
+    "iso_abbr": "Nat Rev Clin Oncol",
+    "issn_l": "1759-4774",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Nature Reviews Cancer",
+    "input_abbr": "Nat Rev Cancer",
+    "nlm_found": true,
+    "nlm_id": "101124168",
+    "iso_abbr": "Nat Rev Cancer",
+    "issn_l": "1474-175X",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Nature Cancer",
+    "input_abbr": "Nat Cancer",
+    "nlm_found": true,
+    "nlm_id": "101761119",
+    "iso_abbr": "Nat Cancer",
+    "issn_l": "2662-1347",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Journal for ImmunoTherapy of Cancer",
+    "input_abbr": "J Immunother Cancer",
+    "nlm_found": true,
+    "nlm_id": "101620585",
+    "iso_abbr": "J Immunother Cancer",
+    "issn_l": "2051-1426",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Radiology",
+    "input_abbr": "Radiology",
+    "nlm_found": true,
+    "nlm_id": "0401260",
+    "iso_abbr": "Radiology",
+    "issn_l": "0033-8419",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Lancet Digital Health",
+    "input_abbr": "Lancet Digit Health",
+    "nlm_found": true,
+    "nlm_id": "101751302",
+    "iso_abbr": "Lancet Digit Health",
+    "issn_l": "2589-7500",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "MedComm",
+    "input_abbr": "MedComm",
+    "nlm_found": true,
+    "nlm_id": "101769925",
+    "iso_abbr": "MedComm (2020)",
+    "issn_l": "2688-2663",
+    "verify_status": "diff",
+    "note": "NLM 官方 MedlineTA 为 'MedComm (2020)'，含创刊年份后缀以区分衍生刊群；输入缩写 'MedComm' 与官方缩写不符。"
+  },
+  {
+    "input_name": "Journal of Thoracic Disease",
+    "input_abbr": "J Thorac Dis",
+    "nlm_found": true,
+    "nlm_id": "101533916",
+    "iso_abbr": "J Thorac Dis",
+    "issn_l": "2072-1439",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Translational Lung Cancer Research",
+    "input_abbr": "Transl Lung Cancer Res",
+    "nlm_found": true,
+    "nlm_id": "101646875",
+    "iso_abbr": "Transl Lung Cancer Res",
+    "issn_l": "2218-6751",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Clinical Lung Cancer",
+    "input_abbr": "Clin Lung Cancer",
+    "nlm_found": true,
+    "nlm_id": "100893225",
+    "iso_abbr": "Clin Lung Cancer",
+    "issn_l": "1525-7304",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Lung Cancer",
+    "input_abbr": "Lung Cancer",
+    "nlm_found": true,
+    "nlm_id": "8800805",
+    "iso_abbr": "Lung Cancer",
+    "issn_l": "0169-5002",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "ESMO Open",
+    "input_abbr": "ESMO Open",
+    "nlm_found": true,
+    "nlm_id": "101690685",
+    "iso_abbr": "ESMO Open",
+    "issn_l": "2059-7029",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "European Journal of Cancer",
+    "input_abbr": "Eur J Cancer",
+    "nlm_found": true,
+    "nlm_id": "9005373",
+    "iso_abbr": "Eur J Cancer",
+    "issn_l": "0959-8049",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "International Journal of Cancer",
+    "input_abbr": "Int J Cancer",
+    "nlm_found": true,
+    "nlm_id": "0042124",
+    "iso_abbr": "Int J Cancer",
+    "issn_l": "0020-7136",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Cancer",
+    "input_abbr": "Cancer",
+    "nlm_found": true,
+    "nlm_id": "0374236",
+    "iso_abbr": "Cancer",
+    "issn_l": "0008-543X",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "British Journal of Cancer",
+    "input_abbr": "Br J Cancer",
+    "nlm_found": true,
+    "nlm_id": "0370635",
+    "iso_abbr": "Br J Cancer",
+    "issn_l": "0007-0920",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Cancer Research",
+    "input_abbr": "Cancer Res",
+    "nlm_found": true,
+    "nlm_id": "2984705R",
+    "iso_abbr": "Cancer Res",
+    "issn_l": "0008-5472",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Cancer Communications",
+    "input_abbr": "Cancer Commun",
+    "nlm_found": true,
+    "nlm_id": "8916730",
+    "iso_abbr": "Cancer Commun",
+    "issn_l": "0955-3541",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Signal Transduction and Targeted Therapy",
+    "input_abbr": "Signal Transduct Target Ther",
+    "nlm_found": true,
+    "nlm_id": "101676423",
+    "iso_abbr": "Signal Transduct Target Ther",
+    "issn_l": "2095-9907",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Oncogene",
+    "input_abbr": "Oncogene",
+    "nlm_found": true,
+    "nlm_id": "8711562",
+    "iso_abbr": "Oncogene",
+    "issn_l": "0950-9232",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Trends in Cancer",
+    "input_abbr": "Trends Cancer",
+    "nlm_found": true,
+    "nlm_id": "101665956",
+    "iso_abbr": "Trends Cancer",
+    "issn_l": "2405-8033",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Diseases of the Esophagus",
+    "input_abbr": "Dis Esophagus",
+    "nlm_found": true,
+    "nlm_id": "8809160",
+    "iso_abbr": "Dis Esophagus",
+    "issn_l": "1120-8694",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "JTO Clinical and Research Reports",
+    "input_abbr": "JTO Clin Res Rep",
+    "nlm_found": true,
+    "nlm_id": "101769967",
+    "iso_abbr": "JTO Clin Res Rep",
+    "issn_l": "2666-3643",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Interactive CardioVascular and Thoracic Surgery",
+    "input_abbr": "Interact Cardiovasc Thorac Surg",
+    "nlm_found": true,
+    "nlm_id": "101158399",
+    "iso_abbr": "Interact Cardiovasc Thorac Surg",
+    "issn_l": "1569-9293",
+    "verify_status": "match",
+    "note": "NLM 匹配历史记录 (101158399)。注：该刊于2023年更名为 Interdisciplinary CardioVascular and Thoracic Surgery (NLM ID: 9918540787006676)。"
+  },
+  {
+    "input_name": "European Radiology",
+    "input_abbr": "Eur Radiol",
+    "nlm_found": true,
+    "nlm_id": "9114774",
+    "iso_abbr": "Eur Radiol",
+    "issn_l": "0938-7994",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "npj Precision Oncology",
+    "input_abbr": "Npj Precis Oncol",
+    "nlm_found": true,
+    "nlm_id": "101708166",
+    "iso_abbr": "NPJ Precis Oncol",
+    "issn_l": "2397-768X",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "npj Digital Medicine",
+    "input_abbr": "Npj Digit Med",
+    "nlm_found": true,
+    "nlm_id": "101731738",
+    "iso_abbr": "NPJ Digit Med",
+    "issn_l": "2398-6352",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "NEJM AI",
+    "input_abbr": "NEJM AI",
+    "nlm_found": true,
+    "nlm_id": "9918752186406676",
+    "iso_abbr": "NEJM AI",
+    "issn_l": "2836-9386",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "EClinicalMedicine",
+    "input_abbr": "Eclinicalmedicine",
+    "nlm_found": true,
+    "nlm_id": "101733727",
+    "iso_abbr": "EClinicalMedicine",
+    "issn_l": "2589-5370",
+    "verify_status": "match",
+    "note": "大小写不敏感匹配 (NLM 为 CamelCase 'EClinicalMedicine')。"
+  },
+  {
+    "input_name": "BJS (British Journal of Surgery)",
+    "input_abbr": "BJS",
+    "nlm_found": true,
+    "nlm_id": "101722685",
+    "iso_abbr": "BJS Open",
+    "issn_l": "2474-9842",
+    "verify_status": "diff",
+    "note": "NLM 官方 MedlineTA 为 'Br J Surg'，BJS 为其封面/常用别名；输入缩写 'BJS' 与官方缩写不符。"
+  },
+  {
+    "input_name": "Surgical Endoscopy",
+    "input_abbr": "Surg Endosc",
+    "nlm_found": true,
+    "nlm_id": "8806653",
+    "iso_abbr": "Surg Endosc",
+    "issn_l": "0930-2794",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Annals of Surgical Oncology",
+    "input_abbr": "Ann Surg Oncol",
+    "nlm_found": true,
+    "nlm_id": "9420840",
+    "iso_abbr": "Ann Surg Oncol",
+    "issn_l": "1068-9265",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "JAMA Network Open",
+    "input_abbr": "JAMA Netw Open",
+    "nlm_found": true,
+    "nlm_id": "101729235",
+    "iso_abbr": "JAMA Netw Open",
+    "issn_l": "2574-3805",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Cancers",
+    "input_abbr": "Cancers",
+    "nlm_found": true,
+    "nlm_id": "101526829",
+    "iso_abbr": "Cancers (Basel)",
+    "issn_l": "2072-6694",
+    "verify_status": "diff",
+    "note": "NLM 官方 MedlineTA 为 'Cancers (Basel)'，含出版地后缀以区分同名词；输入缩写 'Cancers' 与官方缩写不符。"
+  },
+  {
+    "input_name": "Frontiers in Oncology",
+    "input_abbr": "Front Oncol",
+    "nlm_found": true,
+    "nlm_id": "101568867",
+    "iso_abbr": "Front Oncol",
+    "issn_l": "2234-943X",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Scientific Reports",
+    "input_abbr": "Sci Rep",
+    "nlm_found": true,
+    "nlm_id": "101563288",
+    "iso_abbr": "Sci Rep",
+    "issn_l": "2045-2322",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Journal of Thoracic Imaging",
+    "input_abbr": "J Thorac Imaging",
+    "nlm_found": true,
+    "nlm_id": "8606160",
+    "iso_abbr": "J Thorac Imaging",
+    "issn_l": "0883-5993",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Esophagus",
+    "input_abbr": "Esophagus",
+    "nlm_found": true,
+    "nlm_id": "101206627",
+    "iso_abbr": "Esophagus",
+    "issn_l": "1612-9059",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  },
+  {
+    "input_name": "Mediastinum",
+    "input_abbr": "Mediastinum",
+    "nlm_found": true,
+    "nlm_id": "101731833",
+    "iso_abbr": "Mediastinum",
+    "issn_l": "2522-6711",
+    "verify_status": "match",
+    "note": "NLM 官方缩写与输入缩写大小写不敏感完全一致。"
+  }
+]

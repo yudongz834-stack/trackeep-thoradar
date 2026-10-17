@@ -106,8 +106,9 @@ class JournalMatcher:
                 return {
                     "matched": True,
                     "tier": tier,
-                    "if_val": j.get("if_2025", 0.0),
-                    "zone": f"JCR {j.get('jcr_quartile', 'Q2')} · {j.get('cas_zone', '')}".strip(" ·"),
+                    "if_val": j.get("if_2025") or None,
+                    "zone": " · ".join(([f"JCR {j['jcr_quartile']}"] if j.get("jcr_quartile") else [])
+                                       + ([j["cas_zone"]] if j.get("cas_zone") else [])) or "已收录期刊",
                     "journal_bonus": int(meta.get("score_bonus", 0)),
                     "whitelist_exempt": bool(meta.get("whitelist_exempt", False)),
                     "journal_abbr": j.get("iso_abbr", iso_abbr or title),
@@ -116,7 +117,7 @@ class JournalMatcher:
         return {
             "matched": False,
             "tier": "B",
-            "if_val": 0.0,
+            "if_val": None,
             "zone": "PubMed 收录期刊",
             "journal_bonus": 0,
             "whitelist_exempt": False,
@@ -1067,7 +1068,7 @@ def render_briefing_md(papers: List[Dict[str, Any]], day: str, funnel: Dict[str,
     lines.append("")
     for i, p in enumerate(papers, 1):
         star = "⭐" if p.get("curated") else ""
-        badge = f"{star}{p['journal_abbr']} · IF {p['if_val']} · 评分 {p['score_total']}"
+        badge = f"{star}{p['journal_abbr']} · IF {p['if_val'] if p['if_val'] is not None else '—'} · 评分 {p['score_total']}"
         if p["score_source"] == "heuristic":
             badge += " · 启发式"
         verify = "✅ 核验通过" if p["critic_verified"] else ("⚠️ 未通过自动核验，解读暂停" if p["critic_verified"] is False else "— 无数值核验项")

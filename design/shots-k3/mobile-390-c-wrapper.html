@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ThorRadar C · 390px 移动视口自验</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;background:#DFDACB;font-family:"Cascadia Mono","Consolas",monospace}
+.frame-label{margin-bottom:10px;color:#46433C;font-size:11px;font-weight:700;letter-spacing:.08em;text-align:center}
+.phone{width:414px;height:868px;padding:12px;border-radius:44px;background:#1F1E1D;box-shadow:0 26px 60px -22px rgba(31,30,29,.5)}
+.screen{width:390px;height:844px;overflow:hidden;border-radius:34px;background:#F0EEE6}
+iframe{display:block;width:390px;height:844px;border:0}
+</style>
+</head>
+<body>
+<main>
+<div class="frame-label">C · 390 × 844 · IFRAME VIEWPORT</div>
+<div class="phone"><div class="screen"><iframe src="../k3-c.html" title="胸科雷达 C 版 390px 移动视口"></iframe></div></div>
+</main>
+<script>
+const frame=document.querySelector('iframe');
+const report={checks:[],errors:[]};
+function check(name,pass,actual){report.checks.push({name,pass:Boolean(pass),actual});}
+frame.addEventListener('load',()=>{
+  const win=frame.contentWindow;
+  const doc=frame.contentDocument;
+  win.addEventListener('error',event=>report.errors.push(String(event.message||event.error||'unknown')));
+  win.setTimeout(()=>{
+    try{
+      check('viewport-390',doc.documentElement.clientWidth===390,doc.documentElement.clientWidth);
+      check('no-horizontal-overflow',doc.documentElement.scrollWidth<=390,doc.documentElement.scrollWidth);
+      check('six-research-lines',doc.querySelectorAll('.lane').length===6,doc.querySelectorAll('.lane').length);
+      check('36-line-stations',doc.querySelectorAll('.station').length===36,doc.querySelectorAll('.station').length);
+      check('8-initial-paper-rows',doc.querySelectorAll('.paper-row').length===8,doc.querySelectorAll('.paper-row').length);
+      const more=doc.querySelector('#list-more');more.click();
+      check('expand-all-36-rows',doc.querySelectorAll('.paper-row').length===36,doc.querySelectorAll('.paper-row').length);
+      check('expanded-no-horizontal-overflow',doc.documentElement.scrollWidth<=390,doc.documentElement.scrollWidth);
+      more.click();
+      const theme=doc.querySelector('#theme-toggle');theme.click();
+      check('dark-theme-applies',doc.documentElement.classList.contains('dark')&&win.getComputedStyle(doc.body).backgroundColor==='rgb(38, 36, 31)',win.getComputedStyle(doc.body).backgroundColor);
+      theme.click();
+      check('light-theme-restores',!doc.documentElement.classList.contains('dark'),doc.documentElement.className);
+      const boundaryTitle=doc.querySelector('.paper-title button');
+      const originalTitle=boundaryTitle.textContent;
+      boundaryTitle.textContent='BOUNDARY_'+('X'.repeat(180))+'_超长无断行标题';
+      check('long-title-no-horizontal-overflow',doc.documentElement.scrollWidth<=390,doc.documentElement.scrollWidth);
+      boundaryTitle.textContent=originalTitle;
+      doc.querySelector('[data-category="advanced"]').click();
+      check('category-filter-13',doc.querySelectorAll('.station').length===13,doc.querySelectorAll('.station').length);
+      doc.querySelector('[data-category="all"]').click();
+      const search=doc.querySelector('#search-input');
+      search.value='no-such-paper';search.dispatchEvent(new win.Event('input',{bubbles:true}));
+      check('search-empty-state',doc.querySelectorAll('.station').length===0,doc.querySelectorAll('.station').length);
+      search.value='';search.dispatchEvent(new win.Event('input',{bubbles:true}));
+      doc.querySelector('.paper-title button').click();
+      check('paper-dialog-opens',doc.querySelector('#paper-dialog').open,true);
+      check('four-part-reading',doc.querySelectorAll('.fact-panel').length===4,doc.querySelectorAll('.fact-panel').length);
+      check('dialog-no-overflow',doc.documentElement.scrollWidth<=390,doc.documentElement.scrollWidth);
+      doc.querySelector('#paper-dialog').close();
+      doc.querySelector('[data-view="trends"]').click();
+      check('trend-view-renders',doc.querySelectorAll('#stats-grid .stat-card').length===4,doc.querySelectorAll('#stats-grid .stat-card').length);
+      doc.querySelector('[data-view="topics"]').click();
+      check('six-topic-desks',doc.querySelectorAll('.topic-card').length===6,doc.querySelectorAll('.topic-card').length);
+      doc.querySelector('[data-view="curated"]').click();
+      check('curated-honest-zero',doc.querySelector('#curated-zero').textContent==='0',doc.querySelector('#curated-zero').textContent);
+      doc.querySelector('[data-view="dynamic"]').click();
+      check('restored-36-stations',doc.querySelectorAll('.station').length===36,doc.querySelectorAll('.station').length);
+      check('final-no-horizontal-overflow',doc.documentElement.scrollWidth<=390,doc.documentElement.scrollWidth);
+    }catch(error){report.errors.push(String(error&&error.stack||error));}
+    report.pass=report.errors.length===0&&report.checks.every(item=>item.pass);
+    document.body.dataset.verify=JSON.stringify(report);
+    document.body.dataset.pass=String(report.pass);
+  },120);
+});
+</script>
+</body>
+</html>
