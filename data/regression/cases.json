@@ -33,16 +33,35 @@
     },
     {
      "kind": "population_swap",
-     "summary": "上述结果来自全人群（ITT）分析",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "PD-L1 阳性人群",
+     "metric": "主要终点 ORR",
+     "val": "0%",
+     "stat": "",
+     "expect": "block",
+     "note": "把全人群结果安到摘要未出现的限定人群「PD-L1 阳性人群」（数值真实存在，数值层对此失明）"
     },
     {
      "kind": "endpoint_swap",
-     "summary": "上述数值为主要终点结果",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "患者人群",
+     "metric": "缓解持续时间 DOR",
+     "val": "0%",
+     "stat": "",
+     "expect": "block",
+     "note": "把该数值标为摘要中不存在的终点「缓解持续时间 DOR」（数值真实存在，数值层对此失明）"
     }
    ],
-   "frozen_at": "2026-10-17"
+   "frozen_at": "2026-10-17",
+   "correct_tuples": [
+    {
+     "group": "患者人群",
+     "metric": "主要终点 ORR",
+     "val": "0%",
+     "stat": "",
+     "note": "限定词「患者人群」与指标「主要终点 ORR」均在原摘要出现（独立扫描确认）"
+    }
+   ]
   },
   {
    "id": "reg_39288781",
@@ -76,16 +95,35 @@
     },
     {
      "kind": "population_swap",
-     "summary": "上述结果来自全人群（ITT）分析",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "PD-L1 阳性人群",
+     "metric": "主要终点 ORR",
+     "val": "671",
+     "stat": "",
+     "expect": "block",
+     "note": "把全人群结果安到摘要未出现的限定人群「PD-L1 阳性人群」（数值真实存在，数值层对此失明）"
     },
     {
      "kind": "endpoint_swap",
-     "summary": "上述数值为主要终点结果",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "患者人群",
+     "metric": "病理完全缓解率 pCR",
+     "val": "671",
+     "stat": "",
+     "expect": "block",
+     "note": "把该数值标为摘要中不存在的终点「病理完全缓解率 pCR」（数值真实存在，数值层对此失明）"
     }
    ],
-   "frozen_at": "2026-10-17"
+   "frozen_at": "2026-10-17",
+   "correct_tuples": [
+    {
+     "group": "患者人群",
+     "metric": "主要终点 ORR",
+     "val": "671",
+     "stat": "",
+     "note": "限定词「患者人群」与指标「主要终点 ORR」均在原摘要出现（独立扫描确认）"
+    }
+   ]
   },
   {
    "id": "reg_38828946",
@@ -119,16 +157,35 @@
     },
     {
      "kind": "population_swap",
-     "summary": "上述结果来自全人群（ITT）分析",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "PD-L1 阳性人群",
+     "metric": "主要终点 ORR",
+     "val": "216",
+     "stat": "",
+     "expect": "block",
+     "note": "把全人群结果安到摘要未出现的限定人群「PD-L1 阳性人群」（数值真实存在，数值层对此失明）"
     },
     {
      "kind": "endpoint_swap",
-     "summary": "上述数值为主要终点结果",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "患者人群",
+     "metric": "病理完全缓解率 pCR",
+     "val": "216",
+     "stat": "",
+     "expect": "block",
+     "note": "把该数值标为摘要中不存在的终点「病理完全缓解率 pCR」（数值真实存在，数值层对此失明）"
     }
    ],
-   "frozen_at": "2026-10-17"
+   "frozen_at": "2026-10-17",
+   "correct_tuples": [
+    {
+     "group": "患者人群",
+     "metric": "主要终点 ORR",
+     "val": "216",
+     "stat": "",
+     "note": "限定词「患者人群」与指标「主要终点 ORR」均在原摘要出现（独立扫描确认）"
+    }
+   ]
   },
   {
    "id": "reg_39268857",
@@ -162,16 +219,35 @@
     },
     {
      "kind": "population_swap",
-     "summary": "上述结果来自全人群（ITT）分析",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "PD-L1 阳性人群",
+     "metric": "主要终点 ORR",
+     "val": "1500",
+     "stat": "",
+     "expect": "block",
+     "note": "把全人群结果安到摘要未出现的限定人群「PD-L1 阳性人群」（数值真实存在，数值层对此失明）"
     },
     {
      "kind": "endpoint_swap",
-     "summary": "上述数值为主要终点结果",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "患者人群",
+     "metric": "病理完全缓解率 pCR",
+     "val": "1500",
+     "stat": "",
+     "expect": "block",
+     "note": "把该数值标为摘要中不存在的终点「病理完全缓解率 pCR」（数值真实存在，数值层对此失明）"
     }
    ],
-   "frozen_at": "2026-10-17"
+   "frozen_at": "2026-10-17",
+   "correct_tuples": [
+    {
+     "group": "患者人群",
+     "metric": "主要终点 ORR",
+     "val": "1500",
+     "stat": "",
+     "note": "限定词「患者人群」与指标「主要终点 ORR」均在原摘要出现（独立扫描确认）"
+    }
+   ]
   },
   {
    "id": "reg_32979984",
@@ -205,16 +281,35 @@
     },
     {
      "kind": "population_swap",
-     "summary": "上述结果来自全人群（ITT）分析",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "PD-L1 阳性人群",
+     "metric": "主要终点 ORR",
+     "val": "18",
+     "stat": "",
+     "expect": "block",
+     "note": "把全人群结果安到摘要未出现的限定人群「PD-L1 阳性人群」（数值真实存在，数值层对此失明）"
     },
     {
      "kind": "endpoint_swap",
-     "summary": "上述数值为主要终点结果",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "老年人群",
+     "metric": "病理完全缓解率 pCR",
+     "val": "18",
+     "stat": "",
+     "expect": "block",
+     "note": "把该数值标为摘要中不存在的终点「病理完全缓解率 pCR」（数值真实存在，数值层对此失明）"
     }
    ],
-   "frozen_at": "2026-10-17"
+   "frozen_at": "2026-10-17",
+   "correct_tuples": [
+    {
+     "group": "老年人群",
+     "metric": "主要终点 ORR",
+     "val": "18",
+     "stat": "",
+     "note": "限定词「老年人群」与指标「主要终点 ORR」均在原摘要出现（独立扫描确认）"
+    }
+   ]
   },
   {
    "id": "reg_28885881",
@@ -248,16 +343,35 @@
     },
     {
      "kind": "population_swap",
-     "summary": "上述结果来自全人群（ITT）分析",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "PD-L1 阳性人群",
+     "metric": "主要终点 ORR",
+     "val": "10",
+     "stat": "",
+     "expect": "block",
+     "note": "把全人群结果安到摘要未出现的限定人群「PD-L1 阳性人群」（数值真实存在，数值层对此失明）"
     },
     {
      "kind": "endpoint_swap",
-     "summary": "上述数值为主要终点结果",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "患者人群",
+     "metric": "病理完全缓解率 pCR",
+     "val": "10",
+     "stat": "",
+     "expect": "block",
+     "note": "把该数值标为摘要中不存在的终点「病理完全缓解率 pCR」（数值真实存在，数值层对此失明）"
     }
    ],
-   "frozen_at": "2026-10-17"
+   "frozen_at": "2026-10-17",
+   "correct_tuples": [
+    {
+     "group": "患者人群",
+     "metric": "主要终点 ORR",
+     "val": "10",
+     "stat": "",
+     "note": "限定词「患者人群」与指标「主要终点 ORR」均在原摘要出现（独立扫描确认）"
+    }
+   ]
   },
   {
    "id": "reg_38749033",
@@ -291,16 +405,35 @@
     },
     {
      "kind": "population_swap",
-     "summary": "上述结果来自全人群（ITT）分析",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "PD-L1 阳性人群",
+     "metric": "主要终点 ORR",
+     "val": "25.4",
+     "stat": "",
+     "expect": "block",
+     "note": "把全人群结果安到摘要未出现的限定人群「PD-L1 阳性人群」（数值真实存在，数值层对此失明）"
     },
     {
      "kind": "endpoint_swap",
-     "summary": "上述数值为主要终点结果",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "患者人群",
+     "metric": "缓解持续时间 DOR",
+     "val": "25.4",
+     "stat": "",
+     "expect": "block",
+     "note": "把该数值标为摘要中不存在的终点「缓解持续时间 DOR」（数值真实存在，数值层对此失明）"
     }
    ],
-   "frozen_at": "2026-10-17"
+   "frozen_at": "2026-10-17",
+   "correct_tuples": [
+    {
+     "group": "患者人群",
+     "metric": "主要终点 ORR",
+     "val": "25.4",
+     "stat": "",
+     "note": "限定词「患者人群」与指标「主要终点 ORR」均在原摘要出现（独立扫描确认）"
+    }
+   ]
   },
   {
    "id": "reg_39581197",
@@ -334,16 +467,35 @@
     },
     {
      "kind": "population_swap",
-     "summary": "上述结果来自全人群（ITT）分析",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "PD-L1 阳性人群",
+     "metric": "主要终点 ORR",
+     "val": "315",
+     "stat": "",
+     "expect": "block",
+     "note": "把全人群结果安到摘要未出现的限定人群「PD-L1 阳性人群」（数值真实存在，数值层对此失明）"
     },
     {
      "kind": "endpoint_swap",
-     "summary": "上述数值为主要终点结果",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "鳞癌人群",
+     "metric": "病理完全缓解率 pCR",
+     "val": "315",
+     "stat": "",
+     "expect": "block",
+     "note": "把该数值标为摘要中不存在的终点「病理完全缓解率 pCR」（数值真实存在，数值层对此失明）"
     }
    ],
-   "frozen_at": "2026-10-17"
+   "frozen_at": "2026-10-17",
+   "correct_tuples": [
+    {
+     "group": "鳞癌人群",
+     "metric": "主要终点 ORR",
+     "val": "315",
+     "stat": "",
+     "note": "限定词「鳞癌人群」与指标「主要终点 ORR」均在原摘要出现（独立扫描确认）"
+    }
+   ]
   },
   {
    "id": "reg_28709816",
@@ -377,16 +529,35 @@
     },
     {
      "kind": "population_swap",
-     "summary": "上述结果来自全人群（ITT）分析",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "PD-L1 阳性人群",
+     "metric": "无进展生存 PFS",
+     "val": "80%",
+     "stat": "",
+     "expect": "block",
+     "note": "把全人群结果安到摘要未出现的限定人群「PD-L1 阳性人群」（数值真实存在，数值层对此失明）"
     },
     {
      "kind": "endpoint_swap",
-     "summary": "上述数值为主要终点结果",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "老年人群",
+     "metric": "主要终点 ORR",
+     "val": "80%",
+     "stat": "",
+     "expect": "block",
+     "note": "把该数值标为摘要中不存在的终点「主要终点 ORR」（数值真实存在，数值层对此失明）"
     }
    ],
-   "frozen_at": "2026-10-17"
+   "frozen_at": "2026-10-17",
+   "correct_tuples": [
+    {
+     "group": "老年人群",
+     "metric": "无进展生存 PFS",
+     "val": "80%",
+     "stat": "",
+     "note": "限定词「老年人群」与指标「无进展生存 PFS」均在原摘要出现（独立扫描确认）"
+    }
+   ]
   },
   {
    "id": "reg_42508850",
@@ -419,17 +590,18 @@
      "expect": "block"
     },
     {
-     "kind": "population_swap",
-     "summary": "上述结果来自全人群（ITT）分析",
-     "expect": "semantic_pending"
-    },
-    {
      "kind": "endpoint_swap",
-     "summary": "上述数值为主要终点结果",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "患者人群",
+     "metric": "主要终点 ORR",
+     "val": "2015",
+     "stat": "",
+     "expect": "block",
+     "note": "把该数值标为摘要中不存在的终点「主要终点 ORR」（数值真实存在，数值层对此失明）"
     }
    ],
-   "frozen_at": "2026-10-17"
+   "frozen_at": "2026-10-17",
+   "correct_tuples": []
   },
   {
    "id": "reg_35461558",
@@ -463,16 +635,35 @@
     },
     {
      "kind": "population_swap",
-     "summary": "上述结果来自全人群（ITT）分析",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "PD-L1 阳性人群",
+     "metric": "主要终点 ORR",
+     "val": "70",
+     "stat": "",
+     "expect": "block",
+     "note": "把全人群结果安到摘要未出现的限定人群「PD-L1 阳性人群」（数值真实存在，数值层对此失明）"
     },
     {
      "kind": "endpoint_swap",
-     "summary": "上述数值为主要终点结果",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "患者人群",
+     "metric": "病理完全缓解率 pCR",
+     "val": "70",
+     "stat": "",
+     "expect": "block",
+     "note": "把该数值标为摘要中不存在的终点「病理完全缓解率 pCR」（数值真实存在，数值层对此失明）"
     }
    ],
-   "frozen_at": "2026-10-17"
+   "frozen_at": "2026-10-17",
+   "correct_tuples": [
+    {
+     "group": "患者人群",
+     "metric": "主要终点 ORR",
+     "val": "70",
+     "stat": "",
+     "note": "限定词「患者人群」与指标「主要终点 ORR」均在原摘要出现（独立扫描确认）"
+    }
+   ]
   },
   {
    "id": "reg_36780674",
@@ -506,16 +697,35 @@
     },
     {
      "kind": "population_swap",
-     "summary": "上述结果来自全人群（ITT）分析",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "PD-L1 阳性人群",
+     "metric": "主要终点 ORR",
+     "val": "2007",
+     "stat": "",
+     "expect": "block",
+     "note": "把全人群结果安到摘要未出现的限定人群「PD-L1 阳性人群」（数值真实存在，数值层对此失明）"
     },
     {
      "kind": "endpoint_swap",
-     "summary": "上述数值为主要终点结果",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "患者人群",
+     "metric": "病理完全缓解率 pCR",
+     "val": "2007",
+     "stat": "",
+     "expect": "block",
+     "note": "把该数值标为摘要中不存在的终点「病理完全缓解率 pCR」（数值真实存在，数值层对此失明）"
     }
    ],
-   "frozen_at": "2026-10-17"
+   "frozen_at": "2026-10-17",
+   "correct_tuples": [
+    {
+     "group": "患者人群",
+     "metric": "主要终点 ORR",
+     "val": "2007",
+     "stat": "",
+     "note": "限定词「患者人群」与指标「主要终点 ORR」均在原摘要出现（独立扫描确认）"
+    }
+   ]
   },
   {
    "id": "reg_40996213",
@@ -548,17 +758,18 @@
      "expect": "block"
     },
     {
-     "kind": "population_swap",
-     "summary": "上述结果来自全人群（ITT）分析",
-     "expect": "semantic_pending"
-    },
-    {
      "kind": "endpoint_swap",
-     "summary": "上述数值为主要终点结果",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "患者人群",
+     "metric": "主要终点 ORR",
+     "val": "163",
+     "stat": "",
+     "expect": "block",
+     "note": "把该数值标为摘要中不存在的终点「主要终点 ORR」（数值真实存在，数值层对此失明）"
     }
    ],
-   "frozen_at": "2026-10-17"
+   "frozen_at": "2026-10-17",
+   "correct_tuples": []
   },
   {
    "id": "reg_22185865",
@@ -590,17 +801,18 @@
      "expect": "block"
     },
     {
-     "kind": "population_swap",
-     "summary": "上述结果来自全人群（ITT）分析",
-     "expect": "semantic_pending"
-    },
-    {
      "kind": "endpoint_swap",
-     "summary": "上述数值为主要终点结果",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "患者人群",
+     "metric": "主要终点 ORR",
+     "val": "10",
+     "stat": "",
+     "expect": "block",
+     "note": "把该数值标为摘要中不存在的终点「主要终点 ORR」（数值真实存在，数值层对此失明）"
     }
    ],
-   "frozen_at": "2026-10-17"
+   "frozen_at": "2026-10-17",
+   "correct_tuples": []
   },
   {
    "id": "reg_40193077",
@@ -633,17 +845,18 @@
      "expect": "block"
     },
     {
-     "kind": "population_swap",
-     "summary": "上述结果来自全人群（ITT）分析",
-     "expect": "semantic_pending"
-    },
-    {
      "kind": "endpoint_swap",
-     "summary": "上述数值为主要终点结果",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "患者人群",
+     "metric": "主要终点 ORR",
+     "val": "10",
+     "stat": "",
+     "expect": "block",
+     "note": "把该数值标为摘要中不存在的终点「主要终点 ORR」（数值真实存在，数值层对此失明）"
     }
    ],
-   "frozen_at": "2026-10-17"
+   "frozen_at": "2026-10-17",
+   "correct_tuples": []
   },
   {
    "id": "reg_39922207",
@@ -677,16 +890,35 @@
     },
     {
      "kind": "population_swap",
-     "summary": "上述结果来自全人群（ITT）分析",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "PD-L1 阳性人群",
+     "metric": "主要终点 ORR",
+     "val": "18",
+     "stat": "",
+     "expect": "block",
+     "note": "把全人群结果安到摘要未出现的限定人群「PD-L1 阳性人群」（数值真实存在，数值层对此失明）"
     },
     {
      "kind": "endpoint_swap",
-     "summary": "上述数值为主要终点结果",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "患者人群",
+     "metric": "无进展生存 PFS",
+     "val": "18",
+     "stat": "",
+     "expect": "block",
+     "note": "把该数值标为摘要中不存在的终点「无进展生存 PFS」（数值真实存在，数值层对此失明）"
     }
    ],
-   "frozen_at": "2026-10-17"
+   "frozen_at": "2026-10-17",
+   "correct_tuples": [
+    {
+     "group": "患者人群",
+     "metric": "主要终点 ORR",
+     "val": "18",
+     "stat": "",
+     "note": "限定词「患者人群」与指标「主要终点 ORR」均在原摘要出现（独立扫描确认）"
+    }
+   ]
   },
   {
    "id": "reg_28240562",
@@ -718,17 +950,18 @@
      "expect": "block"
     },
     {
-     "kind": "population_swap",
-     "summary": "上述结果来自全人群（ITT）分析",
-     "expect": "semantic_pending"
-    },
-    {
      "kind": "endpoint_swap",
-     "summary": "上述数值为主要终点结果",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "患者人群",
+     "metric": "主要终点 ORR",
+     "val": "2005",
+     "stat": "",
+     "expect": "block",
+     "note": "把该数值标为摘要中不存在的终点「主要终点 ORR」（数值真实存在，数值层对此失明）"
     }
    ],
-   "frozen_at": "2026-10-17"
+   "frozen_at": "2026-10-17",
+   "correct_tuples": []
   },
   {
    "id": "reg_38300206",
@@ -759,17 +992,18 @@
      "expect": "block"
     },
     {
-     "kind": "population_swap",
-     "summary": "上述结果来自全人群（ITT）分析",
-     "expect": "semantic_pending"
-    },
-    {
      "kind": "endpoint_swap",
-     "summary": "上述数值为主要终点结果",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "患者人群",
+     "metric": "主要终点 ORR",
+     "val": "2014",
+     "stat": "",
+     "expect": "block",
+     "note": "把该数值标为摘要中不存在的终点「主要终点 ORR」（数值真实存在，数值层对此失明）"
     }
    ],
-   "frozen_at": "2026-10-17"
+   "frozen_at": "2026-10-17",
+   "correct_tuples": []
   },
   {
    "id": "reg_37133431",
@@ -802,17 +1036,18 @@
      "expect": "block"
     },
     {
-     "kind": "population_swap",
-     "summary": "上述结果来自全人群（ITT）分析",
-     "expect": "semantic_pending"
-    },
-    {
      "kind": "endpoint_swap",
-     "summary": "上述数值为主要终点结果",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "患者人群",
+     "metric": "主要终点 ORR",
+     "val": "70",
+     "stat": "",
+     "expect": "block",
+     "note": "把该数值标为摘要中不存在的终点「主要终点 ORR」（数值真实存在，数值层对此失明）"
     }
    ],
-   "frozen_at": "2026-10-17"
+   "frozen_at": "2026-10-17",
+   "correct_tuples": []
   },
   {
    "id": "reg_39924850",
@@ -846,16 +1081,35 @@
     },
     {
      "kind": "population_swap",
-     "summary": "上述结果来自全人群（ITT）分析",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "PD-L1 阳性人群",
+     "metric": "主要终点 ORR",
+     "val": "348",
+     "stat": "",
+     "expect": "block",
+     "note": "把全人群结果安到摘要未出现的限定人群「PD-L1 阳性人群」（数值真实存在，数值层对此失明）"
     },
     {
      "kind": "endpoint_swap",
-     "summary": "上述数值为主要终点结果",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "患者人群",
+     "metric": "无进展生存 PFS",
+     "val": "348",
+     "stat": "",
+     "expect": "block",
+     "note": "把该数值标为摘要中不存在的终点「无进展生存 PFS」（数值真实存在，数值层对此失明）"
     }
    ],
-   "frozen_at": "2026-10-17"
+   "frozen_at": "2026-10-17",
+   "correct_tuples": [
+    {
+     "group": "患者人群",
+     "metric": "主要终点 ORR",
+     "val": "348",
+     "stat": "",
+     "note": "限定词「患者人群」与指标「主要终点 ORR」均在原摘要出现（独立扫描确认）"
+    }
+   ]
   },
   {
    "id": "reg_38610606",
@@ -889,19 +1143,38 @@
     },
     {
      "kind": "population_swap",
-     "summary": "上述结果来自全人群（ITT）分析",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "PD-L1 阳性人群",
+     "metric": "主要终点 ORR",
+     "val": "2014",
+     "stat": "",
+     "expect": "block",
+     "note": "把全人群结果安到摘要未出现的限定人群「PD-L1 阳性人群」（数值真实存在，数值层对此失明）"
     },
     {
      "kind": "endpoint_swap",
-     "summary": "上述数值为主要终点结果",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "患者人群",
+     "metric": "无进展生存 PFS",
+     "val": "2014",
+     "stat": "",
+     "expect": "block",
+     "note": "把该数值标为摘要中不存在的终点「无进展生存 PFS」（数值真实存在，数值层对此失明）"
     }
    ],
-   "frozen_at": "2026-10-17"
+   "frozen_at": "2026-10-17",
+   "correct_tuples": [
+    {
+     "group": "患者人群",
+     "metric": "主要终点 ORR",
+     "val": "2014",
+     "stat": "",
+     "note": "限定词「患者人群」与指标「主要终点 ORR」均在原摘要出现（独立扫描确认）"
+    }
+   ]
   },
   {
-   "id": "reg_28709816",
+   "id": "reg_28709816b",
    "pmid": "28709816",
    "title": "[Current knowledge on perioperative treatments of non-small cell lung carcinomas].",
    "abstract": "Surgery is still the main treatment in early-stage of non-small cell lung cancer with 5-year survival of stage IA patients exceeding 80%, but 5-year survival of stage II patients rapidly decreasing with tumor size, N status, and visceral pleura invasion. The major metastatic risk in such patients has supported clinical research assessing systemic or loco-regional perioperative treatments. Modern phase 3 trials clearly validated adjuvant or neo-adjuvant platinum-based chemotherapy in resected stage I-III patients as a standard treatment of which value has been reassessed several independent meta-analyses, showing a 5% benefit in 5y-survival, and a decrease of the relative risk for death around from 12 to 25%. Conversely perioperative treatments were not validated for stage IA and IB patients. In more advanced stage patients, neo-adjuvant radio-chemotherapy has not been validated either. Adjuvant radiotherapy for N2 patients is currently tested in the large international phase 3 trial Lung-ART/IFCT-0503. The development of video-assisted thoracic surgery (VATS) has helped adjuvant chemotherapies for elderly patients. Perioperative targeted treatments in NSCLC with EGFR or ALK molecular alterations is currently assessed in the U.S. ALCHEMIST prospective trial. Finally, the role of immune check-points inhibitors is currently evaluated in a large international phase 3 trial testing adjuvant anti-PD-L1 monoclonal antibody, the BR31/IFCT-1401 trial, while a proof-of principle neo-adjuvant trial IONESCO/IFCT-1601, has just begun by the end of the 2016 year, with survival results of both trials expected in 5 to 7 years.",
@@ -932,16 +1205,35 @@
     },
     {
      "kind": "population_swap",
-     "summary": "上述结果来自全人群（ITT）分析",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "PD-L1 阳性人群",
+     "metric": "无进展生存 PFS",
+     "val": "80%",
+     "stat": "",
+     "expect": "block",
+     "note": "把全人群结果安到摘要未出现的限定人群「PD-L1 阳性人群」（数值真实存在，数值层对此失明）"
     },
     {
      "kind": "endpoint_swap",
-     "summary": "上述数值为主要终点结果",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "老年人群",
+     "metric": "主要终点 ORR",
+     "val": "80%",
+     "stat": "",
+     "expect": "block",
+     "note": "把该数值标为摘要中不存在的终点「主要终点 ORR」（数值真实存在，数值层对此失明）"
     }
    ],
-   "frozen_at": "2026-10-17"
+   "frozen_at": "2026-10-17",
+   "correct_tuples": [
+    {
+     "group": "老年人群",
+     "metric": "无进展生存 PFS",
+     "val": "80%",
+     "stat": "",
+     "note": "限定词「老年人群」与指标「无进展生存 PFS」均在原摘要出现（独立扫描确认）"
+    }
+   ]
   },
   {
    "id": "reg_37467930",
@@ -975,16 +1267,39 @@
     },
     {
      "kind": "population_swap",
-     "summary": "上述结果来自全人群（ITT）分析",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "ctDNA 阳性人群",
+     "metric": "无进展生存 PFS",
+     "val": "1200",
+     "stat": "",
+     "expect": "block",
+     "note": "把全人群结果安到摘要未出现的限定人群「ctDNA 阳性人群」（数值真实存在，数值层对此失明）"
     },
     {
      "kind": "endpoint_swap",
-     "summary": "上述数值为主要终点结果",
-     "expect": "semantic_pending"
+     "layer": "semantic",
+     "group": "PD-L1 阳性人群",
+     "metric": "主要终点 ORR",
+     "val": "1200",
+     "stat": "",
+     "expect": "block",
+     "note": "把该数值标为摘要中不存在的终点「主要终点 ORR」（数值真实存在，数值层对此失明）"
     }
    ],
-   "frozen_at": "2026-10-17"
+   "frozen_at": "2026-10-17",
+   "correct_tuples": [
+    {
+     "group": "PD-L1 阳性人群",
+     "metric": "无进展生存 PFS",
+     "val": "1200",
+     "stat": "",
+     "note": "限定词「PD-L1 阳性人群」与指标「无进展生存 PFS」均在原摘要出现（独立扫描确认）"
+    }
+   ]
   }
- ]
+ ],
+ "semantic_upgrade": {
+  "at": "2026-10-17T14:08:49.785389",
+  "note": "semantic_pending 占位变造升级为结构化变造（layer=semantic, expect=block）；摘要与数值变造未动。生成走引擎 generate_semantic_case_parts（独立存在性扫描，非核验器本身）。"
+ }
 }

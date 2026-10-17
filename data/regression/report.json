@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-17T05:29:30.139947",
+ "generated_at": "2026-10-17T14:15:32.242737",
  "n_cases": 23,
  "correct_samples": {
   "n": 23,
@@ -12,9 +12,21 @@
   "missed": 0,
   "missed_detail": []
  },
- "semantic_pending": {
-  "n": 46,
-  "note": "语义核验（人群/终点偷换）未上线，如实标未验证"
+ "semantic_layer": {
+  "checker": "semantic-rules-v1（词面级：人群限定词/终点指标词须在原摘要命中；词典未收录词宁误杀）",
+  "correct_tuples": {
+   "n": 16,
+   "false_blocks": 0,
+   "false_block_rate": 0.0
+  },
+  "mutations": {
+   "n": 39,
+   "blocked": 39,
+   "missed": 0,
+   "missed_detail": []
+  },
+  "numeric_blind_confirmed": 2,
+  "note": "numeric_blind_confirmed＝数值层放行而语义层拦截的变造数（语义层的增量价值）"
  },
- "verifier": "deterministic-text-v1"
+ "verifier": "deterministic-text-v2 + semantic-rules-v1"
 }

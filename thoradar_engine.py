@@ -252,6 +252,176 @@ class FourTupleVerifier:
 
 
 # ============================================================================
+# 2b. 语义核验器（规则版，纯文本不调模型；fail-closed：宁误杀勿放过）
+# ============================================================================
+
+# CJK 限定词 → 英文锚（任一命中即算该限定词已核）。词典未收录的残余词 → 无法核验 → 按不匹配处理。
+SEMANTIC_QUALIFIER_ANCHORS: Dict[str, List[str]] = {
+    "意向治疗": ["intent-to-treat", "intention-to-treat"],
+    "全人群": ["all patients", "entire cohort", "all randomized", "overall population",
+               "total population", "all enrolled"],
+    "鳞癌": ["squamous"],
+    "腺癌": ["adenocarcinoma"],
+    "脑转移": ["brain metast", "cns metast"],
+    "老年": ["elderly", "older"],
+    "吸烟": ["smok"],
+    "突变": ["mutat"],
+    "阳性": ["positive"],
+    "阴性": ["negative"],
+    "可切除": ["resectable", "resection"],
+    "局部晚期": ["locally advanced"],
+    "转移性": ["metastatic"],
+    "复发": ["recurrence", "recurrent", "relapse"],
+    "术后": ["postoperative", "resected"],
+    "新辅助": ["neoadjuvant"],
+    "辅助": ["adjuvant"],
+    "高危": ["high risk", "high-risk"],
+    "风险": ["risk"],
+    "病理完全缓解": ["pathological complete response", "pcr"],
+    "完全缓解": ["complete response"],
+    "日本": ["japan"],
+    "中国": ["china", "chinese"],
+}
+
+# CJK 终点/指标词 → 英文锚（与上面同规则；用于 tuple.metric）
+SEMANTIC_METRIC_ANCHORS: Dict[str, List[str]] = {
+    "总生存": ["overall survival"],
+    "无进展生存": ["progression-free", "progression free"],
+    "无病生存": ["disease-free", "disease free"],
+    "无事件生存": ["event-free", "event free"],
+    "病理完全缓解": ["pathological complete response", "pcr"],
+    "客观缓解": ["objective response", "response rate"],
+    "缓解持续时间": ["duration of response"],
+    "疾病控制": ["disease control"],
+    "不良事件": ["adverse event"],
+    "主要终点": ["primary endpoint", "primary outcome", "primary end point"],
+    "次要终点": ["secondary endpoint", "secondary outcome"],
+    "中位": ["median"],
+    "安全性": ["safety", "tolerab"],
+    "生存": ["survival"],
+    "复发": ["recurrence", "relapse"],
+    "并发症": ["complication"],
+    "漏气": ["air leak"],
+}
+
+# ASCII 缩写 → 别名锚（缩写本身也是锚，别名单防摘要只写全称的漏杀）
+SEMANTIC_ASCII_ALIASES: Dict[str, List[str]] = {
+    "pcr": ["pathological complete response"],
+    "itt": ["intent-to-treat", "intention-to-treat", "all patients"],
+    "ctdna": ["circulating tumor dna", "circulating tumour dna"],
+    "mrd": ["molecular residual disease", "measurable residual disease"],
+    "os": ["overall survival"],
+    "pfs": ["progression-free", "progression free"],
+    "efs": ["event-free", "event free"],
+    "orr": ["objective response", "response rate"],
+    "pd-l1": ["pd-l1", "pd l1"],
+    "nsclc": ["non-small-cell", "non-small cell"],
+    "tki": ["tyrosine kinase"],
+    "ici": ["immune checkpoint"],
+    "ae": ["adverse event"],
+    "hr": ["hazard ratio"],
+    "ci": ["confidence interval"],
+}
+
+# 限定词串里的通用衬底词：不携带人群信息，不产生核验要求
+SEMANTIC_STOPWORDS = ("人群", "患者", "亚组", "分析", "研究", "队列", "治疗组", "的", "率",
+                      "期", "年", "月", "例", "岁", "与", "及", "和", "在", "为", "中",
+                      "肺", "非", "型")
+
+CJK_RUN_RE = re.compile(r"[一-鿿]+")
+ASCII_TOKEN_RE = re.compile(r"[A-Za-z][A-Za-z0-9\-/]{1,}")
+
+
+class SemanticChecker:
+    """
+    规则版语义核验：核对 LLM 四元组的【人群限定词】与【终点指标词】是否在英文原摘要出现。
+      - tuple.group 的每个限定词（ASCII 缩写/CN 词/数字）须在摘要命中其锚词，任一限定词落空 → 该 tuple
+        semantic_mismatch；
+      - tuple.metric 须在摘要命中至少一个指标锚（全词或锚词表），否则 semantic_mismatch；
+      - 摘要中不存在、词典也未收录的限定词按不匹配处理（fail-closed，宁误杀勿放过；误杀率由回归集量出）。
+    诚实边界：这是词面级比对，不是语义理解；「同义改写」可能误杀，「隐蔽的人群偷换」若限定词碰巧都
+    在摘要出现则拦不住。词典覆盖率决定误杀率，随回归集持续校准。
+    """
+
+    @staticmethod
+    def _hit(abstract_low: str, anchor: str) -> bool:
+        """ASCII/数字锚按词边界匹配；含空格短语按子串匹配。"""
+        a = anchor.strip().lower()
+        if not a:
+            return False
+        if " " in a:
+            return a in abstract_low
+        return re.search(rf"(?<![a-z0-9]){re.escape(a)}(?![a-z0-9])", abstract_low) is not None
+
+    @classmethod
+    def _qualifiers_of(cls, text: str, cn_dict: Dict[str, List[str]]) -> List[Dict[str, Any]]:
+        """从 group/metric 串抽出待核限定词：ASCII token（带别名）、两位以上数字、CN 词典词。"""
+        quals: List[Dict[str, Any]] = []
+        for tok in ASCII_TOKEN_RE.findall(text):
+            t = tok.lower().strip("-/")
+            if len(t) < 2:
+                continue
+            anchors = [t] + [a.lower() for a in SEMANTIC_ASCII_ALIASES.get(t, [])]
+            quals.append({"label": tok, "anchors": anchors})
+        for num in re.findall(r"\d{2,}", text):
+            quals.append({"label": num, "anchors": [num]})
+        rest = text
+        for key in sorted(cn_dict, key=len, reverse=True):
+            if key in rest:
+                rest = rest.replace(key, "◇")     # 已识别占位，防止「完全缓解」截胡「病理完全缓解」
+                quals.append({"label": key,
+                              "anchors": [a.lower() for a in cn_dict[key]]})
+        for sw in SEMANTIC_STOPWORDS:
+            rest = rest.replace(sw, "◇")
+        for run in CJK_RUN_RE.findall(rest):
+            if run.strip():
+                quals.append({"label": run, "anchors": []})   # 词典未收录 → 无法核验 → fail-closed
+        return quals
+
+    @classmethod
+    def metric_anchors(cls, metric: str) -> List[str]:
+        """指标串 → 判定用锚全集（METRIC_ANCHORS + CJK 词典 + 别名）。生成器与判定共用此推导，防两端锚集漂移。"""
+        anchors: List[str] = []
+        for tok in ASCII_TOKEN_RE.findall(str(metric)):
+            tl = tok.lower().strip("-/")
+            if len(tl) >= 2:
+                anchors.extend(FourTupleVerifier._anchors_for_metric(tl))
+        for key in sorted(SEMANTIC_METRIC_ANCHORS, key=len, reverse=True):
+            if key in str(metric):
+                anchors.extend(a.lower() for a in SEMANTIC_METRIC_ANCHORS[key])
+        return list(dict.fromkeys(anchors))
+
+    @classmethod
+    def check(cls, abstract_en: str, tuples: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """逐 tuple 核人群限定 + 终点指标；返回 {passed, n_mismatch, tuple_audit}。"""
+        abs_low = (abstract_en or "").lower()
+        audit = []
+        for t in tuples or []:
+            reasons: List[str] = []
+            # 1) 人群限定：每个限定词的锚都必须有命中（any-of-anchors per qualifier）
+            for q in cls._qualifiers_of(str(t.get("group", "")), SEMANTIC_QUALIFIER_ANCHORS):
+                if q["anchors"]:
+                    if not any(cls._hit(abs_low, a) for a in q["anchors"]):
+                        reasons.append(f"人群限定「{q['label']}」未在原摘要出现")
+                else:
+                    reasons.append(f"人群限定「{q['label']}」无英文锚（词典未收录，宁误杀）")
+            # 2) 终点指标：任一指标锚命中即过
+            m_anchors = cls.metric_anchors(str(t.get("metric", "")))
+            if not m_anchors:
+                reasons.append("终点指标词无可用锚（词典未收录，宁误杀）")
+            elif not any(cls._hit(abs_low, a) for a in m_anchors):
+                reasons.append("终点指标词未在原摘要出现")
+            audit.append({
+                "group": t.get("group", ""), "metric": t.get("metric", ""),
+                "population_ok": all("人群限定" not in r for r in reasons),
+                "metric_ok": all("指标" not in r for r in reasons),
+                "mismatch_reasons": reasons,
+            })
+        n_bad = sum(1 for a in audit if a["mismatch_reasons"])
+        return {"passed": n_bad == 0, "n_mismatch": n_bad, "tuple_audit": audit}
+
+
+# ============================================================================
 # 3. LLM 客户端（OpenAI 兼容 + 成本熔断）
 # ============================================================================
 
@@ -763,6 +933,9 @@ def build_paper(a: Dict[str, Any], scored: Dict[str, Any], verdict: Optional[Dic
         "verify_error": verify_error or "",
         "tuple_audit": (verdict or {}).get("tuple_audit", []),
         "ungrounded_numbers": (verdict or {}).get("ungrounded_numbers", []),
+        "semantic_passed": ((verdict or {}).get("semantic") or {}).get("passed")
+                           if verdict is not None else None,
+        "semantic_audit": (verdict or {}).get("semantic", {}).get("tuple_audit", []),
         "publish_state": publish_state,
         "status": {"kind": st["kind"], "note": st["note"], "notice_pmid": st["notice_pmid"],
                    "notice_ref": st["notice_ref"], "impact_known": st["impact_known"]},
@@ -777,7 +950,111 @@ def build_paper(a: Dict[str, Any], scored: Dict[str, Any], verdict: Optional[Dic
         "reason": llm_data.get("reason", ""),
         "abstract_en": a["abstract_en"],
         "tags": llm_data.get("tags", [])[:6],
+        # 规则式精选（apply_curation 落值；此处默认值保证旧路径 schema 完整）
+        "curated": False,
+        "curation_reason": "",
+        "curation_clinical_value": "",
+        "curation_research_value": "",
+        "curation_signals": {},
     }
+
+
+# ============================================================================
+# 6a. 规则式精选（阅读优先级）——与 LLM 开关解绑
+# ============================================================================
+
+# 精选理由必须落到具体问题类别（禁空话）：按栏目映射到「影响什么判断」
+CURATION_PROBLEM_BY_CATEGORY: Dict[str, str] = {
+    "perioperative": "可切除胸部肿瘤围术期/新辅助方案选择",
+    "nodule": "肺结节随访间隔与恶性风险判断",
+    "surgery": "手术方式选择与患者围术期管理",
+    "ai_digital": "影像判读/术前规划工具的临床落地",
+    "advanced": "局晚/晚期治疗线序与方案选择",
+    "esophageal": "食管/纵隔肿瘤治疗决策",
+}
+
+# 阴性/证伪表述短语（配严谨设计信号使用，单独出现不足以触发）
+NEGATIVE_RESULT_PHRASES = (
+    "no significant difference", "did not significantly", "not significantly different",
+    "failed to meet", "no statistically significant", "did not improve",
+    "no improvement in", "did not reach", "no significant reduction",
+    "no significant increase", "did not translate",
+)
+
+
+def detect_curation_signals(title_en: str, abstract_en: str) -> Dict[str, Any]:
+    """从标题+摘要抽四个文本信号：研究设计 / 主要终点陈述 / 严谨阴性 / III 期标记。"""
+    blob = (title_en + " " + abstract_en).lower()
+    if "case report" in blob:
+        design = "case_report"
+    elif "randomized" in blob or "randomised" in blob or re.search(r"phase\s*(?:3|iii)\b", blob):
+        design = "rct"                      # RCT 与 III 期同档（III 期未写 randomized 的少见，保守同判）
+    elif (("prospective" in blob or "registry" in blob)
+          and ("propensity" in blob or "match" in blob)):
+        design = "prospective_matched"
+    elif "prospective" in blob:
+        design = "prospective"
+    elif "retrospective" in blob:
+        design = "retrospective"
+    else:
+        design = "unknown"
+    return {
+        "design": design,
+        "phase3": bool(re.search(r"phase\s*(?:3|iii)\b", blob)),
+        "primary_endpoint": ("primary endpoint" in blob or "primary outcome" in blob
+                             or "primary end point" in blob),
+        "negative_rigorous": bool(design in ("rct", "prospective_matched")
+                                  and any(p in blob for p in NEGATIVE_RESULT_PHRASES)),
+    }
+
+
+def apply_curation(papers: List[Dict[str, Any]]) -> int:
+    """
+    规则式精选（阅读优先级），两模式同规则：
+      【规则部分】四信号（design/primary_endpoint/tier/negative_rigorous，均出自文本与期刊字典）决定
+        curated 布尔与理由骨架——三条入选线（全部要求 S/A 级期刊、排除个案、解读暂停不入选）：
+          A. RCT/III 期于 S/A 级期刊；
+          B. 前瞻匹配队列于 S/A 级期刊且明确陈述主要终点；
+          C. 严谨阴性/证伪结果于 S/A 级期刊（保护阴性研究）。
+      【模型部分·仅 LLM 模式】不改入选布尔（模型不能把稿抬进精选、也不能挤掉）——只在理由尾部追加
+        模型 reason（标注「模型补充」）；排序仍按 score_total（LLM 模式下即模型分数）。
+    精选不删稿：非精选照常发布；精选可为空（不凑数），也可全选（不设上限、不硬删）。
+    返回：curated 计数（写进 funnel）。
+    """
+    n = 0
+    for p in papers:
+        sig = detect_curation_signals(p.get("title_en", ""), p.get("abstract_en", ""))
+        tier = p.get("tier", "B")
+        tier_ok = tier in ("S", "A")
+        gate_open = p.get("publish_state") == "full" and sig["design"] != "case_report"
+        path_trial = sig["design"] == "rct" and tier_ok
+        path_cohort = sig["design"] == "prospective_matched" and tier_ok and sig["primary_endpoint"]
+        path_negative = sig["negative_rigorous"] and tier_ok
+        curated = bool(gate_open and (path_trial or path_cohort or path_negative))
+
+        problem = CURATION_PROBLEM_BY_CATEGORY.get(p.get("category", ""), "胸部肿瘤临床与科研判断")
+        design_desc = {"rct": "RCT/III 期", "prospective_matched": "前瞻匹配队列"}.get(sig["design"], "")
+        if curated:
+            detail = f"{design_desc}证据发表于 {tier} 级期刊"
+            if sig["primary_endpoint"]:
+                detail += "且明确陈述主要终点"
+            if sig["negative_rigorous"]:
+                detail = f"严谨阴性/证伪结果（{detail}）"
+            reason = f"{detail}，直接影响{problem}"
+            clinical = f"阅读后可直接核对{problem}的现有依据是否需要更新"
+            research = ("阴性结果可限定现有证据边界，其设计与分析可借鉴" if sig["negative_rigorous"]
+                        else f"{design_desc}设计可作为同类研究的对照与方法学参照")
+            if p.get("score_source") == "llm" and p.get("reason"):
+                reason += f"（模型补充：{str(p['reason'])[:80]}）"
+        else:
+            reason = clinical = research = ""
+        p["curation_signals"] = {**sig, "tier": tier}
+        p["curated"] = curated
+        p["curation_reason"] = reason
+        p["curation_clinical_value"] = clinical
+        p["curation_research_value"] = research
+        n += int(curated)
+    return n
 
 
 def render_briefing_md(papers: List[Dict[str, Any]], day: str, funnel: Dict[str, int]) -> str:
@@ -786,10 +1063,11 @@ def render_briefing_md(papers: List[Dict[str, Any]], day: str, funnel: Dict[str,
         lines.append("今日无过线新文献。")
         return "\n".join(lines)
     lines.append(f"漏斗：抓取 {funnel['fetched']} → 期刊索引留存 {funnel['journal_matched']} → "
-                 f"预筛 {funnel['prescreened']} → 收录 {funnel['final']} 篇")
+                 f"预筛 {funnel['prescreened']} → 收录 {funnel['final']} 篇 → 规则精选 {funnel.get('curated', 0)} 篇")
     lines.append("")
     for i, p in enumerate(papers, 1):
-        badge = f"{p['journal_abbr']} · IF {p['if_val']} · 评分 {p['score_total']}"
+        star = "⭐" if p.get("curated") else ""
+        badge = f"{star}{p['journal_abbr']} · IF {p['if_val']} · 评分 {p['score_total']}"
         if p["score_source"] == "heuristic":
             badge += " · 启发式"
         verify = "✅ 核验通过" if p["critic_verified"] else ("⚠️ 未通过自动核验，解读暂停" if p["critic_verified"] is False else "— 无数值核验项")
@@ -810,6 +1088,8 @@ def render_briefing_md(papers: List[Dict[str, Any]], day: str, funnel: Dict[str,
         else:
             lines.append("- **解读暂停**（核验未通过或出版状态存疑）：仅呈现题录与链接，请以原文为准。")
         lines.append(f"- **核验状态**: {verify}")
+        if p.get("curated"):
+            lines.append(f"- ⭐ **规则精选**: {p['curation_reason']}")
         lines.append("")
     return "\n".join(lines)
 
@@ -876,7 +1156,7 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     days_back = args.days_back
     pmids = collector.esearch_pmids(days_back, args.retmax)
-    funnel = {"fetched": len(pmids), "journal_matched": 0, "prescreened": 0, "final": 0}
+    funnel = {"fetched": len(pmids), "journal_matched": 0, "prescreened": 0, "final": 0, "curated": 0}
     if len(pmids) < args.min_final and days_back < 7:
         log(f"近 {days_back} 天仅 {len(pmids)} 篇，放宽窗口到 7 天重抓")
         days_back = 7
@@ -967,13 +1247,21 @@ def main(argv: Optional[List[str]] = None) -> int:
                 a["abstract_en"],
                 " ".join(filter(None, [llm_data.get("results", ""), llm_data.get("authors_conclusion", "")])),
                 llm_data.get("tuples", []))
+            # 语义核验（规则版）：任一 tuple 人群限定/终点指标对不上 → fail-closed 并入 passed
+            sem = SemanticChecker.check(a["abstract_en"], llm_data.get("tuples", []))
+            verdict["semantic"] = sem
+            if llm_data.get("tuples") and not sem["passed"]:
+                verdict["passed"] = False
+                log(f"  ⚠ 语义核验未通过 (pmid {a['pmid']}): {sem['tuple_audit'][0]['mismatch_reasons']}")
         except Exception as e:  # noqa: BLE001 核验器自身异常 → 按「无法确认」处理
             verify_error = f"verifier-error: {e}"
             log(f"  ⚠ 核验器异常 (pmid {a['pmid']})，本篇降级: {e}")
         papers.append(build_paper(a, scored, verdict, verify_error))
     papers.sort(key=lambda p: p["score_total"], reverse=True)
     funnel["final"] = len(papers)
-    log(f"收录 {len(papers)} 篇（降级 {sum(1 for p in papers if p['publish_state'] == 'degraded')} 篇）"
+    funnel["curated"] = apply_curation(papers)
+    log(f"收录 {len(papers)} 篇（降级 {sum(1 for p in papers if p['publish_state'] == 'degraded')} 篇 · "
+        f"规则精选 {funnel['curated']} 篇）"
         f" · LLM 成本 ${llm.cost_usd:.3f}（{llm.calls} 次调用）")
 
     # 出版状态覆盖层：回查到期文献 → 登记今日文献 → 落盘（日档不动）
@@ -1018,6 +1306,79 @@ LANDMARK_QUERIES = [
 ]
 
 
+# 语义变造素材：候选限定词/指标（命名与 SemanticChecker 词典兼容，保证可被核验器解析）。
+# correct 样例取「第一个在摘要出现的」；变造样例取「第一个在摘要缺席的」——生成用独立字符串扫描，
+# 不经过 SemanticChecker（防循环论证：生成与判定解耦，判定的误拦/漏拦才是真数字）。
+SEMANTIC_MUTATION_QUALIFIERS = [
+    ("PD-L1 阳性人群", ["pd-l1", "pd l1"]),
+    ("ctDNA 阳性人群", ["ctdna", "circulating tumor dna", "circulating tumour dna"]),
+    ("脑转移人群", ["brain metast", "cns metast"]),
+    ("鳞癌人群", ["squamous"]),
+    ("老年人群", ["elderly", "older"]),
+    ("EGFR 突变人群", ["egfr"]),
+    ("全人群", ["all patients", "entire cohort", "all randomized", "overall population"]),
+    # 保底档（外科/筛查类摘要常有具体限定词全缺席）：无锚通用人群，仅撑起指标断言
+    ("患者人群", []),
+]
+SEMANTIC_MUTATION_METRICS = [
+    ("主要终点 ORR", ["objective response", "response rate", "orr"]),
+    ("无进展生存 PFS", ["progression-free", "progression free", "pfs"]),
+    ("病理完全缓解率 pCR", ["pathological complete response", "pcr"]),
+    ("总生存", ["overall survival", "survival"]),
+    ("严重不良事件", ["adverse event", "toxicity"]),
+    ("缓解持续时间 DOR", ["duration of response"]),
+]
+
+
+def _group_verifiable(abstract_low: str, group: str) -> bool:
+    """生成端存在性扫描：group 的每个可核限定词（按判定端同源词典展开）都有锚命中。空锚限定词视作通过。"""
+    for q in SemanticChecker._qualifiers_of(group, SEMANTIC_QUALIFIER_ANCHORS):
+        if q["anchors"] and not any(SemanticChecker._hit(abstract_low, a) for a in q["anchors"]):
+            return False
+    return True
+
+
+def _group_unverifiable(abstract_low: str, group: str) -> bool:
+    """生成端缺席扫描：存在至少一个可核限定词完全落空（判定端必拦）。"""
+    for q in SemanticChecker._qualifiers_of(group, SEMANTIC_QUALIFIER_ANCHORS):
+        if q["anchors"] and not any(SemanticChecker._hit(abstract_low, a) for a in q["anchors"]):
+            return True
+    return False
+
+
+def generate_semantic_case_parts(abstract_en: str, numbers: List[str]) -> Dict[str, Any]:
+    """为一个冻结摘要生成：正确语义 tuple（应放行）＋人群偷换/终点偷换变造（应拦截）。可能部分缺省。
+    存在性扫描用与判定端同源的锚词推导（_qualifiers_of/metric_anchors），但不调用判卷本身——
+    判定的误拦/漏拦仍是独立数字。"""
+    low = abstract_en.lower()
+    num = numbers[0] if numbers else ""
+    pres_q = next((q for q in SEMANTIC_MUTATION_QUALIFIERS if _group_verifiable(low, q[0])), None)
+    abs_q = next((q for q in SEMANTIC_MUTATION_QUALIFIERS if _group_unverifiable(low, q[0])), None)
+    pres_m = next((m for m in SEMANTIC_MUTATION_METRICS
+                   if SemanticChecker.metric_anchors(m[0])
+                   and any(SemanticChecker._hit(low, a) for a in SemanticChecker.metric_anchors(m[0]))), None)
+    abs_m = next((m for m in SEMANTIC_MUTATION_METRICS
+                  if SemanticChecker.metric_anchors(m[0])
+                  and not any(SemanticChecker._hit(low, a) for a in SemanticChecker.metric_anchors(m[0]))), None)
+
+    correct = None
+    if pres_q and pres_m and num:
+        correct = {"group": pres_q[0], "metric": pres_m[0], "val": num, "stat": "",
+                   "note": f"限定词「{pres_q[0]}」与指标「{pres_m[0]}」均在原摘要出现（独立扫描确认）"}
+    mutations = []
+    if abs_q and pres_m and num:
+        mutations.append({"kind": "population_swap", "layer": "semantic",
+                          "group": abs_q[0], "metric": pres_m[0], "val": num, "stat": "",
+                          "expect": "block",
+                          "note": f"把全人群结果安到摘要未出现的限定人群「{abs_q[0]}」（数值真实存在，数值层对此失明）"})
+    if abs_m and num:
+        mutations.append({"kind": "endpoint_swap", "layer": "semantic",
+                          "group": pres_q[0] if pres_q else "", "metric": abs_m[0], "val": num,
+                          "stat": "", "expect": "block",
+                          "note": f"把该数值标为摘要中不存在的终点「{abs_m[0]}」（数值真实存在，数值层对此失明）"})
+    return {"correct_tuple": correct, "semantic_mutations": mutations}
+
+
 def build_regression_set(collector: "Collector", n_target: int = 30) -> None:
     """抓真实地标试验摘要并冻结；预期数值与变造样例均机械生成（依据=摘要原文）。"""
     import random
@@ -1052,15 +1413,14 @@ def build_regression_set(collector: "Collector", n_target: int = 30) -> None:
                     mutations.append({"kind": "number_fabricated", "orig": n, "bad": bad,
                                       "summary": f"结果为 {bad}（{a['title_en'][:40]}…）",
                                       "expect": "block"})
-            mutations.append({"kind": "population_swap", "summary": "上述结果来自全人群（ITT）分析",
-                              "expect": "semantic_pending"})
-            mutations.append({"kind": "endpoint_swap", "summary": "上述数值为主要终点结果",
-                              "expect": "semantic_pending"})
+            sem_parts = generate_semantic_case_parts(a["abstract_en"], nums)
+            mutations.extend(sem_parts["semantic_mutations"])
             cases.append({
                 "id": f"reg_{pmid}", "pmid": pmid, "title": a["title_en"],
                 "abstract": a["abstract_en"], "basis": "摘要原文（冻结于构建时点）",
                 "expected_numbers": nums,
                 "correct_summary": f"研究纳入 {nums[0]} 例，关键结果数值包括 {'、'.join(nums[:4])}。",
+                "correct_tuples": [sem_parts["correct_tuple"]] if sem_parts["correct_tuple"] else [],
                 "mutations": mutations,
                 "frozen_at": date.today().isoformat(),
             })
@@ -1094,14 +1454,16 @@ def _mutate_number(n: str, rng: "random.Random", abstract: str = "") -> str:
 
 
 def run_regression() -> int:
-    """跑工程回归：正确样例应放行（误拦计数）、数值变造应拦截（漏拦计数）、语义类标未验证。"""
+    """跑工程回归：数值层（正确放行/变造拦截）＋语义层（正确 tuple 放行、人群/终点偷换拦截）。"""
     set_file = REG_DIR / "cases.json"
     if not set_file.exists():
         log("回归集不存在，先跑 --build-regression")
         return 2
     cases = json.loads(set_file.read_text(encoding="utf-8"))["cases"]
-    n_cases = n_correct = n_false_block = n_block_mut = n_blocked = n_missed = n_semantic_pending = 0
+    n_cases = n_correct = n_false_block = n_block_mut = n_blocked = n_missed = 0
     missed_detail = []
+    n_sem_tuples = n_sem_false_block = n_sem_mut = n_sem_blocked = n_sem_missed = n_numeric_blind = 0
+    sem_missed_detail = []
     for c in cases:
         n_cases += 1
         v_good = FourTupleVerifier.verify(c["abstract"], c["correct_summary"], [])
@@ -1110,9 +1472,24 @@ def run_regression() -> int:
         else:
             n_false_block += 1
         for mut in c["mutations"]:
-            if mut["expect"] == "semantic_pending":
-                n_semantic_pending += 1
+            if mut.get("layer") == "semantic":
+                # 语义层：先证数值层对该变造失明（真数值+假限定），再验语义层拦截
+                n_sem_mut += 1
+                tup = {"group": mut["group"], "metric": mut["metric"],
+                       "val": mut["val"], "stat": mut.get("stat", "")}
+                v_num = FourTupleVerifier.verify(c["abstract"], "", [tup])
+                if v_num["passed"]:
+                    n_numeric_blind += 1
+                sem = SemanticChecker.check(c["abstract"], [tup])
+                if sem["passed"]:
+                    n_sem_missed += 1
+                    sem_missed_detail.append({"case": c["id"], "kind": mut["kind"],
+                                              "group": mut["group"], "metric": mut["metric"]})
+                else:
+                    n_sem_blocked += 1
                 continue
+            if mut["expect"] == "semantic_pending":
+                continue      # 兼容旧版占位条目（已迁移，理论上不再出现）
             n_block_mut += 1
             v_bad = FourTupleVerifier.verify(c["abstract"], mut["summary"], [])
             if not v_bad["passed"]:
@@ -1120,22 +1497,39 @@ def run_regression() -> int:
             else:
                 n_missed += 1
                 missed_detail.append({"case": c["id"], "kind": mut["kind"], "bad": mut.get("bad")})
+        for t in c.get("correct_tuples", []):
+            # 语义层正确样例应放行（生成时经独立字符串扫描确认锚在摘要内；判定走核验器本身）
+            n_sem_tuples += 1
+            sem = SemanticChecker.check(c["abstract"], [t])
+            if not sem["passed"]:
+                n_sem_false_block += 1
+    sem_false_rate = round(n_sem_false_block / n_sem_tuples, 4) if n_sem_tuples else None
     report = {
         "generated_at": datetime.now().isoformat(),
         "n_cases": n_cases,
         "correct_samples": {"n": n_cases, "passed": n_correct, "false_blocks": n_false_block},
         "number_mutations": {"n": n_block_mut, "blocked": n_blocked, "missed": n_missed,
                              "missed_detail": missed_detail},
-        "semantic_pending": {"n": n_semantic_pending,
-                             "note": "语义核验（人群/终点偷换）未上线，如实标未验证"},
-        "verifier": "deterministic-text-v1",
+        "semantic_layer": {
+            "checker": "semantic-rules-v1（词面级：人群限定词/终点指标词须在原摘要命中；词典未收录词宁误杀）",
+            "correct_tuples": {"n": n_sem_tuples, "false_blocks": n_sem_false_block,
+                               "false_block_rate": sem_false_rate},
+            "mutations": {"n": n_sem_mut, "blocked": n_sem_blocked, "missed": n_sem_missed,
+                          "missed_detail": sem_missed_detail},
+            "numeric_blind_confirmed": n_numeric_blind,
+            "note": "numeric_blind_confirmed＝数值层放行而语义层拦截的变造数（语义层的增量价值）",
+        },
+        "verifier": "deterministic-text-v2 + semantic-rules-v1",
     }
     REG_DIR.mkdir(parents=True, exist_ok=True)
     (REG_DIR / "report.json").write_text(json.dumps(report, ensure_ascii=False, indent=1),
                                          encoding="utf-8")
     log(f"回归完成：正确样例 {n_correct}/{n_cases} 放行（误拦 {n_false_block}）· "
-        f"数值变造拦截 {n_blocked}/{n_block_mut}（漏拦 {n_missed}）· 语义待验 {n_semantic_pending}")
-    return 0 if (n_false_block == 0 and n_missed == 0 and n_cases >= 20) else 1
+        f"数值变造拦截 {n_blocked}/{n_block_mut}（漏拦 {n_missed}）· "
+        f"语义变造拦截 {n_sem_blocked}/{n_sem_mut}（漏拦 {n_sem_missed} · 正确 tuple 误拦 {n_sem_false_block}/{n_sem_tuples}）· "
+        f"数值层对语义变造失明 {n_numeric_blind}")
+    return 0 if (n_false_block == 0 and n_missed == 0 and n_cases >= 20
+                 and n_sem_missed == 0 and n_sem_false_block == 0) else 1
 
 
 # ============================================================================
@@ -1149,13 +1543,13 @@ def run_self_test() -> int:
     assert m_nejm["matched"] and m_nejm["tier"] == "S" and m_nejm["whitelist_exempt"]
     m_jtcvs = jm.match(nlm_id="0376343")
     assert m_jtcvs["matched"] and m_jtcvs["tier"] == "A"
-    log(f"[PASS] 1/4 期刊五重索引: NEJM={m_nejm['tier']} JTCVS={m_jtcvs['tier']}")
+    log(f"[PASS] 1/8 期刊五重索引: NEJM={m_nejm['tier']} JTCVS={m_jtcvs['tier']}")
 
     c = Collector()
     params = urllib.parse.urlparse(c.esearch_url_probe())
     q = urllib.parse.parse_qs(params.query)
     assert q["datetype"] == ["crdt"] and "reldate" in q
-    log("[PASS] 2/4 ESearch 参数: datetype=crdt + reldate")
+    log("[PASS] 2/8 ESearch 参数: datetype=crdt + reldate")
 
     abstract = ("A total of 358 patients were assigned to nivolumab plus chemotherapy (179 patients) "
                 "or chemotherapy alone (179 patients). Hazard ratio for death, 0.72; 95% CI, 0.523 to 0.998; "
@@ -1168,11 +1562,11 @@ def run_self_test() -> int:
     bad_tuples = [{"group": "ITT (N=358)", "metric": "5年 OS", "val": "88.9%", "stat": ""}]
     v_bad = FourTupleVerifier.verify(abstract, "5 年 OS 率高达 88.9%。", bad_tuples)
     assert not v_bad["passed"] and "88.9" in "".join(v_bad["ungrounded_numbers"])
-    log(f"[PASS] 3/4 核验器: 真值放行 {v_good['tuple_audit'][0]['checks'][0]['note']} / 幻觉拦截 {v_bad['ungrounded_numbers']}")
+    log(f"[PASS] 3/8 数值核验器: 真值放行 {v_good['tuple_audit'][0]['checks'][0]['note']} / 幻觉拦截 {v_bad['ungrounded_numbers']}")
 
     html_probe = f"<div>{DATA_START}const SITE_DATA = {{}};{DATA_END}</div>"
     assert DATA_START in html_probe and DATA_END in html_probe
-    log("[PASS] 4/6 注入标记约定成立")
+    log("[PASS] 4/8 注入标记约定成立")
 
     # 5. 出版状态解析（结构单元用例；真实端到端走 --probe-status）
     xml_retracted = (
@@ -1188,7 +1582,7 @@ def run_self_test() -> int:
     assert Collector.parse_status(ET.fromstring(xml_notice))["kind"] == "notice"
     xml_plain = '<PubmedArticle><MedlineCitation><PMID>1</PMID><Article><ArticleTitle>t</ArticleTitle></Article></MedlineCitation></PubmedArticle>'
     assert Collector.parse_status(ET.fromstring(xml_plain))["kind"] == "ok"
-    log("[PASS] 5/6 出版状态解析：retracted/notice/ok 三态")
+    log("[PASS] 5/8 出版状态解析：retracted/notice/ok 三态")
 
     # 6. 失败降级：核验异常 → publish_state=degraded（不崩、不发布解读）
     a_deg = {"pmid": "9", "title_en": "t", "abstract_en": "abs", "authors": "x",
@@ -1204,7 +1598,45 @@ def run_self_test() -> int:
                                 "impact_known": True, "note": "x"})
     p_ret = build_paper(a_ret, scored_deg, None, "")
     assert p_ret["publish_state"] == "degraded"
-    log("[PASS] 6/6 失败降级：核验异常/撤稿 → 仅题录+链接，解读暂停")
+    log("[PASS] 6/8 失败降级：核验异常/撤稿 → 仅题录+链接，解读暂停")
+
+    # 7. 语义核验（规则版）：限定词/指标均在摘要 → 放行；人群偷换 → 拦截并 fail-closed 降级
+    sem_abs = ("All patients were enrolled on an intent-to-treat basis. "
+               "The primary endpoint was overall survival. Pathological complete response (pCR) "
+               "was achieved in 30.4% of patients, and the 5-year overall survival was 65.4%. "
+               "No patients had brain metastases at baseline.")
+    v_sem_good = SemanticChecker.check(sem_abs, [
+        {"group": "ITT 人群", "metric": "总生存", "val": "65.4%", "stat": ""}])
+    assert v_sem_good["passed"], v_sem_good
+    v_sem_pop = SemanticChecker.check(sem_abs, [
+        {"group": "ctDNA 阳性人群", "metric": "总生存", "val": "65.4%", "stat": ""}])
+    assert not v_sem_pop["passed"] and any("ctDNA" in r for r in v_sem_pop["tuple_audit"][0]["mismatch_reasons"]), v_sem_pop
+    v_sem_metric = SemanticChecker.check(sem_abs, [
+        {"group": "ITT 人群", "metric": "客观缓解率", "val": "65.4%", "stat": ""}])
+    assert not v_sem_metric["passed"], v_sem_metric
+    # fail-closed 贯通：数值层放行（数字真实）但语义层拦截 → publish_state=degraded
+    a_sem = dict(a_deg, abstract_en=sem_abs,
+                 title_en="Randomized trial of perioperative therapy")
+    sd_sem = heuristic_score(a_sem, jm)
+    sd_sem["llm"]["tuples"] = [{"group": "ctDNA 阳性人群", "metric": "总生存", "val": "65.4%", "stat": ""}]
+    verdict_sem = FourTupleVerifier.verify(sem_abs, "", sd_sem["llm"]["tuples"])
+    assert verdict_sem["passed"], verdict_sem        # 数值层确实放行（真数值）
+    verdict_sem["semantic"] = SemanticChecker.check(sem_abs, sd_sem["llm"]["tuples"])
+    verdict_sem["passed"] = verdict_sem["passed"] and verdict_sem["semantic"]["passed"]
+    p_sem = build_paper(a_sem, sd_sem, verdict_sem, "")
+    assert p_sem["publish_state"] == "degraded" and p_sem["semantic_passed"] is False
+    log("[PASS] 7/8 语义核验（规则版）：真 tuple 放行 / 人群偷换·指标错配拦截 / fail-closed 降级")
+
+    # 8. 规则精选：S 级 RCT 入选；个案+回顾性 B 级不入（不凑数）；固定场景套件＝tests/test_curation.py
+    p_rct = build_paper(dict(a_sem, pmid="10", e_issn="1533-4406"), heuristic_score(a_sem, jm), None, "")
+    p_rct["tier"] = "S"
+    p_case = build_paper(dict(a_deg, pmid="11", title_en="Case report of an unusual thoracic tumor"),
+                         heuristic_score(a_deg, jm), None, "")
+    n_cur = apply_curation([p_rct, p_case])
+    assert p_rct["curated"] and p_case["curated"] is False and n_cur == 1, (p_rct["curated"], n_cur)
+    assert "直接影响" in p_rct["curation_reason"] and p_rct["curation_reason"]
+    assert p_case["curation_reason"] == ""
+    log("[PASS] 8/8 规则精选：S 级 RCT 入选·个案不凑数·理由落到具体问题")
     log("=== 自测全部通过 ===")
     return 0
 

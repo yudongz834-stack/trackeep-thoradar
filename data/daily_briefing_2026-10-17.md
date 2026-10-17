@@ -1,6 +1,6 @@
 # 胸科雷达 ThorRadar 胸部肿瘤每日文献雷达 (2026-10-17)
 
-漏斗：抓取 56 → 期刊索引留存 39 → 预筛 36 → 收录 36 篇
+漏斗：抓取 56 → 期刊索引留存 39 → 预筛 36 → 收录 36 篇 → 规则精选 0 篇
 
 ## 1. [Cancer Cell · IF 0.0 · 评分 53 · 启发式] [Firmonertinib in advanced non-small cell lung cancer with epidermal growth factor receptor P-loop and αC-helix compressing mutations.](https://pubmed.ncbi.nlm.nih.gov/42887497/)
 - **英文原题**: *Firmonertinib in advanced non-small cell lung cancer with epidermal growth factor receptor P-loop and αC-helix compressing mutations.*
