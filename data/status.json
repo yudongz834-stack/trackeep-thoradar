@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-17 06:16",
+ "updated_at": "2026-10-18 01:26",
  "papers": {
   "42887497": {
    "kind": "ok",
@@ -359,6 +359,176 @@
    "note": "",
    "first_seen": "2026-10-17 06:16",
    "last_checked": "2026-10-17 06:16",
+   "stale": false
+  },
+  "42888178": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 01:26",
+   "last_checked": "2026-10-18 01:26",
+   "stale": false
+  },
+  "42870814": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 01:26",
+   "last_checked": "2026-10-18 01:26",
+   "stale": false
+  },
+  "42871121": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 01:26",
+   "last_checked": "2026-10-18 01:26",
+   "stale": false
+  },
+  "42870864": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 01:26",
+   "last_checked": "2026-10-18 01:26",
+   "stale": false
+  },
+  "42870856": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 01:26",
+   "last_checked": "2026-10-18 01:26",
+   "stale": false
+  },
+  "42870825": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 01:26",
+   "last_checked": "2026-10-18 01:26",
+   "stale": false
+  },
+  "42870551": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 01:26",
+   "last_checked": "2026-10-18 01:26",
+   "stale": false
+  },
+  "42888494": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 01:26",
+   "last_checked": "2026-10-18 01:26",
+   "stale": false
+  },
+  "42888302": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 01:26",
+   "last_checked": "2026-10-18 01:26",
+   "stale": false
+  },
+  "42871379": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 01:26",
+   "last_checked": "2026-10-18 01:26",
+   "stale": false
+  },
+  "42871241": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 01:26",
+   "last_checked": "2026-10-18 01:26",
+   "stale": false
+  },
+  "42871183": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 01:26",
+   "last_checked": "2026-10-18 01:26",
+   "stale": false
+  },
+  "42870959": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 01:26",
+   "last_checked": "2026-10-18 01:26",
+   "stale": false
+  },
+  "42870889": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 01:26",
+   "last_checked": "2026-10-18 01:26",
+   "stale": false
+  },
+  "42870867": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 01:26",
+   "last_checked": "2026-10-18 01:26",
+   "stale": false
+  },
+  "42870861": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 01:26",
+   "last_checked": "2026-10-18 01:26",
+   "stale": false
+  },
+  "42870820": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 01:26",
+   "last_checked": "2026-10-18 01:26",
    "stale": false
   }
  }
