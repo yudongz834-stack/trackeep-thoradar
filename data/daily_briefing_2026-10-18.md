@@ -1,1061 +1,1059 @@
 # 胸科雷达 ThorRadar 胸部肿瘤每日文献雷达 (2026-10-18)
 
-漏斗：抓取 1348 → 期刊索引留存 1083 → 预筛 371 → 收录 200 篇 → 规则精选 8 篇
+漏斗：抓取 2944 → 期刊索引留存 2930 → 预筛 2799 → 收录 200 篇 → 规则精选 5 篇
 
-## 1. [ESMO Open · IF 10.6 · 评分 72] [泛亚洲改编ESMO临床实践指南：早期及局部晚期非小细胞肺癌的诊断、治疗与随访](https://pubmed.ncbi.nlm.nih.gov/42887130/)
-- **英文原题**: *Pan-Asian adapted ESMO Clinical Practice Guidelines for the diagnosis, treatment and follow-up of patients with early and locally advanced non-small-cell lung cancer.*
-- **作者结论**: 旨在为亚洲不同国家早期及局部晚期NSCLC管理的优化与协调提供指导，依据西方与亚洲试验证据；并提示不同地区在药物获批与报销策略上的差异。
-- **AI 疑点**: 本文为共识性指南改编，摘要未呈现任何原始数据、效应量、推荐强度或投票分布，证据分级与专家分歧程度信息不足；摘要强调投票独立于治疗实践、药物可及性与报销决策，但可及性差异另文讨论，推荐在资源受限地区的可执行性无法从摘要评估。
+## 1. [Signal Transduct Target Ther · IF 81.2 · 评分 70] [肺结节的分类、生物标志物、信号通路、疾病谱、早期诊断与管理：风险适配管理框架的综合性综述](https://pubmed.ncbi.nlm.nih.gov/42869881/)
+- **英文原题**: *Pulmonary nodules: classification, biomarkers, signaling pathways, diseases, early diagnosis and management.*
+- **作者结论**: Overall, care for pulmonary nodules should be risk-adapted, longitudinal, multidisciplinary, and patient-centered.
+- **AI 疑点**: 摘要未报告系统检索策略、纳入排除标准、偏倚评估或定量合成，属叙述性综述；结论多为框架性建议，不能提供诊断准确性或管理获益的效应量。对生物标志物与AI的定位较谨慎，强调其应作为影像和临床风险评估的辅助而非独立诊断，但缺乏可核验证据分级。信息不足：检索方法与证据质量评价未报告。
 - **核验状态**: — 无数值核验项
 
-## 2. [⭐Ann Oncol · IF 80.4 · 评分 68 · 启发式] [Efficacy and safety of camrelizumab plus docetaxel and carboplatin as neoadjuvant therapy for stage II-III triple-negative breast cancer: the HELEN-Trio 011 randomized clinical trial.](https://pubmed.ncbi.nlm.nih.gov/42887596/)
-- **英文原题**: *Efficacy and safety of camrelizumab plus docetaxel and carboplatin as neoadjuvant therapy for stage II-III triple-negative breast cancer: the HELEN-Trio 011 randomized clinical trial.*
-- **实际结果**: BACKGROUND: Neoadjuvant chemoimmunotherapy has become the standard-of-care for stage II-III triple-negative breast cancer (TNBC); however, anthracycline-containing regimens are associated with considerable toxicity. We e…
-- **核验状态**: — 无数值核验项
-- ⭐ **规则精选**: RCT/III 期证据发表于 S 级期刊且明确陈述主要终点，直接影响可切除胸部肿瘤围术期/新辅助方案选择
-
-## 3. [⭐JAMA Oncol · IF 23.9 · 评分 68 · 启发式] [Neoadjuvant Stereotactic Ablative Radiotherapy Before Inferior Vena Cava Thrombectomy for Renal Cell Carcinoma: A Phase 2 Nonrandomized Clinical Trial.](https://pubmed.ncbi.nlm.nih.gov/42879162/)
-- **英文原题**: *Neoadjuvant Stereotactic Ablative Radiotherapy Before Inferior Vena Cava Thrombectomy for Renal Cell Carcinoma: A Phase 2 Nonrandomized Clinical Trial.*
-- **实际结果**: IMPORTANCE: Renal cell carcinoma (RCC) with inferior vena cava (IVC) tumor thrombus is associated with substantial perioperative risk and frequent recurrence despite nephrectomy and thrombectomy. No established neoadjuva…
-- **核验状态**: — 无数值核验项
-- ⭐ **规则精选**: RCT/III 期证据发表于 S 级期刊且明确陈述主要终点，直接影响可切除胸部肿瘤围术期/新辅助方案选择
-
-## 4. [⭐JAMA Oncol · IF 23.9 · 评分 68 · 启发式] [Nivolumab-Ipilimumab for Localized Microsatellite Instability-High Gastric/Gastroesophageal Junction Adenocarcinoma: The Phase 2 NEONIPIGA Nonrandomized Clinical Trial.](https://pubmed.ncbi.nlm.nih.gov/42879140/)
-- **英文原题**: *Nivolumab-Ipilimumab for Localized Microsatellite Instability-High Gastric/Gastroesophageal Junction Adenocarcinoma: The Phase 2 NEONIPIGA Nonrandomized Clinical Trial.*
-- **实际结果**: IMPORTANCE: Neoadjuvant nivolumab plus ipilimumab in localized deficient mismatch repair/microsatellite instability-high gastric or gastroesophageal junction (GEJ) adenocarcinoma was evaluated in the NEONIPIGA study. The…
-- **核验状态**: — 无数值核验项
-- ⭐ **规则精选**: RCT/III 期证据发表于 S 级期刊且明确陈述主要终点，直接影响食管/纵隔肿瘤治疗决策
-
-## 5. [⭐Nat Med · IF 52.5 · 评分 68 · 启发式] [Real-world, digital-first delivery of GLP-1 receptor agonist therapy in women.](https://pubmed.ncbi.nlm.nih.gov/42888249/)
-- **英文原题**: *Real-world, digital-first delivery of GLP-1 receptor agonist therapy in women.*
-- **实际结果**: Glucagon-like peptide-1 receptor agonists (GLP-1RAs) have demonstrated substantial weight reduction and cardiometabolic benefit in randomized trials; however, prospective implementation evidence from digital care models …
-- **核验状态**: — 无数值核验项
-- ⭐ **规则精选**: RCT/III 期证据发表于 S 级期刊，直接影响可切除胸部肿瘤围术期/新辅助方案选择
-
-## 6. [⭐Surg Endosc · IF 3.3 · 评分 61 · 启发式] [Efficacy, safety, and cost of immediate versus on-demand endoscopic necrosectomy in infected necrotizing pancreatitis: a systematic review and meta-analysis.](https://pubmed.ncbi.nlm.nih.gov/42881308/)
-- **英文原题**: *Efficacy, safety, and cost of immediate versus on-demand endoscopic necrosectomy in infected necrotizing pancreatitis: a systematic review and meta-analysis.*
-- **实际结果**: BACKGROUND: Endoscopic ultrasound (EUS)-guided drainage is the standard of care for walled-off necrosis (WON); however, the optimal timing of subsequent endoscopic necrosectomy remains uncertain. We performed a systemati…
-- **核验状态**: — 无数值核验项
-- ⭐ **规则精选**: 严谨阴性/证伪结果（RCT/III 期证据发表于 A 级期刊且明确陈述主要终点），直接影响可切除胸部肿瘤围术期/新辅助方案选择
-
-## 7. [J Exp Clin Cancer Res · IF 14.3 · 评分 60] [小鼠肺腺癌放射抵抗模型中CXCL9相关免疫重塑与ATR抑制可恢复放疗敏感性](https://pubmed.ncbi.nlm.nih.gov/42875793/)
-- **英文原题**: *CXCL9-driven immune rewiring and tumor-intrinsic ATR signaling inhibition restore radiotherapy response in lung cancer.*
-- **作者结论**: These findings identify cancer cell-intrinsic ATR signaling and immune suppression as key drivers of radioresistance and support combined therapeutic strategies to prevent locoregional relapse in NSCLC after radiotherapy.
-- **AI 疑点**: 摘要未报告样本量、效应量及统计检验；ATR高表达与免疫抑制的关联仅为定性描述；TLR3-TLR7/8激动剂及ceralasertib增敏放疗的结果缺乏数值；结论由鼠源模型外推至NSCLC患者，存在人群限定松动。
-- **核验状态**: — 无数值核验项
-
-## 8. [Cancers (Basel) · IF 4.8 · 评分 56] [肺癌骨转移的骨科局部治疗：33项研究的系统综述显示脊柱病灶证据相对较多、脊柱外病灶证据薄弱，手术的生存获益未被确立](https://pubmed.ncbi.nlm.nih.gov/42882922/)
-- **英文原题**: *Orthopaedic Management of Bone Metastases from Lung Cancer.*
+## 2. [Front Immunol · IF 7.0 · 评分 65] [不可切除III期NSCLC诱导期benmelstobart联合安罗替尼及化疗、序贯同步放化疗与免疫巩固对比标准同步放化疗后免疫巩固的随机对照II期试验方案（BEAM-LUNG）](https://pubmed.ncbi.nlm.nih.gov/42857095/)
+- **英文原题**: *Efficacy and safety of induction benmelstobart plus anlotinib and chemotherapy followed by concurrent chemoradiotherapy and benmelstobart consolidation versus concurrent chemoradiotherapy followed by benmelstobart consolidation in patients with unresectable stage III NSCLC: a randomized, controlled, multicenter phase II trial protocol (BEAM-LUNG).*
 - **解读暂停**（核验未通过或出版状态存疑）：仅呈现题录与链接，请以原文为准。
 - **核验状态**: ⚠️ 未通过自动核验，解读暂停
 
-## 9. [Cancer Discov · IF 29.5 · 评分 55 · 启发式] [Cabergoline Suppresses Postpartum Breast Cancer by Enhancing Mammary Gland Involution in Brca1-Mutant Mice and Is Associated with Reduced Risk in Younger Women.](https://pubmed.ncbi.nlm.nih.gov/42878664/)
-- **英文原题**: *Cabergoline Suppresses Postpartum Breast Cancer by Enhancing Mammary Gland Involution in Brca1-Mutant Mice and Is Associated with Reduced Risk in Younger Women.*
-- **实际结果**: Breast cancer that arises in the postpartum period often carries a poor prognosis and urgently requires chemoprevention strategies, particularly for women at elevated risk. Here, we report that a single post-lactation do…
-- **核验状态**: — 无数值核验项
-
-## 10. [J Clin Oncol · IF 44.7 · 评分 55 · 启发式] [Expert Histopathologic Evaluation and Molecular Analyses for Ambiguous Cutaneous Melanocytic Tumors.](https://pubmed.ncbi.nlm.nih.gov/42879715/)
-- **英文原题**: *Expert Histopathologic Evaluation and Molecular Analyses for Ambiguous Cutaneous Melanocytic Tumors.*
-- **实际结果**: PURPOSE: A subset of cutaneous melanocytic tumors has ambiguous histopathologic features that preclude reliable classification as benign or malignant. We evaluated the diagnostic yield and long-term clinical validity of …
-- **核验状态**: — 无数值核验项
-
-## 11. [J Pediatr Surg · IF 2.3 · 评分 53 · 启发式] [Withdrawal of Life-Sustaining Treatment and the Severity-Matched Mortality Difference Between Abusive and Unintentional Pediatric Traumatic Brain Injury: A Propensity-Matched Cohort Study of the ACS TQIP.](https://pubmed.ncbi.nlm.nih.gov/42887648/)
-- **英文原题**: *Withdrawal of Life-Sustaining Treatment and the Severity-Matched Mortality Difference Between Abusive and Unintentional Pediatric Traumatic Brain Injury: A Propensity-Matched Cohort Study of the ACS TQIP.*
-- **实际结果**: PURPOSE: Abusive head trauma carries higher mortality than unintentional traumatic brain injury (TBI), but whether this persists at comparable presenting severity, and how much reflects withdrawal of life-sustaining trea…
-- **核验状态**: — 无数值核验项
-
-## 12. [⭐Surg Endosc · IF 3.3 · 评分 53 · 启发式] [Comparison of medium-weight vs heavy-weight mesh in minimally invasive extraperitoneal ventral hernia repairs.](https://pubmed.ncbi.nlm.nih.gov/42881310/)
-- **英文原题**: *Comparison of medium-weight vs heavy-weight mesh in minimally invasive extraperitoneal ventral hernia repairs.*
-- **实际结果**: BACKGROUND: Minimally invasive (MIS) extraperitoneal ventral hernia repair (VHR) has become increasingly common, however, limited data exist comparing medium-weight (MW) versus heavyweight (HW) mesh in this setting. We h…
-- **核验状态**: — 无数值核验项
-- ⭐ **规则精选**: 前瞻匹配队列证据发表于 A 级期刊且明确陈述主要终点，直接影响可切除胸部肿瘤围术期/新辅助方案选择
-
-## 13. [Cardiovasc Intervent Radiol · IF 3.4 · 评分 53 · 启发式] [Balloon-Occlusion Versus End-Hole Transarterial Chemoembolization for Hepatocellular Carcinoma: A Systematic Review and Meta-analysis.](https://pubmed.ncbi.nlm.nih.gov/42881289/)
-- **英文原题**: *Balloon-Occlusion Versus End-Hole Transarterial Chemoembolization for Hepatocellular Carcinoma: A Systematic Review and Meta-analysis.*
-- **实际结果**: PURPOSE: To evaluate the efficacy and safety of balloon-occluded transarterial chemoembolization (B-TACE) compared with conventional (cTACE) and drug-eluting-bead transarterial chemoembolization (DEB-TACE) in patients wi…
-- **核验状态**: — 无数值核验项
-
-## 14. [Cancer Med · IF 3.5 · 评分 53 · 启发式] [Safety Profiles of Immune Checkpoint Inhibitor Strategies in Gastrointestinal Cancers and Their Association With Clinical Outcomes: A Systematic Review and Meta-Analysis.](https://pubmed.ncbi.nlm.nih.gov/42885207/)
-- **英文原题**: *Safety Profiles of Immune Checkpoint Inhibitor Strategies in Gastrointestinal Cancers and Their Association With Clinical Outcomes: A Systematic Review and Meta-Analysis.*
-- **实际结果**: BACKGROUND: Immune checkpoint inhibitors (ICIs) are increasingly used in patients with gastrointestinal cancer (GIC). However, ICI-associated adverse event (AE) profiles in GIC remain poorly characterized, and whether AE…
-- **核验状态**: — 无数值核验项
-
-## 15. [Respir Med · IF 3.3 · 评分 53 · 启发式] [Efficacy and Safety of Novel Nebulized Combination of Glycopyrronium, Formoterol and Budesonide in comparison with metered dose inhaler of Glycopyrronium, Formoterol and Budesonide in COPD - A randomized, double-blind, double-dummy clinical trial.](https://pubmed.ncbi.nlm.nih.gov/42887614/)
-- **英文原题**: *Efficacy and Safety of Novel Nebulized Combination of Glycopyrronium, Formoterol and Budesonide in comparison with metered dose inhaler of Glycopyrronium, Formoterol and Budesonide in COPD - A randomized, double-blind, double-dummy clinical trial.*
-- **实际结果**: BACKGROUND: Many patients with chronic obstructive pulmonary disease (COPD) are unable to use metered dose inhaler (MDI) or dry powder inhaler effectively and require treatment with nebulized medication. No triple combin…
-- **核验状态**: — 无数值核验项
-
-## 16. [Cancer Cell · IF 56.1 · 评分 50] [广谱CNS穿透性TKI firmonertinib在EGFR PACC突变NSCLC中显示临床前活性及初步全身与颅内疗效（评论文章）](https://pubmed.ncbi.nlm.nih.gov/42887496/)
-- **英文原题**: *One structural class, one treatment? Firmonertinib in PACC-mutant NSCLC.*
-- **作者结论**: Le等在PACC突变NSCLC中报告的firmonertinib临床前特征及有前景的全身与颅内疗效，支持该药在这一难治突变类别中进一步开展临床开发。
-- **AI 疑点**: 本文为述评而非原始研究，摘要未提供任何样本量、疗效数值、置信区间或统计检验，无法评估证据强度；所述'有前景的全身与颅内疗效'的原始数据来源、研究阶段（剂量递增/扩展）、缓解率与颅内缓解率均信息不足；'广谱'与'支持进一步开发'属作者评价性表述，需回溯Le等原文核实。
-- **核验状态**: — 无数值核验项
-
-## 17. [JAMA · IF 65.4 · 评分 50 · 启发式] [Clinician Use of an Artificial Intelligence-Enabled Clinical Information Platform.](https://pubmed.ncbi.nlm.nih.gov/42879271/)
-- **英文原题**: *Clinician Use of an Artificial Intelligence-Enabled Clinical Information Platform.*
-- **实际结果**: IMPORTANCE: Despite growing interest in the use of artificial intelligence (AI) in medicine, empirical evidence on how clinicians use these tools is limited. OBJECTIVE: To characterize clinician use of an AI-enabled clin…
-- **核验状态**: — 无数值核验项
-
-## 18. [J Clin Oncol · IF 44.7 · 评分 50 · 启发式] [Effectiveness of a Multisite Oncology Financial Navigation Intervention: The Lessening the Impact of Financial Toxicity Clinical Trial.](https://pubmed.ncbi.nlm.nih.gov/42885694/)
-- **英文原题**: *Effectiveness of a Multisite Oncology Financial Navigation Intervention: The Lessening the Impact of Financial Toxicity Clinical Trial.*
-- **实际结果**: PURPOSE: Financial toxicity (FT) among cancer survivors is prevalent and associated with excess morbidity and mortality. Although financial navigation (FN) has reduced FT in limited academic and urban settings, evaluatio…
-- **核验状态**: — 无数值核验项
-
-## 19. [J Clin Oncol · IF 44.7 · 评分 50 · 启发式] [First-In-Human Study of 211At-CD45 Radioimmunotherapy With Nonmyeloablative Conditioning Hematopoietic Cell Transplantation for Adults With Hematologic Malignancies.](https://pubmed.ncbi.nlm.nih.gov/42879732/)
-- **英文原题**: *First-In-Human Study of 211At-CD45 Radioimmunotherapy With Nonmyeloablative Conditioning Hematopoietic Cell Transplantation for Adults With Hematologic Malignancies.*
-- **实际结果**: PURPOSE: Relapse is the dominant cause of failure after allogeneic hematopoietic cell transplantation (HCT) for aggressive hematologic malignancies. CD45-directed radioimmunotherapy (RIT) has been investigated to intensi…
-- **核验状态**: — 无数值核验项
-
-## 20. [NATURE · IF 56.1 · 评分 50 · 启发式] [Nearly half of reef-building corals face elevated relative risk of extinction.](https://pubmed.ncbi.nlm.nih.gov/42880730/)
-- **英文原题**: *Nearly half of reef-building corals face elevated relative risk of extinction.*
-- **实际结果**: Coral reefs are diverse marine ecosystems that provide ecological functions and economic and social benefits across over 100 tropical countries. Warming driven by climate change is a primary threat to coral reefs and is …
-- **核验状态**: — 无数值核验项
-
-## 21. [Nat Med · IF 52.5 · 评分 50 · 启发式] [EGFR-targeted antibody-toxin conjugate in recurrent glioma: a phase 1 trial.](https://pubmed.ncbi.nlm.nih.gov/42888247/)
-- **英文原题**: *EGFR-targeted antibody-toxin conjugate in recurrent glioma: a phase 1 trial.*
-- **实际结果**: D2C7-ATC is a recombinant antibody-toxin conjugate (ATC) targeting wild-type epidermal growth factor receptor (EGFR) and mutant EGFR variant III (EGFRvIII). We conducted a single-arm, single-site, open-label phase 1 tria…
-- **核验状态**: — 无数值核验项
-
-## 22. [N Engl J Med · IF 84.5 · 评分 50 · 启发式] [Continuous Glucose Monitoring in Non-Insulin-Treated Type 2 Diabetes.](https://pubmed.ncbi.nlm.nih.gov/42878622/)
-- **英文原题**: *Continuous Glucose Monitoring in Non-Insulin-Treated Type 2 Diabetes.*
-- **实际结果**: BACKGROUND: Continuous glucose monitoring (CGM) has been shown to be beneficial in persons with type 1 diabetes and others with insulin-treated type 2 diabetes, but its role in the treatment of persons with type 2 diabet…
-- **核验状态**: — 无数值核验项
-
-## 23. [SCIENCE · IF 47.3 · 评分 50 · 启发式] [Winds make bird flights cheaper.](https://pubmed.ncbi.nlm.nih.gov/42879568/)
-- **英文原题**: *Winds make bird flights cheaper.*
-- **实际结果**: Many birds use atmospheric air currents to reduce the energy costs of flying.
-- **核验状态**: — 无数值核验项
-
-## 24. [SCIENCE · IF 47.3 · 评分 50 · 启发式] [A pair of chitosan receptors confer broad-spectrum fungal resistance.](https://pubmed.ncbi.nlm.nih.gov/42879563/)
-- **英文原题**: *A pair of chitosan receptors confer broad-spectrum fungal resistance.*
-- **实际结果**: Chitosan, a major fungal cell wall component, activates plant immunity, yet the underlying perception mechanism remains unknown. In this study, we identified OsFID1, an apoplast-localized DUF26 domain protein, as a chito…
-- **核验状态**: — 无数值核验项
-
-## 25. [Respir Res · IF 5.7 · 评分 49] [整合多组学构建肺腺癌巨噬细胞相关磷脂代谢四基因预后评分并刻画免疫微环境重塑，但未报告生存效应量与前瞻验证](https://pubmed.ncbi.nlm.nih.gov/42888438/)
-- **英文原题**: *Integrative multi-omics analysis defines a macrophage-associated phospholipid metabolism signature linked to immune remodeling and prognosis in lung adenocarcinoma.*
+## 3. [Lung Cancer · IF 5.3 · 评分 65] [合并用药与广泛期小细胞肺癌tarlatamab（双特异性T细胞衔接器）治疗结局的关联：倾向性匹配回顾性队列研究](https://pubmed.ncbi.nlm.nih.gov/42804884/)
+- **英文原题**: *Concomitant medications and outcomes of bispecific T-cell engager therapy: A propensity-matched study of tarlatamab in ES-SCLC.*
 - **解读暂停**（核验未通过或出版状态存疑）：仅呈现题录与链接，请以原文为准。
 - **核验状态**: ⚠️ 未通过自动核验，解读暂停
 
-## 26. [Front Immunol · IF 7.0 · 评分 48 · 启发式] [Treatment context is associated with thrombocytopenia report phenotypes in lung cancer: an active-comparator analysis of FAERS and JADER.](https://pubmed.ncbi.nlm.nih.gov/42890849/)
-- **英文原题**: *Treatment context is associated with thrombocytopenia report phenotypes in lung cancer: an active-comparator analysis of FAERS and JADER.*
-- **实际结果**: BACKGROUND: Thrombocytopenia during immune checkpoint inhibitor treatment in lung cancer may be coded as immune, marrow suppression, coagulation, or non-specific. We tested whether coding-defined report phenotypes differ…
-- **核验状态**: — 无数值核验项
-
-## 27. [Front Immunol · IF 7.0 · 评分 48 · 启发式] [Clinical variables and quantitative CT radiomics for mortality risk stratification after acute exacerbation of idiopathic inflammatory myopathy-associated interstitial lung disease.](https://pubmed.ncbi.nlm.nih.gov/42890317/)
-- **英文原题**: *Clinical variables and quantitative CT radiomics for mortality risk stratification after acute exacerbation of idiopathic inflammatory myopathy-associated interstitial lung disease.*
-- **实际结果**: BACKGROUND: Acute exacerbation (AE) is the most lethal event of idiopathic inflammatory myopathy-associated interstitial lung disease (IIM-ILD). This exploratory study compared clinical, radiomics, and combined predictor…
-- **核验状态**: — 无数值核验项
-
-## 28. [Front Immunol · IF 7.0 · 评分 48 · 启发式] [Immunogenic cell death and tertiary lymphoid structures jointly define dysregulated antitumor immune states and therapeutic vulnerability in lung adenocarcinoma.](https://pubmed.ncbi.nlm.nih.gov/42877251/)
-- **英文原题**: *Immunogenic cell death and tertiary lymphoid structures jointly define dysregulated antitumor immune states and therapeutic vulnerability in lung adenocarcinoma.*
-- **实际结果**: BACKGROUND: Immunogenic cell death (ICD) and tertiary lymphoid structures (TLSs) are biologically distinct yet interconnected components of antitumor immunity. ICD promotes danger-associated immune activation, whereas TL…
-- **核验状态**: — 无数值核验项
-
-## 29. [J Pediatr Surg · IF 2.3 · 评分 48 · 启发式] [Cumulative Incidence and Risk Factors for Pediatric Firearm Reinjury: A Two-Center Cohort Study.](https://pubmed.ncbi.nlm.nih.gov/42887650/)
-- **英文原题**: *Cumulative Incidence and Risk Factors for Pediatric Firearm Reinjury: A Two-Center Cohort Study.*
-- **实际结果**: BACKGROUND: Pediatric patients who experience firearm injury may be at risk for subsequent reinjury, yet the timing and predictors of recurrence remain poorly defined. Characterizing reinjury patterns at both individual …
-- **核验状态**: — 无数值核验项
-
-## 30. [J Pediatr Surg · IF 2.3 · 评分 48 · 启发式] [Declining Rates of Cervical Spine Injury and Operative Intervention in Pediatric Trauma: A National TQIP Analysis.](https://pubmed.ncbi.nlm.nih.gov/42887649/)
-- **英文原题**: *Declining Rates of Cervical Spine Injury and Operative Intervention in Pediatric Trauma: A National TQIP Analysis.*
-- **实际结果**: INTRODUCTION: Pediatric cervical spine injuries (CSI) are present in 1-2% of all pediatric traumatic injuries and can be devastating. Contemporary injury prevention measures may decrease CSI incidence, however, their imp…
-- **核验状态**: — 无数值核验项
-
-## 31. [J Pediatr Surg · IF 2.3 · 评分 48 · 启发式] [Is Total Urogenital Mobilization Safe and Continent-Preserving Across a Wide Age Range in Congenital Adrenal Hyperplasia? A Single-Center Experience of 73 Patients.](https://pubmed.ncbi.nlm.nih.gov/42880487/)
-- **英文原题**: *Is Total Urogenital Mobilization Safe and Continent-Preserving Across a Wide Age Range in Congenital Adrenal Hyperplasia? A Single-Center Experience of 73 Patients.*
-- **实际结果**: BACKGROUND: Despite widespread adoption of total urogenital mobilization (TUM) for feminizing genitoplasty in congenital adrenal hyperplasia (CAH), quantitative intraoperative benchmarks remain unreported in the literatu…
-- **核验状态**: — 无数值核验项
-
-## 32. [J Trauma Acute Care Surg · IF 3.9 · 评分 48 · 启发式] [Opioid prescribing and hospital outcomes after trauma in patients with substance use disorder: An analysis of the michigan trauma quality improvement project.](https://pubmed.ncbi.nlm.nih.gov/42886858/)
-- **英文原题**: *Opioid prescribing and hospital outcomes after trauma in patients with substance use disorder: An analysis of the michigan trauma quality improvement project.*
-- **实际结果**: BACKGROUND: Trauma patients frequently have comorbid substance use disorders (SUD), which may complicate pain management and increase the risk of opioid-related adverse outcomes after discharge. We hypothesized that trau…
-- **核验状态**: — 无数值核验项
-
-## 33. [J Trauma Acute Care Surg · IF 3.9 · 评分 48 · 启发式] [In older adults, "mild" by GCS does not mean low risk: Multicenter study of 1,157 patients with mild TBI and acute subdural hematoma.](https://pubmed.ncbi.nlm.nih.gov/42886856/)
-- **英文原题**: *In older adults, "mild" by GCS does not mean low risk: Multicenter study of 1,157 patients with mild TBI and acute subdural hematoma.*
-- **实际结果**: BACKGROUND: Acute traumatic subdural hematoma (SDH) is the most common intracranial injury in mild TBI (mTBI), particularly in older adults. However, the relationship of patient and brain computed tomography (CT) charact…
-- **核验状态**: — 无数值核验项
-
-## 34. [J Trauma Acute Care Surg · IF 3.9 · 评分 48 · 启发式] [Multicompartmental hemorrhage: A high-risk pattern associated with increased risk for progression in TBI patients.](https://pubmed.ncbi.nlm.nih.gov/42879654/)
-- **英文原题**: *Multicompartmental hemorrhage: A high-risk pattern associated with increased risk for progression in TBI patients.*
-- **实际结果**: BACKGROUND: Traumatic brain injury (TBI) with intracranial hemorrhage (ICH) often requires repeat head computed tomography (CT) imaging to monitor for bleed progression. While prior literature has explored patient-level …
-- **核验状态**: — 无数值核验项
-
-## 35. [Lancet Healthy Longev · IF 20.5 · 评分 48 · 启发式] [Prevalence, management, and outcomes of urinary tract infections in older adults living in care homes versus older adults living outside care homes in the UK: a propensity score-matched case-control analysis.](https://pubmed.ncbi.nlm.nih.gov/42887518/)
-- **英文原题**: *Prevalence, management, and outcomes of urinary tract infections in older adults living in care homes versus older adults living outside care homes in the UK: a propensity score-matched case-control analysis.*
-- **实际结果**: BACKGROUND: Globally, rising drug-resistant urinary tract infections (UTIs) affect older populations disproportionally. We aimed to assess the incidence, management, and patient outcomes of UTIs in English care homes.
-- **核验状态**: — 无数值核验项
-
-## 36. [Lancet Reg Health Am · IF 9.1 · 评分 48 · 启发式] [Dengue infection in kidney transplant recipients during a major epidemic and the implementation of systematic donor screening: a cohort study.](https://pubmed.ncbi.nlm.nih.gov/42892931/)
-- **英文原题**: *Dengue infection in kidney transplant recipients during a major epidemic and the implementation of systematic donor screening: a cohort study.*
-- **实际结果**: BACKGROUND: During Brazil's unprecedented dengue epidemic in 2023-2025, we develop a rationale for organ donor screening to mitigate the risk of donor derived transmission using rapid, widely available, and low-cost test…
-- **核验状态**: — 无数值核验项
-
-## 37. [Radiother Oncol · IF 5.8 · 评分 48 · 启发式] [Patient selection for proton therapy in lung cancer: Updating and internal-external cross-validation of a normal tissue complication probability model for acute oesophageal toxicity.](https://pubmed.ncbi.nlm.nih.gov/42880415/)
-- **英文原题**: *Patient selection for proton therapy in lung cancer: Updating and internal-external cross-validation of a normal tissue complication probability model for acute oesophageal toxicity.*
-- **实际结果**: PURPOSE: To externally validate and update a published normal tissue complication probability (NTCP) model for the prediction of Grade ≥ 2 acute oesophageal toxicity (AOT) in lung cancer patients receiving (chemo-)radiot…
-- **核验状态**: — 无数值核验项
-
-## 38. [Surg Endosc · IF 3.3 · 评分 48 · 启发式] [Association between technical difficulty and patient prognosis after transanal total mesorectal excision for middle and low rectal cancer: a multicenter cohort study.](https://pubmed.ncbi.nlm.nih.gov/42881313/)
-- **英文原题**: *Association between technical difficulty and patient prognosis after transanal total mesorectal excision for middle and low rectal cancer: a multicenter cohort study.*
-- **实际结果**: BACKGROUND: Whether technical difficulty influences outcomes after transanal total mesorectal excision (TaTME) for middle and low rectal cancer remains unclear. This study evaluated the association between technical diff…
-- **核验状态**: — 无数值核验项
-
-## 39. [Surg Endosc · IF 3.3 · 评分 48 · 启发式] [Endoscopic ultrasound-guided gallbladder drainage versus choledochoduodenostomy for distal malignant biliary obstruction.](https://pubmed.ncbi.nlm.nih.gov/42881309/)
-- **英文原题**: *Endoscopic ultrasound-guided gallbladder drainage versus choledochoduodenostomy for distal malignant biliary obstruction.*
-- **实际结果**: BACKGROUND: Endoscopic ultrasound-guided gallbladder drainage (EUS-GBD) has emerged as a potential alternative to endoscopic ultrasound-guided choledochoduodenostomy (EUS-CD) for distal malignant biliary obstruction (DMB…
-- **核验状态**: — 无数值核验项
-
-## 40. [Surg Endosc · IF 3.3 · 评分 48 · 启发式] [Gastric peroral endoscopic pyloromyotomy for delayed gastric conduit emptying: outcomes and predictors of treatment response.](https://pubmed.ncbi.nlm.nih.gov/42878816/)
-- **英文原题**: *Gastric peroral endoscopic pyloromyotomy for delayed gastric conduit emptying: outcomes and predictors of treatment response.*
-- **实际结果**: BACKGROUND: Delayed gastric conduit emptying (DGCE) is common in patients following esophagectomy, and its treatment remains challenging. This study evaluated efficacy and safety of gastric peroral endoscopic pyloromyoto…
-- **核验状态**: — 无数值核验项
-
-## 41. [Transl Res · IF 6.1 · 评分 48 · 启发式] [Ocular Immune Toxicity in Cancer Immunotherapy, From Immune Privilege Breakdown to Treatment Rechallenge: A Review.](https://pubmed.ncbi.nlm.nih.gov/42880691/)
-- **英文原题**: *Ocular Immune Toxicity in Cancer Immunotherapy, From Immune Privilege Breakdown to Treatment Rechallenge: A Review.*
-- **实际结果**: Immune checkpoint inhibitors (ICIs) have transformed cancer therapy but can disrupt ocular immune privilege and produce heterogeneous immune-related adverse events (Eye-irAEs). This structured narrative review with evide…
-- **核验状态**: — 无数值核验项
-
-## 42. [Cancers (Basel) · IF 4.8 · 评分 48] [德国常见实体瘤住院病例专科姑息治疗编码使用率横断面分析：总体5.4%，转移性病例中位15.0%](https://pubmed.ncbi.nlm.nih.gov/42882857/)
-- **英文原题**: *Has the Early Majority Been Reached? Specialised Inpatient Palliative Care Utilisation in Common Solid Tumours in Germany.*
+## 4. [Anticancer Res · IF — · 评分 64] [既往肺外恶性肿瘤与肺癌根治性切除术后结局：多中心回顾性队列未显示独立生存劣势](https://pubmed.ncbi.nlm.nih.gov/42823163/)
+- **英文原题**: *Prior Extrapulmonary Malignancy and Outcomes After Lung Cancer Resection.*
 - **解读暂停**（核验未通过或出版状态存疑）：仅呈现题录与链接，请以原文为准。
 - **核验状态**: ⚠️ 未通过自动核验，解读暂停
 
-## 43. [Cancers (Basel) · IF 4.8 · 评分 48 · 启发式] [Real-World Application of PD-1 Inhibitors in High-Grade Glioma: A Case Series.](https://pubmed.ncbi.nlm.nih.gov/42882817/)
-- **英文原题**: *Real-World Application of PD-1 Inhibitors in High-Grade Glioma: A Case Series.*
-- **实际结果**: Background/Objectives: Patients with high-grade glioma (HGG) have a poor prognosis despite maximal safe resection, radiotherapy, and chemotherapy, partly because of the immunosuppressive tumor microenvironment. Unfortuna…
+## 5. [⭐Lung Cancer · IF 5.3 · 评分 61 · 启发式] [Trial-specific absolute disease-free survival effects of postoperative PD-1/PD-L1 blockade after complete resection of NSCLC: A systematic review.](https://pubmed.ncbi.nlm.nih.gov/42843316/)
+- **英文原题**: *Trial-specific absolute disease-free survival effects of postoperative PD-1/PD-L1 blockade after complete resection of NSCLC: A systematic review.*
+- **实际结果**: INTRODUCTION: Postoperative PD-1/PD-L1 blockade after complete resection of non-small-cell lung cancer (NSCLC) is mainly reported using relative disease-free survival (DFS) effects. We estimated absolute effects for dist…
+- **核验状态**: — 无数值核验项
+- ⭐ **规则精选**: RCT/III 期证据发表于 A 级期刊，直接影响局晚/晚期治疗线序与方案选择
+
+## 6. [⭐Front Immunol · IF 7.0 · 评分 61 · 启发式] [Oral mucositis risk with EGFR tyrosine kinase inhibitor monotherapies and combination regimens in non-small cell lung cancer: a systematic review and network meta-analysis.](https://pubmed.ncbi.nlm.nih.gov/42827960/)
+- **英文原题**: *Oral mucositis risk with EGFR tyrosine kinase inhibitor monotherapies and combination regimens in non-small cell lung cancer: a systematic review and network meta-analysis.*
+- **实际结果**: INTRODUCTION AND AIMS: Oral mucositis (OM) impairs quality of life, necessitates dose modification, and disrupts treatment continuity in patients receiving EGFR tyrosine kinase inhibitors (EGFR-TKIs), yet comparative OM …
+- **核验状态**: — 无数值核验项
+- ⭐ **规则精选**: RCT/III 期证据发表于 A 级期刊，直接影响可切除胸部肿瘤围术期/新辅助方案选择
+
+## 7. [BMJ Open · IF — · 评分 61] [RANKL抑制剂narlumosbart联合SBRT序贯一线化疗免疫治疗驱动基因阴性晚期NSCLC骨转移的II期单臂单中心试验方案](https://pubmed.ncbi.nlm.nih.gov/42823111/)
+- **英文原题**: *Efficacy and safety of narlumosbart in combination with stereotactic body radiation therapy followed by first-line chemotherapy combined with immunotherapy in advanced driver gene-negative non-small cell lung cancer patients with bone metastases: a phase II, single-arm, single-centre clinical trial protocol.*
+- **AI 疑点**: 信息不足：仅为试验方案，尚无疗效或安全性结果。单臂无对照，无法区分联合治疗各组成部分的效应；主要终点为未放疗病灶的客观缓解率这一替代指标；样本量27例、单中心，统计推断与推广性有限；RANKL抑制剂联合SBRT改善免疫微环境并增强化疗免疫疗效的假设仍需验证。
 - **核验状态**: — 无数值核验项
 
-## 44. [NPJ Precis Oncol · IF 9.9 · 评分 46] [综述：单细胞与空间多组学视角下肿瘤相关巨噬细胞的谱系、空间与功能异质性及治疗脆弱性](https://pubmed.ncbi.nlm.nih.gov/42881205/)
-- **英文原题**: *Spatiotemporal multi-omics reveals lineage, spatial and functional heterogeneity of tumor-associated macrophages and therapeutic vulnerabilities in the tumor microenvironment.*
-- **作者结论**: Overall, we propose that integrating single-cell and spatial omics with AI-assisted digital pathology and longitudinal sampling will enable TAM-informed patient stratification and rational design of combination immunotherapies, thereby accelerating the translation of TAM biology into precision oncology.
-- **AI 疑点**: 题名使用 reveals 易被误读为原始多组学研究，摘要明确为综述；无系统检索策略、纳入排除标准或定量合成；无原始数据、样本量与效应量；AI辅助数字病理仅为展望，未验证；具体癌种与临床终点信息不足。
+## 8. [⭐J Immunother Cancer · IF 11.7 · 评分 61 · 启发式] [Toripalimab consolidation after chemoradiotherapy in limited-stage small cell lung cancer: a phase II, randomized controlled study (GASTO-1052A).](https://pubmed.ncbi.nlm.nih.gov/42823088/)
+- **英文原题**: *Toripalimab consolidation after chemoradiotherapy in limited-stage small cell lung cancer: a phase II, randomized controlled study (GASTO-1052A).*
+- **实际结果**: BACKGROUND: Immune-checkpoint inhibitors (ICIs) plus chemotherapy have demonstrated survival benefits in extensive-stage small cell lung cancer (SCLC). The integration of immunotherapy with concurrent chemoradiotherapy (…
+- **核验状态**: — 无数值核验项
+- ⭐ **规则精选**: RCT/III 期证据发表于 A 级期刊且明确陈述主要终点，直接影响局晚/晚期治疗线序与方案选择
+
+## 9. [Nat Genet · IF 25.5 · 评分 61] [KRAS驱动肺腺癌小鼠模型中谱系转化介导KRAS抑制剂耐药且不依赖KRAS/MAPK再激活](https://pubmed.ncbi.nlm.nih.gov/42816600/)
+- **英文原题**: *Lineage identity governs oncogene dependence in mouse NSCLC models of KRAS inhibitor resistance.*
+- **作者结论**: Squamous-transformed tumors did not exhibit evidence of KRAS/MAPK reactivation, underscoring the role for lineage transcription factors and histologic transformation in mediating KRAS independence.
+- **AI 疑点**: 摘要为小鼠临床前机制研究，未提供样本量、效应量、置信区间或统计检验；‘invariably’与标题中的‘governs’来自GEMM/类器官模型，外推至人KRAS抑制剂耐药需谨慎；CRISPR诱导的鳞状转化未必等同临床获得性耐药；未报告人源肿瘤验证；遗传性Kras扩增与谱系转化两类耐药机制在临床中的相对占比信息不足。
 - **核验状态**: — 无数值核验项
 
-## 45. [Front Immunol · IF 7.0 · 评分 45] [肺癌软脑膜转移的脑脊液免疫微环境：细胞生态与治疗可能性的叙述性综述](https://pubmed.ncbi.nlm.nih.gov/42877028/)
-- **英文原题**: *The cerebrospinal fluid immune microenvironment in lung cancer leptomeningeal metastasis: cellular ecosystems and therapeutic possibilities.*
-- **作者结论**: 脑脊液引导的分型分析可能有助于建立免疫状态分类，并为未来靶向、鞘内、免疫或联合策略提供信息，但在用于常规治疗指导前需要前瞻性验证。
-- **AI 疑点**: 全文为叙述性综述，未报告检索策略、纳入排除标准或证据分级，无原始数据与定量结果，所有关于T细胞耗竭、髓系抑制重塑、细胞因子失调等结论均来自对少量脑脊液研究的定性归纳，作者亦承认肺癌特异性机制与单细胞数据集有限；提出的“脑脊液引导免疫分型”属未验证假说，文中未给出任何效能、样本量或验证路径，读者不应将其误读为可直接改变临床决策的证据；此外，该综述的范围聚焦软脑膜转移，但肺癌软脑膜转移与脑实质转移、可切除NSCLC围术期免疫微环境的可外推性信息不足。
+## 10. [Nat Commun · IF — · 评分 61] [基于常规临床特征的风险矩阵用于免疫治疗NSCLC患者预后分层：多区域汇总队列开发与西方/东亚人群外部验证](https://pubmed.ncbi.nlm.nih.gov/42811057/)
+- **英文原题**: *Clinical attribute-based risk matrix for prognostication in immunotherapy-treated non-small cell lung cancer.*
+- **作者结论**: 该“start-anywhere”临床风险矩阵可提供稳健的、人群感知的预后分层，并可作为生物标志物的补充用于评估NSCLC患者的免疫治疗结局。
+- **AI 疑点**: 摘要未报告任何模型性能数值（如C-index、校准度、验证集风险比及置信区间），却使用“robust”“population-aware”等强表述，结论缺乏可核验的量化支撑；未说明缺失数据处理机制与“start-anywhere”的具体算法；队列由已发表队列与三级中心拼合，存在人群异质性、选择偏倚与重复入组风险，且免疫治疗线次、方案与疗效评估标准未交代；仅提到体能状态与疾病分期为最一致的决定因素，属预期内的常识性发现，增量价值不明；外部验证的样本量与事件数信息不足。
 - **核验状态**: — 无数值核验项
 
-## 46. [Cancer Epidemiol Biomarkers Prev · IF 3.7 · 评分 44] [机器学习识别与肺癌发病率相关的社区层面因素：加州542个医疗服务研究区的生态学分析](https://pubmed.ncbi.nlm.nih.gov/42878648/)
-- **英文原题**: *Machine Learning Identifies Community-Level Factors Associated with Lung Cancer Incidence.*
+## 11. [Front Immunol · IF 7.0 · 评分 60] [整合系统炎症指标与急性放射性食管炎的列线图用于肺癌放疗后≥2级放射性肺炎风险预测：单中心回顾性建模与内部验证（C-index 0.688）](https://pubmed.ncbi.nlm.nih.gov/42857233/)
+- **英文原题**: *An explainable nomogram incorporating systemic inflammatory indicators and radiation esophagitis for risk assessment of radiation pneumonitis in lung cancer.*
 - **解读暂停**（核验未通过或出版状态存疑）：仅呈现题录与链接，请以原文为准。
 - **核验状态**: ⚠️ 未通过自动核验，解读暂停
 
-## 47. [Acad Radiol · IF 4.7 · 评分 43 · 启发式] [Retrospective Lung-RADS v2022 Characterization of Fatal Lung Cancer Cases in the National Lung Screening Trial.](https://pubmed.ncbi.nlm.nih.gov/42888057/)
-- **英文原题**: *Retrospective Lung-RADS v2022 Characterization of Fatal Lung Cancer Cases in the National Lung Screening Trial.*
-- **实际结果**: RATIONALE AND OBJECTIVES: Persistent lung cancer mortality despite screening is multifactorial. Characterizing computed tomography (CT) findings preceding fatal lung cancer may identify imaging features and screening cha…
-- **核验状态**: — 无数值核验项
-
-## 48. [Front Immunol · IF 7.0 · 评分 43 · 启发式] [Association of phenotypic and functional characteristics of regulatory T cells from minor salivary glands with expression of the delta 7 FoxP3 splice variant in patients with Sjögren's disease.](https://pubmed.ncbi.nlm.nih.gov/42890837/)
-- **英文原题**: *Association of phenotypic and functional characteristics of regulatory T cells from minor salivary glands with expression of the delta 7 FoxP3 splice variant in patients with Sjögren's disease.*
-- **实际结果**: BACKGROUND: Sjögren's disease (SjD) is a systemic autoimmune disorder characterized by lymphoplasmacytic infiltration of exocrine glands, including minor salivary glands (MSG), with potential formation of ectopic germina…
-- **核验状态**: — 无数值核验项
-
-## 49. [Front Immunol · IF 7.0 · 评分 43 · 启发式] [Human macrophages activate a coordinated program linking inflammation and cell death in response to intracellular Poly(I:C).](https://pubmed.ncbi.nlm.nih.gov/42890795/)
-- **英文原题**: *Human macrophages activate a coordinated program linking inflammation and cell death in response to intracellular Poly(I:C).*
-- **实际结果**: BACKGROUND: Macrophages sense viral double-stranded RNA (dsRNA) via the innate immune receptors TLR3 and MDA5 whose activation drives a robust inflammatory program, often coupled to cell death. TLR3/TRIF-dependent apopto…
-- **核验状态**: — 无数值核验项
-
-## 50. [Front Immunol · IF 7.0 · 评分 43 · 启发式] [ESCO1 stabilizes NUFIP2 through acetylation-ubiquitination crosstalk to promote pancreatic cancer progression.](https://pubmed.ncbi.nlm.nih.gov/42890791/)
-- **英文原题**: *ESCO1 stabilizes NUFIP2 through acetylation-ubiquitination crosstalk to promote pancreatic cancer progression.*
-- **实际结果**: BACKGROUND: Pancreatic cancer is a highly aggressive malignancy with a poor prognosis, and its molecular pathogenesis remains incompletely understood, with effective therapeutic options still limited. Establishment of si…
-- **核验状态**: — 无数值核验项
-
-## 51. [Front Immunol · IF 7.0 · 评分 43 · 启发式] [Integrated transcriptomic, machine learning, and network pharmacology analyses reveal shared inflammatory biomarkers between intervertebral disc degeneration and osteoporosis.](https://pubmed.ncbi.nlm.nih.gov/42890622/)
-- **英文原题**: *Integrated transcriptomic, machine learning, and network pharmacology analyses reveal shared inflammatory biomarkers between intervertebral disc degeneration and osteoporosis.*
-- **实际结果**: BACKGROUND: Intervertebral disc degeneration (IDD) and osteoporosis (OP) frequently coexist, but their shared inflammatory molecular features remain unclear. We investigated whether the two disorders share an immune-extr…
-- **核验状态**: — 无数值核验项
-
-## 52. [Front Immunol · IF 7.0 · 评分 43 · 启发式] [Targeting the capsule of Klebsiella pneumoniae with a cationic CR3-binding protein enhances phagocytosis and promotes bacterial clearance and survival in a mouse sepsis model.](https://pubmed.ncbi.nlm.nih.gov/42890606/)
-- **英文原题**: *Targeting the capsule of Klebsiella pneumoniae with a cationic CR3-binding protein enhances phagocytosis and promotes bacterial clearance and survival in a mouse sepsis model.*
-- **实际结果**: Platelet Factor 4 (PF4), a cationic antimicrobial peptide, serves as a ligand for the myeloid-specific phagocytic receptor CR3 (Mac-1, CD11b/CD18). We previously demonstrated that recombinant dimeric PF4 (rPF4) functions…
-- **核验状态**: — 无数值核验项
-
-## 53. [Front Immunol · IF 7.0 · 评分 43 · 启发式] [Three ABO 3' splice-site variants including a novel one converge on a common splicing defect to attenuate blood group antigen expression.](https://pubmed.ncbi.nlm.nih.gov/42890605/)
-- **英文原题**: *Three ABO 3' splice-site variants including a novel one converge on a common splicing defect to attenuate blood group antigen expression.*
-- **实际结果**: BACKGROUND: ABO subtypes are characterized by attenuated antigen expression, rendering them susceptible to serological misclassification and posing substantial risks to transfusion safety. Splice-site variants represent …
-- **核验状态**: — 无数值核验项
-
-## 54. [Front Immunol · IF 7.0 · 评分 43 · 启发式] [Complement C1q promotes primary haemostasis in a microfluidic bleeding model.](https://pubmed.ncbi.nlm.nih.gov/42890583/)
-- **英文原题**: *Complement C1q promotes primary haemostasis in a microfluidic bleeding model.*
-- **实际结果**: BACKGROUND: In systemic inflammatory diseases, thrombotic complications often cannot be fully explained by traditional risk factors, suggesting that the immune system directly affects hemostasis. The complement system, p…
-- **核验状态**: — 无数值核验项
-
-## 55. [Front Immunol · IF 7.0 · 评分 43 · 启发式] [Chronopharmacological effects of 5-aminosalicylic acid in the treatment of experimental colitis in mice.](https://pubmed.ncbi.nlm.nih.gov/42890558/)
-- **英文原题**: *Chronopharmacological effects of 5-aminosalicylic acid in the treatment of experimental colitis in mice.*
-- **实际结果**: BACKGROUND: 5-Aminosalicylic acid (5-ASA) is a first-line therapy for ulcerative colitis, but whether dosing timing influences its therapeutic efficacy remains unclear. This study aims to investigate the chronopharmacolo…
-- **核验状态**: — 无数值核验项
-
-## 56. [Front Immunol · IF 7.0 · 评分 43 · 启发式] [The dual IGF-1R/IR blocker, Linsitinib, modulates human orbital fibroblast activity and proliferation.](https://pubmed.ncbi.nlm.nih.gov/42890543/)
-- **英文原题**: *The dual IGF-1R/IR blocker, Linsitinib, modulates human orbital fibroblast activity and proliferation.*
-- **实际结果**: AIM: The insulin-like growth factor-1 receptor (IGF-1R) and its downstream signaling pathways drive proliferation, survival, and extracellular matrix production, representing key therapeutic targets in thyroid eye diseas…
-- **核验状态**: — 无数值核验项
-
-## 57. [Front Immunol · IF 7.0 · 评分 43 · 启发式] [Effects of West Nile Virus on behavioral and cognitive performance, circadian body temperatures, cortical Aβ and p-tau pathology, and immune measures in human apoE and human amyloid precursor protein NL-G-F/human apoE mice.](https://pubmed.ncbi.nlm.nih.gov/42890501/)
-- **英文原题**: *Effects of West Nile Virus on behavioral and cognitive performance, circadian body temperatures, cortical Aβ and p-tau pathology, and immune measures in human apoE and human amyloid precursor protein NL-G-F/human apoE mice.*
-- **实际结果**: INTRODUCTION: There are three human apolipoprotein E (E) isoforms: E2, E3, and E4. Compared with E3, E4 is an AD risk factor.
-- **核验状态**: — 无数值核验项
-
-## 58. [Front Immunol · IF 7.0 · 评分 43 · 启发式] [A candidate gonococcal outer membrane vesicle vaccine which induces persistent immunity in three genetically distinct species of mouse and is similarly immunogenic when formulated with and without aluminium adjuvant.](https://pubmed.ncbi.nlm.nih.gov/42890275/)
-- **英文原题**: *A candidate gonococcal outer membrane vesicle vaccine which induces persistent immunity in three genetically distinct species of mouse and is similarly immunogenic when formulated with and without aluminium adjuvant.*
-- **实际结果**: BACKGROUND: The escalating global incidence of multidrug-resistant Neisseria gonorrhoeae necessitates an effective vaccine. While the meningococcal 4CMenB vaccine offers some cross-protection against gonorrhoea, this pro…
-- **核验状态**: — 无数值核验项
-
-## 59. [Front Immunol · IF 7.0 · 评分 43 · 启发式] [Case Report: Seronegative rhombencephalitis presenting with ocular flutter and ataxia as a potential sentinel manifestation of gastric adenocarcinoma.](https://pubmed.ncbi.nlm.nih.gov/42890263/)
-- **英文原题**: *Case Report: Seronegative rhombencephalitis presenting with ocular flutter and ataxia as a potential sentinel manifestation of gastric adenocarcinoma.*
-- **实际结果**: OBJECTIVES: This case report aims to highlight the rare clinical phenotype of seronegative autoimmune rhombencephalitis presenting with ocular flutter and ataxia, and to emphasize its potential association with underlyin…
-- **核验状态**: — 无数值核验项
-
-## 60. [Front Immunol · IF 7.0 · 评分 43 · 启发式] [Successful management of synchronous prostate adenocarcinoma and lung squamous cell carcinoma with sintilimab and ADT in a frail elderly patient with bronchiectasis: a case report.](https://pubmed.ncbi.nlm.nih.gov/42889325/)
-- **英文原题**: *Successful management of synchronous prostate adenocarcinoma and lung squamous cell carcinoma with sintilimab and ADT in a frail elderly patient with bronchiectasis: a case report.*
-- **实际结果**: BACKGROUND: The management of elderly patients with multiple primary malignant neoplasms (MPMNs) presents a significant clinical challenge, requiring a balance between oncological efficacy and treatment tolerability. Thi…
-- **核验状态**: — 无数值核验项
-
-## 61. [J Cancer Surviv · IF 3.4 · 评分 43 · 启发式] [Reliability and quality of YouTube exercise videos for people living with lung cancer: a cross-sectional content analysis.](https://pubmed.ncbi.nlm.nih.gov/42886464/)
-- **英文原题**: *Reliability and quality of YouTube exercise videos for people living with lung cancer: a cross-sectional content analysis.*
-- **实际结果**: OBJECTIVES: To evaluate the characteristics, reliability, and quality of YouTube exercise videos designed for people with lung cancer. METHODS: Video characteristics (e.g., likes, views, video length, and upload source) …
-- **核验状态**: — 无数值核验项
-
-## 62. [J Pediatr Surg · IF 2.3 · 评分 43 · 启发式] [Bilateral Wilms Tumor: Multi-institutional Analysis of Nephron-Sparing Surgery at Centers with Focused Wilms Tumor Expertise.](https://pubmed.ncbi.nlm.nih.gov/42887651/)
-- **英文原题**: *Bilateral Wilms Tumor: Multi-institutional Analysis of Nephron-Sparing Surgery at Centers with Focused Wilms Tumor Expertise.*
-- **实际结果**: PURPOSE: The proportion of children who undergo bilateral nephron-sparing surgery (BNSS) for bilateral Wilms tumor (BWT) is variably reported. We evaluated the frequency of BNSS versus unilateral radical nephrectomy with…
-- **核验状态**: — 无数值核验项
-
-## 63. [J Pediatr Surg · IF 2.3 · 评分 43 · 启发式] [Why Kids Crash: Risk Factors for Pediatric E-Bike Injuries in California.](https://pubmed.ncbi.nlm.nih.gov/42880489/)
-- **英文原题**: *Why Kids Crash: Risk Factors for Pediatric E-Bike Injuries in California.*
-- **实际结果**: BACKGROUND: Electric bikes (e-bikes) are increasingly popular, particularly among pediatric riders, and pose a greater risk of serious injury than traditional bicycles due to their higher speeds. However, limited data ex…
-- **核验状态**: — 无数值核验项
-
-## 64. [J Pediatr Surg · IF 2.3 · 评分 43 · 启发式] [VIRTUAL REALITY-ENHANCED FOR PREOPERATIVE ANATOMICAL ASSESSMENT OF ABDOMINAL NEUROBLASTOMA: A COMPARATIVE STUDY WITH CONVENTIONAL CT IMAGING.](https://pubmed.ncbi.nlm.nih.gov/42880488/)
-- **英文原题**: *VIRTUAL REALITY-ENHANCED FOR PREOPERATIVE ANATOMICAL ASSESSMENT OF ABDOMINAL NEUROBLASTOMA: A COMPARATIVE STUDY WITH CONVENTIONAL CT IMAGING.*
-- **实际结果**: AIM: Accurate assessment of tumour anatomy is critical for neuroblastoma surgical planning. This study evaluated whether patient-specific virtual reality (VR) models improve the accuracy of pre-operative anatomical asses…
-- **核验状态**: — 无数值核验项
-
-## 65. [J Pediatr Surg · IF 2.3 · 评分 43 · 启发式] [Upfront Distal Pancreatectomy vs. Upfront Non-Operative Management in Pediatric Grade III Pancreatic Trauma: a single institution review.](https://pubmed.ncbi.nlm.nih.gov/42880486/)
-- **英文原题**: *Upfront Distal Pancreatectomy vs. Upfront Non-Operative Management in Pediatric Grade III Pancreatic Trauma: a single institution review.*
-- **实际结果**: INTRODUCTION: Management of grade III blunt pancreatic injury has shifted towards non-operative management (NOM) in pediatric trauma. In adults, the standard of care remains distal pancreatectomy (DP).
-- **核验状态**: — 无数值核验项
-
-## 66. [J Trauma Acute Care Surg · IF 3.9 · 评分 43 · 启发式] [Trends in mortality rates in hypotensive pediatric trauma patients undergoing emergent trauma laparotomy.](https://pubmed.ncbi.nlm.nih.gov/42886860/)
-- **英文原题**: *Trends in mortality rates in hypotensive pediatric trauma patients undergoing emergent trauma laparotomy.*
-- **实际结果**: BACKGROUND: Massive hemorrhage remains the leading cause of preventable death after pediatric trauma. Emergent trauma laparotomy (ETL) is a common operation to obtain hemorrhage control.
-- **核验状态**: — 无数值核验项
-
-## 67. [J Trauma Acute Care Surg · IF 3.9 · 评分 43 · 启发式] [A clinically relevant porcine model of flail chest: Development and multimodal validation.](https://pubmed.ncbi.nlm.nih.gov/42879638/)
-- **英文原题**: *A clinically relevant porcine model of flail chest: Development and multimodal validation.*
-- **实际结果**: BACKGROUND: Flail chest has high mortality, but large-animal models with thoracic anatomy comparable to humans are lacking. The objective of this study was to develop a clinically relevant porcine flail chest model that …
-- **核验状态**: — 无数值核验项
-
-## 68. [Lancet Digit Health · IF 25.5 · 评分 43 · 启发式] [A prognostic model for use at labour onset to estimate the risk of severe fetal compromise at birth: a retrospective, model development and validation study.](https://pubmed.ncbi.nlm.nih.gov/42881014/)
-- **英文原题**: *A prognostic model for use at labour onset to estimate the risk of severe fetal compromise at birth: a retrospective, model development and validation study.*
-- **实际结果**: BACKGROUND: Absence of reliable risk assessment and monitoring of fetal wellbeing during labour remains a major clinical challenge worldwide. Cardiotocography (CTG) is commonly used to monitor the fetal heart rate, but i…
-- **核验状态**: — 无数值核验项
-
-## 69. [Oncogene · IF 9.1 · 评分 43 · 启发式] [Phosphorylation of IRS4 at YY111/112 promotes LUSC progression via PI3K/AKT pathway activation.](https://pubmed.ncbi.nlm.nih.gov/42892654/)
-- **英文原题**: *Phosphorylation of IRS4 at YY111/112 promotes LUSC progression via PI3K/AKT pathway activation.*
-- **实际结果**: Lung squamous cell carcinoma (LUSC) lacks effective targeted therapies despite frequent hyperactivation of the PI3K/AKT pathway, and the contribution of adaptor proteins to this process remains poorly defined. Here, we i…
-- **核验状态**: — 无数值核验项
-
-## 70. [Surg Endosc · IF 3.3 · 评分 43 · 启发式] [Incidence of parastomal hernia after open versus minimally invasive surgery: a comparative systematic review.](https://pubmed.ncbi.nlm.nih.gov/42881314/)
-- **英文原题**: *Incidence of parastomal hernia after open versus minimally invasive surgery: a comparative systematic review.*
-- **实际结果**: BACKGROUND: Peristomal bulging and external stoma prolapse are the most common long-term complications following stoma formation. This systematic review aims to describe available evidence on the incidence of parastomal …
-- **核验状态**: — 无数值核验项
-
-## 71. [Surg Endosc · IF 3.3 · 评分 43 · 启发式] [The patient perspective in benign foregut surgery guidelines: bridging evidence, values, and clinical decision-making.](https://pubmed.ncbi.nlm.nih.gov/42881312/)
-- **英文原题**: *The patient perspective in benign foregut surgery guidelines: bridging evidence, values, and clinical decision-making.*
-- **实际结果**: BACKGROUND: Patient values influence preference-sensitive decisions in benign foregut (upper gastrointestinal) surgery, but their incorporation into guideline development is unclear. This systematic review evaluated how …
-- **核验状态**: — 无数值核验项
-
-## 72. [Surg Endosc · IF 3.3 · 评分 43 · 启发式] [Six-month comparative outcomes of endoscopic sleeve gastroplasty versus laparoscopic sleeve gastrectomy: an MBSAQIP analysis.](https://pubmed.ncbi.nlm.nih.gov/42881311/)
-- **英文原题**: *Six-month comparative outcomes of endoscopic sleeve gastroplasty versus laparoscopic sleeve gastrectomy: an MBSAQIP analysis.*
-- **实际结果**: BACKGROUND: North American data regarding long-term efficacy and durability of endoscopic sleeve gastroplasty (ESG) are remarkably scarce outside of clinical trial settings hampering our understanding of its optimal role…
-- **核验状态**: — 无数值核验项
-
-## 73. [Surg Endosc · IF 3.3 · 评分 43 · 启发式] [Proprietary platform artificial intelligence-based segmentation of surgical videos facilitates review and rating of operative recordings.](https://pubmed.ncbi.nlm.nih.gov/42881307/)
-- **英文原题**: *Proprietary platform artificial intelligence-based segmentation of surgical videos facilitates review and rating of operative recordings.*
-- **实际结果**: BACKGROUND: Implementation of artificial intelligence (AI) in surgery may revolutionize assessment of operative techniques through video capture, auto-segmentation and auto-analysis. The aim of this study was to utilize …
-- **核验状态**: — 无数值核验项
-
-## 74. [Sci Immunol · IF 16.4 · 评分 43 · 启发式] [Glycome remodeling programs pathogenic γδ T17 cell responses in autoimmunity.](https://pubmed.ncbi.nlm.nih.gov/42886820/)
-- **英文原题**: *Glycome remodeling programs pathogenic γδ T17 cell responses in autoimmunity.*
-- **实际结果**: Glycans play fundamental roles in T cell biology; however, the glycome landscape of γδ T cells remains to be unlocked. Despite the growing importance of γδ T cells in host defense, tissue homeostasis, and diseases, the g…
-- **核验状态**: — 无数值核验项
-
-## 75. [Stem Cells Transl Med · IF 5.9 · 评分 43 · 启发式] [Human umbilical cord mesenchymal stem cells alleviate brain injury and promote neuroregeneration via BDNF/TrkB/CREB/PI3K-Akt pathway in preterm rats with intraventricular hemorrhage.](https://pubmed.ncbi.nlm.nih.gov/42888005/)
-- **英文原题**: *Human umbilical cord mesenchymal stem cells alleviate brain injury and promote neuroregeneration via BDNF/TrkB/CREB/PI3K-Akt pathway in preterm rats with intraventricular hemorrhage.*
-- **实际结果**: OBJECTIVE: To explore the neuroprotective effect and molecular mechanism of human umbilical cord mesenchymal stem cells (hUC-MSCs) in preterm rats with intraventricular hemorrhage (IVH), and provide experimental basis fo…
-- **核验状态**: — 无数值核验项
-
-## 76. [Transl Res · IF 6.1 · 评分 43 · 启发式] [Pharmacological Neutralization of the Rspo2/Wnt Axis Preserves Subchondral Bone Plate and Vascular Niche Integrity to Attenuate Cartilage Degeneration in Osteoarthritis.](https://pubmed.ncbi.nlm.nih.gov/42880692/)
-- **英文原题**: *Pharmacological Neutralization of the Rspo2/Wnt Axis Preserves Subchondral Bone Plate and Vascular Niche Integrity to Attenuate Cartilage Degeneration in Osteoarthritis.*
-- **实际结果**: OBJECTIVES: Osteoarthritis (OA) involves the structural failure of the joint unit, where the subchondral bone plate and associated vascular niche serve as a critical barrier and mechanical support for articular cartilage…
-- **核验状态**: — 无数值核验项
-
-## 77. [EBioMedicine · IF 11.2 · 评分 43 · 启发式] [Decreased function of fatty acid desaturase 1 is associated with placental foetal vascular malperfusion and highlights the key role of the maternal-foetal interface.](https://pubmed.ncbi.nlm.nih.gov/42892213/)
-- **英文原题**: *Decreased function of fatty acid desaturase 1 is associated with placental foetal vascular malperfusion and highlights the key role of the maternal-foetal interface.*
-- **实际结果**: BACKGROUND: Placental foetal vascular malperfusion (PFVM) is a chronic disorder characterised by impaired blood flow and abnormal vascular development, inducing adverse neonatal outcomes. Long chain polyunsaturated fatty…
-- **核验状态**: — 无数值核验项
-
-## 78. [EBioMedicine · IF 11.2 · 评分 43 · 启发式] [Relationship extraction for adverse drug events in clinical notes using large language models: a retrospective cross-sectional study.](https://pubmed.ncbi.nlm.nih.gov/42892212/)
-- **英文原题**: *Relationship extraction for adverse drug events in clinical notes using large language models: a retrospective cross-sectional study.*
-- **实际结果**: BACKGROUND: Adverse drug events (ADEs) are a critical indicator of patient safety but are often documented only in free-text clinical notes. The potential of recent advances in natural language processing (NLP), particul…
-- **核验状态**: — 无数值核验项
-
-## 79. [NPJ Precis Oncol · IF 9.9 · 评分 43 · 启发式] [Machine learning uncovers previously undetectable genetic deletions in cancer panel sequencing.](https://pubmed.ncbi.nlm.nih.gov/42888201/)
-- **英文原题**: *Machine learning uncovers previously undetectable genetic deletions in cancer panel sequencing.*
-- **实际结果**: Missed genetic deletions can prevent cancer patients from receiving effective targeted therapy. Standard pipelines, such as TSO500, use bin count averaging for copy number variation detection but often overlook focal eve…
-- **核验状态**: — 无数值核验项
-
-## 80. [Cancers (Basel) · IF 4.8 · 评分 43] [2001–2023年美国六大癌种发病率的年龄与分期特异性时间趋势：老年人群肺癌与结直肠癌下降，而年轻人群结直肠癌、胰腺癌与乳腺癌上升](https://pubmed.ncbi.nlm.nih.gov/42882843/)
-- **英文原题**: *Temporal Trends in Six Major Cancers: Implications for Lifestyle-Based Cancer Prevention and Early Detection Across the Life Course.*
+## 12. [Cancer Cytopathol · IF 2.9 · 评分 59] [不同固定方案显著影响非细胞块细胞学标本的免疫细胞化学染色质量：IASLC细胞学工作组七实验室研究](https://pubmed.ncbi.nlm.nih.gov/42865068/)
+- **英文原题**: *Evaluating immunocytochemistry performance in lung cancer cytology: An IASLC Cytology Working Group study.*
 - **解读暂停**（核验未通过或出版状态存疑）：仅呈现题录与链接，请以原文为准。
 - **核验状态**: ⚠️ 未通过自动核验，解读暂停
 
-## 81. [Front Immunol · IF 7.0 · 评分 41] [综述：肺菌群、肠道菌群与肺-肠轴在肺癌免疫治疗中的三方调控框架——现有证据仍属初步](https://pubmed.ncbi.nlm.nih.gov/42890693/)
-- **英文原题**: *Lung microbiota, gut microbiota, and the lung-gut axis in lung cancer immunotherapy: a tripartite regulatory perspective.*
-- **作者结论**: 本综述整合了肠道-肺轴及其现有证据，梳理了肠道、肺与瘤内菌群三方调控网络对肺癌免疫微环境与免疫治疗反应的塑造作用；尽管这些微生物群落在概念上通过肺-肠轴相互联系，但支持其整合网络的实证证据仍属初步，这些相互作用的临床相关性尚需进一步研究；未来研究应聚焦于建立特定微生物分类群与免疫治疗结局之间的因果关系、通过多组学手段阐明空间异质性，并在设计良好的前瞻性研究中验证针对微生物群的干预。
-- **AI 疑点**: 本文为叙述性综述，无系统检索策略、纳入排除标准或偏倚评估流程，证据强度低于系统综述；全文未提供任何定量效应值，所引机制（如 indole-3-propionic acid 调控 CD8+ T 细胞干性、STING 通路、Treg/M2 极化、PD-L1 表达）均为间接推断，作者亦自认证据“preliminary”，需警惕将机制假说读作已验证的因果结论；此外文中未说明瘤内菌群证据是否受样本来 源（活检 vs 手术标本）、污染对照与测序方法异质性的影响，信息不足。
+## 13. [J Immunother Cancer · IF 11.7 · 评分 59] [KRAS突变肺腺癌中PRTN3通过蛋白水解灭活CXCL9驱动免疫抑制：一项临床前机制研究](https://pubmed.ncbi.nlm.nih.gov/42833861/)
+- **英文原题**: *PRTN3 drives immunosuppression in KRAS-mutant lung adenocarcinoma through proteolytic inactivation of CXCL9.*
+- **作者结论**: Our findings reveal a KRAS/c-Myc/PRTN3 axis that promotes immune suppression through extracellular proteolytic inactivation of CXCL9. Targeting PRTN3-mediated immune evasion may represent a promising strategy to enhance ICB efficacy in KRAS-driven LUAD.（中文口径：研究揭示了KRAS/c-Myc/PRTN3轴通过细胞外蛋白水解灭活CXCL9促进免疫抑制；靶向PRTN3介导的免疫逃逸可能是增强KRAS驱动LUAD中ICB疗效的有前景策略。）
+- **AI 疑点**: 摘要无任何样本量、效应量、置信区间或P值，全部结果仅为定性描述，无法评估效应强度与可重复性；‘PRTN3高表达与细胞毒免疫签名降低、CXCL9活性下降相关’属相关性证据，不能支持因果；体内治疗证据来自PRTN3基因抑制而非药物学抑制，缺药代/毒性/给药数据；水解抗性CXCL9变体的功能恢复仅在患者来源类器官中验证，未在体内证实；ICB增效结论基于同系小鼠模型，向人KRAS突变LUAD（异质性、共突变谱）外推有限；结论段强调‘有前景的策略’，而缺乏任何临床或药物开发层面的定量支撑，存在乐观外推倾向。
 - **核验状态**: — 无数值核验项
 
-## 82. [BMC Cancer · IF 4.1 · 评分 40] [NSCLC患者外周血调节性B细胞、调节性T细胞及血清细胞因子升高，并与分期和转移状态相关：40对前瞻性病例对照研究](https://pubmed.ncbi.nlm.nih.gov/42875749/)
-- **英文原题**: *Association of regulatory B, T cells and cytokine production with disease stage in non-small cell lung cancer patients: prospective case control study.*
-- **作者结论**: Peripheral Bregs, Tregs, and serum cytokine profiles, including proinflammatory and anti-inflammatory cytokines were increased among NSCLC patients and may be associated with disease progression and metastasis.
-- **AI 疑点**: 摘要通篇无任何效应量、95%CI或P值，却多处使用“related to”“significantly higher”“significant association”等表述，统计支撑不可核验；主要比较为NSCLC与健康人，而关于分期/淋巴结转移的结论基于更小的亚组且未见多因素校正，存在将单因素相关表述为疾病进展关联的风险；对照组为健康人而非良性肺病/肺结节对照，无法判断该免疫表型对肺癌的特异性；循环免疫细胞频率向肿瘤免疫微环境及临床可用的分期生物标志物外推缺乏依据；未报告两组年龄、吸烟、分期构成等匹配信息，信息不足。
-- **核验状态**: — 无数值核验项
-
-## 83. [BMC Pulm Med · IF 3.1 · 评分 40 · 启发式] [Association between intraprocedural oxygen administration and postprocedural pneumothorax after ct-guided transthoracic lung biopsy.](https://pubmed.ncbi.nlm.nih.gov/42875772/)
-- **英文原题**: *Association between intraprocedural oxygen administration and postprocedural pneumothorax after ct-guided transthoracic lung biopsy.*
-- **实际结果**: BACKGROUND: Pneumothorax is the most common complication of computed tomography (CT)-guided transthoracic lung biopsy (TLB). Whether supplemental oxygen administered during the procedure before pneumothorax detection is …
-- **核验状态**: — 无数值核验项
-
-## 84. [Clin Oncol (R Coll Radiol) · IF — · 评分 40 · 启发式] [Preliminary results of the STARLORD study: a mono-institutional prospective phase II experience of STereotActic Radiotherapy for LOcally advanced non small cell lung cancer ineligible for concurrent chemoRaDiation.](https://pubmed.ncbi.nlm.nih.gov/42879832/)
-- **英文原题**: *Preliminary results of the STARLORD study: a mono-institutional prospective phase II experience of STereotActic Radiotherapy for LOcally advanced non small cell lung cancer ineligible for concurrent chemoRaDiation.*
-- **实际结果**: AIMS: For patients with unresectable stage III non-small cell lung cancer (NSCLC) ineligible for concurrent chemo-radiation (cCRT), stereotactic body radiotherapy (SBRT) may provide a favorable efficacy-toxicity balance.…
-- **核验状态**: — 无数值核验项
-
-## 85. [Cancer Med · IF 3.5 · 评分 40 · 启发式] [Survival Outcomes of Post-Induction Treatment Strategies in Patients With Partial Response Hypopharyngeal Squamous Cell Carcinoma: A Propensity Score-Weighted Analysis.](https://pubmed.ncbi.nlm.nih.gov/42885440/)
-- **英文原题**: *Survival Outcomes of Post-Induction Treatment Strategies in Patients With Partial Response Hypopharyngeal Squamous Cell Carcinoma: A Propensity Score-Weighted Analysis.*
-- **实际结果**: BACKGROUND: Most patients with hypopharyngeal squamous cell carcinoma (HPSCC) achieve partial response (PR) after induction chemotherapy. However, optimal post-induction management remains controversial.
-- **核验状态**: — 无数值核验项
-
-## 86. [Clin Lung Cancer · IF 3.9 · 评分 40 · 启发式] [Racial Disparities in Thymic Epithelial Tumors: Insights From a Multiracial Urban Cohort.](https://pubmed.ncbi.nlm.nih.gov/42887200/)
-- **英文原题**: *Racial Disparities in Thymic Epithelial Tumors: Insights From a Multiracial Urban Cohort.*
-- **实际结果**: BACKGROUND: Thymic epithelial tumors (TETs) are rare thoracic malignancies for which racial disparities in outcomes remain poorly characterized. We evaluated survival outcomes across racial groups and explored the clinic…
-- **核验状态**: — 无数值核验项
-
-## 87. [Clin Lung Cancer · IF 3.9 · 评分 40 · 启发式] [Assessment of Prognostic Value of CEACAM5 Expression Using Archival Tissue and Real-World Evidence of Metastatic Patients with NSCLC in United States.](https://pubmed.ncbi.nlm.nih.gov/42879962/)
-- **英文原题**: *Assessment of Prognostic Value of CEACAM5 Expression Using Archival Tissue and Real-World Evidence of Metastatic Patients with NSCLC in United States.*
-- **实际结果**: PURPOSE: Non-small cell lung cancer (NSCLC) is the most common form of lung cancer and is often diagnosed at an advanced stage, leading to poor prognosis. Carcinoembryonic antigen-related cell adhesion molecule 5 (CEACAM…
-- **核验状态**: — 无数值核验项
-
-## 88. [Int J Chron Obstruct Pulmon Dis · IF 4.1 · 评分 40 · 启发式] [Joint Association of Questionnaire-Defined COPD and Widened Pulse Pressure with Incident Cardiovascular Disease in Older Chinese Adults: A 7-Year CHARLS Cohort Study.](https://pubmed.ncbi.nlm.nih.gov/42891288/)
-- **英文原题**: *Joint Association of Questionnaire-Defined COPD and Widened Pulse Pressure with Incident Cardiovascular Disease in Older Chinese Adults: A 7-Year CHARLS Cohort Study.*
-- **实际结果**: PURPOSE: COPD and vascular aging frequently coexist in later life. Whether widened pulse pressure identifies older adults with COPD at particularly high cardiovascular risk is uncertain.
-- **核验状态**: — 无数值核验项
-
-## 89. [Int J Chron Obstruct Pulmon Dis · IF 4.1 · 评分 40 · 启发式] [Global, Regional, and National Burden of Chronic Obstructive Pulmonary Disease-Associated Heart Failure: A Systematic Analysis of the Global Burden of Disease Study from 1990 to 2021 with Projections up to 2050.](https://pubmed.ncbi.nlm.nih.gov/42891260/)
-- **英文原题**: *Global, Regional, and National Burden of Chronic Obstructive Pulmonary Disease-Associated Heart Failure: A Systematic Analysis of the Global Burden of Disease Study from 1990 to 2021 with Projections up to 2050.*
-- **实际结果**: BACKGROUND: Chronic obstructive pulmonary disease (COPD) is strongly linked to heart failure (HF), but comprehensive global evaluations of COPD-associated HF remain limited. METHODS: Using Global Burden of Disease Study …
-- **核验状态**: — 无数值核验项
-
-## 90. [Int J Chron Obstruct Pulmon Dis · IF 4.1 · 评分 40 · 启发式] [The Prognostic Value of PaCO2 on the Response to Noninvasive Ventilation in Patients with AECOPD Complicated by Type II Respiratory Failure.](https://pubmed.ncbi.nlm.nih.gov/42876922/)
-- **英文原题**: *The Prognostic Value of PaCO2 on the Response to Noninvasive Ventilation in Patients with AECOPD Complicated by Type II Respiratory Failure.*
-- **实际结果**: BACKGROUND: Acute exacerbation of chronic obstructive pulmonary disease (AECOPD) complicated by Type II respiratory failure frequently requires noninvasive ventilation (NIV). However, 10-25% of patients fail NIV and requ…
-- **核验状态**: — 无数值核验项
-
-## 91. [Int J Clin Oncol · IF — · 评分 40 · 启发式] [A prospective study evaluating the impact of waiting time on blood testing and clinical workflows in cancer patients.](https://pubmed.ncbi.nlm.nih.gov/42892660/)
-- **英文原题**: *A prospective study evaluating the impact of waiting time on blood testing and clinical workflows in cancer patients.*
-- **实际结果**: BACKGROUND: Long waiting times on chemotherapy days increase patient burden. Pre-visit blood sampling may streamline workflows; however, its real-world impact remains unclear.
-- **核验状态**: — 无数值核验项
-
-## 92. [J Gastrointest Surg · IF 2.8 · 评分 40 · 启发式] [An outermost-layer-oriented medial approach to facilitate margin-negative distal transection in gastric cancer with duodenal invasion: a single-centre retrospective cohort study.](https://pubmed.ncbi.nlm.nih.gov/42887728/)
-- **英文原题**: *An outermost-layer-oriented medial approach to facilitate margin-negative distal transection in gastric cancer with duodenal invasion: a single-centre retrospective cohort study.*
-- **实际结果**: BACKGROUND: Gastric cancer with duodenal invasion (Duo+) presents a distinct surgical challenge because adequate distal-margin clearance must be achieved without compromising duodenal stump safety. Standardised laparosco…
-- **核验状态**: — 无数值核验项
-
-## 93. [Pediatr Radiol · IF 2.5 · 评分 40 · 启发式] [5.0-T magnetic resonance imaging and contrast-enhanced magnetic resonance angiography for the evaluation of juvenile idiopathic arthritis.](https://pubmed.ncbi.nlm.nih.gov/42891836/)
-- **英文原题**: *5.0-T magnetic resonance imaging and contrast-enhanced magnetic resonance angiography for the evaluation of juvenile idiopathic arthritis.*
-- **实际结果**: BACKGROUND: Magnetic resonance imaging (MRI) is the most sensitive non-invasive method for assessing joint lesions in juvenile idiopathic arthritis (JIA), but conventional protocols cannot simultaneously depict synovial …
-- **核验状态**: — 无数值核验项
-
-## 94. [Pediatr Surg Int · IF 1.8 · 评分 40 · 启发式] [Comparison of fecal continence and bowel function scoring systems following anorectal malformation repair: a systematic review.](https://pubmed.ncbi.nlm.nih.gov/42878884/)
-- **英文原题**: *Comparison of fecal continence and bowel function scoring systems following anorectal malformation repair: a systematic review.*
-- **实际结果**: PURPOSE: Multiple instruments are used to assess fecal continence and bowel function after anorectal malformation (ARM) repair, but their comparability is uncertain. This systematic review examined inter-system agreement…
-- **核验状态**: — 无数值核验项
-
-## 95. [Respir Med · IF 3.3 · 评分 40 · 启发式] [Association of inhaled corticosteroid use with first Pseudomonas aeruginosa isolation in eosinophilic bronchiectasis: a multicenter retrospective study.](https://pubmed.ncbi.nlm.nih.gov/42887613/)
-- **英文原题**: *Association of inhaled corticosteroid use with first Pseudomonas aeruginosa isolation in eosinophilic bronchiectasis: a multicenter retrospective study.*
-- **实际结果**: BACKGROUND: The use of inhaled corticosteroids (ICS) in bronchiectasis patients with eosinophilic inflammation is controversial due to the potential risk of bronchial or pulmonary infection. This study examined the assoc…
-- **核验状态**: — 无数值核验项
-
-## 96. [Support Care Cancer · IF 3.4 · 评分 40 · 启发式] [Implementation of a universal psychosocial screening program across the pediatric cancer treatment trajectory: a standard of care.](https://pubmed.ncbi.nlm.nih.gov/42891695/)
-- **英文原题**: *Implementation of a universal psychosocial screening program across the pediatric cancer treatment trajectory: a standard of care.*
-- **实际结果**: PURPOSE: Guided by Rapid Evaluation and Assessment Methods (REAM) and using rigorous quality improvement processes, we describe implementation of an evidence-based psychosocial screening program at key transitions in chi…
-- **核验状态**: — 无数值核验项
-
-## 97. [Support Care Cancer · IF 3.4 · 评分 40 · 启发式] [Associations of in-hospital recovery, cancer self-management self-efficacy, and perceived social support with early return to work in young and middle-aged patients undergoing lung cancer surgery: a prospective cohort study.](https://pubmed.ncbi.nlm.nih.gov/42878898/)
-- **英文原题**: *Associations of in-hospital recovery, cancer self-management self-efficacy, and perceived social support with early return to work in young and middle-aged patients undergoing lung cancer surgery: a prospective cohort study.*
-- **实际结果**: BACKGROUND: Rehabilitation nursing plays a critical role in supporting postoperative functional recovery and facilitating reintegration into daily life and work, yet evidence on factors associated with early return to wo…
-- **核验状态**: — 无数值核验项
-
-## 98. [Cancers (Basel) · IF 4.8 · 评分 40 · 启发式] [A Dual-Marker DNA Methylation Assay Enables High-Sensitivity Detection of Malignant Effusions Across Cancer Types.](https://pubmed.ncbi.nlm.nih.gov/42882870/)
-- **英文原题**: *A Dual-Marker DNA Methylation Assay Enables High-Sensitivity Detection of Malignant Effusions Across Cancer Types.*
-- **实际结果**: Objective: This study evaluated the diagnostic value of a combined SHOX2 and RASSF1A methylation assay (LungMe®) in differentiating malignant from benign pleural and peritoneal effusions. Methods: A total of 696 patients…
-- **核验状态**: — 无数值核验项
-
-## 99. [Cancers (Basel) · IF 4.8 · 评分 40 · 启发式] [Early and Late Prognostic Factors in Patients with Resected Brain Metastases.](https://pubmed.ncbi.nlm.nih.gov/42882851/)
-- **英文原题**: *Early and Late Prognostic Factors in Patients with Resected Brain Metastases.*
-- **实际结果**: BACKGROUND: Brain metastases are the most common malignant intracranial tumors and remain associated with poor survival despite advances in multimodal treatment. This study aimed to evaluate the associations between clin…
-- **核验状态**: — 无数值核验项
-
-## 100. [Cancers (Basel) · IF 4.8 · 评分 40 · 启发式] [Dynamic Multi-Phase-Fused Photon-Counting CT for Pre-TACE Feeding Artery Mapping and DSA Procedural Road-Mapping in Hepatocellular Carcinoma.](https://pubmed.ncbi.nlm.nih.gov/42882847/)
-- **英文原题**: *Dynamic Multi-Phase-Fused Photon-Counting CT for Pre-TACE Feeding Artery Mapping and DSA Procedural Road-Mapping in Hepatocellular Carcinoma.*
-- **实际结果**: Background/Objectives: Accurate preoperative feeding artery mapping remains challenging for hepatocellular carcinoma (HCC) even with modern CT techniques. This study aimed to optimize dynamic multi-phase photon-counting …
-- **核验状态**: — 无数值核验项
-
-## 101. [SCIENCE · IF 47.3 · 评分 39] [Hes1振荡频率通过Notch信号调控小肠上皮细胞类型组成](https://pubmed.ncbi.nlm.nih.gov/42879562/)
-- **英文原题**: *Frequency encoding regulates cell type composition in the small intestine.*
-- **作者结论**: This study provides evidence that information for cell fate specification is encoded in the frequency of an oscillatory signal.
-- **AI 疑点**: 非肿瘤、非临床研究，与胸部肿瘤临床判断无直接关系；摘要未给出样本量、效应量及统计值；证据主要来自报告系统、类器官和微流控体系，向人体胸部肿瘤外推需谨慎。
-- **核验状态**: — 无数值核验项
-
-## 102. [Front Immunol · IF 7.0 · 评分 39] [非小细胞肺癌肿瘤免疫微环境中肿瘤相关巨噬细胞的异质性、免疫检查点抑制剂耐药机制与靶向治疗策略（叙述性综述，无定量证据）](https://pubmed.ncbi.nlm.nih.gov/42891137/)
-- **英文原题**: *Tumor-associated macrophages in the tumor immune microenvironment of non-small cell lung cancer.*
-- **作者结论**: 全面理解肿瘤免疫微环境中TAM的异质性，为克服NSCLC免疫耐药提供了框架；未来治疗策略应整合生物标志物指导的患者选择与同时靶向巨噬细胞可塑性和免疫抑制的联合方案。
-- **AI 疑点**: 叙述性综述而非系统评价：未提及检索初筛纳入文献数量、PRISMA流程、纳入研究质量评价或证据分级，2021–2025的时间限定与'优先纳入'的筛选口径存在选择性引用可能；全文以机制假说与治疗'promising'表述为主，未给出任何疗效数值、风险比或安全性数据，结论中'生物标志物指导的患者选择'缺乏本综述所提供的支持性数据；将CSF1R、CD47-SIRPα、代谢、纳米、表观遗传、工程化巨噬细胞、miRNA等多类策略并列陈述，未评估各策略证据成熟度差异；信息不足：未说明是否覆盖阴性临床试验结果。
-- **核验状态**: — 无数值核验项
-
-## 103. [Int J Chron Obstruct Pulmon Dis · IF 4.1 · 评分 38] [可解释机器学习模型预测COPD合并脓毒症危重患者院内死亡：多中心回顾性队列开发与外部验证，外部验证AUC降至0.681](https://pubmed.ncbi.nlm.nih.gov/42889826/)
-- **英文原题**: *Development, Validation, and Deployment of an Interpretable Machine Learning Model for In-Hospital Mortality Prediction in Critically Ill Patients with COPD and Sepsis: A Multicenter Cohort Study.*
+## 14. [PLoS One · IF — · 评分 57] [NLST低剂量胸部CT的核函数与视野标准化流程：改善定量肺气肿与体成分指标的一致性](https://pubmed.ncbi.nlm.nih.gov/42832530/)
+- **英文原题**: *Harmonizing the National Lung Screening Trial: Kernel resolution and field of view compensation.*
 - **解读暂停**（核验未通过或出版状态存疑）：仅呈现题录与链接，请以原文为准。
 - **核验状态**: ⚠️ 未通过自动核验，解读暂停
 
-## 104. [Proteomics · IF 4.1 · 评分 38] [多组学整合的癌症生物标志物跨研究重复率有限：84项研究的系统综述](https://pubmed.ncbi.nlm.nih.gov/42885248/)
-- **英文原题**: *Advancing Cancer Biomarker Discovery Through Multi-Omics, Bioinformatics, and Artificial Intelligence: A Systematic Review.*
+## 15. [Sci Transl Med · IF 15.6 · 评分 57] [在KRAS G12C突变NSCLC临床前模型中，FAK抑制剂联合RAF/MEK钳制剂avutometinib增强KRAS G12C抑制剂疗效并恢复sotorasib耐药模型敏感性](https://pubmed.ncbi.nlm.nih.gov/42814800/)
+- **英文原题**: *FAK inhibitor and RAF/MEK clamp avutometinib enhance KRAS G12C inhibitor efficacy in preclinical models of non-small cell lung cancer.*
+- **作者结论**: 同时靶向KRAS G12C、RAF/MEK和FAK信号可克服多种耐药机制，并为在KRAS G12C突变NSCLC患者中临床评估sotorasib、avutometinib和defactinib提供有力依据（RAMP 203；NCT05074810）。
+- **AI 疑点**: 证据仅来自临床前小鼠模型，尚无患者疗效或安全性数据；摘要未给出样本量、效应量、置信区间或P值，“增强抗肿瘤活性”“恢复敏感性”均为定性描述；作者据此提出开展临床试验的“strong rationale”属于外推性判断，需人体试验验证。
+- **核验状态**: — 无数值核验项
+
+## 16. [BMJ Open · IF — · 评分 57] [一期与二期胸腔镜手术治疗同期双侧肺结节的多中心随机对照试验方案（OTVATS-2）](https://pubmed.ncbi.nlm.nih.gov/42810792/)
+- **英文原题**: *One-stage versus two-stage video-assisted thoracic surgery for synchronous bilateral pulmonary nodules: protocol for a prospective, multicentre, randomised controlled clinical trial in China (OTVATS-2).*
+- **AI 疑点**: 仅为研究方案，尚无结果数据；主要终点为30天内围术期并发症率，5年OS/DFS等为次要终点；摘要未给出样本量计算假设、盲法、统计分析方法及长期终点随访可行性细节，信息不足。
+- **核验状态**: — 无数值核验项
+
+## 17. [⭐J Natl Compr Canc Netw · IF 17.5 · 评分 56 · 启发式] [Immunotherapy for Pleural Mesothelioma.](https://pubmed.ncbi.nlm.nih.gov/42810389/)
+- **英文原题**: *Immunotherapy for Pleural Mesothelioma.*
+- **实际结果**: Immune checkpoint inhibitors (ICIs) have changed the treatment landscape of pleural mesothelioma (PM) over the past decade. This review summarizes the history of immunotherapy in PM, covering studies of single-agent immu…
+- **核验状态**: — 无数值核验项
+- ⭐ **规则精选**: RCT/III 期证据发表于 A 级期刊，直接影响食管/纵隔肿瘤治疗决策
+
+## 18. [Biomed Phys Eng Express · IF — · 评分 55] [深度学习CBCT肺肿瘤与食管自动分割模型的外部验证：跨机构域偏移下分割精度下降且GTV剂量学存在偏差](https://pubmed.ncbi.nlm.nih.gov/42826729/)
+- **英文原题**: *External evaluation of a deep learning-based algorithm for automated lung tumor and esophagus segmentation on CBCT.*
 - **解读暂停**（核验未通过或出版状态存疑）：仅呈现题录与链接，请以原文为准。
 - **核验状态**: ⚠️ 未通过自动核验，解读暂停
 
-## 105. [Cancers (Basel) · IF 4.8 · 评分 38] [GSTT2在食管腺癌中由稳态抗氧化程序转向细胞周期耦联程序，并在治疗抵抗模型中升高（体外与组织学机制研究）](https://pubmed.ncbi.nlm.nih.gov/42882914/)
-- **英文原题**: *GSTT2 Switches from a Homeostatic Antioxidant to a Cell-Cycle-Coupled Factor in Therapy-Resistant Esophageal Adenocarcinoma.*
-- **作者结论**: These findings identify GSTT2 as a spatially widespread, ancestry-associated, cell-cycle-regulated protein with potential oncogenic roles in EAC resistance.
-- **AI 疑点**: 摘要未报告任何定量数据（无样本量、无效应量、无P值或置信区间），主要结论为定性描述，无法评估效应强度与可重复性；标题与结论强调“ancestry-associated”，但结果明确称空间分布模式“无主要ancestry相关差异”，存在表述张力，所谓ancestry关联仅基于既往表达量观察；GSTT2在正常鳞状上皮最高、在Barrett→腺癌进展中降低，却在治疗抵抗EAC中升高，该非单调模式未作混杂（治疗暴露、分化程度、肿瘤纯度）说明；Forskolin抑制CDC20却“稳定GSTT2”，而EAC细胞中CDC20又被描述为稳定GSTT2的协作伙伴，方向性存在内部张力；缺乏敲低/过表达的功能获得-缺失实验、药物敏感性终点及临床结局关联，“potential oncogenic roles”属外推；患者来源模型与组织学发现均无统计检验支撑。
-- **核验状态**: — 无数值核验项
-
-## 106. [Epigenetics · IF 3.7 · 评分 37] [食管鳞癌中PMD表观遗传重编程模式及其与ATP6V0D2、免疫抑制和咖啡酸体外效应的计算与实验研究](https://pubmed.ncbi.nlm.nih.gov/42891659/)
-- **英文原题**: *Diverse patterns of transcriptional regulation and epigenetic reprogramming within PMDs contribute to ESCC progression by regulating EMT and immunosuppression.*
-- **作者结论**: 咖啡酸可能作为潜在的ATP6V0D2结合化合物，有效抑制ESCC细胞迁移和活力；本研究进一步提名咖啡酸作为ESCC机制和治疗研究的候选化合物。
-- **AI 疑点**: 摘要未报告样本量、统计效应量及P值；将预后基因与免疫检查点共表达及通路富集描述为促进ESCC进展和不良预后，但未提供生存分析数值；咖啡酸结论基于虚拟筛选和体外验证，不能外推至临床；未说明体外实验对照、重复及主要终点。
-- **核验状态**: — 无数值核验项
-
-## 107. [Oncol Rep · IF 4.7 · 评分 37] [CHCHD2在肺腺癌中高表达且与晚期分期和较差总生存相关：泛癌多组学与临床前功能验证](https://pubmed.ncbi.nlm.nih.gov/42885315/)
-- **英文原题**: *CHCHD2 as a prognostic biomarker and therapeutic target in lung adenocarcinoma: Insights from pan‑cancer multi‑omics and functional studies.*
-- **作者结论**: These findings support an oncogenic role of CHCHD2 in LUAD and highlight its potential utility as a prognostic biomarker and therapeutic target.
-- **AI 疑点**: 摘要未报告任何样本量、效应值、95%CI或P值，无法判断关联强度与统计稳健性；主要证据为公共数据库相关性分析加单一LUAD模型的敲低/移植瘤验证，药物敏感性仅为CellMiner化合物特异性关联，不能推断临床疗效；“especially in LUAD”缺乏癌种间比较统计支持；信息不足，无法评估选择偏倚、混杂校正及实验重复性。
-- **核验状态**: — 无数值核验项
-
-## 108. [J Am Coll Radiol · IF 5.3 · 评分 36] [碘对比剂与钆对比剂急性反应的相关直接医疗费用及影像流程延迟：五年单中心回顾性量化研究](https://pubmed.ncbi.nlm.nih.gov/42892356/)
-- **英文原题**: *Costs and imaging delays associated with acute reactions to contrast material: A single-center retrospective study.*
+## 19. [CPT Pharmacometrics Syst Pharmacol · IF — · 评分 54] [整合肿瘤大小-总生存模型的空间定量系统药理学框架用于NSCLC抗体偶联药物研发：模拟的PK/ORR/DCR/OS趋势与临床数据相符，优选剂量与获批剂量一致](https://pubmed.ncbi.nlm.nih.gov/42853110/)
+- **英文原题**: *Integrating a Tumor Size-Overall Survival Model Into a Spatial Quantitative Systems Pharmacology Framework for Antibody-Drug Conjugates in Non-Small Cell Lung Cancer.*
 - **解读暂停**（核验未通过或出版状态存疑）：仅呈现题录与链接，请以原文为准。
 - **核验状态**: ⚠️ 未通过自动核验，解读暂停
 
-## 109. [BMC Cancer · IF 4.1 · 评分 35 · 启发式] [Real-world efficacy and prognostic factor analysis of tislelizumab versus sintilimab in advanced non-small cell lung cancer.](https://pubmed.ncbi.nlm.nih.gov/42888403/)
-- **英文原题**: *Real-world efficacy and prognostic factor analysis of tislelizumab versus sintilimab in advanced non-small cell lung cancer.*
-- **实际结果**: BACKGROUND: Tislelizumab and Sintilimab are commonly used immunotherapy drugs in clinical practice. Only a portion of advanced NSCLC patients achieve sustained remission and long-term survival through ICI immunotherapy, …
-- **核验状态**: — 无数值核验项
-
-## 110. [BMC Med Imaging · IF 3.9 · 评分 35 · 启发式] [Radioanatomical analysis for precise harvesting of the pedicled nasoseptal flap in anterior skull base reconstruction during craniofacial surgery.](https://pubmed.ncbi.nlm.nih.gov/42892676/)
-- **英文原题**: *Radioanatomical analysis for precise harvesting of the pedicled nasoseptal flap in anterior skull base reconstruction during craniofacial surgery.*
-- **实际结果**: OBJECTIVE: To evaluate the role of the vascularized nasoseptal flap (VNSF) and septal flip flap (SFF) in anterior skull base (ASB) reconstruction of craniofacial therapy by studying the radioanatomy of VNSF, SFF and ASB …
-- **核验状态**: — 无数值核验项
-
-## 111. [Cancer Causes Control · IF — · 评分 35 · 启发式] [Geographic disparities and temporal trends in aggressive prostate cancer: a SEER population-based analysis (2004-2022).](https://pubmed.ncbi.nlm.nih.gov/42891738/)
-- **英文原题**: *Geographic disparities and temporal trends in aggressive prostate cancer: a SEER population-based analysis (2004-2022).*
-- **实际结果**: PURPOSE: Prostate cancer burden may be amplified in rural regions or Appalachia areas, where access to screening and healthcare may be limited. This study examined geographic disparities and temporal trends in aggressive…
-- **核验状态**: — 无数值核验项
-
-## 112. [Cardiovasc Intervent Radiol · IF 3.4 · 评分 35 · 启发式] [Multistage Preclinical Evaluation of MRI-Guided Stenting for Coarctation of the Aorta using in vitro and Porcine Models.](https://pubmed.ncbi.nlm.nih.gov/42892646/)
-- **英文原题**: *Multistage Preclinical Evaluation of MRI-Guided Stenting for Coarctation of the Aorta using in vitro and Porcine Models.*
-- **实际结果**: PURPOSE: This study evaluated the technical and procedural feasibility of MRI-guided stent implantation for CoA using a structured multistage preclinical evaluation protocol. MATERIALS AND METHODS: A commercially availab…
-- **核验状态**: — 无数值核验项
-
-## 113. [Clin Immunol · IF 4.1 · 评分 35 · 启发式] [Genetic and clinical evidence supports HLA-DR+ CD8+ T cells as a favorable immune biomarker in acute myeloid leukemia.](https://pubmed.ncbi.nlm.nih.gov/42892418/)
-- **英文原题**: *Genetic and clinical evidence supports HLA-DR+ CD8+ T cells as a favorable immune biomarker in acute myeloid leukemia.*
-- **实际结果**: Immune dysregulation is central to acute myeloid leukemia (AML), but the contribution of specific immune subsets remains uncertain. We combined Mendelian randomization (MR), clinical flow cytometry, and transcriptomic pr…
-- **核验状态**: — 无数值核验项
-
-## 114. [Cancer Epidemiol · IF 3.0 · 评分 35 · 启发式] [Beyond the pleura: National trends in mesothelioma mortality by anatomical site in Spain, 1999-2024.](https://pubmed.ncbi.nlm.nih.gov/42892147/)
-- **英文原题**: *Beyond the pleura: National trends in mesothelioma mortality by anatomical site in Spain, 1999-2024.*
-- **实际结果**: OBJECTIVES: Mesothelioma mortality continues to reflect asbestos exposure because of its long latency. While previous Spanish studies focused primarily on pleural disease, this study assessed mesothelioma mortality acros…
-- **核验状态**: — 无数值核验项
-
-## 115. [Cancer Epidemiol · IF 3.0 · 评分 35 · 启发式] [Hepatocellular carcinoma in Turkey: A nationwide health system database analysis of clinical patterns and survival.](https://pubmed.ncbi.nlm.nih.gov/42887435/)
-- **英文原题**: *Hepatocellular carcinoma in Turkey: A nationwide health system database analysis of clinical patterns and survival.*
-- **实际结果**: BACKGROUND: Hepatocellular carcinoma (HCC) is a leading cause of cancer-related mortality worldwide. However, comprehensive population-level data describing etiologic patterns, treatment exposure, healthcare utilisation,…
-- **核验状态**: — 无数值核验项
-
-## 116. [Cancer Med · IF 3.5 · 评分 35 · 启发式] [Skeletal Muscle Index, Tumor and Systemic Immunity, and Survival in Advanced Pancreatic Ductal Adenocarcinoma.](https://pubmed.ncbi.nlm.nih.gov/42885341/)
-- **英文原题**: *Skeletal Muscle Index, Tumor and Systemic Immunity, and Survival in Advanced Pancreatic Ductal Adenocarcinoma.*
-- **实际结果**: BACKGROUND: This study investigated relationships between the skeletal muscle index (SMI) and the tumor immune microenvironment (TIME), peripheral immune phenotypes, and serum biomarkers in advanced pancreatic ductal ade…
-- **核验状态**: — 无数值核验项
-
-## 117. [Int J Oncol · IF 7.3 · 评分 35 · 启发式] [Disporum cantoniense suppresses non‑small cell lung cancer through AMPK/mTOR/ULK1‑mediated autophagy‑dependent apoptosis.](https://pubmed.ncbi.nlm.nih.gov/42885308/)
-- **英文原题**: *Disporum cantoniense suppresses non‑small cell lung cancer through AMPK/mTOR/ULK1‑mediated autophagy‑dependent apoptosis.*
-- **实际结果**: Non‑small cell lung cancer (NSCLC) remains a leading cause of cancer‑associated mortality and urgently requires new therapeutic agents. In the present study, phenotypic screening of natural herbal extracts was performed,…
-- **核验状态**: — 无数值核验项
-
-## 118. [Int J Chron Obstruct Pulmon Dis · IF 4.1 · 评分 35 · 启发式] [Global Co-Occurrence of COPD and Peripheral Artery Disease in Older Adults: A Machine Learning Analysis of Spatial Patterns and Population-Attributable Risks.](https://pubmed.ncbi.nlm.nih.gov/42890759/)
-- **英文原题**: *Global Co-Occurrence of COPD and Peripheral Artery Disease in Older Adults: A Machine Learning Analysis of Spatial Patterns and Population-Attributable Risks.*
-- **实际结果**: BACKGROUND: Chronic obstructive pulmonary disease (COPD) and peripheral artery disease (PAD) significantly contribute to morbidity and mortality among older adults. The geographic co-occurrence may indicate shared exposu…
-- **核验状态**: — 无数值核验项
-
-## 119. [Int J Chron Obstruct Pulmon Dis · IF 4.1 · 评分 35 · 启发式] [CFTR I556V Variant Exacerbates Cigarette Smoke-Induced Airway Inflammation in COPD by Promoting NLRP3 Inflammasome Activation.](https://pubmed.ncbi.nlm.nih.gov/42889849/)
-- **英文原题**: *CFTR I556V Variant Exacerbates Cigarette Smoke-Induced Airway Inflammation in COPD by Promoting NLRP3 Inflammasome Activation.*
-- **实际结果**: BACKGROUND AND OBJECTIVE: Mutations in the cystic fibrosis transmembrane conductance regulator (CFTR) gene are known to cause cystic fibrosis (CF), a condition that shares several pathophysiological pulmonary features wi…
-- **核验状态**: — 无数值核验项
-
-## 120. [Int J Med Robot · IF 2.4 · 评分 35 · 启发式] [Feasibility of Single-Site Plus One-Port Robotic Distal Pancreatectomy Using the da Vinci SP in Comparison With the Conventional Xi Platforms: A Multicenter Experience.](https://pubmed.ncbi.nlm.nih.gov/42886037/)
-- **英文原题**: *Feasibility of Single-Site Plus One-Port Robotic Distal Pancreatectomy Using the da Vinci SP in Comparison With the Conventional Xi Platforms: A Multicenter Experience.*
-- **实际结果**: BACKGROUND: Ongoing efforts in minimally invasive surgery aim to reduce access sites. This study evaluated the feasibility of the da Vinci SP platform for single-site plus one-port robotic distal pancreatectomy (SSRDP) b…
-- **核验状态**: — 无数值核验项
-
-## 121. [J Imaging Inform Med · IF 5.1 · 评分 35 · 启发式] [Investigation on Automatic Classification of Bone, Lymph Node, and Local Lesions in CT Images of Prostate Cancer Patients.](https://pubmed.ncbi.nlm.nih.gov/42888311/)
-- **英文原题**: *Investigation on Automatic Classification of Bone, Lymph Node, and Local Lesions in CT Images of Prostate Cancer Patients.*
-- **实际结果**: Accurate assessment of different types of prostate cancer (PCa) lesions is a crucial part of treatment planning. Following a computed tomography (CT) or a positron emission tomography (PET)/CT imaging scan, a significant…
-- **核验状态**: — 无数值核验项
-
-## 122. [J Imaging Inform Med · IF 5.1 · 评分 35 · 启发式] [Diagnosis of Suspected Pituitary Microadenomas: The Complementary Role of Habitat-based Non-enhanced MRI Radiomics Features.](https://pubmed.ncbi.nlm.nih.gov/42888309/)
-- **英文原题**: *Diagnosis of Suspected Pituitary Microadenomas: The Complementary Role of Habitat-based Non-enhanced MRI Radiomics Features.*
-- **实际结果**: To develop and validate a combined model for detecting pituitary microadenomas in suspected cases using non-contrast T1-weighted sagittal (T1SAG) magnetic resonance imaging (MRI), and to assess its performance as a non-c…
-- **核验状态**: — 无数值核验项
-
-## 123. [J Imaging Inform Med · IF 5.1 · 评分 35 · 启发式] [Building and Validating a Data-Governance Workflow for Artificial Intelligence-Based Tuberculosis Detection from Chest Radiographs, and Quantifying the Impact of Data Leakage.](https://pubmed.ncbi.nlm.nih.gov/42888308/)
-- **英文原题**: *Building and Validating a Data-Governance Workflow for Artificial Intelligence-Based Tuberculosis Detection from Chest Radiographs, and Quantifying the Impact of Data Leakage.*
-- **实际结果**: Studies applying artificial intelligence (AI) to tuberculosis (TB) detection from chest radiographs (CXR) focus on models and metrics, yet the quality, provenance and reproducibility of the data workflow decide the relia…
-- **核验状态**: — 无数值核验项
-
-## 124. [J Imaging Inform Med · IF 5.1 · 评分 35 · 启发式] [Automated Segmentation of Wound Bed Tissue from Clinical Photographs: A Benchmark of Five Deep Learning Architectures Under a Shared Protocol.](https://pubmed.ncbi.nlm.nih.gov/42886308/)
-- **英文原题**: *Automated Segmentation of Wound Bed Tissue from Clinical Photographs: A Benchmark of Five Deep Learning Architectures Under a Shared Protocol.*
-- **实际结果**: Accurate characterisation of the wound bed, the relative proportions of granulation, slough and necrotic tissue described by the red-yellow-black model, is central to monitoring healing and guiding debridement in chronic…
-- **核验状态**: — 无数值核验项
-
-## 125. [J Immunol · IF 4.0 · 评分 35 · 启发式] [TCRαβ repertoire plasticity defines universal CD8+ T cell responses directed at influenza-specific HLA-A*02:01-PB1413-421 epitope.](https://pubmed.ncbi.nlm.nih.gov/42886732/)
-- **英文原题**: *TCRαβ repertoire plasticity defines universal CD8+ T cell responses directed at influenza-specific HLA-A*02:01-PB1413-421 epitope.*
-- **实际结果**: HLA-A*02:01-restricted PB1413+CD8+ T cells provide the broadest reported cross-reactive immunity against influenza A, B, and C viruses. Here, we investigated T cell receptor (TCR) clonotypic signatures within these unive…
-- **核验状态**: — 无数值核验项
-
-## 126. [Pediatr Surg Int · IF 1.8 · 评分 35 · 启发式] [The impact of pathological cyst wall changes on congenital biliary dilatation in infancy.](https://pubmed.ncbi.nlm.nih.gov/42886256/)
-- **英文原题**: *The impact of pathological cyst wall changes on congenital biliary dilatation in infancy.*
-- **实际结果**: PURPOSE: This study aimed to evaluate the impact of pathological changes in bile duct cysts on the clinical and liver pathological findings in early infantile patients with congenital biliary dilatation (CBD). METHOD: In…
-- **核验状态**: — 无数值核验项
-
-## 127. [Pediatr Surg Int · IF 1.8 · 评分 35 · 启发式] [Patient experience and resource use analysis of balloon-retained vs. disc-retained gastro-jejunal tubes in children.](https://pubmed.ncbi.nlm.nih.gov/42878879/)
-- **英文原题**: *Patient experience and resource use analysis of balloon-retained vs. disc-retained gastro-jejunal tubes in children.*
-- **实际结果**: PURPOSE: Building on our previous work demonstrating that balloon-retained gastro-jejunostomy tubes (BGJ) avoid complications unique to disc-retained devices but require more frequent replacement, we evaluated caregiver …
-- **核验状态**: — 无数值核验项
-
-## 128. [Respir Med · IF 3.3 · 评分 35 · 启发式] [Bedside Flexible Bronchoscopy in the Neonatal Intensive Care Unit: Current Evidence, Clinical Applications and Future Directions.](https://pubmed.ncbi.nlm.nih.gov/42892395/)
-- **英文原题**: *Bedside Flexible Bronchoscopy in the Neonatal Intensive Care Unit: Current Evidence, Clinical Applications and Future Directions.*
-- **实际结果**: BACKGROUND: Lung ultrasound and targeted echocardiography let the neonatal team examine lungs and heart at the cot side, but neither shows the airway. Flexible bronchoscopy does, and it is increasingly performed inside t…
-- **核验状态**: — 无数值核验项
-
-## 129. [Respir Med · IF 3.3 · 评分 35 · 启发式] [Improving inpatient palliative care delivery in COPD: a mixed-methods study.](https://pubmed.ncbi.nlm.nih.gov/42892394/)
-- **英文原题**: *Improving inpatient palliative care delivery in COPD: a mixed-methods study.*
-- **实际结果**: BACKGROUND: There is limited evidence to guide implementation of recommended collaborative palliative care (PC) models for hospitalized patients with chronic obstructive pulmonary disease (COPD). We sought to characteriz…
-- **核验状态**: — 无数值核验项
-
-## 130. [Respir Med · IF 3.3 · 评分 35 · 启发式] [The Association Between New Zealand Blackcurrant Anthocyanins and Airway Inflammation, Including PAI-1, in Asthma: A Placebo-Controlled Crossover Feasibility Study.](https://pubmed.ncbi.nlm.nih.gov/42892393/)
-- **英文原题**: *The Association Between New Zealand Blackcurrant Anthocyanins and Airway Inflammation, Including PAI-1, in Asthma: A Placebo-Controlled Crossover Feasibility Study.*
-- **实际结果**: Asthma is a common chronic inflammatory airway disease. Plasminogen activator inhibitor 1 (PAI-1) contributes to airway inflammation, remodelling, disease severity, and exacerbations.
-- **核验状态**: — 无数值核验项
-
-## 131. [Support Care Cancer · IF 3.4 · 评分 35 · 启发式] [Assessing financial toxicity with COST-FACIT: experience from a tertiary care cancer center.](https://pubmed.ncbi.nlm.nih.gov/42891838/)
-- **英文原题**: *Assessing financial toxicity with COST-FACIT: experience from a tertiary care cancer center.*
-- **实际结果**: PURPOSE: Financial toxicity (FT) refers to the direct and indirect consequences of cancer diagnosis and treatment and is a key mediator of quality of life (QOL) and survival in cancer patients. To address this, financial…
-- **核验状态**: — 无数值核验项
-
-## 132. [Support Care Cancer · IF 3.4 · 评分 35 · 启发式] [Sleep Quality in Adults with Cancer: Associations with Symptom Burden and Psychological Resilience.](https://pubmed.ncbi.nlm.nih.gov/42891692/)
-- **英文原题**: *Sleep Quality in Adults with Cancer: Associations with Symptom Burden and Psychological Resilience.*
-- **实际结果**: BACKGROUND: Sleep disturbance is prevalent among adults with cancer and often co-occurs with multiple physical and psychological symptoms. Although resilience has been associated with better sleep outcomes, evidence inte…
-- **核验状态**: — 无数值核验项
-
-## 133. [Target Oncol · IF 5.1 · 评分 35 · 启发式] [Association of TP53 Truncating Mutations with Time to Treatment Failure after First-Line Chemoimmunotherapy in HER2-Mutant Non-Small Cell Lung Cancer.](https://pubmed.ncbi.nlm.nih.gov/42891904/)
-- **英文原题**: *Association of TP53 Truncating Mutations with Time to Treatment Failure after First-Line Chemoimmunotherapy in HER2-Mutant Non-Small Cell Lung Cancer.*
-- **实际结果**: BACKGROUND: Biomarkers associated with first-line chemoimmunotherapy outcomes in HER2-mutant non-small cell lung cancer (NSCLC) remain incompletely characterized. OBJECTIVE: To evaluate whether TP53 truncating mutations …
-- **核验状态**: — 无数值核验项
-
-## 134. [World J Surg Oncol · IF 2.8 · 评分 35 · 启发式] [Primary pulmonary osteosarcoma: a case report, literature review and pooled analysis.](https://pubmed.ncbi.nlm.nih.gov/42881466/)
-- **英文原题**: *Primary pulmonary osteosarcoma: a case report, literature review and pooled analysis.*
-- **实际结果**: BACKGROUND: Primary pulmonary osteosarcoma (PPOS) is an exceptionally rare malignant tumor that arises within the lung parenchyma. Fewer than 40 cases of PPOS have been reported to date.
-- **核验状态**: — 无数值核验项
-
-## 135. [Cancers (Basel) · IF 4.8 · 评分 35 · 启发式] [Histopathological and Quantitative Correlates of Intraoperative Narrow Band Imaging in Brain Metastasis Surgery.](https://pubmed.ncbi.nlm.nih.gov/42882863/)
-- **英文原题**: *Histopathological and Quantitative Correlates of Intraoperative Narrow Band Imaging in Brain Metastasis Surgery.*
-- **实际结果**: BACKGROUND/OBJECTIVES: Accurate intraoperative identification of the tumor-brain interface is important in brain metastasis surgery, but visual assessment under white light is subjective. Narrow-band imaging (NBI) enhanc…
-- **核验状态**: — 无数值核验项
-
-## 136. [Cancers (Basel) · IF 4.8 · 评分 35 · 启发式] [TFAP2E Expression Is Associated with Survival and a Transcriptomic Pattern in Ovarian Serous Carcinoma, Supported by Hallmark and Protein-Level Characterization.](https://pubmed.ncbi.nlm.nih.gov/42882862/)
-- **英文原题**: *TFAP2E Expression Is Associated with Survival and a Transcriptomic Pattern in Ovarian Serous Carcinoma, Supported by Hallmark and Protein-Level Characterization.*
-- **实际结果**: Background/Objectives: AP-2 transcription factors are increasingly recognized as key regulators in cancer biology. The TFAP2E gene, which encodes the AP-2ε transcription factor, remains understudied in cancer compared wi…
-- **核验状态**: — 无数值核验项
-
-## 137. [Cancers (Basel) · IF 4.8 · 评分 35 · 启发式] [Tunlametinib Suppresses Melanogenesis Induces Cell Cycle Arrest and Apoptosis in Giant Congenital Melanocytic Nevus Cells.](https://pubmed.ncbi.nlm.nih.gov/42882860/)
-- **英文原题**: *Tunlametinib Suppresses Melanogenesis Induces Cell Cycle Arrest and Apoptosis in Giant Congenital Melanocytic Nevus Cells.*
-- **实际结果**: Background/Objectives: Giant congenital melanocytic nevus (GCMN) is a rare developmental disorder arising from abnormal proliferation and differentiation of neural crest-derived melanocytes. It poses substantial clinical…
-- **核验状态**: — 无数值核验项
-
-## 138. [Cancers (Basel) · IF 4.8 · 评分 35 · 启发式] [Beyond BMI: The Clinical Relevance of Sarcopenia and Muscle Quality in Gynecologic Oncology from Meta-Analyses to Practice-The Potential Role of Body Composition Assessment, Including BIA, in Supportive Care.](https://pubmed.ncbi.nlm.nih.gov/42882858/)
-- **英文原题**: *Beyond BMI: The Clinical Relevance of Sarcopenia and Muscle Quality in Gynecologic Oncology from Meta-Analyses to Practice-The Potential Role of Body Composition Assessment, Including BIA, in Supportive Care.*
-- **实际结果**: Sarcopenia, low muscle mass, and low muscle radiodensity are increasingly being considered factors associated with treatment outcomes in patients with gynecological malignancies. Despite the growing body of evidence, bod…
-- **核验状态**: — 无数值核验项
-
-## 139. [Cancers (Basel) · IF 4.8 · 评分 35 · 启发式] [Association of Body Composition with Tumor Proteomics and Survival in Patients with Clear Cell Renal Cell Carcinoma.](https://pubmed.ncbi.nlm.nih.gov/42882855/)
-- **英文原题**: *Association of Body Composition with Tumor Proteomics and Survival in Patients with Clear Cell Renal Cell Carcinoma.*
-- **实际结果**: Background/Objectives: Prognoses for patients with clear cell renal cell carcinoma (ccRCC) are associated with complex interactions between tumor and patient characteristics. This cross-sectional study investigated assoc…
-- **核验状态**: — 无数值核验项
-
-## 140. [Cancers (Basel) · IF 4.8 · 评分 35 · 启发式] [ZBTB1 Regulates Glycolysis and Chemotherapy Resistance Through Interacting with c-Myc in Triple Negative Breast Cancer.](https://pubmed.ncbi.nlm.nih.gov/42882850/)
-- **英文原题**: *ZBTB1 Regulates Glycolysis and Chemotherapy Resistance Through Interacting with c-Myc in Triple Negative Breast Cancer.*
-- **实际结果**: Background/Objectives: Our previous study identified ZBTB1 as a novel tumor suppressor in estrogen receptor-positive (ER+) breast cancer. Moreover, The Cancer Genome Atlas (TCGA) data analysis showed a much lower level o…
-- **核验状态**: — 无数值核验项
-
-## 141. [Cancers (Basel) · IF 4.8 · 评分 35 · 启发式] [The Utility of Computed Tomography of the Chest at the Time of Induction Chemotherapy in Patients with Acute Leukemia.](https://pubmed.ncbi.nlm.nih.gov/42882849/)
-- **英文原题**: *The Utility of Computed Tomography of the Chest at the Time of Induction Chemotherapy in Patients with Acute Leukemia.*
-- **实际结果**: Background: Compared to chest X-ray, computed tomography (CT) imaging of the chest is more sensitive and specific for identifying pulmonary abnormalities. However, patients with acute leukemia routinely undergo chest X-r…
-- **核验状态**: — 无数值核验项
-
-## 142. [Cancers (Basel) · IF 4.8 · 评分 35 · 启发式] [Diagnostic Potential of Circulating CXCL13, CXCL14, and CXCL16 in Colorectal Cancer: A Preliminary Case-Control Study.](https://pubmed.ncbi.nlm.nih.gov/42882848/)
-- **英文原题**: *Diagnostic Potential of Circulating CXCL13, CXCL14, and CXCL16 in Colorectal Cancer: A Preliminary Case-Control Study.*
-- **实际结果**: Introduction: Epidemiological trends indicate that the global colorectal cancer (CRC) mortality will surpass 2.2 million deaths annually by the year 2050; therefore, the identification of novel circulating indicators tha…
-- **核验状态**: — 无数值核验项
-
-## 143. [Cancers (Basel) · IF 4.8 · 评分 35 · 启发式] [The Novel Organic Arsenical PZ2 Exhibits Potent Anti-T-ALL Activity via ROS-Dependent Apoptosis and GABARAPL1-Induced Autophagic Cell Death.](https://pubmed.ncbi.nlm.nih.gov/42882844/)
-- **英文原题**: *The Novel Organic Arsenical PZ2 Exhibits Potent Anti-T-ALL Activity via ROS-Dependent Apoptosis and GABARAPL1-Induced Autophagic Cell Death.*
-- **实际结果**: Objective: T-cell acute lymphoblastic leukemia (T-ALL) is a highly aggressive hematological malignancy with poor overall prognosis. This study systematically evaluates the anti-leukemic therapeutic potential and underlyi…
-- **核验状态**: — 无数值核验项
-
-## 144. [Cancers (Basel) · IF 4.8 · 评分 35 · 启发式] [A Retrospective Study of the Efficacy and Safety of Chemoimmunotherapy in Elderly Patients with Extensive-Stage Small Cell Lung Cancer.](https://pubmed.ncbi.nlm.nih.gov/42882826/)
-- **英文原题**: *A Retrospective Study of the Efficacy and Safety of Chemoimmunotherapy in Elderly Patients with Extensive-Stage Small Cell Lung Cancer.*
-- **实际结果**: Background/Objectives: We evaluated the efficacy and safety of first-line treatment with a programmed death-ligand 1 (PD-L1) inhibitor plus platinum-based chemotherapy versus chemotherapy alone in patients aged ≥75 years…
-- **核验状态**: — 无数值核验项
-
-## 145. [Cancers (Basel) · IF 4.8 · 评分 35 · 启发式] [The Landscape of Tumor Dissemination in Leptomeningeal Disease: Mapping CTC Plasticity and Regional Heterogeneity Across Blood and CSF Compartments.](https://pubmed.ncbi.nlm.nih.gov/42882819/)
-- **英文原题**: *The Landscape of Tumor Dissemination in Leptomeningeal Disease: Mapping CTC Plasticity and Regional Heterogeneity Across Blood and CSF Compartments.*
-- **实际结果**: Background/Objectives: Leptomeningeal disease (LMD) is among the most severe complications of metastatic breast cancer, with median survival measured in weeks. Definitive diagnosis relies on neuroimaging and cerebrospina…
-- **核验状态**: — 无数值核验项
-
-## 146. [Cancers (Basel) · IF 4.8 · 评分 35 · 启发式] [Enrichment-Free Rare Cell Profiling in Pediatric Osteosarcoma Reveals a Circulating Cell Population Associated with Relapse-Free Survival.](https://pubmed.ncbi.nlm.nih.gov/42882818/)
-- **英文原题**: *Enrichment-Free Rare Cell Profiling in Pediatric Osteosarcoma Reveals a Circulating Cell Population Associated with Relapse-Free Survival.*
-- **实际结果**: BACKGROUND: Outcomes for patients with osteosarcoma (OS) presenting with metastases at diagnosis or relapsed remain poor with five-year survival rate of only 20-30%. Risk stratification at diagnosis remains limited, and …
-- **核验状态**: — 无数值核验项
-
-## 147. [Cancers (Basel) · IF 4.8 · 评分 35 · 启发式] [Functional Deconstruction of AC-T Chemotherapy Reveals Interindividual Heterogeneity and Independent Drug Action in Breast Cancer.](https://pubmed.ncbi.nlm.nih.gov/42882816/)
-- **英文原题**: *Functional Deconstruction of AC-T Chemotherapy Reveals Interindividual Heterogeneity and Independent Drug Action in Breast Cancer.*
-- **实际结果**: Background/Objectives: Combination chemotherapy remains a cornerstone of breast cancer (BC) treatment, yet the relative contribution of individual drugs within standard regimens remains poorly understood. We investigated…
-- **核验状态**: — 无数值核验项
-
-## 148. [Cancers (Basel) · IF 4.8 · 评分 35 · 启发式] [Imaging-Based Tumor Margin Patterns and Primary Tumor Categories and Their Association with Adverse Histopathological Features in Oral Tongue Squamous Cell Carcinoma.](https://pubmed.ncbi.nlm.nih.gov/42882813/)
-- **英文原题**: *Imaging-Based Tumor Margin Patterns and Primary Tumor Categories and Their Association with Adverse Histopathological Features in Oral Tongue Squamous Cell Carcinoma.*
-- **实际结果**: Background: This retrospective study introduces imaging inner tumor margin patterns (iITMP) and evaluates their correlation with pathological Worst pattern of invasion (WPOI) in oral tongue squamous cell carcinoma (OTSCC…
-- **核验状态**: — 无数值核验项
-
-## 149. [Cancers (Basel) · IF 4.8 · 评分 35 · 启发式] [Distinct Expression Patterns of miR-21-5p and miR-21-3p in Oral Epithelial Dysplasia and Early Oral Squamous Cell Carcinoma.](https://pubmed.ncbi.nlm.nih.gov/42882811/)
-- **英文原题**: *Distinct Expression Patterns of miR-21-5p and miR-21-3p in Oral Epithelial Dysplasia and Early Oral Squamous Cell Carcinoma.*
-- **实际结果**: Background/Objectives: Oral leukoplakia (OL) is a common oral potentially malignant disorder, but prediction of malignant progression remains challenging. This study investigated miR-21-5p and miR-21-3p expression in hea…
-- **核验状态**: — 无数值核验项
-
-## 150. [Cancers (Basel) · IF 4.8 · 评分 35 · 启发式] [The Rationale for Tissue Biopsy in the Era of Precision Hepatocellular Carcinoma Management.](https://pubmed.ncbi.nlm.nih.gov/42882810/)
-- **英文原题**: *The Rationale for Tissue Biopsy in the Era of Precision Hepatocellular Carcinoma Management.*
-- **实际结果**: Hepatocellular carcinoma (HCC) is the most common liver cancer and usually develops on a background of cirrhotic liver. Early and accurate diagnosis enables potentially curative interventions.
-- **核验状态**: — 无数值核验项
-
-## 151. [Cancers (Basel) · IF 4.8 · 评分 35 · 启发式] [Dosimetric Feasibility of Hypofractionated Radiation Therapy with Simultaneously Integrated Central Boost for Retroperitoneal Sarcoma.](https://pubmed.ncbi.nlm.nih.gov/42882809/)
-- **英文原题**: *Dosimetric Feasibility of Hypofractionated Radiation Therapy with Simultaneously Integrated Central Boost for Retroperitoneal Sarcoma.*
-- **实际结果**: Background: Retroperitoneal sarcomas (RPS) are rare malignancies that pose challenges due to their large size and proximity to organs-at-risk (OARs). Compared to conventional 5-week radiation therapy (RT), hypofractionat…
-- **核验状态**: — 无数值核验项
-
-## 152. [Cancers (Basel) · IF 4.8 · 评分 35 · 启发式] [Outcomes and Prognostic Factors of Salvage Surgery for Recurrent Oral Squamous Cell Carcinoma.](https://pubmed.ncbi.nlm.nih.gov/42882808/)
-- **英文原题**: *Outcomes and Prognostic Factors of Salvage Surgery for Recurrent Oral Squamous Cell Carcinoma.*
-- **实际结果**: BACKGROUND: Recurrent oral squamous cell carcinoma (rOSCC) is associated with a poor prognosis, and evidence supporting risk stratification in the salvage setting remains limited. The prognostic value of conventional sta…
-- **核验状态**: — 无数值核验项
-
-## 153. [Signal Transduct Target Ther · IF 81.2 · 评分 34] [新一代NK细胞治疗从基础到临床：CAR-NK在血液肿瘤与自身免疫病中的进展及实体瘤挑战](https://pubmed.ncbi.nlm.nih.gov/42881185/)
-- **英文原题**: *Next-generation natural killer cell therapy: bench to bedside and beyond.*
-- **作者结论**: NK细胞治疗已从基础发现发展为临床验证平台；CAR-NK在B细胞恶性肿瘤中显示显著疗效与更优安全性，并扩展至自身免疫病；实体瘤仍受抗原异质性、物理屏障和代谢敌对环境限制，需系统级工程重编程和临床转化参数优化。
-- **AI 疑点**: 本文为叙述性综述，无原始研究设计、样本量、效应量或统计检验；摘要以“remarkable efficacy”等定性表述强调CAR-NK在血液肿瘤和自身免疫病的获益，但未给出主要终点数值或证据等级；对实体瘤挑战有提及。信息不足：无法评估偏倚风险、疗效幅度及胸外科适用性。
-- **核验状态**: — 无数值核验项
-
-## 154. [Pulm Pharmacol Ther · IF 3.8 · 评分 34] [药物性增强O-GlcNAc修饰减轻小鼠肺缺血再灌注损伤及细胞焦亡信号（动物与细胞模型研究）](https://pubmed.ncbi.nlm.nih.gov/42887821/)
-- **英文原题**: *Pharmacological Enhancement of O-GlcNAcylation Attenuates Lung Ischemia-Reperfusion Injury.*
-- **作者结论**: 早期O-GlcNAcylation升高与LIRI的急性应激反应相一致；药理学维持较高O-GlcNAcylation与更轻的损伤及更弱的Caspase-1/GSDMD相关信号相关，支持将该修饰作为急性LIRI治疗靶点进一步研究。
-- **AI 疑点**: 摘要未给出任何样本量、效应量、置信区间或P值，无法判断效应大小与统计稳健性；未提及随机化、盲法、剂量-反应关系；Thiamet G与OSMI-4均为工具化合物，脱靶效应与细胞毒性未排除，OSMI-4的“相反表型”不能单独证明通路特异性；结论在“相关”与“因果”之间摇摆（正文用associated with，标题与结论用attenuates），存在表述强化倾向；模型为短期急性在体/体外实验，向肺移植原发性移植物功能障碍的临床外推有限，缺乏长期移植物功能与生存终点。
-- **核验状态**: — 无数值核验项
-
-## 155. [J Imaging Inform Med · IF 5.1 · 评分 33] [在成熟CT急腹症检测器上叠加TotalSegmentator显式解剖先验未改善外部整体判别力：一项外部验证方法学研究](https://pubmed.ncbi.nlm.nih.gov/42888310/)
-- **英文原题**: *Evaluating Explicit Anatomical Priors Beyond a Mature CT Detector for Six Acute Abdominal Emergencies.*
+## 20. [Int J Biol Sci · IF — · 评分 54] [安罗替尼通过抑制DDR1介导的糖酵解增强肺癌对多西他赛敏感性：机制研究与历史对照临床观察](https://pubmed.ncbi.nlm.nih.gov/42807855/)
+- **英文原题**: *Anlotinib enhances the sensitivity to docetaxel in lung cancer through inhibiting DDR1-mediated glycolytic pathway.*
 - **解读暂停**（核验未通过或出版状态存疑）：仅呈现题录与链接，请以原文为准。
 - **核验状态**: ⚠️ 未通过自动核验，解读暂停
 
-## 156. [Cancers (Basel) · IF 4.8 · 评分 33] [ARPI经治后mCRPC的后续治疗序贯：尚无前瞻性序贯试验，基于II/III期证据的叙述性综述与假设性四轨框架](https://pubmed.ncbi.nlm.nih.gov/42882814/)
-- **英文原题**: *Treatment Sequencing in ARPI-Pre-Exposed Metastatic Castration-Resistant Prostate Cancer: Radioligand Therapy, PARP Inhibitors, and Antibody-Drug Conjugates.*
+## 21. [Nat Commun · IF — · 评分 53 · 启发式] [Canakinumab with chemoradiation and durvalumab consolidation in unresectable stage III non-small cell lung cancer: the phase I/II CHORUS trial.](https://pubmed.ncbi.nlm.nih.gov/42844242/)
+- **英文原题**: *Canakinumab with chemoradiation and durvalumab consolidation in unresectable stage III non-small cell lung cancer: the phase I/II CHORUS trial.*
+- **实际结果**: CHORUS (NCT04905316) was an open-label, non-randomized, single-arm phase I/II trial of the anti-IL-1beta monoclonal antibody canakinumab given with concurrent chemoradiotherapy and continued with anti-PD-L1 durvalumab co…
+- **核验状态**: — 无数值核验项
+
+## 22. [Lung · IF 4.3 · 评分 53 · 启发式] [Contemporary Chemotherapy Benchmarks for Molecularly Defined Advanced NSCLC: Reconstructed Individual Patient-Level Data of 22 Randomized Trials.](https://pubmed.ncbi.nlm.nih.gov/42842004/)
+- **英文原题**: *Contemporary Chemotherapy Benchmarks for Molecularly Defined Advanced NSCLC: Reconstructed Individual Patient-Level Data of 22 Randomized Trials.*
+- **实际结果**: PURPOSE: The increasing adoption of targeted therapies over chemotherapy has made randomized controlled trials (RCT) with chemotherapy increasingly challenging in advanced NSCLC with actionable genomic alterations (AGA),…
+- **核验状态**: — 无数值核验项
+
+## 23. [Drug Des Devel Ther · IF — · 评分 53 · 启发式] [Dexketoprofen Trometamol Plus Sufentanil for Analgesia After Thoracoscopic Radical Resection of Lung Cancer: A Randomized, Double-Blind, Placebo-Controlled Trial.](https://pubmed.ncbi.nlm.nih.gov/42830882/)
+- **英文原题**: *Dexketoprofen Trometamol Plus Sufentanil for Analgesia After Thoracoscopic Radical Resection of Lung Cancer: A Randomized, Double-Blind, Placebo-Controlled Trial.*
+- **实际结果**: BACKGROUND: Evidence for adding dexketoprofen trometamol to sufentanil-based patient-controlled intravenous analgesia (PCIA) after thoracoscopic radical resection of lung cancer remains limited. OBJECTIVE: To evaluate 48…
+- **核验状态**: — 无数值核验项
+
+## 24. [Nan Fang Yi Ke Da Xue Xue Bao · IF — · 评分 53 · 启发式] [[Effects of Baduanjin, bedside cycle ergometer and balloon-blowing training on pulmonary function recovery following thoracoscopic surgery for lung cancer: a randomized controlled trial].](https://pubmed.ncbi.nlm.nih.gov/42812066/)
+- **英文原题**: *[Effects of Baduanjin, bedside cycle ergometer and balloon-blowing training on pulmonary function recovery following thoracoscopic surgery for lung cancer: a randomized controlled trial].*
+- **实际结果**: OBJECTIVES: To systematically compare the effects of Baduanjin exercise, bedside cycle ergometer training, and balloon-blowing training on pulmonary function recovery in patients undergoing thoracoscopic radical resectio…
+- **核验状态**: — 无数值核验项
+
+## 25. [Front Neurol · IF — · 评分 52] [老年肺癌患者术后血清NLRP3水平与术后谵妄独立相关：列线图模型风险分层改善但AUC提升未达统计学意义](https://pubmed.ncbi.nlm.nih.gov/42871060/)
+- **英文原题**: *Serum NLRP3 levels are associated with postoperative delirium of elderly patients with lung cancer: an observational analytical study.*
 - **解读暂停**（核验未通过或出版状态存疑）：仅呈现题录与链接，请以原文为准。
 - **核验状态**: ⚠️ 未通过自动核验，解读暂停
 
-## 157. [Cancers (Basel) · IF 4.8 · 评分 31] [胰腺癌相关疼痛的多学科管理框架：整合抗肿瘤治疗、姑息治疗与介入镇痛（叙述性综述）](https://pubmed.ncbi.nlm.nih.gov/42882821/)
-- **英文原题**: *Pancreatic Cancer-Associated Pain Management Beyond Opioids: Integrating Oncological Treatment, Palliative Care, and Interventional Pain Medicine.*
-- **作者结论**: 胰腺癌相关疼痛管理不应遵循僵化的阶梯镇痛方案，而应根据疼痛机制、疾病分期和解剖、既往治疗、功能状态、预期生存和患者偏好进行个体化；早期多学科协作和持续再评估可能促进及时升级治疗并改善疼痛控制，同时尽量减少治疗负担。
-- **AI 疑点**: 叙述性综述，无系统检索策略、纳入排除标准、证据等级或偏倚评估；所提实践路径为专家整合意见，缺乏可量化疗效比较；摘要未报告具体研究数据，无法判断推荐强度。
-- **核验状态**: — 无数值核验项
-
-## 158. [Cancers (Basel) · IF 4.8 · 评分 30] [结直肠癌肝转移可切除性定义与治疗策略的当代综述（第一部分）：诊断、可切除性界定及初始可切除与同时性病变的处理](https://pubmed.ncbi.nlm.nih.gov/42882859/)
-- **英文原题**: *A Contemporary Review of Resectability and Treatment Strategies for Colorectal Liver Metastases: Part 1-Diagnosis, Defining Resectability, and Management of Upfront Resectable and Synchronous Disease.*
-- **作者结论**: 初始可切除及同时性CRLM的管理应通过多学科评估实现个体化；当前证据支持整合技术可行性、患者因素与肿瘤生物学的风险适应策略，同时承认最佳化疗时机与手术顺序仍存在不确定性。
-- **AI 疑点**: 叙述性综述，未行定量合成、未报告系统检索流程图或偏倚/证据质量评估（如GRADE），结论为方向性表述且缺乏数值支撑；检索截止至2026年属未来时间点，需核实；主要结论（如常规新辅助化疗未持续改善OS）未给出具体效应量。
-- **核验状态**: — 无数值核验项
-
-## 159. [Support Care Cancer · IF 3.4 · 评分 29] [前列腺癌数字支持治疗的患者偏好、促进因素与障碍：88项研究的系统综述（叙事性综合，未定量合并）](https://pubmed.ncbi.nlm.nih.gov/42891837/)
-- **英文原题**: *Digital supportive care in prostate cancer: a systematic review.*
+## 26. [Med Phys · IF — · 评分 52] [NSCLC 高危 CT 影像组学表型的转录因子调控架构推断：外部验证 C-index 0.785，伴增殖/E2F 与应激适应程序富集](https://pubmed.ncbi.nlm.nih.gov/42837362/)
+- **英文原题**: *Radiogenomic inference of transcription factor regulatory architecture associated with a high-risk CT phenotype in Non-Small Cell Lung Cancer.*
 - **解读暂停**（核验未通过或出版状态存疑）：仅呈现题录与链接，请以原文为准。
 - **核验状态**: ⚠️ 未通过自动核验，解读暂停
 
-## 160. [⭐Front Immunol · IF 7.0 · 评分 28] [观点文章：以选择性PDE4B抑制（nerandomilast）作为系统性硬化症治疗新策略的机制依据与在研证据梳理](https://pubmed.ncbi.nlm.nih.gov/42890786/)
-- **英文原题**: *Preferential phosphodiesterase inhibition as a novel strategy to modulate key pathways in systemic sclerosis.*
-- **作者结论**: 靶向PDE4B可能带来超越单一器官表现获益并改善现有治疗；nerandomilast因偏好性抑制PDE4B（相对PDE4D九倍）而可能较口服pan-PDE4抑制剂耐受性更好，避免胃肠道不耐受等不良事件；临床前模型提示其可能减轻免疫失调、纤维化并可能影响血管病变，SSc-ILD的临床证据有待正在进行的试验（如CONQUEST）产出。
-- **AI 疑点**: 本文为观点性文章，无原始数据、无系统检索与偏倚控制，结论主要建立在临床前模型与机制推演之上；所引两项III期试验（FIBRONEER-IPF/ILD）的适应人群为IPF与进展性肺纤维化，并非以SSc-ILD为专门设计，将其外推至SSc-ILD属人群限定松动；'九倍选择性''耐受性更优'为背景性表述，摘要未给出任何效应量、置信区间或P值，疗效与安全性均未在SSc-ILD中得到验证；对选择性优势的强调存在乐观倾向，需警惕以机制合理性替代临床证据。
-- **核验状态**: — 无数值核验项
-- ⭐ **规则精选**: RCT/III 期证据发表于 A 级期刊，直接影响局晚/晚期治疗线序与方案选择（模型补充：提示胸外科/胸部肿瘤相关领域读者：ILD-肺纤维化方向的药物研发逻辑（亚型选择性PDE4B抑制）与在研试验布局，可作为肺纤维化背景疾病药物治疗进展的参照，但对手）
-
-## 161. [Cancers (Basel) · IF 4.8 · 评分 28] [G1浸润性乳腺癌中组织学亚型未提供显著额外预后信息：单中心回顾性队列（364例，亚型间总生存无显著差异）](https://pubmed.ncbi.nlm.nih.gov/42882846/)
-- **英文原题**: *Histological Subtype Provides Limited Prognostic Information in Grade 1 Invasive Breast Carcinoma: A Retrospective Cohort Study.*
+## 27. [Anticancer Res · IF — · 评分 52] [基线肠道菌群组成与免疫营养状态及晚期NSCLC阿替利珠单抗治疗结局相关：一项多中心前瞻性研究](https://pubmed.ncbi.nlm.nih.gov/42823161/)
+- **英文原题**: *Baseline Gut Microbiota Composition Links Immune-nutritional Status to Clinical Outcomes in Non-small Cell Lung Cancer Treated With Atezolizumab-based Immunotherapy: A Multicenter Prospective Study.*
 - **解读暂停**（核验未通过或出版状态存疑）：仅呈现题录与链接，请以原文为准。
 - **核验状态**: ⚠️ 未通过自动核验，解读暂停
 
-## 162. [J Immunol · IF 4.0 · 评分 27] [小鼠模型中上、下呼吸道CD8+组织驻留记忆T细胞发育对局部抗原与细胞因子信号的需求不同](https://pubmed.ncbi.nlm.nih.gov/42891979/)
-- **英文原题**: *Differential requirements for cytokine signaling and local antigen in upper versus lower respiratory tract CD8+ TRM development.*
-- **作者结论**: Together, these findings highlight key differences for CD8+ TRM development in distinct areas of the respiratory tract, offering valuable insights into the development of mucosal cellular immunity following intranasal and parenteral vaccination.
-- **AI 疑点**: 非临床肿瘤研究；摘要无样本量、效应量及统计值，无法判断方法学严谨度；结论基于小鼠模型，外推至人类疫苗接种需谨慎；“compensatory relationship”等机制表述需原文数据支持。
-- **核验状态**: — 无数值核验项
-
-## 163. [BMC Cancer · IF 4.1 · 评分 26] [FGFR通路抑制联合PD-1阻断在MSS结直肠癌模型中减轻T细胞耗竭并促进抗肿瘤免疫（临床前研究）](https://pubmed.ncbi.nlm.nih.gov/42875754/)
-- **英文原题**: *FGFR pathway inhibition enhances PD-1 blockade and modulates antitumor immunity in colorectal cancer models.*
-- **作者结论**: Our findings suggest that FGFR pathway inhibition may enhance the efficacy of immune checkpoint blockade and provide a rationale for further investigation of FGFR-targeted combination strategies in MSS CRC.
-- **AI 疑点**: 摘要仅以“significantly”描述联合效应，未给出任何效应量、P值或置信区间，无法核验统计强度；未报告模型数量、重复数与对照分组细节；TCGA中FGFR3高表达与预后差的关联属相关性分析，不能支撑因果；从小鼠与体外体系外推至MSS CRC患者疗效属跨物种、跨情境外推，作者以“may enhance”“provide a rationale”表述尚属克制，但标题“enhances”强于摘要证据层级。
-- **核验状态**: — 无数值核验项
-
-## 164. [Support Care Cancer · IF 3.4 · 评分 26] [伴抑郁症状的肺癌患者静息态功能连接改变：一项探索性横断面fMRI研究](https://pubmed.ncbi.nlm.nih.gov/42891711/)
-- **英文原题**: *Altered resting-state functional connectivity in lung cancer patients with comorbid depressive symptoms.*
+## 28. [Respir Res Clin Pract · IF — · 评分 51] [缺氧-焦亡相关长链非编码RNA高表达与肺癌较差总生存相关：系统综述与Meta分析](https://pubmed.ncbi.nlm.nih.gov/42807632/)
+- **英文原题**: *Hypoxia-pyroptosis-associated long noncoding RNAs as prognostic biomarkers in lung cancer: a systematic review and meta-analysis.*
 - **解读暂停**（核验未通过或出版状态存疑）：仅呈现题录与链接，请以原文为准。
 - **核验状态**: ⚠️ 未通过自动核验，解读暂停
 
-## 165. [Cancer Med · IF 3.5 · 评分 25] [表观遗传与活性氧交互网络驱动肿瘤放疗抵抗的机制综述及分型组合治疗策略框架](https://pubmed.ncbi.nlm.nih.gov/42885567/)
-- **英文原题**: *Interplay Between Epigenetics and Reactive Oxygen Species in Tumor Radioresistance: Mechanisms and Therapeutic Strategies for Radiotherapy.*
-- **作者结论**: Strategically targeting the epigenetics-ROS network offers a transformative paradigm for overcoming radioresistance and personalizing cancer radiotherapy.
-- **AI 疑点**: 全文为叙述性综述，摘要未报告检索策略、文献筛选流程、纳入排除标准或任何定量合成，却自称“systematically synthesizes”，属方法学表述与设计不匹配；三大核心原则（stress adaptation / malignant reinforcement / contextual determinacy）与四层调控机制、四类分型组合策略均为作者提出的概念框架，摘要中无支持性数据或证据等级标注；结尾“transformative paradigm”为乐观表述，超出综述所能提供的证据强度。文中自列的五项转化障碍（含preclinical-clinical discordance）实际上也削弱了其临床转化主张。
-- **核验状态**: — 无数值核验项
-
-## 166. [Cancer Med · IF 3.5 · 评分 25] [基于电子健康数据的胰腺癌风险预测模型早期检测的前瞻性试点可行性研究：入组率8.2%，18个月影像与CA19-9完成率79%](https://pubmed.ncbi.nlm.nih.gov/42885470/)
-- **英文原题**: *Implementation of Risk Prediction Models Using Electronic Health Data for Early Detection of Pancreatic Cancer: A Prospective Pilot Feasibility Study.*
+## 29. [J Cancer Res Ther · IF — · 评分 50] [CT引导经皮微波消融治疗肺肿瘤：计划系统预测消融区与实际消融区的一致性验证（24小时接近、1个月明显高估）](https://pubmed.ncbi.nlm.nih.gov/42813853/)
+- **英文原题**: *Comparison of the difference between the actual ablation zone in lung tumors after computed tomography-guided percutaneous microwave ablation and the predicted value in the planning system: A retrospective study.*
 - **解读暂停**（核验未通过或出版状态存疑）：仅呈现题录与链接，请以原文为准。
 - **核验状态**: ⚠️ 未通过自动核验，解读暂停
 
-## 167. [Cancers (Basel) · IF 4.8 · 评分 25] [波兰甲状腺癌住院登记发病率13年趋势：全国住院数据库显示发病率由2012年15.2/10万降至2020年9.8/10万，2024年回升至16.6/10万](https://pubmed.ncbi.nlm.nih.gov/42882820/)
-- **英文原题**: *Hospital-Based Incidence Trends of Thyroid Cancer in Poland: Temporal Trends, Regional Disparities and Demographic Characteristics Based on a Nationwide Hospital Discharge Database (2012-2024).*
+## 30. [Signal Transduct Target Ther · IF 81.2 · 评分 49] [SARS-CoV-2感染通过缺氧和炎症诱导的VEGF依赖性血管生成促进动物模型肺部肿瘤生长](https://pubmed.ncbi.nlm.nih.gov/42860426/)
+- **英文原题**: *COVID-19 triggers pulmonary tumor outgrowth through hypoxia- and inflammation-induced VEGF-dependent angiogenesis.*
+- **作者结论**: Our data show that the COVID-19-induced hypoxia-VEGF-angiogenesis axis serves as one of the mechanisms for initiating tumor outgrowth in pulmonary tissues.
+- **AI 疑点**: 仅为动物模型机制证据，摘要未报告样本量、效应量、置信区间或P值，无法定量评估；将SARS-CoV-2感染加速动物肿瘤生长的结果外推至人类休眠肺结节风险需谨慎；VEGF阻断的挽救实验支持通路依赖性，但不能证明COVID-19会促使人类结节进展。
+- **核验状态**: — 无数值核验项
+
+## 31. [Front Immunol · IF 7.0 · 评分 48 · 启发式] [Not all major pathological responses are equal: prognostic heterogeneity and risk stratification after neoadjuvant chemoimmunotherapy in resectable NSCLC.](https://pubmed.ncbi.nlm.nih.gov/42857111/)
+- **英文原题**: *Not all major pathological responses are equal: prognostic heterogeneity and risk stratification after neoadjuvant chemoimmunotherapy in resectable NSCLC.*
+- **实际结果**: BACKGROUND: Major pathological response (MPR) is a widely used efficacy endpoint for neoadjuvant chemoimmunotherapy (NCIT) in resectable non-small cell lung cancer (NSCLC). However, whether MPR without pathological compl…
+- **核验状态**: — 无数值核验项
+
+## 32. [Front Immunol · IF 7.0 · 评分 48 · 启发式] [Neoadjuvant serplulimab combined with chemotherapy in locally advanced driver gene-negative squamous NSCLC: a multicenter observational study.](https://pubmed.ncbi.nlm.nih.gov/42851470/)
+- **英文原题**: *Neoadjuvant serplulimab combined with chemotherapy in locally advanced driver gene-negative squamous NSCLC: a multicenter observational study.*
+- **实际结果**: BACKGROUND: Previous evidence demonstrated that neoadjuvant chemo-immunotherapy provides significant prognostic benefits for non-small cell lung cancer (NSCLC). While the efficacy of serplulimab, an anti-PD-1 monoclonal …
+- **核验状态**: — 无数值核验项
+
+## 33. [Front Immunol · IF 7.0 · 评分 48 · 启发式] [Pretreatment CT radiomics for prediction of pathological complete response after neoadjuvant chemoimmunotherapy in NSCLC: a multicenter study incorporating habitat analysis.](https://pubmed.ncbi.nlm.nih.gov/42846337/)
+- **英文原题**: *Pretreatment CT radiomics for prediction of pathological complete response after neoadjuvant chemoimmunotherapy in NSCLC: a multicenter study incorporating habitat analysis.*
+- **实际结果**: BACKGROUND: Pathological complete response (pCR) after neoadjuvant chemoimmunotherapy (NACI) varies among patients with non-small cell lung cancer (NSCLC). This study aimed to quantify intratumoral heterogeneity using ha…
+- **核验状态**: — 无数值核验项
+
+## 34. [Eur Radiol Exp · IF 4.7 · 评分 48 · 启发式] [Bridging radiomics and histopathology: cross-modality consistency of radiomic features from CT to micro-CT in NSCLC.](https://pubmed.ncbi.nlm.nih.gov/42842156/)
+- **英文原题**: *Bridging radiomics and histopathology: cross-modality consistency of radiomic features from CT to micro-CT in NSCLC.*
+- **实际结果**: OBJECTIVE: Radiomics extracts quantitative features from medical images that may provide non-invasive biomarkers of tumor biology and heterogeneity. However, few studies have explored radiomics on micro-computed tomograp…
+- **核验状态**: — 无数值核验项
+
+## 35. [Lung Cancer · IF 5.3 · 评分 48 · 启发式] [Exploratory analysis of extracellular vesicle Profile changes during pembrolizumab treatment in NSCLC.](https://pubmed.ncbi.nlm.nih.gov/42828841/)
+- **英文原题**: *Exploratory analysis of extracellular vesicle Profile changes during pembrolizumab treatment in NSCLC.*
+- **实际结果**: BACKGROUND: Predictive biomarkers for pembrolizumab resistance and durable clinical benefit in advanced non-small cell lung cancer (NSCLC) remain insufficient. METHODS: Serum extracellular vesicles (EVs) were isolated fr…
+- **核验状态**: — 无数值核验项
+
+## 36. [Lung Cancer · IF 5.3 · 评分 48 · 启发式] [Second-line therapy in extensive-stage small cell lung cancer: an unmet need highlighted by real-world evidence from the LALUCA registry.](https://pubmed.ncbi.nlm.nih.gov/42826612/)
+- **英文原题**: *Second-line therapy in extensive-stage small cell lung cancer: an unmet need highlighted by real-world evidence from the LALUCA registry.*
+- **实际结果**: BACKGROUND: Extensive-stage small cell lung cancer (ES-SCLC) has a dismal prognosis as patients progress within months after first-line systemic treatment. Until recently, topotecan was the only approved second-line trea…
+- **核验状态**: — 无数值核验项
+
+## 37. [JCO Precis Oncol · IF 4.7 · 评分 48 · 启发式] [Decoding Treatment Response and Prognosis in Unresectable Locally Advanced Non-Small Cell Lung Cancer by Integrating Spatiotemporal Heterogeneity From 18F-FDG Positron Emission Tomography-Computed Tomography: A Multicenter Study.](https://pubmed.ncbi.nlm.nih.gov/42826363/)
+- **英文原题**: *Decoding Treatment Response and Prognosis in Unresectable Locally Advanced Non-Small Cell Lung Cancer by Integrating Spatiotemporal Heterogeneity From 18F-FDG Positron Emission Tomography-Computed Tomography: A Multicenter Study.*
+- **实际结果**: PURPOSE: Treatment response in unresectable locally advanced non-small cell lung cancer (LA-NSCLC) is highly variable due to marked intratumoral heterogeneity, while existing predictive biomarkers lack accuracy. We aimed…
+- **核验状态**: — 无数值核验项
+
+## 38. [BMC Cancer · IF 4.1 · 评分 48] [EGFR突变NSCLC的共突变图谱与基因组复杂度预后价值：基于cBioPortal公共队列的回顾性汇总分析显示TP53突变和共突变负荷独立预示较差生存，而EGFR亚型差异在校正研究来源后减弱](https://pubmed.ncbi.nlm.nih.gov/42823758/)
+- **英文原题**: *Co-mutation landscape and prognostic impact of genomic complexity in EGFR-mutant non-small cell lung cancer.*
 - **解读暂停**（核验未通过或出版状态存疑）：仅呈现题录与链接，请以原文为准。
 - **核验状态**: ⚠️ 未通过自动核验，解读暂停
 
-## 168. [⭐J Hematol Oncol · IF 47.8 · 评分 23] [2026 ASCO 大B细胞淋巴瘤抗体类方案进展综述：涵盖一线强化、减化疗与移植相关挽救治疗，但未报告任何效应量](https://pubmed.ncbi.nlm.nih.gov/42881391/)
-- **英文原题**: *Novel antibody-based regimens for large B-cell lymphoma: latest updates from the 2026 ASCO Annual Meeting.*
-- **作者结论**: Collectively, these findings broaden the role of antibody-based regimens from frontline intensification and reduced-intensity treatment to nontransplant and transplant-directed salvage. Longer follow-up and randomized comparisons are needed to establish response durability, refine patient selection, and define optimal treatment sequencing.
-- **AI 疑点**: 全文未给出任何效应量（HR/ORR/P值与置信区间），却使用“provided randomized evidence”“established a progression-free survival advantage”等定性表述，读者无法判断获益幅度与统计强度；SUNMO的PFS优势仅以文字陈述，主要终点数值缺失；frontMIND仅说明“提供随机证据”，未交代方向与是否达到主要终点，存在以“被ASCO收录”替代结果的风险；早期单臂研究的“suggested the feasibility”为可行性描述，不能支持疗效结论；文献为会议亮点综述，非系统检索，选择偏倚不可评估；与胸外科/胸部肿瘤学无交集。
-- **核验状态**: — 无数值核验项
-- ⭐ **规则精选**: RCT/III 期证据发表于 A 级期刊，直接影响局晚/晚期治疗线序与方案选择（模型补充：该文属血液肿瘤领域的会议进展综述，其结果不改变胸部肿瘤的手术、结节评估或围手术期决策；仅可作为了解抗体-双抗类药物治疗模式从强化到去化疗演变的背景阅读，对胸部肿）
-
-## 169. [Sci Immunol · IF 16.4 · 评分 23] [STAT3 在小鼠 MCMV 感染抗病毒 NK 细胞中作为炎症环境依赖的转录开关](https://pubmed.ncbi.nlm.nih.gov/42886819/)
-- **英文原题**: *STAT3 operates as an inflammation-dependent transcriptional switch in antiviral NK cells.*
-- **作者结论**: STAT3 plays a context-dependent role in antiviral natural killer (NK) cells, either promoting or impairing adaptive responses depending on the inflammatory milieu during mouse cytomegalovirus (MCMV) infection. Thus, STAT3 functions as a cytokine-sensing transcriptional switch integrating IL-15 and type I interferon signals to control lymphocyte adaptation during viral infection.
-- **AI 疑点**: 该文为基础小鼠免疫学机制研究，与胸部肿瘤临床判断无直接关系；摘要未提供样本量、效应量或统计数值；机制结论不能外推至人类胸部肿瘤。
+## 39. [J Clin Invest · IF 14.3 · 评分 48 · 启发式] [Plasma nucleosome profiling reports on tumor burden and molecular subtypes in small cell lung cancer.](https://pubmed.ncbi.nlm.nih.gov/42820295/)
+- **英文原题**: *Plasma nucleosome profiling reports on tumor burden and molecular subtypes in small cell lung cancer.*
+- **实际结果**: BACKGROUNDSmall-cell lung cancer (SCLC) is an aggressive malignancy with a poor prognosis and marked transcriptional heterogeneity that may drive distinct therapeutic vulnerabilities. Clinical translation of molecular su…
 - **核验状态**: — 无数值核验项
 
-## 170. [J Immunol · IF 4.0 · 评分 23] [CTLA4 rs3087243-A 相关 CAA 单倍型与 Treg 及常规 CD4+ T 细胞 CTLA-4 表达升高及 Treg 抑制功能增强相关（离体人样本研究）](https://pubmed.ncbi.nlm.nih.gov/42886733/)
-- **英文原题**: *CTLA4 rs3087243-A-linked haplotype is associated with increased CTLA-4 expression and suppressive function in human regulatory T cells.*
-- **实际结果**: CAA 单倍型较 CGG、CAG、TAG 单倍型在 Treg 与常规 CD4+ T 细胞中均伴细胞内 CTLA-4 表达升高（提示 rs3087243 为可能致病变异）；CAA 单倍型伴 Treg 频率升高；CAA/CAA 受试者 Treg 在抗 CD3/抗 CD28 刺激后早期 CTLA-4 表面动员增强；CAA/CAA 受试者 naïve Treg 在 CD80/CD86+ 树突状细胞存在时对 naïve CD4+ T 细胞增殖的抑制更强（摘要未给出任何效应量、95%CI 或 P 值）
-- **作者结论**: 上述结果共同表明，rs3087243-A 相连的 CAA 单倍型与 CTLA-4 表达升高及 Treg 功能增强相关，为其与自身免疫的保护性关联提供了机制解释。
-- **AI 疑点**: 疑点：①“rs3087243 为可能因果变异”系由单倍型关联推断，无精细定位、无连锁不平衡校正、无独立队列重复验证；②摘要通篇无效应量、CI 或 P 值，无法判断统计学强度与多重比较校正情况；③各单倍型亚组（尤其 CAA/CAA 纯合子）样本量未报告，纯合子功能实验可能样本极小；④受试者来源（健康者或自身免疫病患者）与年龄、性别、用药等混杂因素未交代；⑤“自身免疫保护性”为既往文献背景设定，本研究未做疾病终点验证；⑥体外抑制实验为替代终点，不能直接外推至体内或肿瘤免疫场景。
+## 40. [Lung Cancer · IF 5.3 · 评分 48 · 启发式] [Lung cancer after allogeneic hematopoietic stem cell transplantation.](https://pubmed.ncbi.nlm.nih.gov/42815253/)
+- **英文原题**: *Lung cancer after allogeneic hematopoietic stem cell transplantation.*
+- **实际结果**: INTRODUCTION: Long-term outcomes of allogeneic hematopoietic cell transplantation (HCT) are improving, increasing the relevance of secondary malignancies, including lung cancer. The clinical utility of immune checkpoint …
 - **核验状态**: — 无数值核验项
 
-## 171. [Front Immunol · IF 7.0 · 评分 22] [分裂内含肽介导条件性重建CD1a CAR-T细胞的体外概念验证](https://pubmed.ncbi.nlm.nih.gov/42890256/)
-- **英文原题**: *Split intein-mediated reconstitution of regulatable CAR T-cells.*
+## 41. [Med J Malaysia · IF — · 评分 48] [血浆cfDNA检测早期可切除NSCLC敏感性尚可但特异性低，作为独立筛查工具临床价值有限](https://pubmed.ncbi.nlm.nih.gov/42813481/)
+- **英文原题**: *Potential utility of cell-free deoxyribonucleic acid for detection of early-stage resectable non-small cell lung cancer.*
 - **解读暂停**（核验未通过或出版状态存疑）：仅呈现题录与链接，请以原文为准。
 - **核验状态**: ⚠️ 未通过自动核验，解读暂停
 
-## 172. [Respir Med · IF 3.3 · 评分 22] [老年COPD患者呼吸困难灾难化存在三种潜在类别：与年急性加重次数、自我效能和反刍思维相关的横断面潜在剖面分析](https://pubmed.ncbi.nlm.nih.gov/42880459/)
-- **英文原题**: *Breathlessness catastrophizing and influencing factors study of elderly COPD patients: A latent profile analysis.*
+## 42. [AAPS J · IF — · 评分 48 · 启发式] [Population Pharmacokinetics and Exposure-response Analysis of Durvalumab in Patients with Limited-stage Small-cell Lung Cancer in the Phase 3 ADRIATIC Study.](https://pubmed.ncbi.nlm.nih.gov/42806195/)
+- **英文原题**: *Population Pharmacokinetics and Exposure-response Analysis of Durvalumab in Patients with Limited-stage Small-cell Lung Cancer in the Phase 3 ADRIATIC Study.*
+- **实际结果**: Durvalumab monotherapy as a consolidation treatment for limited-stage small-cell lung cancer (LS-SCLC) demonstrated a favourable benefit-risk profile in the ADRIATIC study. We evaluated population pharmacokinetics (PopPK…
+- **核验状态**: — 无数值核验项
+
+## 43. [J Natl Compr Canc Netw · IF 17.5 · 评分 48 · 启发式] [Risk Factors for Pneumonitis Induced by Combined Radiotherapy and Immunotherapy: A Multicenter Prospective Study.](https://pubmed.ncbi.nlm.nih.gov/42805242/)
+- **英文原题**: *Risk Factors for Pneumonitis Induced by Combined Radiotherapy and Immunotherapy: A Multicenter Prospective Study.*
+- **实际结果**: BACKGROUND: The combination of radiotherapy (RT) and immune checkpoint inhibitors (ICIs) has become an important therapeutic approach for lung cancer. However, pneumonitis remains a major treatment-related toxicity of th…
+- **核验状态**: — 无数值核验项
+
+## 44. [JCO Precis Oncol · IF 4.7 · 评分 48 · 启发式] [Real-World Association Between Up-Front Next-Generation Sequencing and Overall Survival in Advanced Non-Small Cell Lung Cancer in the United States.](https://pubmed.ncbi.nlm.nih.gov/42804730/)
+- **英文原题**: *Real-World Association Between Up-Front Next-Generation Sequencing and Overall Survival in Advanced Non-Small Cell Lung Cancer in the United States.*
+- **实际结果**: PURPOSE: Clinical guidelines recommend next-generation sequencing (NGS) before initiation of first-line (1L) therapy as the standard of care for patients with advanced non-small cell lung cancer (aNSCLC). This study exam…
+- **核验状态**: — 无数值核验项
+
+## 45. [Health Informatics J · IF — · 评分 47] [肺癌日间手术患者ERAS护理路径的开发与应用：单中心准实验研究报告护理依从性及术后恢复改善](https://pubmed.ncbi.nlm.nih.gov/42847761/)
+- **英文原题**: *Development and application of an ERAS nursing pathway for lung cancer patients following day-surgery.*
+- **作者结论**: The ERAS nursing pathway effectively improves perioperative nursing compliance and postoperative recovery outcomes in lung cancer day-surgery patients, while reducing complications and delayed discharge. It also enhances nursing workflow standardization and staff satisfaction, supporting its clinical value and broader implementation in surgical nursing practice.
+- **AI 疑点**: 摘要称多项指标“显著改善”，但未给出任何效应量、置信区间或P值；未明确主要终点，多个依从性指标并列报告，存在以过程指标替代临床终点的可能；准实验设计的分组方法、基线可比性、日间手术准入标准及护士满意度测量方式均未交代；单中心设计限制外推性。
+- **核验状态**: — 无数值核验项
+
+## 46. [Thorac Surg Clin · IF — · 评分 47] [非小细胞肺癌胸外科肿瘤学质量指标（第一部分）：基于结构-过程-结果框架的指标综述](https://pubmed.ncbi.nlm.nih.gov/42838626/)
+- **英文原题**: *Thoracic Surgery Oncology Quality Indicators (Part 1: Non-Small Cell Lung Cancer).*
+- **作者结论**: In non-small cell lung cancer, key themes include timely multidisciplinary treatment-driven care, accurate staging, appropriate surgery and adjuvant therapy, Enhanced Recovery after Surgery use, systematic quality review, and integration of patient-reported outcome measures to complement traditional outcomes.
+- **AI 疑点**: 摘要为叙述性概述，未描述系统检索、指标遴选与验证方法，也未报告任何指标的性能数据或临床结局；不能据此推断质量指标实施对结局的影响。
+- **核验状态**: — 无数值核验项
+
+## 47. [BMJ Open · IF — · 评分 47] [信迪利单抗联合诱导化疗后适应性同步放化疗及巩固治疗不可切除III期NSCLC：单臂多中心II期试验方案（ART-LUNG 01）](https://pubmed.ncbi.nlm.nih.gov/42810785/)
+- **英文原题**: *Single-arm, multicentre phase II trial of sintilimab plus platinum-based doublet chemotherapy followed by adaptive radiotherapy strategy for patients with unresectable stage III non-small-cell lung cancer in China: the ART-LUNG 01 study protocol.*
+- **AI 疑点**: 仅为试验方案，摘要未报告任何疗效或安全性结果；单臂设计、样本量35例、无同期对照，疗效无法归因于诱导免疫+适应性放疗策略；摘要未明确主要终点；放疗设置三种可选方案且根据肿瘤体积和分布选择，可能增加治疗异质性并影响结果解释。
+- **核验状态**: — 无数值核验项
+
+## 48. [Cell Death Dis · IF — · 评分 46] [FEN1通过EIF4A3介导MUC1-C自调控促进肺腺癌进展并参与免疫逃逸的临床前研究](https://pubmed.ncbi.nlm.nih.gov/42888188/)
+- **英文原题**: *Targeting FEN1 disrupts EIF4A3-mediated MUC1-C autoregulation: a novel strategy to suppress lung adenocarcinoma progression.*
+- **作者结论**: FEN1/EIF4A3/MUC1-C轴是驱动LUAD进展的新机制，可同时调控内在恶性与外在免疫逃逸，FEN1靶向是有前景的双重打击治疗策略。
+- **AI 疑点**: 摘要未报告样本量、效应量、生存HR/CI及P值，无法评估结果稳健性与临床可推广性；“独立预后因素”“显著上调”“协同上调”等均无具体统计数值；从细胞/动物机制与外推至“有前景的治疗策略”存在转化跳跃；FEN1、MUC1-C、PD-L1共表达与EGFR突变状态无关的结论缺少分层数据；信息不足。
+- **核验状态**: — 无数值核验项
+
+## 49. [Cancer Commun (Lond) · IF 28.4 · 评分 46] [小细胞肺癌五十年历程：机制、分子分型与治疗进展的叙述性综述](https://pubmed.ncbi.nlm.nih.gov/42840183/)
+- **英文原题**: *The Five-Decade Journey of Small Cell Lung Cancer.*
+- **作者结论**: 2018年一线化疗联合免疫检查点抑制剂及后线tarlatamab开启了SCLC治疗新时代，但生存改善虽然真实可及，仍不令人满意；本综述聚焦肿瘤起始、进展尤其是转移机制，以及表观遗传视角下的分子分型与耐药新进展，并梳理临床药物、策略与分子标志物及在研 promising agents，最后讨论利用人工智能与创新生物医学技术改善SCLC治疗格局。
+- **AI 疑点**: 叙述性综述，未描述系统检索策略、纳入排除标准或证据分级，药物与生物标志物进展的呈现可能存在选择性；摘要未给出任何疗效数值，无法核验其'生存改善仍不满意'的量化依据；将AI与创新技术列为展望但无对应证据支撑。
+- **核验状态**: — 无数值核验项
+
+## 50. [Respir Res · IF 5.7 · 评分 46] [FURIN通过抑制NRF2-xCT-GPX4轴介导的铁死亡促进肺腺癌进展，并构建多细胞死亡相关基因预后特征（AUC 0.73–0.78）](https://pubmed.ncbi.nlm.nih.gov/42834410/)
+- **英文原题**: *Multi-cell death gene signature predicts lung adenocarcinoma prognosis and reveals FURIN regulates ferroptosis via NRF2-xCT-GPX4 axis.*
 - **解读暂停**（核验未通过或出版状态存疑）：仅呈现题录与链接，请以原文为准。
 - **核验状态**: ⚠️ 未通过自动核验，解读暂停
 
-## 173. [Lancet Digit Health · IF 25.5 · 评分 21] [利用临床试验注册数据改进临床研究：ACT EU探索性研讨会的用例与使能因素观点](https://pubmed.ncbi.nlm.nih.gov/42881013/)
-- **英文原题**: *Improving clinical research through better use of clinical trial registry data.*
-- **作者结论**: 研讨会识别的用例为建立临床试验分析生态体系提供不同起点，以增强循证决策、促进创新、指导资助并最终惠及公共健康；在数据标准化、数据质量、互操作性与透明度等关键使能因素上形成强烈共识；欧洲药品管理局已开发ACT EU trial map作为面向患者的试验发现平台。
-- **AI 疑点**: 本文为观点性文章，无研究问题、无系统检索与定量分析，'强烈共识'未给出任何量化或共识形成方法；55 000项试验为注册库规模描述而非研究结果；用例三主题与使能因素四条目为作者归纳，缺乏利益相关方构成、抽样与分析的透明度；对胸外科/胸部肿瘤临床决策无可直接迁移的证据。
-- **核验状态**: — 无数值核验项
-
-## 174. [Can Assoc Radiol J · IF 4.0 · 评分 21] [腹膜后肉瘤影像评估、活检与监测的CAR/CSAR实践指南](https://pubmed.ncbi.nlm.nih.gov/42885099/)
-- **英文原题**: *CAR/CSAR Practice Guideline on Retroperitoneal Sarcomas (RPS).*
-- **作者结论**: 这些推荐基于现有文献和专家共识，为腹膜后肉瘤的影像路径、活检方法和监测提供指导。
-- **AI 疑点**: 摘要未报告系统检索策略、证据分级、共识形成方法及任何结果数据，推荐强度和适用边界无法评估；主题为腹膜后肉瘤而非胸部肿瘤，胸外科直接相关性有限。
-- **核验状态**: — 无数值核验项
-
-## 175. [Cancers (Basel) · IF 4.8 · 评分 21] [肝细胞癌免疫治疗疗效预测：生物标志物研究现状的叙述性综述（尚无可临床验证的预测标志物）](https://pubmed.ncbi.nlm.nih.gov/42882861/)
-- **英文原题**: *Prediction of Response to Immunotherapy in Hepatocellular Carcinoma: Where Do We Stand?*
-- **作者结论**: 本综述总结了当前在肝细胞癌中识别ICI疗效预测生物标志物的努力，整合临床、病理、分子、微生物组与影像学多种路径，并讨论了这些进展可能如何影响未来治疗选择；稳健且经临床验证的ICI疗效预测标志物仍是未被满足的需求。
-- **AI 疑点**: 叙述性综述：未报告检索策略、纳入排除标准、证据分级或定量合成，选择与权重不可核查；引用“不足三分之一客观缓解、10-25%严重irAE”等背景数据未标注来源研究，无法判断是否被选择性引用；全文无原始研究结果，摘要即结论，属观点性归纳而非可验证证据；主题为肝癌，与胸部肿瘤非同病种，外推需谨慎。
-- **核验状态**: — 无数值核验项
-
-## 176. [Front Immunol · IF 7.0 · 评分 20] [慢性前列腺炎/慢性盆腔疼痛综合征中的免疫细胞失衡与免疫代谢重编程：叙述性综述](https://pubmed.ncbi.nlm.nih.gov/42890513/)
-- **英文原题**: *Immune-cell imbalance and immunometabolic reprogramming in chronic prostatitis/chronic pelvic pain syndrome.*
-- **作者结论**: These concepts require prospective validation in clinically defined CP/CPPS subgroups before they can support mechanism-guided treatment.
-- **AI 疑点**: 该文为泌尿科良性疾病的叙述性综述，与胸部肿瘤/胸外科决策无直接关系；因分类选项受限而暂归入 advanced，实际主题不匹配。方法学上未报告系统检索策略、纳入排除标准、偏倚风险评估或定量合并，证据等级有限；文中提及孟德尔随机化与多组学但未给出具体效应量或置信区间。作者对因果表述总体谨慎（may、candidate），但综述仍存在选择性整合证据的可能。
-- **核验状态**: — 无数值核验项
-
-## 177. [J Imaging Inform Med · IF 5.1 · 评分 20] [计算颜色恒常性传统与深度学习方法综述及其在医学影像中的应用](https://pubmed.ncbi.nlm.nih.gov/42888313/)
-- **英文原题**: *A Survey of Computational Color Constancy: Approaches and Emerging Applications in Medical Imaging.*
-- **作者结论**: Together, these comparisons offer a broad perspective on how computational color constancy has developed and where it is headed, with particular emphasis on its applications in medical imaging.
-- **AI 疑点**: 非系统综述，摘要未报告检索策略、纳入排除标准、偏倚评估或定量合并；医学影像应用仅为综述重点，缺乏临床验证数据；信息不足。
-- **核验状态**: — 无数值核验项
-
-## 178. [J Imaging Inform Med · IF 5.1 · 评分 20] [急诊床旁超声基于就诊的问责式影像工作流与计费捕获增加相关：单中心回顾性中断时间序列分析](https://pubmed.ncbi.nlm.nih.gov/42888312/)
-- **英文原题**: *An Accountable Encounter-Based Imaging Workflow for Point-of-Care Ultrasound: Integrating Image Availability, Clinician Attribution, and Documentation Accountability.*
+## 51. [BMJ Open · IF — · 评分 46] [意大利普利亚地区恶性间皮瘤33年人群登记研究：职业与环境石棉暴露模式、地区高发分布及生存仍差](https://pubmed.ncbi.nlm.nih.gov/42833719/)
+- **英文原题**: *Epidemiology, exposure patterns and survival of malignant mesothelioma in Apulia, Italy (1993-2025): a population-based retrospective registry study.*
 - **解读暂停**（核验未通过或出版状态存疑）：仅呈现题录与链接，请以原文为准。
 - **核验状态**: ⚠️ 未通过自动核验，解读暂停
 
-## 179. [Cancers (Basel) · IF 4.8 · 评分 19] [EIF3E（int6）生物学复杂性综述：从病毒整合位点到实体瘤EIF3E::RSPO2融合及淋巴瘤易感性](https://pubmed.ncbi.nlm.nih.gov/42882815/)
-- **英文原题**: *The Complex Biology of EIF3E (int6): From Its Original Discovery to EIF3E::RSPO2 Fusions in Solid Tumors and Lymphoma Susceptibility.*
-- **作者结论**: EIF3E是选择性翻译、细胞稳态与癌症之间的枢纽；表观基因组、表观转录组与翻译调控之间的新兴联系为理解其在肿瘤发生中的情境依赖功能开辟新视角。
-- **AI 疑点**: 叙述性综述，无系统检索、纳入排除标准及定量合成；摘要未提供可核查的原始研究数据或终点；对EIF3E::RSPO2融合中单个EIF3E等位基因破坏的附加生物学效应明确称为未知。
-- **核验状态**: — 无数值核验项
-
-## 180. [EBioMedicine · IF 11.2 · 评分 18] [多重血清学检测以抗VSV-N IgA早期识别rVSVΔG-ZEBOV-GP疫苗接种者：小样本纵向检测研究](https://pubmed.ncbi.nlm.nih.gov/42887369/)
-- **英文原题**: *Early detection of immunoglobulin A against a vaccine backbone protein enables fast, durable, and objective identification of individuals vaccinated against Ebola virus.*
-- **作者结论**: 该检测可快速、准确识别疫苗受者，并支持暴发期间实时评估疫苗有效性；其可适配不断扩展的VSV载体疫苗管线，作为加速未来传染病防控准备和暴发应对策略的变革性诊断平台。
-- **AI 疑点**: 摘要宣称高敏感性和特异性，但未给出任何敏感性、特异性、置信区间或P值；样本量小（30+30+8）且无独立验证队列；结论从检测可行性外推至“变革性诊断平台”和实时疫苗有效性评估，乐观外推明显；本文为埃博拉疫苗血清学，与胸部肿瘤/胸外科无直接关系。
-- **核验状态**: — 无数值核验项
-
-## 181. [Respiration · IF 2.6 · 评分 18] [慢性肺病相关肺动脉高压的诊治专家综述：多模态筛查、血流动力学分型与靶向治疗的证据现状](https://pubmed.ncbi.nlm.nih.gov/42891961/)
-- **英文原题**: *Pulmonary hypertension associated with lung disease - an expert review from the Cologne Conference.*
-- **作者结论**: 吸入曲前列尼尔已成为部分国家首个获批用于间质性肺病相关肺动脉高压的治疗，但目前尚无肺动脉高压特异性治疗被常规推荐用于COPD相关肺动脉高压；早期识别、多学科协作及持续的转化与临床研究对改善这一高度脆弱人群的预后至关重要。
-- **AI 疑点**: 该文为会议专家组的叙述性综述，未报告检索策略、纳入排除标准、证据分级（如GRADE）或定量合成，存在选择性引用与专家意见主导的风险；文中提及吸入曲前列尼尔“首个获批”但未给出关键试验效应量、置信区间或获批所依据的终点，属结论性表述而非可核查数据；对COPD相关肺动脉高压“无常规推荐”亦未量化证据强度。摘要中无任何数值结果，无法核验。
-- **核验状态**: — 无数值核验项
-
-## 182. [Cancers (Basel) · IF 4.8 · 评分 18] [数字3D技术在儿童外科肿瘤中的应用现状、证据缺口与转化路径：专家白皮书](https://pubmed.ncbi.nlm.nih.gov/42882812/)
-- **英文原题**: *Digital 3D Technology in Pediatric Surgical Oncology: An Expert White Paper.*
-- **作者结论**: 尽管数字3D技术通过技术性能指标评估，但这些指标不一定带来临床结局改善；证明手术结局改善的证据仍然有限，部分因患者队列小。图像质量与标准化、分割复杂性、术中器官形变及临床验证不足等障碍仍阻碍临床转化；解决这些问题需要四方面进展：AI整合、多中心验证、包括数字孪生在内的集中式基础设施建设，以及支持广泛临床采用的可扩展实施策略。
-- **AI 疑点**: 专家白皮书/叙述性综述，无系统检索、纳入排除标准或偏倚评估；无原始定量结局。对AI自动分割、术中定位与切缘判断的潜在获益多为概念性描述，术中应用证据明确限定于临床前研究；技术性能指标与临床结局之间的证据缺口被作者承认，但本文本身不能验证任何技术效果。
-- **核验状态**: — 无数值核验项
-
-## 183. [Front Immunol · IF 7.0 · 评分 17] [HPS-80对DSS诱导小鼠溃疡性结肠炎的预防作用及抗炎、抗氧化和菌群调节机制](https://pubmed.ncbi.nlm.nih.gov/42890595/)
-- **英文原题**: *Polysaccharides from Radix Hedysari exhibited preventive effects against DSS-induced ulcerative colitis in C57BL/6 mice.*
-- **作者结论**: HPS-80 exerts protective effects against UC via anti-inflammatory, antioxidant and gut-microbiota-regulating capacities. It is a promising candidate agent for UC prevention.
-- **AI 疑点**: 摘要仅报告“显著改善”而无具体数值、样本量、随机/盲法及统计信息；为小鼠DSS模型，不能直接外推至临床UC预防；机制指标多为相关性，未证明因果；与胸部肿瘤临床无直接关系。
-- **核验状态**: — 无数值核验项
-
-## 184. [J Trauma Acute Care Surg · IF 3.9 · 评分 17] [创伤性腹壁疝的当代处理综述：诊断、探查指征、修补时机与污染野补片决策（叙述性综述，未提供新的对照证据）](https://pubmed.ncbi.nlm.nih.gov/42879570/)
-- **英文原题**: *Contemporary management of traumatic abdominal wall hernias: What you need to know.*
+## 52. [Front Immunol · IF 7.0 · 评分 46] [整合多组学与小鼠原位移植模型筛选葛根素相关候选靶点：ALDH2与肺腺癌巨噬细胞浸润相关，但直接结合与功能因果未获验证](https://pubmed.ncbi.nlm.nih.gov/42819377/)
+- **英文原题**: *Integrative multi-omics analysis prioritizes ALDH2 as a candidate Puerarin-associated target linked to macrophage infiltration in lung adenocarcinoma.*
 - **解读暂停**（核验未通过或出版状态存疑）：仅呈现题录与链接，请以原文为准。
 - **核验状态**: ⚠️ 未通过自动核验，解读暂停
 
-## 185. [Cardiovasc Intervent Radiol · IF 3.4 · 评分 17] [组织碎化技术（histotripsy）整合入化疗免疫治疗用于寡转移复发性肝外胆管癌：单例个案报道，未报告定量疗效](https://pubmed.ncbi.nlm.nih.gov/42881287/)
-- **英文原题**: *Integrating Histotripsy into Chemoimmunotherapy for Oligometastatic Recurrent Extrahepatic Cholangiocarcinoma: Case Report.*
+## 53. [Technol Cancer Res Treat · IF — · 评分 45 · 启发式] [Efficacy and Safety of CyberKnife-Based SBRT and Linear Accelerator-Based IMRT/VMAT for Thoracic Radiotherapy in Non-Small Cell Lung Cancer: A Propensity Score-Matched Real-World Analysis.](https://pubmed.ncbi.nlm.nih.gov/42857984/)
+- **英文原题**: *Efficacy and Safety of CyberKnife-Based SBRT and Linear Accelerator-Based IMRT/VMAT for Thoracic Radiotherapy in Non-Small Cell Lung Cancer: A Propensity Score-Matched Real-World Analysis.*
+- **实际结果**: IntroductionCyberKnife-based stereotactic body radiotherapy (SBRT) has demonstrated favorable outcomes in multiple tumors. This study aimed to compare the efficacy and safety of CyberKnife-based SBRT versus linear accele…
+- **核验状态**: — 无数值核验项
+
+## 54. [BMC Geriatr · IF — · 评分 45 · 启发式] [Perioperative recovery and survival after lobectomy versus sublobar resection in adults aged ≥ 70 years with NSCLC ≤ 3 cm: complementary SEER and real-world cohort analyses.](https://pubmed.ncbi.nlm.nih.gov/42816836/)
+- **英文原题**: *Perioperative recovery and survival after lobectomy versus sublobar resection in adults aged ≥ 70 years with NSCLC ≤ 3 cm: complementary SEER and real-world cohort analyses.*
+- **实际结果**: BACKGROUND: For older adults with non-small cell lung cancer (NSCLC), the choice of resection must balance durable cancer control against physiological reserve and postoperative recovery. We combined population-level lon…
+- **核验状态**: — 无数值核验项
+
+## 55. [Carcinogenesis · IF 3.8 · 评分 44] [空气污染与早发型肺癌：从环境致癌机制到早期干预策略的叙述性综述](https://pubmed.ncbi.nlm.nih.gov/42830393/)
+- **英文原题**: *Air pollution and early-onset lung cancer: from environmental carcinogenesis to early intervention strategies.*
 - **解读暂停**（核验未通过或出版状态存疑）：仅呈现题录与链接，请以原文为准。
 - **核验状态**: ⚠️ 未通过自动核验，解读暂停
 
-## 186. [Proteomics · IF 4.1 · 评分 16] [整合蛋白与磷酸化蛋白组学描绘系统性红斑狼疮疾病活动相关的膜相关信号改变（描述性多组学关联分析）](https://pubmed.ncbi.nlm.nih.gov/42885840/)
-- **英文原题**: *Integrated Multiomics Profiling Reveals Membrane-Associated Signaling Alterations Associated With Disease Activity in Systemic Lupus Erythematosus.*
-- **作者结论**: 这些发现提供了SLE中与疾病活动相关的膜相关分子改变的多组学视图。
-- **AI 疑点**: 摘要仅有定性描述，未报告任何效应量、差异倍数、置信区间或P值，无法判断组间差异幅度与可靠性；个体样本混合（pooling）为36份后上机，丧失个体层面变异信息，亦无法与90例对照做个体匹配统计；'self-established cohort'的纳入标准、疾病活动度评分（如SLEDAI）、用药情况均未交代；与1461例公共转录组的整合方式及批次校正未说明；SLE_R与SLE_A的聚类模式为无监督描述，缺乏独立验证队列；结论'与疾病活动相关'属关联性表述，不能推断因果或机制。
+## 56. [Front Immunol · IF 7.0 · 评分 43 · 启发式] [Context-dependent value of HLA class I diversity in advanced non-small cell lung cancer treated with immune checkpoint blockade.](https://pubmed.ncbi.nlm.nih.gov/42871323/)
+- **英文原题**: *Context-dependent value of HLA class I diversity in advanced non-small cell lung cancer treated with immune checkpoint blockade.*
+- **实际结果**: BACKGROUND: Immune checkpoint inhibitors (ICI), alone or in combination with chemotherapy, are the standard first-line treatment for advanced non-small cell lung cancer (NSCLC) without actionable oncogenic drivers. Progr…
 - **核验状态**: — 无数值核验项
 
-## 187. [Cancers (Basel) · IF 4.8 · 评分 16] [胆囊癌流行病学与预防：叙述性综述提出以风险分层为核心的行动框架（无原始数据）](https://pubmed.ncbi.nlm.nih.gov/42882845/)
-- **英文原题**: *Gallbladder Cancer: Epidemiology and Prevention.*
-- **作者结论**: GBC prevention is therefore possible through carefully evaluated risk-adapted strategies.（并提出以流行病学可信度、人群归因负担、基线风险、生物学合理性、可行性及干预获益-风险平衡为维度的实用框架，强调按情境匹配干预：全人群代谢与生活方式预防、高危胆囊疾病的靶向临床管理、流行区针对感染与环境暴露及手术可及性的策略）
-- **AI 疑点**: 叙述性综述，无系统检索策略、无纳入排除标准、无偏倚风险评估，亦无任何效应量或置信区间，故结论强度仅为专家观点层面。文中将饮食、饮酒、吸烟、生殖因素、社会经济劣势等列为“可行动性较低”，属定性分级，缺乏量化依据支撑其排序；结尾“预防是可能的”为缺乏干预试验数据支持的乐观归纳。此外全文无样本量、无终点指标，属信息不足而非阴性结果，不能作为任何疗效或筛查效力的证据引用。
+## 57. [Radiology · IF 17.6 · 评分 43 · 启发式] [Association of PET/CT Metabolic Parameters with Histologic Grade of Lung Adenocarcinoma: Implications for Surgical Decisions.](https://pubmed.ncbi.nlm.nih.gov/42867376/)
+- **英文原题**: *Association of PET/CT Metabolic Parameters with Histologic Grade of Lung Adenocarcinoma: Implications for Surgical Decisions.*
+- **实际结果**: Background The grading system for invasive lung adenocarcinoma proposed by the International Association for the Study of Lung Cancer (IASLC) has been widely validated. However, the association of PET/CT with IASLC grade…
 - **核验状态**: — 无数值核验项
 
-## 188. [SCIENCE · IF 47.3 · 评分 15] [将电子相写入原子层：原子级薄材料可转变为具有不同电子特性的晶体](https://pubmed.ncbi.nlm.nih.gov/42879569/)
-- **英文原题**: *Writing electronic phases into atomic layers.*
-- **作者结论**: 原子级薄材料可转化为具有不同电子特性的晶体。
-- **AI 疑点**: 非胸部肿瘤临床研究；摘要仅一句，无研究设计、样本量、终点、对照或统计数值，无法评估方法学严谨性与临床转化价值。
+## 58. [Lung Cancer · IF 5.3 · 评分 43 · 启发式] [TLS-related immune organization and regional IRF4 expression in pretreatment biopsies of advanced lung adenocarcinoma.](https://pubmed.ncbi.nlm.nih.gov/42858497/)
+- **英文原题**: *TLS-related immune organization and regional IRF4 expression in pretreatment biopsies of advanced lung adenocarcinoma.*
+- **实际结果**: OBJECTIVES: Tertiary lymphoid structure (TLS) assessment is challenging in advanced lung adenocarcinoma because pretreatment diagnosis often relies on limited biopsy tissue that may incompletely represent lymphoid archit…
 - **核验状态**: — 无数值核验项
 
-## 189. [SCIENCE · IF 47.3 · 评分 15] [肠道隐窝中的振荡信号动态与肠道健康维持（Science 评论）](https://pubmed.ncbi.nlm.nih.gov/42879566/)
-- **英文原题**: *Keeping time in the crypt.*
-- **作者结论**: Oscillating signal dynamics confer robust intestinal health.
-- **AI 疑点**: 摘要仅一句，未提供研究设计、样本量、终点或统计数值；主题为肠道隐窝基础生物学，非胸部肿瘤；信息不足。
+## 59. [Lung Cancer · IF 5.3 · 评分 43 · 启发式] [Lung cytology in the diagnostic workflow: A real-world study of its clinical impact.](https://pubmed.ncbi.nlm.nih.gov/42854279/)
+- **英文原题**: *Lung cytology in the diagnostic workflow: A real-world study of its clinical impact.*
+- **实际结果**: BACKGROUND: In the era of precision oncology, lung cancer diagnosis still relies on small and often limited tissue samples, which may be insufficient for definitive tumor classification and predictive biomarker assessmen…
 - **核验状态**: — 无数值核验项
 
-## 190. [SCIENCE · IF 47.3 · 评分 15] [植物如何解码免疫原性聚糖](https://pubmed.ncbi.nlm.nih.gov/42879564/)
-- **英文原题**: *How plants decode immunogenic glycans.*
-- **作者结论**: Distinct recognition systems for specific sugars ensure appropriate immune or maintenance responses.
-- **AI 疑点**: 信息不足：摘要仅一句，无法获知研究设计、样本量、终点与数值；主题为植物免疫聚糖识别，与胸部肿瘤临床无关；category 六项均不匹配，强行归类会误导。
+## 60. [Medicine (Baltimore) · IF — · 评分 43] [单中心回顾性观察：罗米司亭N01治疗肺癌患者重度持续性肿瘤治疗相关血小板减少症的血小板恢复率与安全性](https://pubmed.ncbi.nlm.nih.gov/42854051/)
+- **英文原题**: *Single-center experience with Romiplostim N01 for the management of severe persistent cancer therapy-induced thrombocytopenia in lung cancer: Insights and outcomes.*
+- **解读暂停**（核验未通过或出版状态存疑）：仅呈现题录与链接，请以原文为准。
+- **核验状态**: ⚠️ 未通过自动核验，解读暂停
+
+## 61. [Endocr Pathol · IF 4.6 · 评分 43 · 启发式] [Distinct Molecular Pathways Driving Thymic and Pulmonary Neuroendocrine Neoplasms: Organ of Origin Defines Molecular Identity and Yields CD44 as a Marker of Pulmonary Neuroendocrine Tumors.](https://pubmed.ncbi.nlm.nih.gov/42853456/)
+- **英文原题**: *Distinct Molecular Pathways Driving Thymic and Pulmonary Neuroendocrine Neoplasms: Organ of Origin Defines Molecular Identity and Yields CD44 as a Marker of Pulmonary Neuroendocrine Tumors.*
+- **实际结果**: Thymic and pulmonary neuroendocrine neoplasms (NEN) are morphologically similar but arise from different embryonic tissues. Whether this similarity extends to shared molecular programs is unclear.
 - **核验状态**: — 无数值核验项
 
-## 191. [SCIENCE · IF 47.3 · 评分 15] [近0°扭转WSe2/WS2莫尔超晶格中栅压可调的手性自旋模式](https://pubmed.ncbi.nlm.nih.gov/42879561/)
-- **英文原题**: *Gate-tunable chiral spin mode in WSe2/WS2 moiré superlattices.*
-- **作者结论**: Our results demonstrate that transition metal-dichalcogenide moiré superlattices are a fertile platform for exploring exotic low-lying collective excitations.
-- **AI 疑点**: 该文为基础凝聚态物理研究，非胸部肿瘤临床研究；无临床PICO、终点或统计数值，无法评价临床影响与方法学严谨性；六类分类均不适配，category 暂归 advanced 仅为满足枚举。
+## 62. [Cancer · IF 5.6 · 评分 43 · 启发式] [Who is eligible for lung cancer screening, and where are they? National subpopulation estimates of people eligible for lung cancer screening.](https://pubmed.ncbi.nlm.nih.gov/42851073/)
+- **英文原题**: *Who is eligible for lung cancer screening, and where are they? National subpopulation estimates of people eligible for lung cancer screening.*
+- **实际结果**: BACKGROUND: The utilization of lung cancer screening services is less than 20%. There are a myriad of barriers at the patient, provider, and health care system levels that account for such low uptake.
 - **核验状态**: — 无数值核验项
 
-## 192. [Int J Med Robot · IF 2.4 · 评分 14] [体外名义浓度TPP暴露与胶质瘤细胞BRG1相关染色质及EREG-EGFR/ERK读出变化的关联性研究（未证实因果环路）](https://pubmed.ncbi.nlm.nih.gov/42886048/)
-- **英文原题**: *Triphenyl Phosphate Exposure Is Associated With BRG1-Related Cellular and Metabolic Readouts and EREG-EGFR/ERK Signalling in Glioma Cells.*
-- **实际结果**: 摘要未报告任何效应量、置信区间或P值；仅给出名义暴露浓度11 μM。所报告结果均为方向性描述：CCK-8信号升高、MMP分泌/Rac1活性/基质黏附改变、葡萄糖/乳酸/线粒体呼吸读出改变、EGFR启动子区BRG1占据增加及EGFR与EREG相关读出升高；空间转录组显示公共胶质母细胞瘤组织内线粒体基因表达存在区域异质性。
-- **作者结论**: 研究结果支持一个候选的BRG1相关细胞框架，即名义TPP暴露与胶质瘤细胞中BRG1相关染色质及EGFR/代谢读出相关；该模式与候选的EREG-EGFR/MAPK-ERK通路关联一致，但不能证明存在自我维持环路或直接化学招募。
-- **AI 疑点**: ①全部结论均为“associated with”式关联，无剂量-反应、无重复暴露、无通路阻断/回补验证，因果链未建立；②摘要未给出任何统计量（n、CI、P），无法判断效应稳健性；③空间转录组仅使用公共胶质母细胞瘤组织描述线粒体基因区域异质性，与TPP暴露无直接连接，属易被误读为支持性证据的旁证；④“名义浓度”提示实际暴露浓度未验证，体外浓度外推到环境暴露风险存在明显跳跃；⑤该文发表于医学机器人与计算机辅助外科期刊，与内容主题明显不匹配，提示期刊定位/审稿匹配度问题；⑥研究主题为胶质瘤环境毒理，与胸部肿瘤临床无交集。
+## 63. [Ann Behav Med · IF — · 评分 43] [吸烟、COPD与肺癌污名测量量表COSMIN系统评价：28个量表均含可能加重污名的措辞，心理测量学证据均不足以完全验证](https://pubmed.ncbi.nlm.nih.gov/42847377/)
+- **英文原题**: *COSMIN systematic review of stigma measurement in smoking, COPD, and lung cancer: content analysis, language audit, and psychometrics.*
+- **解读暂停**（核验未通过或出版状态存疑）：仅呈现题录与链接，请以原文为准。
+- **核验状态**: ⚠️ 未通过自动核验，解读暂停
+
+## 64. [Cancer · IF 5.6 · 评分 43 · 启发式] [Redefining leptomeningeal metastasis in non-small cell lung cancer: From terminal complication to molecularly managed disease.](https://pubmed.ncbi.nlm.nih.gov/42836697/)
+- **英文原题**: *Redefining leptomeningeal metastasis in non-small cell lung cancer: From terminal complication to molecularly managed disease.*
+- **实际结果**: Leptomeningeal disease (LMD) is one of the most devastating complications of advanced non-small cell lung cancer (NSCLC), historically associated with profound neurologic morbidity and poor survival. Advances in cerebros…
 - **核验状态**: — 无数值核验项
 
-## 193. [Proteomics · IF 4.1 · 评分 13] [五种定量蛋白质组学方法交叉比较用于鉴定秀丽隐杆线虫寿命调控因子（非胸部肿瘤研究）](https://pubmed.ncbi.nlm.nih.gov/42878115/)
-- **英文原题**: *Comparative Proteomic Quantification Reveals Novel Longevity Regulators.*
-- **作者结论**: 获得了与寿命相关的蛋白质组变化的系统视图，并鉴定出新的寿命调控因子；该系统性跨方法比较也可作为指导定量蛋白质组学方法选择的宝贵资源。
-- **AI 疑点**: 摘要未报告任何样本量、蛋白质组覆盖率、定量重复性数值、候选蛋白数量或遗传筛选命中数；‘新的寿命调控因子’未在摘要中列出或给出验证性功能数据；跨方法‘显著且方向一致’的判定阈值与统计标准未说明；研究对象为线虫，与胸部肿瘤临床无直接关联。
+## 65. [Eur Radiol Exp · IF 4.7 · 评分 43 · 启发式] [Radiomics machine learning models for lung cancer early diagnosis in heterogenous multicentre chest CT data: LIBRA study results.](https://pubmed.ncbi.nlm.nih.gov/42831983/)
+- **英文原题**: *Radiomics machine learning models for lung cancer early diagnosis in heterogenous multicentre chest CT data: LIBRA study results.*
+- **实际结果**: OBJECTIVE: We developed and validated radiomics models for lung cancer prediction in indeterminate pulmonary nodules that retain performance in heterogenous data from multiple centres. MATERIALS AND METHODS: The retrospe…
 - **核验状态**: — 无数值核验项
 
-## 194. [Cancers (Basel) · IF 4.8 · 评分 13] [多发性骨髓瘤免疫生态的单细胞与多组学解析：从骨髓空间结构与代谢重编程到免疫治疗反应（叙述性综述）](https://pubmed.ncbi.nlm.nih.gov/42882852/)
-- **英文原题**: *Single-Cell and Multi-Omics Profiling of the Multiple Myeloma Immune Niche: From Bone Marrow Architecture and Metabolic Reprogramming to Immunotherapy Response.*
-- **作者结论**: 提出多发性骨髓瘤的进展与复发应通过整合的时空框架来解读，治疗结局反映恶性浆细胞可塑性、免疫能力、基质持续存在、代谢适应与残留病灶定位之间的相互作用。
-- **AI 疑点**: 全文为多发性骨髓瘤（血液肿瘤）的叙述性综述，与胸部肿瘤/胸外科无直接关联，瘤种与专栏契合度存疑；摘要未报告检索数据库、检索式、纳入文献数量与质量评价，属叙述性综述，证据层级低；核心论点“时空整合框架”为作者观点性综合，非可核验的汇总结果；无任何定量数据可供取数。
+## 66. [Front Immunol · IF 7.0 · 评分 43 · 启发式] [Immune-related adverse events and clinical outcomes in advanced non-small cell lung cancer: does more toxicity predict better outcomes?](https://pubmed.ncbi.nlm.nih.gov/42824450/)
+- **英文原题**: *Immune-related adverse events and clinical outcomes in advanced non-small cell lung cancer: does more toxicity predict better outcomes?*
+- **实际结果**: BACKGROUND: Immune checkpoint inhibitors (ICIs) are a cornerstone of therapy for advanced non-small cell lung cancer (NSCLC). Elderly patients remain underrepresented in clinical trials, and the prognostic significance o…
 - **核验状态**: — 无数值核验项
 
-## 195. [Front Immunol · IF 7.0 · 评分 12] [角化细胞坏死性凋亡在炎症性皮肤病与急性表皮损伤中的作用：机制、证据与治疗意义（叙述性综述）](https://pubmed.ncbi.nlm.nih.gov/42890604/)
-- **英文原题**: *Keratinocyte necroptosis in inflammatory skin diseases and acute epidermal injury: mechanisms, evidence, and therapeutic implications.*
-- **作者结论**: Mechanistic studies and preliminary translational evidence suggest that necroptosis-related signaling in keratinocytes may represent a therapeutic target. However, the effects of pathway modulation may vary across disease contexts and depend on infection status and the immune microenvironment. Defining the disease-specific contribution of keratinocyte necroptosis and the corresponding therapeutic windows will therefore be essential for evaluating the clinical feasibility of this strategy.
-- **AI 疑点**: 非胸部肿瘤/胸外科文献；六类分类均不契合，category 为受限占位。叙述性 mini review，无系统检索策略、无纳入排除标准、无定量合成、无原始研究数据；摘要未报告任何效应量或统计值，对临床决策信息不足。
+## 67. [Oncologist · IF 4.7 · 评分 43 · 启发式] [Precision oncology at speed: workflow design determines clinical utility in rapid molecular testing for lung cancer.](https://pubmed.ncbi.nlm.nih.gov/42821654/)
+- **英文原题**: *Precision oncology at speed: workflow design determines clinical utility in rapid molecular testing for lung cancer.*
+- **实际结果**: PURPOSE: Matching patients with effective targeted therapies requires timely molecular results; however, the challenge today how to embed it into routine clinical workflows in ways that meaningfully affect patient-level …
 - **核验状态**: — 无数值核验项
 
-## 196. [Front Immunol · IF 7.0 · 评分 11] [鼻-脑轴作为神经免疫通道：过敏性鼻炎中枢神经系统重塑的机制综述](https://pubmed.ncbi.nlm.nih.gov/42890520/)
-- **英文原题**: *The nose-brain axis as a neuroimmune conduit: how allergic rhinitis rewires the central nervous system.*
-- **作者结论**: 鼻-脑轴为理解过敏性鼻炎中的神经炎症和中枢敏化提供了统一机制框架，并为开发针对难治性过敏性鼻炎及其中枢共病的靶向治疗提供了新见解。
-- **AI 疑点**: 非胸部肿瘤/胸外科文献，分类不适配；叙述性综述，摘要称“systematically”但未提供检索策略、纳入标准、偏倚评估或定量合成；无原始数据、效应量或终点结果，机制主张多为整合性推断，信息不足。
+## 68. [Front Immunol · IF 7.0 · 评分 43 · 启发式] [A mechanical stimulation-related gene signature predicts prognosis, reflects immune microenvironment remodeling, and identifies COL22A1 as a potential therapeutic target in lung adenocarcinoma.](https://pubmed.ncbi.nlm.nih.gov/42819422/)
+- **英文原题**: *A mechanical stimulation-related gene signature predicts prognosis, reflects immune microenvironment remodeling, and identifies COL22A1 as a potential therapeutic target in lung adenocarcinoma.*
+- **实际结果**: BACKGROUND: Mechanical stimulation is a key biomechanical characteristic of the tumor microenvironment and is involved in tumor progression, immune microenvironment remodeling, and therapy resistance. This study aimed to…
 - **核验状态**: — 无数值核验项
 
-## 197. [Cancers (Basel) · IF 4.8 · 评分 9] [胆汁代谢异常与远端结肠脂质代谢重塑：结直肠癌发生的假说性综述](https://pubmed.ncbi.nlm.nih.gov/42882854/)
-- **英文原题**: *From Bile Dysmetabolism to Lipid-Metabolic Remodeling of the Distal Colon: A Vectorial Concept of Colorectal Carcinogenesis (Part I).*
-- **作者结论**: 提出慢性胆汁代谢环境改变合并长期腔内及黏膜相关暴露可促进形态学非肿瘤黏膜的脂质代谢重塑；该状态可能改变上皮屏障、代谢与再生特性，并随后在微生物含氮产物作用下形成克隆选择条件；肿瘤克隆出现后同一局部环境可能成为支持克隆扩增的代谢生态位。该模型扩展了场癌化概念并生成可实验/前瞻性检验的时空预测，验证后可能为将形态学非肿瘤黏膜作为风险组织及早期预防诊断提供基础。
-- **AI 疑点**: 叙述性综述，无系统检索、偏倚评估或原始验证数据；核心为假说模型，摘要中无验证结果；将形态学非肿瘤黏膜表述为“潜在风险组织”属待验证外推；主题为结直肠癌，与胸外科/胸部肿瘤目录不匹配。
+## 69. [Front Immunol · IF 7.0 · 评分 43 · 启发式] [Neutrophil extracellular traps promote lung colonization of triple-negative breast cancer by inducing mesenchymal to epithelial transition.](https://pubmed.ncbi.nlm.nih.gov/42819317/)
+- **英文原题**: *Neutrophil extracellular traps promote lung colonization of triple-negative breast cancer by inducing mesenchymal to epithelial transition.*
+- **实际结果**: Metastatic recurrence is still a major problem for triple-negative breast cancer (TNBC). Neutrophil extracellular traps (NETs) in the pulmonary microenvironment are known to play key roles in the metastatic colonization …
 - **核验状态**: — 无数值核验项
 
-## 198. [Cancers (Basel) · IF 4.8 · 评分 8] [SOX17在妇科肿瘤中的生物学功能与诊断应用：一篇叙述性综述](https://pubmed.ncbi.nlm.nih.gov/42882856/)
-- **英文原题**: *SOX17 in Gynecologic Tumors: Biology and Diagnostic Applications.*
-- **作者结论**: 当前证据确立SOX17为具有诊断和生物学相关性的谱系生物标志物。
-- **AI 疑点**: 该文为妇科肿瘤领域的叙述性综述，非胸外科/胸部肿瘤原始研究；缺乏系统检索与定量合并方法，摘要未提供样本量、效应值、置信区间或诊断准确性数值；纳入胸部肿瘤评审队列存在领域不匹配。信息不足：无法评估SOX17诊断敏感性和特异性的具体数值。
+## 70. [Cancer Imaging · IF 4.8 · 评分 43 · 启发式] [Quantitative PCCT spectral parameters for noninvasive prediction of EGFR status and its subtypes in lung adenocarcinoma.](https://pubmed.ncbi.nlm.nih.gov/42816867/)
+- **英文原题**: *Quantitative PCCT spectral parameters for noninvasive prediction of EGFR status and its subtypes in lung adenocarcinoma.*
+- **实际结果**: OBJECTIVE: To investigate the non-invasive predictive value of quantitative spectral parameters from photon-counting computed tomography (PCCT) for epidermal growth factor receptor (EGFR) mutation status and its predomin…
 - **核验状态**: — 无数值核验项
 
-## 199. [Cancer Cell Int · IF 7.0 · 评分 6] [膀胱癌类器官在精准医学中的转化应用与现存挑战：叙述性综述](https://pubmed.ncbi.nlm.nih.gov/42881413/)
-- **英文原题**: *Bladder cancer organoids in precision medicine: bridging basic science, clinical therapeutics and drug development.*
-- **作者结论**: BCOs在连接基础科学、临床治疗和药物开发方面具有前景；但临床转化仍受标准化培养方案缺失、患者间生物学变异、天然TME重建不完整、操作复杂及临床验证不足等限制，未来解决这些限制对释放其临床潜力并加速转化研究中的广泛应用至关重要。
-- **AI 疑点**: 叙述性综述，非系统评价；摘要未提供检索策略、纳入排除标准、证据分级或偏倚评估；未报告原始定量结果；对类器官使用“transformative platform”等乐观表述，但证据基础为叙述性总结，需谨慎看待；信息不足。
+## 71. [Lung Cancer · IF 5.3 · 评分 43 · 启发式] [Systemic and intracranial activity of antibody-drug conjugates in patients with non-small cell lung cancer and brain metastases: A systematic review and meta-analysis.](https://pubmed.ncbi.nlm.nih.gov/42815252/)
+- **英文原题**: *Systemic and intracranial activity of antibody-drug conjugates in patients with non-small cell lung cancer and brain metastases: A systematic review and meta-analysis.*
+- **实际结果**: INTRODUCTION: Brain metastases (BM) remain a major clinical challenge in patients with non-small cell lung cancer (NSCLC). Although antibody-drug conjugates (ADCs) have emerged as important treatment options for advanced…
 - **核验状态**: — 无数值核验项
 
-## 200. [Cell Immunol · IF — · 评分 2] [CD47作为疟疾先天免疫检查点及宿主导向治疗靶点的叙述性综述：机制证据与转化差距](https://pubmed.ncbi.nlm.nih.gov/42887342/)
-- **英文原题**: *Rethinking CD47 an innate immune checkpoint and immunotherapeutic target in malaria pathogenesis: A narrative review.*
-- **作者结论**: CD47, therefore represents a promising but incompletely validated host-directed therapeutic target, with important translational gaps that must be addressed before clinical application.
-- **AI 疑点**: 叙述性综述，无系统检索策略、纳排标准、偏倚评估或定量合成；无原始数据与疗效数值；将CD47表述为“promising”但未提供临床前/临床疗效数据支撑；主题为疟疾免疫学，与胸部肿瘤/胸外科无直接关联；信息不足，无法评估偏倚风险。
+## 72. [Eur Radiol Exp · IF 4.7 · 评分 43 · 启发式] [A transfer learning-based hybrid deep- and machine-learning regression approach for predicting the postoperative pulmonary function.](https://pubmed.ncbi.nlm.nih.gov/42814229/)
+- **英文原题**: *A transfer learning-based hybrid deep- and machine-learning regression approach for predicting the postoperative pulmonary function.*
+- **实际结果**: OBJECTIVES: Accurately predicting postoperative pulmonary function is essential for surgical decision-making in patients with pulmonary nodules. Here, we developed a hybrid model using preoperative computed tomography (C…
+- **核验状态**: — 无数值核验项
+
+## 73. [Front Immunol · IF 7.0 · 评分 43 · 启发式] [Impact of ALC Nadir and EDRIC on survival outcomes in limited-stage small cell lung cancer receiving chemoradiotherapy: a retrospective analysis comparing twice-daily and once-daily radiotherapy.](https://pubmed.ncbi.nlm.nih.gov/42812441/)
+- **英文原题**: *Impact of ALC Nadir and EDRIC on survival outcomes in limited-stage small cell lung cancer receiving chemoradiotherapy: a retrospective analysis comparing twice-daily and once-daily radiotherapy.*
+- **实际结果**: BACKGROUND: This study aimed to evaluate the prognostic value of absolute lymphocyte count (ALC) nadir and estimated dose of radiation to immune cells (EDRIC) in patients with limited-stage small cell lung cancer (LS-SCL…
+- **核验状态**: — 无数值核验项
+
+## 74. [⭐J Immunother Cancer · IF 11.7 · 评分 43 · 启发式] [Prolonged survival after systemic immune reactivation by aglatimagene besadenovec plus valacyclovir in immune checkpoint inhibitor-refractory non-small cell lung cancer.](https://pubmed.ncbi.nlm.nih.gov/42805763/)
+- **英文原题**: *Prolonged survival after systemic immune reactivation by aglatimagene besadenovec plus valacyclovir in immune checkpoint inhibitor-refractory non-small cell lung cancer.*
+- **实际结果**: BACKGROUND: Patients with advanced non-small cell lung cancer who progress on immune checkpoint inhibitors (ICIs) face limited options and poor survival. Aglatimagene besadenovec (CAN-2409), a replication-defective adeno…
+- **核验状态**: — 无数值核验项
+- ⭐ **规则精选**: RCT/III 期证据发表于 A 级期刊，直接影响局晚/晚期治疗线序与方案选择
+
+## 75. [Lung Cancer · IF 5.3 · 评分 43 · 启发式] [Real-world progression-free survival with erlotinib versus osimertinib in EGFR L858R + T790M compound mutation non-small cell lung Cancer: An exploratory analysis of the MSK-CHORD dataset.](https://pubmed.ncbi.nlm.nih.gov/42804885/)
+- **英文原题**: *Real-world progression-free survival with erlotinib versus osimertinib in EGFR L858R + T790M compound mutation non-small cell lung Cancer: An exploratory analysis of the MSK-CHORD dataset.*
+- **实际结果**: BACKGROUND: Osimertinib is the standard first-line treatment for EGFR-mutant non-small cell lung cancer (NSCLC) harboring common activating mutations, including exon 19 deletions and L858R. It is also active against tumo…
+- **核验状态**: — 无数值核验项
+
+## 76. [Thorac Surg Clin · IF — · 评分 42] [STS肺癌肺切除短期与长期风险模型：叙述性概览（无性能数据）](https://pubmed.ncbi.nlm.nih.gov/42838635/)
+- **英文原题**: *The Society of Thoracic Surgeons Short-Term and Long-Term Pulmonary Resection for Lung Cancer Risk Modeling.*
+- **作者结论**: STS已开发短期和长期肺癌切除风险模型，用于风险估计和质量改进；基于真实世界数据，这些模型现已可直接应用于患者照护。
+- **AI 疑点**: 摘要为叙述性介绍，未提供模型开发/验证方法、样本量、终点定义及性能指标（如C统计量、校准度），无法评估严谨性；“now available for direct application”属推广性表述，缺乏摘要内验证数据支持。
+- **核验状态**: — 无数值核验项
+
+## 77. [Proc Natl Acad Sci U S A · IF — · 评分 42] [慢性香烟烟雾暴露诱导不同肺干细胞状态，Kras突变与TP53缺失分别驱动腺癌和鳞癌](https://pubmed.ncbi.nlm.nih.gov/42832683/)
+- **英文原题**: *Chronic cigarette smoke exposure induces distinct stem cell states driving genetic driver-specific non-small cell lung cancer subtypes.*
+- **作者结论**: 我们的发现定义了CI诱导干细胞状态的独特转录组谱，并揭示细胞死亡通路相关基因在增强致癌驱动因素促进NSCLC中的关键作用；数据提示可用于预测癌症风险和实现早期拦截的策略。
+- **AI 疑点**: 基础/临床前类器官研究，摘要未报告样本量、重复数、统计检验或效应量；结论中“预测癌症风险、早期拦截”为外推性应用前景，尚缺人体数据支持；机制关联不能直接推断临床效用。
+- **核验状态**: — 无数值核验项
+
+## 78. [Front Immunol · IF 7.0 · 评分 41] [NSCLC 肺-肠-脑轴证据呈梯度分布：系统检索的叙述性综述显示可溶性代谢物轴证据较充分，而神经免疫整合轴近乎无直接证据](https://pubmed.ncbi.nlm.nih.gov/42852084/)
+- **英文原题**: *The lung-gut-brain axis in non-small-cell lung cancer: a narrative review with a systematic search of three signaling pathways.*
+- **解读暂停**（核验未通过或出版状态存疑）：仅呈现题录与链接，请以原文为准。
+- **核验状态**: ⚠️ 未通过自动核验，解读暂停
+
+## 79. [Ann Behav Med · IF — · 评分 41] [英国筛查合格吸烟者肺癌筛查意愿的认知、情感与想法预测因素：横断面在线研究](https://pubmed.ncbi.nlm.nih.gov/42847382/)
+- **英文原题**: *Understanding lung cancer screening motivation: cognitive, affective, and thought-based predictors in a UK screening-eligible sample.*
+- **作者结论**: 筛查动机由认知和情感因素共同塑造，并由不同想法支撑；健康传播干预或可强化道德和描述性规范、利用不作为后悔、并通过处理污名、尴尬和癌症担忧提升自我效能，从而在国家实施关键阶段提高筛查参与。
+- **AI 疑点**: 摘要未报告任何效应量、CI或P值，无法评估关联强度；横断面设计仅预测筛查意向而非实际参与；在线自报样本与情景阅读外推需谨慎；想法内容编码方法与可靠性未说明；将规范、后悔等作为干预靶点属推断，未验证干预效果。
+- **核验状态**: — 无数值核验项
+
+## 80. [Clin Transl Sci · IF 4.3 · 评分 41] [美国真实世界理赔数据揭示NSCLC常见共用药及CYP3A/P-gp等DDI风险，并构建半定量优先排序框架](https://pubmed.ncbi.nlm.nih.gov/42813501/)
+- **英文原题**: *From Real World Data to Real Impact: A Co-Medication Framework for Lung Cancer to Advance DDI Assessment and Patient-Centric Drug Development.*
+- **作者结论**: 这些发现表明，整合真实世界数据可通过改进临床试验设计、为风险缓解策略提供信息并支持更以患者为中心的药物开发，从而加强DDI评估。
+- **AI 疑点**: 摘要未报告样本量、DDI发生率、置信区间或任何效应估计，无法判断精确性与代表性；‘predominately NSCLC’未说明疾病分期、治疗线和生物标志物亚型；理赔数据可能遗漏非处方药、自费药、剂量与依从性信息；半定量DDI优先排序框架未经外部验证；由描述性共用药模式推断可改进临床试验设计属于外推，尚缺乏干预性或结局验证。
+- **核验状态**: — 无数值核验项
+
+## 81. [Int J Mol Sci · IF — · 评分 40] [肺类癌诊断与治疗现状综述：分子分型进展突出，晚期治疗仍主要依赖混合神经内分泌队列的外推证据](https://pubmed.ncbi.nlm.nih.gov/42884110/)
+- **英文原题**: *Pulmonary Carcinoid Tumors (Lung Carcinoids): Current Concepts in Diagnosis and Management.*
+- **作者结论**: 新兴的分子分型与生物标志物驱动策略具有显著前景，但目前晚期肺类癌的治疗在很大程度上依赖来自混合神经内分泌队列的外推数据，这凸显了开展前瞻性、胸部肿瘤专属临床试验以在临床实践中验证这些范式的迫切需求；新兴的生物标志物驱动试验设计与整合式精准医学路径为优化治疗、改善这一罕见肿瘤类型的结局提供了机会。
+- **AI 疑点**: 摘要为纯定性叙述，未提供任何样本量、效应值、置信区间或统计检验，属叙述性综述而非系统评价，检索策略、纳入标准与证据分级均未交代，无法评估证据强度与选择偏倚；'urgent need for prospective thoracic-dedicated trials'为作者观点而非数据结论，不可作为疗效证据引用；全文无结果数值，tuples 留空。
+- **核验状态**: — 无数值核验项
+
+## 82. [PLoS One · IF — · 评分 40 · 启发式] [Real-world before-and-after evaluation of AI support for lung cancer diagnosis at three US lung nodule clinics.](https://pubmed.ncbi.nlm.nih.gov/42873759/)
+- **英文原题**: *Real-world before-and-after evaluation of AI support for lung cancer diagnosis at three US lung nodule clinics.*
+- **实际结果**: BACKGROUND: Health systems and payers require evidence that artificial intelligence (AI)-enabled decision support improves care delivery. Integrating AI into lung nodule management pathways may streamline workflows, impr…
+- **核验状态**: — 无数值核验项
+
+## 83. [J Environ Pathol Toxicol Oncol · IF — · 评分 40] [乳酸化相关基因预后模型用于肺腺癌风险分层与免疫微环境评估：基于公共数据库的生物信息学分析](https://pubmed.ncbi.nlm.nih.gov/42870608/)
+- **英文原题**: *Lactylation-Related Gene Expression as a Predictor for Lung Adenocarcinoma Prognosis, Microenvironment Characteristics, and Therapeutic Reactions.*
+- **作者结论**: LRGs-LUAD 预后模型是预测 LUAD 患者预后的可行工具，可支持临床预后风险评估和个体化治疗。
+- **AI 疑点**: 摘要未给出模型性能（HR、AUC、校准/验证队列结果）及样本量，结论强于可核验证据；免疫治疗反应由 IPS/TIDE 等替代指标推断，并非实际治疗结局；药物预测为计算性假设；TCGA/GEO 回顾性建模存在过拟合、批次效应与缺乏前瞻性/临床外部验证的风险。
+- **核验状态**: — 无数值核验项
+
+## 84. [J Robot Surg · IF 4.2 · 评分 40 · 启发式] [Lymph node yield and station count in early robot-assisted versus established video-assisted resection for non-small cell lung cancer: higher total node counts reflect yield per sampled station.](https://pubmed.ncbi.nlm.nih.gov/42860470/)
+- **英文原题**: *Lymph node yield and station count in early robot-assisted versus established video-assisted resection for non-small cell lung cancer: higher total node counts reflect yield per sampled station.*
+- **实际结果**: Whether robot-assisted thoracic surgery (RATS) improves nodal staging over video-assisted thoracoscopic surgery (VATS) early in adoption is unknown. We compared occult nodal upstaging and lymph node (LN) retrieval betwee…
+- **核验状态**: — 无数值核验项
+
+## 85. [Acta Oncol · IF — · 评分 40 · 启发式] [Co-mutation patterns and survival associations in lung cancer: a comparative analysis of Swedish and global cohorts.](https://pubmed.ncbi.nlm.nih.gov/42852590/)
+- **英文原题**: *Co-mutation patterns and survival associations in lung cancer: a comparative analysis of Swedish and global cohorts.*
+- **实际结果**: BACKGROUND AND PURPOSE: Co-occurring mutations in lung cancer can influence disease progression and treatment response. Understanding these patterns may refine prognostic stratification and therapeutic decisions.
+- **核验状态**: — 无数值核验项
+
+## 86. [Chest · IF 9.8 · 评分 40] [支气管树结节性筋膜炎初诊模拟炎性肌纤维母细胞瘤并自发消退：单例个案报告](https://pubmed.ncbi.nlm.nih.gov/42850009/)
+- **英文原题**: *Nodular Fasciitis of the Lung: A Novel Entity.*
+- **作者结论**: 该病例凸显了对肺部假瘤进行仔细评估以及专科多学科团队评估的重要性。
+- **AI 疑点**: 证据级别为单例个案报告，无对照、无随访时长与影像/病理细节，无法外推发生率或自然史；“novel entity/未报道过”的表述基于单例，属推断性提法；摘要未提供任何定量数据，信息不足。
+- **核验状态**: — 无数值核验项
+
+## 87. [Immunotherapy · IF — · 评分 40 · 启发式] [Association of early dynamic changes in peripheral blood immune-inflammatory indices with subsequent acquired resistance to immune checkpoint inhibitors in advanced non-small cell lung cancer: a landmark analysis.](https://pubmed.ncbi.nlm.nih.gov/42847566/)
+- **英文原题**: *Association of early dynamic changes in peripheral blood immune-inflammatory indices with subsequent acquired resistance to immune checkpoint inhibitors in advanced non-small cell lung cancer: a landmark analysis.*
+- **实际结果**: BACKGROUND: Acquired resistance to immune checkpoint inhibitors (ICIs) remains a major challenge in advanced non-small cell lung cancer (NSCLC). This study evaluated whether early dynamic changes in peripheral inflammato…
+- **核验状态**: — 无数值核验项
+
+## 88. [AIDS Educ Prev · IF — · 评分 40 · 启发式] [Longitudinal Risk Factors for Incident Lung Cancer Among a Mixed HIV Serostatus Cohort of Sexual Minority Men in the United States.](https://pubmed.ncbi.nlm.nih.gov/42841858/)
+- **英文原题**: *Longitudinal Risk Factors for Incident Lung Cancer Among a Mixed HIV Serostatus Cohort of Sexual Minority Men in the United States.*
+- **实际结果**: To examine how the co-occurrence of behavioral and psychosocial factors (depression, cigarette smoking, heavy alcohol use, and polydrug use) is associated with lung cancer incidence, we included 3,554 sexual minority men…
+- **核验状态**: — 无数值核验项
+
+## 89. [Front Cell Infect Microbiol · IF — · 评分 40 · 启发式] [The association between periodontal disease and lung cancer: a re-evaluation of independent causal relationships in the presence of smoking as a confounder and an exploration of potential mechanisms.](https://pubmed.ncbi.nlm.nih.gov/42840713/)
+- **英文原题**: *The association between periodontal disease and lung cancer: a re-evaluation of independent causal relationships in the presence of smoking as a confounder and an exploration of potential mechanisms.*
+- **实际结果**: Periodontal disease and lung cancer are major global health burdens, and epidemiological evidence suggests a potential association between them. However, whether this relationship is independent of smoking-a strong commo…
+- **核验状态**: — 无数值核验项
+
+## 90. [BMC Cancer · IF 4.1 · 评分 40 · 启发式] [Despite improved overall stratification, the 9th edition stage IIIA category remains prognostically heterogeneous: insights from a T3N2a subgroup analysis.](https://pubmed.ncbi.nlm.nih.gov/42839263/)
+- **英文原题**: *Despite improved overall stratification, the 9th edition stage IIIA category remains prognostically heterogeneous: insights from a T3N2a subgroup analysis.*
+- **实际结果**: BACKGROUND: The 9th edition TNM staging system refines N2 subclassification into single-station (N2a) and multi-station (N2b) metastases, leading to substantial stage migration within the previously heterogeneous stage I…
+- **核验状态**: — 无数值核验项
+
+## 91. [Thorac Surg Clin · IF — · 评分 40] [以结构-过程-结果框架审视肺癌手术质量：现有指标偏重围术期与技术指标，患者报告结局、长期生存与多学科治疗代表性不足](https://pubmed.ncbi.nlm.nih.gov/42838637/)
+- **英文原题**: *Quality in Lung Cancer Surgery: A Structure-Process-Outcome Perspective.*
+- **作者结论**: Composite metrics such as textbook outcome and failure-to-rescue support benchmarking, while society-driven databases enable risk-adjusted comparisons. Current frameworks emphasize perioperative and technical metrics, but underrepresent patient-reported outcomes, long-term survival, and multimodality care.
+- **AI 疑点**: 信息不足：全文摘要未提供任何定量结果、检索策略、纳入标准或证据分级，属框架性叙述而非系统评价，无法据其判断各质量指标与结局关联的强度；摘要对“结构因素（如术者专业化、机构手术量、多学科诊疗）”与“过程指标（指南一致性分期、系统淋巴结清扫、完全切除）”的效应仅作定性断言（如淋巴结评估不足或切除性质不确定对生存有负面影响），未给出支持性数据，存在以权威表述替代证据呈现的风险；对textbook outcome、failure-to-rescue等复合指标仅称“支持标杆管理”，未讨论其定义异质性与结局依赖问题。
+- **核验状态**: — 无数值核验项
+
+## 92. [JMIR Public Health Surveill · IF — · 评分 40 · 启发式] [Temporal Trends in Lung Cancer and Histological Subtype Incidence and Bayesian Projections to 2030 in China: Population-Based Quantitative Study.](https://pubmed.ncbi.nlm.nih.gov/42837657/)
+- **英文原题**: *Temporal Trends in Lung Cancer and Histological Subtype Incidence and Bayesian Projections to 2030 in China: Population-Based Quantitative Study.*
+- **实际结果**: BACKGROUND: Lung cancer is the leading cause of cancer-related death globally, with a significant burden in China, which accounts for more than one-third of the world's new cases and 40% of related mortalities. Despite e…
+- **核验状态**: — 无数值核验项
+
+## 93. [Cancer Med · IF 3.5 · 评分 40 · 启发式] [Efficacy and Safety of First-Line Treatment Options for Oncogene Wild-Type Lung Adenocarcinoma With Liver Metastases.](https://pubmed.ncbi.nlm.nih.gov/42834503/)
+- **英文原题**: *Efficacy and Safety of First-Line Treatment Options for Oncogene Wild-Type Lung Adenocarcinoma With Liver Metastases.*
+- **实际结果**: OBJECTIVE: Liver metastasis represents one of the frequent drivers for cancer-related mortality in lung adenocarcinoma. For advanced lung adenocarcinoma harboring wild-type oncogene drivers, chemotherapies in combination…
+- **核验状态**: — 无数值核验项
+
+## 94. [Lung · IF 4.3 · 评分 40 · 启发式] [Clinical Characteristics and Outcomes of Patients with Lymphangioleiomyomatosis.](https://pubmed.ncbi.nlm.nih.gov/42832099/)
+- **英文原题**: *Clinical Characteristics and Outcomes of Patients with Lymphangioleiomyomatosis.*
+- **实际结果**: BACKGROUND: Lymphangioleiomyomatosis (LAM) is a rare, progressive cystic lung disease that affects women of reproductive age. Although registries from Western countries have provided key insights, comprehensive nationwid…
+- **核验状态**: — 无数值核验项
+
+## 95. [J Neurooncol · IF — · 评分 40 · 启发式] [Predictive modeling of lung cancer subtype with integration of clinical and thoracic imaging features to guide early brain metastasis management.](https://pubmed.ncbi.nlm.nih.gov/42831966/)
+- **英文原题**: *Predictive modeling of lung cancer subtype with integration of clinical and thoracic imaging features to guide early brain metastasis management.*
+- **实际结果**: PURPOSE: Optimal treatment for synchronous brain metastases at lung cancer diagnosis depends on subtype, but histologic/molecular profiling is often delayed. We developed machine-learning models using clinical and imagin…
+- **核验状态**: — 无数值核验项
+
+## 96. [Cancer Med · IF 3.5 · 评分 40 · 启发式] [Serial ctDNA Analysis for Monitoring Molecular Response and Acquired Resistance in Metastatic NSCLC and HR+/HER2-Negative Breast Cancer: A Real-World Study.](https://pubmed.ncbi.nlm.nih.gov/42817873/)
+- **英文原题**: *Serial ctDNA Analysis for Monitoring Molecular Response and Acquired Resistance in Metastatic NSCLC and HR+/HER2-Negative Breast Cancer: A Real-World Study.*
+- **实际结果**: Circulating tumor DNA (ctDNA) is a promising biomarker for disease monitoring, yet evidence of its clinical utility in routine care remains limited. We evaluated the utility of serial ctDNA monitoring using digital PCR (…
+- **核验状态**: — 无数值核验项
+
+## 97. [PLoS One · IF — · 评分 40 · 启发式] [Associations of dietary polyunsaturated fatty acids and sleep patterns with lung cancer in southwest China: A case-control study.](https://pubmed.ncbi.nlm.nih.gov/42814753/)
+- **英文原题**: *Associations of dietary polyunsaturated fatty acids and sleep patterns with lung cancer in southwest China: A case-control study.*
+- **实际结果**: BACKGROUND: Evidence on the associations of polyunsaturated fatty acid (PUFA) intake and sleep patterns with lung cancer remains inconsistent. We aimed to examine these associations in southwest China and to explore whet…
+- **核验状态**: — 无数值核验项
+
+## 98. [Br J Hosp Med (Lond) · IF — · 评分 40 · 启发式] [The Effect of Electromyographic Biofeedback Relaxation Training on Pain Catastrophizing and Fatigue Levels in Lung Cancer Patients Undergoing Combined Chemoradiotherapy.](https://pubmed.ncbi.nlm.nih.gov/42812091/)
+- **英文原题**: *The Effect of Electromyographic Biofeedback Relaxation Training on Pain Catastrophizing and Fatigue Levels in Lung Cancer Patients Undergoing Combined Chemoradiotherapy.*
+- **实际结果**: AIMS/BACKGROUND: Lung cancer patients undergoing combined chemoradiotherapy often experience pain, fatigue, sleep disturbances, and decreased quality of life. Among these, pain catastrophizing, as a negative cognitive pa…
+- **核验状态**: — 无数值核验项
+
+## 99. [J Manag Care Spec Pharm · IF — · 评分 40 · 启发式] [Association between cachexia-associated diagnoses, health care resource utilization, and costs in patients with pancreatic, lung, and colorectal cancers: A US insurance claims database analysis.](https://pubmed.ncbi.nlm.nih.gov/42808542/)
+- **英文原题**: *Association between cachexia-associated diagnoses, health care resource utilization, and costs in patients with pancreatic, lung, and colorectal cancers: A US insurance claims database analysis.*
+- **实际结果**: BACKGROUND: Cancer cachexia is a wasting disease characterized by changes in metabolism, muscle and weight loss, inadequate food intake, and functional decline. The disease affects 30%-50% of patients with solid tumors.
+- **核验状态**: — 无数值核验项
+
+## 100. [Ir Med J · IF — · 评分 40 · 启发式] [Evaluation of the Impact of a Targeted Lung Cancer Awareness Campaign.](https://pubmed.ncbi.nlm.nih.gov/42807694/)
+- **英文原题**: *Evaluation of the Impact of a Targeted Lung Cancer Awareness Campaign.*
+- **实际结果**: AIMS: To evaluate a pilot lung cancer symptom-awareness advertisement campaign targeting a North Dublin area with elevated lung cancer incidence. The primary aim was to assess changes in symptom awareness and behaviour i…
+- **核验状态**: — 无数值核验项
+
+## 101. [Cancer Med · IF 3.5 · 评分 40 · 启发式] [Dynamic Predictions in Non-Small Cell Lung Cancer Using Joint Modeling of Longitudinal and Time-To-Event Outcomes Data.](https://pubmed.ncbi.nlm.nih.gov/42802302/)
+- **英文原题**: *Dynamic Predictions in Non-Small Cell Lung Cancer Using Joint Modeling of Longitudinal and Time-To-Event Outcomes Data.*
+- **实际结果**: Joint modeling (JM) of longitudinal and time-to-event (TTE) data is a powerful statistical technique that elucidates how temporal changes in a biomarker relate to TTE outcomes while accounting for study confounders. The …
+- **核验状态**: — 无数值核验项
+
+## 102. [Mol Genet Genomics · IF — · 评分 39] [USP11通过去泛素化稳定IGF2BP2并增强m6A修饰ATOX1 mRNA稳定性，抑制NSCLC铜死亡并促进肿瘤进展](https://pubmed.ncbi.nlm.nih.gov/42875701/)
+- **英文原题**: *USP11 inhibits cuproptosis in non-small cell lung cancer by deubiquitinating IGF2BP2 to enhance the stability of m6A-modified ATOX1 mRNA.*
+- **作者结论**: USP11依赖的去泛素化稳定IGF2BP2，后者以m6A依赖方式提高ATOX1 mRNA稳定性；ATOX1升高抑制铜死亡，从而加速NSCLC进展。体内USP11-IGF2BP2-ATOX1轴可能通过抑制铜死亡促进NSCLC肿瘤生长。
+- **AI 疑点**: 摘要未报告任何具体数值、样本量、统计检验或效应量；体内结果仅表述为“might promote”，证据强度有限；机制结论主要基于体外干预与rescue实验，摘要未说明对照设置、重复次数及偏倚控制；临床转化价值信息不足。
+- **核验状态**: — 无数值核验项
+
+## 103. [Nat Commun · IF — · 评分 39] [H3K36甲基转移酶功能对立：H3K36M与NSD2抑制经SETD2依赖性解除EZH2对重复序列的抑制并激活肺部抗病毒样免疫清除](https://pubmed.ncbi.nlm.nih.gov/42875424/)
+- **英文原题**: *Antagonistic roles of histone H3 lysine methyltransferases dictate tumor immune surveillance.*
+- **作者结论**: 这些发现确立了NSD2依赖性与SETD2依赖性H3K36甲基化在肺部肿瘤免疫中的对立作用，并揭示可靶向调控病毒模拟与免疫监视的NSD2-SETD2-EZH2轴。
+- **AI 疑点**: 摘要通篇为定性表述，未给出任何效应量、样本量或统计值，无法评估证据强度；核心悖论（H3K36M表达抑制肿瘤生长却广泛丢失H3K36三甲基化、且全部效应仍需SETD2活性）仅在文字层面陈述，缺少定量与因果 rescue 细节；结论从机制模型直接跃升至“可靶向调控免疫监视”，属转化外推，尚无体内药物数据或人体证据支撑；信息不足，无法判断模型数量、对照设置与可重复性。
+- **核验状态**: — 无数值核验项
+
+## 104. [Cancer Med · IF 3.5 · 评分 39] [综述：靶向肿瘤微环境网络以克服非小细胞肺癌免疫治疗耐药的机制整合与临床转化路线图（叙述性综述，无原始数据）](https://pubmed.ncbi.nlm.nih.gov/42864833/)
+- **英文原题**: *Targeting the Tumor Microenvironment Network to Overcome Immunotherapy Resistance in Non-Small Cell Lung Cancer: Mechanisms to Clinical Translation.*
+- **作者结论**: Overcoming immunotherapy resistance requires a paradigm shift from single-target to network-targeted therapy. This review provides an integrated framework for understanding TME-mediated resistance and translates these insights into a roadmap for clinical translation. Future efforts must prioritize biomarker-validated, rationally designed combination therapies to improve outcomes for patients with resistant NSCLC.
+- **AI 疑点**: 叙述性综述，未报告检索策略、纳入排除标准、文献筛选流程与偏倚评估，证据可重复性有限；所称联合策略“在早期试验中显示协同潜力”未给出任何具体试验、疗效数值或安全性数据，属定性断言；提出的“分层生物标志物体系”为作者构想，无验证数据支撑；结论层面用“范式转变”“路线图”等强表述，易被误读为已有临床证据支持。
+- **核验状态**: — 无数值核验项
+
+## 105. [Clin Exp Metastasis · IF — · 评分 39] [SOX2 转录激活 EPHB1 促进食管鳞癌细胞上皮-间质转化与转移的机制研究](https://pubmed.ncbi.nlm.nih.gov/42831919/)
+- **英文原题**: *Transcriptional activation of EPHB1 by SOX2 promotes epithelial-mesenchymal transition and metastasis in esophageal squamous cell carcinoma.*
+- **作者结论**: 这些发现揭示了一个此前未被认识的、驱动 ESCC 转移的 SOX2/EPHB1 信号轴，并提示 EPHB1 可作为 ESCC 的潜在治疗靶点。
+- **AI 疑点**: 摘要未给出任何效应量或统计值（如生存 HR、P 值、置信区间），“表达上调并与高级别、不良生存相关”的具体数值缺失，无法判断关联强度；该临床相关性依赖公共数据库与 RNA-seq 整合分析，缺乏独立临床队列验证及样本量说明；机制结论主要来自细胞系与小鼠模型，向人体治疗靶点的外推尚早；“previously unrecognized”与“potential therapeutic target”属较乐观表述，摘要未提供靶向干预（药物/抗体）的可行性数据。
+- **核验状态**: — 无数值核验项
+
+## 106. [Oncol Rep · IF 4.7 · 评分 38] [线粒体机制与NSCLC空间免疫表型的关系：对ICI应答及冷肿瘤转热策略的假设性综述](https://pubmed.ncbi.nlm.nih.gov/42825382/)
+- **英文原题**: *Mitochondrial mechanisms underlying spatial immune phenotypes in non‑small cell lung cancer: Implications for ICI response and cold‑to‑hot tumor conversion (Review).*
+- **作者结论**: 将线粒体生物学与空间免疫结构整合进表型导向框架，可为未来生物标志物开发与联合策略产生可检验的假设；目前人源研究证据仍多为相关性，需要前瞻性、空间分辨的功能性研究。
+- **AI 疑点**: 叙述性综述：无检索策略、无纳入排除标准、无证据等级或偏倚评估，机制推演为主。作者自认人源证据仅属相关性，但标题与摘要措辞（'Implications for ICI response'、'cold‑to‑hot tumor conversion'）易被误读为已有疗效或转化证据；'冷转热'部分属假设性推论，无任何临床或功能数据支撑。信息不足：未给出支持各表型—线粒体通路关联的具体研究数量或效应量。
+- **核验状态**: — 无数值核验项
+
+## 107. [Phys Med Biol · IF — · 评分 37] [基于双视角X射线投影的患者特异性VQ扩散模型估计肺肿瘤呼吸运动与动态CBCT重建的模拟研究](https://pubmed.ncbi.nlm.nih.gov/42833243/)
+- **英文原题**: *X-ray projection-guided deformation vector field estimation and dynamic CBCT imaging using patient-specific vector-quantized diffusion.*
+- **作者结论**: 所提出的患者特异性VQ扩散框架能够从双视角X射线投影准确估计呼吸诱导的肺肿瘤运动，并促进高时间分辨率动态容积CT重建；结果表明其有潜力成为肺癌放疗中肿瘤运动追踪的图像引导解决方案。
+- **AI 疑点**: 摘要仅报告定性结果，未给出样本量、误差指标、基线对比或统计检验，所谓“准确”缺乏可核验数值。验证仅基于计划4D-CT合成的DRR/DVF，未使用真实X线投影或CBCT，存在合成数据与临床采集域差异及循环验证风险；临床可行性信息不足。
+- **核验状态**: — 无数值核验项
+
+## 108. [Front Immunol · IF 7.0 · 评分 37] [NSCLC癌症干细胞通过外泌体ROS-一氧化氮轴诱导FoxP3亚硝基化与去泛素化，促进Treg分化并介导免疫抑制](https://pubmed.ncbi.nlm.nih.gov/42812155/)
+- **英文原题**: *Cancer stem cell programs S-nitrosylation and deubiquitination of FoxP3 protein to promote regulatory T cell differentiation.*
+- **作者结论**: NSCLC CSCs通过谷氨酰胺代谢依赖的调控轴介导TME免疫抑制；外泌体ROS启动的FoxP3翻译后修饰是CSC驱动Treg分化的新机制；本研究揭示NSCLC一条未报道的免疫逃逸通路，并将谷氨酰胺代谢确定为克服肿瘤免疫抑制的可行治疗靶点。
+- **AI 疑点**: 摘要未报告样本量、重复数、统计方法与效应量，无法评估证据强度；机制链主要基于体外实验和PDO生长抑制，缺少体内模型及临床结局验证；PDO中仅见抑制谷氨酰胺代谢逆转免疫抑制表型并抑制生长，不能直接外推为临床疗效；“novel/unreported”及“viable therapeutic target”属较强表述，尚缺转化验证。
+- **核验状态**: — 无数值核验项
+
+## 109. [J Vis Exp · IF — · 评分 36] [罕见EGFR突变肺腺癌中ARC/NOL3凋亡调控假说：一篇未发现直接证据的叙述性综述](https://pubmed.ncbi.nlm.nih.gov/42858020/)
+- **英文原题**: *Apoptosis Repressor with Caspase Recruitment Domain in Uncommon Epidermal Growth Factor Receptor-Mutant Lung Adenocarcinoma: An Aging Hypothesis.*
+- **作者结论**: 在所评估的文献中，没有任何原始研究直接证实罕见EGFR突变肺腺癌中存在突变特异性ARC/NOL3富集、EGFR抑制后的诱导、功能依赖性，或与治疗后肿瘤细胞存活/临床结局的关联；ARC在caspase调控、线粒体保护与应激耐受中的既定功能不应被解读为疾病特异性因果证据，而只是为检验'罕见EGFR信号、凋亡调控与衰老相关应激反应在特定肿瘤情境中是否交汇'提供生物学合理性，并据此提出所需的突变特异性表达分析、功能扰动实验、纵向取样与生物标志物验证等研究方向。
+- **AI 疑点**: 本文为纯假说性叙述综述，无系统检索策略、无PRISMA流程、无偏倚评估，证据层级划分由作者主观界定；'无直接证据'的结论仅反映所评估文献范围，不能等同于该通路无生物学意义；文中未报告任何可量化结果，临床可操作性有限。
+- **核验状态**: — 无数值核验项
+
+## 110. [Int J Oncol · IF 7.3 · 评分 36] [肺腺癌中调节性T细胞的免疫逃逸机制、预后价值及治疗靶点（叙述性综述）](https://pubmed.ncbi.nlm.nih.gov/42852619/)
+- **英文原题**: *Regulatory T cells in lung adenocarcinoma: Mechanisms of immune escape, prognostic significance and therapeutic opportunities (Review).*
+- **作者结论**: Tregs在LUAD中促进免疫逃逸，并与疾病分期、治疗疗效和预后相关；Treg升高与总生存率降低相关；Treg可作为高危复发患者LUAD诊断的独立预测因子；需明确肿瘤浸润Treg的精确结构并寻找特异性清除肿瘤浸润Treg的候选靶点或方法，以开发高效安全的联合免疫治疗策略。
+- **AI 疑点**: 叙述性综述，摘要未提供系统检索策略、纳入排除标准、样本量或定量合成；‘independent predictors for LUAD diagnosis in patients at high risk of recurrence’表述含糊，未区分诊断预测与复发/预后预测；将Treg浸润与分期、疗效、OS的关联性证据延伸为免疫逃逸机制和治疗机会，存在推断过度风险；无原始数据。
+- **核验状态**: — 无数值核验项
+
+## 111. [Int J Biol Sci · IF — · 评分 36] [IRP2调控NSCLC肿瘤相关巨噬细胞免疫抑制表型并经SphK1-PD-L1轴影响PD-L1表达的机制研究](https://pubmed.ncbi.nlm.nih.gov/42807526/)
+- **英文原题**: *Targeting Iron Regulatory Protein 2 in Tumor-associated Macrophages Activates Antitumor Immunity in NSCLC via Modulating SphK1-PD-L1 Axis.*
+- **作者结论**: IRP2依赖的免疫抑制性TAM表型维持是NSCLC有前景的治疗靶点。
+- **AI 疑点**: 摘要为机制性研究，未提供样本量、具体分组及统计数值；‘may sustain PD-L1 expression’等表述为推测性机制结论，缺乏体内或临床验证；IRP2-SphK1-PD-L1轴作为治疗靶点仍需进一步证据。
+- **核验状态**: — 无数值核验项
+
+## 112. [PLoS One · IF — · 评分 35 · 启发式] [Quantifying the diagnostic time gap in precision oncology: A retrospective analysis of potential time savings from same-day cartridge-based molecular testing versus next-generation sequencing in cytology specimens.](https://pubmed.ncbi.nlm.nih.gov/42886752/)
+- **英文原题**: *Quantifying the diagnostic time gap in precision oncology: A retrospective analysis of potential time savings from same-day cartridge-based molecular testing versus next-generation sequencing in cytology specimens.*
+- **实际结果**: BACKGROUND: Next-generation sequencing (NGS) turnaround times (TAT) exceed two weeks and can delay the initiation of targeted therapy. Rapid cartridge-based platforms such as Idylla deliver single-gene or fusion results …
+- **核验状态**: — 无数值核验项
+
+## 113. [Molecules · IF — · 评分 35 · 启发式] [Phytochemical Profiles and Anticancer Activity of the Three Prosopis Species Growing in Qatar Against Lung and Ovarian Cancer Cells.](https://pubmed.ncbi.nlm.nih.gov/42883230/)
+- **英文原题**: *Phytochemical Profiles and Anticancer Activity of the Three Prosopis Species Growing in Qatar Against Lung and Ovarian Cancer Cells.*
+- **实际结果**: Lung and ovarian cancers account for substantial cancer morbidity and mortality worldwide. Plant-derived natural products represent promising alternatives in cancer therapy because of their structural diversity and abili…
+- **核验状态**: — 无数值核验项
+
+## 114. [Vet Med Sci · IF — · 评分 35 · 启发式] [Ultrasonographic Features of Pleural Thickening in Cats With Pulmonary Carcinoma and Pleural Effusion: A Retrospective Descriptive Study.](https://pubmed.ncbi.nlm.nih.gov/42878186/)
+- **英文原题**: *Ultrasonographic Features of Pleural Thickening in Cats With Pulmonary Carcinoma and Pleural Effusion: A Retrospective Descriptive Study.*
+- **实际结果**: BACKGROUND: Pleural involvement is an important but poorly described manifestation of feline pulmonary carcinoma. Thoracic ultrasonography may identify pleural abnormalities and accessible targets for cytologic sampling …
+- **核验状态**: — 无数值核验项
+
+## 115. [Lung · IF 4.3 · 评分 35 · 启发式] [Sample Adequacy PD-L1 and NGS in NSCLC: Shape-Sensing Robotic Assisted Bronchoscopy Versus CT Guided Lung Biopsy.](https://pubmed.ncbi.nlm.nih.gov/42875565/)
+- **英文原题**: *Sample Adequacy PD-L1 and NGS in NSCLC: Shape-Sensing Robotic Assisted Bronchoscopy Versus CT Guided Lung Biopsy.*
+- **实际结果**: BACKGROUND: Routine assessment of programmed death-ligand 1 (PD-L1) expression and comprehensive next-generation sequencing (NGS) is recommended to guide treatment selection in patients with non-small cell lung cancer (N…
+- **核验状态**: — 无数值核验项
+
+## 116. [J Vis Exp · IF — · 评分 35 · 启发式] [Machine Learning, Radiomics, and Clinical Models Predicting Checkpoint Inhibitor Pneumonitis in Lung Cancer: A Systematic Review and Meta-analysis.](https://pubmed.ncbi.nlm.nih.gov/42872743/)
+- **英文原题**: *Machine Learning, Radiomics, and Clinical Models Predicting Checkpoint Inhibitor Pneumonitis in Lung Cancer: A Systematic Review and Meta-analysis.*
+- **实际结果**: Checkpoint inhibitor pneumonitis (CIP) is a potentially fatal immune-related adverse event of immune checkpoint inhibitor (ICI) therapy in lung cancer, and many machine-learning (ML), computed tomography (CT) radiomics, …
+- **核验状态**: — 无数值核验项
+
+## 117. [J Environ Pathol Toxicol Oncol · IF — · 评分 35 · 启发式] [Clinical Value of SHOX2 and RASSF1A Methylation Combination in BALF Samples for the Diagnosis of Lung Cancer.](https://pubmed.ncbi.nlm.nih.gov/42870609/)
+- **英文原题**: *Clinical Value of SHOX2 and RASSF1A Methylation Combination in BALF Samples for the Diagnosis of Lung Cancer.*
+- **实际结果**: To evaluate the clinical utility of combined SHOX2 and RASSF1A methylation analysis in bronchoalveolar lavage fluid (BALF) for lung cancer diagnosis using methylation-specific PCR (MSP). The study aimed to combine BALF m…
+- **核验状态**: — 无数值核验项
+
+## 118. [Zhongguo Zhong Yao Za Zhi · IF — · 评分 35 · 启发式] [[Mechanistic study on Kaixin Powder ameliorating chronic stress-induced CD8~+T cell exhaustion and delaying lung adenocarcinoma progression by modulating IDO1/Kyn/Ahr axis].](https://pubmed.ncbi.nlm.nih.gov/42869842/)
+- **英文原题**: *[Mechanistic study on Kaixin Powder ameliorating chronic stress-induced CD8~+T cell exhaustion and delaying lung adenocarcinoma progression by modulating IDO1/Kyn/Ahr axis].*
+- **实际结果**: This study aimed to investigate the interventional effects of Kaixin Powder(KXP) on the progression of lung adenocarcinoma(LUAD) under chronic stress and its underlying mechanism. Ultra-performance liquid chromatography-…
+- **核验状态**: — 无数值核验项
+
+## 119. [Rev Peru Med Exp Salud Publica · IF — · 评分 35 · 启发式] [Residential radon in Peru: challenges for health surveillance and lung cancer prevention.](https://pubmed.ncbi.nlm.nih.gov/42867963/)
+- **英文原题**: *Residential radon in Peru: challenges for health surveillance and lung cancer prevention.*
+- **实际结果**: Radon is a globally recognized lung carcinogen and one of the main risk factors for lung cancer in nonsmokers. In Peru, recent evidence indicates elevated radon concentrations in homes in Metropolitan Lima and a possible…
+- **核验状态**: — 无数值核验项
+
+## 120. [BMC Pulm Med · IF 3.1 · 评分 35 · 启发式] [Who participates in LDCT screening for the early detection of lung cancer after long-term occupational exposure to asbestos dust? Results of the analysis of administrative and medical routine data from the German Social Accident Insurance.](https://pubmed.ncbi.nlm.nih.gov/42864641/)
+- **英文原题**: *Who participates in LDCT screening for the early detection of lung cancer after long-term occupational exposure to asbestos dust? Results of the analysis of administrative and medical routine data from the German Social Accident Insurance.*
+- **实际结果**: BACKGROUND: Lung cancer is one of the most common cancers in Germany and is predominantly detected at an advanced stage. To ensure early detection, the German Social Accident Insurance (DGUV) offers lung cancer screening…
+- **核验状态**: — 无数值核验项
+
+## 121. [BMC Cancer · IF 4.1 · 评分 35 · 启发式] [First-line treatment outcomes in HER2-altered advanced NSCLC: a real-world multi-center study comparing trastuzumab deruxtecan with conventional therapies and analysis by HER2/EGFR co-alteration status.](https://pubmed.ncbi.nlm.nih.gov/42864628/)
+- **英文原题**: *First-line treatment outcomes in HER2-altered advanced NSCLC: a real-world multi-center study comparing trastuzumab deruxtecan with conventional therapies and analysis by HER2/EGFR co-alteration status.*
+- **实际结果**: BACKGROUND: First-line treatment options for HER2-altered advanced non-small cell lung cancer (NSCLC) remain limited, especially in cases with HER2-EGFR co-alterations. While new agents like trastuzumab deruxtecan (T-DXd…
+- **核验状态**: — 无数值核验项
+
+## 122. [PLoS One · IF — · 评分 35 · 启发式] [ReViT-RF: A hybrid ResNet-50-Vision Transformer with a Radiomic Feature Fusion framework for lung tumor classification and TNM-based stage prediction using CT images.](https://pubmed.ncbi.nlm.nih.gov/42862867/)
+- **英文原题**: *ReViT-RF: A hybrid ResNet-50-Vision Transformer with a Radiomic Feature Fusion framework for lung tumor classification and TNM-based stage prediction using CT images.*
+- **实际结果**: Lung cancer is one of the leading causes of cancer-related mortality worldwide, emphasizing the need for accurate, automated, and clinically interpretable diagnostic systems. Although existing deep learning (DL) models h…
+- **核验状态**: — 无数值核验项
+
+## 123. [Pathol Int · IF — · 评分 35 · 启发式] [Clinicopathological Significance of Extra-Alveolar Invasion in Lung Adenocarcinomas Treated With Sublobar Resection.](https://pubmed.ncbi.nlm.nih.gov/42861566/)
+- **英文原题**: *Clinicopathological Significance of Extra-Alveolar Invasion in Lung Adenocarcinomas Treated With Sublobar Resection.*
+- **实际结果**: Lung adenocarcinoma exhibits diverse pathological features, some of which for example, histological grading and tumor spread through air spaces (STAS), can be used for prognosis. Extra-alveolar invasion (EX) is a unique …
+- **核验状态**: — 无数值核验项
+
+## 124. [Cancer Rep (Hoboken) · IF — · 评分 35 · 启发式] [Metastatic Lung Adenocarcinoma to the Uterus Mimicking a Primary Uterine Malignancy: A Case Report.](https://pubmed.ncbi.nlm.nih.gov/42860291/)
+- **英文原题**: *Metastatic Lung Adenocarcinoma to the Uterus Mimicking a Primary Uterine Malignancy: A Case Report.*
+- **实际结果**: BACKGROUND: Lung adenocarcinoma is the most prevalent subtype of non-small cell lung cancer and exhibits a high tendency for distant metastasis. However, uterine metastasis with synchronous multiorgan involvement is extr…
+- **核验状态**: — 无数值核验项
+
+## 125. [JSLS · IF — · 评分 35 · 启发式] [AI-Assisted Volumetric Comparison of Parenchyma-Sparing Effect in Robotic Segmentectomy vs Lobectomy.](https://pubmed.ncbi.nlm.nih.gov/42859444/)
+- **英文原题**: *AI-Assisted Volumetric Comparison of Parenchyma-Sparing Effect in Robotic Segmentectomy vs Lobectomy.*
+- **实际结果**: BACKGROUND AND OBJECTIVE: In recent years, pulmonary segmentectomy has become a preferred treatment option for early-stage lung cancer. The primary factor encouraging clinicians to choose segmentectomy is the assumption …
+- **核验状态**: — 无数值核验项
+
+## 126. [Arh Hig Rada Toksikol · IF — · 评分 35 · 启发式] [Tissue-specific variability in protein expression of cytochrome P450 and glutathione S-transferase isoenzymes in non-small cell lung carcinoma.](https://pubmed.ncbi.nlm.nih.gov/42859408/)
+- **英文原题**: *Tissue-specific variability in protein expression of cytochrome P450 and glutathione S-transferase isoenzymes in non-small cell lung carcinoma.*
+- **实际结果**: Earlier tissue-based studies report heterogeneous CYP and GST protein expression in non-small cell lung cancer (NSCLC), but simultaneous assessment of phase I and II enzymes in paired tumour and peripheral normal tissues…
+- **核验状态**: — 无数值核验项
+
+## 127. [Scand J Immunol · IF — · 评分 35 · 启发式] [Exosomes From Toll-Like Receptor 4-Stimulated Lung Cancer Cells Modulate Macrophage Polarization.](https://pubmed.ncbi.nlm.nih.gov/42856064/)
+- **英文原题**: *Exosomes From Toll-Like Receptor 4-Stimulated Lung Cancer Cells Modulate Macrophage Polarization.*
+- **实际结果**: Exosomes derived from lung cancer cells play a critical role in modulating the tumour microenvironment, particularly through their effects on macrophage polarization. We investigated how exosomes from A549 lung adenocarc…
+- **核验状态**: — 无数值核验项
+
+## 128. [Thorac Cancer · IF — · 评分 35 · 启发式] [Chronic Cigarette Smoke Extract Exposure Promotes Genomic and Phenotypic Reprogramming in Lung Cancer Cells.](https://pubmed.ncbi.nlm.nih.gov/42855622/)
+- **英文原题**: *Chronic Cigarette Smoke Extract Exposure Promotes Genomic and Phenotypic Reprogramming in Lung Cancer Cells.*
+- **实际结果**: BACKGROUND: Cigarette smoke contains numerous toxic compounds that can induce oxidative stress and DNA damage. While smoking is a well-established driver of lung cancer initiation, the biological consequences of continue…
+- **核验状态**: — 无数值核验项
+
+## 129. [Medicine (Baltimore) · IF — · 评分 35 · 启发式] [Direction of discordance between PET/CT, EBUS-TBNA, and multidisciplinary tumor board nodal assignment in non-small cell lung cancer: A retrospective observational study.](https://pubmed.ncbi.nlm.nih.gov/42854031/)
+- **英文原题**: *Direction of discordance between PET/CT, EBUS-TBNA, and multidisciplinary tumor board nodal assignment in non-small cell lung cancer: A retrospective observational study.*
+- **实际结果**: Mediastinal nodal classification in non-small cell lung cancer (NSCLC) at the N0/N1-N2/N3 treatment-defining boundary guides therapeutic strategy and is commonly finalized in multidisciplinary tumor board (MDT) meetings.…
+- **核验状态**: — 无数值核验项
+
+## 130. [Can Respir J · IF — · 评分 35 · 启发式] [Multiple Pulmonary Papillary Adenoma With Malignant Potential Accompanied by ERBIN-BRAF Gene Fusion and APC Mutation: A Case Report and Literature Review.](https://pubmed.ncbi.nlm.nih.gov/42853102/)
+- **英文原题**: *Multiple Pulmonary Papillary Adenoma With Malignant Potential Accompanied by ERBIN-BRAF Gene Fusion and APC Mutation: A Case Report and Literature Review.*
+- **实际结果**: BACKGROUND: Pulmonary papillary adenoma is currently considered a benign tumor; however, a few cases have been reported in the past with potential for malignancy. Therefore, the histological nature of papillary adenomas …
+- **核验状态**: — 无数值核验项
+
+## 131. [Cancer Cytopathol · IF 2.9 · 评分 35 · 启发式] [Preanalytical variables affect predictive immunohistochemical biomarker testing in non-small cell lung carcinoma cytology specimens.](https://pubmed.ncbi.nlm.nih.gov/42851084/)
+- **英文原题**: *Preanalytical variables affect predictive immunohistochemical biomarker testing in non-small cell lung carcinoma cytology specimens.*
+- **实际结果**: BACKGROUND: Several therapeutic targets for non-small cell lung carcinoma (NSCLC) rely on protein expression by immunohistochemistry (IHC). Most biomarkers are validated on formalin-fixed, paraffin-embedded (FFPE) tissue…
+- **核验状态**: — 无数值核验项
+
+## 132. [PLoS One · IF — · 评分 35 · 启发式] [Dual targeting of EGFR signaling and microtubule dynamics enhances replication-associated cellular stress and suppresses tumor growth in gefitinib-resistant non-small cell lung cancer.](https://pubmed.ncbi.nlm.nih.gov/42848765/)
+- **英文原题**: *Dual targeting of EGFR signaling and microtubule dynamics enhances replication-associated cellular stress and suppresses tumor growth in gefitinib-resistant non-small cell lung cancer.*
+- **实际结果**: Acquired resistance to epidermal growth factor receptor (EGFR)-targeted therapy remains a major obstacle in the treatment of EGFR-mutant non-small cell lung cancer (NSCLC). This study investigated whether repurposing meb…
+- **核验状态**: — 无数值核验项
+
+## 133. [Med Oncol · IF — · 评分 35 · 启发式] [Nutritional inflammatory hematological risk index predicts clinical outcomes in patients with advanced NSCLC receiving immunotherapy.](https://pubmed.ncbi.nlm.nih.gov/42848307/)
+- **英文原题**: *Nutritional inflammatory hematological risk index predicts clinical outcomes in patients with advanced NSCLC receiving immunotherapy.*
+- **实际结果**: In real-world clinical settings, patients with advanced non-small cell lung cancer (NSCLC) receiving immune checkpoint inhibitors (ICIs) display significant heterogeneity, highlighting the need to identify key prognostic…
+- **核验状态**: — 无数值核验项
+
+## 134. [Front Endocrinol (Lausanne) · IF — · 评分 35 · 启发式] [Surgical management of ectopic Cushing's syndrome from a pulmonary carcinoid secreting CRH supported by intraoperative ACTH monitoring - a case report.](https://pubmed.ncbi.nlm.nih.gov/42846328/)
+- **英文原题**: *Surgical management of ectopic Cushing's syndrome from a pulmonary carcinoid secreting CRH supported by intraoperative ACTH monitoring - a case report.*
+- **实际结果**: An intraoperative ACTH monitoring during resection of hormone-secreting neuroendocrine neoplasms remains a subject of a debate. We present the case of a 36-year-old man with clinical and biochemical features of ACTH-depe…
+- **核验状态**: — 无数值核验项
+
+## 135. [Nihon Hoshasen Gijutsu Gakkai Zasshi · IF — · 评分 35 · 启发式] [[Quantitative Evaluation of Average Intensity Projection Images in Radiotherapy Planning for Primary Lung Cancer].](https://pubmed.ncbi.nlm.nih.gov/42844205/)
+- **英文原题**: *[Quantitative Evaluation of Average Intensity Projection Images in Radiotherapy Planning for Primary Lung Cancer].*
+- **实际结果**: PURPOSE: Average intensity projection (AIP) is an image generation method obtained by averaging the images of each phase of 4D-CT. This study aimed to evaluate tumor respiratory motion and, using the union of contours fr…
+- **核验状态**: — 无数值核验项
+
+## 136. [Cancer Control · IF — · 评分 35 · 启发式] [Temporal Trends in Lung Cancer Mortality Across 48 Countries from 1950 to 2019: An Ecological Study.](https://pubmed.ncbi.nlm.nih.gov/42842870/)
+- **英文原题**: *Temporal Trends in Lung Cancer Mortality Across 48 Countries from 1950 to 2019: An Ecological Study.*
+- **实际结果**: BackgroundThe widespread success of tobacco control policy and smoking cessation campaigns has led to considerable reductions in lung cancer mortality. However, it is currently not known how many more deaths might have o…
+- **核验状态**: — 无数值核验项
+
+## 137. [JCO Glob Oncol · IF 3.8 · 评分 35 · 启发式] [Feasibility of Lung Cancer Computed Tomography Screening in Jordan: Resource Assessment and Health Impact Modeling.](https://pubmed.ncbi.nlm.nih.gov/42842859/)
+- **英文原题**: *Feasibility of Lung Cancer Computed Tomography Screening in Jordan: Resource Assessment and Health Impact Modeling.*
+- **实际结果**: PURPOSE: Lung cancer is the leading cause of cancer mortality in Jordan, with most cases presenting at advanced stages. Low-dose computed tomography (LDCT) screening has demonstrated mortality reduction in high-risk popu…
+- **核验状态**: — 无数值核验项
+
+## 138. [J Vis Exp · IF — · 评分 35 · 启发式] [METTL3-Associated FOXD1 Regulation Promotes Lung Squamous Cell Carcinoma Progression: A Multimodel Experimental Approach.](https://pubmed.ncbi.nlm.nih.gov/42841500/)
+- **英文原题**: *METTL3-Associated FOXD1 Regulation Promotes Lung Squamous Cell Carcinoma Progression: A Multimodel Experimental Approach.*
+- **实际结果**: Lung squamous cell carcinoma (LUSC) has limited treatment options, motivating investigation of molecular pathways that support tumor-cell growth. Forkhead box D1 (FOXD1) expression was assessed using gene expression prof…
+- **核验状态**: — 无数值核验项
+
+## 139. [Front Public Health · IF — · 评分 35 · 启发式] [Cost-effectiveness of first-line aumolertinib versus osimertinib for advanced epidermal growth factor receptor-mutated non-small cell lung cancer in China.](https://pubmed.ncbi.nlm.nih.gov/42839924/)
+- **英文原题**: *Cost-effectiveness of first-line aumolertinib versus osimertinib for advanced epidermal growth factor receptor-mutated non-small cell lung cancer in China.*
+- **实际结果**: OBJECTIVE: To evaluate the cost-effectiveness of aumolertinib versus osimertinib as first-line treatment for advanced epidermal growth factor receptor (EGFR)-mutated non-small cell lung cancer (NSCLC) from the perspectiv…
+- **核验状态**: — 无数值核验项
+
+## 140. [BMJ Case Rep · IF — · 评分 35 · 启发式] [Same-day diagnosis and robotic resection of rare primary pulmonary melanoma: a robotic bronchoscopy-guided approach.](https://pubmed.ncbi.nlm.nih.gov/42838699/)
+- **英文原题**: *Same-day diagnosis and robotic resection of rare primary pulmonary melanoma: a robotic bronchoscopy-guided approach.*
+- **实际结果**: This case report describes a rare presentation of pulmonary melanoma of unknown primary managed through a same-day robotic diagnostic and therapeutic approach. A man in his 70s with an incidentally detected lingular pulm…
+- **核验状态**: — 无数值核验项
+
+## 141. [Clin Lung Cancer · IF 3.9 · 评分 35 · 启发式] [MET Testing and Treatment Sequencing After Disease Progression on First-Line Osimertinib in Patients With EGFR-Mutated Advanced NSCLC and Acquired MET Overexpression and/or Amplification: A Global Real-World Study.](https://pubmed.ncbi.nlm.nih.gov/42837955/)
+- **英文原题**: *MET Testing and Treatment Sequencing After Disease Progression on First-Line Osimertinib in Patients With EGFR-Mutated Advanced NSCLC and Acquired MET Overexpression and/or Amplification: A Global Real-World Study.*
+- **实际结果**: BACKGROUND: Given the potential benefit of MET-tyrosine kinase inhibitors (TKIs) after progression on osimertinib in EGFR-mutated advanced NSCLC, evaluating real-world biomarker testing and treatment sequencing is import…
+- **核验状态**: — 无数值核验项
+
+## 142. [Inflamm Res · IF — · 评分 35 · 启发式] [Single-cell and spatial transcriptomics identify a JUNB+ neutrophil subset enriched in immune-excluded regions of lung adenocarcinoma.](https://pubmed.ncbi.nlm.nih.gov/42836968/)
+- **英文原题**: *Single-cell and spatial transcriptomics identify a JUNB+ neutrophil subset enriched in immune-excluded regions of lung adenocarcinoma.*
+- **实际结果**: BACKGROUND: Tumor-associated neutrophils (TANs) display functional plasticity in lung adenocarcinoma (LUAD), but subsets linked to immune exclusion are poorly defined. METHODS: We integrated single-cell RNA-seq, spatial …
+- **核验状态**: — 无数值核验项
+
+## 143. [Anal Cell Pathol (Amst) · IF — · 评分 35 · 启发式] [RPARP-AS1 Targets miR-10b-5p to Influence Prognosis in Non-Small Cell Lung Cancer and Inhibit Tumor Progression.](https://pubmed.ncbi.nlm.nih.gov/42836412/)
+- **英文原题**: *RPARP-AS1 Targets miR-10b-5p to Influence Prognosis in Non-Small Cell Lung Cancer and Inhibit Tumor Progression.*
+- **实际结果**: OBJECTIVE: To investigate the roles of RPARP-AS1 and miR-10b-5p in regulating the prognosis and tumor progression of non-small cell lung cancer (NSCLC). METHODS: A total of 138 NSCLC patients were enrolled.
+- **核验状态**: — 无数值核验项
+
+## 144. [Int J Nanomedicine · IF — · 评分 35 · 启发式] [High-Throughput DNA Barcoding Identifies Lipid Nanoparticles for Lung Delivery of TRAIL-mRNA to Induce Tumor Cell Death in Experimental Metastasis Model.](https://pubmed.ncbi.nlm.nih.gov/42835618/)
+- **英文原题**: *High-Throughput DNA Barcoding Identifies Lipid Nanoparticles for Lung Delivery of TRAIL-mRNA to Induce Tumor Cell Death in Experimental Metastasis Model.*
+- **实际结果**: INTRODUCTION: Lipid nanoparticles (LNPs) have enabled the clinical translation of nucleic acid therapeutics, and their composition plays a critical role in organ targeting and route-specific delivery. Intranasal (IN) adm…
+- **核验状态**: — 无数值核验项
+
+## 145. [Bioorg Med Chem · IF — · 评分 35 · 启发式] [Pyridine-core scaffolds suppress A549 lung cancer cell progression: Evaluation of the antiproliferative activity, apoptosis, ROS generation, clonogenic suppression, and EGFR expression.](https://pubmed.ncbi.nlm.nih.gov/42833150/)
+- **英文原题**: *Pyridine-core scaffolds suppress A549 lung cancer cell progression: Evaluation of the antiproliferative activity, apoptosis, ROS generation, clonogenic suppression, and EGFR expression.*
+- **实际结果**: Targeting the epidermal growth factor receptor (EGFR) remains a proven strategy for the treatment of lung adenocarcinoma; however, acquired drug resistance and suboptimal long-term efficacy of the currently available EGF…
+- **核验状态**: — 无数值核验项
+
+## 146. [PLoS One · IF — · 评分 35 · 启发式] [EffAtt-LungNet: An attention-guided EfficientNet framework for three-class lung histopathology classification.](https://pubmed.ncbi.nlm.nih.gov/42832554/)
+- **英文原题**: *EffAtt-LungNet: An attention-guided EfficientNet framework for three-class lung histopathology classification.*
+- **实际结果**: This study presents EffAtt-LungNet, an attention-guided deep learning framework for three-class lung histopathology classification. The model combines an EfficientNetB3 backbone with the Convolutional Block Attention Mod…
+- **核验状态**: — 无数值核验项
+
+## 147. [Clin J Oncol Nurs · IF — · 评分 35 · 启发式] [The Role of Cancer-Related Fatalistic Beliefs and Perceived Information Ambiguity in Lung Cancer Screening Uptake.](https://pubmed.ncbi.nlm.nih.gov/42832316/)
+- **英文原题**: *The Role of Cancer-Related Fatalistic Beliefs and Perceived Information Ambiguity in Lung Cancer Screening Uptake.*
+- **实际结果**: BACKGROUND: Cancer-related fatalistic beliefs and perceived information ambiguity may reduce engagement in cancer prevention and screening. Fatalistic beliefs reflect perceptions that cancer outcomes are inevitable despi…
+- **核验状态**: — 无数值核验项
+
+## 148. [PeerJ · IF — · 评分 35 · 启发式] [Prognostic and immunotherapeutic implications of histamine-related biomarkers in lung adenocarcinoma.](https://pubmed.ncbi.nlm.nih.gov/42829639/)
+- **英文原题**: *Prognostic and immunotherapeutic implications of histamine-related biomarkers in lung adenocarcinoma.*
+- **实际结果**: BACKGROUND: Recent researches have revealed that histamine plays a critical role in promoting pathogenesis of cancers. However, the key histamine-related molecular signatures and their functional roles in lung adenocarci…
+- **核验状态**: — 无数值核验项
+
+## 149. [Phys Med · IF — · 评分 35 · 启发式] [Volume-based quantitative assessment of respiratory-induced organ motion in lung cancers.](https://pubmed.ncbi.nlm.nih.gov/42828954/)
+- **英文原题**: *Volume-based quantitative assessment of respiratory-induced organ motion in lung cancers.*
+- **实际结果**: PURPOSE: To comprehensively evaluate respiratory-induced organ motion and deformation using volume-based analysis, overcoming the limitations of conventional point-based methods in radiation therapy for lung malignancies…
+- **核验状态**: — 无数值核验项
+
+## 150. [Comput Biol Med · IF — · 评分 35 · 启发式] [Harnessing Annona muricata phytochemicals for multi-target cancer therapy: An integrated network pharmacology and in-silico study.](https://pubmed.ncbi.nlm.nih.gov/42828951/)
+- **英文原题**: *Harnessing Annona muricata phytochemicals for multi-target cancer therapy: An integrated network pharmacology and in-silico study.*
+- **实际结果**: Lung and breast cancers are among the major causes of cancer-related morbidity and mortality worldwide. Both these cancers share several dysregulated molecular processes, including common oncogenic signaling pathways and…
+- **核验状态**: — 无数值核验项
+
+## 151. [Front Endocrinol (Lausanne) · IF — · 评分 35 · 启发式] [Case Report: Tislelizumab-associated secondary adrenal insufficiency in a patient with lung squamous cell carcinoma.](https://pubmed.ncbi.nlm.nih.gov/42827725/)
+- **英文原题**: *Case Report: Tislelizumab-associated secondary adrenal insufficiency in a patient with lung squamous cell carcinoma.*
+- **实际结果**: BACKGROUND: Immune checkpoint inhibitors (ICIs) have transformed cancer treatment, but immune-related adverse events remain clinically challenging. Tislelizumab is a humanized anti-PD-1 monoclonal antibody widely used in…
+- **核验状态**: — 无数值核验项
+
+## 152. [Support Care Cancer · IF 3.4 · 评分 35 · 启发式] [From "passive burden-bearing" to "active benefit-gaining": exploring the psychological growth paths of female caregivers of advanced lung cancer patients.](https://pubmed.ncbi.nlm.nih.gov/42827182/)
+- **英文原题**: *From "passive burden-bearing" to "active benefit-gaining": exploring the psychological growth paths of female caregivers of advanced lung cancer patients.*
+- **实际结果**: OBJECTIVE: This study aimed to explore the benefit-finding experiences of female caregivers of patients with lung cancer, focusing particularly on their positive psychological adaptations throughout the caregiving proces…
+- **核验状态**: — 无数值核验项
+
+## 153. [J Thorac Oncol · IF 23.3 · 评分 35] [JTO 二十周年系列：胸部肿瘤病理学进展回顾（叙述性综述，无原始数据）](https://pubmed.ncbi.nlm.nih.gov/42827012/)
+- **英文原题**: *Advances in Pathology: Journal of Thoracic Oncology 20th Anniversary Series.*
+- **解读暂停**（核验未通过或出版状态存疑）：仅呈现题录与链接，请以原文为准。
+- **核验状态**: ⚠️ 未通过自动核验，解读暂停
+
+## 154. [Medicine (Baltimore) · IF — · 评分 35 · 启发式] [Primary pulmonary mucosa-associated lymphoid tissue lymphoma presenting as a right hilar mass: A case report.](https://pubmed.ncbi.nlm.nih.gov/42826325/)
+- **英文原题**: *Primary pulmonary mucosa-associated lymphoid tissue lymphoma presenting as a right hilar mass: A case report.*
+- **实际结果**: RATIONALE: Primary pulmonary lymphoma (PPL) is an extremely rare malignant lung tumor that is frequently misdiagnosed as pneumonia or lung cancer due to its atypical radiological and clinical presentation. The rationale …
+- **核验状态**: — 无数值核验项
+
+## 155. [Medicine (Baltimore) · IF — · 评分 35 · 启发式] [Genetic evidence for associations between gastroesophageal reflux disease and site-specific extraesophageal cancers: A Mendelian randomization study.](https://pubmed.ncbi.nlm.nih.gov/42826299/)
+- **英文原题**: *Genetic evidence for associations between gastroesophageal reflux disease and site-specific extraesophageal cancers: A Mendelian randomization study.*
+- **实际结果**: Observational studies have suggested an increased risk of extraesophageal cancers in patients with gastroesophageal reflux disease (GERD), but whether these associations are causal remains uncertain. This study systemati…
+- **核验状态**: — 无数值核验项
+
+## 156. [Medicine (Baltimore) · IF — · 评分 35] [晚期结肠癌系统治疗稳定期新发肺结节经证实为肺隐球菌病而非转移：一例个案报道并文献复习](https://pubmed.ncbi.nlm.nih.gov/42826288/)
+- **英文原题**: *Pulmonary cryptococcosis mimicking metastatic progression despite systemic disease stability in advanced colon cancer: A case report and literature review.*
+- **作者结论**: 当已有肿瘤部位处于稳定或缓解状态却出现新的肺部病灶时，影像学上的“进展”不应自动等同于肿瘤学进展；综合纵向治疗反应、肿瘤标志物趋势、临床症状、影像特征与针对性感染检测，可避免不必要的抗肿瘤方案更改，并在有充分支持的替代诊断时避免侵入性操作。
+- **AI 疑点**: 单例个案且无对照，无法评估该诊断路径的敏感度/特异度或误判发生率；“肺部结节显著退缩”未给出测量方法、时间点与量化数值；摘要未呈现文献复习的方法与纳入范围，存在选择性举证可能；“不应等同于进展”的推论基于单一病例，人群限定（瘤灶稳定+肿瘤标志物下降+无症状）本身即事后筛选，外推需谨慎。
+- **核验状态**: — 无数值核验项
+
+## 157. [Sci Adv · IF — · 评分 35 · 启发式] [An immunocompetent, multifluorescent resource for real-time analysis of osteosarcoma progression, metastasis, and response to therapy.](https://pubmed.ncbi.nlm.nih.gov/42826198/)
+- **英文原题**: *An immunocompetent, multifluorescent resource for real-time analysis of osteosarcoma progression, metastasis, and response to therapy.*
+- **实际结果**: Despite substantial treatment improvements, the 5-year survival rate for metastatic osteosarcoma (OS) is still as low as 20%. Immunocompetent genetic mouse models of OS have been introduced, enabling in vivo OS studies.
+- **核验状态**: — 无数值核验项
+
+## 158. [Anticancer Res · IF — · 评分 35 · 启发式] [Clinical Outcomes and Prognostic Factors of ABCP Therapy in EGFR-mutated NSCLC in the Osimertinib Era.](https://pubmed.ncbi.nlm.nih.gov/42823148/)
+- **英文原题**: *Clinical Outcomes and Prognostic Factors of ABCP Therapy in EGFR-mutated NSCLC in the Osimertinib Era.*
+- **实际结果**: BACKGROUND/AIM: Atezolizumab, bevacizumab, carboplatin, and paclitaxel (ABCP) therapy has demonstrated efficacy in epidermal growth factor receptor (EGFR)-mutated non-small cell lung cancer (NSCLC) after EGFR-tyrosine ki…
+- **核验状态**: — 无数值核验项
+
+## 159. [Technol Cancer Res Treat · IF — · 评分 35 · 启发式] [A Multidimensional CT-Based Tumor Location Metric for Predicting Lymph Node Metastasis and Occult Lymph Node Metastasis in Lung Adenocarcinoma.](https://pubmed.ncbi.nlm.nih.gov/42821281/)
+- **英文原题**: *A Multidimensional CT-Based Tumor Location Metric for Predicting Lymph Node Metastasis and Occult Lymph Node Metastasis in Lung Adenocarcinoma.*
+- **实际结果**: IntroductionLymph node (LN) metastasis of lung adenocarcinoma, particularly occult lymph node metastasis (OLNM), remains difficult to predict using conventional imaging and basic positional parameters, adversely affectin…
+- **核验状态**: — 无数值核验项
+
+## 160. [J Clin Exp Hematop · IF — · 评分 35 · 启发式] [Biopsy-proven inflammatory pulmonary opacities mimicking lymphoma relapse after CD19 CAR-T-cell therapy.](https://pubmed.ncbi.nlm.nih.gov/42816413/)
+- **英文原题**: *Biopsy-proven inflammatory pulmonary opacities mimicking lymphoma relapse after CD19 CAR-T-cell therapy.*
+- **实际结果**: Pulmonary lesions that newly emerge after chimeric antigen receptor T-cell therapy may raise immediate concern for lymphoma relapse, especially when they occur at sites of prior disease involvement. We report a patient w…
+- **核验状态**: — 无数值核验项
+
+## 161. [J Cancer Res Ther · IF — · 评分 35 · 启发式] [Clinical implications of CD47 and programmed death-ligand 1 expression in predicting the therapeutic response of immune checkpoints in advanced nonsmall-cell lung cancer.](https://pubmed.ncbi.nlm.nih.gov/42813858/)
+- **英文原题**: *Clinical implications of CD47 and programmed death-ligand 1 expression in predicting the therapeutic response of immune checkpoints in advanced nonsmall-cell lung cancer.*
+- **实际结果**: PURPOSE: This study aimed to evaluate CD47 expression in nonsmall-cell lung cancer (NSCLC) and explore the predictive value of combined CD47 and programmed death-ligand 1 (PD-L1) status for immunotherapy outcomes. MATERI…
+- **核验状态**: — 无数值核验项
+
+## 162. [J Cancer Res Ther · IF — · 评分 35 · 启发式] [Analysis of respiratory-induced tumor motion characteristics in different lung lobes using four-dimensional computed tomography images.](https://pubmed.ncbi.nlm.nih.gov/42813856/)
+- **英文原题**: *Analysis of respiratory-induced tumor motion characteristics in different lung lobes using four-dimensional computed tomography images.*
+- **实际结果**: OBJECTIVES: This study aimed to analyze respiratory-induced tumor motion characteristics in different lung lobes based on four-dimensional computed tomography (4DCT) images and explore the relationship between respirator…
+- **核验状态**: — 无数值核验项
+
+## 163. [J Cancer Res Ther · IF — · 评分 35 · 启发式] [Cost-effectiveness of durvalumab consolidation therapy in limited-stage small-cell lung cancer: A Chinese and U.S. payer perspective analysis.](https://pubmed.ncbi.nlm.nih.gov/42813855/)
+- **英文原题**: *Cost-effectiveness of durvalumab consolidation therapy in limited-stage small-cell lung cancer: A Chinese and U.S. payer perspective analysis.*
+- **实际结果**: BACKGROUND: The ADRIATIC trial has established durvalumab as a new standard of care for limited-stage small-cell lung cancer (LS-SCLC) by showing significant survival benefits after chemoradiotherapy (CRT). In this study…
+- **核验状态**: — 无数值核验项
+
+## 164. [J Vis Exp · IF — · 评分 35 · 启发式] [In Silico Prioritization of Potential Protein Interactions for Glutathione-Responsive Abasic Site-Trapping Prodrugs in Non-Small Cell Lung Cancer.](https://pubmed.ncbi.nlm.nih.gov/42813677/)
+- **英文原题**: *In Silico Prioritization of Potential Protein Interactions for Glutathione-Responsive Abasic Site-Trapping Prodrugs in Non-Small Cell Lung Cancer.*
+- **实际结果**: Non-small cell lung cancer (NSCLC) remains a major cause of cancer-related mortality, and treatment efficacy is frequently limited by acquired resistance and systemic toxicity. Glutathione-responsive abasic site-trapping…
+- **核验状态**: — 无数值核验项
+
+## 165. [J Pharmacol Sci · IF — · 评分 35] [Benzamil在非小细胞肺癌细胞中诱导细胞毒性，并与线粒体损伤、线粒体延长及XIAP信号改变相关](https://pubmed.ncbi.nlm.nih.gov/42810781/)
+- **英文原题**: *Benzamil-induced cytotoxicity in non-small cell lung cancer is associated with mitochondrial damage, mitochondrial elongation, and altered XIAP signaling.*
+- **作者结论**: These findings support a proposed model in which BZ-induced mitochondrial damage is accompanied by the release of cytochrome c, Smac/Diablo, and HtrA2/Omi. These changes were accompanied by caspase activation and cell line-dependent alterations in XIAP expression, consistent with their potential contribution to apoptosis in NSCLC cells.
+- **AI 疑点**: 体外细胞系研究，缺乏动物模型与临床验证；细胞毒性和机制改变多为定性描述，摘要未报告组间统计量；BZ对EGFR L858R/T790M双突变H1975细胞的敏感性较低，但未量化；BZ增强奥希替尼细胞毒性仅为联合处理描述，未报告协同/拮抗统计；机制关联不能证明因果关系。
+- **核验状态**: — 无数值核验项
+
+## 166. [Asian Pac J Cancer Prev · IF — · 评分 35 · 启发式] [In Silico Study of Micheliolide Derivatives as Potential Non-Small Cell Lung Cancer Drugs Targeting the Epidermal Growth Factor Receptor.](https://pubmed.ncbi.nlm.nih.gov/42808393/)
+- **英文原题**: *In Silico Study of Micheliolide Derivatives as Potential Non-Small Cell Lung Cancer Drugs Targeting the Epidermal Growth Factor Receptor.*
+- **实际结果**: OBJECTIVE: To identify Micheliolide-based derivatives with favorable drug-like properties and inhibitory potential against the epidermal growth factor receptor (EGFR) using an integrated in silico approach. METHODS: Mich…
+- **核验状态**: — 无数值核验项
+
+## 167. [Respir Res Clin Pract · IF — · 评分 35 · 启发式] [Sociodemographic profile of individuals eligible for lung cancer screening according to Brazilian guidelines: a national analysis.](https://pubmed.ncbi.nlm.nih.gov/42808058/)
+- **英文原题**: *Sociodemographic profile of individuals eligible for lung cancer screening according to Brazilian guidelines: a national analysis.*
+- **实际结果**: OBJECTIVE: To describe the sociodemographic profile of individuals eligible for lung cancer screening according to Brazilian guidelines. METHODS: This was a cross-sectional study using data from the Brazilian Longitudina…
+- **核验状态**: — 无数值核验项
+
+## 168. [Support Care Cancer · IF 3.4 · 评分 35 · 启发式] [Prognostic significance of dynamic emotional distress during neoadjuvant therapy and surgery for resectable non-small cell lung cancer.](https://pubmed.ncbi.nlm.nih.gov/42803834/)
+- **英文原题**: *Prognostic significance of dynamic emotional distress during neoadjuvant therapy and surgery for resectable non-small cell lung cancer.*
+- **实际结果**: INTRODUCTION: Emotional distress (ED) is common in patients with non-small cell lung cancer (NSCLC), but the association between longitudinal ED patterns and survival during multimodality treatment remains unclear. We ev…
+- **核验状态**: — 无数值核验项
+
+## 169. [J Leukoc Biol · IF — · 评分 35] [低密度中性粒细胞与乳腺癌、肺癌疾病进展及不良预后相关：表型、免疫抑制机制与生物标志物潜力的叙述性综述（无原始数据）](https://pubmed.ncbi.nlm.nih.gov/42803438/)
+- **英文原题**: *Decoding low-density neutrophils in breast and lung cancer: from bystanders to drivers.*
+- **作者结论**: 肿瘤来源细胞因子与慢性炎症驱动低密度中性粒细胞扩增、功能重编程与组织迁移，将系统性中性粒细胞失调与晚期疾病及转移进展联系起来；并强调新兴生物标志物、未解挑战及靶向中性粒细胞可塑性与低密度中性粒细胞介导免疫抑制的治疗策略，凸显其作为精准肿瘤学中可操作组分的潜力。
+- **AI 疑点**: 叙述性综述：未报告检索策略、纳入排除标准、文献数量或偏倚评估，无可提取的效应量、置信区间或P值，所有“相关/关联”均为定性表述，不能用于疗效或预后判断。摘要将低密度中性粒细胞由“旁观者”定位为“驱动者”，但所依据的机制证据在文中仅以“mechanistic studies indicate”概括，因果性表述强于所呈现证据。以乳腺癌与肺癌为聚焦对象的选择依据未说明（是否因文献量最多，存在选择性强调可能）。“actionable components in precision oncology”为前景外推，摘要中无任何干预性或前瞻验证数据支持。人群、样本量、对照设置等信息不足。
+- **核验状态**: — 无数值核验项
+
+## 170. [Cancer Control · IF — · 评分 35 · 启发式] [State Disparities in Lung Cancer Screening Uptake Despite Facility Availability in the United States, 2024-2025: A Cross-Sectional Ecological Study.](https://pubmed.ncbi.nlm.nih.gov/42803119/)
+- **英文原题**: *State Disparities in Lung Cancer Screening Uptake Despite Facility Availability in the United States, 2024-2025: A Cross-Sectional Ecological Study.*
+- **实际结果**: IntroductionLung cancer screening (LCS) provides substantial advantages as a secondary prevention strategy, yet screening rates remain low, with notable regional disparities. Our cross-sectional ecological study examined…
+- **核验状态**: — 无数值核验项
+
+## 171. [Thorac Cancer · IF — · 评分 35 · 启发式] [Intraoperative Contrast-Enhanced Ultrasound to Assess Lymph Node Resection and Involvement in Patients Undergoing Robotic-Assisted Thoracic Surgery Lobectomy for Management of Non-Small Cell Lung Cancer.](https://pubmed.ncbi.nlm.nih.gov/42802416/)
+- **英文原题**: *Intraoperative Contrast-Enhanced Ultrasound to Assess Lymph Node Resection and Involvement in Patients Undergoing Robotic-Assisted Thoracic Surgery Lobectomy for Management of Non-Small Cell Lung Cancer.*
+- **实际结果**: BACKGROUND: Mediastinal staging is crucial in patients undergoing lung resection for cancer to plan further adjuvant. Current guidelines recommend resecting at least three mediastinal lymph node stations, including Group…
+- **核验状态**: — 无数值核验项
+
+## 172. [Cancer Causes Control · IF — · 评分 35 · 启发式] [The relationship between activities of daily living, frailty, and care dependency in older adults with lung cancer.](https://pubmed.ncbi.nlm.nih.gov/42802193/)
+- **英文原题**: *The relationship between activities of daily living, frailty, and care dependency in older adults with lung cancer.*
+- **实际结果**: BACKGROUND: Functional status and frailty are important factors associated with care dependency in older adults with lung cancer. This study aimed to examine the associations between activities of daily living, frailty, …
+- **核验状态**: — 无数值核验项
+
+## 173. [JCO Glob Oncol · IF 3.8 · 评分 34] [巴西2001–2024年肺癌住院平均费用与住院时长呈下降趋势，但存在地区、年龄与性别差异](https://pubmed.ncbi.nlm.nih.gov/42842856/)
+- **英文原题**: *Lung Cancer's Price Tag: Regional Disparities and Temporal Trends in Hospitalization Costs in Brazil Over the Past Two Decades.*
+- **解读暂停**（核验未通过或出版状态存疑）：仅呈现题录与链接，请以原文为准。
+- **核验状态**: ⚠️ 未通过自动核验，解读暂停
+
+## 174. [J Toxicol Sci · IF — · 评分 34] [GLO I抑制剂TLSC702预处理增强GLO I高表达非小细胞肺癌细胞对多柔比星诱导凋亡的敏感性](https://pubmed.ncbi.nlm.nih.gov/42816376/)
+- **英文原题**: *Glyoxalase I inhibition by TLSC702 sensitizes glyoxalase I-dependent cancer cells to doxorubicin-induced cell death.*
+- **作者结论**: Collectively, these results demonstrate that GLO I inhibition primes cancer cells for enhanced DOX-induced apoptosis, providing mechanistic insights into GLO I-associated chemoresistance.
+- **AI 疑点**: 仅两种细胞系、体外实验，缺乏体内验证和患者数据；TLSC702与DOX同时给药增强有限，结论主要基于序贯预处理，存在方案特异性；摘要未给出具体数值、重复次数或统计量，无法评估效应大小与稳健性；“多种死亡通路”及自噬/凋亡贡献仅有抑制剂部分逆转，证据强度有限。
+- **核验状态**: — 无数值核验项
+
+## 175. [Cancer · IF 5.6 · 评分 34] [2025 Bridging the Gaps 专家panel述评：肺癌治疗选择与序贯中的证据缺口与未满足需求，呼吁前瞻性头对头试验](https://pubmed.ncbi.nlm.nih.gov/42806414/)
+- **英文原题**: *Current challenges and emerging therapeutic strategies in lung cancer care: Insights from Bridging the Gaps 2025.*
+- **作者结论**: a multidisciplinary panel of oncology experts, primarily based in the United States, convened to review current evidence gaps, controversies, and unmet needs in the management of lung cancer. Key areas were identified in treatment selection and sequencing as well as the management of high-risk subtypes, highlighting the need for prospective, head-to-head clinical trials. Findings from this panel will inform a 2026 follow-up conference in which a modified Delphi method will be used to develop formal consensus recommendations.
+- **AI 疑点**: 本文为会议panel述评，摘要中无任何量化结果、无系统检索策略、无证据分级，不构成可引用的疗效证据；专家组成员“主要来自美国”，存在地域与机构代表性局限，可能影响后续共识的外推性；核心产出（改良Delphi正式推荐）尚未完成，当前仅为议题清单，若被当作实践指导引用属超前解读。信息不足：panel人数、利益冲突披露、议题筛选与投票规则均未在摘要中说明。
+- **核验状态**: — 无数值核验项
+
+## 176. [Crit Rev Immunol · IF — · 评分 33] [氧化苦参碱经抑制METTL3降低KAT2A的m6A修饰与表达并抑制肺腺癌细胞恶性表型](https://pubmed.ncbi.nlm.nih.gov/42868599/)
+- **英文原题**: *Oxymatrine Attenuates Lung Adenocarcinoma Tumorigenesis via METTL3-Mediated the m6A Modification of KAT2A.*
+- **作者结论**: Oxymatrine, an anti-tumor component in LUAD, reduces KAT2A expression via restraining METTL3 levels in a m6A method. Oxymatrine-METTL3-m6A-KAT2A may be a potential therapeutic network for LUAD.
+- **AI 疑点**: 摘要未报告样本量、重复次数、统计方法与效应量，所有结果均为定性描述，无法评估效应大小与稳健性；仅凭METTL3上调“部分逆转”氧化苦参碱作用，不能确立METTL3为该药抗肿瘤作用的主要或唯一靶点；研究为临床前体外与异种移植数据，不能外推至患者疗效或临床决策。
+- **核验状态**: — 无数值核验项
+
+## 177. [Clin Lung Cancer · IF 3.9 · 评分 33] [病例报告：肺腺癌伴新型Y染色体基因间区ALK融合经劳拉替尼治疗获快速应答](https://pubmed.ncbi.nlm.nih.gov/42804986/)
+- **英文原题**: *Rapid Lorlatinib Response in Lung Adenocarcinoma With a Novel Y Chromosome Intergenic ALK Fusion: A Case Report.*
+- **AI 疑点**: 摘要仅见“CLINICAL PRACTICE POINTS.”，无研究设计、疗效数值或安全性信息；标题中的“快速应答”来自单例病例报告，不能外推疗效；新型Y染色体基因间区ALK融合的致病性与靶向敏感性证据不足。
+- **核验状态**: — 无数值核验项
+
+## 178. [Apoptosis · IF — · 评分 32] [新型钌基化合物Ru3经E2F2-IGFBP3-GPX4轴杀伤顺铂耐药非小细胞肺癌细胞的体外研究](https://pubmed.ncbi.nlm.nih.gov/42829402/)
+- **英文原题**: *Ru3: a novel ruthenium-based compound overcomes cisplatin resistance in non-small cell lung cancer via the E2F2-IGFBP3-GPX4 pathway.*
+- **作者结论**: 本研究阐明了E2F2-IGFBP3-GPX4轴是新的治疗易感靶点，并提示Ru3是治疗难治性NSCLC有前景的药物；Ru3可选择性杀伤顺铂耐药NSCLC细胞而不伤害亲本细胞。
+- **AI 疑点**: 摘要完全缺乏定量数据（无IC50、杀伤率、ROS/蛋白表达变化倍数、统计检验），无法评估“选择性杀伤”的强度与可靠性；未提及动物体内实验、药代/毒性数据，从细胞表型直接外推“有前景的药物”属过度延伸；“E2F2直接抑制IGFBP3”“IGFBP3经GPX4系统清除ROS”等关键机制环节在摘要中仅以结论式陈述，缺少实验证据细节；顺铂耐药细胞GPX4/IGFBP3升高的来源与验证方式信息不足。
+- **核验状态**: — 无数值核验项
+
+## 179. [Front Biosci (Landmark Ed) · IF — · 评分 32] [肺腺癌类泛素化相关生物标志物与单细胞图谱的多组学分析及体外验证：DNAJB1高表达与不良预后相关并促进A549/H1975细胞增殖迁移](https://pubmed.ncbi.nlm.nih.gov/42811976/)
+- **英文原题**: *Multi-Omics Analysis and Experimental Validation Uncover Neddylation-Associated Biomarkers and Cellular Landscape in Lung Adenocarcinoma.*
+- **解读暂停**（核验未通过或出版状态存疑）：仅呈现题录与链接，请以原文为准。
+- **核验状态**: ⚠️ 未通过自动核验，解读暂停
+
+## 180. [Pathol Int · IF — · 评分 31] [胸膜间皮瘤伴罕见部分鳞状分化：一例81岁石棉暴露患者的临床病理与全外显子测序分析（两成分共享BAP1缺失与CDKN2A纯合缺失）](https://pubmed.ncbi.nlm.nih.gov/42844928/)
+- **英文原题**: *Pleural Mesothelioma With Unusual Squamous Differentiation: A Clinicopathological Case Report With Molecular Insights From Whole-Exome Sequencing.*
+- **解读暂停**（核验未通过或出版状态存疑）：仅呈现题录与链接，请以原文为准。
+- **核验状态**: ⚠️ 未通过自动核验，解读暂停
+
+## 181. [Bull Math Biol · IF — · 评分 31] [基于代理模型比较小细胞肺癌与结核肉芽肿形成中病灶结局驱动机制：预测适应性免疫细胞到达触发两相动态及CCL5的双相作用](https://pubmed.ncbi.nlm.nih.gov/42839156/)
+- **英文原题**: *A Comparison of Mechanisms Driving Lesion Outcomes During Lung Tumor and Tuberculosis Granuloma Formation.*
+- **作者结论**: 该新型肿瘤模型使未来免疫治疗和抗癌药物研究成为可能。
+- **AI 疑点**: 模型验证主要依据能否复现已知相关因素，而非与人类或实验数据定量拟合；摘要未报告模拟规模、效应量、置信区间或预测性能，参数范围来自文献，存在可识别性与外推风险；CCL5早期促瘤/后期抑瘤等结论为模拟推断，需实验验证。信息不足：缺乏与临床结局的校准。
+- **核验状态**: — 无数值核验项
+
+## 182. [Clin J Oncol Nurs · IF — · 评分 31] [Tarlatamab（DLL3双特异性T细胞衔接器）用于广泛期小细胞肺癌的综述性介绍：摘要未提供疗效与安全性数据](https://pubmed.ncbi.nlm.nih.gov/42832312/)
+- **英文原题**: *Tarlatamab: Invaluable Time for Patients With Extensive-Stage Small Cell Lung Cancer.*
+- **作者结论**: Tarlatamab-dlle（tarlatamab）是一种靶向delta样配体3的双特异性T细胞衔接器，为（ES-SCLC）患者提供了一种新的治疗选择。
+- **AI 疑点**: 摘要被截断（止于“offers a novel therapeutic option f.”），全文未提供任何疗效或安全性数值，无法核验其“新选择”表述的证据强度；本文为护理视角的叙述性综述，非系统评价，未说明文献检索策略、证据等级与利益冲突；所依据的关键注册研究设计、样本量与终点均未呈现，信息不足。
+- **核验状态**: — 无数值核验项
+
+## 183. [Int Med Case Rep J · IF — · 评分 31] [双腔气管插管行胸科手术后气管套囊水平破裂延迟识别：1例病例报告](https://pubmed.ncbi.nlm.nih.gov/42829651/)
+- **英文原题**: *Delayed Recognition of a Cuff-Level Tracheal Rupture After Double-Lumen Endotracheal Tube Intubation for Thoracic Surgery: A Case Report.*
+- **解读暂停**（核验未通过或出版状态存疑）：仅呈现题录与链接，请以原文为准。
+- **核验状态**: ⚠️ 未通过自动核验，解读暂停
+
+## 184. [Ann Card Anaesth · IF — · 评分 30] [青少年隆突旁肿瘤机器人袖式切除吻合术中的联合通气策略：单例病例报告](https://pubmed.ncbi.nlm.nih.gov/42862679/)
+- **英文原题**: *Ventilation Strategies in a Pediatric Patient Undergoing Resection and Anastomosis for a Juxta Carinal Tumor.*
+- **作者结论**: 支气管内插管、经气道交换导管喷射通气及跨野通气的联合应用使手术得以成功完成。
+- **AI 疑点**: 单例病例报告，无对照、无客观通气/氧合指标、无并发症与随访数据；“成功完成”仅为叙述性结果，不能推断该联合策略的疗效或安全性；儿科（15岁）与机器人右侧入路的可推广性有限；信息不足，无法评价术中低氧、气道压及吻合口结局。
+- **核验状态**: — 无数值核验项
+
+## 185. [Zhongguo Yi Liao Qi Xie Za Zhi · IF — · 评分 28] [磁共振引导自适应放疗在肺癌治疗中的应用与前景：叙述性综述（无临床结局数据）](https://pubmed.ncbi.nlm.nih.gov/42865049/)
+- **英文原题**: *[Application and Future Prospects of Magnetic Resonance-Guided Adaptive Radiotherapy in Lung Cancer Treatment].*
+- **作者结论**: MRgART是肺癌治疗领域的重要进展；基于MRI高软组织分辨率可精确勾画肿瘤边界，结合在线自适应计划修改，可有效应对呼吸运动和肿瘤体积变化带来的挑战，从而提高靶区剂量覆盖并减少周围健康组织毒性。
+- **AI 疑点**: 叙述性综述，未报告系统检索策略、纳入标准及偏倚评估；摘要无对照、样本量、临床终点或可核验数值，结论主要基于技术优势叙述，缺乏临床结局证据支持。
+- **核验状态**: — 无数值核验项
+
+## 186. [Int Med Case Rep J · IF — · 评分 28] [肺毛霉病影像表现似肺癌致诊断困难：1例经BALF mNGS确诊、抗真菌治疗后病灶消退的病例报告](https://pubmed.ncbi.nlm.nih.gov/42827939/)
+- **英文原题**: *Diagnostic Challenges in mNGS for Pulmonary Mucormycosis Presenting with Imaging Features Resembling Those of Lung Cancer.*
+- **解读暂停**（核验未通过或出版状态存疑）：仅呈现题录与链接，请以原文为准。
+- **核验状态**: ⚠️ 未通过自动核验，解读暂停
+
+## 187. [Int J Biol Sci · IF — · 评分 28] [微流控剪切应力下ROS-CD44-Ezrin轴维持肺癌细胞结构并抑制凋亡的体外机制研究](https://pubmed.ncbi.nlm.nih.gov/42807534/)
+- **英文原题**: *Ezrin Functions as a Key Mechanosensitive Effector to Preserve Cell Structure and Promote Survival and Metastasis of Lung Cancer Cells during Circulation.*
+- **作者结论**: Our findings suggest that these well-established molecular functions are differentially engaged under shear stress, revealing a context-dependent survival mechanism that may offer opportunities for therapeutic exploration, pending further validation in more clinically relevant models.
+- **AI 疑点**: 仅体外A549细胞与微流控模型，缺少体内模型、临床CTC样本及定量统计验证；摘要中ROS-CD44-Ezrin及下游通路的因果性多以potential/may/appears表述，未见 rescue、敲低/过表达等因果实验细节；无样本量与效应值，信息不足；将机制外推至临床转移与治疗靶点需谨慎。
+- **核验状态**: — 无数值核验项
+
+## 188. [Anal Cell Pathol (Amst) · IF — · 评分 28] [HDAC4通过HIF-1α上调SLC38A2、增强谷氨酰胺代谢以促进NSCLC细胞干性（A549细胞与裸鼠移植瘤模型的临床前研究）](https://pubmed.ncbi.nlm.nih.gov/42803128/)
+- **英文原题**: *HDAC4 Promotes Cancer Stemness in Nonsmall Cell Lung Cancer by Upregulating SLC38A2 Expression via HIF-1α to Enhance Glutamine Metabolism.*
+- **作者结论**: HDAC4通过上调HIF-1α表达促进SLC38A2表达，从而增强谷氨酰胺代谢，驱动NSCLC干性与进展；CB-839可削弱HDAC4过表达对A549细胞干性、迁移和侵袭的促进作用。
+- **AI 疑点**: 全文为单一细胞系（A549）＋裸鼠移植瘤的临床前数据，摘要未给出任何定量数值、效应量或P值，结论强度无法评估；机制链依赖敲低/过表达的单向验证，仅见HIF-1α过表达“削弱”HDAC4敲低对SLC38A2的抑制这一处部分回补，缺少SLC38A2回补与CB-839在体内验证；摘要以“驱动NSCLC进展”表述，但无增殖/成瘤体内终点数据支撑，存在外推过度；肿瘤干细胞标志物（CD133/CD44、球形成）为替代终点，与临床干性/耐药关联未验证；未说明重复次数、盲法与统计方法。
+- **核验状态**: — 无数值核验项
+
+## 189. [Biol Pharm Bull · IF — · 评分 27] [cRGD脂质纳米颗粒递送siFasL联合STING激动剂在小鼠肺转移模型中诱导抗肿瘤效应并破坏肿瘤血管](https://pubmed.ncbi.nlm.nih.gov/42830502/)
+- **英文原题**: *Lipid Nanoparticle-Mediated Vascular-Disrupting Therapy for Lung Metastasis.*
+- **作者结论**: 这些发现表明，该联合治疗通过肿瘤血管破坏对肺转移发挥抗肿瘤活性，提示该治疗可能是转移性肿瘤血管性的潜在强效破坏手段。
+- **AI 疑点**: 摘要仅报告定性“显著”抗肿瘤效应，未给出P值、CI或效应量，无法核验统计严谨性；未说明随机、盲法、对照设置与样本量；将小鼠模型结果表述为“potent disrupter”存在向临床转化外推的倾向；信息不足。
+- **核验状态**: — 无数值核验项
+
+## 190. [Ann Agric Environ Med · IF — · 评分 27] [miR-3615在肺腺癌细胞中靶向CALML4并抑制增殖、迁移、侵袭及促进凋亡的体外研究](https://pubmed.ncbi.nlm.nih.gov/42802965/)
+- **英文原题**: *miR-3615 suppresses proliferation and induces apoptosis in lung adenocarcinoma cells by targetting CALML4.*
+- **作者结论**: miR-3615通过直接下调CALML4对LUAD细胞发挥功能影响，从而抑制增殖、迁移和侵袭并促进凋亡；阐明的miR-3615/CALML4轴为研究LUAD发展提供了理论基础。
+- **AI 疑点**: 仅体外细胞系，无临床标本或动物实验；未报告重复数、效应量、P值及统计方法；正常对照细胞类型未说明；靶基因验证和功能结论的外推性有限。
+- **核验状态**: — 无数值核验项
+
+## 191. [Dev Cell · IF — · 评分 26] [评述：肺癌边缘CHL1+CXCL9+ CAF招募CXCR3+ Treg并促进免疫逃逸](https://pubmed.ncbi.nlm.nih.gov/42874576/)
+- **英文原题**: *Evasive encounters: Immunomodulatory CAFs interact with Tregs in the lung cancer microenvironment.*
+- **作者结论**: Ringham等鉴定出位于肺肿瘤边缘的CHL1+CXCL9+癌症相关成纤维细胞，其招募抑制性CXCR3+调节性T细胞，揭示基质趋化因子梯度可促进免疫逃逸；与免疫刺激性CCL19+成纤维网状细胞并列来看，这些发现提示免疫相互作用成纤维细胞是肿瘤免疫的情境依赖性组织者。
+- **AI 疑点**: 本文为Dev Cell评论/Preview，非原始研究；未提供样本量、实验方法、效应量或统计值，方法学严谨性无法评价；结论基于被评述的Ringham等研究，存在二次解读与选择性强调风险。
+- **核验状态**: — 无数值核验项
+
+## 192. [BMJ Case Rep · IF — · 评分 26] [替雷利珠单抗相关中毒性视神经病变：晚期肺腺癌一例及不可逆视力损害](https://pubmed.ncbi.nlm.nih.gov/42823136/)
+- **英文原题**: *Presentation and management of tislelizumab induced toxic optic neuropathy.*
+- **实际结果**: 患者为转移性肺腺癌女性，接受二线吉西他滨+卡铂+替雷利珠单抗；第2周期化疗-免疫治疗后出现无痛性、进行性双侧视力模糊，无颅内病变；眼科评估符合中毒性视神经病变，其他原因已排除；停用替雷利珠单抗并给予甲泼尼龙1 g/day×5天，未再挑战ICI；视觉功能未改善，提示不可逆视神经损伤。
+- **作者结论**: 据作者所知，这是首例替雷利珠单抗相关中毒性视神经病变的报道，将替雷利珠单抗相关眼部irAE谱扩展至既往VKH样全葡萄膜炎、VKH样葡萄膜炎和视网膜血管炎之外；本病例强调接受ICI患者早期识别视觉症状和定期眼科评估的重要性，以及在怀疑威胁视力的神经眼科irAE时决定ICI继续或停用的决策。
+- **AI 疑点**: 单例个案，仅有时间关联，不能确立因果；未进行ICI再挑战，无法排除其他潜在病因或自然病程；无基线视力及随访定量数据；作者“首例/扩展谱系”属文献声称，不能外推发生率或风险；信息不足。
+- **核验状态**: — 无数值核验项
+
+## 193. [Oncol Rep · IF 4.7 · 评分 25] [PINK1在肺鳞癌中高表达并与不良生存相关，体外实验提示其经FAK/AKT/RhoA/vinculin通路促进细胞增殖与侵袭](https://pubmed.ncbi.nlm.nih.gov/42825378/)
+- **英文原题**: *PINK1 promotes the progression of lung squamous cell carcinoma through the FAK/AKT/RhoA/vinculin pathway.*
+- **解读暂停**（核验未通过或出版状态存疑）：仅呈现题录与链接，请以原文为准。
+- **核验状态**: ⚠️ 未通过自动核验，解读暂停
+
+## 194. [PLoS Negl Trop Dis · IF — · 评分 23] [美国佛罗里达州疑似本地获得性肺类鼻疽表现为多发肺结节：一例病例报告](https://pubmed.ncbi.nlm.nih.gov/42862852/)
+- **英文原题**: *Brought with the wind: A case of melioidosis acquired in the United States presenting with multiple pulmonary nodules.*
+- **解读暂停**（核验未通过或出版状态存疑）：仅呈现题录与链接，请以原文为准。
+- **核验状态**: ⚠️ 未通过自动核验，解读暂停
+
+## 195. [PLoS One · IF — · 评分 23] [红树植物 Rhizophora mucronata 来源植物化学物的计算机模拟筛选：L10 对 Keap1 与 YEATS2 的对接与分子动力学表现](https://pubmed.ncbi.nlm.nih.gov/42842564/)
+- **英文原题**: *Investigating the anticancer potential of phytochemicals from the mangrove Rhizophora mucronata as inhibitors of lung cancer-associated proteins: Insights from multiscale computational and in silico analyses.*
+- **解读暂停**（核验未通过或出版状态存疑）：仅呈现题录与链接，请以原文为准。
+- **核验状态**: ⚠️ 未通过自动核验，解读暂停
+
+## 196. [Biochem Soc Trans · IF — · 评分 23] [肺癌谱系可塑性的遗传、表观遗传与代谢决定因素：从并行机制到耦联调控状态的叙述性综述](https://pubmed.ncbi.nlm.nih.gov/42836273/)
+- **英文原题**: *Genes, fuel, and fate in lung cancer.*
+- **作者结论**: 我们提出，可塑性最宜被理解为一种耦联的调控状态，源于致癌背景、染色质控制与代谢支持之间的相互作用；界定这些依赖如何产生并在高可塑性过渡态中形成功能耦联，应有助于识别在替代谱系程序稳定之前拦截谱系转换的切入点。
+- **AI 疑点**: 本文为叙述性综述，无系统检索策略、纳入排除标准、证据分级或定量合成，结论属概念性推论而非数据支持；摘要未给出任何可核查的效应量或统计值，无法评估其证据强度；'可拦截谱系转换'的治疗学外推缺乏临床或功能验证数据支撑，信息不足。
+- **核验状态**: — 无数值核验项
+
+## 197. [Recenti Prog Med · IF — · 评分 20] [一例局部晚期三阴性乳腺癌合并结肠癌及肺癌患者三线 sacituzumab govitecan 治疗后持续缓解>12个月](https://pubmed.ncbi.nlm.nih.gov/42831722/)
+- **英文原题**: *[Therapeutic success of sacituzumab govitecan in a patient with a primary diagnosis of triple-cancer: locally advanced triple-negative breast cancer, colon cancer and lung cancer.].*
+- **解读暂停**（核验未通过或出版状态存疑）：仅呈现题录与链接，请以原文为准。
+- **核验状态**: ⚠️ 未通过自动核验，解读暂停
+
+## 198. [P R Health Sci J · IF — · 评分 18] [美国州级数据中经济增长与环境退化与肺癌发病/死亡呈正相关、卫生支出呈负相关的生态学时间序列分析](https://pubmed.ncbi.nlm.nih.gov/42808661/)
+- **英文原题**: *The Burden of Cancer in the United States: An Empirical Analysis.*
+- **作者结论**: 建议实施不阻碍经济增长的减少环境退化政策；此类政策可能降低癌症发病率和死亡率，同时提高公共福利；政策制定者应做出促进经济和人类健康共同目标的决策。
+- **AI 疑点**: 摘要未给出任何系数、95%CI或P值，无法评估效应大小与精度；将发病率和死亡率合并表述为“lung and bronchus cancer incidence mortality rates”存在语义含混；生态学聚合数据不能推断个体因果；因果检验仅明确报告经济增长的单向作用，其余检验置于结论未展示；未调整吸烟、筛查、年龄等关键混杂；政策建议超出生态学关联可支持的范围。
+- **核验状态**: — 无数值核验项
+
+## 199. [BMJ Case Rep · IF — · 评分 11] [妊娠中期诊断的T3b膀胱肿瘤：33周剖宫产同期经尿道减瘤术后仍进展为肺及腹膜转移的单例报告](https://pubmed.ncbi.nlm.nih.gov/42816099/)
+- **英文原题**: *Metastatic muscle invasive bladder cancer in pregnancy.*
+- **作者结论**: 本病例强调多学科方法在处理妊娠期晚期膀胱癌中的重要性，需在母体与胎儿安全之间权衡、尊重患者意愿并优化肿瘤学结局，同时凸显妊娠期癌症诊断与治疗中的诊断和治疗挑战。
+- **AI 疑点**: 单例报告、无对照、无随访时长与生存数据，无法支持任何疗效推断；标题称"转移性肌层浸润性膀胱癌"，而摘要中初始分期为T3b、转移为术后进展事件，起病即转移与否表述前后不一；摘要仅以"早产但健康、已出院NICU"描述新生儿，缺乏孕周以外的新生儿结局指标；"优化肿瘤学结局"的表述与患者实际进展为T4转移并需姑息化疗之间的对应关系未加讨论；属罕见情形下的经验分享，证据等级低。
+- **核验状态**: — 无数值核验项
+
+## 200. [BMJ Case Rep · IF — · 评分 5] [原发性睾丸鞘膜恶性间皮瘤误诊为鞘膜积液：一例病例报告及影像学陷阱](https://pubmed.ncbi.nlm.nih.gov/42823143/)
+- **英文原题**: *Primary malignant mesothelioma of the tunica vaginalis presenting as hydrocele: imaging pitfalls.*
+- **实际结果**: 初始超声报告为单纯性鞘膜积液；术中见睾丸鞘膜脆性结节并活检证实恶性上皮样间皮瘤；分期CT未见胸膜或腹膜病变，支持原发于睾丸鞘膜。
+- **作者结论**: 该病例突出表现为鞘膜积液的罕见原发性恶性间皮瘤，超声作为唯一诊断工具的局限性，以及术中发现与影像不一致时保持警惕的重要性。
+- **AI 疑点**: 单例病例报告，无对照、无随访结局；关于超声局限性的结论仅基于该例影像与术中发现不一致，不能外推为诊断准确性证据；摘要未提供影像学性能数据。信息不足。
 - **核验状态**: — 无数值核验项
