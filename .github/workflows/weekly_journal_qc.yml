@@ -1,0 +1,25 @@
+name: weekly_journal_qc
+on:
+  schedule:
+    - cron: '17 1 * * 6'   # 周六 01:17 UTC = 北京 09:17（避整点）
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  qc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Journal QC (OpenAlex cross-check + PubMed annual volume)
+        env:
+          NCBI_API_KEY: ${{ secrets.NCBI_API_KEY }}
+        run: python3 tools/journal_qc.py
+      - name: Commit QC report
+        run: |
+          git config user.name "thoradar-bot"
+          git config user.email "bot@thoradar.local"
+          git add design/journal-qc-report.json design/journal-qc-报告.md
+          if git diff --cached --quiet; then echo "QC 无变化"; else git commit -m "chore(qc): 周度期刊库质检报告更新 [skip ci]"; git push; fi

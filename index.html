@@ -539,7 +539,7 @@ function renderDetail(list){
     <div class="badges"><span class="badge accent">${esc(p.category_label||categoryOf(p.category).label)}</span><span class="badge">${esc(show(p.study_type))}</span>${p.nct_id?`<span class="badge">${esc(p.nct_id)}</span>`:''}${degraded?'<span class="badge paused">解读暂停</span>':''}</div>
     <div class="meta-grid">
       <div class="meta-cell"><small>PMID</small><b>${esc(show(p.pmid))}</b></div><div class="meta-cell"><small>出版状态</small><b>${esc(status.label)}</b></div>
-      <div class="meta-cell"><small>影响因子 · 源值</small><b>${esc(show(p.if_val || null))}</b></div><div class="meta-cell"><small>分区 · 源值</small><b>${esc(show(p.zone))}</b></div>
+      <div class="meta-cell"><small>影响因子 · 源值</small><b>${esc(show(p.if_val || null))}</b></div><div class="meta-cell"><small>分区 · 源值</small><b>${esc(show(p.zone))}</b></div><div class="meta-cell"><small>预警状态</small><b>${p.warned ? '⚠ 在预警名单' : '正常'}</b></div>
       <div class="meta-cell"><small>雷达日期</small><b>${esc(show(p.briefing_date))}</b></div><div class="meta-cell"><small>卷 / 期</small><b>${esc(issueOf(p))}</b></div>
       <div class="meta-cell"><small>评分口径</small><b>${esc(show(p.score_source))}</b></div><div class="meta-cell"><small>精选状态</small><b>${p.curated?'已入选':'未入选 · 不凑数'}</b></div>
     </div>

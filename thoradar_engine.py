@@ -111,6 +111,7 @@ class JournalMatcher:
                                        + ([j["cas_zone"]] if j.get("cas_zone") else [])) or "已收录期刊",
                     "journal_bonus": int(meta.get("score_bonus", 0)),
                     "whitelist_exempt": bool(meta.get("whitelist_exempt", False)),
+                    "warned": bool(j.get("warned", False)),
                     "journal_abbr": j.get("iso_abbr", iso_abbr or title),
                     "journal_full": j.get("title", title),
                 }
@@ -121,6 +122,7 @@ class JournalMatcher:
             "zone": "PubMed 收录期刊",
             "journal_bonus": 0,
             "whitelist_exempt": False,
+            "warned": False,
             "journal_abbr": iso_abbr or title or "Unknown",
             "journal_full": title or "Unknown Journal",
         }
@@ -916,6 +918,7 @@ def build_paper(a: Dict[str, Any], scored: Dict[str, Any], verdict: Optional[Dic
         "tier": m["tier"],
         "if_val": m["if_val"],
         "zone": m["zone"],
+        "warned": bool(m.get("warned", False)),
         "study_type": llm_data.get("study_type", ""),
         "category": llm_data.get("category") if llm_data.get("category") in CATEGORIES else "advanced",
         "category_label": CATEGORIES.get(
@@ -1013,7 +1016,7 @@ def apply_curation(papers: List[Dict[str, Any]]) -> int:
     """
     规则式精选（阅读优先级），两模式同规则：
       【规则部分】四信号（design/primary_endpoint/tier/negative_rigorous，均出自文本与期刊字典）决定
-        curated 布尔与理由骨架——三条入选线（全部要求 S/A 级期刊、排除个案、解读暂停不入选）：
+        curated 布尔与理由骨架——三条入选线（全部要求 S/A 级期刊、排除个案、解读暂停不入选、预警刊不入选）：
           A. RCT/III 期于 S/A 级期刊；
           B. 前瞻匹配队列于 S/A 级期刊且明确陈述主要终点；
           C. 严谨阴性/证伪结果于 S/A 级期刊（保护阴性研究）。
@@ -1027,7 +1030,7 @@ def apply_curation(papers: List[Dict[str, Any]]) -> int:
         sig = detect_curation_signals(p.get("title_en", ""), p.get("abstract_en", ""))
         tier = p.get("tier", "B")
         tier_ok = tier in ("S", "A")
-        gate_open = p.get("publish_state") == "full" and sig["design"] != "case_report"
+        gate_open = p.get("publish_state") == "full" and sig["design"] != "case_report" and not p.get("warned", False)
         path_trial = sig["design"] == "rct" and tier_ok
         path_cohort = sig["design"] == "prospective_matched" and tier_ok and sig["primary_endpoint"]
         path_negative = sig["negative_rigorous"] and tier_ok
@@ -1055,6 +1058,18 @@ def apply_curation(papers: List[Dict[str, Any]]) -> int:
         p["curation_clinical_value"] = clinical
         p["curation_research_value"] = research
         n += int(curated)
+    # 同刊每日限量（挪威式稀释）：量大刊不降档，但同刊一天最多 N 篇进精选，其余让位（全量库照常可查）
+    cap = int(os.environ.get("CURATED_PER_JOURNAL_CAP", "2"))
+    if cap > 0:
+        counts: Dict[str, int] = {}
+        for p in sorted((x for x in papers if x.get("curated")),
+                        key=lambda x: -int(x.get("score_total", 0) or 0)):
+            j = str(p.get("journal_abbr", "")) or "?"
+            counts[j] = counts.get(j, 0) + 1
+            if counts[j] > cap:
+                p["curated"] = False
+                p["curation_reason"] = (p.get("curation_reason") or "入选") + f"；同刊每日限量 {cap} 篇，本轮让位"
+        n = sum(1 for x in papers if x.get("curated"))
     return n
 
 

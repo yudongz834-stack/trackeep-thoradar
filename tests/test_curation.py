@@ -226,3 +226,38 @@ class TestRadarArchive(unittest.TestCase):
             payload = eng.build_radar_archive(archive_dir=Path(td), out_path=Path(td) / "x.json")
             self.assertEqual(payload, {})
 
+
+
+class TestCuratedWarnAndCap(unittest.TestCase):
+    """Batch3 收尾：预警刊不入精选 + 同刊每日限量（挪威式稀释）。"""
+
+    @staticmethod
+    def mk_paper(pmid, abbr, score=80, warned=False):
+        return {"pmid": pmid,
+                "title_en": "Randomized trial of segmentectomy versus lobectomy",
+                "abstract_en": "Patients were randomized to segmentectomy or lobectomy; "
+                               "the primary endpoint was overall survival.",
+                "tier": "S", "publish_state": "full", "journal_abbr": abbr,
+                "score_total": score, "score_source": "heuristic", "category": "surgery",
+                "warned": warned}
+
+    def test_warned_excluded_from_curated(self):
+        papers = [self.mk_paper("1", "WarnedJ", warned=True)]
+        n = eng.apply_curation(papers)
+        self.assertEqual(n, 0)
+        self.assertFalse(papers[0]["curated"])
+
+    def test_cap_two_per_journal(self):
+        papers = [self.mk_paper(str(i), "MegaJ", score=90 - i) for i in range(3)]
+        papers.append(self.mk_paper("9", "OtherJ", score=50))
+        n = eng.apply_curation(papers)
+        mega = [p for p in papers if p["journal_abbr"] == "MegaJ" and p.get("curated")]
+        self.assertEqual(len(mega), 2)
+        self.assertEqual(mega[0]["score_total"], 90)
+        self.assertEqual(n, 3)
+        self.assertIn("限量", [p for p in papers if p["journal_abbr"] == "MegaJ" and not p.get("curated")][0]["curation_reason"])
+
+    def test_matcher_warned_default_false(self):
+        r = JM.match(iso_abbr="N Engl J Med")
+        self.assertTrue(r["matched"])
+        self.assertFalse(r.get("warned", True))
