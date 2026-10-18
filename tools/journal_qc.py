@@ -78,10 +78,14 @@ def save_progress(results, journal_health=None):
 
 
 # ---------- 期刊目录健康（周检接 data/journal_health.json；纯函数可单测） ----------
+# 阈值唯一真相源＝thoradar_engine.HEALTH_*_DAYS（改阈值只改引擎一处）
+sys.path.insert(0, str(ROOT))
+from thoradar_engine import HEALTH_RED_DAYS, HEALTH_YELLOW_DAYS  # noqa: E402
+
 
 def classify_journal_health(state: dict, today: date) -> dict:
-    """逐刊目录健康分类：距最后命中 ≥100 天→red（疑改名/停刊/检索键失效，人工核）；
-    45–99 天→yellow（低频刊/季刊可能正常）；其余→green。
+    """逐刊目录健康分类：距最后命中 ≥HEALTH_RED_DAYS→red（疑改名/停刊/检索键失效，人工核）；
+    HEALTH_YELLOW_DAYS–RED-1 天→yellow（低频刊/季刊可能正常）；其余→green。
     state＝{"期刊ta": "最后命中日期ISO", ...}（data/journal_health.json 原样）；
     None/空 → 空档标记（total=0，报告显示「台账尚未生成」）。
     坏日期串不崩：计入 total 并归 red（无法确认新鲜度＝需人工核）。
@@ -96,9 +100,9 @@ def classify_journal_health(state: dict, today: date) -> dict:
         except (ValueError, TypeError):
             out["red"].append(str(ta))
             continue
-        if days >= 100:
+        if days >= HEALTH_RED_DAYS:
             out["red"].append(ta)
-        elif days >= 45:
+        elif days >= HEALTH_YELLOW_DAYS:
             out["yellow"].append(ta)
         else:
             out["green"] += 1

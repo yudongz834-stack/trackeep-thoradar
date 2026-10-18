@@ -145,6 +145,11 @@ class JournalMatcher:
 # 1b. 逐刊目录健康台账（目录路护栏：钥匙静默失灵必须响）
 # ============================================================================
 
+# 目录健康阈值（唯一真相源；tools/journal_qc.py 从这里引用，改阈值只改此处）
+HEALTH_YELLOW_DAYS = 45          # 静默 ≥45 天：提示（低频刊/季刊可能正常）
+HEALTH_RED_DAYS = 100            # 静默 ≥100 天：报警（疑改名/停刊/检索键失效，人工核）
+
+
 def update_journal_health(counts: Dict[str, int], path: Optional[Path] = None) -> Dict[str, Any]:
     """逐刊目录健康台账：命中>0 即刷新最后命中日；45–99 天静默提示、≥100 天报警。
     （覆盖月刊/季刊的正常出刊间隔；≥100 天仍静默＝疑改名/停刊/检索键失效，人工核。）"""
@@ -168,8 +173,9 @@ def update_journal_health(counts: Dict[str, int], path: Optional[Path] = None) -
             return (today - date.fromisoformat(d)).days
         except (ValueError, TypeError):
             return 0
-    stale = sorted(ta for ta, d in state.items() if _age(d) >= 100)
-    quiet = sorted(ta for ta, d in state.items() if 45 <= _age(d) < 100)
+    stale = sorted(ta for ta, d in state.items() if _age(d) >= HEALTH_RED_DAYS)
+    quiet = sorted(ta for ta, d in state.items()
+                   if HEALTH_YELLOW_DAYS <= _age(d) < HEALTH_RED_DAYS)
     if quiet:
         log(f"目录静默 45–99 天 {len(quiet)} 刊（季刊可能正常）: {', '.join(quiet[:8])}"
             + ("…" if len(quiet) > 8 else ""))
