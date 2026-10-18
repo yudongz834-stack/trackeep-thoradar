@@ -1,0 +1,356 @@
+{
+ "days": 30,
+ "universe": 8095,
+ "R": 670,
+ "labeler": "llm",
+ "llm_cost_usd": 0.191,
+ "queries": {
+  "v2(A×B)": {
+   "hit": 487,
+   "hit_relevant": 419,
+   "recall": 0.6254,
+   "precision_in_universe": 0.8604
+  },
+  "乙(并集)": {
+   "hit": 726,
+   "hit_relevant": 531,
+   "recall": 0.7925,
+   "precision_in_universe": 0.7314
+  },
+  "仅高特异A": {
+   "hit": 629,
+   "hit_relevant": 514,
+   "recall": 0.7672,
+   "precision_in_universe": 0.8172
+  },
+  "语境通道": {
+   "hit": 212,
+   "hit_relevant": 111,
+   "recall": 0.1657,
+   "precision_in_universe": 0.5236
+  }
+ },
+ "blind_v2": [
+  {
+   "pmid": "42754907",
+   "title": "18F-FDG PET/CT metabolic parameter to predict pathological complete response and survival after neoadjuvant immunotherapy plus chemoradiothe"
+  },
+  {
+   "pmid": "42755061",
+   "title": "Ablative SABR for Pulmonary Oligometastases in the Era of Contemporary Systemic Therapies: Efficacy, Safety, and Optimal Sequencing."
+  },
+  {
+   "pmid": "42755264",
+   "title": "American Association of Bronchology and Interventional Pulmonology Essential Knowledge in Interventional Pulmonology Series: Advanced Diagno"
+  },
+  {
+   "pmid": "42755268",
+   "title": "Navigation Bronchoscopy Specific Cone-Beam CT Software Enabling Pre- And Intraprocedural Guidance: A Prospective Clinical Feasibility Study."
+  },
+  {
+   "pmid": "42755871",
+   "title": "Interpretable machine learning for prediction of leptomeningeal metastasis in lung adenocarcinoma: a multi-centre retrospective study via \"P"
+  },
+  {
+   "pmid": "42756417",
+   "title": "Overall survival with immune checkpoint inhibitors across treatment settings and clinical and PD-L1-defined subgroups in advanced esophageal"
+  },
+  {
+   "pmid": "42756698",
+   "title": "Correction: Case Report: Exceptional survival with immunotherapy in a patient with EGFR exon 20 insertion (p.S768_D770dup) and high PD-L1 ex"
+  },
+  {
+   "pmid": "42757476",
+   "title": "E3 ubiquitin ligase MAGI3‑mediated TAZ ubiquitination suppresses the non‑small cell lung cancer occurrence and development by targeting the "
+  },
+  {
+   "pmid": "42757886",
+   "title": "Beyond symptom improvement: a qualitative study of patient-defined treatment goals and surgical success after anti-reflux surgery."
+  },
+  {
+   "pmid": "42758124",
+   "title": "Histone H3K18 Lactylation Drives Immunosuppression by Upregulating CD38 in Myeloid-Derived Suppressor Cells in Lung Cancer."
+  },
+  {
+   "pmid": "42759542",
+   "title": "Targeting KRAS-Mutant Lung Cancers."
+  },
+  {
+   "pmid": "42759818",
+   "title": "Addition of once-weekly aerobic training to ongoing resistance training in a patient with prior lobectomy for congenital pulmonary airway ma"
+  },
+  {
+   "pmid": "42760303",
+   "title": "Genomic and transcriptomic landscape of spread through air spaces in stage 1 lung adenocarcinoma."
+  },
+  {
+   "pmid": "42760429",
+   "title": "Quantitative and qualitative lung parameters in photon-counting CT: comparison of ultra-low-dose with standard low-dose protocols."
+  },
+  {
+   "pmid": "42760759",
+   "title": "Identification of Inflammatory Cell Death-Related Prognostic Signature and Its Regulatory Mechanism in Lung Adenocarcinoma."
+  },
+  {
+   "pmid": "42760932",
+   "title": "Interpretable machine learning integrating intra-/peritumoral CT radiomics and serum indicators for predicting poorly differentiated esophag"
+  },
+  {
+   "pmid": "42760966",
+   "title": "A combined tumor burden-based nomogram for synchronous esophageal and gastric cancers: development and external validation."
+  },
+  {
+   "pmid": "42761722",
+   "title": "Anastomotic leak after esophagectomy for cancer in enhanced recovery protocol versus conventional care: clinical characteristics and outcome"
+  },
+  {
+   "pmid": "42762399",
+   "title": "Robotic-assisted lung transplantation: a systematic review of early outcomes in minimally invasive transplant surgery."
+  },
+  {
+   "pmid": "42762983",
+   "title": "Thoracentesis with pleural fluid cytology versus thoracoscopy with pleural biopsy for the diagnosis of malignant pleural effusion: a cost-ef"
+  },
+  {
+   "pmid": "42763378",
+   "title": "Comparison of Respiratory function recovery after esophagectomy: a retrospective analysis of surgical approaches."
+  },
+  {
+   "pmid": "42763380",
+   "title": "Local triamcinolone acetonide injection for the prevention of pharyngeal deformity following endoscopic submucosal dissection of superficial"
+  },
+  {
+   "pmid": "42763381",
+   "title": "Respiratory sarcopenia defined by paraspinal muscle mass and peak expiratory flow predicts postoperative pneumonia after esophagectomy for e"
+  },
+  {
+   "pmid": "42763382",
+   "title": "Impact of educational pamphlet in achalasia care: education as therapy among Pakistani patients."
+  },
+  {
+   "pmid": "42763383",
+   "title": "Randomized trial comparing esophageal resection versus substitution alone for corrosive esophageal strictures."
+  },
+  {
+   "pmid": "42763624",
+   "title": "Recurrence and primary TETs: is it the same disease?-a narrative review."
+  },
+  {
+   "pmid": "42763627",
+   "title": "Mediastinal tracheostomy: techniques, outcomes and quality of life-a systematic review."
+  },
+  {
+   "pmid": "42764069",
+   "title": "Persistent chylothorax despite complete thoracic duct ligation: lymphangiographic findings and outcomes of thoracic duct embolization."
+  },
+  {
+   "pmid": "42764192",
+   "title": "Triangulating Evidence on Serum Uric Acid and Cancer Risk: Consistent Inverse Associations With Lung Cancer."
+  },
+  {
+   "pmid": "42764310",
+   "title": "HSP90 shields ROC1/RBX1 from proteasomal degradation by CHIP E3 ubiquitin ligase to promote lung adenocarcinoma."
+  },
+  {
+   "pmid": "42766477",
+   "title": "Motion Capture of Bronchoscopist Kinematics Using a Spatial Computing Device: A Methodological Proof-of-Concept Study."
+  },
+  {
+   "pmid": "42766860",
+   "title": "Low frequency of MTAP co-deletion with CDKN2A in peritoneal mesothelioma suggests an independent diagnostic role for MTAP."
+  },
+  {
+   "pmid": "42768114",
+   "title": "Novel endoscopic treatment to prevent refractory caustic esophageal strictures: a propensity score-matched analysis."
+  },
+  {
+   "pmid": "42768277",
+   "title": "The RATAB Framework: An Interpretable AI-Driven Radiographic Risk Stratification Model for Suspected Lung Lesions."
+  },
+  {
+   "pmid": "42768728",
+   "title": "Cisplatin-Resistant Lung Adenocarcinoma Cells Exhibit Increased Proangiogenic Capacity in a Microphysiological Model of Tumor Neovasculariza"
+  },
+  {
+   "pmid": "42769436",
+   "title": "Single-cell lineage tracing in tumor organoids identifies expansion states depicting the origin and progression of lung adenocarcinoma."
+  },
+  {
+   "pmid": "42770652",
+   "title": "Comprehensive Genomic Profiling Beyond Driver Testing in Non-Squamous Non-Small Cell Lung Cancer With Known Drivers."
+  },
+  {
+   "pmid": "42770707",
+   "title": "Inducible IL-12 or IL-18 secreting CAR T cells targeting the glyco-antigen CD176 exhibit potent activity against non-small cell lung cancer "
+  },
+  {
+   "pmid": "42771066",
+   "title": "Clinical performance of da Vinci 5 versus Xi for robotic anatomic lung resection: a propensity-weighted analysis."
+  },
+  {
+   "pmid": "42771228",
+   "title": "Device-procedure attribution of reported harm in robotic-assisted bronchoscopy: a MAUDE study informing safety surveillance of robotic surgi"
+  },
+  {
+   "pmid": "42771776",
+   "title": "Postoperative complications after Minimally Invasive transCervical oEsophagectomy (MICE) versus Transthoracic Minimally Invasive oEsophagect"
+  },
+  {
+   "pmid": "42772102",
+   "title": "Caving In: Predictive Model for Symptom Progression in Pectus Excavatum."
+  },
+  {
+   "pmid": "42773263",
+   "title": "International expert consensus on the management of paraconduit herniation after esophagectomy: results of a two-round Delphi survey."
+  },
+  {
+   "pmid": "42773336",
+   "title": "Multicohort Evaluation of Acquisition Confounding in Single-Site Lung-CT Malignancy Classification with Frozen Foundation-Model Features."
+  },
+  {
+   "pmid": "42774218",
+   "title": "Case Report: Invasive mucinous adenocarcinoma mimicking interstitial pneumonia with autoimmune features: diagnostic pitfalls and reflections"
+  },
+  {
+   "pmid": "42775005",
+   "title": "Pharmacological considerations for prescribing of small molecule inhibitors in patients with non-small cell lung cancer."
+  },
+  {
+   "pmid": "42776614",
+   "title": "Incidence of and risk factors for immune checkpoint inhibitor-related pneumonitis in thoracic malignancies: a prospective multicenter study."
+  },
+  {
+   "pmid": "42777072",
+   "title": "Stabilizing telerobotic endobronchial imaging and interventions in breathing lungs with a helical brace."
+  },
+  {
+   "pmid": "42777931",
+   "title": "Minimally Invasive Approaches for Thymectomy: A Narrative Review and Comparison of Surgical Approaches."
+  },
+  {
+   "pmid": "42777934",
+   "title": "Single-cell transcriptomics reveals a complex cell-cell communication network driven by myofibroblast-derived collagen in esophageal squamou"
+  },
+  {
+   "pmid": "42778840",
+   "title": "Neoadjuvant Chemoimmunotherapy versus Chemoradiotherapy in Resectable Locally Advanced Esophageal Squamous Cell Carcinoma: A Systematic Revi"
+  },
+  {
+   "pmid": "42780472",
+   "title": "Navigating coexisting autoimmunity and immunodeficiency in thymoma: a case report of TAMA, Good's syndrome, and myasthenic crisis."
+  },
+  {
+   "pmid": "42780618",
+   "title": "Genetic associations link lung cancer liability to brain imaging phenotypes and nominate an FN1-associated tumor-oligodendrocyte program in "
+  },
+  {
+   "pmid": "42780629",
+   "title": "Complementary Breath Profiling Using eNose and Gas Chromatography-Mass Spectrometry for Noninvasive Triage of Indeterminate Pulmonary Nodule"
+  },
+  {
+   "pmid": "42782890",
+   "title": "High-Grade Chondrosarcoma Involving the Xiphoid Process and Lower Sternum-The Continuing Role of Extended Open Chest Wall Surgery in the Era"
+  },
+  {
+   "pmid": "42782908",
+   "title": "Cerebral Amyloid Angiopathy-Related Inflammation Mimicking Leptomeningeal Metastasis After Resected Lung Adenocarcinoma: A Case Report Highl"
+  },
+  {
+   "pmid": "42783885",
+   "title": "Parameter-Efficient LoRA-GRL Adaptation for Cross-Center Classification of Benign and Malignant Lung Nodules on Heterogeneous Standard-Dose "
+  },
+  {
+   "pmid": "42784784",
+   "title": "Gap Between Estimated Need and Observed Uptake of Epidermal Growth Factor Receptor Tyrosine Kinase Inhibitors Among Patients With Lung Cance"
+  },
+  {
+   "pmid": "42784916",
+   "title": "CXCL9 drives lung adenocarcinoma progression and immunotherapy response via activation of the CXCR3/JAK1/STAT3 signaling pathway."
+  },
+  {
+   "pmid": "42785176",
+   "title": "The Y-shaped layered antireflux anastomosis in esophagectomy."
+  },
+  {
+   "pmid": "42786270",
+   "title": "Phylogenetic and phylodynamic approaches to understanding the evolution of non-small cell lung cancer using single-cell sequencing."
+  },
+  {
+   "pmid": "42786271",
+   "title": "KAT5-mediated HSPA1A lactylation drives immunotherapy resistance by inhibiting STAT1 degradation in esophageal squamous cell carcinoma."
+  },
+  {
+   "pmid": "42787263",
+   "title": "Dynamic serum tumor-marker and immune-inflammatory biomarker changes for risk stratification of immune checkpoint inhibitor-associated myast"
+  },
+  {
+   "pmid": "42787301",
+   "title": "Concurrent versus sequential immune checkpoint inhibition in the neoadjuvant treatment of resectable esophageal squamous cell carcinoma: a s"
+  },
+  {
+   "pmid": "42787440",
+   "title": "Network-orchestrated regulation of thymic dysfunction and restoration."
+  },
+  {
+   "pmid": "42788356",
+   "title": "SGPP1 as a tumor suppressor in esophageal squamous cell carcinoma: Potential molecular mechanisms involving UGT1A9/UGT2B28 and clinical prog"
+  },
+  {
+   "pmid": "42788471",
+   "title": "NAPRT loss promotes lung tumor initiation and growth through AKT signaling independently of NAD+ biosynthesis."
+  },
+  {
+   "pmid": "42788923",
+   "title": "TEMPORARY REMOVAL: A Response to the Letter to the Editor: \"Central Adiposity, Confounding Medications, and the Reinterpretation of the \"Obe"
+  },
+  {
+   "pmid": "42790111",
+   "title": "NAT-A exhibits anti-tumor activity against acquired epidermal growth factor receptor- tyrosine kinase inhibitor-resistant non-small cell lun"
+  },
+  {
+   "pmid": "42790179",
+   "title": "Predictors of Pulmonary Complications After Rib Fractures: Systematic Review and Meta-Analyses."
+  },
+  {
+   "pmid": "42790601",
+   "title": "Individual Image-based Normal Lung Radiosensitivity as Potential Biomarker to Individualize Reirradiation."
+  },
+  {
+   "pmid": "42790640",
+   "title": "Grade 3 Lung Carcinoids/NETs: The IASLC Pathology Committee Study with Proposal of a New Diagnostic Category."
+  },
+  {
+   "pmid": "42791493",
+   "title": "Extrachromosomal Circular DNA May Contribute to Histopathologic Characteristics in Esophageal Combined Basaloid Squamous Cell Carcinoma."
+  },
+  {
+   "pmid": "42791548",
+   "title": "Neighborhood deprivation and lung cancer incidence and mortality in patients with asthma: a nationwide cohort study in Sweden, 1997-2018."
+  },
+  {
+   "pmid": "42794868",
+   "title": "Recurrence Pattern and Prognostic Value of Major Pathological Response in Patients with Locally Advanced Oesophageal Squamous Cell Carcinoma"
+  },
+  {
+   "pmid": "42794955",
+   "title": "Circular RNAs in NSCLC: Their Role in Tumorigenesis, Tumor Microenvironment Reshaping, and Response to Therapies."
+  },
+  {
+   "pmid": "42794956",
+   "title": "The Lactate-Lactylation Axis as a Metabolic-Epigenetic Framework for Therapeutic Adaptation in Esophageal Squamous Cell Carcinoma."
+  },
+  {
+   "pmid": "42794985",
+   "title": "Comparative Gene Expression Analysis of Epithelioid Pleural and Peritoneal Mesothelioma."
+  },
+  {
+   "pmid": "42795018",
+   "title": "STEAP2 Is a Candidate Marker of a 7q/CNA-Associated Iron-Handling Malignant Epithelial State in Lung Adenocarcinoma."
+  },
+  {
+   "pmid": "42795020",
+   "title": "Clinicopathological Prognostic Factors After Pulmonary Metastasectomy for Bone and Soft-Tissue Sarcoma: A Single-Centre Retrospective-Prospe"
+  }
+ ],
+ "n_blind_v2": 251
+}

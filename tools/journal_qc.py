@@ -5,12 +5,13 @@
 """
 import json, re, sys, time, urllib.request, urllib.parse, os
 from pathlib import Path
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta
 
 ROOT = Path(__file__).resolve().parents[1]
 TAXONOMY = ROOT / "config" / "journals_taxonomy.json"
 OUT_JSON = ROOT / "design" / "journal-qc-report.json"
 OUT_MD   = ROOT / "design" / "journal-qc-报告.md"
+HEALTH_JSON = ROOT / "data" / "journal_health.json"   # 引擎每日写：{"期刊ta": "最后命中日期ISO", ...}
 
 OA_URL = ("https://api.openalex.org/sources?filter=issn:{issn}"
           "&select=id,display_name,issn,issn_l,works_count,cited_by_count,summary_stats")
@@ -59,17 +60,49 @@ def load_progress():
         try:
             with open(OUT_JSON, encoding="utf-8") as f:
                 done = json.load(f)
+            if isinstance(done, dict):   # 新版带 journal_health 小节；旧版为裸 list，续跑兼容
+                done = done.get("results") or []
             return {e["nlm_id"]: e for e in done if e.get("error") is None}, len(done)
         except Exception:
             pass
     return {}, 0
 
 
-def save_progress(results):
-    tmp = OUT_JSON + ".tmp"
+def save_progress(results, journal_health=None):
+    """json 报告＝{"results": [...], "journal_health": {...}|null}（终跑写入健康小节）。"""
+    tmp = Path(str(OUT_JSON) + ".tmp")
     with open(tmp, "w", encoding="utf-8") as f:
-        json.dump(results, f, ensure_ascii=False, indent=1)
+        json.dump({"results": results, "journal_health": journal_health},
+                  f, ensure_ascii=False, indent=1)
     os.replace(tmp, OUT_JSON)
+
+
+# ---------- 期刊目录健康（周检接 data/journal_health.json；纯函数可单测） ----------
+
+def classify_journal_health(state: dict, today: date) -> dict:
+    """逐刊目录健康分类：距最后命中 ≥100 天→red（疑改名/停刊/检索键失效，人工核）；
+    45–99 天→yellow（低频刊/季刊可能正常）；其余→green。
+    state＝{"期刊ta": "最后命中日期ISO", ...}（data/journal_health.json 原样）；
+    None/空 → 空档标记（total=0，报告显示「台账尚未生成」）。
+    坏日期串不崩：计入 total 并归 red（无法确认新鲜度＝需人工核）。
+    """
+    out = {"red": [], "yellow": [], "green": 0, "total": 0}
+    if not state:
+        return out
+    for ta, iso in state.items():
+        out["total"] += 1
+        try:
+            days = (today - date.fromisoformat(str(iso).strip())).days
+        except (ValueError, TypeError):
+            out["red"].append(str(ta))
+            continue
+        if days >= 100:
+            out["red"].append(ta)
+        elif days >= 45:
+            out["yellow"].append(ta)
+        else:
+            out["green"] += 1
+    return out
 
 
 def main():
@@ -153,7 +186,18 @@ def main():
             print(f"[{idx}/{total}] openalex_hit={n_hit} errors={sum(1 for r in results if r['error'])}",
                   flush=True)
 
-    save_progress(results)
+    # ---- 期刊目录健康（读 data/journal_health.json，引擎每日写；缺失/空＝台账尚未生成） ----
+    health_state = None
+    health_note = ""
+    if HEALTH_JSON.exists():
+        try:
+            with open(HEALTH_JSON, encoding="utf-8") as f:
+                loaded = json.load(f)
+            health_state = loaded if isinstance(loaded, dict) else None
+        except Exception as e:  # noqa: BLE001 台账读不动→报告点名，不静默
+            health_note = f"{type(e).__name__}: {e}"
+    health = classify_journal_health(health_state, _today)
+    save_progress(results, health)
 
     # ================= 报告 =================
     run_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -210,10 +254,40 @@ def main():
         L.append("（无）")
     L.append("")
 
+    L.append("### 期刊目录健康（data/journal_health.json）\n")
+    if health_note:
+        L.append(f"- 台账读取失败（{health_note}）——本节按空档处理，请人工核查该文件")
+    if health["total"] == 0:
+        if not health_note:
+            L.append("- 台账尚未生成（引擎首跑后出现）")
+    else:
+        L.append(f"- 红档（≥100 天未命中，疑改名/停刊/检索键失效，人工核）：{len(health['red'])} 本")
+        for ta in sorted(health["red"])[:15]:
+            L.append(f"  - {ta}")
+        if len(health["red"]) > 15:
+            L.append(f"  - …另 {len(health['red']) - 15} 本未列出")
+        L.append(f"- 黄档（45–99 天，低频刊/季刊可能正常）：{len(health['yellow'])} 本")
+        for ta in sorted(health["yellow"])[:15]:
+            L.append(f"  - {ta}")
+        if len(health["yellow"]) > 15:
+            L.append(f"  - …另 {len(health['yellow']) - 15} 本未列出")
+        L.append(f"- 绿档（<45 天）：{health['green']} 本")
+        if health["red"]:
+            verdict = f"红档 {len(health['red'])} 本需人工核"
+            if health["yellow"]:
+                verdict += f"，另关注黄档 {len(health['yellow'])} 本"
+        elif health["yellow"]:
+            verdict = f"无红档；黄档 {len(health['yellow'])} 本观察即可"
+        else:
+            verdict = "全部健康"
+        L.append(f"- 结论：{verdict}。")
+    L.append("")
+
     with open(OUT_MD, "w", encoding="utf-8") as f:
         f.write("\n".join(L))
 
-    print(f"DONE n={n} hit={len(hits)} mismatch={len(mismatch)} errors={len(errs)}", flush=True)
+    print(f"DONE n={n} hit={len(hits)} mismatch={len(mismatch)} errors={len(errs)} "
+          f"health_red={len(health['red'])} health_yellow={len(health['yellow'])}", flush=True)
 
 
 if __name__ == "__main__":

@@ -58,69 +58,34 @@ CATEGORIES: Dict[str, str] = {
     "esophageal": "食管与纵隔肿瘤",
 }
 
-DEFAULT_QUERY = (
-    '(("non-small-cell lung cancer"[Title/Abstract] OR "NSCLC"[Title/Abstract] '
-    'OR "small-cell lung cancer"[Title/Abstract] OR "SCLC"[Title/Abstract] '
-    'OR "lung cancer"[Title/Abstract] OR "lung tumor"[Title/Abstract] '
-    'OR "lung tumour"[Title/Abstract] '
-    'OR "pulmonary nodule"[Title/Abstract] OR "ground-glass"[Title/Abstract] '
-    'OR "subsolid nodule"[Title/Abstract] '
-    'OR "mesothelioma"[Title/Abstract] OR "thymic"[Title/Abstract] '
-    'OR "mediastinal tumor"[Title/Abstract] OR "thymoma"[Title/Abstract] '
-    'OR "esophageal cancer"[Title/Abstract] OR "oesophageal cancer"[Title/Abstract] '
-    'OR "esophagectomy"[Title/Abstract] OR "oesophagectomy"[Title/Abstract] '
-    'OR "thoracoscopic"[Title/Abstract] OR "segmentectomy"[Title/Abstract] '
-    'OR "lobectomy"[Title/Abstract] OR "pneumonectomy"[Title/Abstract] '
-    'OR "sublobar"[Title/Abstract] OR "tubeless"[Title/Abstract] '
-    'OR "robotic thoracic"[Title/Abstract] '
-    'OR "robot-assisted thoracic"[Title/Abstract]) '
-    'AND ("clinical trial"[Title/Abstract] OR "randomized"[Title/Abstract] '
-    'OR "neoadjuvant"[Title/Abstract] OR "adjuvant"[Title/Abstract] '
-    'OR "perioperative"[Title/Abstract] OR "propensity score"[Title/Abstract] '
-    'OR "three-dimensional"[Title/Abstract] OR "artificial intelligence"[Title/Abstract] '
-    'OR "deep learning"[Title/Abstract] OR "machine learning"[Title/Abstract] '
-    'OR "radiomics"[Title/Abstract] OR "neural network"[Title/Abstract] '
-    'OR "immunotherapy"[Title/Abstract] OR "chemotherapy"[Title/Abstract] '
-    'OR "radiotherapy"[Title/Abstract] OR "screening"[Title/Abstract] '
-    'OR "survival"[Title/Abstract] OR "resection"[Title/Abstract] '
-    'OR "stereotactic"[Title/Abstract] OR "lymph node"[Title/Abstract] '
-    'OR "EGFR"[Title/Abstract] OR "ALK"[Title/Abstract] '
-    'OR "PD-L1"[Title/Abstract] OR "PD-1"[Title/Abstract] '
-    'OR "ctDNA"[Title/Abstract] OR "MRD"[Title/Abstract] '
-    'OR "osimertinib"[Title/Abstract] OR "nivolumab"[Title/Abstract] '
-    'OR "pembrolizumab"[Title/Abstract] OR "durvalumab"[Title/Abstract] '
-    'OR "antibiotic"[Title/Abstract]))'
+# 检索式路：纯病种词 26 词直通（2026-10-18 回测裁决：双门召回 62.5% → 直通 76.7%）。
+# 只负责字典外世界的胸科文章；字典刊全覆盖由目录路（fetch_journal_toc）天然完成。
+A_TERMS = (
+    "non-small-cell lung cancer", "NSCLC", "small-cell lung cancer", "SCLC",
+    "lung cancer", "lung tumor", "lung tumour", "pulmonary nodule", "ground-glass",
+    "subsolid nodule", "mesothelioma", "thymic", "mediastinal tumor", "thymoma",
+    "esophageal cancer", "oesophageal cancer", "esophagectomy", "oesophagectomy",
+    "thoracoscopic", "segmentectomy", "lobectomy", "pneumonectomy", "sublobar",
+    "tubeless", "robotic thoracic", "robot-assisted thoracic",
 )
+DEFAULT_QUERY = "(" + " OR ".join(f'"{t}"[Title/Abstract]' for t in A_TERMS) + ")"
 
-# 影子通道（乙案·全量库口径）：v2 主式 ∪ (歧义技术词 ∩ 解剖语境)。
-# 与主式并跑 ≥4 周，量化「去 B 组硬门槛 + 全量库预筛」的真实增量后再决定是否切换。
+# 语境通道词汇（2026-10-18 回测否决入产线：单独精确率仅 52.4%；留作离线分析工具词汇）
 _SHADOW_AMBIG = ("screening", "deep learning", "machine learning", "radiomics",
                  "neural network", "artificial intelligence", "three-dimensional")
 _SHADOW_ANATOMY = ("lung", "pulmonary", "thoracic", "esophageal", "oesophageal",
                    "mediastinal", "thymic", "pleural", "mesothelioma", "chest")
-_SHADOW_TERMS = tuple(
-    t for t in (
-        "non-small-cell lung cancer", "NSCLC", "small-cell lung cancer", "SCLC",
-        "lung cancer", "lung tumor", "lung tumour", "pulmonary nodule", "ground-glass",
-        "subsolid nodule", "mesothelioma", "thymic", "mediastinal tumor", "thymoma",
-        "esophageal cancer", "oesophageal cancer", "esophagectomy", "oesophagectomy",
-        "thoracoscopic", "segmentectomy", "lobectomy", "pneumonectomy", "sublobar",
-        "tubeless", "robotic thoracic", "robot-assisted thoracic")
-)
-SHADOW_QUERY = (
-    "(" + " OR ".join(f'"{t}"[Title/Abstract]' for t in _SHADOW_TERMS)
-    + " OR (" + " OR ".join(f'"{t}"[Title/Abstract]' for t in _SHADOW_AMBIG) + ")"
-    + " AND (" + " OR ".join(f'"{t}"[Title/Abstract]' for t in _SHADOW_ANATOMY) + "))"
-)
+_SHADOW_TERMS = A_TERMS           # 旧分析脚本别名
 
-# 影子预筛口径（全量库）：普胸相关全收（基础/转化/临床/流病/筛查/AI），只扔非普胸器官。
-SHADOW_PRESCREEN_SYSTEM = """你是普胸文献全量库的收录审读员。输入若干篇 PubMed 文献的标题与期刊。
+# 预筛正选口径（全量库）：普胸相关全收（基础/转化/临床/流病/筛查/AI），只扔非普胸器官。
+LIBRARY_PRESCREEN_SYSTEM = """你是普胸文献全量库的收录审读员。输入若干篇 PubMed 文献的标题、摘要开头与期刊。
 判断每篇是否属于「普胸」范围而应入库。收录（符合任一）：
 1) 肺癌（NSCLC/SCLC/间皮瘤）、肺结节、食管癌、纵隔/胸腺肿瘤、恶性胸膜疾病的任何研究——基础机制、转化、临床、流行病学、筛查、卫生经济学均收；
 2) 普胸外科（肺/食管/纵隔/胸壁手术，VATS/RATS/tubeless/肺段/食管切除）任何报道；
 3) 胸外科 AI、三维重建、影像组学、数字医疗。
 剔除：与普胸无关的器官/系统（含心脏外科）；与胸部无交集的泛癌或泛外科研究。
 只输出 JSON：{"decisions": [{"i": <输入序号>, "keep": true/false}]}"""
+SHADOW_PRESCREEN_SYSTEM = LIBRARY_PRESCREEN_SYSTEM   # 旧名别名（离线分析脚本在用）
 
 
 def log(msg: str) -> None:
@@ -174,6 +139,45 @@ class JournalMatcher:
             "journal_abbr": iso_abbr or title or "Unknown",
             "journal_full": title or "Unknown Journal",
         }
+
+
+# ============================================================================
+# 1b. 逐刊目录健康台账（目录路护栏：钥匙静默失灵必须响）
+# ============================================================================
+
+def update_journal_health(counts: Dict[str, int], path: Optional[Path] = None) -> Dict[str, Any]:
+    """逐刊目录健康台账：命中>0 即刷新最后命中日；45–99 天静默提示、≥100 天报警。
+    （覆盖月刊/季刊的正常出刊间隔；≥100 天仍静默＝疑改名/停刊/检索键失效，人工核。）"""
+    path = path or (DATA_DIR / "journal_health.json")
+    today = date.today()
+    state: Dict[str, str] = {}
+    if path.exists():
+        try:
+            state = json.loads(path.read_text(encoding="utf-8"))
+        except Exception:  # noqa: BLE001 台账损坏从零重建
+            state = {}
+    for ta in counts:
+        state.setdefault(ta, today.isoformat())       # 首见即登记（假设部署时健康）
+        if counts[ta] > 0:
+            state[ta] = today.isoformat()
+    path.parent.mkdir(exist_ok=True)
+    path.write_text(json.dumps(state, ensure_ascii=False), encoding="utf-8")
+
+    def _age(d: str) -> int:
+        try:
+            return (today - date.fromisoformat(d)).days
+        except (ValueError, TypeError):
+            return 0
+    stale = sorted(ta for ta, d in state.items() if _age(d) >= 100)
+    quiet = sorted(ta for ta, d in state.items() if 45 <= _age(d) < 100)
+    if quiet:
+        log(f"目录静默 45–99 天 {len(quiet)} 刊（季刊可能正常）: {', '.join(quiet[:8])}"
+            + ("…" if len(quiet) > 8 else ""))
+    if stale:
+        log(f"⚠ 目录零命中 ≥100 天 {len(stale)} 刊——疑改名/停刊/键失效，人工核: "
+            f"{', '.join(stale[:10])}" + ("…" if len(stale) > 10 else ""))
+    return {"red": stale, "yellow": quiet, "green": len(state) - len(stale) - len(quiet),
+            "total": len(state)}
 
 
 # ============================================================================
@@ -601,6 +605,26 @@ class Collector:
             start += len(batch)
         return pmids[:total]
 
+    def fetch_journal_toc(self, journals: List[Dict[str, Any]],
+                          days_back: int) -> "tuple[List[str], Dict[str, int]]":
+        """目录路：逐刊拉近 N 天全部 PMID（340 刊全收，无词表漏法）。
+        返回 (去重前 pmid 列表, {刊ta: 命中数})；单刊失败计 -1，不断全卷。"""
+        toc: List[str] = []
+        counts: Dict[str, int] = {}
+        for j in journals:
+            ta = (j.get("iso_abbr") or j.get("title") or "").strip()
+            if not ta:
+                continue
+            try:
+                ids = self.esearch_pmids(days_back, 500, query=f'"{ta}"[ta]')
+            except Exception as e:  # noqa: BLE001 单刊失败不断全卷
+                log(f"⚠ 目录扫描失败 {ta}: {e}")
+                counts[ta] = -1
+                continue
+            counts[ta] = len(ids)
+            toc.extend(ids)
+        return toc, counts
+
     def efetch_articles(self, pmids: List[str]) -> List[Dict[str, Any]]:
         out: List[Dict[str, Any]] = []
         for i in range(0, len(pmids), 80):
@@ -932,13 +956,15 @@ def first_sentences(text: str, n: int, limit: int = 220) -> str:
 
 def llm_prescreen(llm: LLMClient, articles: List[Dict[str, Any]],
                   system: str = "") -> List[Dict[str, Any]]:
-    system = system or PREScreen_SYSTEM
+    """预筛（全量库口径）：标题＋摘要头 300 字一起给 LLM 判。LLM 挂→批内全保留（诚实降级）。"""
+    system = system or LIBRARY_PRESCREEN_SYSTEM
     kept = []
     batch = 20
     for i in range(0, len(articles), batch):
         chunk = articles[i:i + batch]
         listing = "\n".join(
             f"[{j}] {(a['journal_title'] or 'Unknown')[:60]} | {a['title_en'][:180]}"
+            f" || {a['abstract_en'][:300]}"
             for j, a in enumerate(chunk))
         try:
             raw = llm.chat(system, listing, max_tokens=800)
@@ -1287,17 +1313,30 @@ def main(argv: Optional[List[str]] = None) -> int:
     log(f"胸科雷达流水线启动 · 模式={mode}")
 
     collector = Collector()
-    jm = JournalMatcher(json.loads(JOURNALS_FILE.read_text(encoding="utf-8")))
+    cfg = json.loads(JOURNALS_FILE.read_text(encoding="utf-8"))
+    jm = JournalMatcher(cfg)
 
     days_back = args.days_back
-    pmids = collector.esearch_pmids(days_back, args.retmax)
-    funnel = {"fetched": len(pmids), "journal_matched": 0, "prescreened": 0, "final": 0, "curated": 0}
+
+    def _collect(dback: int):
+        """双路采集：目录路（340 刊全收）＋ 检索式路（字典外世界）→ 合并去重。"""
+        toc_pmids, toc_counts = collector.fetch_journal_toc(cfg.get("journals", []), dback)
+        health = update_journal_health(toc_counts)
+        q_pmids = collector.esearch_pmids(dback, args.retmax)
+        merged = list(dict.fromkeys(toc_pmids + q_pmids))   # TOC 保序在前，PMID 去重
+        return toc_pmids, q_pmids, merged, health
+
+    log("目录路：逐刊扫描中…")
+    toc_pmids, q_pmids, pmids, health = _collect(days_back)
     if len(pmids) < args.min_final and days_back < 7:
         log(f"近 {days_back} 天仅 {len(pmids)} 篇，放宽窗口到 7 天重抓")
         days_back = 7
-        pmids = collector.esearch_pmids(days_back, args.retmax)
-        funnel["fetched"] = len(pmids)
-    log(f"ESearch 命中 {len(pmids)} 篇（crdt 近 {days_back} 天）")
+        toc_pmids, q_pmids, pmids, health = _collect(days_back)
+    funnel = {"toc_fetched": len(toc_pmids), "query_fetched": len(q_pmids),
+              "fetched": len(pmids), "journal_matched": 0, "prescreened": 0,
+              "final": 0, "curated": 0}
+    log(f"采集：目录路 {len(toc_pmids)} ＋ 检索式路 {len(q_pmids)} → 合并 {len(pmids)} 篇"
+        f"（crdt 近 {days_back} 天｜目录健康 红{len(health['red'])}/黄{len(health['yellow'])}）")
 
     articles = collector.efetch_articles(pmids)
     log(f"EFetch 解析成功 {len(articles)} 篇")
@@ -1424,74 +1463,13 @@ def main(argv: Optional[List[str]] = None) -> int:
     inject_index_html(papers, funnel, day)
     build_radar_archive(90)
     log(f"产出完成：archive/{day}.json / daily_briefing_{day}.md / index.html / radar_latest.json / status.json")
-
-    # 影子通道（乙案并跑测量）：放最后，失败不影响今日主产出
-    try:
-        run_shadow_channel(collector, jm, llm, days_back, set(pmids), args.retmax)
-    except BudgetExceeded:
-        log("⚠ 影子通道预算熔断（当日主产出不受影响），影子报告部分缺失")
-    except Exception as e:  # noqa: BLE001 影子整体失败不阻断
-        log(f"⚠ 影子通道失败（不影响今日产出）: {e}")
     return 0
 
 
 # ============================================================================
-# 6a. 影子通道（乙案·全量库口径并跑测量；失败绝不影响当日主产出）
+# 6a'. 影子通道（乙案）已于 2026-10-18 退役——被目录路取代，测量使命完成。
+#      data/shadow/*.json 留档备查；复算脚本与回测工具在 D:\tmp（离线）。
 # ============================================================================
-
-SHADOW_DIR = DATA_DIR / "shadow"
-SHADOW_PRESCEEN_CAP = 80          # 影子预筛硬顶：测量用途，预算护栏
-
-
-def run_shadow_channel(collector: Collector, jm: JournalMatcher, llm: LLMClient,
-                       days_back: int, prod_pmids: set, retmax: int) -> None:
-    """乙案影子通道：全量检索式并跑，量化「去 B 组门槛＋全量库预筛口径」的真实增量。"""
-    shadow_pmids = collector.esearch_pmids(days_back, retmax, query=SHADOW_QUERY)
-    delta = [p for p in shadow_pmids if p not in prod_pmids]
-    report: Dict[str, Any] = {
-        "briefing_date": date.today().isoformat(), "days_back": days_back,
-        "shadow_hits": len(shadow_pmids), "prod_hits": len(prod_pmids),
-        "delta": len(delta), "delta_pmids": delta[:500],
-        "dict_matched": 0, "prescreen_kept": 0, "prescreen_scanned": 0,
-        "truncated": False, "llm_cost_usd": None, "note": "",
-    }
-    if delta:
-        arts = collector.efetch_articles(delta)
-        cands = []
-        for a in arts:
-            if not (a["pmid"] and a["title_en"] and a["abstract_en"]):
-                continue
-            m = jm.match(a["p_issn"], a["e_issn"], a["issn_linking"], a["nlm_id"],
-                         a["iso_abbr"], a["journal_title"])
-            if m["matched"]:
-                a["_match"] = m
-                cands.append(a)
-        report["dict_matched"] = len(cands)
-        if len(cands) > SHADOW_PRESCEEN_CAP:
-            report["truncated"] = True
-            report["note"] = f"字典内增量超 {SHADOW_PRESCEEN_CAP}，影子预筛只扫前 {SHADOW_PRESCEEN_CAP} 篇"
-            cands = cands[:SHADOW_PRESCEEN_CAP]
-        if cands:
-            if llm.available:
-                kept = llm_prescreen(llm, cands, system=SHADOW_PRESCREEN_SYSTEM)
-            else:
-                kw = ("lung", "pulmonary", "thoracic", "esophag", "oesophag", "mediastin",
-                      "thym", "pleura", "mesothelioma", "chest")
-                kept = [a for a in cands if any(k in (a["title_en"] + " " + a["abstract_en"][:400]).lower()
-                                                for k in kw)]
-            report["prescreen_scanned"] = len(cands)
-            report["prescreen_kept"] = len(kept)
-            report["sample_titles"] = [a["title_en"][:120] for a in kept[:15]]
-    if llm.available:
-        report["llm_cost_usd"] = round(llm.cost_usd, 4)
-    SHADOW_DIR.mkdir(exist_ok=True)
-    (SHADOW_DIR / f"{report['briefing_date']}.json").write_text(
-        json.dumps(report, ensure_ascii=False), encoding="utf-8")
-    (DATA_DIR / "shadow_report.json").write_text(
-        json.dumps(report, ensure_ascii=False), encoding="utf-8")
-    log(f"影子通道：乙式命中 {report['shadow_hits']}｜对主式增量 {report['delta']}｜"
-        f"字典内 {report['dict_matched']}｜全量预筛留 {report['prescreen_kept']}"
-        f"/{report['prescreen_scanned']}" + ("｜预筛截断（见报告）" if report["truncated"] else ""))
 
 
 # ============================================================================

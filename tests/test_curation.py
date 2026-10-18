@@ -302,3 +302,40 @@ class TestEsearchPagination(unittest.TestCase):
     def test_zero_count_returns_empty(self):
         fc = self._FakeCollector(total=0, page_size_seen=None)
         self.assertEqual(fc.esearch_pmids(3, retmax=200, query="test"), [])
+
+
+class TestJournalHealth(unittest.TestCase):
+    """目录健康台账：45–99 天静默提示、≥100 天报警、首见登记、命中即刷新。"""
+
+    def _state_path(self):
+        import shutil, tempfile
+        from pathlib import Path
+        d = tempfile.mkdtemp()
+        self.addCleanup(shutil.rmtree, d, ignore_errors=True)
+        return Path(d) / "journal_health.json"
+
+    def test_thresholds(self):
+        from datetime import date, timedelta
+        today = date.today()
+        p = self._state_path()
+        p.write_text(json.dumps({
+            "OldJ": (today - timedelta(days=139)).isoformat(),
+            "QuietJ": (today - timedelta(days=60)).isoformat(),
+            "FreshJ": today.isoformat()}), encoding="utf-8")
+        r = eng.update_journal_health({}, path=p)
+        self.assertEqual(r["red"], ["OldJ"])
+        self.assertEqual(r["yellow"], ["QuietJ"])
+        self.assertEqual(r["total"], 3)
+        self.assertEqual(r["green"], 1)
+
+    def test_first_seen_registered_and_hit_refreshes(self):
+        from datetime import date
+        p = self._state_path()
+        eng.update_journal_health({"NewJ": 5, "QuietJ": 0}, path=p)
+        state = json.loads(p.read_text(encoding="utf-8"))
+        self.assertEqual(state["NewJ"], date.today().isoformat())
+        self.assertIn("QuietJ", state)               # 零命中也首见入册
+
+    def test_merge_dedup_preserves_order(self):
+        merged = list(dict.fromkeys(["2", "1", "3", "1"]))
+        self.assertEqual(merged, ["2", "1", "3"])
