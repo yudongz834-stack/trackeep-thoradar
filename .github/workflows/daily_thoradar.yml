@@ -2,8 +2,8 @@ name: ThorRadar Daily Pipeline
 
 on:
   schedule:
-    # 北京时间 07:30（UTC 23:30）每日运行
-    - cron: '30 23 * * *'
+    # 北京时间 05:03（UTC 前一日 21:03）每日运行；错开整点＝避开 GitHub 定时高峰排队
+    - cron: '3 21 * * *'
   workflow_dispatch:
 
 permissions:

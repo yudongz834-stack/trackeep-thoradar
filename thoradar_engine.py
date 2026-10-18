@@ -206,6 +206,43 @@ def save_seen(state: Dict[str, str], path: Optional[Path] = None) -> None:
     path.write_text(json.dumps(state, ensure_ascii=False), encoding="utf-8")
 
 
+def norm_doi(d: str) -> str:
+    """DOI 归一：去 https://doi.org/ 与 doi: 前缀、统一小写——同论文双 PMID 靠归一后对上。"""
+    return re.sub(r"^(https?://(dx\.)?doi\.org/|doi:)\s*", "", (d or "").strip()).lower()
+
+
+def load_seen_dois(path: Optional[Path] = None) -> Dict[str, Dict[str, str]]:
+    """DOI 见过账本：{doi: {pmid, date}}，滚动 90 天（与 PMID 账本同宽）。
+    二级去重闸：出版方把同一论文双录成两个 PMID（ahead-of-print 与进刊版各自入库，
+    PMID 不变但两条记录并存）——实测 7 组/3,985 篇≈0.38%，多发 Lancet/NEJM 等 S/A 档大刊，
+    PMID 账本拦不住同 DOI 的另一条记录，DOI 对上即拦（收一弃一）。"""
+    path = path or (DATA_DIR / "seen_dois.json")
+    cutoff = (date.today() - timedelta(days=SEEN_LEDGER_DAYS)).isoformat()
+    try:
+        state = json.loads(path.read_text(encoding="utf-8"))
+    except Exception:  # noqa: BLE001 账本损坏从零重建（宁重看，勿漏看）
+        state = {}
+    if not isinstance(state, dict):
+        state = {}
+    clean: Dict[str, Dict[str, str]] = {}
+    for d, v in state.items():
+        if not (isinstance(v, dict) and isinstance(v.get("pmid"), str)
+                and isinstance(v.get("date"), str)):
+            continue
+        try:
+            if date.fromisoformat(v["date"]) >= date.fromisoformat(cutoff):
+                clean[d] = v
+        except ValueError:        # 坏日期串＝剪（与 PMID 账本同方向）
+            continue
+    return clean
+
+
+def save_seen_dois(state: Dict[str, Dict[str, str]], path: Optional[Path] = None) -> None:
+    path = path or (DATA_DIR / "seen_dois.json")
+    path.parent.mkdir(exist_ok=True)
+    path.write_text(json.dumps(state, ensure_ascii=False), encoding="utf-8")
+
+
 def update_journal_health(counts: Dict[str, int], path: Optional[Path] = None) -> Dict[str, Any]:
     """逐刊目录健康台账：命中>0 即刷新最后命中日；45–99 天静默提示、≥100 天报警。
     （覆盖月刊/季刊的正常出刊间隔；≥100 天仍静默＝疑改名/停刊/检索键失效，人工核。）"""
@@ -1469,18 +1506,28 @@ def main(argv: Optional[List[str]] = None) -> int:
     log(f"EFetch 解析成功 {len(articles)} 篇")
 
     # 去重 + 粗筛 + 通知类排除 + 跨天去重（近 N 天已上过日报的不重发）
-    first_seen, articles_clean = set(), []
-    n_notice = 0
+    seen_dois = load_seen_dois()
+    first_seen, first_dois, articles_clean = set(), set(), []
+    n_notice = n_doi_dup = 0
     for a in articles:
         if not (a["pmid"] and a["title_en"] and a["abstract_en"]):
             continue
         if a["pmid"] in first_seen:
             continue
+        nd = norm_doi(a.get("doi", ""))
+        if nd and (nd in first_dois or (nd in seen_dois and seen_dois[nd]["pmid"] != a["pmid"])):
+            n_doi_dup += 1         # 同一论文双录的另一 PMID（ahead-of-print 双录）——收一弃一
+            first_seen.add(a["pmid"])   # 弃的也记已检查，防明日重拉
+            continue
         first_seen.add(a["pmid"])
+        if nd:
+            first_dois.add(nd)
         if a["status"]["kind"] == "notice":
             n_notice += 1          # 撤稿/更正/关注声明通知本身不作为研究文献收录
             continue
         articles_clean.append(a)
+    if n_doi_dup:
+        log(f"DOI 双录去重：同一论文双 PMID 收一弃一 {n_doi_dup} 篇")
     if n_notice:
         log(f"排除通知类文献（撤稿/更正/关注声明通知本身）{n_notice} 篇")
 
@@ -1617,7 +1664,12 @@ def main(argv: Optional[List[str]] = None) -> int:
     for p in seen_set:
         seen[p] = today_iso
     save_seen(seen)
-    log(f"见过账本：累计 {len(seen)} 条（滚动 {SEEN_LEDGER_DAYS} 天）")
+    for a in articles:            # DOI 二级账本：凡拉到 DOI 的都登记（含弃件，滚动窗同 90 天）
+        nd = norm_doi(a.get("doi", ""))
+        if nd:
+            seen_dois[nd] = {"pmid": a["pmid"], "date": today_iso}
+    save_seen_dois(seen_dois)
+    log(f"见过账本：累计 {len(seen)} 条 · DOI 账本 {len(seen_dois)} 条（滚动 {SEEN_LEDGER_DAYS} 天）")
     log(f"产出完成：archive/{day}.json / daily_briefing_{day}.md / index.html / radar_latest.json / status.json")
     return 0
 

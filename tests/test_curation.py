@@ -371,6 +371,51 @@ class TestSeenLedger(unittest.TestCase):
         self.assertEqual(eng.load_seen(path=p), {})
 
 
+class TestSeenDoiLedger(unittest.TestCase):
+    """DOI 二级账本：同论文双 PMID（ahead-of-print 双录）收一弃一。"""
+
+    def test_norm_doi_strips_prefix_and_lowercases(self):
+        cases = {
+            "10.1016/j.jtho.2026.10.001": "10.1016/j.jtho.2026.10.001",
+            "https://doi.org/10.1056/NEJMoA2032125": "10.1056/nejmoa2032125",
+            "doi:10.1093/nar/gkz430": "10.1093/nar/gkz430",
+            "https://dx.doi.org/10.1038/S41592-019-0686-2": "10.1038/s41592-019-0686-2",
+            "": "",
+            None: "",
+        }
+        for raw, want in cases.items():
+            self.assertEqual(eng.norm_doi(raw), want, raw)
+
+    def test_prune_and_roundtrip(self):
+        import shutil, tempfile
+        from datetime import date, timedelta
+        from pathlib import Path
+        d = tempfile.mkdtemp()
+        self.addCleanup(shutil.rmtree, d, ignore_errors=True)
+        p = Path(d) / "seen_dois.json"
+        today = date.today()
+        state = {
+            "10.1/keep": {"pmid": "111", "date": (today - timedelta(days=89)).isoformat()},
+            "10.1/edge": {"pmid": "222", "date": (today - timedelta(days=90)).isoformat()},
+            "10.1/old": {"pmid": "333", "date": (today - timedelta(days=91)).isoformat()},
+            "10.1/bad-date": {"pmid": "444", "date": "garbage"},
+            "10.1/bad-shape": "flat-string",
+        }
+        eng.save_seen_dois(state, path=p)
+        loaded = eng.load_seen_dois(path=p)
+        self.assertEqual(sorted(loaded), ["10.1/edge", "10.1/keep"])
+        self.assertEqual(loaded["10.1/keep"]["pmid"], "111")
+
+    def test_corrupt_doi_ledger_rebuilds_empty(self):
+        import shutil, tempfile
+        from pathlib import Path
+        d = tempfile.mkdtemp()
+        self.addCleanup(shutil.rmtree, d, ignore_errors=True)
+        p = Path(d) / "seen_dois.json"
+        p.write_text("not-json{", encoding="utf-8")
+        self.assertEqual(eng.load_seen_dois(path=p), {})
+
+
 class TestMeshBackstop(unittest.TestCase):
     """MeSH 兜底层：词表非空、无已废弃主题词、检索式可拼装。"""
 
