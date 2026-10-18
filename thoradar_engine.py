@@ -1117,6 +1117,42 @@ def inject_index_html(papers: List[Dict[str, Any]], funnel: Dict[str, int], day:
 SITE_DATA_MARKER_STALE = re.compile(r"const\s+SITE_DATA\s*=")
 
 
+def build_radar_archive(days: int = 90, archive_dir: Optional[Path] = None,
+                        out_path: Optional[Path] = None) -> Dict[str, Any]:
+    """滚动窗档案：合并 data/archive/*.json，按 pmid 去重（新 briefing 覆盖旧），
+    锚定最新 briefing_date 取近 N 天，写 data/radar_latest.json 供前端滑杆使用。"""
+    adir = archive_dir or (DATA_DIR / "archive")
+    by_pmid: Dict[str, Dict[str, Any]] = {}
+    for f in sorted(Path(adir).glob("*.json")):
+        try:
+            rec = json.loads(Path(f).read_text(encoding="utf-8"))
+        except Exception as e:  # noqa: BLE001 旧档损坏不拖垮重建
+            log(f"⚠ 日档 {Path(f).name} 损坏跳过: {e}")
+            continue
+        for p in rec.get("papers", []):
+            pmid = str(p.get("pmid", "")).strip()
+            if not pmid:
+                continue
+            if p.get("if_val") == 0.0:  # 旧引擎假 0 洗涤：0 不是任何真实 IF
+                p["if_val"] = None
+            prev = by_pmid.get(pmid)
+            if prev is None or str(p.get("briefing_date", "")) >= str(prev.get("briefing_date", "")):
+                by_pmid[pmid] = p
+    papers = list(by_pmid.values())
+    if not papers:
+        log("滚动窗：无任何日档，跳过生成")
+        return {}
+    anchor = max(str(p.get("briefing_date", "")) for p in papers)
+    cutoff = (date.fromisoformat(anchor) - timedelta(days=days - 1)).isoformat()
+    window = [p for p in papers if str(p.get("briefing_date", "")) >= cutoff]
+    payload = {"generated_at": datetime.now().strftime("%Y-%m-%d %H:%M"), "anchor_date": anchor,
+               "window_days": days, "count": len(window), "papers": window}
+    out = out_path or (DATA_DIR / "radar_latest.json")
+    out.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+    log(f"滚动窗档案：{len(papers)} 篇去重 → 近 {days} 天 {len(window)} 篇 → {Path(out).name}")
+    return payload
+
+
 def main(argv: Optional[List[str]] = None) -> int:
     ap = argparse.ArgumentParser(description="胸科雷达 ThorRadar 每日流水线")
     ap.add_argument("--days-back", type=int, default=3)
@@ -1129,6 +1165,8 @@ def main(argv: Optional[List[str]] = None) -> int:
     ap.add_argument("--regression", action="store_true", help="跑工程回归并出报告（exit 1=有漏拦/误拦）")
     ap.add_argument("--probe-status", metavar="PMID",
                     help="对单篇真实文献做状态解析探针（验收用：喂真实撤稿/更正例）")
+    ap.add_argument("--build-archive", action="store_true",
+                    help="仅从 data/archive/*.json 重建 data/radar_latest.json（不打网络）")
     args = ap.parse_args(argv)
 
     if args.self_test:
@@ -1145,6 +1183,9 @@ def main(argv: Optional[List[str]] = None) -> int:
         st = arts[0]["status"]
         log(f"PMID {args.probe_status} 状态解析: {json.dumps(st, ensure_ascii=False)}")
         log(f"标题: {arts[0]['title_en'][:100]}")
+        return 0
+    if args.build_archive:
+        build_radar_archive(90)
         return 0
 
     day = date.today().isoformat()
@@ -1283,7 +1324,8 @@ def main(argv: Optional[List[str]] = None) -> int:
         json.dumps({"briefing_date": day, "mode": "llm" if llm.available else "heuristic",
                     "funnel": funnel, "papers": papers}, ensure_ascii=False), encoding="utf-8")
     inject_index_html(papers, funnel, day)
-    log(f"产出完成：archive/{day}.json / daily_briefing_{day}.md / index.html / status.json")
+    build_radar_archive(90)
+    log(f"产出完成：archive/{day}.json / daily_briefing_{day}.md / index.html / radar_latest.json / status.json")
     return 0
 
 

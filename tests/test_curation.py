@@ -196,3 +196,33 @@ class CurationFixedScenarios(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
+
+
+class TestRadarArchive(unittest.TestCase):
+    """滚动窗档案（Batch3）：按 pmid 去重、新 briefing 覆盖旧、锚定最新日期取 N 天窗。"""
+
+    def test_dedupe_anchor_window(self):
+        import tempfile, os
+        with tempfile.TemporaryDirectory() as td:
+            adir = Path(td) / "archive"; adir.mkdir()
+            out = Path(td) / "radar_latest.json"
+            mk = lambda pmid, bd, tag: {"pmid": pmid, "briefing_date": bd, "title_en": tag}
+            (adir / "2026-08-01.json").write_text(json.dumps({"papers": [mk("1", "2026-06-01", "old"), mk("2", "2026-06-01", "keep-old")]}, ensure_ascii=False), encoding="utf-8")
+            (adir / "2026-10-17.json").write_text(json.dumps({"papers": [mk("2", "2026-10-17", "newer-wins"), mk("3", "2026-10-17", "fresh")]}, ensure_ascii=False), encoding="utf-8")
+            (adir / "broken.json").write_text("{oops", encoding="utf-8")
+            payload = eng.build_radar_archive(days=90, archive_dir=adir, out_path=out)
+            self.assertEqual(payload["anchor_date"], "2026-10-17")
+            by = {p["pmid"]: p for p in payload["papers"]}
+            self.assertEqual(by["2"]["title_en"], "newer-wins")   # 新覆盖旧
+            self.assertNotIn("1", by)                              # 90 天窗外的丢弃
+            self.assertIn("3", by)
+            self.assertIsNone(payload["papers"][0].get("_missing"))  # 无脏字段
+            reloaded = json.loads(out.read_text(encoding="utf-8"))
+            self.assertEqual(reloaded["count"], len(reloaded["papers"]))
+
+    def test_empty_archive(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as td:
+            payload = eng.build_radar_archive(archive_dir=Path(td), out_path=Path(td) / "x.json")
+            self.assertEqual(payload, {})
+
