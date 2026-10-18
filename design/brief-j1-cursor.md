@@ -10,7 +10,7 @@
 把期刊候选名册填成 PI 模板结构的填充稿 xlsx。
 
 **输入（全部只读）：**
-1. 名册（60 本，定案基础盘）：`D:\trackeep-thoradar\design\roster-journals.csv`
+1. 名册（60 本，PI 自官方两表先行圈定；种子名册文件已按 PI 令剔除，仅存于建库 git 历史）
    列：full_name, pubmed_abbr, major, minor, relation, forced_tier
 2. 中科院 2025 分区表（查档数据源）：`D:\trackeep-thoradar\期刊表\2025年中科院大类分区期刊排名汇总表.xlsx`
    （多 sheet 按大类；「医学」1962 行、「综合」100 行是主用的两个；列＝序号/刊名/ISSN/分区）

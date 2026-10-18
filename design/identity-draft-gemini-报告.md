@@ -4,7 +4,7 @@
 > **所属项目**：trackeep-thoradar（胸科雷达）  
 > **执行时间**：2026-10-17 23:25  
 > **核验数据源**：NCBI E-utilities (`eutils.ncbi.nlm.nih.gov`, `db=nlmcatalog`)  
-> **输入文件**：`design/roster-journals.csv`（60本定案期刊名册）  
+> **输入文件**：PI 圈定种 60 本名册（种子名册文件已按 PI 令剔除，仅存于建库 git 历史）  
 > **输出文件**：
 > 1. `design/identity-draft-gemini.json`（结构化草稿字典）
 > 2. `design/identity-draft-gemini-报告.md`（本核验报告）

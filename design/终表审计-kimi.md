@@ -34,7 +34,7 @@
 ### 2. 档位规则抽样 —— 过（并做了全量复算）
 
 - 抽样方法：固定种子 **20261018**，按 S/A/B/C 分层，每层随机抽 5 本，共 **20 本**；20/20 表内档位与规则复算一致。
-- 说明页及 `roster-journals.csv` 另明示 6 本强制 C：Cancers、Frontiers in Oncology、Scientific Reports、Journal of Thoracic Imaging、Esophagus、Mediastinum。下表的「3区→C」均属该明示例外，不是误判。
+- 说明页另明示 6 本强制 C：Cancers、Frontiers in Oncology、Scientific Reports、Journal of Thoracic Imaging、Esophagus、Mediastinum。下表的「3区→C」均属该明示例外，不是误判。
 
 | Excel 行 | 抽样期刊 | 真值分区 | 规则预期 | 表内档位 | 结果 |
 |---:|---|---|---|---|---|
@@ -135,7 +135,7 @@ CA、Cell、BMJ 为 A 而非 S，符合「S=14 本固定名单」的设计，不
 ## 未覆盖开口清单
 
 - 以下 **11 本 C 档刊**只核实了「在给定中科院真值表中查无，故按未收录→C」：Diseases of the Esophagus、Interactive CardioVascular and Thoracic Surgery、JTO Clinical and Research Reports、Journal of Thoracic Disease、Journal of Thoracic Imaging、Mediastinum、Mol Cell、NEJM AI、Nat Rev Cancer、Nat Rev Clin Oncol、Trends Cancer。未联网验证该真值表之外的官方最新分区；其中 Journal of Thoracic Imaging、Mediastinum 同时还受强制 C 规则约束。
-- 「与胸科关系程度」「期刊大/小类别」的业务判断不在本任务书验收判据内，未作正确性终审；`roster-journals.csv` 本轮用于基础名单及 6 本强制 C 核对。
+- 「与胸科关系程度」「期刊大/小类别」的业务判断不在本任务书验收判据内，未作正确性终审；PI 圈定种 60 本名册（已按 PI 令剔除）本轮用于基础名单及 6 本强制 C 核对。
 - The Lancet 的 NLM 新旧两说（2985213R vs 446079）未做外部终裁；本轮按给定 identity JSON 采用 `2985213R`，与说明页已声明的差异清单一致。
 - 按禁区要求未做外部联网核验；所有结论仅基于任务书及指定本地真值文件。
 

@@ -12,7 +12,7 @@
 - `期刊表\2025年中科院大类分区期刊排名汇总表.xlsx`（定档真值）
 - `期刊表\最新IF 2025 全.xlsx`（IF/JCR 真值）
 - `design\identity-draft-gemini.json`＋`identity-draft-gemini-j4.json`（NLM 身份真值）
-- `design\roster-journals.csv`（60 基础盘）
+- PI 圈定种 60 本（种子名册文件已按 PI 令剔除，仅存于建库 git 历史）
 
 ## 审计清单（逐项过，给出 过/不过＋证据）
 1. **行数与分档**：数据行=341；S=14/A=179/B=133/C=15；S 档 14 本名单逐一列出核对；并复核上一轮 FAIL 的两项 critical 已消除——34 行重复是否清零（全称/缩写/NLM ID 三维查重）＋BJS 行是否已矫正（British Journal of Surgery / Br J Surg / 0372553 / 1区 / A）。

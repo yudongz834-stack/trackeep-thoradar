@@ -10,7 +10,7 @@
 对期刊候选名册 60 本逐刊做 **NLM Catalog 身份核验**，产出引擎字典的身份草稿＋差异报告。
 
 **输入（只读）：**
-`D:\trackeep-thoradar\design\roster-journals.csv`
+PI 圈定种 60 本名册（种子名册文件已按 PI 令剔除，仅存于建库 git 历史）
 列：full_name, pubmed_abbr, major, minor, relation, forced_tier
 
 **做法：**
