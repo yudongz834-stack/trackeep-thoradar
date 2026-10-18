@@ -375,6 +375,30 @@ SEMANTIC_QUALIFIER_ANCHORS: Dict[str, List[str]] = {
     "完全缓解": ["complete response"],
     "日本": ["japan"],
     "中国": ["china", "chinese"],
+    # 2026-10-18 误杀补锚：只收与中文限定词 1:1 的英文。裸 overall/total/whole、
+    # 裸 video（会命中 video-assisted）、细胞名下的 in vitro/in vivo 不收。
+    "总体": [
+        "overall population", "overall cohort", "entire cohort", "entire population",
+        "all patients", "all comers", "all-comers", "all-comer",
+        "total population", "whole population", "whole cohort",
+    ],
+    "随访": ["follow-up", "follow up", "followup", "followed up", "followed"],
+    "细胞": ["cell", "cells", "cellular"],
+    "测序样本": [
+        "sequencing sample", "sequencing samples", "sequenced sample", "sequenced samples",
+        "samples were sequenced", "sample was sequenced",
+        "sequenced specimens", "sequencing specimens",
+    ],
+    # 「体外原代」拆成两条：任一命中才算该条已核，两条都要中，避免只出现 in vitro 就放行。
+    "体外": ["in vitro"],
+    "原代": [
+        "primary culture", "primary cultures", "primary cells",
+        "primary cell culture", "primary cell line", "primary cell lines",
+        "primary in vitro",
+    ],
+    "全部纳入视频": [
+        "videos", "all videos", "included videos", "enrolled videos", "video recordings",
+    ],
 }
 
 # CJK 终点/指标词 → 英文锚（与上面同规则；用于 tuple.metric）
