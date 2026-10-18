@@ -1395,14 +1395,14 @@ def main(argv: Optional[List[str]] = None) -> int:
     log(f"EFetch 解析成功 {len(articles)} 篇")
 
     # 去重 + 粗筛 + 通知类排除 + 跨天去重（近 N 天已上过日报的不重发）
-    seen, articles_clean = set(), []
+    first_seen, articles_clean = set(), []
     n_notice = 0
     for a in articles:
         if not (a["pmid"] and a["title_en"] and a["abstract_en"]):
             continue
-        if a["pmid"] in seen:
+        if a["pmid"] in first_seen:
             continue
-        seen.add(a["pmid"])
+        first_seen.add(a["pmid"])
         if a["status"]["kind"] == "notice":
             n_notice += 1          # 撤稿/更正/关注声明通知本身不作为研究文献收录
             continue
