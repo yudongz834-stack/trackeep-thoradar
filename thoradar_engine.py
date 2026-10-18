@@ -72,6 +72,14 @@ A_TERMS = (
 )
 DEFAULT_QUERY = "(" + " OR ".join(f'"{t}"[Title/Abstract]' for t in A_TERMS) + ")"
 
+# MeSH 月度兜底层词表（2026-10-18 重测立项：双路视野之外独有 1,096 篇/90 天、
+# 27% 普胸相关 → 每天约 3-4 篇独有真货，月扫成本几美分）。
+# 「Esophageal Surgical Procedures」MeSH 无此主题词，不列。
+MESH_BACKSTOP_TERMS = (
+    "Lung Neoplasms", "Esophageal Neoplasms", "Mesothelioma",
+    "Thymus Neoplasms", "Mediastinal Neoplasms", "Thoracic Surgical Procedures",
+)
+
 # 语境通道词汇（2026-10-18 回测否决入产线：单独精确率仅 52.4%；留作离线分析工具词汇）
 _SHADOW_AMBIG = ("screening", "deep learning", "machine learning", "radiomics",
                  "neural network", "artificial intelligence", "three-dimensional")
@@ -85,7 +93,7 @@ LIBRARY_PRESCREEN_SYSTEM = """你是普胸文献全量库的收录审读员。�
 1) 肺癌（NSCLC/SCLC/间皮瘤）、肺结节、食管癌、纵隔/胸腺肿瘤、恶性胸膜疾病的任何研究——基础机制、转化、临床、流行病学、筛查、卫生经济学均收；
 2) 普胸外科（肺/食管/纵隔/胸壁手术，VATS/RATS/tubeless/肺段/食管切除）任何报道；
 3) 胸外科 AI、三维重建、影像组学、数字医疗。
-剔除：与普胸无关的器官/系统（含心脏外科）；与胸部无交集的泛癌或泛外科研究。
+剔除：与普胸无关的器官/系统（含心脏外科）；与胸部无交集的泛癌或泛外科研究；**兽医研究与人类疾病无关的动物研究**（判例：猫的胸膜增厚病例报告不该收——只收人类疾病相关：人类患者/人类样本/人源细胞系）。
 只输出 JSON：{"decisions": [{"i": <输入序号>, "keep": true/false}]}"""
 SHADOW_PRESCREEN_SYSTEM = LIBRARY_PRESCREEN_SYSTEM   # 旧名别名（离线分析脚本在用）
 
@@ -1357,6 +1365,8 @@ def main(argv: Optional[List[str]] = None) -> int:
                     help="对单篇真实文献做状态解析探针（验收用：喂真实撤稿/更正例）")
     ap.add_argument("--build-archive", action="store_true",
                     help="仅从 data/archive/*.json 重建 data/radar_latest.json（不打网络）")
+    ap.add_argument("--mesh-backstop", type=int, metavar="DAYS", default=0,
+                    help="MeSH 月度兜底模式：用 MeSH 词回扫近 N 天，减去见过账本后走全下游；日档写 {日}-mesh.json")
     args = ap.parse_args(argv)
 
     if args.self_test:
@@ -1388,6 +1398,16 @@ def main(argv: Optional[List[str]] = None) -> int:
     jm = JournalMatcher(cfg)
 
     days_back = args.days_back
+    mesh_mode = bool(args.mesh_backstop)
+
+    def _collect_mesh(dback: int):
+        """MeSH 兜底采集：六主题词并集（分页抓全）。去重交给下游见过账本/跨天去重。"""
+        merged: List[str] = []
+        for term in MESH_BACKSTOP_TERMS:
+            ids = collector.esearch_pmids(dback, 500, query=f'"{term}"[Mesh]', hard_cap=10000)
+            log(f"MeSH {term}: {len(ids)}")
+            merged.extend(ids)
+        return list(dict.fromkeys(merged))
 
     def _collect(dback: int):
         """双路采集：目录路（340 刊全收）＋ 检索式路（字典外世界）→ 合并去重。"""
@@ -1397,23 +1417,38 @@ def main(argv: Optional[List[str]] = None) -> int:
         merged = list(dict.fromkeys(toc_pmids + q_pmids))   # TOC 保序在前，PMID 去重
         return toc_pmids, q_pmids, merged, health
 
-    log("目录路：逐刊扫描中…")
-    toc_pmids, q_pmids, pmids, health = _collect(days_back)
-    seen = load_seen()
-    pmids = [p for p in pmids if p not in seen]
-    if len(pmids) < len(toc_pmids) + len(q_pmids):
-        log(f"见过账本：去掉近 {SEEN_LEDGER_DAYS} 天已检查 "
-            f"{len(toc_pmids) + len(q_pmids) - len(pmids)} 篇（不重看，防重复税）")
-    if len(pmids) < args.min_final and days_back < 7:
-        log(f"近 {days_back} 天仅 {len(pmids)} 篇，放宽窗口到 7 天重抓")
-        days_back = 7
-        toc_pmids, q_pmids, merged, health = _collect(days_back)
-        pmids = [p for p in merged if p not in seen]
-    funnel = {"toc_fetched": len(toc_pmids), "query_fetched": len(q_pmids),
-              "fetched": len(pmids), "journal_matched": 0, "prescreened": 0,
-              "final": 0, "curated": 0}
-    log(f"采集：目录路 {len(toc_pmids)} ＋ 检索式路 {len(q_pmids)} → 合并 {len(pmids)} 篇"
-        f"（crdt 近 {days_back} 天｜目录健康 红{len(health['red'])}/黄{len(health['yellow'])}）")
+    if mesh_mode:
+        days_back = args.mesh_backstop
+        log(f"MeSH 兜底模式：六主题词回扫近 {days_back} 天…")
+        mesh_pmids = _collect_mesh(days_back)
+        toc_pmids: List[str] = []
+        q_pmids = mesh_pmids
+        pmids = mesh_pmids
+        health = {"red": [], "yellow": [], "green": 0, "total": 0}
+        seen = load_seen()
+        pmids = [p for p in pmids if p not in seen]
+        log(f"见过账本去重后待处理 {len(pmids)} 篇")
+        funnel = {"toc_fetched": 0, "query_fetched": len(mesh_pmids), "mesh_mode": True,
+                  "fetched": len(pmids), "journal_matched": 0, "prescreened": 0,
+                  "final": 0, "curated": 0}
+    else:
+        log("目录路：逐刊扫描中…")
+        toc_pmids, q_pmids, pmids, health = _collect(days_back)
+        seen = load_seen()
+        pmids = [p for p in pmids if p not in seen]
+        if len(pmids) < len(toc_pmids) + len(q_pmids):
+            log(f"见过账本：去掉近 {SEEN_LEDGER_DAYS} 天已检查 "
+                f"{len(toc_pmids) + len(q_pmids) - len(pmids)} 篇（不重看，防重复税）")
+        if len(pmids) < args.min_final and days_back < 7:
+            log(f"近 {days_back} 天仅 {len(pmids)} 篇，放宽窗口到 7 天重抓")
+            days_back = 7
+            toc_pmids, q_pmids, merged, health = _collect(days_back)
+            pmids = [p for p in merged if p not in seen]
+        funnel = {"toc_fetched": len(toc_pmids), "query_fetched": len(q_pmids),
+                  "fetched": len(pmids), "journal_matched": 0, "prescreened": 0,
+                  "final": 0, "curated": 0}
+        log(f"采集：目录路 {len(toc_pmids)} ＋ 检索式路 {len(q_pmids)} → 合并 {len(pmids)} 篇"
+            f"（crdt 近 {days_back} 天｜目录健康 红{len(health['red'])}/黄{len(health['yellow'])}）")
 
     articles = collector.efetch_articles(pmids)
     log(f"EFetch 解析成功 {len(articles)} 篇")
@@ -1537,9 +1572,21 @@ def main(argv: Optional[List[str]] = None) -> int:
     (DATA_DIR / "archive").mkdir(exist_ok=True)
     (DATA_DIR / f"daily_briefing_{day}.md").write_text(
         render_briefing_md(papers, day, funnel), encoding="utf-8")
-    (DATA_DIR / "archive" / f"{day}.json").write_text(
-        json.dumps({"briefing_date": day, "mode": "llm" if llm.available else "heuristic",
+    arch_name = f"{day}-mesh.json" if mesh_mode else f"{day}.json"
+    (DATA_DIR / "archive" / arch_name).write_text(
+        json.dumps({"briefing_date": day, "mode": ("mesh-" if mesh_mode else "")
+                    + ("llm" if llm.available else "heuristic"),
                     "funnel": funnel, "papers": papers}, ensure_ascii=False), encoding="utf-8")
+    if mesh_mode:
+        (DATA_DIR / "mesh_backstop_report.json").write_text(
+            json.dumps({"briefing_date": day, "window_days": days_back,
+                        "mesh_hits": funnel["query_fetched"], "after_seen": funnel["fetched"],
+                        "journal_matched": funnel["journal_matched"],
+                        "prescreened": funnel["prescreened"], "final": funnel["final"],
+                        "curated": funnel["curated"],
+                        "llm_cost_usd": round(llm.cost_usd, 4)}, ensure_ascii=False),
+            encoding="utf-8")
+        log(f"MeSH 兜底报告：data/mesh_backstop_report.json")
     inject_index_html(papers, funnel, day)
     build_radar_archive(90)
 

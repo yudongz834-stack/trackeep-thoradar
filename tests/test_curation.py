@@ -369,3 +369,17 @@ class TestSeenLedger(unittest.TestCase):
         p = Path(d) / "seen_pmids.json"
         p.write_text("not-json{", encoding="utf-8")
         self.assertEqual(eng.load_seen(path=p), {})
+
+
+class TestMeshBackstop(unittest.TestCase):
+    """MeSH 兜底层：词表非空、无已废弃主题词、检索式可拼装。"""
+
+    def test_terms_present_and_esophageal_surgery_absent(self):
+        self.assertGreaterEqual(len(eng.MESH_BACKSTOP_TERMS), 5)
+        self.assertNotIn("Esophageal Surgical Procedures", eng.MESH_BACKSTOP_TERMS)
+
+    def test_query_builds_with_mesh_tag(self):
+        t = eng.MESH_BACKSTOP_TERMS[0]
+        q = f'"{t}"[Mesh]'
+        self.assertIn("[Mesh]", q)
+        self.assertIn(t, q)

@@ -1,0 +1,53 @@
+name: ThorRadar Monthly MeSH Backstop
+
+on:
+  schedule:
+    # 每月 2 日北京 09:45（UTC 01:45）——避开每日 07:30 的跑批窗口
+    - cron: '45 1 2 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: thoradar-mesh
+  cancel-in-progress: false
+
+jobs:
+  mesh-backstop:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Self-test then MeSH backstop sweep
+        env:
+          NCBI_API_KEY: ${{ secrets.NCBI_API_KEY }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
+          LLM_MODEL: ${{ secrets.LLM_MODEL }}
+          MAX_DAILY_COST_USD: ${{ secrets.MAX_DAILY_COST_USD || '0.10' }}
+        run: |
+          python3 thoradar_engine.py --self-test
+          python3 thoradar_engine.py --mesh-backstop 90 || { echo "::warning::MeSH 兜底首跑失败，5 分钟后自动重试一次"; sleep 300; python3 thoradar_engine.py --mesh-backstop 90; }
+
+      - name: Guard — data must actually change (mesh report always written)
+        run: |
+          if git diff --quiet -- index.html data/; then
+            echo "::error::MeSH 兜底运行后 data/ 无变化——疑似静默断粮，判失败"
+            exit 1
+          fi
+
+      - name: Commit and push
+        run: |
+          git config user.name "thoradar-bot"
+          git config user.email "bot@thoradar.local"
+          git add index.html data/
+          git commit -m "chore(mesh): MeSH 月度兜底回扫 $(date -u +%F) [skip ci]" || echo "nothing to commit"
+          git push
