@@ -80,3 +80,8 @@
 ### 异常清单（error 非空）
 
 （无）
+
+## coordinator 复核（2026-10-18）
+
+- 36 本名字不一致逐一归因：35 本为化妆品级（官方全称/连字符/& 差异，双方都对）；1 本实锤为 **OpenAlex 侧错误合并**——Environmental Epigenetics（ISSN 2058-5888）被 OpenAlex 并进 Current Zoology 源对象（一个源挂 3 个 ISSN）；NLM esearch 2058-5888[ISSN] 精确返回 101675941＝我们字典的身份。结论：**字典身份层零错误，OpenAlex 对拍可作旁证不可作准绳**。
+- vol_365 为 0 的 5 本＝新创刊（NEJM AI 等），符合预期。
