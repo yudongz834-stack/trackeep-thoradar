@@ -62,20 +62,30 @@ CATEGORIES: Dict[str, str] = {
 
 # 检索式路：纯病种词 26 词直通（2026-10-18 回测裁决：双门召回 62.5% → 直通 76.7%）。
 # 只负责字典外世界的胸科文章；字典刊全覆盖由目录路（fetch_journal_toc）天然完成。
+# 检索式路 v3（PI 2026-10-18 第一性裁决）：只病种名，术式/治疗词全删，只搜摘要域。
+# 只负责字典外世界；字典刊全覆盖由目录路天然完成。实测（30 天回放）：
+# 仅摘要域丢标题独占 46/1974≈2.3%（真货多在字典刊内被 TOC 接住）；
+# 病名变体 +266 / 纯术式词命中 −292（术式文多发字典刊内，实际影响窄）。
 A_TERMS = (
-    "non-small-cell lung cancer", "NSCLC", "small-cell lung cancer", "SCLC",
-    "lung cancer", "lung tumor", "lung tumour", "pulmonary nodule", "ground-glass",
-    "subsolid nodule", "mesothelioma", "thymic", "mediastinal tumor", "thymoma",
-    "esophageal cancer", "oesophageal cancer", "esophagectomy", "oesophagectomy",
-    "thoracoscopic", "segmentectomy", "lobectomy", "pneumonectomy", "sublobar",
-    "tubeless", "robotic thoracic", "robot-assisted thoracic",
-    # 2026-10-18 盲区挖掘回放后增补（G 席语料挖掘＋主控回放对拍）：只写病种缩写/全称，
-    # 不收腺癌/鳞癌裸词（跨器官垃圾）；增量 ≈210 篇/30 天、字典内真货为主、零丢失。
-    "ESCC", "LUAD", "LUSC",
-    "lung adenocarcinoma", "lung squamous cell carcinoma",
+    # 肺恶性肿瘤（含亚型与缩写）
+    "lung cancer", "lung tumor", "lung tumour", "lung neoplasm",
+    "non-small cell lung cancer", "NSCLC", "small cell lung cancer", "SCLC",
+    "lung adenocarcinoma", "LUAD", "lung squamous cell carcinoma", "LUSC",
+    "pulmonary carcinoid",
+    # 肺结节
+    "pulmonary nodule", "lung nodule", "ground-glass nodule", "ground glass nodule",
+    "subsolid nodule", "solitary pulmonary nodule",
+    # 胸膜
+    "mesothelioma", "malignant pleural effusion",
+    # 食管
+    "esophageal cancer", "oesophageal cancer", "esophageal carcinoma", "oesophageal carcinoma",
     "esophageal squamous cell carcinoma", "oesophageal squamous cell carcinoma",
+    "esophageal adenocarcinoma", "ESCC",
+    # 纵隔/胸腺
+    "thymoma", "thymic carcinoma", "thymic tumor", "thymic tumour",
+    "mediastinal tumor", "mediastinal tumour", "mediastinal mass",
 )
-DEFAULT_QUERY = "(" + " OR ".join(f'"{t}"[Title/Abstract]' for t in A_TERMS) + ")"
+DEFAULT_QUERY = "(" + " OR ".join(f'"{t}"[Abstract]' for t in A_TERMS) + ")"
 
 # MeSH 月度兜底层词表（2026-10-18 重测立项：双路视野之外独有 1,096 篇/90 天、
 # 27% 普胸相关 → 每天约 3-4 篇独有真货，月扫成本几美分）。
