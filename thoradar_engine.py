@@ -69,6 +69,11 @@ A_TERMS = (
     "esophageal cancer", "oesophageal cancer", "esophagectomy", "oesophagectomy",
     "thoracoscopic", "segmentectomy", "lobectomy", "pneumonectomy", "sublobar",
     "tubeless", "robotic thoracic", "robot-assisted thoracic",
+    # 2026-10-18 盲区挖掘回放后增补（G 席语料挖掘＋主控回放对拍）：只写病种缩写/全称，
+    # 不收腺癌/鳞癌裸词（跨器官垃圾）；增量 ≈210 篇/30 天、字典内真货为主、零丢失。
+    "ESCC", "LUAD", "LUSC",
+    "lung adenocarcinoma", "lung squamous cell carcinoma",
+    "esophageal squamous cell carcinoma", "oesophageal squamous cell carcinoma",
 )
 DEFAULT_QUERY = "(" + " OR ".join(f'"{t}"[Title/Abstract]' for t in A_TERMS) + ")"
 
@@ -1503,6 +1508,11 @@ def main(argv: Optional[List[str]] = None) -> int:
     log(f"预筛通过 {len(prescreened)} 篇")
 
     # 精评 + 核验（核验异常 → fail-closed 降级，不崩运行）；并行 4 线程
+    # 名额按档位排序分配（S>A>B>C，同档按新到旧）：MeSH 月扫实测预筛留存远超硬顶时，
+    # 让最重要的文章优先被 AI 读懂；超顶者启发式兜底（分数照有、来源诚实标注）。
+    _TIER_RANK = {"S": 0, "A": 1, "B": 2, "C": 3}
+    prescreened = sorted(prescreened,
+                         key=lambda a: _TIER_RANK.get(a["_match"].get("tier", "B"), 2))
     # 硬顶 200：双路架构下每日新见约 140 篇；顶住只防失控，靠预算熔断守成本。
     SCORE_HARD_CAP = 200
     if len(prescreened) > SCORE_HARD_CAP:
