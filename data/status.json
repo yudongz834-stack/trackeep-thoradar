@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-18 04:37",
+ "updated_at": "2026-10-18 06:30",
  "papers": {
   "42887497": {
    "kind": "ok",
@@ -367,8 +367,8 @@
    "notice_ref": "",
    "impact_known": true,
    "note": "",
-   "first_seen": "2026-10-18 04:37",
-   "last_checked": "2026-10-18 04:37",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
    "stale": false
   },
   "42870814": {
@@ -437,8 +437,8 @@
    "notice_ref": "",
    "impact_known": true,
    "note": "",
-   "first_seen": "2026-10-18 04:37",
-   "last_checked": "2026-10-18 04:37",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
    "stale": false
   },
   "42888302": {
@@ -447,8 +447,8 @@
    "notice_ref": "",
    "impact_known": true,
    "note": "",
-   "first_seen": "2026-10-18 04:37",
-   "last_checked": "2026-10-18 04:37",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
    "stale": false
   },
   "42871379": {
@@ -537,8 +537,8 @@
    "notice_ref": "",
    "impact_known": true,
    "note": "",
-   "first_seen": "2026-10-18 04:37",
-   "last_checked": "2026-10-18 04:37",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
    "stale": false
   },
   "42889180": {
@@ -547,8 +547,8 @@
    "notice_ref": "",
    "impact_known": true,
    "note": "",
-   "first_seen": "2026-10-18 04:37",
-   "last_checked": "2026-10-18 04:37",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
    "stale": false
   },
   "42890433": {
@@ -557,8 +557,8 @@
    "notice_ref": "",
    "impact_known": true,
    "note": "",
-   "first_seen": "2026-10-18 04:37",
-   "last_checked": "2026-10-18 04:37",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
    "stale": false
   },
   "42890051": {
@@ -567,8 +567,8 @@
    "notice_ref": "",
    "impact_known": true,
    "note": "",
-   "first_seen": "2026-10-18 04:37",
-   "last_checked": "2026-10-18 04:37",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
    "stale": false
   },
   "42889653": {
@@ -577,8 +577,8 @@
    "notice_ref": "",
    "impact_known": true,
    "note": "",
-   "first_seen": "2026-10-18 04:37",
-   "last_checked": "2026-10-18 04:37",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
    "stale": false
   },
   "42889044": {
@@ -587,8 +587,8 @@
    "notice_ref": "",
    "impact_known": true,
    "note": "",
-   "first_seen": "2026-10-18 04:37",
-   "last_checked": "2026-10-18 04:37",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
    "stale": false
   },
   "42890876": {
@@ -597,8 +597,8 @@
    "notice_ref": "",
    "impact_known": true,
    "note": "",
-   "first_seen": "2026-10-18 04:37",
-   "last_checked": "2026-10-18 04:37",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
    "stale": false
   },
   "42878810": {
@@ -617,8 +617,8 @@
    "notice_ref": "",
    "impact_known": true,
    "note": "",
-   "first_seen": "2026-10-18 04:37",
-   "last_checked": "2026-10-18 04:37",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
    "stale": false
   },
   "42876635": {
@@ -629,6 +629,496 @@
    "note": "",
    "first_seen": "2026-10-18 04:37",
    "last_checked": "2026-10-18 04:37",
+   "stale": false
+  },
+  "42887072": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42890327": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42886530": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42882776": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42882306": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42891250": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42889375": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42890849": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42887496": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42884445": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42891137": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42889016": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42888057": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42885681": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42890693": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42890969": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42890733": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42887200": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42886720": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42885308": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42883968": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42882773": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42882357": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42882209": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42882176": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42890857": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42884727": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42890477": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42890310": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42890300": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42890070": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42889733": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42889196": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42888981": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42888403": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42887442": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42886416": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42883750": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42883213": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42883199": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42882922": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42882843": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42882826": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42882804": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42883206": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42890033": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42890446": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42882392": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
+   "stale": false
+  },
+  "42885242": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-18 06:30",
+   "last_checked": "2026-10-18 06:30",
    "stale": false
   }
  }
