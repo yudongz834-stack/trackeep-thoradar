@@ -339,3 +339,33 @@ class TestJournalHealth(unittest.TestCase):
     def test_merge_dedup_preserves_order(self):
         merged = list(dict.fromkeys(["2", "1", "3", "1"]))
         self.assertEqual(merged, ["2", "1", "3"])
+
+
+class TestSeenLedger(unittest.TestCase):
+    """见过账本：滚动 90 天剪枝；防重复税。"""
+
+    def test_prune_old_and_keep_recent(self):
+        import shutil, tempfile
+        from datetime import date, timedelta
+        from pathlib import Path
+        d = tempfile.mkdtemp()
+        self.addCleanup(shutil.rmtree, d, ignore_errors=True)
+        p = Path(d) / "seen_pmids.json"
+        today = date.today()
+        p.write_text(json.dumps({
+            "111": (today - timedelta(days=89)).isoformat(),   # 留
+            "222": (today - timedelta(days=90)).isoformat(),   # 留（边界含）
+            "333": (today - timedelta(days=91)).isoformat(),   # 剪
+            "444": "garbage",                                  # 坏值剪
+        }), encoding="utf-8")
+        seen = eng.load_seen(path=p)
+        self.assertEqual(sorted(seen), ["111", "222"])
+
+    def test_corrupt_ledger_rebuilds_empty(self):
+        import shutil, tempfile
+        from pathlib import Path
+        d = tempfile.mkdtemp()
+        self.addCleanup(shutil.rmtree, d, ignore_errors=True)
+        p = Path(d) / "seen_pmids.json"
+        p.write_text("not-json{", encoding="utf-8")
+        self.assertEqual(eng.load_seen(path=p), {})

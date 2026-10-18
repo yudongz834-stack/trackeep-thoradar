@@ -33,6 +33,8 @@ import os
 import re
 import sys
 import time
+import threading
+from concurrent.futures import ThreadPoolExecutor
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -142,12 +144,43 @@ class JournalMatcher:
 
 
 # ============================================================================
-# 1b. 逐刊目录健康台账（目录路护栏：钥匙静默失灵必须响）
+# 1b. 逐刊目录健康台账 + 全量见过账本（目录路护栏：钥匙静默失灵必须响）
 # ============================================================================
 
 # 目录健康阈值（唯一真相源；tools/journal_qc.py 从这里引用，改阈值只改此处）
 HEALTH_YELLOW_DAYS = 45          # 静默 ≥45 天：提示（低频刊/季刊可能正常）
 HEALTH_RED_DAYS = 100            # 静默 ≥100 天：报警（疑改名/停刊/检索键失效，人工核）
+
+SEEN_LEDGER_DAYS = 90            # 见过账本滚动窗（与站上滚动档案同宽）
+
+
+def load_seen(path: Optional[Path] = None) -> Dict[str, str]:
+    """见过账本：{pmid: 最后见到日期}，滚动 90 天。凡检查过（examined）的文章不再重看——
+    这是双路架构的防重复税闸：目录路 3 天窗每日重拉，不去重预筛量会逐日滚雪球。"""
+    path = path or (DATA_DIR / "seen_pmids.json")
+    cutoff = (date.today() - timedelta(days=SEEN_LEDGER_DAYS)).isoformat()
+    try:
+        state = json.loads(path.read_text(encoding="utf-8"))
+    except Exception:  # noqa: BLE001 账本损坏从零重建（宁重看，勿漏看）
+        state = {}
+    if not isinstance(state, dict):
+        state = {}
+    clean: Dict[str, str] = {}
+    for p, d in state.items():
+        if not isinstance(d, str):
+            continue
+        try:
+            if date.fromisoformat(d) >= date.fromisoformat(cutoff):
+                clean[p] = d
+        except ValueError:        # 坏日期串＝剪（与账本「宁重看，勿漏看」方向一致）
+            continue
+    return clean
+
+
+def save_seen(state: Dict[str, str], path: Optional[Path] = None) -> None:
+    path = path or (DATA_DIR / "seen_pmids.json")
+    path.parent.mkdir(exist_ok=True)
+    path.write_text(json.dumps(state, ensure_ascii=False), encoding="utf-8")
 
 
 def update_journal_health(counts: Dict[str, int], path: Optional[Path] = None) -> Dict[str, Any]:
@@ -496,6 +529,7 @@ class LLMClient:
         self.cap_usd = float(os.environ.get("MAX_DAILY_COST_USD", "0.10"))
         self.cost_usd = 0.0
         self.calls = 0
+        self._lock = threading.Lock()   # 并行精评时的成本计数保护
 
     @property
     def available(self) -> bool:
@@ -523,9 +557,10 @@ class LLMClient:
                 with urllib.request.urlopen(req, timeout=120) as resp:
                     data = json.loads(resp.read().decode("utf-8"))
                 usage = data.get("usage", {})
-                self.cost_usd += (usage.get("prompt_tokens", 0) * self.price_in
-                                  + usage.get("completion_tokens", 0) * self.price_out) / 1e6
-                self.calls += 1
+                with self._lock:
+                    self.cost_usd += (usage.get("prompt_tokens", 0) * self.price_in
+                                      + usage.get("completion_tokens", 0) * self.price_out) / 1e6
+                    self.calls += 1
                 return data["choices"][0]["message"]["content"]
             except BudgetExceeded:
                 raise
@@ -582,17 +617,16 @@ class Collector:
         if self.api_key:
             base["api_key"] = self.api_key
 
-        def _page(start: int, size: int) -> List[str]:
+        def _page(start: int, size: int) -> "tuple[List[str], int]":
             params = dict(base)
             params["retmax"] = str(size)
             params["retstart"] = str(start)
             url = f"{self.EUTILS}/esearch.fcgi?{urllib.parse.urlencode(params)}"
             er = json.loads(self._get(url).decode("utf-8")).get("esearchresult", {})
-            self._last_count = int(er.get("count", "0"))
-            return er.get("idlist", [])
+            return er.get("idlist", []), int(er.get("count", "0"))
 
-        _page(0, 0)                       # 首调只取 Count（retmax=0 不回 idlist）
-        total = self._last_count
+        ids0, total = _page(0, 0)         # 首调只取 Count（retmax=0 不回 idlist）
+        self._last_count = total          # 兼容探针读取（线程内局部使用，无竞态）
         if total <= 0:
             return []
         if total > hard_cap:
@@ -603,7 +637,7 @@ class Collector:
         pmids: List[str] = []
         start = 0
         while start < total:
-            batch = _page(start, min(page, total - start))
+            batch, _ = _page(start, min(page, total - start))
             if not batch:
                 log(f"⚠ 分页在第 {start} 条处提前断流（已取 {len(pmids)}/{total}）")
                 break
@@ -612,23 +646,30 @@ class Collector:
         return pmids[:total]
 
     def fetch_journal_toc(self, journals: List[Dict[str, Any]],
-                          days_back: int) -> "tuple[List[str], Dict[str, int]]":
-        """目录路：逐刊拉近 N 天全部 PMID（340 刊全收，无词表漏法）。
-        返回 (去重前 pmid 列表, {刊ta: 命中数})；单刊失败计 -1，不断全卷。"""
-        toc: List[str] = []
-        counts: Dict[str, int] = {}
-        for j in journals:
+                          days_back: int, workers: int = 6) -> "tuple[List[str], Dict[str, int]]":
+        """目录路（并行）：逐刊拉近 N 天全部 PMID（340 刊全收，无词表漏法）。
+        返回 (去重前 pmid 列表, {刊ta: 命中数|−1=失败})；单刊失败计 -1，不断全卷。"""
+        def _one(j: Dict[str, Any]):
             ta = (j.get("iso_abbr") or j.get("title") or "").strip()
             if not ta:
-                continue
+                return None, 0
             try:
-                ids = self.esearch_pmids(days_back, 500, query=f'"{ta}"[ta]')
+                return ta, self.esearch_pmids(days_back, 500, query=f'"{ta}"[ta]')
             except Exception as e:  # noqa: BLE001 单刊失败不断全卷
                 log(f"⚠ 目录扫描失败 {ta}: {e}")
-                counts[ta] = -1
-                continue
-            counts[ta] = len(ids)
-            toc.extend(ids)
+                return ta, None
+
+        toc: List[str] = []
+        counts: Dict[str, int] = {}
+        with ThreadPoolExecutor(max_workers=workers) as ex:
+            for ta, ids in ex.map(_one, journals):
+                if ta is None:
+                    continue
+                if ids is None:
+                    counts[ta] = -1
+                else:
+                    counts[ta] = len(ids)
+                    toc.extend(ids)
         return toc, counts
 
     def efetch_articles(self, pmids: List[str]) -> List[Dict[str, Any]]:
@@ -1334,10 +1375,16 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     log("目录路：逐刊扫描中…")
     toc_pmids, q_pmids, pmids, health = _collect(days_back)
+    seen = load_seen()
+    pmids = [p for p in pmids if p not in seen]
+    if len(pmids) < len(toc_pmids) + len(q_pmids):
+        log(f"见过账本：去掉近 {SEEN_LEDGER_DAYS} 天已检查 "
+            f"{len(toc_pmids) + len(q_pmids) - len(pmids)} 篇（不重看，防重复税）")
     if len(pmids) < args.min_final and days_back < 7:
         log(f"近 {days_back} 天仅 {len(pmids)} 篇，放宽窗口到 7 天重抓")
         days_back = 7
-        toc_pmids, q_pmids, pmids, health = _collect(days_back)
+        toc_pmids, q_pmids, merged, health = _collect(days_back)
+        pmids = [p for p in merged if p not in seen]
     funnel = {"toc_fetched": len(toc_pmids), "query_fetched": len(q_pmids),
               "fetched": len(pmids), "journal_matched": 0, "prescreened": 0,
               "final": 0, "curated": 0}
@@ -1396,14 +1443,14 @@ def main(argv: Optional[List[str]] = None) -> int:
     funnel["prescreened"] = len(prescreened)
     log(f"预筛通过 {len(prescreened)} 篇")
 
-    # 精评 + 核验（核验异常 → fail-closed 降级，不崩运行）
-    # 硬顶 200：词表 v2 后预筛留存约百篇/日；顶住只防检索式失控，靠预算熔断守成本。
+    # 精评 + 核验（核验异常 → fail-closed 降级，不崩运行）；并行 4 线程
+    # 硬顶 200：双路架构下每日新见约 140 篇；顶住只防失控，靠预算熔断守成本。
     SCORE_HARD_CAP = 200
     if len(prescreened) > SCORE_HARD_CAP:
         log(f"⚠ 预筛留存 {len(prescreened)} 超精评硬顶 {SCORE_HARD_CAP}，只精评前 "
             f"{SCORE_HARD_CAP} 篇（疑似检索式过宽，人工看板跟进）")
-    papers: List[Dict[str, Any]] = []
-    for a in prescreened[:SCORE_HARD_CAP]:
+
+    def _score_one(a: Dict[str, Any]) -> Dict[str, Any]:
         m = a["_match"]
         try:
             if llm.available:
@@ -1441,7 +1488,10 @@ def main(argv: Optional[List[str]] = None) -> int:
         except Exception as e:  # noqa: BLE001 核验器自身异常 → 按「无法确认」处理
             verify_error = f"verifier-error: {e}"
             log(f"  ⚠ 核验器异常 (pmid {a['pmid']})，本篇降级: {e}")
-        papers.append(build_paper(a, scored, verdict, verify_error))
+        return build_paper(a, scored, verdict, verify_error)
+
+    with ThreadPoolExecutor(max_workers=4) as ex:
+        papers = list(ex.map(_score_one, prescreened[:SCORE_HARD_CAP]))
     papers.sort(key=lambda p: p["score_total"], reverse=True)
     funnel["final"] = len(papers)
     funnel["curated"] = apply_curation(papers)
@@ -1468,6 +1518,15 @@ def main(argv: Optional[List[str]] = None) -> int:
                     "funnel": funnel, "papers": papers}, ensure_ascii=False), encoding="utf-8")
     inject_index_html(papers, funnel, day)
     build_radar_archive(90)
+
+    # 见过账本落盘：凡「有效检查过」的都记账；无摘要且非豁免的明天再查（摘要可能后补）
+    seen_set = {a["pmid"] for a in articles if a["abstract_en"]}
+    seen_set |= {a["pmid"] for a in stage_journal if not a.get("abstract_en")}
+    today_iso = date.today().isoformat()
+    for p in seen_set:
+        seen[p] = today_iso
+    save_seen(seen)
+    log(f"见过账本：累计 {len(seen)} 条（滚动 {SEEN_LEDGER_DAYS} 天）")
     log(f"产出完成：archive/{day}.json / daily_briefing_{day}.md / index.html / radar_latest.json / status.json")
     return 0
 
