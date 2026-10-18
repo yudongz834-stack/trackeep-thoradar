@@ -85,3 +85,8 @@
 
 - 36 本名字不一致逐一归因：35 本为化妆品级（官方全称/连字符/& 差异，双方都对）；1 本实锤为 **OpenAlex 侧错误合并**——Environmental Epigenetics（ISSN 2058-5888）被 OpenAlex 并进 Current Zoology 源对象（一个源挂 3 个 ISSN）；NLM esearch 2058-5888[ISSN] 精确返回 101675941＝我们字典的身份。结论：**字典身份层零错误，OpenAlex 对拍可作旁证不可作准绳**。
 - vol_365 为 0 的 5 本＝新创刊（NEJM AI 等），符合预期。
+
+## 复核补记二（JDII 改名处置）
+
+- 名字不一致终归因（36 条）：约 30 化妆差异＋**2 真改名**（JDII→Journal of Imaging Informatics in Medicine 已修：config/DRAFT 双改 iso_abbr=J Imaging Inform Med，新名窗口内 1,019 篇；J Trauma 系 OpenAlex 旧题回显，我方 NLM 身份无误）＋1 OpenAlex 错并（Environmental Epigenetics，已裁定 OA 侧脏）＋3 显示名杂项。
+- vol=0 五本核因备案：ICVTS/Asian J Surg 停刊真 0、BGER/Proteome Sci 低频真 0、JDII 改名假 0（已随改名修复消除）。
