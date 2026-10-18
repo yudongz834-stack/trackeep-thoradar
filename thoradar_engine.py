@@ -1352,8 +1352,13 @@ def main(argv: Optional[List[str]] = None) -> int:
     log(f"预筛通过 {len(prescreened)} 篇")
 
     # 精评 + 核验（核验异常 → fail-closed 降级，不崩运行）
+    # 硬顶 200：词表 v2 后预筛留存约百篇/日；顶住只防检索式失控，靠预算熔断守成本。
+    SCORE_HARD_CAP = 200
+    if len(prescreened) > SCORE_HARD_CAP:
+        log(f"⚠ 预筛留存 {len(prescreened)} 超精评硬顶 {SCORE_HARD_CAP}，只精评前 "
+            f"{SCORE_HARD_CAP} 篇（疑似检索式过宽，人工看板跟进）")
     papers: List[Dict[str, Any]] = []
-    for a in prescreened[:60]:
+    for a in prescreened[:SCORE_HARD_CAP]:
         m = a["_match"]
         try:
             if llm.available:
