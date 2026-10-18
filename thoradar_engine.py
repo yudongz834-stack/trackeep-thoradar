@@ -61,18 +61,66 @@ CATEGORIES: Dict[str, str] = {
 DEFAULT_QUERY = (
     '(("non-small-cell lung cancer"[Title/Abstract] OR "NSCLC"[Title/Abstract] '
     'OR "small-cell lung cancer"[Title/Abstract] OR "SCLC"[Title/Abstract] '
+    'OR "lung cancer"[Title/Abstract] OR "lung tumor"[Title/Abstract] '
+    'OR "lung tumour"[Title/Abstract] '
     'OR "pulmonary nodule"[Title/Abstract] OR "ground-glass"[Title/Abstract] '
-    'OR "subsolid nodule"[Title/Abstract] OR "thoracoscopic"[Title/Abstract] '
-    'OR "segmentectomy"[Title/Abstract] OR "tubeless"[Title/Abstract] '
-    'OR "esophageal cancer"[Title/Abstract] OR "mediastinal tumor"[Title/Abstract] '
-    'OR "thymoma"[Title/Abstract]) '
+    'OR "subsolid nodule"[Title/Abstract] '
+    'OR "mesothelioma"[Title/Abstract] OR "thymic"[Title/Abstract] '
+    'OR "mediastinal tumor"[Title/Abstract] OR "thymoma"[Title/Abstract] '
+    'OR "esophageal cancer"[Title/Abstract] OR "oesophageal cancer"[Title/Abstract] '
+    'OR "esophagectomy"[Title/Abstract] OR "oesophagectomy"[Title/Abstract] '
+    'OR "thoracoscopic"[Title/Abstract] OR "segmentectomy"[Title/Abstract] '
+    'OR "lobectomy"[Title/Abstract] OR "pneumonectomy"[Title/Abstract] '
+    'OR "sublobar"[Title/Abstract] OR "tubeless"[Title/Abstract] '
+    'OR "robotic thoracic"[Title/Abstract] '
+    'OR "robot-assisted thoracic"[Title/Abstract]) '
     'AND ("clinical trial"[Title/Abstract] OR "randomized"[Title/Abstract] '
-    'OR "neoadjuvant"[Title/Abstract] OR "perioperative"[Title/Abstract] '
-    'OR "propensity score"[Title/Abstract] OR "three-dimensional"[Title/Abstract] '
-    'OR "artificial intelligence"[Title/Abstract] OR "osimertinib"[Title/Abstract] '
-    'OR "nivolumab"[Title/Abstract] OR "pembrolizumab"[Title/Abstract] '
-    'OR "durvalumab"[Title/Abstract] OR "antibiotic"[Title/Abstract]))'
+    'OR "neoadjuvant"[Title/Abstract] OR "adjuvant"[Title/Abstract] '
+    'OR "perioperative"[Title/Abstract] OR "propensity score"[Title/Abstract] '
+    'OR "three-dimensional"[Title/Abstract] OR "artificial intelligence"[Title/Abstract] '
+    'OR "deep learning"[Title/Abstract] OR "machine learning"[Title/Abstract] '
+    'OR "radiomics"[Title/Abstract] OR "neural network"[Title/Abstract] '
+    'OR "immunotherapy"[Title/Abstract] OR "chemotherapy"[Title/Abstract] '
+    'OR "radiotherapy"[Title/Abstract] OR "screening"[Title/Abstract] '
+    'OR "survival"[Title/Abstract] OR "resection"[Title/Abstract] '
+    'OR "stereotactic"[Title/Abstract] OR "lymph node"[Title/Abstract] '
+    'OR "EGFR"[Title/Abstract] OR "ALK"[Title/Abstract] '
+    'OR "PD-L1"[Title/Abstract] OR "PD-1"[Title/Abstract] '
+    'OR "ctDNA"[Title/Abstract] OR "MRD"[Title/Abstract] '
+    'OR "osimertinib"[Title/Abstract] OR "nivolumab"[Title/Abstract] '
+    'OR "pembrolizumab"[Title/Abstract] OR "durvalumab"[Title/Abstract] '
+    'OR "antibiotic"[Title/Abstract]))'
 )
+
+# 影子通道（乙案·全量库口径）：v2 主式 ∪ (歧义技术词 ∩ 解剖语境)。
+# 与主式并跑 ≥4 周，量化「去 B 组硬门槛 + 全量库预筛」的真实增量后再决定是否切换。
+_SHADOW_AMBIG = ("screening", "deep learning", "machine learning", "radiomics",
+                 "neural network", "artificial intelligence", "three-dimensional")
+_SHADOW_ANATOMY = ("lung", "pulmonary", "thoracic", "esophageal", "oesophageal",
+                   "mediastinal", "thymic", "pleural", "mesothelioma", "chest")
+_SHADOW_TERMS = tuple(
+    t for t in (
+        "non-small-cell lung cancer", "NSCLC", "small-cell lung cancer", "SCLC",
+        "lung cancer", "lung tumor", "lung tumour", "pulmonary nodule", "ground-glass",
+        "subsolid nodule", "mesothelioma", "thymic", "mediastinal tumor", "thymoma",
+        "esophageal cancer", "oesophageal cancer", "esophagectomy", "oesophagectomy",
+        "thoracoscopic", "segmentectomy", "lobectomy", "pneumonectomy", "sublobar",
+        "tubeless", "robotic thoracic", "robot-assisted thoracic")
+)
+SHADOW_QUERY = (
+    "(" + " OR ".join(f'"{t}"[Title/Abstract]' for t in _SHADOW_TERMS)
+    + " OR (" + " OR ".join(f'"{t}"[Title/Abstract]' for t in _SHADOW_AMBIG) + ")"
+    + " AND (" + " OR ".join(f'"{t}"[Title/Abstract]' for t in _SHADOW_ANATOMY) + "))"
+)
+
+# 影子预筛口径（全量库）：普胸相关全收（基础/转化/临床/流病/筛查/AI），只扔非普胸器官。
+SHADOW_PRESCREEN_SYSTEM = """你是普胸文献全量库的收录审读员。输入若干篇 PubMed 文献的标题与期刊。
+判断每篇是否属于「普胸」范围而应入库。收录（符合任一）：
+1) 肺癌（NSCLC/SCLC/间皮瘤）、肺结节、食管癌、纵隔/胸腺肿瘤、恶性胸膜疾病的任何研究——基础机制、转化、临床、流行病学、筛查、卫生经济学均收；
+2) 普胸外科（肺/食管/纵隔/胸壁手术，VATS/RATS/tubeless/肺段/食管切除）任何报道；
+3) 胸外科 AI、三维重建、影像组学、数字医疗。
+剔除：与普胸无关的器官/系统（含心脏外科）；与胸部无交集的泛癌或泛外科研究。
+只输出 JSON：{"decisions": [{"i": <输入序号>, "keep": true/false}]}"""
 
 
 def log(msg: str) -> None:
@@ -499,6 +547,7 @@ class Collector:
 
     def __init__(self) -> None:
         self.api_key = os.environ.get("NCBI_API_KEY", "").strip()
+        self._last_count = 0
 
     def _get(self, url: str) -> bytes:
         for attempt in range(3):
@@ -513,17 +562,44 @@ class Collector:
                 time.sleep(2 * (attempt + 1))
         raise RuntimeError("unreachable")
 
-    def esearch_pmids(self, days_back: int, retmax: int) -> List[str]:
-        params = {
-            "db": "pubmed", "term": DEFAULT_QUERY, "datetype": "crdt",
-            "reldate": str(days_back), "retmax": str(retmax),
-            "retmode": "json", "sort": "date",
+    def esearch_pmids(self, days_back: int, retmax: int = 200,
+                      query: Optional[str] = None, hard_cap: int = 2000) -> List[str]:
+        """分页抓全：retmax 只是页大小，命中总量以 Count 为准，防单页截断静默丢文献。"""
+        base = {
+            "db": "pubmed", "term": query or DEFAULT_QUERY, "datetype": "crdt",
+            "reldate": str(days_back), "retmode": "json", "sort": "date",
         }
         if self.api_key:
-            params["api_key"] = self.api_key
-        url = f"{self.EUTILS}/esearch.fcgi?{urllib.parse.urlencode(params)}"
-        data = json.loads(self._get(url).decode("utf-8"))
-        return data.get("esearchresult", {}).get("idlist", [])
+            base["api_key"] = self.api_key
+
+        def _page(start: int, size: int) -> List[str]:
+            params = dict(base)
+            params["retmax"] = str(size)
+            params["retstart"] = str(start)
+            url = f"{self.EUTILS}/esearch.fcgi?{urllib.parse.urlencode(params)}"
+            er = json.loads(self._get(url).decode("utf-8")).get("esearchresult", {})
+            self._last_count = int(er.get("count", "0"))
+            return er.get("idlist", [])
+
+        _page(0, 0)                       # 首调只取 Count（retmax=0 不回 idlist）
+        total = self._last_count
+        if total <= 0:
+            return []
+        if total > hard_cap:
+            log(f"⚠ ESearch 命中 {total} 超过硬顶 {hard_cap}，只取最新 {hard_cap} 篇"
+                f"（疑似检索式过宽或窗口异常，人工看板跟进）")
+            total = hard_cap
+        page = max(1, retmax)
+        pmids: List[str] = []
+        start = 0
+        while start < total:
+            batch = _page(start, min(page, total - start))
+            if not batch:
+                log(f"⚠ 分页在第 {start} 条处提前断流（已取 {len(pmids)}/{total}）")
+                break
+            pmids.extend(batch)
+            start += len(batch)
+        return pmids[:total]
 
     def efetch_articles(self, pmids: List[str]) -> List[Dict[str, Any]]:
         out: List[Dict[str, Any]] = []
@@ -854,7 +930,9 @@ def first_sentences(text: str, n: int, limit: int = 220) -> str:
     return out[:limit] + ("…" if len(out) > limit else "")
 
 
-def llm_prescreen(llm: LLMClient, articles: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+def llm_prescreen(llm: LLMClient, articles: List[Dict[str, Any]],
+                  system: str = "") -> List[Dict[str, Any]]:
+    system = system or PREScreen_SYSTEM
     kept = []
     batch = 20
     for i in range(0, len(articles), batch):
@@ -863,7 +941,7 @@ def llm_prescreen(llm: LLMClient, articles: List[Dict[str, Any]]) -> List[Dict[s
             f"[{j}] {(a['journal_title'] or 'Unknown')[:60]} | {a['title_en'][:180]}"
             for j, a in enumerate(chunk))
         try:
-            raw = llm.chat(PREScreen_SYSTEM, listing, max_tokens=800)
+            raw = llm.chat(system, listing, max_tokens=800)
             decisions = {d.get("i"): bool(d.get("keep")) for d in parse_json_loose(raw).get("decisions", [])}
         except BudgetExceeded:
             raise
@@ -1341,7 +1419,74 @@ def main(argv: Optional[List[str]] = None) -> int:
     inject_index_html(papers, funnel, day)
     build_radar_archive(90)
     log(f"产出完成：archive/{day}.json / daily_briefing_{day}.md / index.html / radar_latest.json / status.json")
+
+    # 影子通道（乙案并跑测量）：放最后，失败不影响今日主产出
+    try:
+        run_shadow_channel(collector, jm, llm, days_back, set(pmids), args.retmax)
+    except BudgetExceeded:
+        log("⚠ 影子通道预算熔断（当日主产出不受影响），影子报告部分缺失")
+    except Exception as e:  # noqa: BLE001 影子整体失败不阻断
+        log(f"⚠ 影子通道失败（不影响今日产出）: {e}")
     return 0
+
+
+# ============================================================================
+# 6a. 影子通道（乙案·全量库口径并跑测量；失败绝不影响当日主产出）
+# ============================================================================
+
+SHADOW_DIR = DATA_DIR / "shadow"
+SHADOW_PRESCEEN_CAP = 80          # 影子预筛硬顶：测量用途，预算护栏
+
+
+def run_shadow_channel(collector: Collector, jm: JournalMatcher, llm: LLMClient,
+                       days_back: int, prod_pmids: set, retmax: int) -> None:
+    """乙案影子通道：全量检索式并跑，量化「去 B 组门槛＋全量库预筛口径」的真实增量。"""
+    shadow_pmids = collector.esearch_pmids(days_back, retmax, query=SHADOW_QUERY)
+    delta = [p for p in shadow_pmids if p not in prod_pmids]
+    report: Dict[str, Any] = {
+        "briefing_date": date.today().isoformat(), "days_back": days_back,
+        "shadow_hits": len(shadow_pmids), "prod_hits": len(prod_pmids),
+        "delta": len(delta), "delta_pmids": delta[:500],
+        "dict_matched": 0, "prescreen_kept": 0, "prescreen_scanned": 0,
+        "truncated": False, "llm_cost_usd": None, "note": "",
+    }
+    if delta:
+        arts = collector.efetch_articles(delta)
+        cands = []
+        for a in arts:
+            if not (a["pmid"] and a["title_en"] and a["abstract_en"]):
+                continue
+            m = jm.match(a["p_issn"], a["e_issn"], a["issn_linking"], a["nlm_id"],
+                         a["iso_abbr"], a["journal_title"])
+            if m["matched"]:
+                a["_match"] = m
+                cands.append(a)
+        report["dict_matched"] = len(cands)
+        if len(cands) > SHADOW_PRESCEEN_CAP:
+            report["truncated"] = True
+            report["note"] = f"字典内增量超 {SHADOW_PRESCEEN_CAP}，影子预筛只扫前 {SHADOW_PRESCEEN_CAP} 篇"
+            cands = cands[:SHADOW_PRESCEEN_CAP]
+        if cands:
+            if llm.available:
+                kept = llm_prescreen(llm, cands, system=SHADOW_PRESCREEN_SYSTEM)
+            else:
+                kw = ("lung", "pulmonary", "thoracic", "esophag", "oesophag", "mediastin",
+                      "thym", "pleura", "mesothelioma", "chest")
+                kept = [a for a in cands if any(k in (a["title_en"] + " " + a["abstract_en"][:400]).lower()
+                                                for k in kw)]
+            report["prescreen_scanned"] = len(cands)
+            report["prescreen_kept"] = len(kept)
+            report["sample_titles"] = [a["title_en"][:120] for a in kept[:15]]
+    if llm.available:
+        report["llm_cost_usd"] = round(llm.cost_usd, 4)
+    SHADOW_DIR.mkdir(exist_ok=True)
+    (SHADOW_DIR / f"{report['briefing_date']}.json").write_text(
+        json.dumps(report, ensure_ascii=False), encoding="utf-8")
+    (DATA_DIR / "shadow_report.json").write_text(
+        json.dumps(report, ensure_ascii=False), encoding="utf-8")
+    log(f"影子通道：乙式命中 {report['shadow_hits']}｜对主式增量 {report['delta']}｜"
+        f"字典内 {report['dict_matched']}｜全量预筛留 {report['prescreen_kept']}"
+        f"/{report['prescreen_scanned']}" + ("｜预筛截断（见报告）" if report["truncated"] else ""))
 
 
 # ============================================================================

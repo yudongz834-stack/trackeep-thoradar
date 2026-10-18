@@ -18,6 +18,7 @@ T1017-THOR-B2A 规则式精选·固定场景验收套件
 import json
 import sys
 import unittest
+import urllib.parse
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
@@ -261,3 +262,43 @@ class TestCuratedWarnAndCap(unittest.TestCase):
         r = JM.match(iso_abbr="N Engl J Med")
         self.assertTrue(r["matched"])
         self.assertFalse(r.get("warned", True))
+
+
+class TestEsearchPagination(unittest.TestCase):
+    """retmax 只是页大小：命中总量以 Count 为准，分页取全防静默截断。"""
+
+    class _FakeCollector(eng.Collector):
+        def __init__(self, total, page_size_seen):
+            super().__init__()
+            self.total = total
+            self.calls = []
+            self.page_size_seen = page_size_seen
+
+        def _get(self, url):
+            q = urllib.parse.parse_qs(urllib.parse.urlparse(url).query)
+            start, size = int(q["retstart"][0]), int(q["retmax"][0])
+            self.calls.append((start, size))
+            ids = [str(start + i + 1) for i in range(size) if start + i < self.total]
+            return json.dumps({"esearchresult": {"count": str(self.total), "idlist": ids}}).encode()
+
+    def test_pages_through_full_count(self):
+        fc = self._FakeCollector(total=35, page_size_seen=None)
+        pmids = fc.esearch_pmids(3, retmax=10, query="test")
+        self.assertEqual(len(pmids), 35)
+        self.assertEqual(pmids, [str(i) for i in range(1, 36)])
+        starts = [c[0] for c in fc.calls]
+        self.assertEqual(starts, [0, 0, 10, 20, 30])   # 首调 Count + 四页
+
+    def test_single_page_small_count(self):
+        fc = self._FakeCollector(total=8, page_size_seen=None)
+        pmids = fc.esearch_pmids(3, retmax=200, query="test")
+        self.assertEqual(len(pmids), 8)
+
+    def test_hard_cap_truncates_loudly(self):
+        fc = self._FakeCollector(total=3000, page_size_seen=None)
+        pmids = fc.esearch_pmids(3, retmax=200, query="test", hard_cap=500)
+        self.assertEqual(len(pmids), 500)
+
+    def test_zero_count_returns_empty(self):
+        fc = self._FakeCollector(total=0, page_size_seen=None)
+        self.assertEqual(fc.esearch_pmids(3, retmax=200, query="test"), [])
