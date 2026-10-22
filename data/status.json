@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-10-20 23:54",
+ "updated_at": "2026-10-22 00:05",
  "papers": {
   "42887497": {
    "kind": "ok",
@@ -7919,6 +7919,956 @@
    "note": "",
    "first_seen": "2026-10-20 23:54",
    "last_checked": "2026-10-20 23:54",
+   "stale": false
+  },
+  "42901403": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42901404": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42897222": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42901435": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42901436": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42898854": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902382": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42897686": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42901884": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42901386": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42896765": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902351": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902005": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902004": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902003": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902002": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902000": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42901819": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42901931": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902330": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902208": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42901437": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42900988": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42898679": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42901162": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902390": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902023": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902395": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902375": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902263": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42901832": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902001": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42901999": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42900704": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42901998": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902243": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42901087": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902416": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42900965": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42901132": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902092": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902489": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902446": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902261": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42896259": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42901146": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42901820": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42901839": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902249": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902337": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902296": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902102": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42900993": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902041": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902040": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902039": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902038": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42900966": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42900964": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42896500": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42900980": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42901474": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902387": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42901131": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902021": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902539": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42897936": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42897889": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902389": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902007": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42901917": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42901893": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42901539": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42901462": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42901161": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42901160": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902303": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902412": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42901164": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902326": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42900992": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902371": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902345": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902385": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42900703": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42899417": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902391": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902020": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42901148": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42901318": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42901278": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42901821": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902226": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42902019": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
+   "stale": false
+  },
+  "42900702": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-10-22 00:05",
+   "last_checked": "2026-10-22 00:05",
    "stale": false
   }
  }
