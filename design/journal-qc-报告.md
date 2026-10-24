@@ -1,6 +1,6 @@
 # 期刊库质检报告（OpenAlex 对拍 + PubMed 年发文量）
 
-- 跑批时间：2026-10-18 11:30:05
+- 跑批时间：2026-10-24 05:51:50
 - 总数：340 本（config/journals_taxonomy.json v3.1.0 全量）
 - PubMed 窗口：2025/10/01 – 2026/10/17（约 365 天，[ta] 按缩写匹配）
 - 脚本：D:\tmp\journal_qc.py（支持断点续跑，已成功条目跳过）
@@ -81,12 +81,9 @@
 
 （无）
 
-## coordinator 复核（2026-10-18）
+### 期刊目录健康（data/journal_health.json）
 
-- 36 本名字不一致逐一归因：35 本为化妆品级（官方全称/连字符/& 差异，双方都对）；1 本实锤为 **OpenAlex 侧错误合并**——Environmental Epigenetics（ISSN 2058-5888）被 OpenAlex 并进 Current Zoology 源对象（一个源挂 3 个 ISSN）；NLM esearch 2058-5888[ISSN] 精确返回 101675941＝我们字典的身份。结论：**字典身份层零错误，OpenAlex 对拍可作旁证不可作准绳**。
-- vol_365 为 0 的 5 本＝新创刊（NEJM AI 等），符合预期。
-
-## 复核补记二（JDII 改名处置）
-
-- 名字不一致终归因（36 条）：约 30 化妆差异＋**2 真改名**（JDII→Journal of Imaging Informatics in Medicine 已修：config/DRAFT 双改 iso_abbr=J Imaging Inform Med，新名窗口内 1,019 篇；J Trauma 系 OpenAlex 旧题回显，我方 NLM 身份无误）＋1 OpenAlex 错并（Environmental Epigenetics，已裁定 OA 侧脏）＋3 显示名杂项。
-- vol=0 五本核因备案：ICVTS/Asian J Surg 停刊真 0、BGER/Proteome Sci 低频真 0、JDII 改名假 0（已随改名修复消除）。
+- 红档（≥100 天未命中，疑改名/停刊/检索键失效，人工核）：0 本
+- 黄档（45–99 天，低频刊/季刊可能正常）：0 本
+- 绿档（<45 天）：340 本
+- 结论：全部健康。
