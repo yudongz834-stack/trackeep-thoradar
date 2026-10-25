@@ -316,7 +316,7 @@ class TestJournalHealth(unittest.TestCase):
 
     def test_thresholds(self):
         from datetime import date, timedelta
-        today = date.today()
+        today = eng.bj_today()
         p = self._state_path()
         p.write_text(json.dumps({
             "OldJ": (today - timedelta(days=139)).isoformat(),
@@ -333,7 +333,7 @@ class TestJournalHealth(unittest.TestCase):
         p = self._state_path()
         eng.update_journal_health({"NewJ": 5, "QuietJ": 0}, path=p)
         state = json.loads(p.read_text(encoding="utf-8"))
-        self.assertEqual(state["NewJ"], date.today().isoformat())
+        self.assertEqual(state["NewJ"], eng.bj_today().isoformat())
         self.assertIn("QuietJ", state)               # 零命中也首见入册
 
     def test_merge_dedup_preserves_order(self):
@@ -351,7 +351,7 @@ class TestSeenLedger(unittest.TestCase):
         d = tempfile.mkdtemp()
         self.addCleanup(shutil.rmtree, d, ignore_errors=True)
         p = Path(d) / "seen_pmids.json"
-        today = date.today()
+        today = eng.bj_today()
         p.write_text(json.dumps({
             "111": (today - timedelta(days=89)).isoformat(),   # 留
             "222": (today - timedelta(days=90)).isoformat(),   # 留（边界含）
@@ -393,7 +393,7 @@ class TestSeenDoiLedger(unittest.TestCase):
         d = tempfile.mkdtemp()
         self.addCleanup(shutil.rmtree, d, ignore_errors=True)
         p = Path(d) / "seen_dois.json"
-        today = date.today()
+        today = eng.bj_today()
         state = {
             "10.1/keep": {"pmid": "111", "date": (today - timedelta(days=89)).isoformat()},
             "10.1/edge": {"pmid": "222", "date": (today - timedelta(days=90)).isoformat()},

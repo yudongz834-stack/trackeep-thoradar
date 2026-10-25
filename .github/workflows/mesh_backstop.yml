@@ -49,5 +49,5 @@ jobs:
           git config user.name "thoradar-bot"
           git config user.email "bot@thoradar.local"
           git add index.html data/
-          git commit -m "chore(mesh): MeSH 月度兜底回扫 $(date -u +%F) [skip ci]" || echo "nothing to commit"
+          git commit -m "chore(mesh): MeSH 月度兜底回扫 $(TZ=Asia/Shanghai date +%F) [skip ci]" || echo "nothing to commit"
           git push
