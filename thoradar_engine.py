@@ -186,7 +186,10 @@ class JournalMatcher:
 HEALTH_YELLOW_DAYS = 45          # 静默 ≥45 天：提示（低频刊/季刊可能正常）
 HEALTH_RED_DAYS = 100            # 静默 ≥100 天：报警（疑改名/停刊/检索键失效，人工核）
 
-SEEN_LEDGER_DAYS = 90            # 见过账本滚动窗（与站上滚动档案同宽）
+SEEN_LEDGER_DAYS = 90            # PMID 见过账本滚动窗（与站上滚动档案同宽）
+DOI_LEDGER_DAYS = 365            # DOI 账本窗独拉一年（2026-10-26 与 PMID 账本解耦）：
+                                 # ahead-of-print→进刊的双录间隔可跨季，90 天窗挡不住隔季双录；
+                                 # PMID 账本仍 90 天（其职责＝3 天目录窗的防重看税闸，一年窗反有「旧文永不重看」副作用）
 
 
 def load_seen(path: Optional[Path] = None) -> Dict[str, str]:
@@ -224,12 +227,12 @@ def norm_doi(d: str) -> str:
 
 
 def load_seen_dois(path: Optional[Path] = None) -> Dict[str, Dict[str, str]]:
-    """DOI 见过账本：{doi: {pmid, date}}，滚动 90 天（与 PMID 账本同宽）。
+    """DOI 见过账本：{doi: {pmid, date}}，滚动 365 天（2026-10-26 起与 PMID 账本解耦拉长）。
     二级去重闸：出版方把同一论文双录成两个 PMID（ahead-of-print 与进刊版各自入库，
     PMID 不变但两条记录并存）——实测 7 组/3,985 篇≈0.38%，多发 Lancet/NEJM 等 S/A 档大刊，
     PMID 账本拦不住同 DOI 的另一条记录，DOI 对上即拦（收一弃一）。"""
     path = path or (DATA_DIR / "seen_dois.json")
-    cutoff = (bj_today() - timedelta(days=SEEN_LEDGER_DAYS)).isoformat()
+    cutoff = (bj_today() - timedelta(days=DOI_LEDGER_DAYS)).isoformat()
     try:
         state = json.loads(path.read_text(encoding="utf-8"))
     except Exception:  # noqa: BLE001 账本损坏从零重建（宁重看，勿漏看）
@@ -1689,7 +1692,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         if nd:
             seen_dois[nd] = {"pmid": a["pmid"], "date": today_iso}
     save_seen_dois(seen_dois)
-    log(f"见过账本：累计 {len(seen)} 条 · DOI 账本 {len(seen_dois)} 条（滚动 {SEEN_LEDGER_DAYS} 天）")
+    log(f"见过账本：累计 {len(seen)} 条（滚动 {SEEN_LEDGER_DAYS} 天）· DOI 账本 {len(seen_dois)} 条（滚动 {DOI_LEDGER_DAYS} 天）")
     log(f"产出完成：archive/{day}.json / daily_briefing_{day}.md / index.html / radar_latest.json / status.json")
     return 0
 

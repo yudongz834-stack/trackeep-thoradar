@@ -394,10 +394,11 @@ class TestSeenDoiLedger(unittest.TestCase):
         self.addCleanup(shutil.rmtree, d, ignore_errors=True)
         p = Path(d) / "seen_dois.json"
         today = eng.bj_today()
+        W = eng.DOI_LEDGER_DAYS  # 账本窗与常量同源，窗宽再调不破测试
         state = {
-            "10.1/keep": {"pmid": "111", "date": (today - timedelta(days=89)).isoformat()},
-            "10.1/edge": {"pmid": "222", "date": (today - timedelta(days=90)).isoformat()},
-            "10.1/old": {"pmid": "333", "date": (today - timedelta(days=91)).isoformat()},
+            "10.1/keep": {"pmid": "111", "date": (today - timedelta(days=W - 1)).isoformat()},
+            "10.1/edge": {"pmid": "222", "date": (today - timedelta(days=W)).isoformat()},
+            "10.1/old": {"pmid": "333", "date": (today - timedelta(days=W + 1)).isoformat()},
             "10.1/bad-date": {"pmid": "444", "date": "garbage"},
             "10.1/bad-shape": "flat-string",
         }
