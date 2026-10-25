@@ -3,6 +3,7 @@ name: ThorRadar Daily Pipeline
 on:
   schedule:
     # 北京时间 05:03（UTC 前一日 21:03）每日运行；错开整点＝避开 GitHub 定时高峰排队
+    # （实际仍常被排队延迟 2-3 小时跨 UTC 午夜——简报标签/提交日期一律取北京日，见引擎 bj_today）
     - cron: '3 21 * * *'
   workflow_dispatch:
 
@@ -50,5 +51,5 @@ jobs:
           git config user.name "thoradar-bot"
           git config user.email "bot@thoradar.local"
           git add index.html data/
-          git commit -m "chore(daily): 胸科雷达 $(date -u +%F) 文献雷达更新 [skip ci]"
+          git commit -m "chore(daily): 胸科雷达 $(TZ=Asia/Shanghai date +%F) 文献雷达更新 [skip ci]"
           git push

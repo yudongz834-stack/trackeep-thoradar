@@ -39,7 +39,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
-from datetime import date, datetime, timedelta
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
@@ -47,6 +47,16 @@ ROOT = Path(__file__).resolve().parent
 DATA_DIR = ROOT / "data"
 INDEX_HTML = ROOT / "index.html"
 JOURNALS_FILE = ROOT / "config" / "journals_taxonomy.json"
+
+BJ_TZ = timezone(timedelta(hours=8))  # 中国无夏令时，固定 +8 即北京正身（勿用 ZoneInfo——Windows 无系统 tzdata）
+
+
+def bj_today(now: Optional[datetime] = None) -> date:
+    """北京日期＝本引擎一切「今天」标签的唯一日期语义。
+    跑批机是 UTC 且定时任务常被排队延迟 2-3 小时跨 UTC 午夜：date.today() 会把北京
+    次日清晨的日报标成前一天（2026-10-19 实测：档标 10-20，次日跑批同标 10-20 互相覆盖），
+    故简报文件名 / briefing_date / 日档 / 提交标题一律取北京日。"""
+    return (now or datetime.now(BJ_TZ)).astimezone(BJ_TZ).date()
 
 DATA_START = "/*__THORADAR_DATA_START__*/"
 DATA_END = "/*__THORADAR_DATA_END__*/"
@@ -181,7 +191,7 @@ def load_seen(path: Optional[Path] = None) -> Dict[str, str]:
     """见过账本：{pmid: 最后见到日期}，滚动 90 天。凡检查过（examined）的文章不再重看——
     这是双路架构的防重复税闸：目录路 3 天窗每日重拉，不去重预筛量会逐日滚雪球。"""
     path = path or (DATA_DIR / "seen_pmids.json")
-    cutoff = (date.today() - timedelta(days=SEEN_LEDGER_DAYS)).isoformat()
+    cutoff = (bj_today() - timedelta(days=SEEN_LEDGER_DAYS)).isoformat()
     try:
         state = json.loads(path.read_text(encoding="utf-8"))
     except Exception:  # noqa: BLE001 账本损坏从零重建（宁重看，勿漏看）
@@ -217,7 +227,7 @@ def load_seen_dois(path: Optional[Path] = None) -> Dict[str, Dict[str, str]]:
     PMID 不变但两条记录并存）——实测 7 组/3,985 篇≈0.38%，多发 Lancet/NEJM 等 S/A 档大刊，
     PMID 账本拦不住同 DOI 的另一条记录，DOI 对上即拦（收一弃一）。"""
     path = path or (DATA_DIR / "seen_dois.json")
-    cutoff = (date.today() - timedelta(days=SEEN_LEDGER_DAYS)).isoformat()
+    cutoff = (bj_today() - timedelta(days=SEEN_LEDGER_DAYS)).isoformat()
     try:
         state = json.loads(path.read_text(encoding="utf-8"))
     except Exception:  # noqa: BLE001 账本损坏从零重建（宁重看，勿漏看）
@@ -247,7 +257,7 @@ def update_journal_health(counts: Dict[str, int], path: Optional[Path] = None) -
     """逐刊目录健康台账：命中>0 即刷新最后命中日；45–99 天静默提示、≥100 天报警。
     （覆盖月刊/季刊的正常出刊间隔；≥100 天仍静默＝疑改名/停刊/检索键失效，人工核。）"""
     path = path or (DATA_DIR / "journal_health.json")
-    today = date.today()
+    today = bj_today()
     state: Dict[str, str] = {}
     if path.exists():
         try:
@@ -1124,7 +1134,7 @@ def llm_score_one(llm: LLMClient, a: Dict[str, Any], m: Dict[str, Any]) -> Dict[
 # ============================================================================
 
 def build_paper(a: Dict[str, Any], scored: Dict[str, Any], verdict: Optional[Dict[str, Any]],
-                verify_error: Optional[str] = "") -> Dict[str, Any]:
+                verify_error: Optional[str] = "", day: str = "") -> Dict[str, Any]:
     llm_data = scored["llm"]
     m = scored["match"]
     st = a["status"]
@@ -1147,7 +1157,7 @@ def build_paper(a: Dict[str, Any], scored: Dict[str, Any], verdict: Optional[Dic
         "notice_url": f"https://pubmed.ncbi.nlm.nih.gov/{st['notice_pmid']}/" if st.get("notice_pmid") else "",
         "trial_url": f"https://clinicaltrials.gov/study/{a['nct_id']}" if a.get("nct_id") else "",
         "pub_date": a.get("pub_date", ""),
-        "briefing_date": date.today().isoformat(),
+        "briefing_date": day or bj_today().isoformat(),
         "journal_abbr": m["journal_abbr"],
         "journal_full": m["journal_full"],
         "tier": m["tier"],
@@ -1440,7 +1450,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         build_radar_archive(90)
         return 0
 
-    day = date.today().isoformat()
+    day = bj_today().isoformat()
     llm = LLMClient()
     mode = "LLM" if llm.available else "启发式（无 LLM_API_KEY）"
     log(f"胸科雷达流水线启动 · 模式={mode}")
@@ -1533,7 +1543,7 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     recent_seen = set()
     for back in range(1, days_back):
-        prev = (date.today() - timedelta(days=back)).isoformat()
+        prev = (bj_today() - timedelta(days=back)).isoformat()
         prev_file = DATA_DIR / "archive" / f"{prev}.json"
         if prev_file.exists():
             try:
@@ -1614,7 +1624,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         except Exception as e:  # noqa: BLE001 核验器自身异常 → 按「无法确认」处理
             verify_error = f"verifier-error: {e}"
             log(f"  ⚠ 核验器异常 (pmid {a['pmid']})，本篇降级: {e}")
-        return build_paper(a, scored, verdict, verify_error)
+        return build_paper(a, scored, verdict, verify_error, day)
 
     with ThreadPoolExecutor(max_workers=4) as ex:
         papers = list(ex.map(_score_one, prescreened[:SCORE_HARD_CAP]))
@@ -1660,7 +1670,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     # 见过账本落盘：凡「有效检查过」的都记账；无摘要且非豁免的明天再查（摘要可能后补）
     seen_set = {a["pmid"] for a in articles if a["abstract_en"]}
     seen_set |= {a["pmid"] for a in stage_journal if not a.get("abstract_en")}
-    today_iso = date.today().isoformat()
+    today_iso = bj_today().isoformat()
     for p in seen_set:
         seen[p] = today_iso
     save_seen(seen)
@@ -1816,7 +1826,7 @@ def build_regression_set(collector: "Collector", n_target: int = 30) -> None:
                 "correct_summary": f"研究纳入 {nums[0]} 例，关键结果数值包括 {'、'.join(nums[:4])}。",
                 "correct_tuples": [sem_parts["correct_tuple"]] if sem_parts["correct_tuple"] else [],
                 "mutations": mutations,
-                "frozen_at": date.today().isoformat(),
+                "frozen_at": bj_today().isoformat(),
             })
             break
     REG_DIR.mkdir(parents=True, exist_ok=True)
@@ -1937,13 +1947,13 @@ def run_self_test() -> int:
     assert m_nejm["matched"] and m_nejm["tier"] == "S" and m_nejm["whitelist_exempt"]
     m_jtcvs = jm.match(nlm_id="0376343")
     assert m_jtcvs["matched"] and m_jtcvs["tier"] == "A"
-    log(f"[PASS] 1/8 期刊五重索引: NEJM={m_nejm['tier']} JTCVS={m_jtcvs['tier']}")
+    log(f"[PASS] 1/9 期刊五重索引: NEJM={m_nejm['tier']} JTCVS={m_jtcvs['tier']}")
 
     c = Collector()
     params = urllib.parse.urlparse(c.esearch_url_probe())
     q = urllib.parse.parse_qs(params.query)
     assert q["datetype"] == ["crdt"] and "reldate" in q
-    log("[PASS] 2/8 ESearch 参数: datetype=crdt + reldate")
+    log("[PASS] 2/9 ESearch 参数: datetype=crdt + reldate")
 
     abstract = ("A total of 358 patients were assigned to nivolumab plus chemotherapy (179 patients) "
                 "or chemotherapy alone (179 patients). Hazard ratio for death, 0.72; 95% CI, 0.523 to 0.998; "
@@ -1956,11 +1966,11 @@ def run_self_test() -> int:
     bad_tuples = [{"group": "ITT (N=358)", "metric": "5年 OS", "val": "88.9%", "stat": ""}]
     v_bad = FourTupleVerifier.verify(abstract, "5 年 OS 率高达 88.9%。", bad_tuples)
     assert not v_bad["passed"] and "88.9" in "".join(v_bad["ungrounded_numbers"])
-    log(f"[PASS] 3/8 数值核验器: 真值放行 {v_good['tuple_audit'][0]['checks'][0]['note']} / 幻觉拦截 {v_bad['ungrounded_numbers']}")
+    log(f"[PASS] 3/9 数值核验器: 真值放行 {v_good['tuple_audit'][0]['checks'][0]['note']} / 幻觉拦截 {v_bad['ungrounded_numbers']}")
 
     html_probe = f"<div>{DATA_START}const SITE_DATA = {{}};{DATA_END}</div>"
     assert DATA_START in html_probe and DATA_END in html_probe
-    log("[PASS] 4/8 注入标记约定成立")
+    log("[PASS] 4/9 注入标记约定成立")
 
     # 5. 出版状态解析（结构单元用例；真实端到端走 --probe-status）
     xml_retracted = (
@@ -1976,7 +1986,7 @@ def run_self_test() -> int:
     assert Collector.parse_status(ET.fromstring(xml_notice))["kind"] == "notice"
     xml_plain = '<PubmedArticle><MedlineCitation><PMID>1</PMID><Article><ArticleTitle>t</ArticleTitle></Article></MedlineCitation></PubmedArticle>'
     assert Collector.parse_status(ET.fromstring(xml_plain))["kind"] == "ok"
-    log("[PASS] 5/8 出版状态解析：retracted/notice/ok 三态")
+    log("[PASS] 5/9 出版状态解析：retracted/notice/ok 三态")
 
     # 6. 失败降级：核验异常 → publish_state=degraded（不崩、不发布解读）
     a_deg = {"pmid": "9", "title_en": "t", "abstract_en": "abs", "authors": "x",
@@ -1992,7 +2002,7 @@ def run_self_test() -> int:
                                 "impact_known": True, "note": "x"})
     p_ret = build_paper(a_ret, scored_deg, None, "")
     assert p_ret["publish_state"] == "degraded"
-    log("[PASS] 6/8 失败降级：核验异常/撤稿 → 仅题录+链接，解读暂停")
+    log("[PASS] 6/9 失败降级：核验异常/撤稿 → 仅题录+链接，解读暂停")
 
     # 7. 语义核验（规则版）：限定词/指标均在摘要 → 放行；人群偷换 → 拦截并 fail-closed 降级
     sem_abs = ("All patients were enrolled on an intent-to-treat basis. "
@@ -2019,7 +2029,7 @@ def run_self_test() -> int:
     verdict_sem["passed"] = verdict_sem["passed"] and verdict_sem["semantic"]["passed"]
     p_sem = build_paper(a_sem, sd_sem, verdict_sem, "")
     assert p_sem["publish_state"] == "degraded" and p_sem["semantic_passed"] is False
-    log("[PASS] 7/8 语义核验（规则版）：真 tuple 放行 / 人群偷换·指标错配拦截 / fail-closed 降级")
+    log("[PASS] 7/9 语义核验（规则版）：真 tuple 放行 / 人群偷换·指标错配拦截 / fail-closed 降级")
 
     # 8. 规则精选：S 级 RCT 入选；个案+回顾性 B 级不入（不凑数）；固定场景套件＝tests/test_curation.py
     p_rct = build_paper(dict(a_sem, pmid="10", e_issn="1533-4406"), heuristic_score(a_sem, jm), None, "")
@@ -2030,7 +2040,14 @@ def run_self_test() -> int:
     assert p_rct["curated"] and p_case["curated"] is False and n_cur == 1, (p_rct["curated"], n_cur)
     assert "直接影响" in p_rct["curation_reason"] and p_rct["curation_reason"]
     assert p_case["curation_reason"] == ""
-    log("[PASS] 8/8 规则精选：S 级 RCT 入选·个案不凑数·理由落到具体问题")
+    log("[PASS] 8/9 规则精选：S 级 RCT 入选·个案不凑数·理由落到具体问题")
+    # 9. 北京日期标签：UTC 午夜不翻日、北京午夜（UTC 16:00）才翻——排队延迟跨 UTC 午夜不再错标（2026-10-24 修复的再现测试）
+    utc = timezone.utc
+    assert bj_today(datetime(2026, 10, 19, 23, 30, tzinfo=utc)).isoformat() == "2026-10-20"  # UTC 周日深夜＝北京周一
+    assert bj_today(datetime(2026, 10, 19, 15, 59, tzinfo=utc)).isoformat() == "2026-10-19"  # 北京 23:59 仍当日
+    assert bj_today(datetime(2026, 10, 19, 16, 1, tzinfo=utc)).isoformat() == "2026-10-20"   # 北京 00:01 翻日
+    log("[PASS] 9/9 北京日期标签：UTC 午夜不翻日·北京午夜翻日·简报标签全域同语义")
+
     log("=== 自测全部通过 ===")
     return 0
 

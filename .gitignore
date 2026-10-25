@@ -12,3 +12,4 @@ Thumbs.db
 
 # 期刊表（PI 版权真值表＋终表本体，本地交付不入公开仓；机读孪生=design/journals-taxonomy-DRAFT.json）
 期刊表/
+.githooks-mode
