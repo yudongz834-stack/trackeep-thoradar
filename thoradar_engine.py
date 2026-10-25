@@ -258,6 +258,54 @@ def save_seen_dois(state: Dict[str, Dict[str, str]], path: Optional[Path] = None
     path.write_text(json.dumps(state, ensure_ascii=False), encoding="utf-8")
 
 
+def log_prescreen_rejected(day: str, stage_journal: List[Dict[str, Any]],
+                           prescreened: List[Dict[str, Any]],
+                           dir_path: Optional[Path] = None) -> None:
+    """拒件落盘（T-THR-REJLOG 审计基建）：进了预筛（stage_journal）但不在幸存列表者，
+    记 {pmid, ta} 轻量日档 data/prescreen_rejected/{day}.json——供未来审计席抽样判卷与
+    错杀率监控（10-25 双盲审计被迫整窗重放 40 分钟×两席，此档把审计降级为抽样判卷）。
+    纯增量观测：不动预筛判定、不动 funnel 语义；不存标题摘要（控体积）。
+    ta＝期刊缩写（iso_abbr 缺则落 journal_title，供分刊/分档统计）。
+    同日多跑（daily＋mesh 兜底同天）：按 pmid 并集累积，每批不丢、不重条。
+    整段 fail-open：审计日志永远不许打断主管线，异常仅一行警告。"""
+    try:
+        d = dir_path or (DATA_DIR / "prescreen_rejected")
+        d.mkdir(parents=True, exist_ok=True)
+        f = d / f"{day}.json"
+        entries: Dict[str, str] = {}
+        if f.exists():
+            try:
+                prev = json.loads(f.read_text(encoding="utf-8"))
+                for r in prev.get("rejected", []):
+                    if isinstance(r, dict) and isinstance(r.get("pmid"), str):
+                        entries[r["pmid"]] = str(r.get("ta") or "")
+            except Exception:  # noqa: BLE001 当日旧档损坏→从本批重建（宁丢档，勿断管）
+                entries = {}
+        survivors = {a["pmid"] for a in prescreened}
+        for a in stage_journal:
+            if a["pmid"] not in survivors:
+                entries[a["pmid"]] = (a.get("iso_abbr") or a.get("journal_title") or "").strip()
+        payload = {"generated_at": datetime.now(BJ_TZ).isoformat(timespec="seconds"),
+                   "rejected": [{"pmid": p, "ta": t} for p, t in entries.items()]}
+        f.write_text(json.dumps(payload, ensure_ascii=False, separators=(",", ":")),
+                     encoding="utf-8")
+        # 滚动窗清档：与 PMID 账本同宽（SEEN_LEDGER_DAYS=90），窗语义同账本（保留 ≥ cutoff）；
+        # 只认 {YYYY-MM-DD}.json 名，他名不动
+        cutoff = (bj_today() - timedelta(days=SEEN_LEDGER_DAYS)).isoformat()
+        for old in d.glob("*.json"):
+            name = old.stem
+            if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", name):
+                continue
+            try:
+                if date.fromisoformat(name) < date.fromisoformat(cutoff):
+                    old.unlink(missing_ok=True)
+            except ValueError:
+                continue
+        log(f"拒件落盘：{len(entries)} 条 → prescreen_rejected/{f.name}（滚动窗 {SEEN_LEDGER_DAYS} 天）")
+    except Exception as e:  # noqa: BLE001 fail-open：审计日志永不打断主管线
+        log(f"⚠ 拒件落盘失败（跳过，主管线不受影响）: {e}")
+
+
 def update_journal_health(counts: Dict[str, int], path: Optional[Path] = None) -> Dict[str, Any]:
     """逐刊目录健康台账：命中>0 即刷新最后命中日；45–99 天静默提示、≥100 天报警。
     （覆盖月刊/季刊的正常出刊间隔；≥100 天仍静默＝疑改名/停刊/检索键失效，人工核。）"""
@@ -1586,6 +1634,9 @@ def main(argv: Optional[List[str]] = None) -> int:
         prescreened = heuristic_prescreen(stage_journal)
     funnel["prescreened"] = len(prescreened)
     log(f"预筛通过 {len(prescreened)} 篇")
+
+    # 拒件落盘（T-THR-REJLOG）：daily 与 mesh 两路在此合流共用同一落点（fail-open 纯观测）
+    log_prescreen_rejected(day, stage_journal, prescreened)
 
     # 精评 + 核验（核验异常 → fail-closed 降级，不崩运行）；并行 4 线程
     # 名额按档位排序分配（S>A>B>C，同档按新到旧）：MeSH 月扫实测预筛留存远超硬顶时，

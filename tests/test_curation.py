@@ -417,6 +417,72 @@ class TestSeenDoiLedger(unittest.TestCase):
         self.assertEqual(eng.load_seen_dois(path=p), {})
 
 
+class TestPrescreenRejectedLog(unittest.TestCase):
+    """拒件落盘（T-THR-REJLOG）：进了预筛但不在幸存列表者记 {pmid, ta} 日档；
+    同日多批并集不丢；滚动 90 天清档（边界含）；fail-open 坏目录/烂旧档不打断主管线。"""
+
+    @staticmethod
+    def _art(pmid, iso_abbr="", journal_title=""):
+        return {"pmid": pmid, "iso_abbr": iso_abbr, "journal_title": journal_title}
+
+    def _tmp(self):
+        import shutil, tempfile
+        d = tempfile.mkdtemp()
+        self.addCleanup(shutil.rmtree, d, ignore_errors=True)
+        return Path(d)
+
+    def test_write_content_and_same_day_merge(self):
+        d = self._tmp()
+        day = "2026-10-26"
+        stage = [self._art("1", "J Thorac Dis", "Journal of Thoracic Disease"),
+                 self._art("2", "", "Chest"),
+                 self._art("3", "Lancet", "The Lancet")]
+        survivors = [self._art("3", "Lancet", "The Lancet")]       # 3 幸存 → 1/2 落拒件档
+        eng.log_prescreen_rejected(day, stage, survivors, dir_path=d)
+        f = d / f"{day}.json"
+        payload = json.loads(f.read_text(encoding="utf-8"))
+        self.assertEqual(payload["rejected"],
+                         [{"pmid": "1", "ta": "J Thorac Dis"},
+                          {"pmid": "2", "ta": "Chest"}])           # ta=iso_abbr，缺则 journal_title
+        self.assertTrue(payload["generated_at"])                  # 落盘时刻在档
+        # 同日第二批（mesh 兜底路同天）：按 pmid 并集累积——每批不丢、不重条
+        eng.log_prescreen_rejected(day, [self._art("4", "Ann Thorac Surg", "")], [], dir_path=d)
+        payload2 = json.loads(f.read_text(encoding="utf-8"))
+        self.assertEqual([r["pmid"] for r in payload2["rejected"]], ["1", "2", "4"])
+
+    def test_rolling_window_cleanup(self):
+        from datetime import timedelta
+        d = self._tmp()
+        W = eng.SEEN_LEDGER_DAYS        # 窗宽与常量同源，窗宽再调不破测试
+        today = eng.bj_today()
+        beyond = (today - timedelta(days=W + 1)).isoformat()   # 超窗 → 剪
+        edge = (today - timedelta(days=W)).isoformat()         # 边界含（与账本同语义）→ 留
+        inside = (today - timedelta(days=1)).isoformat()
+        for name in (beyond, edge, inside):
+            (d / f"{name}.json").write_text('{"rejected": []}', encoding="utf-8")
+        (d / "not-a-date.json").write_text("{}", encoding="utf-8")      # 他名不动
+        (d / "2026-13-99.json").write_text("{}", encoding="utf-8")      # 伪日期不动
+        eng.log_prescreen_rejected(today.isoformat(), [self._art("9", "Lancet")],
+                                   [], dir_path=d)
+        self.assertFalse((d / f"{beyond}.json").exists())
+        for name in (edge, inside, "not-a-date", "2026-13-99"):
+            self.assertTrue((d / f"{name}.json").exists(), name)
+        self.assertTrue((d / f"{today.isoformat()}.json").exists())     # 当日档已写
+
+    def test_fail_open_bad_dir_and_corrupt_prev(self):
+        d = self._tmp()
+        # 坏目录：目标路径被普通文件占住 → mkdir 必炸 → 调用不得抛（fail-open）
+        blocker = d / "prescreen_rejected"
+        blocker.write_text("i am a file", encoding="utf-8")
+        eng.log_prescreen_rejected("2026-10-26", [self._art("1", "J")], [], dir_path=blocker)
+        # 烂旧档：当日档是坏 JSON → 从本批重建不崩，内容＝本次批
+        d2 = self._tmp()
+        (d2 / "2026-10-26.json").write_text("{oops", encoding="utf-8")
+        eng.log_prescreen_rejected("2026-10-26", [self._art("7", "Lancet")], [], dir_path=d2)
+        payload = json.loads((d2 / "2026-10-26.json").read_text(encoding="utf-8"))
+        self.assertEqual(payload["rejected"], [{"pmid": "7", "ta": "Lancet"}])
+
+
 class TestMeshBackstop(unittest.TestCase):
     """MeSH 兜底层：词表非空、无已废弃主题词、检索式可拼装。"""
 
