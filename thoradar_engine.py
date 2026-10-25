@@ -68,6 +68,7 @@ CATEGORIES: Dict[str, str] = {
     "ai_digital": "胸外科 AI 与三维重建",
     "advanced": "局晚期与晚期靶向/免疫",
     "esophageal": "食管与纵隔肿瘤",
+    "pulm": "非肿瘤呼吸病",
 }
 
 # 检索式路：纯病种词 26 词直通（2026-10-18 回测裁决：双门召回 62.5% → 直通 76.7%）。
@@ -117,7 +118,8 @@ LIBRARY_PRESCREEN_SYSTEM = """你是普胸文献全量库的收录审读员。�
 判断每篇是否属于「普胸」范围而应入库。收录（符合任一）：
 1) 肺癌（NSCLC/SCLC/间皮瘤）、肺结节、食管癌、纵隔/胸腺肿瘤、恶性胸膜疾病的任何研究——基础机制、转化、临床、流行病学、筛查、卫生经济学均收；
 2) 普胸外科（肺/食管/纵隔/胸壁手术，VATS/RATS/tubeless/肺段/食管切除）任何报道；
-3) 胸外科 AI、三维重建、影像组学、数字医疗。
+3) 胸外科 AI、三维重建、影像组学、数字医疗；
+4) 非肿瘤呼吸病（PI 2026-10-25 裁定覆盖）：COPD、哮喘、间质性肺病/肺纤维化、结核/NTM、肺高压、睡眠呼吸暂停、支扩、肺囊性纤维化、呼吸道感染/流感等人类肺部疾病的临床/基础/转化/流行病学研究。
 剔除：与普胸无关的器官/系统（含心脏外科）；与胸部无交集的泛癌或泛外科研究；**兽医研究与人类疾病无关的动物研究**（判例：猫的胸膜增厚病例报告不该收——只收人类疾病相关：人类患者/人类样本/人源细胞系）。
 只输出 JSON：{"decisions": [{"i": <输入序号>, "keep": true/false}]}"""
 SHADOW_PRESCREEN_SYSTEM = LIBRARY_PRESCREEN_SYSTEM   # 旧名别名（离线分析脚本在用）
@@ -996,7 +998,7 @@ SCORE_SYSTEM = """你是胸部肿瘤临床科研资深评审。对给定文献�
 {
  "title_zh": "中文标题（描述研究问题与结果，不照搬作者最乐观的表述）",
  "study_type": "研究设计与类型一句话（如 Phase III RCT · 最终OS分析）",
- "category": "perioperative|nodule|surgery|ai_digital|advanced|esophageal 六选一",
+ "category": "perioperative|nodule|surgery|ai_digital|advanced|esophageal|pulm 七选一（非肿瘤呼吸病归 pulm；其 score_specialty 按与胸科业务的关联度给分，天然低于核心胸科）",
  "score_clinical": 0-35 整数（影响临床判断的潜力，如手术患者选择/随访决策/结节风险判断）,
  "score_methodology": 0-30 整数（设计严谨性；严谨阴性研究同样给高分）,
  "score_specialty": 0-20 整数（胸外科/胸部肿瘤契合度）,
@@ -1024,7 +1026,9 @@ def heuristic_prescreen(articles: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
                "segmentectomy", "lobectomy", "tubeless", "thoracoscopic", "nodule", "screening",
                "immunotherapy", "chemoradiotherapy", "targeted", "osimertinib", "durvalumab",
                "artificial intelligence", "three-dimensional", "radiomics", "esophageal", "thymoma",
-               "mesothelioma", "small-cell", "nsclc", "survival")
+               "mesothelioma", "small-cell", "nsclc", "survival",
+               "copd", "asthma", "interstitial lung", "pulmonary fibrosis", "tuberculosis",
+               "pulmonary hypertension", "bronchiectasis")
     kept = []
     for a in articles:
         blob = (a["title_en"] + " " + a["abstract_en"][:600]).lower()
@@ -1083,6 +1087,12 @@ def guess_category(blob_low: str) -> str:
         return "ai_digital"
     if any(k in blob_low for k in ("esophageal", "thymoma", "mediastinal", "mesothelioma")):
         return "esophageal"
+    if any(k in blob_low for k in ("copd", "asthma", "interstitial lung", "pulmonary fibrosis",
+                                   "tuberculosis", "nontuberculous", "pulmonary hypertension",
+                                   "sleep apnea", "obstructive sleep", "bronchiectasis",
+                                   "cystic fibrosis", "influenza", "respiratory infection",
+                                   "chronic respiratory", "exacerbation")):
+        return "pulm"
     if any(k in blob_low for k in ("osimertinib", "durvalumab", "stage iii", "advanced", "metastatic",
                                    "small-cell", "chemoradiotherapy", "consolidation")):
         return "advanced"
@@ -2040,7 +2050,11 @@ def run_self_test() -> int:
     assert p_rct["curated"] and p_case["curated"] is False and n_cur == 1, (p_rct["curated"], n_cur)
     assert "直接影响" in p_rct["curation_reason"] and p_rct["curation_reason"]
     assert p_case["curation_reason"] == ""
-    log("[PASS] 8/9 规则精选：S 级 RCT 入选·个案不凑数·理由落到具体问题")
+    # 类目路由：非肿瘤呼吸病（PI 2026-10-25 裁定覆盖）入 pulm 扇区，不吞核心类
+    assert guess_category("treatment of copd exacerbations in chronic respiratory failure") == "pulm"
+    assert guess_category("asthma and tuberculosis coinfection") == "pulm"
+    assert guess_category("segmentectomy for clinical N0 lung cancer") == "surgery"
+    log("[PASS] 8/9 规则精选：S 级 RCT 入选·个案不凑数·理由落到具体问题·pulm 路由不吞核心类")
     # 9. 北京日期标签：UTC 午夜不翻日、北京午夜（UTC 16:00）才翻——排队延迟跨 UTC 午夜不再错标（2026-10-24 修复的再现测试）
     utc = timezone.utc
     assert bj_today(datetime(2026, 10, 19, 23, 30, tzinfo=utc)).isoformat() == "2026-10-20"  # UTC 周日深夜＝北京周一
