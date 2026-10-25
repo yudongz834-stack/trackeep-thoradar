@@ -33,7 +33,6 @@ jobs:
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
           LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
-          MAX_DAILY_COST_USD: ${{ secrets.MAX_DAILY_COST_USD || '0.10' }}
         run: |
           python3 thoradar_engine.py --self-test
           python3 thoradar_engine.py --regression || echo "::warning::工程回归有漏拦/误拦，见 data/regression/report.json（不阻断当日发布，人工看板跟进）"

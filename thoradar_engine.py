@@ -19,7 +19,7 @@
 环境变量：
   LLM_API_KEY / LLM_BASE_URL / LLM_MODEL   OpenAI 兼容接口（缺省则启发式模式）
   NCBI_API_KEY                             选填，3 req/s -> 10 req/s
-  MAX_DAILY_COST_USD                       LLM 成本熔断（默认 0.10 美元）
+  MAX_DAILY_COST_USD                       LLM 成本熔断（默认 0＝不封顶，PI 2026-10-26 拆；设正数可重新启用）
   LLM_PRICE_IN / LLM_PRICE_OUT             每百万 token 单价（美元，默认 0.27 / 1.10）
 
 红线：.env 与任何密钥永不入库；本引擎不输出任何个人身份或课题信息。
@@ -625,7 +625,7 @@ class LLMClient:
         self.model = os.environ.get("LLM_MODEL", "deepseek-chat").strip()
         self.price_in = float(os.environ.get("LLM_PRICE_IN", "0.27"))
         self.price_out = float(os.environ.get("LLM_PRICE_OUT", "1.10"))
-        self.cap_usd = float(os.environ.get("MAX_DAILY_COST_USD", "0.10"))
+        self.cap_usd = float(os.environ.get("MAX_DAILY_COST_USD", "0"))  # ≤0＝不封顶（PI 2026-10-26 令拆默认熔断；失控兜底＝工作流 60 分钟超时；要再设环境变量给正数即可）
         self.cost_usd = 0.0
         self.calls = 0
         self._lock = threading.Lock()   # 并行精评时的成本计数保护
@@ -637,7 +637,7 @@ class LLMClient:
     def chat(self, system: str, user: str, max_tokens: int = 2000) -> str:
         if not self.available:
             raise RuntimeError("LLM_API_KEY 未配置")
-        if self.cost_usd > self.cap_usd:
+        if self.cap_usd > 0 and self.cost_usd > self.cap_usd:
             raise BudgetExceeded(f"LLM 成本 ${self.cost_usd:.3f} 超熔断上限 ${self.cap_usd:.2f}")
         payload = json.dumps({
             "model": self.model,
@@ -1593,7 +1593,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     _TIER_RANK = {"S": 0, "A": 1, "B": 2, "C": 3}
     prescreened = sorted(prescreened,
                          key=lambda a: _TIER_RANK.get(a["_match"].get("tier", "B"), 2))
-    # 硬顶 200：双路架构下每日新见约 140 篇；顶住只防失控，靠预算熔断守成本。
+    # 硬顶 200：双路架构下每日新见约 140 篇；顶住只防失控（成本熔断已按 PI 2026-10-26 令默认拆除，失控兜底＝60 分钟任务超时）。
     SCORE_HARD_CAP = 200
     if len(prescreened) > SCORE_HARD_CAP:
         log(f"⚠ 预筛留存 {len(prescreened)} 超精评硬顶 {SCORE_HARD_CAP}，只精评前 "
