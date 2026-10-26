@@ -12,6 +12,7 @@ TAXONOMY = ROOT / "config" / "journals_taxonomy.json"
 OUT_JSON = ROOT / "design" / "journal-qc-report.json"
 OUT_MD   = ROOT / "design" / "journal-qc-报告.md"
 HEALTH_JSON = ROOT / "data" / "journal_health.json"   # 引擎每日写：{"期刊ta": "最后命中日期ISO", ...}
+RADAR_LATEST = ROOT / "data" / "radar_latest.json"    # 引擎每日写：90 天滚动窗档案（阵地周报数据源）
 
 OA_URL = ("https://api.openalex.org/sources?filter=issn:{issn}"
           "&select=id,display_name,issn,issn_l,works_count,cited_by_count,summary_stats")
@@ -62,7 +63,8 @@ def load_progress():
                 done = json.load(f)
             if isinstance(done, dict):   # 新版带 journal_health 小节；旧版为裸 list，续跑兼容
                 done = done.get("results") or []
-            return {e["nlm_id"]: e for e in done if e.get("error") is None}, len(done)
+            return {(e.get("key") or e.get("nlm_id") or ""): e
+                    for e in done if e.get("error") is None}, len(done)
         except Exception:
             pass
     return {}, 0
@@ -109,9 +111,95 @@ def classify_journal_health(state: dict, today: date) -> dict:
     return out
 
 
+def build_jcat_index(taxonomy: dict) -> dict:
+    """刊名（ISO 缩写/题名，大写）→ 阵地类目。复用引擎单源实现（防抄来漂移）。"""
+    from thoradar_engine import journal_category_index
+    return journal_category_index(taxonomy)
+
+
+def category_weekly(taxonomy: dict, papers: list, today: date, window_days: int = 7) -> dict:
+    """阵地周报（换册 v4 P24）：每类四数＝在册数/命中篇数/命中率/上榜率。
+    - 在册数：该类期刊条目数（含待定；别名并册后条目级）。
+    - 命中篇数：近 window_days 天入库论文中期刊属该类的篇数（论文带 jcat 用 jcat；
+      旧档无 jcat 按刊名回查 build_jcat_index，仍查不到归「待定」）。
+    - 命中率＝命中篇数/在册数（每刊产出；年检按此从低到高裁，定案 §五）。
+    - 上榜率＝命中篇数/近窗入库总篇数（榜单占比）。
+    纯函数：只吃配置与雷达档案，不联网。papers 为空/缺 briefing_date 时返回空命中面。"""
+    idx = build_jcat_index(taxonomy)
+    roster = {}
+    for j in taxonomy.get("journals", []):
+        cat = str(j.get("category", "待定") or "待定")
+        roster[cat] = roster.get(cat, 0) + 1
+    days = [str(p.get("briefing_date", "")) for p in papers]
+    days = [d for d in days if d]
+    anchor = max(days) if days else today.isoformat()
+    try:
+        anchor_date = date.fromisoformat(anchor)
+    except ValueError:
+        anchor_date = today
+    start = anchor_date - timedelta(days=window_days - 1)
+    hits = {}
+    total_hit = 0
+    for p in papers:
+        d = str(p.get("briefing_date", ""))
+        try:
+            if not d or not (start <= date.fromisoformat(d) <= anchor_date):
+                continue
+        except ValueError:
+            continue
+        cat = str(p.get("jcat", "") or "").strip()
+        if not cat:
+            for key in (str(p.get("journal_abbr", "")).upper(), str(p.get("journal_full", "")).upper()):
+                if key and key in idx and idx[key] != "":
+                    cat = str(idx[key])
+                    break
+        cat = cat or "待定"
+        hits[cat] = hits.get(cat, 0) + 1
+        total_hit += 1
+    cats = sorted(roster, key=lambda c: (c == "待定", c))
+    rows = []
+    for cat in cats:
+        hit = hits.get(cat, 0)
+        rows.append({
+            "cat": cat,
+            "roster": roster[cat],
+            "hits": hit,
+            "hit_rate": round(hit / roster[cat], 4) if roster[cat] else 0.0,
+            "board_share": round(hit / total_hit, 4) if total_hit else 0.0,
+        })
+    return {"anchor": anchor, "window_days": window_days, "total_hits": total_hit, "rows": rows}
+
+
+def render_category_weekly(weekly: dict) -> list:
+    """周报节渲染：阵地周报四数表（重点盯 8/10 两类信噪比——8=机制、10=医学AI，默认折叠两类）。"""
+    L = ["### 阵地周报（近 {} 天 · 锚 {}）\n".format(weekly["window_days"], weekly["anchor"])]
+    if not weekly["total_hits"]:
+        L.append("- 近窗无入库论文，四数无从复算（雷达档案空档）。")
+        L.append("")
+        return L
+    L.append("- 口径：命中率＝命中篇数/在册数（每刊产出，年检按此从低到高裁）；上榜率＝命中篇数/近窗入库总篇数。")
+    L.append("- 类目：1 胸部肿瘤与胸外科｜2 肿瘤临床｜3 外科与重症医学｜4 影像、病理与检验｜5 感染与免疫｜"
+             "6 邻科临床｜7 公共卫生与人群健康｜8 基础与转化医学｜9 综合医学与多学科｜10 医学AI与数字医学｜待定=待审定。")
+    L.append("")
+    L.append("| 类目 | 在册数 | 命中篇数 | 命中率 | 上榜率 |")
+    L.append("|---|---|---|---|---|")
+    for r in weekly["rows"]:
+        L.append(f"| {r['cat']} | {r['roster']} | {r['hits']} | "
+                 f"{r['hit_rate']*100:.2f}% | {r['board_share']*100:.2f}% |")
+    watch = [r for r in weekly["rows"] if r["cat"] in ("8", "10")]
+    if watch:
+        L.append("")
+        for r in watch:
+            L.append(f"- 信噪观察（{r['cat']} 类）：在册 {r['roster']} 本仅命中 {r['hits']} 篇"
+                     f"（命中率 {r['hit_rate']*100:.2f}%），低产出属预期（默认折叠类）；年检按命中率裁汰。")
+    L.append("")
+    return L
+
+
 def main():
     with open(TAXONOMY, encoding="utf-8") as f:
-        journals = json.load(f)["journals"]
+        taxonomy = json.load(f)
+    journals = taxonomy["journals"]
     total = len(journals)
     done_map, prev = load_progress()
     print(f"total={total} resumed_done={prev}", flush=True)
@@ -120,7 +208,7 @@ def main():
     n_hit = 0
     for idx, j in enumerate(journals, 1):
         nlm = j["nlm_id"]
-        cached = done_map.get(nlm)
+        cached = done_map.get(nlm or f"name::{(j.get('name') or j.get('title') or '').strip().upper()}")
         if cached is not None:
             results.append(cached)
             n_hit += 1 if cached.get("openalex_hit") else 0
@@ -128,6 +216,8 @@ def main():
 
         rec = {
             "nlm_id": nlm,
+            # 缓存键：28 本空 NLM ID 刊五键全空，唯一身份＝name（title 亦空，不可作键源）——空 ID 行降级用 name 复合键
+            "key": nlm or f"name::{(j.get('name') or j.get('title') or '').strip().upper()}",
             "title": j["title"],
             "openalex_hit": None,
             "openalex_name": None,
@@ -217,7 +307,7 @@ def main():
     L = []
     L.append("# 期刊库质检报告（OpenAlex 对拍 + PubMed 年发文量）\n")
     L.append(f"- 跑批时间：{run_at}")
-    L.append(f"- 总数：{n} 本（config/journals_taxonomy.json v3.1.0 全量）")
+    L.append(f"- 总数：{n} 本（config/journals_taxonomy.json v{taxonomy.get('version', '?')} 全量）")
     L.append(f"- PubMed 窗口：2025/10/01 – 2026/10/17（约 365 天，[ta] 按缩写匹配）")
     L.append(f"- 脚本：D:\\tmp\\journal_qc.py（支持断点续跑，已成功条目跳过）\n")
 
@@ -237,9 +327,10 @@ def main():
     L.append("### vol_365 最高 15 本\n")
     L.append("| title | vol_365 | tier |")
     L.append("|---|---|---|")
-    tier_by_nlm = {j["nlm_id"]: j["tier"] for j in journals}
+    tier_by_nlm = {j.get("key") or (j["nlm_id"] or f"name::{(j.get('name') or j.get('title') or '').strip().upper()}"):
+                   j.get("tier_new", j.get("tier", "")) for j in journals}  # 换册 v4：读新轴，回滚旧册（无 tier_new）自然回落
     for r in top15:
-        L.append(f"| {r['title']} | {r['vol_365']} | {tier_by_nlm.get(r['nlm_id'],'')} |")
+        L.append(f"| {r['title']} | {r['vol_365']} | {tier_by_nlm.get(r.get('key') or r['nlm_id'],'')} |")
     L.append("")
 
     L.append("### OpenAlex 未命中清单\n")
@@ -257,6 +348,26 @@ def main():
     else:
         L.append("（无）")
     L.append("")
+
+    # ---- 阵地周报（换册 v4 P24：每类四数并入周六质检；纯复算，读配置＋雷达滚动档案，不联网）----
+    weekly_papers = []
+    weekly_note = ""
+    if RADAR_LATEST.exists():
+        try:
+            with open(RADAR_LATEST, encoding="utf-8") as f:
+                loaded = json.load(f)
+            weekly_papers = loaded.get("papers") if isinstance(loaded, dict) else loaded
+            if not isinstance(weekly_papers, list):
+                weekly_papers, weekly_note = [], f"radar_latest 结构异常（{type(loaded).__name__}）"
+        except Exception as e:  # noqa: BLE001 档案读不动→周报点名，不静默
+            weekly_papers, weekly_note = [], f"{type(e).__name__}: {e}"
+    else:
+        weekly_note = "data/radar_latest.json 尚未生成（引擎首跑后出现）"
+    weekly = category_weekly(taxonomy, weekly_papers, _today)
+    L.append("## 阵地周报\n")
+    if weekly_note:
+        L.append(f"- 滚动档案读取备注：{weekly_note}")
+    L.extend(render_category_weekly(weekly))
 
     L.append("### 期刊目录健康（data/journal_health.json）\n")
     if health_note:

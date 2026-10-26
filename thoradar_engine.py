@@ -144,6 +144,16 @@ class JournalMatcher:
                 val = str(j.get(field, "")).strip().upper()
                 if val:
                     self.index[val] = j
+            # 换册 v4：28 本空 NLM ID 刊五键全空、唯一身份＝walk 规范名——name 作末位弱键
+            # 兜底准入（主控已裁「空 ID 照上、走其余四键」；setdefault 不夺五键已主位）。
+            for field in ("name",):
+                val = str(j.get(field, "")).strip().upper()
+                if val:
+                    self.index.setdefault(val, j)
+            for alias in (j.get("name_aliases") or []):  # 换册 v4：别名并册行并入索引（setdefault 不夺已有主键）
+                val = str(alias or "").strip().upper()
+                if val:
+                    self.index.setdefault(val, j)
 
     def match(self, p_issn: str = "", e_issn: str = "", issn_linking: str = "",
               nlm_id: str = "", iso_abbr: str = "", title: str = "") -> Dict[str, Any]:
@@ -151,7 +161,7 @@ class JournalMatcher:
             key = str(cand or "").strip().upper()
             if key and key in self.index:
                 j = self.index[key]
-                tier = j.get("tier", "B")
+                tier = j.get("tier_new", j.get("tier", "B"))  # 换册 v4 双读：新册读 tier_new，回滚旧册（无 tier_new）回落 tier
                 meta = self.tiers.get(tier, {})
                 return {
                     "matched": True,
@@ -162,12 +172,14 @@ class JournalMatcher:
                     "journal_bonus": int(meta.get("score_bonus", 0)),
                     "whitelist_exempt": bool(meta.get("whitelist_exempt", False)),
                     "warned": bool(j.get("warned", False)),
-                    "journal_abbr": j.get("iso_abbr", iso_abbr or title),
-                    "journal_full": j.get("title", title),
+                    "journal_abbr": j.get("iso_abbr") or j.get("name") or iso_abbr or title,
+                    "journal_full": j.get("title") or j.get("name") or title,
+                    "journal_category": str(j.get("category", "") or ""),  # 类目读处归一 str（配置层 1497 int＋1「待定」str 混装）
+                    "journal_subtags": j.get("subtags", []),
                 }
         return {
             "matched": False,
-            "tier": "B",
+            "tier": "D",
             "if_val": None,
             "zone": "PubMed 收录期刊",
             "journal_bonus": 0,
@@ -175,7 +187,27 @@ class JournalMatcher:
             "warned": False,
             "journal_abbr": iso_abbr or title or "Unknown",
             "journal_full": title or "Unknown Journal",
+            "journal_category": "",
+            "journal_subtags": [],
         }
+
+
+def journal_category_index(cfg: Dict[str, Any]) -> Dict[str, Any]:
+    """刊名（ISO 缩写/题名，大写）→ 阵地类目（1-10/待定）映射。
+    唯一事实源：前端 SITE_DATA.journal_meta 注入与 tools/journal_qc 阵地周报复算共用，
+    两处不得各写一份（防抄来漂移）。"""
+    idx: Dict[str, Any] = {}
+    for j in cfg.get("journals", []):
+        cat = str(j.get("category", "") or "")  # 类目读处归一 str（配置层 int/str 混装）
+        for field in ("iso_abbr", "title", "name"):  # name＝28 本空 ID 刊唯一身份（末位弱键）
+            val = str(j.get(field, "")).strip().upper()
+            if val:
+                idx.setdefault(val, cat)
+        for alias in (j.get("name_aliases") or []):
+            val = str(alias or "").strip().upper()
+            if val:
+                idx.setdefault(val, cat)
+    return idx
 
 
 # ============================================================================
@@ -1352,6 +1384,9 @@ def build_paper(a: Dict[str, Any], scored: Dict[str, Any], verdict: Optional[Dic
         "journal_abbr": m["journal_abbr"],
         "journal_full": m["journal_full"],
         "tier": m["tier"],
+        "tier_scheme": "v4",  # 换册 R1a：换册首跑起带版本标记；旧档案（data/ 与 archive）不回改，视为 v3 自然滚动出窗
+        "jcat": m.get("journal_category", ""),
+        "jsub": m.get("journal_subtags", []),
         "if_val": m["if_val"],
         "zone": m["zone"],
         "warned": bool(m.get("warned", False)),
@@ -1464,7 +1499,7 @@ def apply_curation(papers: List[Dict[str, Any]]) -> int:
     n = 0
     for p in papers:
         sig = detect_curation_signals(p.get("title_en", ""), p.get("abstract_en", ""))
-        tier = p.get("tier", "B")
+        tier = p.get("tier", "D")  # 兜底档随换册 v4＝D（新 S/A 仍是顶刊集，门槛语义不动）
         tier_ok = tier in ("S", "A")
         gate_open = p.get("publish_state") == "full" and sig["design"] != "case_report" and not p.get("warned", False)
         path_trial = sig["design"] == "rct" and tier_ok
@@ -1546,7 +1581,8 @@ def render_briefing_md(papers: List[Dict[str, Any]], day: str, funnel: Dict[str,
     return "\n".join(lines)
 
 
-def inject_index_html(papers: List[Dict[str, Any]], funnel: Dict[str, int], day: str) -> None:
+def inject_index_html(papers: List[Dict[str, Any]], funnel: Dict[str, int], day: str,
+                      journal_meta: Optional[Dict[str, Any]] = None) -> None:
     html = INDEX_HTML.read_text(encoding="utf-8")
     if DATA_START not in html or DATA_END not in html:
         raise RuntimeError("index.html 缺少数据注入标记（DATA_START/DATA_END），拒绝盲写")
@@ -1556,6 +1592,8 @@ def inject_index_html(papers: List[Dict[str, Any]], funnel: Dict[str, int], day:
         "funnel": funnel,
         "papers": papers,
     }
+    if journal_meta is not None:  # 期刊名→阵地类目映射（前端旧档论文无 jcat 时按刊名回补；P21）
+        payload["journal_meta"] = journal_meta
     block = f"{DATA_START}\n    const SITE_DATA = {json.dumps(payload, ensure_ascii=False, separators=(',', ':'))};\n    {DATA_END}"
     new_html = re.sub(
         re.escape(DATA_START) + r".*?" + re.escape(DATA_END),
@@ -1769,11 +1807,11 @@ def main(argv: Optional[List[str]] = None) -> int:
     log_prescreen_rejected(day, stage_journal, prescreened)
 
     # 精评 + 核验（核验异常 → fail-closed 降级，不崩运行）；并行 4 线程
-    # 名额按档位排序分配（S>A>B>C，同档按新到旧）：MeSH 月扫实测预筛留存远超硬顶时，
+    # 名额按档位排序分配（S>A>B>C>D，同档按新到旧）：MeSH 月扫实测预筛留存远超硬顶时，
     # 让最重要的文章优先被 AI 读懂；超顶者启发式兜底（分数照有、来源诚实标注）。
-    _TIER_RANK = {"S": 0, "A": 1, "B": 2, "C": 3}
+    _TIER_RANK = {"S": 0, "A": 1, "B": 2, "C": 3, "D": 4}
     prescreened = sorted(prescreened,
-                         key=lambda a: _TIER_RANK.get(a["_match"].get("tier", "B"), 2))
+                         key=lambda a: _TIER_RANK.get(a["_match"].get("tier", "D"), 3))
     # 硬顶 200：双路架构下每日新见约 140 篇；顶住只防失控（成本熔断已按 PI 2026-10-26 令默认拆除，失控兜底＝60 分钟任务超时）。
     SCORE_HARD_CAP = 200
     if len(prescreened) > SCORE_HARD_CAP:
@@ -1858,7 +1896,8 @@ def main(argv: Optional[List[str]] = None) -> int:
                         "llm_cost_usd": round(llm.cost_usd, 4)}, ensure_ascii=False),
             encoding="utf-8")
         log(f"MeSH 兜底报告：data/mesh_backstop_report.json")
-    inject_index_html(papers, funnel, day)
+    inject_index_html(papers, funnel, day,
+                      journal_meta=journal_category_index(json.loads(JOURNALS_FILE.read_text(encoding="utf-8"))))
     build_radar_archive(90)
 
     # 见过账本落盘：凡「有效检查过」的都记账；无摘要且非豁免的明天再查（摘要可能后补）
@@ -2140,8 +2179,9 @@ def run_self_test() -> int:
     m_nejm = jm.match(e_issn="1533-4406")
     assert m_nejm["matched"] and m_nejm["tier"] == "S" and m_nejm["whitelist_exempt"]
     m_jtcvs = jm.match(nlm_id="0376343")
-    assert m_jtcvs["matched"] and m_jtcvs["tier"] == "A"
-    log(f"[PASS] 1/9 期刊五重索引: NEJM={m_nejm['tier']} JTCVS={m_jtcvs['tier']}")
+    # 换册 v4（2026-10-26）实跑反推：JTCVS＝2区 → 新制 C 档（旧制断言 A 已随换册重锚，bonus 0）
+    assert m_jtcvs["matched"] and m_jtcvs["tier"] == "C"
+    log(f"[PASS] 1/9 期刊五重索引(tier_new 双读): NEJM={m_nejm['tier']} JTCVS={m_jtcvs['tier']}")
 
     c = Collector()
     params = urllib.parse.urlparse(c.esearch_url_probe())

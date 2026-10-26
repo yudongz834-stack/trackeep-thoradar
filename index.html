@@ -158,7 +158,7 @@ html.dark .action-btn.primary{color:var(--on-accent)}
 .footer .keys{font-family:var(--font-mono);white-space:nowrap}
 .scope{width:min(100%,calc(100vh - 360px));min-width:300px}
 .tier-block{margin-top:11px}
-.tier-chips{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}
+.tier-chips{display:grid;grid-template-columns:repeat(5,1fr);gap:5px}
 .tier-chip{border:1px solid var(--line);background:var(--card-2);border-radius:6px;padding:6px 3px;color:var(--muted);font:600 10px/1 var(--font-mono);cursor:pointer}
 .tier-chip:hover{border-color:var(--accent);color:var(--accent-dark)}
 .tier-chip.active{background:var(--accent-soft);border-color:color-mix(in srgb,var(--accent) 35%,var(--line));color:var(--accent-on-soft)}
@@ -177,6 +177,11 @@ html.dark .action-btn.primary{color:var(--on-accent)}
 .journal-toolbar span{max-width:75%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .journal-clear{border:1px solid var(--line);border-radius:5px;background:var(--card-2);color:var(--text-2);padding:3px 7px;font-size:9px;cursor:pointer}
 .journal-clear:disabled{opacity:.4;cursor:default}
+.jcat-folds{display:flex;justify-content:center;flex-wrap:wrap;gap:5px;margin:2px 0 4px;min-height:0}
+.jcat-fold{border:1px dashed var(--line);border-radius:10px;background:transparent;color:var(--muted);padding:3px 7px;font-size:8px;line-height:1.25;cursor:pointer}
+.jcat-fold.open{border-style:solid}
+.jcat-fold:hover{border-color:var(--accent);color:var(--accent-dark)}
+.jcat-fold.active{background:var(--accent-soft);border-color:var(--accent);color:var(--accent-on-soft)}
 .journal-legend{display:flex;align-items:center;justify-content:center;align-content:center;flex-wrap:wrap;gap:5px;max-height:49px;overflow:auto;margin:5px 0 7px;padding:1px 3px;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
 .journal-btn{max-width:150px;border:1px solid var(--line);border-radius:10px;background:transparent;color:var(--muted);padding:3px 6px;font-size:8px;line-height:1.25;cursor:pointer;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .journal-btn:hover{border-color:var(--accent);color:var(--accent-dark)}
@@ -279,7 +284,7 @@ html.dark .action-btn.primary{color:var(--on-accent)}
 
   <section class="scope-panel" aria-label="滚动文献雷达信号场">
     <div class="scope-head">
-      <div><div class="eyebrow">Live signal field</div><h1>滚动信号场</h1><p>方位＝刊源 · 距心＝相对评分 · 形状＝研究设计</p></div>
+      <div><div class="eyebrow">Live signal field</div><h1>滚动信号场</h1><p>方位＝期刊阵地（十类） · 距心＝相对评分 · 形状＝研究设计</p></div>
       <div class="read-progress"><b id="read-count">—</b><small>本次已扫</small></div>
     </div>
     <div class="scope-stage">
@@ -305,6 +310,7 @@ html.dark .action-btn.primary{color:var(--on-accent)}
     </div>
     <div class="scope-foot">
       <div class="journal-toolbar"><span id="journal-selection">刊源：全部</span><button class="journal-clear" id="journal-clear" disabled>清除</button></div>
+      <div class="jcat-folds" id="jcat-folds" aria-label="阵地折叠"></div>
       <div class="journal-legend" id="journal-legend" aria-label="刊源图例"></div>
       <div class="legend" id="design-legend"></div>
       <div class="funnel" id="funnel"></div>
@@ -335,9 +341,31 @@ const CATEGORIES=[
   {id:'ai_digital',label:'胸外 AI/三维',short:'数字胸外'},
   {id:'pulm',label:'非肿瘤呼吸病',short:'呼吸肺病'}
 ];
-const TIERS=['S','A','B','C'];
+const TIERS=['S','A','B','C','D'];
+// 期刊阵地十类（换册 v4，jcat 键）＋待定队列；展示序＝离胸科手术室远近（定案 §五：本家→肿瘤→外科→影像→综合→邻科→人群→感染→机制→AI），8/10 默认折叠。
+const JCATS=[
+  {id:'1',label:'胸部肿瘤与胸外科'},
+  {id:'2',label:'肿瘤临床'},
+  {id:'3',label:'外科与重症医学'},
+  {id:'4',label:'影像、病理与检验'},
+  {id:'9',label:'综合医学与多学科'},
+  {id:'6',label:'邻科临床'},
+  {id:'7',label:'公共卫生与人群健康'},
+  {id:'5',label:'感染与免疫'},
+  {id:'8',label:'基础与转化医学'},
+  {id:'10',label:'医学AI与数字医学'},
+  {id:'待定',label:'待审定'}
+];
+const JCAT_FOLDABLE=['8','10'];
+const jcatLabel=id=>(JCATS.find(c=>c.id===String(id))||{}).label||String(id||'待定');
+const jcatOf=p=>{
+  const v=p.jcat??(SITE_DATA.journal_meta||{})[String(p.journal_abbr||'').toUpperCase()]??(SITE_DATA.journal_meta||{})[String(p.journal_full||'').toUpperCase()];
+  return (v===undefined||v===null||v==='')?'待定':String(v);
+};
+// 档位＝权威，网页用颜色表达（定案 §五）；v3 旧档（无 tier_scheme）一律灰字＋v3 角标，不与新五档混色
+const TIER_COLORS={S:'#C9A227',A:'#D97757',B:'#5B7DB1',C:'#8A8474',D:'#A8A294'};
 const DAY_MS=86400000;
-const state={category:'all',quick:'all',query:'',selected:PAPERS[0]?.id||null,read:new Set(),tiers:new Set(TIERS),journal:null,days:90};
+const state={category:'all',quick:'all',query:'',selected:PAPERS[0]?.id||null,read:new Set(),tiers:new Set(TIERS),journal:null,jcat:null,jcatFolded:new Set(JCAT_FOLDABLE),days:90};
 let ANCHOR=null;
 const $=s=>document.querySelector(s);
 const esc=value=>String(value??'').replace(/[&<>'"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]));
@@ -388,8 +416,9 @@ function filtered(){
   return windowPapers().filter(p=>{
     const categoryOk=state.category==='all'||p.category===state.category;
     const quickOk=state.quick==='all'||(state.quick==='nct'?Boolean(p.nct_id):designOf(p)===state.quick);
+    const jcatOk=!state.jcat||jcatOf(p)===state.jcat;
     const hay=[p.title_en,p.title_zh,p.journal_abbr,p.journal_full,p.pmid,p.nct_id,p.category_label].join(' ').toLowerCase();
-    return tierOk(p)&&journalOk(p)&&categoryOk&&quickOk&&hay.includes(query);
+    return tierOk(p)&&journalOk(p)&&jcatOk&&categoryOk&&quickOk&&hay.includes(query);
   }).sort((a,b)=>{
     const as=Number(a.score_total),bs=Number(b.score_total);
     const aScore=Number.isFinite(as)?as:-Infinity,bScore=Number.isFinite(bs)?bs:-Infinity;
@@ -401,14 +430,30 @@ function journalUniverse(items){
   items.forEach(p=>{const name=journalName(p);map.set(name,(map.get(name)||0)+1)});
   return [...map].map(([name,count])=>({name,count})).sort((a,b)=>b.count-a.count||a.name.localeCompare(b.name));
 }
-function positions(items,journals){
+// 阵地宇宙（换册 v4）：扇区＝类目；类内仍按命中数排刊（供扇区 tooltip 展示主力刊）
+function jcatUniverse(items){
+  const groups=JCATS.map(c=>({cat:c.id,label:c.label,journals:new Map(),count:0}));
+  const byId=new Map(groups.map(g=>[g.cat,g]));
+  items.forEach(p=>{
+    const g=byId.get(jcatOf(p))||byId.get('待定');
+    g.count++;
+    const name=journalName(p);
+    g.journals.set(name,(g.journals.get(name)||0)+1);
+  });
+  groups.forEach(g=>{
+    g.journals=[...g.journals].map(([name,count])=>({name,count}))
+      .sort((a,b)=>b.count-a.count||a.name.localeCompare(b.name));
+  });
+  return groups.filter(g=>g.count>0);  // 只展开本周有命中的类：零命中类不出扇区
+}
+function positions(items,groups){
   const map={},scores=items.map(p=>Number(p.score_total)).filter(Number.isFinite);
   const high=scores.length?Math.max(...scores):1,low=scores.length?Math.min(...scores):0,span=high-low||1;
-  const sectorSize=360/Math.max(journals.length,1);
-  journals.forEach((journal,sector)=>{
-    const group=items.filter(p=>journalName(p)===journal.name).sort((a,b)=>(Number(b.score_total)||0)-(Number(a.score_total)||0)||String(a.id||'').localeCompare(String(b.id||'')));
-    group.forEach((p,i)=>{
-      const offset=(i-(group.length-1)/2)*Math.min(5,sectorSize*.16);
+  const sectorSize=360/Math.max(groups.length,1);
+  groups.forEach((group,sector)=>{
+    const members=items.filter(p=>jcatOf(p)===group.cat).sort((a,b)=>(Number(b.score_total)||0)-(Number(a.score_total)||0)||String(a.id||'').localeCompare(String(b.id||'')));
+    members.forEach((p,i)=>{
+      const offset=(i-(members.length-1)/2)*Math.min(5,sectorSize*.16);
       const angle=(-90+(sector+.5)*sectorSize+offset)*Math.PI/180;
       const score=Number(p.score_total);
       const base=Number.isFinite(score)?20+(high-score)/span*18:40;
@@ -422,10 +467,11 @@ function point(angle,radius){
   const rad=angle*Math.PI/180;
   return {x:300+Math.cos(rad)*radius,y:300+Math.sin(rad)*radius};
 }
-function sectorMarkup(journal,index,total){
-  const active=state.journal===journal.name;
-  const attrs=`class="journal-sector ${active?'active':''}" data-journal="${esc(journal.name)}" tabindex="0" role="button" aria-pressed="${active}" aria-label="筛选刊源：${esc(journal.name)}"`;
-  const title=`<title>${esc(journal.name)} · ${journal.count} 篇</title>`;
+function sectorMarkup(group,index,total){
+  const active=state.jcat===group.cat;
+  const top=group.journals.slice(0,3).map(j=>j.name).join(' · ');
+  const attrs=`class="journal-sector ${active?'active':''}" data-jcat="${esc(group.cat)}" tabindex="0" role="button" aria-pressed="${active}" aria-label="按阵地筛选：${esc(group.label)}"`;
+  const title=`<title>${esc(group.label)} · ${group.count} 篇${top?` · 主力：${esc(top)}`:''}</title>`;
   if(total===1)return `<circle cx="300" cy="300" r="284" ${attrs}>${title}</circle>`;
   const wedge=360/total,start=-90+index*wedge,end=start+wedge,a=point(start,284),b=point(end,284);
   const d=`M300 300L${a.x.toFixed(3)} ${a.y.toFixed(3)}A284 284 0 ${wedge>180?1:0} 1 ${b.x.toFixed(3)} ${b.y.toFixed(3)}Z`;
@@ -462,31 +508,40 @@ function renderQueue(list){
     </button></li>`).join('');
 }
 function renderJournalLegend(journals){
-  $('#journal-selection').textContent=`刊源：${state.journal||'全部'}`;
-  $('#journal-selection').title=state.journal||'全部刊源';
-  $('#journal-clear').disabled=!state.journal;
+  $('#journal-selection').textContent=`刊源：${state.journal||'全部'}${state.jcat?` · 阵地：${jcatLabel(state.jcat)}`:''}`;
+  $('#journal-selection').title=state.journal||state.jcat?`刊源 ${state.journal||'全部'} · 阵地 ${state.jcat?jcatLabel(state.jcat):'全部'}`:'全部刊源';
+  $('#journal-clear').disabled=!state.journal&&!state.jcat;
   $('#journal-legend').innerHTML=journals.map(j=>`<button class="journal-btn ${state.journal===j.name?'active':''}" data-journal="${esc(j.name)}" title="${esc(j.name)}" aria-pressed="${state.journal===j.name}">${esc(j.name)}<em>${j.count}</em></button>`).join('')||'<span class="filter-label">当前窗口无刊源</span>';
+}
+// 阵地折叠（换册 v4）：8 基础与转化、10 医学AI 默认折叠压噪声；只对本周有命中的类出折叠钮
+function renderJcatFolds(groups){
+  $('#jcat-folds').innerHTML=JCAT_FOLDABLE.map(cat=>{
+    const g=groups.find(x=>x.cat===cat);
+    if(!g)return '';
+    const folded=state.jcatFolded.has(cat);
+    return `<button class="jcat-fold ${folded?'':'open'} ${state.jcat===cat?'active':''}" data-jcatfold="${cat}" aria-pressed="${!folded}" title="${folded?'展开':'折叠'}${esc(g.label)}（本周 ${g.count} 篇）">${folded?'▸':'▾'} ${esc(g.label)} · ${g.count}</button>`;
+  }).join('');
 }
 function renderDesignLegend(list){
   const count=kind=>list.filter(p=>designOf(p)===kind).length;
   $('#design-legend').innerHTML=`<span><i class="legend-shape rct"></i>RCT · ${count('rct')}</span><span><i class="legend-shape cohort"></i>队列 · ${count('cohort')}</span><span><i class="legend-shape"></i>待评定 · ${count('pending')}</span><span>点按信号锁定 · 点按扇区筛刊</span>`;
 }
-function renderScope(list,base,journals){
-  const visible=new Set(list.map(p=>p.id)),POSITIONS=positions(base,journals);
-  $('#journal-sectors').innerHTML=journals.map((j,i)=>sectorMarkup(j,i,journals.length)).join('');
+function renderScope(list,base,groups){
+  const visible=new Set(list.map(p=>p.id)),POSITIONS=positions(base,groups);
+  $('#journal-sectors').innerHTML=groups.map((g,i)=>sectorMarkup(g,i,groups.length)).join('');
   $('#blips').innerHTML=base.map(p=>{
     const pos=POSITIONS[p.id]||{left:50,top:50};
     const cls=[designOf(p),state.selected===p.id&&visible.has(p.id)?'selected':'',state.read.has(p.id)?'read':'',visible.has(p.id)?'':'dim'].join(' ');
     return `<button class="blip ${cls}" style="left:${pos.left.toFixed(2)}%;top:${pos.top.toFixed(2)}%" data-select="${esc(p.id)}" title="${esc(journalName(p))} · ${esc(show(p.score_total))}分 · ${esc(p.title_zh||p.title_en||'—')}" aria-label="${esc(p.title_zh||p.title_en||'—')}"></button>`;
   }).join('');
-  const sectorSize=360/Math.max(journals.length,1);
-  $('#scope-labels').innerHTML=journals.map((j,i)=>{
-    if(journals.length>8&&j.count<2&&state.journal!==j.name)return '';
-    const a=(-90+(i+.5)*sectorSize)*Math.PI/180,r=45.5,name=j.name.length>13?j.name.slice(0,12)+'…':j.name;
-    return `<span class="scope-label" title="${esc(j.name)}" style="left:${50+Math.cos(a)*r}%;top:${50+Math.sin(a)*r}%">${esc(name)}</span>`;
+  const sectorSize=360/Math.max(groups.length,1);
+  $('#scope-labels').innerHTML=groups.map((g,i)=>{
+    if(groups.length>8&&g.count<2&&state.jcat!==g.cat)return '';
+    const a=(-90+(i+.5)*sectorSize)*Math.PI/180,r=45.5,name=g.label.length>13?g.label.slice(0,12)+'…':g.label;
+    return `<span class="scope-label" title="${esc(g.label)} · ${g.count} 篇" style="left:${50+Math.cos(a)*r}%;top:${50+Math.sin(a)*r}%">${esc(name)}</span>`;
   }).join('');
   $('#scope-empty').classList.toggle('show',!list.length);
-  $('#scope-empty').innerHTML=!base.length?'当前数据窗口内无论文。<br>请调整滑杆或刊源档位。':'当前条件下没有信号。<br>试试清除检索、刊源或切换专科。';
+  $('#scope-empty').innerHTML=!base.length?'当前数据窗口内无论文。<br>请调整滑杆或刊源档位。':'当前条件下没有信号。<br>试试清除检索、阵地、刊源或切换专科。';
   $('#hub-count').textContent=list.length;
 }
 function statusOf(p){
@@ -518,6 +573,17 @@ function interpretationMarkup(p,degraded){
   if(!blocks.length)blocks.push('<p class="honesty-note">作者结论与疑点未生成，本版留白不硬写。评分只用于信号排序，不代表临床推荐。</p>');
   return blocks.join('');
 }
+// 档位徽记（换册 v4）：v4 论文按 tier 着色；v3 旧档（90 天滚动窗内自然存在）灰字＋「v3」角标防新旧字母混义
+function tierMark(p){
+  const t=show(p.tier),legacy=String(p.tier_scheme||'')!=='v4';
+  const color=legacy?'var(--muted)':(TIER_COLORS[t]||'var(--muted)');
+  return `<span style="color:${color};font-weight:700" title="${legacy?'旧制档位（换册前 90 天窗内自然滚动）':'v4 新五档'}">${esc(t)} 档${legacy?'·v3':''}</span>`;
+}
+// 副标徽记（定案 §三：综述/数字，纯展示、不参与过滤计数）
+function jsubMark(p){
+  const subs=Array.isArray(p.jsub)?p.jsub:[];
+  return subs.map(s=>` <span class="badge" style="min-height:0;padding:1px 5px;vertical-align:1px">${esc(s)}</span>`).join('');
+}
 function renderDetail(list){
   const p=PAPERS.find(item=>item.id===state.selected);
   if(!p||!list.some(item=>item.id===p.id)){
@@ -534,7 +600,7 @@ function renderDetail(list){
   $('#detail').innerHTML=`<div class="detail-inner ${status.kind==='retracted'?'is-retracted':''}">
     <div class="detail-top"><span class="lock-id">SIGNAL LOCK / ${String(index+1).padStart(2,'0')}</span><span class="status-pill ${['retracted','concern','corrected'].includes(status.kind)?'has-icon':''} ${status.cls}">${status.label}</span></div>
     ${noticeMarkup(p,status)}
-    <div class="detail-journal"><div><div class="journal-name">${esc(p.journal_full||p.journal_abbr||'—')}</div><div class="journal-meta">${esc(journalName(p))} · ${esc(show(p.pub_date))} · ${esc(show(p.tier))} 档</div></div><div class="score-box"><b>${esc(show(p.score_total))}</b><small>评分 · ${esc(show(p.score_source))}</small></div></div>
+    <div class="detail-journal"><div><div class="journal-name">${esc(p.journal_full||p.journal_abbr||'—')}</div><div class="journal-meta">${esc(journalName(p))} · ${esc(show(p.pub_date))} · ${tierMark(p)}${jsubMark(p)}</div></div><div class="score-box"><b>${esc(show(p.score_total))}</b><small>评分 · ${esc(show(p.score_source))}</small></div></div>
     ${scoreTrack}
     <h2 class="detail-title">${esc(p.title_zh||p.title_en||'—')}</h2>
     <div class="badges"><span class="badge accent">${esc(p.category_label||categoryOf(p.category).label)}</span><span class="badge">${esc(show(p.study_type))}</span>${p.nct_id?`<span class="badge">${esc(p.nct_id)}</span>`:''}${degraded?'<span class="badge paused">解读暂停</span>':''}</div>
@@ -542,6 +608,7 @@ function renderDetail(list){
       <div class="meta-cell"><small>PMID</small><b>${esc(show(p.pmid))}</b></div><div class="meta-cell"><small>出版状态</small><b>${esc(status.label)}</b></div>
       <div class="meta-cell"><small>影响因子 · 源值</small><b>${esc(show(p.if_val || null))}</b></div><div class="meta-cell"><small>分区 · 源值</small><b>${esc(show(p.zone))}</b></div><div class="meta-cell"><small>预警状态</small><b>${p.warned ? '⚠ 在预警名单' : '正常'}</b></div>
       <div class="meta-cell"><small>雷达日期</small><b>${esc(show(p.briefing_date))}</b></div><div class="meta-cell"><small>卷 / 期</small><b>${esc(issueOf(p))}</b></div>
+      <div class="meta-cell"><small>期刊阵地</small><b>${esc(jcatLabel(jcatOf(p)))}</b></div><div class="meta-cell"><small>档位口径</small><b>${String(p.tier_scheme||'')==='v4'?'v4 新五档':'v3 旧四档 · 滚动出窗中'}</b></div>
       <div class="meta-cell"><small>评分口径</small><b>${esc(show(p.score_source))}</b></div><div class="meta-cell"><small>精选状态</small><b>${p.curated?'已入选':'未入选 · 不凑数'}</b></div>
     </div>
     <div class="interpretation">
@@ -567,8 +634,13 @@ function renderHeader(){
 }
 function render(){
   const base=windowPapers(),tierBase=base.filter(tierOk),journals=journalUniverse(tierBase),list=filtered();
+  const allGroups=jcatUniverse(tierBase);
+  const groups=allGroups.filter(g=>!state.jcatFolded.has(g.cat));       // 折叠类不出扇区
+  const folded=new Set(allGroups.filter(g=>state.jcatFolded.has(g.cat)).map(g=>g.cat));
+  const scopeBase=tierBase.filter(p=>!folded.has(jcatOf(p)));           // 折叠类的信号不上盘
+  const scopeList=list.filter(p=>!folded.has(jcatOf(p)));
   if(list.length&&!list.some(p=>p.id===state.selected))state.selected=list[0].id;
-  renderWindow();renderCategoryFilters(base);renderTierFilters(base);renderQueue(list);renderJournalLegend(journals);renderDesignLegend(list);renderScope(list,tierBase,journals);renderDetail(list);
+  renderWindow();renderCategoryFilters(base);renderTierFilters(base);renderQueue(list);renderJournalLegend(journals);renderJcatFolds(allGroups);renderDesignLegend(list);renderScope(scopeList,scopeBase,groups);renderDetail(list);
   const readCount=PAPERS.filter(p=>state.read.has(p.id)).length;
   $('#read-count').textContent=`${String(readCount).padStart(2,'0')} / ${PAPERS.length}`;
   document.querySelectorAll('[data-quick]').forEach(btn=>btn.classList.toggle('active',btn.dataset.quick===state.quick));
@@ -597,7 +669,11 @@ document.addEventListener('click',event=>{
   if(tier){const name=tier.dataset.tier;state.tiers.has(name)?state.tiers.delete(name):state.tiers.add(name);render();return}
   const journal=event.target.closest('[data-journal]');
   if(journal){toggleJournal(journal.dataset.journal);return}
-  if(event.target.closest('#journal-clear')){state.journal=null;render();return}
+  const foldBtn=event.target.closest('[data-jcatfold]');
+  if(foldBtn){const cat=foldBtn.dataset.jcatfold;state.jcatFolded.has(cat)?state.jcatFolded.delete(cat):state.jcatFolded.add(cat);render();return}
+  const jcatSec=event.target.closest('[data-jcat]');
+  if(jcatSec){state.jcat=state.jcat===jcatSec.dataset.jcat?null:jcatSec.dataset.jcat;render();return}
+  if(event.target.closest('#journal-clear')){state.journal=null;state.jcat=null;render();return}
 });
 $('#window-range').addEventListener('input',event=>{state.days=Number(event.target.value);render()});
 $('#search').addEventListener('input',event=>{state.query=event.target.value;render()});
@@ -608,8 +684,8 @@ $('#theme-btn').addEventListener('click',()=>{
 });
 document.addEventListener('keydown',event=>{
   if(event.key==='/'&&document.activeElement!==$('#search')){event.preventDefault();$('#search').focus()}
-  if(event.key==='Escape'){state.query='';state.category='all';state.quick='all';state.journal=null;state.tiers=new Set(TIERS);$('#search').value='';render();$('#search').blur()}
-  if((event.key==='Enter'||event.key===' ')&&document.activeElement?.classList.contains('journal-sector')){event.preventDefault();toggleJournal(document.activeElement.dataset.journal);return}
+  if(event.key==='Escape'){state.query='';state.category='all';state.quick='all';state.journal=null;state.jcat=null;state.jcatFolded=new Set(JCAT_FOLDABLE);state.tiers=new Set(TIERS);$('#search').value='';render();$('#search').blur()}
+  if((event.key==='Enter'||event.key===' ')&&document.activeElement?.classList.contains('journal-sector')){event.preventDefault();const cat=document.activeElement.dataset.jcat;state.jcat=state.jcat===cat?null:cat;render();return}
   if(!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){
     if(event.key==='ArrowLeft')step(-1);if(event.key==='ArrowRight')step(1);
   }

@@ -108,7 +108,7 @@ class CurationFixedScenarios(unittest.TestCase):
             make_paper("9003", "Osimertinib combinations in advanced NSCLC",
                        ABS_RCT_ADVANCED, e_issn="1527-7755"),          # JCO S
             make_paper("9004", "Segmentectomy versus lobectomy: matched cohort",
-                       ABS_PROSP_MATCH_SURGERY, e_issn="1552-6259"),   # Ann Thorac Surg A
+                       ABS_PROSP_MATCH_SURGERY, e_issn="1569-8041"),   # Ann Oncol A（换册 v4 实测重锚：旧锚 Ann Thorac Surg 新制降 C，不再满足 S/A 夹具前提；断言未动）
         ]
         n = eng.apply_curation(papers)
         self.assertEqual(n, 3)                      # 全合格 → 全入选，不设配额
