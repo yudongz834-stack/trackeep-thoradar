@@ -8,7 +8,7 @@
   R2 量控 6 本强制 D（tier_rule==1 的 6 本全 D）；
   R3 jcat 合法值：全条目 category ∈ {1..10, 待定}；
   R4 JAMA 别名在册（name_aliases 含 'JAMA'，S 档，9 综合类）；
-  R5 引擎双读：match 读 tier_new（NEJM=S、JTCVS=C·bonus0），未命中兜底 D；
+  R5 引擎双读：match 读 tier_new（NEJM=S、JTCVS=B·bonus8（冠冕钉）），未命中兜底 D；
   R6 bonus 表＝S15/A12/B8/C0/D0 且 B 档 whitelist_exempt=true（主控已裁沿旧 A 政策）。
 
 运行：E:/Python/python.exe -X utf8 -I -m unittest discover -s tests -v
@@ -59,8 +59,8 @@ class TaxonomyV4Tests(unittest.TestCase):
         self.assertEqual(m_nejm["tier"], "S")
         self.assertTrue(m_nejm["whitelist_exempt"])
         m_jtcvs = jm.match(nlm_id="0376343")
-        self.assertEqual(m_jtcvs["tier"], "C")            # 换册实跑反推：JTCVS=2区→C
-        self.assertEqual(m_jtcvs["journal_bonus"], 0)
+        self.assertEqual(m_jtcvs["tier"], "B")            # PI 冠冕钉（10-30）：胸外三大主刊钉 B
+        self.assertEqual(m_jtcvs["journal_bonus"], 8)
         self.assertEqual(m_jtcvs["journal_category"], "1")  # JTCVS 阵地＝1 胸部肿瘤与胸外科（胸科本家优先，实测）
         m_none = jm.match()
         self.assertFalse(m_none["matched"])
@@ -87,7 +87,7 @@ class TaxonomyV4Tests(unittest.TestCase):
         self.assertTrue(tiers["B"]["whitelist_exempt"], "新 B 档须沿用旧 A 豁免政策（主控已裁）")
         self.assertFalse(tiers["C"]["whitelist_exempt"])
         self.assertFalse(tiers["D"]["whitelist_exempt"])
-        self.assertEqual(CFG.get("version"), "4.0.0")
+        self.assertEqual(CFG.get("version"), "4.0.1")
 
 
 if __name__ == "__main__":

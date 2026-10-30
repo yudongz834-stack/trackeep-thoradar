@@ -1,5 +1,5 @@
 {
- "version": "4.0.0",
+ "version": "4.0.1",
  "description": "五档权威（S/A/B/C/D，bonus 15/12/8/0/0）＋十类阵地（1-10/待定）＋双副标（综述/数字）的期刊字典换册预生成版。1,505 本＝walk 1,467＋carry 38；同 nlm_id 并册收别名。tier 字段为旧制原值（walk=ABCD 走查制/carry=旧产线制），新五档在 tier_new——引擎换读 tier_new 的切换预案见 out\\_prep_patch_plan.md。",
  "identity": {
   "source": "NLM Catalog walk 全表走查（nlm_identity_v2.jsonl）；carry 承接刊身份自旧产线配置回填",
@@ -56,8 +56,8 @@
   "alias_rows_merged": 7,
   "tier_new": {
    "A": 87,
-   "B": 345,
-   "C": 568,
+   "B": 348,
+   "C": 565,
    "D": 491,
    "S": 7
   },
@@ -12948,7 +12948,7 @@
    "title": "The Annals of thoracic surgery",
    "iso_abbr": "Ann Thorac Surg",
    "tier": "B",
-   "tier_new": "C",
+   "tier_new": "B",
    "category": 1,
    "subtags": [],
    "name_aliases": [],
@@ -12962,7 +12962,7 @@
    "src": "walk",
    "nlm_match": "exact",
    "nlm_note": "NLM题名=walk名(规范化)",
-   "tier_rule": 4,
+   "tier_rule": 6,
    "category_layer": 1,
    "confidence": "高"
   },
@@ -15326,7 +15326,7 @@
    "title": "The Journal of thoracic and cardiovascular surgery",
    "iso_abbr": "J Thorac Cardiovasc Surg",
    "tier": "B",
-   "tier_new": "C",
+   "tier_new": "B",
    "category": 1,
    "subtags": [],
    "name_aliases": [],
@@ -15340,7 +15340,7 @@
    "src": "walk",
    "nlm_match": "exact",
    "nlm_note": "NLM题名=walk名(规范化);二轮攻坚",
-   "tier_rule": 4,
+   "tier_rule": 6,
    "category_layer": 1,
    "confidence": "高"
   },
@@ -36078,7 +36078,7 @@
    "title": "",
    "iso_abbr": "",
    "tier": "B",
-   "tier_new": "C",
+   "tier_new": "B",
    "category": 1,
    "subtags": [],
    "name_aliases": [],
@@ -36092,7 +36092,7 @@
    "src": "walk",
    "nlm_match": "unresolved",
    "nlm_note": "候选无相近:European journal of cardio-thoracic surg",
-   "tier_rule": 4,
+   "tier_rule": 6,
    "category_layer": 1,
    "confidence": "高"
   },

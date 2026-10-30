@@ -2179,8 +2179,8 @@ def run_self_test() -> int:
     m_nejm = jm.match(e_issn="1533-4406")
     assert m_nejm["matched"] and m_nejm["tier"] == "S" and m_nejm["whitelist_exempt"]
     m_jtcvs = jm.match(nlm_id="0376343")
-    # 换册 v4（2026-10-26）实跑反推：JTCVS＝2区 → 新制 C 档（旧制断言 A 已随换册重锚，bonus 0）
-    assert m_jtcvs["matched"] and m_jtcvs["tier"] == "C"
+    # PI 冠冕钉（2026-10-30 口令）：胸外三大主刊 JTCVS/ATS/EJCTS 不与一般二区同档 → B（bonus 8）
+    assert m_jtcvs["matched"] and m_jtcvs["tier"] == "B"
     log(f"[PASS] 1/9 期刊五重索引(tier_new 双读): NEJM={m_nejm['tier']} JTCVS={m_jtcvs['tier']}")
 
     c = Collector()
