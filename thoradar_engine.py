@@ -113,15 +113,52 @@ _SHADOW_ANATOMY = ("lung", "pulmonary", "thoracic", "esophageal", "oesophageal",
                    "mediastinal", "thymic", "pleural", "mesothelioma", "chest")
 _SHADOW_TERMS = A_TERMS           # 旧分析脚本别名
 
+# ── 胸科范围机械闸（2026-10-31 PHERGain 判例立项）──────────────────────────────
+# 负词＝明显它科部位/疾病（判例驱动生长，不求穷尽）；正锚＝胸内器官/呼吸系统强指征。
+# 拦截判据＝负词命中且标题+摘要头无任何正锚（KRASG12D 胰腺癌、心梗路径、三阴乳腺癌）；
+# 负正互搏（乳腺癌肺转移、胸骨后甲状腺肿）＝放行交预筛细判——宁交判官，不机械硬杀。
+# 裸 thoracic/chest 不作正锚：「thoracic aortic aneurysm」属心外大血管（PI 裁心外排除）。
+SCOPE_NEG = re.compile(
+    r"\bbreast\b|\bprostate\b|\bcolorectal\b|\brectal\b|\bcolon\b|\bcolonic\b|\bgastric\b|"
+    r"\bpancrea\w*|\bhepatocellular\b|\bhepatic\b|\bcholangio\w*|\bgallbladder\b|"
+    r"\bcervical cancer\b|\bovarian\b|\bendometri\w*|\buterine\b|\bglioma\w*|\bmeningioma\b|"
+    r"\bleukemia\b|\blymphoma\b|\bmelanoma\b|\brenal cell\b|\bkidney\b|\bbladder\b|"
+    r"\burothel\w*|\bthyroid\b|\bmyeloma\b|\bnasopharyn\w*|\bhead and neck\b|\boral cavity\b|"
+    r"\blaryngeal\b|\bmyocardial infarction\b|\bcoronary\b|\bheart failure\b|"
+    r"\batrial fibrillation\b|\batrial septal\b|\bventricular\b|\bvalvular\b|"
+    r"\bcardiac surgery\b|\bcardiolog\w*|\baortic\b|\bstroke\b|\bsepsis\b|\bseptic\b|"
+    r"\bcirrhosis\b|inflammatory bowel|\bcrohn\b|ulcerative colitis|\bdiabetes\b|"
+    r"\balzheimer\b|\bparkinson\b|\bschizophrenia\b|\bdepression\b",
+    re.I)
+SCOPE_POS = re.compile(
+    r"\blung|\bpulmonary|\bnsclc\b|\bsclc\b|\bmesothelioma\b|esophag|oesophag|"
+    r"\bmediastin|\bthym|\bpleur|\bchest wall\b|\bchest tube\b|\bthoracic outlet\b|"
+    r"\btubeless\b|\bbronch|\btrachea\b|\bairway|\balveol|\bcopd\b|\basthma\b|\bapnea\b|"
+    r"\bhypoventil|\bfibrosis\b|\btuberculosis\b|\bntm\b|\bbronchiect|\bcystic fibrosis\b|"
+    r"\bpneumonia\b|\brespiratory\b|\bards\b|\bvats\b|\blobectom|\bsegmentectom|"
+    r"\bpneumonectom|\besophagectom|\bthymectom|\bthoracoscop|\bthoracotom|\bdiaphragm|"
+    r"\bhiatal\b|\bpneumothorax\b|\bhemoptysis\b|\basbest|\bsilicos|\bpneumoconiosis",
+    re.I)
+
+
+def thoracic_scope_gate(a: Dict[str, Any]) -> bool:
+    """范围闸（机械·判例驱动）：True＝放行。负词命中且无胸科正锚＝明显它科 → False。"""
+    blob = (a.get("title_en", "") + " " + a.get("abstract_en", "")[:400]).lower()
+    return not (SCOPE_NEG.search(blob) and not SCOPE_POS.search(blob))
+
+
 # 预筛正选口径（全量库）：普胸相关全收（基础/转化/临床/流病/筛查/AI），只扔非普胸器官。
+# 2026-10-31 PHERGain 判例改造：keep 必须落笔英文胸科锚点（机器校验），判例三条钉死边界。
 LIBRARY_PRESCREEN_SYSTEM = """你是普胸文献全量库的收录审读员。输入若干篇 PubMed 文献的标题、摘要开头与期刊。
 判断每篇是否属于「普胸」范围而应入库。收录（符合任一）：
 1) 肺癌（NSCLC/SCLC/间皮瘤）、肺结节、食管癌、纵隔/胸腺肿瘤、恶性胸膜疾病的任何研究——基础机制、转化、临床、流行病学、筛查、卫生经济学均收；
-2) 普胸外科（肺/食管/纵隔/胸壁手术，VATS/RATS/tubeless/肺段/食管切除）任何报道；
-3) 胸外科 AI、三维重建、影像组学、数字医疗；
-4) 非肿瘤呼吸病（PI 2026-10-25 裁定覆盖）：COPD、哮喘、间质性肺病/肺纤维化、结核/NTM、肺高压、睡眠呼吸暂停、支扩、肺囊性纤维化、呼吸道感染/流感等人类肺部疾病的临床/基础/转化/流行病学研究。
-剔除：与普胸无关的器官/系统（含心脏外科）；与胸部无交集的泛癌或泛外科研究；**兽医研究与人类疾病无关的动物研究**（判例：猫的胸膜增厚病例报告不该收——只收人类疾病相关：人类患者/人类样本/人源细胞系）。
-只输出 JSON：{"decisions": [{"i": <输入序号>, "keep": true/false}]}"""
+2) 普胸外科（肺/食管/纵隔/胸壁/膈肌手术，VATS/RATS/tubeless/肺段/食管切除/抗反流）任何报道；
+3) 胸外科场景的 AI、三维重建、影像组学、数字医疗——研究对象必须是胸内器官或呼吸系统疾病；
+4) 非肿瘤呼吸病（PI 2026-10-25 裁定覆盖）：COPD、哮喘、间质性肺病/肺纤维化、结核/NTM、肺高压、睡眠呼吸暂停、支扩、肺囊性纤维化、呼吸道感染/流感、ARDS 等人类呼吸疾病的临床/基础/转化/流行病学研究。
+剔除：研究的主要疾病/器官不属胸内或呼吸系统——乳腺、肝胆胰胃肠、泌尿、妇产、甲状腺、颅脑、血液、皮肤等它科原发研究（即便其靶点/方法/概念与肺癌领域相通也不收）；心脏疾病与心外科（PI 裁定普胸不含心外：心梗/冠脉/心衰/心律/瓣膜/大血管均不收）；与胸部无交集的泛癌或泛外科研究；兽医与动物研究（只收人类疾病：人类患者/人类样本/人源细胞系）。
+判例（2026-10-31 PI 抓例）：①PHERGain 乳腺癌降阶试验（Nat Med·RCT·含 ctDNA 探索）→ 不收；②KRASG12D 胰腺癌干预研究 → 不收（靶点同肺癌≠研究对象是肺癌）；③心梗 0/1h 救治路径 → 不收（心外）。
+每篇 keep=true 必须给出 anchor＝该研究主要胸科疾病/器官的英文名（如 lung cancer、COPD、esophageal cancer、mediastinal tumor、sleep apnea、pneumothorax）；研究本身非胸科时 keep=false 且 anchor 留空。
+只输出 JSON：{"decisions": [{"i": <输入序号>, "keep": true/false, "anchor": "<英文胸科锚|空>"}]}"""
 SHADOW_PRESCREEN_SYSTEM = LIBRARY_PRESCREEN_SYSTEM   # 旧名别名（离线分析脚本在用）
 
 
@@ -1320,9 +1357,14 @@ def first_sentences(text: str, n: int, limit: int = 220) -> str:
 
 def llm_prescreen(llm: LLMClient, articles: List[Dict[str, Any]],
                   system: str = "") -> List[Dict[str, Any]]:
-    """预筛（全量库口径）：标题＋摘要头 300 字一起给 LLM 判。LLM 挂→批内全保留（诚实降级）。"""
+    """预筛（全量库口径）：标题＋摘要头 300 字一起给 LLM 判，keep 必须落笔英文胸科锚点。
+    锚点无胸科正指征（PHERGain 判例：写出的锚只能是 breast 之流）→ 视为非胸科拦下；
+    LLM 挂→批内全保留（诚实降级，交精评关；机械范围闸在上游已先行拦过明显它科）。"""
     system = system or LIBRARY_PRESCREEN_SYSTEM
+    # 锚点校验词表＝范围闸正锚 + 胸科术域泛称（thoracic/chest 单独作锚也认：如纯手术技法研究）
+    anchor_ok = re.compile(SCOPE_POS.pattern + r"|\bthorac|\bchest\b|\bforegut\b|\breflux\b|\bgerd\b", re.I)
     kept = []
+    n_bad_anchor = 0
     batch = 20
     for i in range(0, len(articles), batch):
         chunk = articles[i:i + batch]
@@ -1331,17 +1373,28 @@ def llm_prescreen(llm: LLMClient, articles: List[Dict[str, Any]],
             f" || {a['abstract_en'][:300]}"
             for j, a in enumerate(chunk))
         try:
-            raw = llm.chat(system, listing, max_tokens=800)
-            decisions = {d.get("i"): bool(d.get("keep")) for d in parse_json_loose(raw).get("decisions", [])}
+            raw = llm.chat(system, listing, max_tokens=1000)
+            decisions = {d.get("i"): d for d in parse_json_loose(raw).get("decisions", [])}
         except BudgetExceeded:
             raise
         except Exception as e:  # noqa: BLE001 预筛失败→本批全保留，交给精评关
             log(f"  预筛批失败（本批全保留）: {e}")
-            decisions = {j: True for j in range(len(chunk))}
+            decisions = {j: {"keep": True, "anchor": ""} for j in range(len(chunk))}
         for j, a in enumerate(chunk):
-            if decisions.get(j, True):
-                a["_prescreen"] = "llm"
+            d = decisions.get(j)
+            if d and d.get("keep") is True:
+                anchor = str(d.get("anchor", "")).strip()
+                if anchor and anchor_ok.search(anchor):
+                    a["_prescreen"] = "llm"
+                    a["_anchor"] = anchor
+                    kept.append(a)
+                else:
+                    n_bad_anchor += 1   # 锚点空/非胸科（写出 breast 之流）＝判官自己招了非胸科
+            elif d is None:
+                a["_prescreen"] = "llm"      # 漏判＝宁重看勿漏看，交精评关
                 kept.append(a)
+    if n_bad_anchor:
+        log(f"  预筛锚点不合格拦下 {n_bad_anchor} 篇（keep=true 但写不出胸科锚）")
     return kept
 
 
@@ -1720,8 +1773,8 @@ def main(argv: Optional[List[str]] = None) -> int:
         pmids = [p for p in pmids if p not in seen]
         log(f"见过账本去重后待处理 {len(pmids)} 篇")
         funnel = {"toc_fetched": 0, "query_fetched": len(mesh_pmids), "mesh_mode": True,
-                  "fetched": len(pmids), "journal_matched": 0, "prescreened": 0,
-                  "final": 0, "curated": 0}
+                  "fetched": len(pmids), "journal_matched": 0, "scope_rejected": 0,
+                  "prescreened": 0, "final": 0, "curated": 0}
     else:
         log("目录路：逐刊扫描中…")
         toc_pmids, q_pmids, pmids, health = _collect(days_back)
@@ -1736,8 +1789,8 @@ def main(argv: Optional[List[str]] = None) -> int:
             toc_pmids, q_pmids, merged, health = _collect(days_back)
             pmids = [p for p in merged if p not in seen]
         funnel = {"toc_fetched": len(toc_pmids), "query_fetched": len(q_pmids),
-                  "fetched": len(pmids), "journal_matched": 0, "prescreened": 0,
-                  "final": 0, "curated": 0}
+                  "fetched": len(pmids), "journal_matched": 0, "scope_rejected": 0,
+                  "prescreened": 0, "final": 0, "curated": 0}
         log(f"采集：目录路 {len(toc_pmids)} ＋ 检索式路 {len(q_pmids)} → 合并 {len(pmids)} 篇"
             f"（crdt 近 {days_back} 天｜目录健康 红{len(health['red'])}/黄{len(health['yellow'])}）")
 
@@ -1794,6 +1847,14 @@ def main(argv: Optional[List[str]] = None) -> int:
             stage_journal.append(a)
     funnel["journal_matched"] = len(stage_journal)
     log(f"期刊索引阶段留存 {len(stage_journal)} 篇")
+
+    # 胸科范围机械闸（PHERGain 判例）：明显它科在进预筛前拦下——省判官 token，
+    # 也拦住判官手松；负正互搏（乳腺癌肺转移）放行交预筛细判。
+    before_scope = len(stage_journal)
+    stage_journal = [a for a in stage_journal if thoracic_scope_gate(a)]
+    funnel["scope_rejected"] = before_scope - len(stage_journal)
+    if funnel["scope_rejected"]:
+        log(f"范围闸：拦下明显它科 {funnel['scope_rejected']} 篇（负词命中且无胸科正锚）")
 
     # 预筛
     if llm.available:

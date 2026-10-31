@@ -417,6 +417,55 @@ class TestSeenDoiLedger(unittest.TestCase):
         self.assertEqual(eng.load_seen_dois(path=p), {})
 
 
+class TestScopeGate(unittest.TestCase):
+    """胸科范围机械闸（2026-10-31 PHERGain 判例）：负词命中且无正锚＝拦；负正互搏＝放行。"""
+
+    @staticmethod
+    def _a(title, abstract=""):
+        return {"title_en": title, "abstract_en": abstract}
+
+    def test_phergain_breast_rejected(self):
+        a = self._a("5-year outcomes of chemotherapy de-escalation in HER2-positive early "
+                    "breast cancer and exploratory circulating tumor DNA analyses from the "
+                    "randomized phase 2 PHERGain trial.",
+                    "PHERGain was a randomized phase 2 trial in HER2-positive early breast cancer.")
+        self.assertFalse(eng.thoracic_scope_gate(a))
+
+    def test_kras_pancreatic_and_mi_rejected(self):
+        self.assertFalse(eng.thoracic_scope_gate(self._a(
+            "KRASG12D-targeted therapy sensitivity depends on interferon signaling "
+            "activation in pancreatic cancer")))
+        self.assertFalse(eng.thoracic_scope_gate(self._a(
+            "Performance of 0/1 h versus 0/3 h pathways in patients with suspected "
+            "myocardial infarction")))
+
+    def test_thoracic_aortic_is_cardiac_not_thoracic(self):
+        self.assertFalse(eng.thoracic_scope_gate(self._a(
+            "Endovascular repair of descending thoracic aortic aneurysm")))
+
+    def test_neg_pos_collision_passes_to_judge(self):
+        self.assertTrue(eng.thoracic_scope_gate(self._a(
+            "Surgical resection of pulmonary metastases from breast cancer")))
+        self.assertTrue(eng.thoracic_scope_gate(self._a(
+            "Primary mediastinal B-cell lymphoma: long-term outcomes")))
+
+    def test_true_thoracic_passes(self):
+        for t in ("VATS anatomic segmentectomy for clinical T1N0 lung cancer",
+                  "Pragmatic trial of weight loss intervention in obstructive sleep apnea",
+                  "Perioperative immunotherapy in resectable esophageal squamous cell carcinoma"):
+            self.assertTrue(eng.thoracic_scope_gate(self._a(t)), t)
+
+    def test_word_boundary_colony_not_colon(self):
+        # 「granulocyte colony-stimulating factor」不得被 \bcolon\b 误中
+        self.assertTrue(eng.thoracic_scope_gate(self._a(
+            "Granulocyte colony-stimulating factor prophylaxis in patients receiving "
+            "chemotherapy for solid tumors")))
+
+    def test_prescreen_prompt_requires_anchor(self):
+        self.assertIn("anchor", eng.LIBRARY_PRESCREEN_SYSTEM)
+        self.assertIn("PHERGain", eng.LIBRARY_PRESCREEN_SYSTEM)
+
+
 class TestPrescreenRejectedLog(unittest.TestCase):
     """拒件落盘（T-THR-REJLOG）：进了预筛但不在幸存列表者记 {pmid, ta} 日档；
     同日多批并集不丢；滚动 90 天清档（边界含）；fail-open 坏目录/烂旧档不打断主管线。"""
