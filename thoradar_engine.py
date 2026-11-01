@@ -406,6 +406,45 @@ def log_prescreen_rejected(day: str, stage_journal: List[Dict[str, Any]],
         log(f"⚠ 拒件落盘失败（跳过，主管线不受影响）: {e}")
 
 
+def load_toc_checkpoint(path: Optional[Path] = None) -> Dict[str, str]:
+    """目录路检查点：{ta: 上次完整成功扫描日}。窗宽＝距检查点天数＋2 天重叠（回补防漏）；
+    检索失败的刊不推进检查点＝下次自动重扫缺口（修「停机超窗宽＝永久漏扫」雷，
+    2026-11-01 生命周期外审 codex 抓出；方案 v2 排期①）。"""
+    path = path or (DATA_DIR / "toc_checkpoint.json")
+    try:
+        state = json.loads(path.read_text(encoding="utf-8"))
+        return state if isinstance(state, dict) else {}
+    except Exception:  # noqa: BLE001 无档/坏档＝从默认窗起（宁重看勿漏看）
+        return {}
+
+
+def save_toc_checkpoint(state: Dict[str, str], path: Optional[Path] = None) -> None:
+    path = path or (DATA_DIR / "toc_checkpoint.json")
+    path.parent.mkdir(exist_ok=True)
+    path.write_text(json.dumps(state, ensure_ascii=False), encoding="utf-8")
+
+
+def toc_window(last_iso: str, today_iso: str, base_days: int = 3) -> int:
+    """回补窗宽：距检查点天数＋2 天重叠，下限 base_days；坏日期＝保守放大到 base+7。"""
+    try:
+        gap = (date.fromisoformat(today_iso) - date.fromisoformat(last_iso)).days
+    except ValueError:
+        return base_days + 7
+    return max(base_days, gap + 2)
+
+
+def load_suspended(path: Optional[Path] = None) -> Dict[str, Dict[str, Any]]:
+    """降档名册（方案 v2·SUSPENDED 缓冲带）：{ta: {since, reason}}。
+    降档刊＝仅周六扫（检查点自动补齐整周窗）＋规则快筛不送全量 LLM＋启发式打分；
+    MeSH 月扫独立于名册照常兜底其真货。降档不禁刊——恢复＝删行。"""
+    path = path or (DATA_DIR / "journal_suspended.json")
+    try:
+        state = json.loads(path.read_text(encoding="utf-8"))
+        return state if isinstance(state, dict) else {}
+    except Exception:  # noqa: BLE001 无档＝无降档刊
+        return {}
+
+
 def update_journal_health(counts: Dict[str, int], path: Optional[Path] = None) -> Dict[str, Any]:
     """逐刊目录健康台账：命中>0 即刷新最后命中日；45–99 天静默提示、≥100 天报警。
     （覆盖月刊/季刊的正常出刊间隔；≥100 天仍静默＝疑改名/停刊/检索键失效，人工核。）"""
@@ -1047,17 +1086,34 @@ class Collector:
             start += len(batch)
         return pmids[:total]
 
-    def fetch_journal_toc(self, journals: List[Dict[str, Any]],
-                          days_back: int, workers: int = 6) -> "tuple[List[str], Dict[str, int]]":
-        """目录路（并行）：逐刊拉近 N 天全部 PMID（340 刊全收，无词表漏法）。
-        返回 (去重前 pmid 列表, {刊ta: 命中数|−1=失败})；单刊失败计 -1，不断全卷。"""
+    def fetch_journal_toc(self, journals: List[Dict[str, Any]], days_back: int, workers: int = 6,
+                          ckpt: Optional[Dict[str, str]] = None, today_iso: str = "",
+                          suspended: Optional[Dict[str, Any]] = None
+                          ) -> "tuple[List[str], Dict[str, int], int]":
+        """目录路（并行）：逐刊拉近窗全部 PMID（名册全收，无词表漏法）。
+        检查点回补：窗宽＝距该刊上次成功扫描天数＋2 天重叠（停机/失败自动补扫，不永久漏）；
+        降档刊（v2 SUSPENDED）：仅周六扫（检查点自动补齐整周窗），返回三件 (pmids, counts, 跳过数)。"""
+        today_iso = today_iso or bj_today().isoformat()
+        is_saturday = date.fromisoformat(today_iso).weekday() == 5
+        n_susp_skipped = 0
+
         def _one(j: Dict[str, Any]):
+            nonlocal n_susp_skipped
             ta = (j.get("iso_abbr") or j.get("title") or "").strip()
             if not ta:
                 return None, 0
+            if suspended and ta in suspended and not is_saturday:
+                n_susp_skipped += 1        # 降档刊周扫：跳过不推进检查点，周六一并回补整周
+                return ta, "SUSP"
+            win = days_back
+            if ckpt is not None:
+                win = toc_window(ckpt.get(ta, ""), today_iso, days_back) if ckpt.get(ta) else days_back
             try:
-                return ta, self.esearch_pmids(days_back, 500, query=f'"{ta}"[ta]')
-            except Exception as e:  # noqa: BLE001 单刊失败不断全卷
+                ids = self.esearch_pmids(win, 500, query=f'"{ta}"[ta]')
+                if ckpt is not None:
+                    ckpt[ta] = today_iso   # 完整成功才推进；失败＝下次重扫缺口
+                return ta, ids
+            except Exception as e:  # noqa: BLE001 单刊失败不断全卷，且不推进检查点
                 log(f"⚠ 目录扫描失败 {ta}: {e}")
                 return ta, None
 
@@ -1065,14 +1121,14 @@ class Collector:
         counts: Dict[str, int] = {}
         with ThreadPoolExecutor(max_workers=workers) as ex:
             for ta, ids in ex.map(_one, journals):
-                if ta is None:
-                    continue
+                if ta is None or ids == "SUSP":
+                    continue                # 降档跳过不进 counts（不污染健康台账）
                 if ids is None:
                     counts[ta] = -1
                 else:
                     counts[ta] = len(ids)
                     toc.extend(ids)
-        return toc, counts
+        return toc, counts, n_susp_skipped
 
     def efetch_articles(self, pmids: List[str]) -> List[Dict[str, Any]]:
         out: List[Dict[str, Any]] = []
@@ -1815,13 +1871,17 @@ def main(argv: Optional[List[str]] = None) -> int:
         return list(dict.fromkeys(merged))
 
     def _collect(dback: int):
-        """目录路采集（名册逐刊全收）；检索式路 2026-11-01 PI 裁定关停（QUERY_PATH_ENABLED 复活）。"""
-        toc_pmids, toc_counts = collector.fetch_journal_toc(cfg.get("journals", []), dback)
+        """目录路采集（名册逐刊全收）；检索式路 2026-11-01 PI 裁定关停（QUERY_PATH_ENABLED 复活）。
+        检查点回补＋降档周扫（方案 v2 排期①）：窗宽按各刊上次成功扫描日自适应，
+        停机/失败自动补扫；降档刊仅周六扫。"""
+        toc_pmids, toc_counts, susp_skipped = collector.fetch_journal_toc(
+            cfg.get("journals", []), dback, ckpt=ckpt, today_iso=day, suspended=suspended)
         health = update_journal_health(toc_counts)
         q_pmids = collector.esearch_pmids(dback, args.retmax) if QUERY_PATH_ENABLED else []
         merged = list(dict.fromkeys(toc_pmids + q_pmids))   # TOC 保序在前，PMID 去重
-        return toc_pmids, q_pmids, merged, health
+        return toc_pmids, q_pmids, merged, health, susp_skipped
 
+    suspended: Dict[str, Any] = {}          # mesh 分支无降档概念；daily 分支装载
     if mesh_mode:
         days_back = args.mesh_backstop
         log(f"MeSH 兜底模式：六主题词回扫近 {days_back} 天…")
@@ -1837,8 +1897,11 @@ def main(argv: Optional[List[str]] = None) -> int:
                   "fetched": len(pmids), "journal_matched": 0, "scope_rejected": 0,
                   "scope_shadow": 0, "prescreened": 0, "final": 0, "curated": 0}
     else:
-        log("目录路：逐刊扫描中…")
-        toc_pmids, q_pmids, pmids, health = _collect(days_back)
+        ckpt = load_toc_checkpoint()
+        suspended = load_suspended()
+        log(f"目录路：逐刊扫描中…（检查点 {len(ckpt)} 刊｜降档 {len(suspended)} 刊仅周六扫）")
+        toc_pmids, q_pmids, pmids, health, susp_skipped = _collect(days_back)
+        save_toc_checkpoint(ckpt)
         seen = load_seen()
         pmids = [p for p in pmids if p not in seen]
         if len(pmids) < len(toc_pmids) + len(q_pmids):
@@ -1851,7 +1914,8 @@ def main(argv: Optional[List[str]] = None) -> int:
             pmids = [p for p in merged if p not in seen]
         funnel = {"toc_fetched": len(toc_pmids), "query_fetched": len(q_pmids),
                   "fetched": len(pmids), "journal_matched": 0, "scope_rejected": 0,
-                  "scope_shadow": 0, "prescreened": 0, "final": 0, "curated": 0}
+                  "scope_shadow": 0, "suspended_skipped": susp_skipped,
+                  "prescreened": 0, "final": 0, "curated": 0}
         log(f"采集：目录路 {len(toc_pmids)} ＋ 检索式路 {len(q_pmids)} → 合并 {len(pmids)} 篇"
             f"（crdt 近 {days_back} 天｜目录健康 红{len(health['red'])}/黄{len(health['yellow'])}）")
 
@@ -1927,9 +1991,19 @@ def main(argv: Optional[List[str]] = None) -> int:
             except Exception as e:  # noqa: BLE001 影子账失败不影响主流程
                 log(f"⚠ 影子账落盘失败（跳过）: {e}")
 
-    # 预筛
+    # 预筛（v2 排期①降档止血）：降档刊走规则快筛不送全量 LLM（39% 算力失血止血；
+    # 其真货由独立于名册的 MeSH 月扫兜底），其余走判官
+    susp_set = set(suspended)
+    for a in stage_journal:
+        if (a.get("iso_abbr") or a["_match"].get("journal_abbr") or "") in susp_set:
+            a["_suspended"] = True
+    susp_arts = [a for a in stage_journal if a.get("_suspended")]
+    normal_arts = [a for a in stage_journal if not a.get("_suspended")]
     if llm.available:
-        prescreened = llm_prescreen(llm, stage_journal)
+        prescreened = llm_prescreen(llm, normal_arts)
+        if susp_arts:
+            prescreened += heuristic_prescreen(susp_arts)
+            log(f"降档刊规则快筛 {len(susp_arts)} 篇（不送全量 LLM；MeSH 月扫兜底）")
     else:
         prescreened = heuristic_prescreen(stage_journal)
     funnel["prescreened"] = len(prescreened)
@@ -1952,6 +2026,10 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     def _score_one(a: Dict[str, Any]) -> Dict[str, Any]:
         m = a["_match"]
+        if a.get("_suspended"):
+            scored = heuristic_score(a, jm)          # 降档刊：启发式打分，无 LLM 解读
+            scored["match"] = m
+            return build_paper(a, scored, None, "", day)
         try:
             if llm.available:
                 llm_data = llm_score_one(llm, a, m)

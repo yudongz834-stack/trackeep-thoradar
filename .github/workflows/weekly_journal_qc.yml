@@ -17,9 +17,11 @@ jobs:
         env:
           NCBI_API_KEY: ${{ secrets.NCBI_API_KEY }}
         run: python3 tools/journal_qc.py
+      - name: Journal yield table (90d rolling, prune-review evidence)
+        run: python3 tools/journal_yield.py 90
       - name: Commit QC report
         run: |
           git config user.name "thoradar-bot"
           git config user.email "bot@thoradar.local"
-          git add design/journal-qc-report.json design/journal-qc-报告.md
+          git add design/journal-qc-report.json design/journal-qc-报告.md data/journal_yield.json
           if git diff --cached --quiet; then echo "QC 无变化"; else git commit -m "chore(qc): 周度期刊库质检报告更新 [skip ci]"; git push; fi

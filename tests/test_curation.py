@@ -519,6 +519,43 @@ class TestRefit20261101(unittest.TestCase):
         self.assertEqual(llm2.price_out, 0.0)
 
 
+class TestLifecycleV2(unittest.TestCase):
+    """名册生命周期 v2 排期①：检查点回补＋降档止血＋产出表。"""
+
+    def test_toc_window_backfill_and_overlap(self):
+        self.assertEqual(eng.toc_window("2026-10-29", "2026-11-01", 3), 5)     # 缺口+2 重叠
+        self.assertEqual(eng.toc_window("2026-09-01", "2026-11-01", 3), 63)    # 长停机全补
+        self.assertEqual(eng.toc_window("2026-11-01", "2026-11-01", 3), 3)     # 当日＝基础窗
+        self.assertEqual(eng.toc_window("bad", "2026-11-01", 3), 10)           # 坏日期保守放大
+
+    def test_toc_checkpoint_roundtrip(self):
+        import shutil, tempfile
+        from pathlib import Path
+        d = tempfile.mkdtemp()
+        self.addCleanup(shutil.rmtree, d, ignore_errors=True)
+        p = Path(d) / "toc_checkpoint.json"
+        eng.save_toc_checkpoint({"Lung Cancer": "2026-11-01"}, path=p)
+        self.assertEqual(eng.load_toc_checkpoint(path=p), {"Lung Cancer": "2026-11-01"})
+        p.write_text("not-json{", encoding="utf-8")
+        self.assertEqual(eng.load_toc_checkpoint(path=p), {})                  # 坏档从零起
+
+    def test_suspended_loader_and_bootstrap(self):
+        import shutil, tempfile
+        from pathlib import Path
+        d = tempfile.mkdtemp()
+        self.addCleanup(shutil.rmtree, d, ignore_errors=True)
+        p = Path(d) / "journal_suspended.json"
+        p.write_text(json.dumps({"Biomedicines": {"since": "2026-11-01", "reason": "yield=0"}}),
+                     encoding="utf-8")
+        self.assertIn("Biomedicines", eng.load_suspended(path=p))
+        p.write_text("not-json{", encoding="utf-8")
+        self.assertEqual(eng.load_suspended(path=p), {})                       # 坏档＝无降档
+        # 生产降档册已入库：85 刊、全部带 since 与 v2 评审期限说明
+        prod = eng.load_suspended()
+        self.assertGreaterEqual(len(prod), 80)
+        self.assertTrue(all("2027-02-01" in v.get("reason", "") for v in prod.values()))
+
+
 class TestPrescreenRejectedLog(unittest.TestCase):
     """拒件落盘（T-THR-REJLOG）：进了预筛但不在幸存列表者记 {pmid, ta} 日档；
     同日多批并集不丢；滚动 90 天清档（边界含）；fail-open 坏目录/烂旧档不打断主管线。"""
