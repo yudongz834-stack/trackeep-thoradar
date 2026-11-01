@@ -91,7 +91,7 @@ class TaxonomyV4Tests(unittest.TestCase):
         self.assertTrue(tiers["B"]["whitelist_exempt"], "新 B 档须沿用旧 A 豁免政策（主控已裁）")
         self.assertFalse(tiers["C"]["whitelist_exempt"])
         self.assertFalse(tiers["D"]["whitelist_exempt"])
-        self.assertEqual(CFG.get("version"), "v4.3-precision")   # 2026-11-02 双席评审修正（睡眠五刊回册·误留五刊剔除）
+        self.assertEqual(CFG.get("version"), "v4.4-precision")   # 2026-11-02 PI 裁：Zotero 来源表解封 31 刊（基础研究/方法学＋临床 AI）
 
 
 if __name__ == "__main__":
