@@ -70,10 +70,11 @@ class TaxonomyV4Tests(unittest.TestCase):
         self.assertEqual(m_none["journal_category"], "")
 
     def test_r7_empty_id_rows_reachable_by_name(self):
-        """28 本空 NLM ID 刊五键全空、唯一身份＝walk 规范名：name 弱键须可命中且带阵地（红线 2 兜底准入）。"""
+        """空 NLM ID 刊唯一身份＝walk 规范名：name 弱键须可命中且带阵地（红线 2 兜底准入）。"""
         noid = [j for j in JOURNALS if not j.get("nlm_id")]
-        # v4.2-precision：原 28 本空 ID 刊多数随全册封存，核心册余 4 本——name 弱键可达性不变
-        self.assertEqual(len(noid), 3, f"空 ID 刊应 3 本，实得 {len(noid)}")
+        # v4.3（2026-11-02）：QJM/Clinical Medicine/Proc Roy Soc A 三条空题名空 ID 行
+        # 随三席评审剔出核心册——核心册空 ID 刊清零
+        self.assertEqual(len(noid), 0, f"空 ID 刊应 0 本，实得 {noid}")
         for j in noid:
             self.assertTrue(str(j.get("name", "")).strip(), f"空 ID 刊缺 name：{j.get('id')}")
         jm = eng.JournalMatcher(CFG)
@@ -90,7 +91,7 @@ class TaxonomyV4Tests(unittest.TestCase):
         self.assertTrue(tiers["B"]["whitelist_exempt"], "新 B 档须沿用旧 A 豁免政策（主控已裁）")
         self.assertFalse(tiers["C"]["whitelist_exempt"])
         self.assertFalse(tiers["D"]["whitelist_exempt"])
-        self.assertEqual(CFG.get("version"), "v4.2-precision")   # 2026-11-01 精准册改版
+        self.assertEqual(CFG.get("version"), "v4.3-precision")   # 2026-11-02 双席评审修正（睡眠五刊回册·误留五刊剔除）
 
 
 if __name__ == "__main__":

@@ -1,8 +1,56 @@
 {
- "window_days": 7,
- "cutoff": "2026-10-25",
+ "window_days": 90,
+ "cutoff": "2026-08-03",
  "computed_at": "2026-11-01",
  "journals": [
+  {
+   "ta": "Front Immunol",
+   "kept": 16,
+   "sent": 127,
+   "yield": 0.126
+  },
+  {
+   "ta": "Front Oncol",
+   "kept": 14,
+   "sent": 73,
+   "yield": 0.192
+  },
+  {
+   "ta": "J Thorac Dis",
+   "kept": 14,
+   "sent": 14,
+   "yield": 1.0
+  },
+  {
+   "ta": "Respir Res",
+   "kept": 10,
+   "sent": 10,
+   "yield": 1.0
+  },
+  {
+   "ta": "Cancers (Basel)",
+   "kept": 9,
+   "sent": 136,
+   "yield": 0.066
+  },
+  {
+   "ta": "Lung Cancer",
+   "kept": 8,
+   "sent": 8,
+   "yield": 1.0
+  },
+  {
+   "ta": "J Transl Med",
+   "kept": 7,
+   "sent": 39,
+   "yield": 0.179
+  },
+  {
+   "ta": "BMC Pulm Med",
+   "kept": 7,
+   "sent": 8,
+   "yield": 0.875
+  },
   {
    "ta": "Adv Respir Med",
    "kept": 7,
@@ -10,19 +58,97 @@
    "yield": 1.0
   },
   {
-   "ta": "Front Immunol",
-   "kept": 6,
-   "sent": 117,
-   "yield": 0.051
+   "ta": "J Med Chem",
+   "kept": 7,
+   "sent": 7,
+   "yield": 1.0
   },
   {
-   "ta": "Respir Res",
+   "ta": "Chest",
+   "kept": 7,
+   "sent": 7,
+   "yield": 1.0
+  },
+  {
+   "ta": "Cureus",
+   "kept": 7,
+   "sent": 7,
+   "yield": 1.0
+  },
+  {
+   "ta": "Transl Lung Cancer Res",
+   "kept": 7,
+   "sent": 7,
+   "yield": 1.0
+  },
+  {
+   "ta": "Int J Chron Obstruct Pulmon Dis",
+   "kept": 7,
+   "sent": 7,
+   "yield": 1.0
+  },
+  {
+   "ta": "J Clin Med",
+   "kept": 6,
+   "sent": 6,
+   "yield": 1.0
+  },
+  {
+   "ta": "Sci Adv",
+   "kept": 5,
+   "sent": 112,
+   "yield": 0.045
+  },
+  {
+   "ta": "Int J Biol Sci",
+   "kept": 5,
+   "sent": 30,
+   "yield": 0.167
+  },
+  {
+   "ta": "BMC Cancer",
+   "kept": 5,
+   "sent": 18,
+   "yield": 0.278
+  },
+  {
+   "ta": "J Imaging Inform Med",
+   "kept": 5,
+   "sent": 17,
+   "yield": 0.294
+  },
+  {
+   "ta": "Ann Oncol",
+   "kept": 5,
+   "sent": 8,
+   "yield": 0.625
+  },
+  {
+   "ta": "J Thorac Cardiovasc Surg",
+   "kept": 5,
+   "sent": 7,
+   "yield": 0.714
+  },
+  {
+   "ta": "Cancer Lett",
+   "kept": 5,
+   "sent": 7,
+   "yield": 0.714
+  },
+  {
+   "ta": "Zhongguo Fei Ai Za Zhi",
    "kept": 5,
    "sent": 5,
    "yield": 1.0
   },
   {
-   "ta": "Lung Cancer",
+   "ta": "Front Med (Lausanne)",
+   "kept": 5,
+   "sent": 5,
+   "yield": 1.0
+  },
+  {
+   "ta": "Am J Cancer Res",
    "kept": 5,
    "sent": 5,
    "yield": 1.0
@@ -34,16 +160,16 @@
    "yield": 0.031
   },
   {
-   "ta": "Front Oncol",
-   "kept": 4,
-   "sent": 63,
-   "yield": 0.063
-  },
-  {
    "ta": "Front Cell Infect Microbiol",
    "kept": 4,
    "sent": 28,
    "yield": 0.143
+  },
+  {
+   "ta": "MedComm (2020)",
+   "kept": 4,
+   "sent": 14,
+   "yield": 0.286
   },
   {
    "ta": "J Allergy Clin Immunol Pract",
@@ -52,34 +178,76 @@
    "yield": 0.364
   },
   {
+   "ta": "Respir Med",
+   "kept": 4,
+   "sent": 6,
+   "yield": 0.667
+  },
+  {
    "ta": "N Engl J Med",
    "kept": 4,
    "sent": 6,
    "yield": 0.667
   },
   {
-   "ta": "Cureus",
+   "ta": "Lung",
    "kept": 4,
    "sent": 4,
    "yield": 1.0
   },
   {
-   "ta": "Sci Adv",
+   "ta": "Lancet Respir Med",
+   "kept": 4,
+   "sent": 4,
+   "yield": 1.0
+  },
+  {
+   "ta": "Case Rep Oncol",
+   "kept": 4,
+   "sent": 4,
+   "yield": 1.0
+  },
+  {
+   "ta": "Eur Respir J",
+   "kept": 4,
+   "sent": 4,
+   "yield": 1.0
+  },
+  {
+   "ta": "BMJ Open Respir Res",
+   "kept": 4,
+   "sent": 4,
+   "yield": 1.0
+  },
+  {
+   "ta": "Front Public Health",
    "kept": 3,
-   "sent": 110,
-   "yield": 0.027
+   "sent": 204,
+   "yield": 0.015
+  },
+  {
+   "ta": "Nat Commun",
+   "kept": 3,
+   "sent": 168,
+   "yield": 0.018
+  },
+  {
+   "ta": "Front Pharmacol",
+   "kept": 3,
+   "sent": 79,
+   "yield": 0.038
+  },
+  {
+   "ta": "iScience",
+   "kept": 3,
+   "sent": 71,
+   "yield": 0.042
   },
   {
    "ta": "Cell Rep",
    "kept": 3,
    "sent": 43,
    "yield": 0.07
-  },
-  {
-   "ta": "J Transl Med",
-   "kept": 3,
-   "sent": 35,
-   "yield": 0.086
   },
   {
    "ta": "Int J Pharm",
@@ -94,16 +262,34 @@
    "yield": 0.143
   },
   {
-   "ta": "BMC Cancer",
+   "ta": "J Nucl Med",
    "kept": 3,
-   "sent": 16,
-   "yield": 0.188
+   "sent": 15,
+   "yield": 0.2
   },
   {
-   "ta": "J Clin Oncol",
+   "ta": "Crit Rev Oncol Hematol",
    "kept": 3,
-   "sent": 7,
-   "yield": 0.429
+   "sent": 12,
+   "yield": 0.25
+  },
+  {
+   "ta": "Surg Endosc",
+   "kept": 3,
+   "sent": 9,
+   "yield": 0.333
+  },
+  {
+   "ta": "J Am Coll Radiol",
+   "kept": 3,
+   "sent": 8,
+   "yield": 0.375
+  },
+  {
+   "ta": "Int Immunopharmacol",
+   "kept": 3,
+   "sent": 8,
+   "yield": 0.375
   },
   {
    "ta": "J Heart Lung Transplant",
@@ -112,10 +298,22 @@
    "yield": 0.429
   },
   {
-   "ta": "Ann Oncol",
+   "ta": "Eur J Cancer",
    "kept": 3,
-   "sent": 6,
-   "yield": 0.5
+   "sent": 7,
+   "yield": 0.429
+  },
+  {
+   "ta": "J Clin Oncol",
+   "kept": 3,
+   "sent": 7,
+   "yield": 0.429
+  },
+  {
+   "ta": "Int J Radiat Oncol Biol Phys",
+   "kept": 3,
+   "sent": 4,
+   "yield": 0.75
   },
   {
    "ta": "Am J Respir Crit Care Med",
@@ -124,25 +322,13 @@
    "yield": 0.75
   },
   {
-   "ta": "Lancet Respir Med",
+   "ta": "Eur Respir Rev",
    "kept": 3,
    "sent": 3,
    "yield": 1.0
   },
   {
-   "ta": "medRxiv",
-   "kept": 3,
-   "sent": 3,
-   "yield": 1.0
-  },
-  {
-   "ta": "Case Rep Oncol",
-   "kept": 3,
-   "sent": 3,
-   "yield": 1.0
-  },
-  {
-   "ta": "bioRxiv",
+   "ta": "Gen Thorac Cardiovasc Surg Cases",
    "kept": 3,
    "sent": 3,
    "yield": 1.0
@@ -154,16 +340,28 @@
    "yield": 1.0
   },
   {
-   "ta": "Eur Respir J",
+   "ta": "medRxiv",
    "kept": 3,
    "sent": 3,
    "yield": 1.0
   },
   {
-   "ta": "Chest",
+   "ta": "bioRxiv",
    "kept": 3,
    "sent": 3,
    "yield": 1.0
+  },
+  {
+   "ta": "Anal Chem",
+   "kept": 3,
+   "sent": 3,
+   "yield": 1.0
+  },
+  {
+   "ta": "Proc Natl Acad Sci U S A",
+   "kept": 2,
+   "sent": 128,
+   "yield": 0.016
   },
   {
    "ta": "Environ Res",
@@ -172,16 +370,10 @@
    "yield": 0.028
   },
   {
-   "ta": "iScience",
+   "ta": "Ecotoxicol Environ Saf",
    "kept": 2,
-   "sent": 70,
-   "yield": 0.029
-  },
-  {
-   "ta": "Int J Biol Sci",
-   "kept": 2,
-   "sent": 27,
-   "yield": 0.074
+   "sent": 34,
+   "yield": 0.059
   },
   {
    "ta": "JAMA Netw Open",
@@ -190,16 +382,22 @@
    "yield": 0.087
   },
   {
+   "ta": "Cell Death Dis",
+   "kept": 2,
+   "sent": 22,
+   "yield": 0.091
+  },
+  {
    "ta": "Acta Pharm Sin B",
    "kept": 2,
    "sent": 21,
    "yield": 0.095
   },
   {
-   "ta": "J Nucl Med",
+   "ta": "J Robot Surg",
    "kept": 2,
-   "sent": 14,
-   "yield": 0.143
+   "sent": 19,
+   "yield": 0.105
   },
   {
    "ta": "J Biochem Mol Toxicol",
@@ -208,10 +406,34 @@
    "yield": 0.143
   },
   {
+   "ta": "Eur J Pharmacol",
+   "kept": 2,
+   "sent": 13,
+   "yield": 0.154
+  },
+  {
+   "ta": "Cell Signal",
+   "kept": 2,
+   "sent": 12,
+   "yield": 0.167
+  },
+  {
    "ta": "Biomol Ther (Seoul)",
    "kept": 2,
    "sent": 11,
    "yield": 0.182
+  },
+  {
+   "ta": "Pediatr Surg Int",
+   "kept": 2,
+   "sent": 11,
+   "yield": 0.182
+  },
+  {
+   "ta": "Cancer Med",
+   "kept": 2,
+   "sent": 10,
+   "yield": 0.2
   },
   {
    "ta": "ACS Sens",
@@ -220,7 +442,19 @@
    "yield": 0.2
   },
   {
-   "ta": "Int Immunopharmacol",
+   "ta": "Med Oncol",
+   "kept": 2,
+   "sent": 10,
+   "yield": 0.2
+  },
+  {
+   "ta": "Drugs",
+   "kept": 2,
+   "sent": 7,
+   "yield": 0.286
+  },
+  {
+   "ta": "Crit Care",
    "kept": 2,
    "sent": 7,
    "yield": 0.286
@@ -232,16 +466,64 @@
    "yield": 0.286
   },
   {
+   "ta": "Pathol Res Pract",
+   "kept": 2,
+   "sent": 7,
+   "yield": 0.286
+  },
+  {
    "ta": "Lancet Microbe",
    "kept": 2,
    "sent": 7,
    "yield": 0.286
   },
   {
+   "ta": "Cell Rep Med",
+   "kept": 2,
+   "sent": 6,
+   "yield": 0.333
+  },
+  {
+   "ta": "Cancer Cell",
+   "kept": 2,
+   "sent": 6,
+   "yield": 0.333
+  },
+  {
+   "ta": "Acta Pharmacol Sin",
+   "kept": 2,
+   "sent": 6,
+   "yield": 0.333
+  },
+  {
+   "ta": "Acad Radiol",
+   "kept": 2,
+   "sent": 6,
+   "yield": 0.333
+  },
+  {
+   "ta": "Trends Cancer",
+   "kept": 2,
+   "sent": 6,
+   "yield": 0.333
+  },
+  {
    "ta": "Lancet",
    "kept": 2,
    "sent": 6,
    "yield": 0.333
+  },
+  {
+   "ta": "Cancer Imaging",
+   "kept": 2,
+   "sent": 5,
+   "yield": 0.4
+  },
+  {
+   "ta": "Cell Death Differ",
+   "kept": 2,
+   "sent": 5,
+   "yield": 0.4
   },
   {
    "ta": "Jpn J Radiol",
@@ -262,10 +544,136 @@
    "yield": 0.5
   },
   {
+   "ta": "Cancer Treat Rev",
+   "kept": 2,
+   "sent": 4,
+   "yield": 0.5
+  },
+  {
+   "ta": "Br J Radiol",
+   "kept": 2,
+   "sent": 3,
+   "yield": 0.667
+  },
+  {
+   "ta": "J Proteome Res",
+   "kept": 2,
+   "sent": 3,
+   "yield": 0.667
+  },
+  {
+   "ta": "Genome Med",
+   "kept": 2,
+   "sent": 3,
+   "yield": 0.667
+  },
+  {
    "ta": "EBioMedicine",
    "kept": 2,
    "sent": 3,
    "yield": 0.667
+  },
+  {
+   "ta": "Chem Biol Drug Des",
+   "kept": 2,
+   "sent": 2,
+   "yield": 1.0
+  },
+  {
+   "ta": "J Gastroenterol",
+   "kept": 2,
+   "sent": 2,
+   "yield": 1.0
+  },
+  {
+   "ta": "Clin Cancer Res",
+   "kept": 2,
+   "sent": 2,
+   "yield": 1.0
+  },
+  {
+   "ta": "Clin Lung Cancer",
+   "kept": 2,
+   "sent": 2,
+   "yield": 1.0
+  },
+  {
+   "ta": "ACS Nano",
+   "kept": 2,
+   "sent": 2,
+   "yield": 1.0
+  },
+  {
+   "ta": "J Thorac Oncol",
+   "kept": 2,
+   "sent": 2,
+   "yield": 1.0
+  },
+  {
+   "ta": "J Cardiothorac Surg",
+   "kept": 2,
+   "sent": 2,
+   "yield": 1.0
+  },
+  {
+   "ta": "Langmuir",
+   "kept": 2,
+   "sent": 2,
+   "yield": 1.0
+  },
+  {
+   "ta": "Gen Thorac Cardiovasc Surg",
+   "kept": 2,
+   "sent": 2,
+   "yield": 1.0
+  },
+  {
+   "ta": "Respir Investig",
+   "kept": 2,
+   "sent": 2,
+   "yield": 1.0
+  },
+  {
+   "ta": "Dis Esophagus",
+   "kept": 2,
+   "sent": 2,
+   "yield": 1.0
+  },
+  {
+   "ta": "Environ Sci Technol",
+   "kept": 2,
+   "sent": 2,
+   "yield": 1.0
+  },
+  {
+   "ta": "Thorac Cancer",
+   "kept": 2,
+   "sent": 2,
+   "yield": 1.0
+  },
+  {
+   "ta": "Interdiscip Cardiovasc Thorac Surg",
+   "kept": 2,
+   "sent": 2,
+   "yield": 1.0
+  },
+  {
+   "ta": "Asia Pac J Clin Oncol",
+   "kept": 2,
+   "sent": 2,
+   "yield": 1.0
+  },
+  {
+   "ta": "Eur J Med Chem",
+   "kept": 2,
+   "sent": 2,
+   "yield": 1.0
+  },
+  {
+   "ta": "Transl Cancer Res",
+   "kept": 2,
+   "sent": 2,
+   "yield": 1.0
   },
   {
    "ta": "Clin Ter",
@@ -274,7 +682,37 @@
    "yield": 1.0
   },
   {
+   "ta": "Advanced Healthcare Materials",
+   "kept": 2,
+   "sent": 2,
+   "yield": 1.0
+  },
+  {
    "ta": "Am J Transl Res",
+   "kept": 2,
+   "sent": 2,
+   "yield": 1.0
+  },
+  {
+   "ta": "AME Case Rep",
+   "kept": 2,
+   "sent": 2,
+   "yield": 1.0
+  },
+  {
+   "ta": "Respiration",
+   "kept": 2,
+   "sent": 2,
+   "yield": 1.0
+  },
+  {
+   "ta": "Am Surg",
+   "kept": 2,
+   "sent": 2,
+   "yield": 1.0
+  },
+  {
+   "ta": "Target Oncol",
    "kept": 2,
    "sent": 2,
    "yield": 1.0
@@ -290,42 +728,6 @@
    "kept": 2,
    "sent": 2,
    "yield": 1.0
-  },
-  {
-   "ta": "BMJ Open Respir Res",
-   "kept": 2,
-   "sent": 2,
-   "yield": 1.0
-  },
-  {
-   "ta": "Int J Chron Obstruct Pulmon Dis",
-   "kept": 2,
-   "sent": 2,
-   "yield": 1.0
-  },
-  {
-   "ta": "Advanced Healthcare Materials",
-   "kept": 2,
-   "sent": 2,
-   "yield": 1.0
-  },
-  {
-   "ta": "J Gastroenterol",
-   "kept": 2,
-   "sent": 2,
-   "yield": 1.0
-  },
-  {
-   "ta": "Nat Commun",
-   "kept": 1,
-   "sent": 166,
-   "yield": 0.006
-  },
-  {
-   "ta": "Proc Natl Acad Sci U S A",
-   "kept": 1,
-   "sent": 127,
-   "yield": 0.008
   },
   {
    "ta": "Front Physiol",
@@ -352,10 +754,28 @@
    "yield": 0.048
   },
   {
+   "ta": "Theranostics",
+   "kept": 1,
+   "sent": 20,
+   "yield": 0.05
+  },
+  {
+   "ta": "Med Phys",
+   "kept": 1,
+   "sent": 17,
+   "yield": 0.059
+  },
+  {
    "ta": "Front Surg",
    "kept": 1,
    "sent": 17,
    "yield": 0.059
+  },
+  {
+   "ta": "Front Genet",
+   "kept": 1,
+   "sent": 15,
+   "yield": 0.067
   },
   {
    "ta": "J Glob Health",
@@ -370,25 +790,43 @@
    "yield": 0.077
   },
   {
-   "ta": "Cell Signal",
+   "ta": "Mol Biomed",
+   "kept": 1,
+   "sent": 12,
+   "yield": 0.083
+  },
+  {
+   "ta": "Cell",
+   "kept": 1,
+   "sent": 12,
+   "yield": 0.083
+  },
+  {
+   "ta": "Clin Nucl Med",
    "kept": 1,
    "sent": 11,
    "yield": 0.091
   },
   {
-   "ta": "MedComm (2020)",
+   "ta": "BMC Surg",
    "kept": 1,
    "sent": 11,
    "yield": 0.091
   },
   {
-   "ta": "Crit Rev Oncol Hematol",
+   "ta": "J Control Release",
+   "kept": 1,
+   "sent": 11,
+   "yield": 0.091
+  },
+  {
+   "ta": "Cell Mol Life Sci",
    "kept": 1,
    "sent": 10,
    "yield": 0.1
   },
   {
-   "ta": "Commun Biol",
+   "ta": "Funct Integr Genomics",
    "kept": 1,
    "sent": 9,
    "yield": 0.111
@@ -400,13 +838,13 @@
    "yield": 0.111
   },
   {
-   "ta": "Cancer Med",
+   "ta": "J Adv Res",
    "kept": 1,
    "sent": 9,
    "yield": 0.111
   },
   {
-   "ta": "J Adv Res",
+   "ta": "Commun Biol",
    "kept": 1,
    "sent": 9,
    "yield": 0.111
@@ -418,25 +856,13 @@
    "yield": 0.125
   },
   {
-   "ta": "Int J Infect Dis",
+   "ta": "BMC Anesthesiol",
    "kept": 1,
-   "sent": 7,
-   "yield": 0.143
+   "sent": 8,
+   "yield": 0.125
   },
   {
-   "ta": "Biomark Res",
-   "kept": 1,
-   "sent": 7,
-   "yield": 0.143
-  },
-  {
-   "ta": "One Health",
-   "kept": 1,
-   "sent": 7,
-   "yield": 0.143
-  },
-  {
-   "ta": "Cancer Res",
+   "ta": "Clin Transl Med",
    "kept": 1,
    "sent": 7,
    "yield": 0.143
@@ -448,7 +874,19 @@
    "yield": 0.143
   },
   {
-   "ta": "Clin Transl Med",
+   "ta": "Cancer Res",
+   "kept": 1,
+   "sent": 7,
+   "yield": 0.143
+  },
+  {
+   "ta": "Aliment Pharmacol Ther",
+   "kept": 1,
+   "sent": 7,
+   "yield": 0.143
+  },
+  {
+   "ta": "Biomark Res",
    "kept": 1,
    "sent": 7,
    "yield": 0.143
@@ -460,31 +898,67 @@
    "yield": 0.143
   },
   {
+   "ta": "One Health",
+   "kept": 1,
+   "sent": 7,
+   "yield": 0.143
+  },
+  {
+   "ta": "Int J Infect Dis",
+   "kept": 1,
+   "sent": 7,
+   "yield": 0.143
+  },
+  {
+   "ta": "Clin Transl Radiat Oncol",
+   "kept": 1,
+   "sent": 7,
+   "yield": 0.143
+  },
+  {
    "ta": "JMIR Hum Factors",
    "kept": 1,
    "sent": 6,
    "yield": 0.167
   },
   {
-   "ta": "Crit Care",
+   "ta": "Int J Cancer",
    "kept": 1,
    "sent": 6,
    "yield": 0.167
   },
   {
-   "ta": "Pathol Res Pract",
+   "ta": "Transl Oncol",
    "kept": 1,
    "sent": 6,
    "yield": 0.167
   },
   {
-   "ta": "Lancet Reg Health West Pac",
+   "ta": "J Clin Invest",
+   "kept": 1,
+   "sent": 6,
+   "yield": 0.167
+  },
+  {
+   "ta": "Cancer Immunol Res",
+   "kept": 1,
+   "sent": 6,
+   "yield": 0.167
+  },
+  {
+   "ta": "Life Sci",
+   "kept": 1,
+   "sent": 6,
+   "yield": 0.167
+  },
+  {
+   "ta": "Lab Invest",
    "kept": 1,
    "sent": 5,
    "yield": 0.2
   },
   {
-   "ta": "Eur J Cancer",
+   "ta": "J Vasc Interv Radiol",
    "kept": 1,
    "sent": 5,
    "yield": 0.2
@@ -502,40 +976,16 @@
    "yield": 0.2
   },
   {
-   "ta": "Acta Pharmacol Sin",
+   "ta": "BMC Med Inform Decis Mak",
    "kept": 1,
    "sent": 5,
    "yield": 0.2
   },
   {
-   "ta": "Cell Rep Med",
+   "ta": "Lancet Reg Health West Pac",
    "kept": 1,
    "sent": 5,
    "yield": 0.2
-  },
-  {
-   "ta": "Environ Int",
-   "kept": 1,
-   "sent": 4,
-   "yield": 0.25
-  },
-  {
-   "ta": "Sci China Life Sci",
-   "kept": 1,
-   "sent": 4,
-   "yield": 0.25
-  },
-  {
-   "ta": "Intensive Care Med",
-   "kept": 1,
-   "sent": 4,
-   "yield": 0.25
-  },
-  {
-   "ta": "Cell Oncol (Dordr)",
-   "kept": 1,
-   "sent": 4,
-   "yield": 0.25
   },
   {
    "ta": "Mol Cell Proteomics",
@@ -550,7 +1000,37 @@
    "yield": 0.25
   },
   {
+   "ta": "Prev Med",
+   "kept": 1,
+   "sent": 4,
+   "yield": 0.25
+  },
+  {
+   "ta": "Signal Transduct Target Ther",
+   "kept": 1,
+   "sent": 4,
+   "yield": 0.25
+  },
+  {
+   "ta": "Intensive Care Med",
+   "kept": 1,
+   "sent": 4,
+   "yield": 0.25
+  },
+  {
+   "ta": "Mod Pathol",
+   "kept": 1,
+   "sent": 4,
+   "yield": 0.25
+  },
+  {
    "ta": "Phenomics",
+   "kept": 1,
+   "sent": 4,
+   "yield": 0.25
+  },
+  {
+   "ta": "Int J Epidemiol",
    "kept": 1,
    "sent": 4,
    "yield": 0.25
@@ -562,7 +1042,13 @@
    "yield": 0.25
   },
   {
-   "ta": "Cell Death Differ",
+   "ta": "J Liq Biopsy",
+   "kept": 1,
+   "sent": 4,
+   "yield": 0.25
+  },
+  {
+   "ta": "Environ Int",
    "kept": 1,
    "sent": 4,
    "yield": 0.25
@@ -574,16 +1060,22 @@
    "yield": 0.25
   },
   {
-   "ta": "J Liq Biopsy",
+   "ta": "Cell Oncol (Dordr)",
    "kept": 1,
    "sent": 4,
    "yield": 0.25
   },
   {
-   "ta": "JAMA Oncol",
+   "ta": "Ann Surg Oncol",
    "kept": 1,
-   "sent": 3,
-   "yield": 0.333
+   "sent": 4,
+   "yield": 0.25
+  },
+  {
+   "ta": "Sci China Life Sci",
+   "kept": 1,
+   "sent": 4,
+   "yield": 0.25
   },
   {
    "ta": "Int J Nanomedicine",
@@ -592,31 +1084,7 @@
    "yield": 0.333
   },
   {
-   "ta": "Cancer Lett",
-   "kept": 1,
-   "sent": 3,
-   "yield": 0.333
-  },
-  {
-   "ta": "J Drug Target",
-   "kept": 1,
-   "sent": 3,
-   "yield": 0.333
-  },
-  {
-   "ta": "Br J Surg",
-   "kept": 1,
-   "sent": 3,
-   "yield": 0.333
-  },
-  {
-   "ta": "J Thorac Cardiovasc Surg",
-   "kept": 1,
-   "sent": 3,
-   "yield": 0.333
-  },
-  {
-   "ta": "Biochim Biophys Acta Mol Basis Dis",
+   "ta": "BJR Open",
    "kept": 1,
    "sent": 3,
    "yield": 0.333
@@ -628,7 +1096,19 @@
    "yield": 0.333
   },
   {
-   "ta": "Cancer Treat Rev",
+   "ta": "Updates Surg",
+   "kept": 1,
+   "sent": 3,
+   "yield": 0.333
+  },
+  {
+   "ta": "JAMA Oncol",
+   "kept": 1,
+   "sent": 3,
+   "yield": 0.333
+  },
+  {
+   "ta": "J Exp Clin Cancer Res",
    "kept": 1,
    "sent": 3,
    "yield": 0.333
@@ -640,7 +1120,49 @@
    "yield": 0.333
   },
   {
-   "ta": "Lancet Reg Health Eur",
+   "ta": "Br J Surg",
+   "kept": 1,
+   "sent": 3,
+   "yield": 0.333
+  },
+  {
+   "ta": "JNCI Cancer Spectr",
+   "kept": 1,
+   "sent": 3,
+   "yield": 0.333
+  },
+  {
+   "ta": "Lancet Planet Health",
+   "kept": 1,
+   "sent": 3,
+   "yield": 0.333
+  },
+  {
+   "ta": "Biochim Biophys Acta Mol Basis Dis",
+   "kept": 1,
+   "sent": 3,
+   "yield": 0.333
+  },
+  {
+   "ta": "Med",
+   "kept": 1,
+   "sent": 3,
+   "yield": 0.333
+  },
+  {
+   "ta": "J Drug Target",
+   "kept": 1,
+   "sent": 3,
+   "yield": 0.333
+  },
+  {
+   "ta": "Radiol Cardiothorac Imaging",
+   "kept": 1,
+   "sent": 2,
+   "yield": 0.5
+  },
+  {
+   "ta": "Cancer Sci",
    "kept": 1,
    "sent": 2,
    "yield": 0.5
@@ -652,19 +1174,7 @@
    "yield": 0.5
   },
   {
-   "ta": "Cell Commun Signal",
-   "kept": 1,
-   "sent": 2,
-   "yield": 0.5
-  },
-  {
-   "ta": "Clin Oncol (R Coll Radiol)",
-   "kept": 1,
-   "sent": 2,
-   "yield": 0.5
-  },
-  {
-   "ta": "Drug Resist Updat",
+   "ta": "Value Health",
    "kept": 1,
    "sent": 2,
    "yield": 0.5
@@ -676,52 +1186,34 @@
    "yield": 0.5
   },
   {
-   "ta": "Genome Med",
+   "ta": "Drug Resist Updat",
    "kept": 1,
    "sent": 2,
    "yield": 0.5
   },
   {
-   "ta": "Epidemiol Rev",
+   "ta": "Lancet Reg Health Eur",
    "kept": 1,
-   "sent": 1,
-   "yield": 1.0
+   "sent": 2,
+   "yield": 0.5
   },
   {
-   "ta": "mBio",
+   "ta": "Eur Radiol",
    "kept": 1,
-   "sent": 1,
-   "yield": 1.0
+   "sent": 2,
+   "yield": 0.5
   },
   {
-   "ta": "J Oncol Pharm Pract",
+   "ta": "Clin Oncol (R Coll Radiol)",
    "kept": 1,
-   "sent": 1,
-   "yield": 1.0
+   "sent": 2,
+   "yield": 0.5
   },
   {
-   "ta": "Cell Biochem Biophys",
+   "ta": "Cell Commun Signal",
    "kept": 1,
-   "sent": 1,
-   "yield": 1.0
-  },
-  {
-   "ta": "Nat Rev Dis Primers",
-   "kept": 1,
-   "sent": 1,
-   "yield": 1.0
-  },
-  {
-   "ta": "Clin Respir J",
-   "kept": 1,
-   "sent": 1,
-   "yield": 1.0
-  },
-  {
-   "ta": "Kidney Dis (Basel)",
-   "kept": 1,
-   "sent": 1,
-   "yield": 1.0
+   "sent": 2,
+   "yield": 0.5
   },
   {
    "ta": "Int J Surg Pathol",
@@ -730,25 +1222,7 @@
    "yield": 1.0
   },
   {
-   "ta": "J Toxicol Environ Health B Crit Rev",
-   "kept": 1,
-   "sent": 1,
-   "yield": 1.0
-  },
-  {
-   "ta": "Interdiscip Cardiovasc Thorac Surg",
-   "kept": 1,
-   "sent": 1,
-   "yield": 1.0
-  },
-  {
-   "ta": "J Cyst Fibros",
-   "kept": 1,
-   "sent": 1,
-   "yield": 1.0
-  },
-  {
-   "ta": "Mayo Clin Proc Innov Qual Outcomes",
+   "ta": "Can Liver J",
    "kept": 1,
    "sent": 1,
    "yield": 1.0
@@ -760,91 +1234,7 @@
    "yield": 1.0
   },
   {
-   "ta": "J Health Psychol",
-   "kept": 1,
-   "sent": 1,
-   "yield": 1.0
-  },
-  {
-   "ta": "Proteomes",
-   "kept": 1,
-   "sent": 1,
-   "yield": 1.0
-  },
-  {
-   "ta": "Z Med Phys",
-   "kept": 1,
-   "sent": 1,
-   "yield": 1.0
-  },
-  {
-   "ta": "Clin Cancer Res",
-   "kept": 1,
-   "sent": 1,
-   "yield": 1.0
-  },
-  {
-   "ta": "J Thorac Oncol",
-   "kept": 1,
-   "sent": 1,
-   "yield": 1.0
-  },
-  {
-   "ta": "Mol Biol Rep",
-   "kept": 1,
-   "sent": 1,
-   "yield": 1.0
-  },
-  {
-   "ta": "Cancer Manag Res",
-   "kept": 1,
-   "sent": 1,
-   "yield": 1.0
-  },
-  {
-   "ta": "Mol Carcinog",
-   "kept": 1,
-   "sent": 1,
-   "yield": 1.0
-  },
-  {
-   "ta": "Am J Respir Cell Mol Biol",
-   "kept": 1,
-   "sent": 1,
-   "yield": 1.0
-  },
-  {
-   "ta": "Resuscitation",
-   "kept": 1,
-   "sent": 1,
-   "yield": 1.0
-  },
-  {
-   "ta": "Epidemiol Serv Saude",
-   "kept": 1,
-   "sent": 1,
-   "yield": 1.0
-  },
-  {
-   "ta": "Chin J Integr Med",
-   "kept": 1,
-   "sent": 1,
-   "yield": 1.0
-  },
-  {
-   "ta": "Monaldi Arch Chest Dis",
-   "kept": 1,
-   "sent": 1,
-   "yield": 1.0
-  },
-  {
-   "ta": "J Extracell Vesicles",
-   "kept": 1,
-   "sent": 1,
-   "yield": 1.0
-  },
-  {
-   "ta": "Eur J Surg Oncol",
+   "ta": "Chin Med J (Engl)",
    "kept": 1,
    "sent": 1,
    "yield": 1.0
@@ -856,7 +1246,169 @@
    "yield": 1.0
   },
   {
-   "ta": "JCEM Case Rep",
+   "ta": "Mol Biol Rep",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Respirology",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Cell Discov",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Chin J Integr Med",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Proteomes",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Addict Health",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Integr Cancer Ther",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Mol Pharm",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "NPJ Digit Med",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Eur J Surg Oncol",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "J Cancer",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Am J Respir Cell Mol Biol",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "J Cachexia Sarcopenia Muscle",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Kidney Dis (Basel)",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "J Am Pharm Assoc (2003)",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "J Racial Ethn Health Disparities",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Radiol Imaging Cancer",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Integr Biol (Camb)",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Open Respir Arch",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Front Cell Dev Biol",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "J Mater Sci Mater Med",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Cancer Control",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Chirurgie (Heidelb)",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Cell Biochem Biophys",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Quant Imaging Med Surg",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "mBio",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Clin J Gastroenterol",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Middle East J Dig Dis",
    "kept": 1,
    "sent": 1,
    "yield": 1.0
@@ -868,7 +1420,253 @@
    "yield": 1.0
   },
   {
-   "ta": "J Immunother Cancer",
+   "ta": "Jpn J Clin Oncol",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Respir Med Case Rep",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Ann Med Surg (Lond)",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Lung Cancer (Auckl)",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Phytomedicine",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Clin Transl Immunology",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "J Surg Case Rep",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "IGIE",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "AAPS PharmSciTech",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Arch Biochem Biophys",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "J Toxicol Environ Health B Crit Rev",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Neuro Oncol",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Future Oncol",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Strahlenther Onkol",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "J Phys Chem B",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "ACS Appl Mater Interfaces",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "J Health Psychol",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Subst Use Addctn J",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Eur J Health Econ",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Clin Exp Metastasis",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "BMJ",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Clin Radiol",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "J Gastrointest Cancer",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "STAR Protoc",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "RSC Adv",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Cancer Chemother Pharmacol",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Clin Pharmacokinet",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Mater Today Bio",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Monaldi Arch Chest Dis",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Pulm Ther",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Colloids Surf B Biointerfaces",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Epigenomics",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Swiss Med Wkly",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Radiother Oncol",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Cancer Manag Res",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "J Cyst Fibros",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Surg Case Rep",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Respirol Case Rep",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "J Oncol Pharm Pract",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Ther Adv Respir Dis",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Epidemiol Serv Saude",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Front Microbiol",
    "kept": 1,
    "sent": 1,
    "yield": 1.0
@@ -880,7 +1678,223 @@
    "yield": 1.0
   },
   {
+   "ta": "Asian J Endosc Surg",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "JCEM Case Rep",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Epidemiol Rev",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Int J Med Sci",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Biomed Opt Express",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Expert Opin Pharmacother",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Cancer Commun (Lond)",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Clinics (Sao Paulo)",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Histol Histopathol",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Hlife",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Neurohospitalist",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "J Vis Surg",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Front Artif Intell",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Resuscitation",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Cancer Cytopathol",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Br J Cancer",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "SCIENCE",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "ANZ J Surg",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "J Immunother",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Mol Ther Adv",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Nat Rev Dis Primers",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Mayo Clin Proc Innov Qual Outcomes",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Bioelectrochemistry",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "J Immunother Cancer",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "JMIR Cancer",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Biomacromolecules",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Mol Carcinog",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Clin Respir J",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
    "ta": "Case Rep Ophthalmol",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Chem Res Toxicol",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "J Extracell Vesicles",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Biochim Biophys Acta Gen Subj",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "J Minim Access Surg",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Drug Des Devel Ther",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Z Med Phys",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Radiol Case Rep",
+   "kept": 1,
+   "sent": 1,
+   "yield": 1.0
+  },
+  {
+   "ta": "Mol Biotechnol",
    "kept": 1,
    "sent": 1,
    "yield": 1.0
@@ -889,12 +1903,6 @@
    "ta": "Int J Mol Sci",
    "kept": 0,
    "sent": 312,
-   "yield": 0.0
-  },
-  {
-   "ta": "Front Public Health",
-   "kept": 0,
-   "sent": 201,
    "yield": 0.0
   },
   {
@@ -925,12 +1933,6 @@
    "ta": "Microorganisms",
    "kept": 0,
    "sent": 128,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cancers (Basel)",
-   "kept": 0,
-   "sent": 127,
    "yield": 0.0
   },
   {
@@ -982,12 +1984,6 @@
    "yield": 0.0
   },
   {
-   "ta": "Front Pharmacol",
-   "kept": 0,
-   "sent": 76,
-   "yield": 0.0
-  },
-  {
    "ta": "Antibiotics (Basel)",
    "kept": 0,
    "sent": 74,
@@ -1012,13 +2008,13 @@
    "yield": 0.0
   },
   {
-   "ta": "Diagnostics (Basel)",
+   "ta": "BMC Public Health",
    "kept": 0,
    "sent": 55,
    "yield": 0.0
   },
   {
-   "ta": "BMC Public Health",
+   "ta": "Diagnostics (Basel)",
    "kept": 0,
    "sent": 55,
    "yield": 0.0
@@ -1066,12 +2062,6 @@
    "yield": 0.0
   },
   {
-   "ta": "Ecotoxicol Environ Saf",
-   "kept": 0,
-   "sent": 32,
-   "yield": 0.0
-  },
-  {
    "ta": "BMC Geriatr",
    "kept": 0,
    "sent": 31,
@@ -1090,12 +2080,6 @@
    "yield": 0.0
   },
   {
-   "ta": "BMC Nurs",
-   "kept": 0,
-   "sent": 27,
-   "yield": 0.0
-  },
-  {
    "ta": "BMJ Open",
    "kept": 0,
    "sent": 27,
@@ -1103,6 +2087,12 @@
   },
   {
    "ta": "BMC Infect Dis",
+   "kept": 0,
+   "sent": 27,
+   "yield": 0.0
+  },
+  {
+   "ta": "BMC Nurs",
    "kept": 0,
    "sent": 27,
    "yield": 0.0
@@ -1126,6 +2116,12 @@
    "yield": 0.0
   },
   {
+   "ta": "Acta Biomater",
+   "kept": 0,
+   "sent": 21,
+   "yield": 0.0
+  },
+  {
    "ta": "Environ Geochem Health",
    "kept": 0,
    "sent": 21,
@@ -1133,12 +2129,6 @@
   },
   {
    "ta": "Trop Med Infect Dis",
-   "kept": 0,
-   "sent": 21,
-   "yield": 0.0
-  },
-  {
-   "ta": "Acta Biomater",
    "kept": 0,
    "sent": 21,
    "yield": 0.0
@@ -1156,25 +2146,13 @@
    "yield": 0.0
   },
   {
-   "ta": "Cell Death Dis",
+   "ta": "Front Mol Biosci",
    "kept": 0,
-   "sent": 20,
+   "sent": 19,
    "yield": 0.0
   },
   {
    "ta": "FASEB J",
-   "kept": 0,
-   "sent": 19,
-   "yield": 0.0
-  },
-  {
-   "ta": "Theranostics",
-   "kept": 0,
-   "sent": 19,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Imaging",
    "kept": 0,
    "sent": 19,
    "yield": 0.0
@@ -1186,7 +2164,7 @@
    "yield": 0.0
   },
   {
-   "ta": "Front Mol Biosci",
+   "ta": "J Imaging",
    "kept": 0,
    "sent": 19,
    "yield": 0.0
@@ -1210,19 +2188,13 @@
    "yield": 0.0
   },
   {
-   "ta": "J Robot Surg",
-   "kept": 0,
-   "sent": 17,
-   "yield": 0.0
-  },
-  {
    "ta": "Curr Biol",
    "kept": 0,
    "sent": 17,
    "yield": 0.0
   },
   {
-   "ta": "Surgery",
+   "ta": "BioTech (Basel)",
    "kept": 0,
    "sent": 16,
    "yield": 0.0
@@ -1234,13 +2206,7 @@
    "yield": 0.0
   },
   {
-   "ta": "BioTech (Basel)",
-   "kept": 0,
-   "sent": 16,
-   "yield": 0.0
-  },
-  {
-   "ta": "Med Phys",
+   "ta": "Surgery",
    "kept": 0,
    "sent": 16,
    "yield": 0.0
@@ -1252,39 +2218,15 @@
    "yield": 0.0
   },
   {
-   "ta": "PLOS Digit Health",
-   "kept": 0,
-   "sent": 15,
-   "yield": 0.0
-  },
-  {
    "ta": "Natl Sci Rev",
    "kept": 0,
    "sent": 15,
    "yield": 0.0
   },
   {
-   "ta": "BMC Pediatr",
+   "ta": "PLOS Digit Health",
    "kept": 0,
-   "sent": 14,
-   "yield": 0.0
-  },
-  {
-   "ta": "Bioact Mater",
-   "kept": 0,
-   "sent": 14,
-   "yield": 0.0
-  },
-  {
-   "ta": "Front Genet",
-   "kept": 0,
-   "sent": 14,
-   "yield": 0.0
-  },
-  {
-   "ta": "Belitung Nurs J",
-   "kept": 0,
-   "sent": 14,
+   "sent": 15,
    "yield": 0.0
   },
   {
@@ -1300,13 +2242,31 @@
    "yield": 0.0
   },
   {
+   "ta": "BMC Pediatr",
+   "kept": 0,
+   "sent": 14,
+   "yield": 0.0
+  },
+  {
    "ta": "Epidemiologia (Basel)",
    "kept": 0,
    "sent": 14,
    "yield": 0.0
   },
   {
-   "ta": "Clin Perinatol",
+   "ta": "Belitung Nurs J",
+   "kept": 0,
+   "sent": 14,
+   "yield": 0.0
+  },
+  {
+   "ta": "Bioact Mater",
+   "kept": 0,
+   "sent": 14,
+   "yield": 0.0
+  },
+  {
+   "ta": "Adv Healthc Mater",
    "kept": 0,
    "sent": 13,
    "yield": 0.0
@@ -1318,31 +2278,25 @@
    "yield": 0.0
   },
   {
-   "ta": "J Vasc Surg",
-   "kept": 0,
-   "sent": 13,
-   "yield": 0.0
-  },
-  {
-   "ta": "Adv Healthc Mater",
-   "kept": 0,
-   "sent": 13,
-   "yield": 0.0
-  },
-  {
    "ta": "Biosens Bioelectron",
    "kept": 0,
    "sent": 13,
    "yield": 0.0
   },
   {
-   "ta": "Resusc Plus",
+   "ta": "Clin Perinatol",
    "kept": 0,
-   "sent": 12,
+   "sent": 13,
    "yield": 0.0
   },
   {
-   "ta": "AIMS Public Health",
+   "ta": "J Vasc Surg",
+   "kept": 0,
+   "sent": 13,
+   "yield": 0.0
+  },
+  {
+   "ta": "BMC Gastroenterol",
    "kept": 0,
    "sent": 12,
    "yield": 0.0
@@ -1354,7 +2308,7 @@
    "yield": 0.0
   },
   {
-   "ta": "J Imaging Inform Med",
+   "ta": "AIMS Public Health",
    "kept": 0,
    "sent": 12,
    "yield": 0.0
@@ -1366,9 +2320,15 @@
    "yield": 0.0
   },
   {
-   "ta": "BMC Gastroenterol",
+   "ta": "Resusc Plus",
    "kept": 0,
    "sent": 12,
+   "yield": 0.0
+  },
+  {
+   "ta": "Brief Bioinform",
+   "kept": 0,
+   "sent": 11,
    "yield": 0.0
   },
   {
@@ -1378,13 +2338,25 @@
    "yield": 0.0
   },
   {
-   "ta": "Am J Emerg Med",
+   "ta": "Biomaterials",
    "kept": 0,
    "sent": 11,
    "yield": 0.0
   },
   {
-   "ta": "Eur J Pharmacol",
+   "ta": "Appl Microbiol Biotechnol",
+   "kept": 0,
+   "sent": 11,
+   "yield": 0.0
+  },
+  {
+   "ta": "Cell Death Discov",
+   "kept": 0,
+   "sent": 11,
+   "yield": 0.0
+  },
+  {
+   "ta": "Int J Neonatal Screen",
    "kept": 0,
    "sent": 11,
    "yield": 0.0
@@ -1402,49 +2374,7 @@
    "yield": 0.0
   },
   {
-   "ta": "Brief Bioinform",
-   "kept": 0,
-   "sent": 11,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cell",
-   "kept": 0,
-   "sent": 11,
-   "yield": 0.0
-  },
-  {
-   "ta": "Mol Biomed",
-   "kept": 0,
-   "sent": 11,
-   "yield": 0.0
-  },
-  {
-   "ta": "Int J Neonatal Screen",
-   "kept": 0,
-   "sent": 11,
-   "yield": 0.0
-  },
-  {
-   "ta": "Appl Microbiol Biotechnol",
-   "kept": 0,
-   "sent": 11,
-   "yield": 0.0
-  },
-  {
-   "ta": "Biomaterials",
-   "kept": 0,
-   "sent": 11,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Cell Biol",
-   "kept": 0,
-   "sent": 11,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cell Death Discov",
+   "ta": "Am J Emerg Med",
    "kept": 0,
    "sent": 11,
    "yield": 0.0
@@ -1456,13 +2386,19 @@
    "yield": 0.0
   },
   {
+   "ta": "J Cell Biol",
+   "kept": 0,
+   "sent": 11,
+   "yield": 0.0
+  },
+  {
    "ta": "Ann N Y Acad Sci",
    "kept": 0,
    "sent": 11,
    "yield": 0.0
   },
   {
-   "ta": "BMC Surg",
+   "ta": "JMIR Med Inform",
    "kept": 0,
    "sent": 10,
    "yield": 0.0
@@ -1474,7 +2410,7 @@
    "yield": 0.0
   },
   {
-   "ta": "JMIR Med Inform",
+   "ta": "Implement Sci Commun",
    "kept": 0,
    "sent": 10,
    "yield": 0.0
@@ -1492,73 +2428,7 @@
    "yield": 0.0
   },
   {
-   "ta": "J Control Release",
-   "kept": 0,
-   "sent": 10,
-   "yield": 0.0
-  },
-  {
-   "ta": "Implement Sci Commun",
-   "kept": 0,
-   "sent": 10,
-   "yield": 0.0
-  },
-  {
-   "ta": "Clin Nucl Med",
-   "kept": 0,
-   "sent": 10,
-   "yield": 0.0
-  },
-  {
-   "ta": "IEEE J Biomed Health Inform",
-   "kept": 0,
-   "sent": 9,
-   "yield": 0.0
-  },
-  {
-   "ta": "BJS Open",
-   "kept": 0,
-   "sent": 9,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cell Mol Life Sci",
-   "kept": 0,
-   "sent": 9,
-   "yield": 0.0
-  },
-  {
-   "ta": "Front Allergy",
-   "kept": 0,
-   "sent": 9,
-   "yield": 0.0
-  },
-  {
-   "ta": "Pediatrics",
-   "kept": 0,
-   "sent": 9,
-   "yield": 0.0
-  },
-  {
-   "ta": "Environ Toxicol Pharmacol",
-   "kept": 0,
-   "sent": 9,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Surg Res",
-   "kept": 0,
-   "sent": 9,
-   "yield": 0.0
-  },
-  {
-   "ta": "Plast Reconstr Surg Glob Open",
-   "kept": 0,
-   "sent": 9,
-   "yield": 0.0
-  },
-  {
-   "ta": "Addiction",
+   "ta": "J Adolesc Health",
    "kept": 0,
    "sent": 9,
    "yield": 0.0
@@ -1570,13 +2440,13 @@
    "yield": 0.0
   },
   {
-   "ta": "Biodegradation",
+   "ta": "J Surg Res",
    "kept": 0,
    "sent": 9,
    "yield": 0.0
   },
   {
-   "ta": "J Adolesc Health",
+   "ta": "Biodegradation",
    "kept": 0,
    "sent": 9,
    "yield": 0.0
@@ -1594,19 +2464,31 @@
    "yield": 0.0
   },
   {
+   "ta": "BJS Open",
+   "kept": 0,
+   "sent": 9,
+   "yield": 0.0
+  },
+  {
+   "ta": "Front Allergy",
+   "kept": 0,
+   "sent": 9,
+   "yield": 0.0
+  },
+  {
+   "ta": "IEEE J Biomed Health Inform",
+   "kept": 0,
+   "sent": 9,
+   "yield": 0.0
+  },
+  {
    "ta": "ACS Chem Biol",
    "kept": 0,
    "sent": 9,
    "yield": 0.0
   },
   {
-   "ta": "Cochrane Database Syst Rev",
-   "kept": 0,
-   "sent": 9,
-   "yield": 0.0
-  },
-  {
-   "ta": "Pediatr Surg Int",
+   "ta": "Addiction",
    "kept": 0,
    "sent": 9,
    "yield": 0.0
@@ -1618,13 +2500,31 @@
    "yield": 0.0
   },
   {
-   "ta": "J Appl Clin Med Phys",
+   "ta": "Cochrane Database Syst Rev",
    "kept": 0,
-   "sent": 8,
+   "sent": 9,
    "yield": 0.0
   },
   {
-   "ta": "Clin Transplant",
+   "ta": "Pediatrics",
+   "kept": 0,
+   "sent": 9,
+   "yield": 0.0
+  },
+  {
+   "ta": "Plast Reconstr Surg Glob Open",
+   "kept": 0,
+   "sent": 9,
+   "yield": 0.0
+  },
+  {
+   "ta": "Environ Toxicol Pharmacol",
+   "kept": 0,
+   "sent": 9,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Appl Clin Med Phys",
    "kept": 0,
    "sent": 8,
    "yield": 0.0
@@ -1636,37 +2536,19 @@
    "yield": 0.0
   },
   {
+   "ta": "Mol Med",
+   "kept": 0,
+   "sent": 8,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Urban Health",
+   "kept": 0,
+   "sent": 8,
+   "yield": 0.0
+  },
+  {
    "ta": "ASAIO J",
-   "kept": 0,
-   "sent": 8,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Pediatr Gastroenterol Nutr",
-   "kept": 0,
-   "sent": 8,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Physiol",
-   "kept": 0,
-   "sent": 8,
-   "yield": 0.0
-  },
-  {
-   "ta": "Funct Integr Genomics",
-   "kept": 0,
-   "sent": 8,
-   "yield": 0.0
-  },
-  {
-   "ta": "JPEN J Parenter Enteral Nutr",
-   "kept": 0,
-   "sent": 8,
-   "yield": 0.0
-  },
-  {
-   "ta": "Med Oncol",
    "kept": 0,
    "sent": 8,
    "yield": 0.0
@@ -1678,19 +2560,13 @@
    "yield": 0.0
   },
   {
-   "ta": "Toxicol Res",
+   "ta": "Clin Transplant",
    "kept": 0,
    "sent": 8,
    "yield": 0.0
   },
   {
-   "ta": "BMC Palliat Care",
-   "kept": 0,
-   "sent": 8,
-   "yield": 0.0
-  },
-  {
-   "ta": "Drug Dev Res",
+   "ta": "Am J Epidemiol",
    "kept": 0,
    "sent": 8,
    "yield": 0.0
@@ -1702,7 +2578,31 @@
    "yield": 0.0
   },
   {
-   "ta": "Mol Med",
+   "ta": "BMC Palliat Care",
+   "kept": 0,
+   "sent": 8,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Pediatr Gastroenterol Nutr",
+   "kept": 0,
+   "sent": 8,
+   "yield": 0.0
+  },
+  {
+   "ta": "Toxicol Res",
+   "kept": 0,
+   "sent": 8,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Physiol",
+   "kept": 0,
+   "sent": 8,
+   "yield": 0.0
+  },
+  {
+   "ta": "Drug Dev Res",
    "kept": 0,
    "sent": 8,
    "yield": 0.0
@@ -1720,25 +2620,13 @@
    "yield": 0.0
   },
   {
-   "ta": "Am J Epidemiol",
+   "ta": "JPEN J Parenter Enteral Nutr",
    "kept": 0,
    "sent": 8,
    "yield": 0.0
   },
   {
-   "ta": "J Urban Health",
-   "kept": 0,
-   "sent": 8,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Am Geriatr Soc",
-   "kept": 0,
-   "sent": 7,
-   "yield": 0.0
-  },
-  {
-   "ta": "Hum Mutat",
+   "ta": "Ultrasound Med Biol",
    "kept": 0,
    "sent": 7,
    "yield": 0.0
@@ -1750,103 +2638,7 @@
    "yield": 0.0
   },
   {
-   "ta": "Am J Prev Med",
-   "kept": 0,
-   "sent": 7,
-   "yield": 0.0
-  },
-  {
-   "ta": "World J Surg",
-   "kept": 0,
-   "sent": 7,
-   "yield": 0.0
-  },
-  {
-   "ta": "Scand J Prim Health Care",
-   "kept": 0,
-   "sent": 7,
-   "yield": 0.0
-  },
-  {
-   "ta": "BMC Anesthesiol",
-   "kept": 0,
-   "sent": 7,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Pharm Sci",
-   "kept": 0,
-   "sent": 7,
-   "yield": 0.0
-  },
-  {
    "ta": "Curr Probl Pediatr Adolesc Health Care",
-   "kept": 0,
-   "sent": 7,
-   "yield": 0.0
-  },
-  {
-   "ta": "Semin Nucl Med",
-   "kept": 0,
-   "sent": 7,
-   "yield": 0.0
-  },
-  {
-   "ta": "Ultrasound Med Biol",
-   "kept": 0,
-   "sent": 7,
-   "yield": 0.0
-  },
-  {
-   "ta": "Ann Surg Treat Res",
-   "kept": 0,
-   "sent": 7,
-   "yield": 0.0
-  },
-  {
-   "ta": "Transplantation",
-   "kept": 0,
-   "sent": 7,
-   "yield": 0.0
-  },
-  {
-   "ta": "Mol Med Rep",
-   "kept": 0,
-   "sent": 7,
-   "yield": 0.0
-  },
-  {
-   "ta": "FEBS J",
-   "kept": 0,
-   "sent": 7,
-   "yield": 0.0
-  },
-  {
-   "ta": "PLoS Med",
-   "kept": 0,
-   "sent": 7,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cancer Treat Res Commun",
-   "kept": 0,
-   "sent": 7,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Thromb Haemost",
-   "kept": 0,
-   "sent": 7,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Cell Mol Med",
-   "kept": 0,
-   "sent": 7,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Med Virol",
    "kept": 0,
    "sent": 7,
    "yield": 0.0
@@ -1858,7 +2650,37 @@
    "yield": 0.0
   },
   {
-   "ta": "Drug Alcohol Depend",
+   "ta": "Hum Mutat",
+   "kept": 0,
+   "sent": 7,
+   "yield": 0.0
+  },
+  {
+   "ta": "Scand J Prim Health Care",
+   "kept": 0,
+   "sent": 7,
+   "yield": 0.0
+  },
+  {
+   "ta": "Am J Prev Med",
+   "kept": 0,
+   "sent": 7,
+   "yield": 0.0
+  },
+  {
+   "ta": "PLoS Med",
+   "kept": 0,
+   "sent": 7,
+   "yield": 0.0
+  },
+  {
+   "ta": "Mol Med Rep",
+   "kept": 0,
+   "sent": 7,
+   "yield": 0.0
+  },
+  {
+   "ta": "Cancer Treat Res Commun",
    "kept": 0,
    "sent": 7,
    "yield": 0.0
@@ -1870,43 +2692,73 @@
    "yield": 0.0
   },
   {
-   "ta": "J Hosp Med",
+   "ta": "Semin Nucl Med",
    "kept": 0,
-   "sent": 6,
+   "sent": 7,
+   "yield": 0.0
+  },
+  {
+   "ta": "FEBS J",
+   "kept": 0,
+   "sent": 7,
+   "yield": 0.0
+  },
+  {
+   "ta": "Transplantation",
+   "kept": 0,
+   "sent": 7,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Thromb Haemost",
+   "kept": 0,
+   "sent": 7,
+   "yield": 0.0
+  },
+  {
+   "ta": "Drug Alcohol Depend",
+   "kept": 0,
+   "sent": 7,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Med Virol",
+   "kept": 0,
+   "sent": 7,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Am Geriatr Soc",
+   "kept": 0,
+   "sent": 7,
+   "yield": 0.0
+  },
+  {
+   "ta": "Ann Surg Treat Res",
+   "kept": 0,
+   "sent": 7,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Pharm Sci",
+   "kept": 0,
+   "sent": 7,
+   "yield": 0.0
+  },
+  {
+   "ta": "World J Surg",
+   "kept": 0,
+   "sent": 7,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Cell Mol Med",
+   "kept": 0,
+   "sent": 7,
    "yield": 0.0
   },
   {
    "ta": "Magn Reson Imaging",
-   "kept": 0,
-   "sent": 6,
-   "yield": 0.0
-  },
-  {
-   "ta": "PLoS Genet",
-   "kept": 0,
-   "sent": 6,
-   "yield": 0.0
-  },
-  {
-   "ta": "Orphanet J Rare Dis",
-   "kept": 0,
-   "sent": 6,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Plast Reconstr Aesthet Surg",
-   "kept": 0,
-   "sent": 6,
-   "yield": 0.0
-  },
-  {
-   "ta": "Nutr Rev",
-   "kept": 0,
-   "sent": 6,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Health Popul Nutr",
    "kept": 0,
    "sent": 6,
    "yield": 0.0
@@ -1918,97 +2770,7 @@
    "yield": 0.0
   },
   {
-   "ta": "Eur J Clin Pharmacol",
-   "kept": 0,
-   "sent": 6,
-   "yield": 0.0
-  },
-  {
-   "ta": "Age Ageing",
-   "kept": 0,
-   "sent": 6,
-   "yield": 0.0
-  },
-  {
-   "ta": "Eur J Radiol",
-   "kept": 0,
-   "sent": 6,
-   "yield": 0.0
-  },
-  {
-   "ta": "Acta Paediatr",
-   "kept": 0,
-   "sent": 6,
-   "yield": 0.0
-  },
-  {
-   "ta": "Mol Ther",
-   "kept": 0,
-   "sent": 6,
-   "yield": 0.0
-  },
-  {
-   "ta": "Adv Radiat Oncol",
-   "kept": 0,
-   "sent": 6,
-   "yield": 0.0
-  },
-  {
-   "ta": "Rev Paul Pediatr",
-   "kept": 0,
-   "sent": 6,
-   "yield": 0.0
-  },
-  {
    "ta": "Int J Pediatr Otorhinolaryngol",
-   "kept": 0,
-   "sent": 6,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cancer Res Commun",
-   "kept": 0,
-   "sent": 6,
-   "yield": 0.0
-  },
-  {
-   "ta": "Physiother Theory Pract",
-   "kept": 0,
-   "sent": 6,
-   "yield": 0.0
-  },
-  {
-   "ta": "Curr Nutr Rep",
-   "kept": 0,
-   "sent": 6,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Res Nurs",
-   "kept": 0,
-   "sent": 6,
-   "yield": 0.0
-  },
-  {
-   "ta": "Glob Health Action",
-   "kept": 0,
-   "sent": 6,
-   "yield": 0.0
-  },
-  {
-   "ta": "Genetics",
-   "kept": 0,
-   "sent": 6,
-   "yield": 0.0
-  },
-  {
-   "ta": "Langenbecks Arch Surg",
-   "kept": 0,
-   "sent": 6,
-   "yield": 0.0
-  },
-  {
-   "ta": "Surg Endosc",
    "kept": 0,
    "sent": 6,
    "yield": 0.0
@@ -2020,19 +2782,43 @@
    "yield": 0.0
   },
   {
-   "ta": "J Gen Intern Med",
+   "ta": "J Plast Reconstr Aesthet Surg",
    "kept": 0,
    "sent": 6,
    "yield": 0.0
   },
   {
-   "ta": "J Gastrointest Surg",
+   "ta": "Rev Paul Pediatr",
    "kept": 0,
    "sent": 6,
    "yield": 0.0
   },
   {
-   "ta": "Aliment Pharmacol Ther",
+   "ta": "Physiother Theory Pract",
+   "kept": 0,
+   "sent": 6,
+   "yield": 0.0
+  },
+  {
+   "ta": "Langenbecks Arch Surg",
+   "kept": 0,
+   "sent": 6,
+   "yield": 0.0
+  },
+  {
+   "ta": "Nutr Rev",
+   "kept": 0,
+   "sent": 6,
+   "yield": 0.0
+  },
+  {
+   "ta": "Age Ageing",
+   "kept": 0,
+   "sent": 6,
+   "yield": 0.0
+  },
+  {
+   "ta": "Curr Nutr Rep",
    "kept": 0,
    "sent": 6,
    "yield": 0.0
@@ -2044,13 +2830,85 @@
    "yield": 0.0
   },
   {
+   "ta": "J Health Popul Nutr",
+   "kept": 0,
+   "sent": 6,
+   "yield": 0.0
+  },
+  {
    "ta": "World J Surg Oncol",
    "kept": 0,
    "sent": 6,
    "yield": 0.0
   },
   {
-   "ta": "Clin Transl Radiat Oncol",
+   "ta": "Orphanet J Rare Dis",
+   "kept": 0,
+   "sent": 6,
+   "yield": 0.0
+  },
+  {
+   "ta": "Glob Health Action",
+   "kept": 0,
+   "sent": 6,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Gastrointest Surg",
+   "kept": 0,
+   "sent": 6,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Gen Intern Med",
+   "kept": 0,
+   "sent": 6,
+   "yield": 0.0
+  },
+  {
+   "ta": "Cancer Res Commun",
+   "kept": 0,
+   "sent": 6,
+   "yield": 0.0
+  },
+  {
+   "ta": "Acta Paediatr",
+   "kept": 0,
+   "sent": 6,
+   "yield": 0.0
+  },
+  {
+   "ta": "Eur J Radiol",
+   "kept": 0,
+   "sent": 6,
+   "yield": 0.0
+  },
+  {
+   "ta": "Genetics",
+   "kept": 0,
+   "sent": 6,
+   "yield": 0.0
+  },
+  {
+   "ta": "Eur J Clin Pharmacol",
+   "kept": 0,
+   "sent": 6,
+   "yield": 0.0
+  },
+  {
+   "ta": "PLoS Genet",
+   "kept": 0,
+   "sent": 6,
+   "yield": 0.0
+  },
+  {
+   "ta": "Adv Radiat Oncol",
+   "kept": 0,
+   "sent": 6,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Hosp Med",
    "kept": 0,
    "sent": 6,
    "yield": 0.0
@@ -2062,73 +2920,25 @@
    "yield": 0.0
   },
   {
-   "ta": "Am J Surg",
+   "ta": "J Res Nurs",
+   "kept": 0,
+   "sent": 6,
+   "yield": 0.0
+  },
+  {
+   "ta": "Mol Ther",
+   "kept": 0,
+   "sent": 6,
+   "yield": 0.0
+  },
+  {
+   "ta": "Am J Infect Control",
    "kept": 0,
    "sent": 5,
    "yield": 0.0
   },
   {
-   "ta": "Clin Exp Rheumatol",
-   "kept": 0,
-   "sent": 5,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Pediatr Surg",
-   "kept": 0,
-   "sent": 5,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Transcult Nurs",
-   "kept": 0,
-   "sent": 5,
-   "yield": 0.0
-  },
-  {
-   "ta": "Front Fungal Biol",
-   "kept": 0,
-   "sent": 5,
-   "yield": 0.0
-  },
-  {
-   "ta": "Mem Inst Oswaldo Cruz",
-   "kept": 0,
-   "sent": 5,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Appl Physiol (1985)",
-   "kept": 0,
-   "sent": 5,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Cancer Res Clin Oncol",
-   "kept": 0,
-   "sent": 5,
-   "yield": 0.0
-  },
-  {
-   "ta": "Life Sci",
-   "kept": 0,
-   "sent": 5,
-   "yield": 0.0
-  },
-  {
-   "ta": "Int J Nurs Stud Adv",
-   "kept": 0,
-   "sent": 5,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Clin Anesth",
-   "kept": 0,
-   "sent": 5,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Am Coll Radiol",
+   "ta": "J Environ Pathol Toxicol Oncol",
    "kept": 0,
    "sent": 5,
    "yield": 0.0
@@ -2140,43 +2950,31 @@
    "yield": 0.0
   },
   {
-   "ta": "Drugs",
-   "kept": 0,
-   "sent": 5,
-   "yield": 0.0
-  },
-  {
-   "ta": "Autoimmun Rev",
-   "kept": 0,
-   "sent": 5,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Surg Educ",
-   "kept": 0,
-   "sent": 5,
-   "yield": 0.0
-  },
-  {
    "ta": "J Expo Sci Environ Epidemiol",
    "kept": 0,
    "sent": 5,
    "yield": 0.0
   },
   {
-   "ta": "Abdom Radiol (NY)",
+   "ta": "Nat Cell Biol",
    "kept": 0,
    "sent": 5,
    "yield": 0.0
   },
   {
-   "ta": "Gene",
+   "ta": "J Cancer Res Clin Oncol",
    "kept": 0,
    "sent": 5,
    "yield": 0.0
   },
   {
-   "ta": "RNA",
+   "ta": "Acta Trop",
+   "kept": 0,
+   "sent": 5,
+   "yield": 0.0
+  },
+  {
+   "ta": "Res Pract Thromb Haemost",
    "kept": 0,
    "sent": 5,
    "yield": 0.0
@@ -2188,97 +2986,13 @@
    "yield": 0.0
   },
   {
-   "ta": "Surg Radiol Anat",
-   "kept": 0,
-   "sent": 5,
-   "yield": 0.0
-  },
-  {
-   "ta": "Int J Cancer",
-   "kept": 0,
-   "sent": 5,
-   "yield": 0.0
-  },
-  {
-   "ta": "Emerg Med Australas",
-   "kept": 0,
-   "sent": 5,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cancer Immunol Res",
-   "kept": 0,
-   "sent": 5,
-   "yield": 0.0
-  },
-  {
-   "ta": "JMIR Mhealth Uhealth",
-   "kept": 0,
-   "sent": 5,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cancer Immunol Immunother",
-   "kept": 0,
-   "sent": 5,
-   "yield": 0.0
-  },
-  {
-   "ta": "Comput Struct Biotechnol J",
-   "kept": 0,
-   "sent": 5,
-   "yield": 0.0
-  },
-  {
-   "ta": "JPRAS Open",
-   "kept": 0,
-   "sent": 5,
-   "yield": 0.0
-  },
-  {
-   "ta": "Front Toxicol",
-   "kept": 0,
-   "sent": 5,
-   "yield": 0.0
-  },
-  {
-   "ta": "Transl Oncol",
-   "kept": 0,
-   "sent": 5,
-   "yield": 0.0
-  },
-  {
-   "ta": "Am J Infect Control",
-   "kept": 0,
-   "sent": 5,
-   "yield": 0.0
-  },
-  {
    "ta": "Regen Ther",
    "kept": 0,
    "sent": 5,
    "yield": 0.0
   },
   {
-   "ta": "Adv Neonatal Care",
-   "kept": 0,
-   "sent": 5,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cell Metab",
-   "kept": 0,
-   "sent": 5,
-   "yield": 0.0
-  },
-  {
-   "ta": "Mol Cell",
-   "kept": 0,
-   "sent": 5,
-   "yield": 0.0
-  },
-  {
-   "ta": "Acta Trop",
+   "ta": "Emerg Med Australas",
    "kept": 0,
    "sent": 5,
    "yield": 0.0
@@ -2296,31 +3010,7 @@
    "yield": 0.0
   },
   {
-   "ta": "Prev Chronic Dis",
-   "kept": 0,
-   "sent": 5,
-   "yield": 0.0
-  },
-  {
-   "ta": "Int J Drug Policy",
-   "kept": 0,
-   "sent": 5,
-   "yield": 0.0
-  },
-  {
-   "ta": "Pediatr Blood Cancer",
-   "kept": 0,
-   "sent": 5,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Environ Pathol Toxicol Oncol",
-   "kept": 0,
-   "sent": 5,
-   "yield": 0.0
-  },
-  {
-   "ta": "Nat Cell Biol",
+   "ta": "Int J Nurs Stud Adv",
    "kept": 0,
    "sent": 5,
    "yield": 0.0
@@ -2332,43 +3022,19 @@
    "yield": 0.0
   },
   {
-   "ta": "Comput Methods Programs Biomed",
+   "ta": "Front Toxicol",
    "kept": 0,
    "sent": 5,
    "yield": 0.0
   },
   {
-   "ta": "Biochimie",
+   "ta": "Comput Struct Biotechnol J",
    "kept": 0,
    "sent": 5,
    "yield": 0.0
   },
   {
-   "ta": "Dig Liver Dis",
-   "kept": 0,
-   "sent": 5,
-   "yield": 0.0
-  },
-  {
-   "ta": "Annu Rev Microbiol",
-   "kept": 0,
-   "sent": 5,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Clin Invest",
-   "kept": 0,
-   "sent": 5,
-   "yield": 0.0
-  },
-  {
-   "ta": "Free Radic Biol Med",
-   "kept": 0,
-   "sent": 5,
-   "yield": 0.0
-  },
-  {
-   "ta": "BMC Med Genomics",
+   "ta": "JMIR Mhealth Uhealth",
    "kept": 0,
    "sent": 5,
    "yield": 0.0
@@ -2380,25 +3046,55 @@
    "yield": 0.0
   },
   {
-   "ta": "Mol Cancer Ther",
+   "ta": "Cancer Immunol Immunother",
    "kept": 0,
    "sent": 5,
    "yield": 0.0
   },
   {
-   "ta": "Biomed Eng Online",
+   "ta": "Am J Public Health",
    "kept": 0,
    "sent": 5,
    "yield": 0.0
   },
   {
-   "ta": "Insights Imaging",
+   "ta": "J Pediatr Surg",
    "kept": 0,
    "sent": 5,
    "yield": 0.0
   },
   {
-   "ta": "Res Pract Thromb Haemost",
+   "ta": "Gene",
+   "kept": 0,
+   "sent": 5,
+   "yield": 0.0
+  },
+  {
+   "ta": "Surg Radiol Anat",
+   "kept": 0,
+   "sent": 5,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Surg Educ",
+   "kept": 0,
+   "sent": 5,
+   "yield": 0.0
+  },
+  {
+   "ta": "ESMO Open",
+   "kept": 0,
+   "sent": 5,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Appl Physiol (1985)",
+   "kept": 0,
+   "sent": 5,
+   "yield": 0.0
+  },
+  {
+   "ta": "Biochimie",
    "kept": 0,
    "sent": 5,
    "yield": 0.0
@@ -2416,31 +3112,271 @@
    "yield": 0.0
   },
   {
-   "ta": "ESMO Open",
+   "ta": "Cell Metab",
    "kept": 0,
    "sent": 5,
    "yield": 0.0
   },
   {
-   "ta": "Am J Public Health",
+   "ta": "Abdom Radiol (NY)",
    "kept": 0,
    "sent": 5,
    "yield": 0.0
   },
   {
-   "ta": "mSystems",
+   "ta": "Pediatr Blood Cancer",
+   "kept": 0,
+   "sent": 5,
+   "yield": 0.0
+  },
+  {
+   "ta": "Annu Rev Microbiol",
+   "kept": 0,
+   "sent": 5,
+   "yield": 0.0
+  },
+  {
+   "ta": "Am J Surg",
+   "kept": 0,
+   "sent": 5,
+   "yield": 0.0
+  },
+  {
+   "ta": "Free Radic Biol Med",
+   "kept": 0,
+   "sent": 5,
+   "yield": 0.0
+  },
+  {
+   "ta": "JPRAS Open",
+   "kept": 0,
+   "sent": 5,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Transcult Nurs",
+   "kept": 0,
+   "sent": 5,
+   "yield": 0.0
+  },
+  {
+   "ta": "Biomed Eng Online",
+   "kept": 0,
+   "sent": 5,
+   "yield": 0.0
+  },
+  {
+   "ta": "Prev Chronic Dis",
+   "kept": 0,
+   "sent": 5,
+   "yield": 0.0
+  },
+  {
+   "ta": "Mol Cancer Ther",
+   "kept": 0,
+   "sent": 5,
+   "yield": 0.0
+  },
+  {
+   "ta": "RNA",
+   "kept": 0,
+   "sent": 5,
+   "yield": 0.0
+  },
+  {
+   "ta": "Mem Inst Oswaldo Cruz",
+   "kept": 0,
+   "sent": 5,
+   "yield": 0.0
+  },
+  {
+   "ta": "Clin Exp Rheumatol",
+   "kept": 0,
+   "sent": 5,
+   "yield": 0.0
+  },
+  {
+   "ta": "Mol Cell",
+   "kept": 0,
+   "sent": 5,
+   "yield": 0.0
+  },
+  {
+   "ta": "Dig Liver Dis",
+   "kept": 0,
+   "sent": 5,
+   "yield": 0.0
+  },
+  {
+   "ta": "Insights Imaging",
+   "kept": 0,
+   "sent": 5,
+   "yield": 0.0
+  },
+  {
+   "ta": "Adv Neonatal Care",
+   "kept": 0,
+   "sent": 5,
+   "yield": 0.0
+  },
+  {
+   "ta": "Int J Drug Policy",
+   "kept": 0,
+   "sent": 5,
+   "yield": 0.0
+  },
+  {
+   "ta": "Autoimmun Rev",
+   "kept": 0,
+   "sent": 5,
+   "yield": 0.0
+  },
+  {
+   "ta": "Front Fungal Biol",
+   "kept": 0,
+   "sent": 5,
+   "yield": 0.0
+  },
+  {
+   "ta": "BMC Med Genomics",
+   "kept": 0,
+   "sent": 5,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Clin Anesth",
+   "kept": 0,
+   "sent": 5,
+   "yield": 0.0
+  },
+  {
+   "ta": "Comput Methods Programs Biomed",
+   "kept": 0,
+   "sent": 5,
+   "yield": 0.0
+  },
+  {
+   "ta": "Trends Biotechnol",
    "kept": 0,
    "sent": 4,
    "yield": 0.0
   },
   {
-   "ta": "J Clin Epidemiol",
+   "ta": "Biometals",
    "kept": 0,
    "sent": 4,
    "yield": 0.0
   },
   {
-   "ta": "Allergy",
+   "ta": "Cell Mol Gastroenterol Hepatol",
+   "kept": 0,
+   "sent": 4,
+   "yield": 0.0
+  },
+  {
+   "ta": "Aust N Z J Public Health",
+   "kept": 0,
+   "sent": 4,
+   "yield": 0.0
+  },
+  {
+   "ta": "Ann Emerg Med",
+   "kept": 0,
+   "sent": 4,
+   "yield": 0.0
+  },
+  {
+   "ta": "Curr Opin Rheumatol",
+   "kept": 0,
+   "sent": 4,
+   "yield": 0.0
+  },
+  {
+   "ta": "PNAS Nexus",
+   "kept": 0,
+   "sent": 4,
+   "yield": 0.0
+  },
+  {
+   "ta": "Mol Ther Oncol",
+   "kept": 0,
+   "sent": 4,
+   "yield": 0.0
+  },
+  {
+   "ta": "Mayo Clin Proc",
+   "kept": 0,
+   "sent": 4,
+   "yield": 0.0
+  },
+  {
+   "ta": "Transplant Cell Ther",
+   "kept": 0,
+   "sent": 4,
+   "yield": 0.0
+  },
+  {
+   "ta": "Harm Reduct J",
+   "kept": 0,
+   "sent": 4,
+   "yield": 0.0
+  },
+  {
+   "ta": "Inflamm Res",
+   "kept": 0,
+   "sent": 4,
+   "yield": 0.0
+  },
+  {
+   "ta": "Genome Biol",
+   "kept": 0,
+   "sent": 4,
+   "yield": 0.0
+  },
+  {
+   "ta": "Nat Methods",
+   "kept": 0,
+   "sent": 4,
+   "yield": 0.0
+  },
+  {
+   "ta": "Am J Physiol Gastrointest Liver Physiol",
+   "kept": 0,
+   "sent": 4,
+   "yield": 0.0
+  },
+  {
+   "ta": "Protein Sci",
+   "kept": 0,
+   "sent": 4,
+   "yield": 0.0
+  },
+  {
+   "ta": "Infect Drug Resist",
+   "kept": 0,
+   "sent": 4,
+   "yield": 0.0
+  },
+  {
+   "ta": "Microb Pathog",
+   "kept": 0,
+   "sent": 4,
+   "yield": 0.0
+  },
+  {
+   "ta": "Virol J",
+   "kept": 0,
+   "sent": 4,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Geriatr Oncol",
+   "kept": 0,
+   "sent": 4,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Am Med Inform Assoc",
    "kept": 0,
    "sent": 4,
    "yield": 0.0
@@ -2458,325 +3394,7 @@
    "yield": 0.0
   },
   {
-   "ta": "Prim Health Care Res Dev",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Mayo Clin Proc",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Acta Anaesthesiol Scand",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Stem Cells Int",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Palliat Med",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Nat Microbiol",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cell Mol Gastroenterol Hepatol",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Trends Cancer",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Gut Microbes",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "PNAS Nexus",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Mycoses",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cell Stem Cell",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "BMC Med Inform Decis Mak",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Vasc Interv Radiol",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Hereditas",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Clin Exp Pediatr",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Int J Pharm X",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Am Med Inform Assoc",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Burn Care Res",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Otolaryngol Head Neck Surg",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Infect Drug Resist",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Harm Reduct J",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Clin Genet",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Clin Ther",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Virol J",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Trends Biotechnol",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Stem Cell Res Ther",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Inflamm Res",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Biomater Res",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Antimicrob Agents Chemother",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Am J Physiol Gastrointest Liver Physiol",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cell Mol Immunol",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Acad Radiol",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Virchows Arch",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Microb Pathog",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Lab Invest",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Biometals",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Aust N Z J Public Health",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Curr Opin Rheumatol",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "NPJ Precis Oncol",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Ann Emerg Med",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Transplant Cell Ther",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Genome Biol",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "G3 (Bethesda)",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Glob Public Health",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Protein Sci",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Bacteriol",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Adv Ther",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cancer Cell",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Geriatr Oncol",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
    "ta": "Clin Epigenetics",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Nat Methods",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Exp Hematol Oncol",
-   "kept": 0,
-   "sent": 4,
-   "yield": 0.0
-  },
-  {
-   "ta": "Mol Ther Oncol",
    "kept": 0,
    "sent": 4,
    "yield": 0.0
@@ -2788,145 +3406,187 @@
    "yield": 0.0
   },
   {
+   "ta": "Glob Public Health",
+   "kept": 0,
+   "sent": 4,
+   "yield": 0.0
+  },
+  {
+   "ta": "Nat Microbiol",
+   "kept": 0,
+   "sent": 4,
+   "yield": 0.0
+  },
+  {
+   "ta": "NPJ Precis Oncol",
+   "kept": 0,
+   "sent": 4,
+   "yield": 0.0
+  },
+  {
+   "ta": "Adv Ther",
+   "kept": 0,
+   "sent": 4,
+   "yield": 0.0
+  },
+  {
+   "ta": "Virchows Arch",
+   "kept": 0,
+   "sent": 4,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Burn Care Res",
+   "kept": 0,
+   "sent": 4,
+   "yield": 0.0
+  },
+  {
+   "ta": "Allergy",
+   "kept": 0,
+   "sent": 4,
+   "yield": 0.0
+  },
+  {
+   "ta": "Exp Hematol Oncol",
+   "kept": 0,
+   "sent": 4,
+   "yield": 0.0
+  },
+  {
+   "ta": "Stem Cell Res Ther",
+   "kept": 0,
+   "sent": 4,
+   "yield": 0.0
+  },
+  {
+   "ta": "Clin Exp Pediatr",
+   "kept": 0,
+   "sent": 4,
+   "yield": 0.0
+  },
+  {
+   "ta": "Stem Cells Int",
+   "kept": 0,
+   "sent": 4,
+   "yield": 0.0
+  },
+  {
    "ta": "J Physiol Sci",
    "kept": 0,
    "sent": 4,
    "yield": 0.0
   },
   {
-   "ta": "Carcinogenesis",
+   "ta": "J Clin Epidemiol",
    "kept": 0,
-   "sent": 3,
+   "sent": 4,
    "yield": 0.0
   },
   {
-   "ta": "Precis Radiat Oncol",
+   "ta": "Cell Stem Cell",
    "kept": 0,
-   "sent": 3,
+   "sent": 4,
    "yield": 0.0
   },
   {
-   "ta": "Mol Genet Genomics",
+   "ta": "Acta Anaesthesiol Scand",
    "kept": 0,
-   "sent": 3,
+   "sent": 4,
    "yield": 0.0
   },
   {
-   "ta": "Nurs Outlook",
+   "ta": "Biomater Res",
    "kept": 0,
-   "sent": 3,
+   "sent": 4,
    "yield": 0.0
   },
   {
-   "ta": "Ann Allergy Asthma Immunol",
+   "ta": "Cell Mol Immunol",
    "kept": 0,
-   "sent": 3,
+   "sent": 4,
    "yield": 0.0
   },
   {
-   "ta": "J Occup Health",
+   "ta": "J Otolaryngol Head Neck Surg",
    "kept": 0,
-   "sent": 3,
+   "sent": 4,
    "yield": 0.0
   },
   {
-   "ta": "Minerva Anestesiol",
+   "ta": "Hereditas",
    "kept": 0,
-   "sent": 3,
+   "sent": 4,
    "yield": 0.0
   },
   {
-   "ta": "Laryngoscope",
+   "ta": "J Bacteriol",
    "kept": 0,
-   "sent": 3,
+   "sent": 4,
    "yield": 0.0
   },
   {
-   "ta": "Prev Med",
+   "ta": "Int J Pharm X",
    "kept": 0,
-   "sent": 3,
+   "sent": 4,
    "yield": 0.0
   },
   {
-   "ta": "IEEE Trans Biomed Eng",
+   "ta": "Prim Health Care Res Dev",
    "kept": 0,
-   "sent": 3,
+   "sent": 4,
    "yield": 0.0
   },
   {
-   "ta": "Int J Hyg Environ Health",
+   "ta": "Mycoses",
    "kept": 0,
-   "sent": 3,
+   "sent": 4,
    "yield": 0.0
   },
   {
-   "ta": "Cell Transplant",
+   "ta": "mSystems",
    "kept": 0,
-   "sent": 3,
+   "sent": 4,
    "yield": 0.0
   },
   {
-   "ta": "JCO Clin Cancer Inform",
+   "ta": "Clin Ther",
    "kept": 0,
-   "sent": 3,
+   "sent": 4,
    "yield": 0.0
   },
   {
-   "ta": "J Pain Symptom Manage",
+   "ta": "Antimicrob Agents Chemother",
    "kept": 0,
-   "sent": 3,
+   "sent": 4,
    "yield": 0.0
   },
   {
-   "ta": "HIV Med",
+   "ta": "G3 (Bethesda)",
    "kept": 0,
-   "sent": 3,
+   "sent": 4,
    "yield": 0.0
   },
   {
-   "ta": "J Antimicrob Chemother",
+   "ta": "Clin Genet",
    "kept": 0,
-   "sent": 3,
+   "sent": 4,
    "yield": 0.0
   },
   {
-   "ta": "Int J Antimicrob Agents",
+   "ta": "Gut Microbes",
    "kept": 0,
-   "sent": 3,
+   "sent": 4,
    "yield": 0.0
   },
   {
-   "ta": "Drug Discov Today",
+   "ta": "Palliat Med",
    "kept": 0,
-   "sent": 3,
+   "sent": 4,
    "yield": 0.0
   },
   {
-   "ta": "Anesth Analg",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "JAMA Health Forum",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "Open Forum Infect Dis",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Rural Health",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Clin Monit Comput",
+   "ta": "Transplant Direct",
    "kept": 0,
    "sent": 3,
    "yield": 0.0
@@ -2938,55 +3598,13 @@
    "yield": 0.0
   },
   {
-   "ta": "Can J Anaesth",
+   "ta": "SSM Popul Health",
    "kept": 0,
    "sent": 3,
    "yield": 0.0
   },
   {
-   "ta": "Mod Pathol",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "Sci Immunol",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "Acad Pediatr",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cancer Imaging",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "BioDrugs",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "Public Health Rep",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "Annu Rev Physiol",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "Trends Microbiol",
+   "ta": "Microbiol Spectr",
    "kept": 0,
    "sent": 3,
    "yield": 0.0
@@ -2998,103 +3616,73 @@
    "yield": 0.0
   },
   {
-   "ta": "Sci Robot",
+   "ta": "Cell Biol Toxicol",
    "kept": 0,
    "sent": 3,
    "yield": 0.0
   },
   {
-   "ta": "Transplant Direct",
+   "ta": "Toxicology",
    "kept": 0,
    "sent": 3,
    "yield": 0.0
   },
   {
-   "ta": "J Adv Nurs",
+   "ta": "J Virol",
    "kept": 0,
    "sent": 3,
    "yield": 0.0
   },
   {
-   "ta": "Digestion",
+   "ta": "Ann Allergy Asthma Immunol",
    "kept": 0,
    "sent": 3,
    "yield": 0.0
   },
   {
-   "ta": "Lancet Oncol",
+   "ta": "Sleep Health",
    "kept": 0,
    "sent": 3,
    "yield": 0.0
   },
   {
-   "ta": "Trop Med Int Health",
+   "ta": "J Clin Monit Comput",
    "kept": 0,
    "sent": 3,
    "yield": 0.0
   },
   {
-   "ta": "Clin Transl Sci",
+   "ta": "J Rural Health",
    "kept": 0,
    "sent": 3,
    "yield": 0.0
   },
   {
-   "ta": "Sleep",
+   "ta": "Proc Nutr Soc",
    "kept": 0,
    "sent": 3,
    "yield": 0.0
   },
   {
-   "ta": "Am J Clin Nutr",
+   "ta": "J Biol Chem",
    "kept": 0,
    "sent": 3,
    "yield": 0.0
   },
   {
-   "ta": "Synth Syst Biotechnol",
+   "ta": "Cell Transplant",
    "kept": 0,
    "sent": 3,
    "yield": 0.0
   },
   {
-   "ta": "Appl Immunohistochem Mol Morphol",
+   "ta": "Curr Oncol Rep",
    "kept": 0,
    "sent": 3,
    "yield": 0.0
   },
   {
-   "ta": "Transl Res",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "Neoplasia",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "Signal Transduct Target Ther",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "Eur J Immunol",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "Am J Phys Med Rehabil",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "JAMA Intern Med",
+   "ta": "Int J Hyg Environ Health",
    "kept": 0,
    "sent": 3,
    "yield": 0.0
@@ -3112,13 +3700,13 @@
    "yield": 0.0
   },
   {
-   "ta": "Thromb Res",
+   "ta": "JMIR Public Health Surveill",
    "kept": 0,
    "sent": 3,
    "yield": 0.0
   },
   {
-   "ta": "Health Place",
+   "ta": "Synth Syst Biotechnol",
    "kept": 0,
    "sent": 3,
    "yield": 0.0
@@ -3130,145 +3718,31 @@
    "yield": 0.0
   },
   {
-   "ta": "Drug Deliv",
+   "ta": "HIV Med",
    "kept": 0,
    "sent": 3,
    "yield": 0.0
   },
   {
-   "ta": "Nanomedicine",
+   "ta": "Can J Anaesth",
    "kept": 0,
    "sent": 3,
    "yield": 0.0
   },
   {
-   "ta": "Immunother Adv",
+   "ta": "Clin Transl Sci",
    "kept": 0,
    "sent": 3,
    "yield": 0.0
   },
   {
-   "ta": "Commun Med (Lond)",
+   "ta": "Open Forum Infect Dis",
    "kept": 0,
    "sent": 3,
    "yield": 0.0
   },
   {
-   "ta": "mSphere",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "Toxicology",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cancer Epidemiol",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "Med Res Rev",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "Curr Protoc",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "Pediatr Res",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "Crit Rev Biotechnol",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "Microbiol Spectr",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "Hum Genomics",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "EMBO J",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "Zoonoses Public Health",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "Sleep Health",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "Epidemiology",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "Curr Oncol Rep",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "Expert Rev Anti Infect Ther",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "Int J Epidemiol",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Leukoc Biol",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cell Biol Toxicol",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Magn Reson Imaging",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "Eur J Vasc Endovasc Surg",
+   "ta": "Thromb Res",
    "kept": 0,
    "sent": 3,
    "yield": 0.0
@@ -3280,43 +3754,31 @@
    "yield": 0.0
   },
   {
-   "ta": "Dev Biol",
+   "ta": "Am J Phys Med Rehabil",
    "kept": 0,
    "sent": 3,
    "yield": 0.0
   },
   {
-   "ta": "Int J Comput Assist Radiol Surg",
+   "ta": "Pediatr Res",
    "kept": 0,
    "sent": 3,
    "yield": 0.0
   },
   {
-   "ta": "SSM Popul Health",
+   "ta": "Int J Antimicrob Agents",
    "kept": 0,
    "sent": 3,
    "yield": 0.0
   },
   {
-   "ta": "Intern Emerg Med",
+   "ta": "Zoonoses Public Health",
    "kept": 0,
    "sent": 3,
    "yield": 0.0
   },
   {
-   "ta": "J Exp Med",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Biol Chem",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Virol",
+   "ta": "Immunother Adv",
    "kept": 0,
    "sent": 3,
    "yield": 0.0
@@ -3328,37 +3790,13 @@
    "yield": 0.0
   },
   {
-   "ta": "JMIR Public Health Surveill",
+   "ta": "J Leukoc Biol",
    "kept": 0,
    "sent": 3,
    "yield": 0.0
   },
   {
-   "ta": "Shock",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "Phys Ther",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "Allergol Int",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "Ann Surg Oncol",
-   "kept": 0,
-   "sent": 3,
-   "yield": 0.0
-  },
-  {
-   "ta": "Function (Oxf)",
+   "ta": "JAMA Intern Med",
    "kept": 0,
    "sent": 3,
    "yield": 0.0
@@ -3370,7 +3808,91 @@
    "yield": 0.0
   },
   {
-   "ta": "Nurs Res Pract",
+   "ta": "Disabil Rehabil",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Function (Oxf)",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Drug Deliv",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Transl Res",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Magn Reson Imaging",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Allergol Int",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Laryngoscope",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Mol Genet Genomics",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Am J Clin Nutr",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Minerva Anestesiol",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Cancer Epidemiol",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Shock",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Trends Microbiol",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Eur J Immunol",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Drug Discov Today",
    "kept": 0,
    "sent": 3,
    "yield": 0.0
@@ -3382,289 +3904,259 @@
    "yield": 0.0
   },
   {
-   "ta": "Proc Nutr Soc",
+   "ta": "Nurs Outlook",
    "kept": 0,
    "sent": 3,
    "yield": 0.0
   },
   {
-   "ta": "Disabil Rehabil",
+   "ta": "Carcinogenesis",
    "kept": 0,
    "sent": 3,
    "yield": 0.0
   },
   {
-   "ta": "Popul Health Metr",
+   "ta": "Eur J Vasc Endovasc Surg",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Antimicrob Chemother",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Nurs Res Pract",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Appl Immunohistochem Mol Morphol",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Nanomedicine",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Commun Med (Lond)",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Int J Comput Assist Radiol Surg",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "JAMA Health Forum",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Precis Radiat Oncol",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Public Health Rep",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "mSphere",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Crit Rev Biotechnol",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Hum Genomics",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Dev Biol",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Trop Med Int Health",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Digestion",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "BioDrugs",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Lancet Oncol",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Adv Nurs",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Med Res Rev",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Sci Robot",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Curr Protoc",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Occup Health",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Expert Rev Anti Infect Ther",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Phys Ther",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "IEEE Trans Biomed Eng",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Neoplasia",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Epidemiology",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Health Place",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Anesth Analg",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "JCO Clin Cancer Inform",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "EMBO J",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Sci Immunol",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Annu Rev Physiol",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Sleep",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Intern Emerg Med",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Pain Symptom Manage",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Acad Pediatr",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Exp Med",
+   "kept": 0,
+   "sent": 3,
+   "yield": 0.0
+  },
+  {
+   "ta": "Genes Dis",
    "kept": 0,
    "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Cancer Genet",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cell Syst",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Med Care",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Nurs Res",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Crit Care Med",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Diagn Pathol",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Anesthesiol Res Pract",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Dis Model Mech",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Mycopathologia",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Ann R Coll Surg Engl",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Open Access Rheumatol",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Respir Med",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Nat Rev Rheumatol",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "JAMA Surg",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Front Genome Ed",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Infect",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Med",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Am Coll Surg",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Compr Physiol",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "World J Emerg Surg",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Gastric Cancer",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Scand J Caring Sci",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Biodes Res",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Clin Nurs",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Nurs Clin North Am",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Gen Physiol",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Am J Med",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Annu Rev Public Health",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Infect Public Health",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Hum Pathol",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Phys Med Biol",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Prev Sci",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Curr Opin Pharmacol",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Pediatr Health Care",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Eur J Intern Med",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Nurs Health Sci",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "PET Clin",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Mol Biol",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Exp Cell Res",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Int J Equity Health",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Pain Manag Nurs",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Trop Med Health",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Hematol Oncol",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "JAMA Pediatr",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Updates Surg",
+   "ta": "Am J Surg Pathol",
    "kept": 0,
    "sent": 2,
    "yield": 0.0
@@ -3682,169 +4174,13 @@
    "yield": 0.0
   },
   {
-   "ta": "Immun Ageing",
+   "ta": "JAMA Pediatr",
    "kept": 0,
    "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Med Mycol",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Eur J Clin Invest",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Ann Otol Rhinol Laryngol",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "IJID Reg",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Genes Dis",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Health Res Policy Syst",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cancer Pathog Ther",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Clin Epidemiol",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Nat Protoc",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cancer Cell Int",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Semin Ultrasound CT MR",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Sleep Med",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Lancet Planet Health",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Curr Res Microb Sci",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Antimicrob Resist Infect Control",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Arch Phys Med Rehabil",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cell Insight",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Int J Soc Determinants Health Health Serv",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Genomics",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Clin Exp Allergy",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cancer",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Adv Drug Deliv Rev",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "JSLS",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "BJR Open",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Soft Robot",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Nat Cancer",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Early Hum Dev",
+   "ta": "J Infect",
    "kept": 0,
    "sent": 2,
    "yield": 0.0
@@ -3856,37 +4192,7 @@
    "yield": 0.0
   },
   {
-   "ta": "One Health Outlook",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Nat Biotechnol",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Toxicol Sci",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Am J Surg Pathol",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Precis Clin Med",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "JNCI Cancer Spectr",
+   "ta": "Dis Model Mech",
    "kept": 0,
    "sent": 2,
    "yield": 0.0
@@ -3898,55 +4204,31 @@
    "yield": 0.0
   },
   {
-   "ta": "Clin Microbiol Rev",
+   "ta": "Phys Med Biol",
    "kept": 0,
    "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "J Healthc Inform Res",
+   "ta": "Int J Equity Health",
    "kept": 0,
    "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "J Exp Clin Cancer Res",
+   "ta": "Crit Care Med",
    "kept": 0,
    "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Radiol Artif Intell",
+   "ta": "Scand J Caring Sci",
    "kept": 0,
    "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Mol Immunol",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Infect Dis Ther",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Radiat Oncol",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "NPJ Syst Biol Appl",
-   "kept": 0,
-   "sent": 2,
-   "yield": 0.0
-  },
-  {
-   "ta": "Nat Aging",
+   "ta": "Med Mycol",
    "kept": 0,
    "sent": 2,
    "yield": 0.0
@@ -3958,25 +4240,43 @@
    "yield": 0.0
   },
   {
-   "ta": "Trends Cell Biol",
+   "ta": "J Gen Physiol",
    "kept": 0,
    "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Hum Vaccin Immunother",
+   "ta": "Radiat Oncol",
    "kept": 0,
    "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Anaesthesia",
+   "ta": "Early Hum Dev",
    "kept": 0,
    "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Annu Rev Med",
+   "ta": "Immun Ageing",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "Front Genome Ed",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "Nurs Res",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "Clin Epidemiol",
    "kept": 0,
    "sent": 2,
    "yield": 0.0
@@ -3988,13 +4288,193 @@
    "yield": 0.0
   },
   {
+   "ta": "Ann R Coll Surg Engl",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "Nurs Health Sci",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Pediatr Health Care",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "Clin Microbiol Rev",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "Nat Cancer",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "IJID Reg",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
    "ta": "Radiographics",
    "kept": 0,
    "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "J Biotechnol",
+   "ta": "Am J Med",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "Prev Sci",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "Arch Phys Med Rehabil",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "Semin Ultrasound CT MR",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "Annu Rev Public Health",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Am Coll Surg",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "Clin Exp Allergy",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "Eur J Clin Invest",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "Curr Opin Pharmacol",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "One Health Outlook",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "Open Access Rheumatol",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "Anaesthesia",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "Genomics",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "Pain Manag Nurs",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "Infect Dis Ther",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "Popul Health Metr",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "Cancer Genet",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "Soft Robot",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "Exp Cell Res",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "Trends Cell Biol",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "Med Care",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "Nat Protoc",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Infect Public Health",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "Mycopathologia",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Healthc Inform Res",
    "kept": 0,
    "sent": 2,
    "yield": 0.0
@@ -4006,7 +4486,37 @@
    "yield": 0.0
   },
   {
-   "ta": "Crit Care Explor",
+   "ta": "Compr Physiol",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "Cell Insight",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "Ann Otol Rhinol Laryngol",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "Hum Vaccin Immunother",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "Curr Res Microb Sci",
+   "kept": 0,
+   "sent": 2,
+   "yield": 0.0
+  },
+  {
+   "ta": "Eur J Intern Med",
    "kept": 0,
    "sent": 2,
    "yield": 0.0
@@ -4018,229 +4528,211 @@
    "yield": 0.0
   },
   {
-   "ta": "J Travel Med",
+   "ta": "Health Res Policy Syst",
    "kept": 0,
-   "sent": 1,
+   "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "World J Pediatr Surg",
+   "ta": "Anesthesiol Res Pract",
    "kept": 0,
-   "sent": 1,
+   "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Clin Rev Allergy Immunol",
+   "ta": "Int J Soc Determinants Health Health Serv",
    "kept": 0,
-   "sent": 1,
+   "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Lancet Reg Health Southeast Asia",
+   "ta": "Mol Immunol",
    "kept": 0,
-   "sent": 1,
+   "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Cell Genom",
+   "ta": "Cancer",
    "kept": 0,
-   "sent": 1,
+   "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Cancer Epidemiol Biomarkers Prev",
+   "ta": "Nurs Clin North Am",
    "kept": 0,
-   "sent": 1,
+   "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Hosp Pediatr",
+   "ta": "J Mol Biol",
    "kept": 0,
-   "sent": 1,
+   "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Clin Otolaryngol",
+   "ta": "Cancer Cell Int",
    "kept": 0,
-   "sent": 1,
+   "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Sci Transl Med",
+   "ta": "World J Emerg Surg",
    "kept": 0,
-   "sent": 1,
+   "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Drug Alcohol Depend Rep",
+   "ta": "Cancer Pathog Ther",
    "kept": 0,
-   "sent": 1,
+   "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Neurogastroenterol Motil",
+   "ta": "JAMA Surg",
    "kept": 0,
-   "sent": 1,
+   "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Bio Protoc",
+   "ta": "Precis Clin Med",
    "kept": 0,
-   "sent": 1,
+   "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Heart Lung Circ",
+   "ta": "Antimicrob Resist Infect Control",
    "kept": 0,
-   "sent": 1,
+   "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Nat Rev Cancer",
+   "ta": "Diagn Pathol",
    "kept": 0,
-   "sent": 1,
+   "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Nat Genet",
+   "ta": "Nat Aging",
    "kept": 0,
-   "sent": 1,
+   "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Expert Opin Drug Deliv",
+   "ta": "J Clin Nurs",
    "kept": 0,
-   "sent": 1,
+   "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Hum Gene Ther",
+   "ta": "Nat Biotechnol",
    "kept": 0,
-   "sent": 1,
+   "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Transpl Int",
+   "ta": "Gastric Cancer",
    "kept": 0,
-   "sent": 1,
+   "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Curr Opin Immunol",
+   "ta": "Hum Pathol",
    "kept": 0,
-   "sent": 1,
+   "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "J Am Chem Soc",
+   "ta": "Crit Care Explor",
    "kept": 0,
-   "sent": 1,
+   "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Eur J Pediatr Surg",
+   "ta": "Annu Rev Med",
    "kept": 0,
-   "sent": 1,
+   "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Immunology",
+   "ta": "PET Clin",
    "kept": 0,
-   "sent": 1,
+   "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Cranio",
+   "ta": "Nat Rev Rheumatol",
    "kept": 0,
-   "sent": 1,
+   "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Ann Clin Microbiol Antimicrob",
+   "ta": "Toxicol Sci",
    "kept": 0,
-   "sent": 1,
+   "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Gastroenterology",
+   "ta": "J Hematol Oncol",
    "kept": 0,
-   "sent": 1,
+   "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Int J Radiat Oncol Biol Phys",
+   "ta": "Adv Drug Deliv Rev",
    "kept": 0,
-   "sent": 1,
+   "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Semin Immunol",
+   "ta": "Trop Med Health",
    "kept": 0,
-   "sent": 1,
+   "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Int Health",
+   "ta": "J Biotechnol",
    "kept": 0,
-   "sent": 1,
+   "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Cell Prolif",
+   "ta": "Sleep Med",
    "kept": 0,
-   "sent": 1,
+   "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Lancet Infect Dis",
+   "ta": "Biodes Res",
    "kept": 0,
-   "sent": 1,
+   "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "IEEE Trans Med Imaging",
+   "ta": "JSLS",
    "kept": 0,
-   "sent": 1,
+   "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Infect Dis Clin North Am",
+   "ta": "Cell Syst",
    "kept": 0,
-   "sent": 1,
+   "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Eur Ann Otorhinolaryngol Head Neck Dis",
+   "ta": "NPJ Syst Biol Appl",
    "kept": 0,
-   "sent": 1,
+   "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Life Med",
+   "ta": "Radiol Artif Intell",
    "kept": 0,
-   "sent": 1,
+   "sent": 2,
    "yield": 0.0
   },
   {
-   "ta": "Tob Prev Cessat",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "BMC Med",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Asia Pac J Oncol Nurs",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Drug Deliv Transl Res",
+   "ta": "Health Promot Int",
    "kept": 0,
    "sent": 1,
    "yield": 0.0
@@ -4252,751 +4744,7 @@
    "yield": 0.0
   },
   {
-   "ta": "J Rehabil Med",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "JMIR Nurs",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Physiol Rep",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Ther Adv Drug Saf",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cell Surf",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Gene Ther",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Environ Epigenet",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Infect Control Hosp Epidemiol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cell Host Microbe",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Biomed J",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Pediatr Infect Dis J",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "OTO Open",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Antioxid Redox Signal",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Value Health",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Transpl Infect Dis",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Am J Occup Ther",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Med Screen",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Gerontol A Biol Sci Med Sci",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cytokine",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Health Data Sci",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Int J Oncol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cancer Sci",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Histopathology",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Inflamm Regen",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Gastrointest Endosc",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "WIREs Mech Dis",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Eur J Public Health",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Curr Opin Virol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Br J Radiol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Ital J Pediatr",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Clim Chang Health",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Scientifica (Cairo)",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Clin Transl Oncol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Geohealth",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Clin Virol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Intensive Crit Care Nurs",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Pediatr Investig",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Prev (2022)",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Biomed Chromatogr",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Intern Med",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Expert Opin Ther Targets",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Thorac Imaging",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Tob Induc Dis",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "NAR Cancer",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Indian J Pediatr",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Eur J Cell Biol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "NEJM Catal Innov Care Deliv",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Eur Surg Res",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cell Div",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cancer Metastasis Rev",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Curr Opin Crit Care",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Rheumatol Int",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Trends Mol Med",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Microb Genom",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Matrix Biol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Health Promot Int",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "BMC Glob Public Health",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Semin Cancer Biol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Int Arch Occup Environ Health",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "APL Bioeng",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Br Med Bull",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Obstet Gynaecol Res",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Health Qual Life Outcomes",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cell Immunol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Surg Pathol Clin",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Curr Issues Mol Biol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Health Inf Sci Syst",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Burns Trauma",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cancer Radiother",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Lancet Public Health",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cell Res",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cell Biosci",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Hosp Infect",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Rev Saude Publica",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Braz J Otorhinolaryngol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Prehosp Emerg Care",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Photoacoustics",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Int J Pediatr",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Semin Oncol Nurs",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Nat Rev Immunol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Epidemiol Infect",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Healthc Leadersh",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Eur J Epidemiol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Am Coll Emerg Physicians Open",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "EJNMMI Res",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Environ Epidemiol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Ann Thorac Surg",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "BMC Pulm Med",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Annu Rev Biophys",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Clin Exp Otorhinolaryngol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Clin Exp Med",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Am J Ind Med",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Acta Otolaryngol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "JAMA",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Prehosp Disaster Med",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
    "ta": "eGastroenterology",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Inj Epidemiol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "NPJ Regen Med",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Ultrason Imaging",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Stress Biol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Pathol Int",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Best Pract Res Clin Rheumatol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Hum Genet",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Pediatr",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Nippon Med Sch",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cytotherapy",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Thromb J",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Trends Biochem Sci",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Ann Intensive Care",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Environ Health Prev Med",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Mayo Clin Proc Digit Health",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Semin Diagn Pathol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Gen Virol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Biomed Sci",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Am J Gastroenterol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Paediatr Perinat Epidemiol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Proteomics",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Intensive Care Med Exp",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Int J Older People Nurs",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Comput Med Imaging Graph",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Sleep Med Rev",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cells Tissues Organs",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Physiology (Bethesda)",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Travel Med Infect Dis",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Smart Med",
    "kept": 0,
    "sent": 1,
    "yield": 0.0
@@ -5008,451 +4756,19 @@
    "yield": 0.0
   },
   {
-   "ta": "Curr Opin Cell Biol",
+   "ta": "NEJM Catal Innov Care Deliv",
    "kept": 0,
    "sent": 1,
    "yield": 0.0
   },
   {
-   "ta": "Clin Microbiol Infect",
+   "ta": "J Am Coll Emerg Physicians Open",
    "kept": 0,
    "sent": 1,
    "yield": 0.0
   },
   {
-   "ta": "RMD Open",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Metab Eng",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Pediatr Radiol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Arch Gerontol Geriatr",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "BJC Rep",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "JCO Glob Oncol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Pharm Res",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Gastroenterol Hepatol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Glob Antimicrob Resist",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Int J Nurs Pract",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Am J Health Promot",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Thromb Haemost",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Surg Innov",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Physiol Meas",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Lancet Reg Health Am",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Oncogenesis",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "MMWR Morb Mortal Wkly Rep",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Lancet Rheumatol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Epigenetics",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Hum Mol Genet",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "JMIR Perioper Med",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Gastroenterol Rep (Oxf)",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Fam Pract",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cancer Prev Res (Phila)",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Int J Med Robot",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Semin Oncol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cancer Biol Ther",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Cell Chem Biol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Nat Biomed Eng",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Proteome Res",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Am J Clin Pathol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Am J Perinatol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "JCO Precis Oncol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Eur Radiol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "DNA Res",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Nurs Scholarsh",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Neuromuscul Dis",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Mol Oncol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Toxicol Environ Health A",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "IEEE Trans Med Robot Bionics",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Emerg Med",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Nucleic Acid Ther",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Wiley Interdiscip Rev Nanomed Nanobiotechnol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Arch Public Health",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Child Health Care",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Genomics Proteomics Bioinformatics",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Pharmacoecon Open",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Health Policy Plan",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Expert Opin Investig Drugs",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Am J Med Genet C Semin Med Genet",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Support Care Cancer",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Health Policy",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Phys Imaging Radiat Oncol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Crit Rev Toxicol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Infection",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Drug Saf",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Pflugers Arch",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Int J Radiat Biol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Visc Surg",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Med Syst",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Crit Care",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Intensive Med",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Magn Reson Med",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "J Anesth",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Acad Emerg Med",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Semin Pediatr Surg",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Radiol Cardiothorac Imaging",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Arthritis Rheumatol",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Int J Hyperthermia",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Lancet HIV",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Int Nurs Rev",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Protein Cell",
-   "kept": 0,
-   "sent": 1,
-   "yield": 0.0
-  },
-  {
-   "ta": "Eur J Pharm Biopharm",
+   "ta": "J Intern Med",
    "kept": 0,
    "sent": 1,
    "yield": 0.0
@@ -5464,7 +4780,1357 @@
    "yield": 0.0
   },
   {
+   "ta": "Annu Rev Biophys",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Biomed Sci",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Magn Reson Med",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Eur J Pediatr Surg",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Semin Cancer Biol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Heart Lung Circ",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Gastrointest Endosc",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Drug Saf",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "IEEE Trans Med Robot Bionics",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Eur J Pharm Biopharm",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Tob Induc Dis",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "APL Bioeng",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Clin Rev Allergy Immunol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Am J Clin Pathol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Gastroenterol Rep (Oxf)",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Emerg Med",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Lancet HIV",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Immunology",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Semin Diagn Pathol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Cytotherapy",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Rheumatol Int",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Cancer Epidemiol Biomarkers Prev",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Int J Oncol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Neuromuscul Dis",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Semin Oncol Nurs",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Inflamm Regen",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Nat Rev Cancer",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Crit Care",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Phys Imaging Radiat Oncol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Pediatr Radiol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Visc Surg",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Thromb Haemost",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Ann Intensive Care",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Int J Hyperthermia",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Surg Pathol Clin",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Pediatr Investig",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "IEEE Trans Med Imaging",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "BMC Med",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Eur J Cell Biol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Curr Opin Immunol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Pharmacoecon Open",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Best Pract Res Clin Rheumatol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Physiol Rep",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Epigenetics",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Intensive Crit Care Nurs",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Smart Med",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Rehabil Med",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Histopathology",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Arch Gerontol Geriatr",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Photoacoustics",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Antioxid Redox Signal",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Eur J Epidemiol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Lancet Rheumatol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Cell Chem Biol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "MMWR Morb Mortal Wkly Rep",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Br Med Bull",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Asia Pac J Oncol Nurs",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Semin Pediatr Surg",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Thromb J",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Cranio",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Int J Radiat Biol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Microb Genom",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "NAR Cancer",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Travel Med Infect Dis",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Support Care Cancer",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Rev Saude Publica",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Cancer Biol Ther",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Ann Clin Microbiol Antimicrob",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Crit Rev Toxicol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Acta Otolaryngol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Int Arch Occup Environ Health",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Am J Ind Med",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Cells Tissues Organs",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "NPJ Regen Med",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Gastroenterology",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Matrix Biol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Trends Biochem Sci",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Am J Med Genet C Semin Med Genet",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Clin Virol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Arthritis Rheumatol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Expert Opin Investig Drugs",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Prev (2022)",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Am J Occup Ther",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Cell Prolif",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Epidemiol Infect",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Pathol Int",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Clin Exp Otorhinolaryngol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Cancer Radiother",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Med Screen",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Nurs Scholarsh",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Hum Gene Ther",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
    "ta": "Cancer Causes Control",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Acad Emerg Med",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Burns Trauma",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Drug Alcohol Depend Rep",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Intensive Med",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Healthc Leadersh",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Hosp Pediatr",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Health Policy",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Lancet Infect Dis",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Nat Biomed Eng",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Am J Gastroenterol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Med Syst",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Prehosp Disaster Med",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Pharm Res",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "BJC Rep",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Infection",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "World J Pediatr Surg",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "DNA Res",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Cytokine",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Proteomics",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Eur Surg Res",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Gerontol A Biol Sci Med Sci",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Arch Public Health",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Stress Biol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Cancer Metastasis Rev",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Paediatr Perinat Epidemiol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Lancet Reg Health Am",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Nucleic Acid Ther",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Am J Health Promot",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Metab Eng",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Ther Adv Drug Saf",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "WIREs Mech Dis",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Hum Mol Genet",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Eur Ann Otorhinolaryngol Head Neck Dis",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Curr Issues Mol Biol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Gastroenterol Hepatol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Semin Immunol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Lancet Reg Health Southeast Asia",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Infect Control Hosp Epidemiol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Child Health Care",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Inj Epidemiol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Life Med",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Mayo Clin Proc Digit Health",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Physiology (Bethesda)",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Bio Protoc",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Clin Transl Oncol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Semin Oncol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Int Health",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Sleep Med Rev",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Fam Pract",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "JMIR Perioper Med",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Clin Otolaryngol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Biomed J",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Gene Ther",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Obstet Gynaecol Res",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Nat Rev Immunol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Curr Opin Virol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Ann Thorac Surg",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "EJNMMI Res",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Cell Surf",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "JCO Glob Oncol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Ultrason Imaging",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Tob Prev Cessat",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Int Nurs Rev",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Health Inf Sci Syst",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Scientifica (Cairo)",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Environ Health Prev Med",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Clin Exp Med",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Wiley Interdiscip Rev Nanomed Nanobiotechnol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Trends Mol Med",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Hum Genet",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Indian J Pediatr",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Clim Chang Health",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Intensive Care Med Exp",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Pediatr Infect Dis J",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "RMD Open",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Comput Med Imaging Graph",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Anesth",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "JCO Precis Oncol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Cell Biosci",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Curr Opin Crit Care",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Travel Med",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Sci Transl Med",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Health Data Sci",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Eur J Public Health",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Clin Microbiol Infect",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Nippon Med Sch",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Cell Host Microbe",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Thorac Imaging",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Cell Immunol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Mol Oncol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Int J Nurs Pract",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Int J Older People Nurs",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Geohealth",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Physiol Meas",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Health Qual Life Outcomes",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "BMC Glob Public Health",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Cell Genom",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Lancet Public Health",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Nat Genet",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Am J Perinatol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Glob Antimicrob Resist",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Toxicol Environ Health A",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Ital J Pediatr",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Pflugers Arch",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Transpl Int",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Health Policy Plan",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Int J Med Robot",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Transpl Infect Dis",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Surg Innov",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Expert Opin Ther Targets",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Gen Virol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Biomed Chromatogr",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Prehosp Emerg Care",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Braz J Otorhinolaryngol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Drug Deliv Transl Res",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Curr Opin Cell Biol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Protein Cell",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "JMIR Nurs",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Pediatr",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Oncogenesis",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Neurogastroenterol Motil",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "JAMA",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Genomics Proteomics Bioinformatics",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Expert Opin Drug Deliv",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Environ Epigenet",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Environ Epidemiol",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Infect Dis Clin North Am",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Cell Div",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Int J Pediatr",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Am Chem Soc",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Cancer Prev Res (Phila)",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "J Hosp Infect",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "Cell Res",
+   "kept": 0,
+   "sent": 1,
+   "yield": 0.0
+  },
+  {
+   "ta": "OTO Open",
    "kept": 0,
    "sent": 1,
    "yield": 0.0
