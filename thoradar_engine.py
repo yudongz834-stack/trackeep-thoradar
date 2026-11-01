@@ -1435,9 +1435,11 @@ def llm_prescreen(llm: LLMClient, articles: List[Dict[str, Any]],
             decisions = {d.get("i"): d for d in parse_json_loose(raw).get("decisions", [])}
         except BudgetExceeded:
             raise
-        except Exception as e:  # noqa: BLE001 预筛失败→本批全保留，交给精评关
+        except Exception as e:  # noqa: BLE001 预筛失败→本批全保留，交给精评关（fail-open 降级）
             log(f"  预筛批失败（本批全保留）: {e}")
-            decisions = {j: {"keep": True, "anchor": ""} for j in range(len(chunk))}
+            # 锚给哨兵串（无负词，过绊线校验）——空锚会被锚点校验拦下，
+            # 那样断连日就整批误杀＝fail-closed，与「宁重看勿漏看」相反（2026-11-01 十问审计抓出）。
+            decisions = {j: {"keep": True, "anchor": "llm-outage-fallback"} for j in range(len(chunk))}
         for j, a in enumerate(chunk):
             d = decisions.get(j)
             if d and d.get("keep") is True:

@@ -465,6 +465,17 @@ class TestScopeGate(unittest.TestCase):
         self.assertIn("anchor", eng.LIBRARY_PRESCREEN_SYSTEM)
         self.assertIn("PHERGain", eng.LIBRARY_PRESCREEN_SYSTEM)
 
+    def test_llm_outage_falls_open_not_closed(self):
+        """判官失联日＝fail-open：整批放行交精评，不得被锚点校验误杀成全天归零。"""
+        class DeadLLM:
+            available, cost_usd, calls = True, 0.0, 0
+            def chat(self, *a, **k):
+                raise RuntimeError("connection refused")
+        arts = [{"pmid": str(i), "journal_title": "J Thorac Dis", "title_en": f"lung cancer study {i}",
+                 "abstract_en": "lung cancer"} for i in range(3)]
+        kept = eng.llm_prescreen(DeadLLM(), arts)
+        self.assertEqual(len(kept), 3)          # 全放行；锚为哨兵串非空
+
 
 class TestRefit20261101(unittest.TestCase):
     """换装三件套（PI 2026-11-01）：检索式路关停／范围闸影子模式／Anthropic 协议支。"""
