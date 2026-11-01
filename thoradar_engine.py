@@ -1030,13 +1030,30 @@ def parse_json_loose(text: str) -> Any:
 
 class Collector:
     EUTILS = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
+    # NCBI 限流闸（全线程共享）：带 key 上限 3 req/s 打 8 折＝0.35s；无 key 1 req/3s＋余量。
+    # 2026-11-02 实弹：六线程裸并发瞬时远超上限→单跑 20 刊 429（旧全册时代 3,015 条 429 风暴）。
+    _RATE_LOCK = threading.Lock()
+    _RATE_LAST = 0.0
 
     def __init__(self) -> None:
         self.api_key = os.environ.get("NCBI_API_KEY", "").strip()
         self._last_count = 0
 
+    @classmethod
+    def _throttle(cls, api_key: str) -> None:
+        min_gap = 0.35 if api_key else 3.1
+        while True:
+            with cls._RATE_LOCK:
+                now = time.monotonic()
+                wait = cls._RATE_LAST + min_gap - now
+                if wait <= 0:
+                    cls._RATE_LAST = now
+                    return
+            time.sleep(min(wait, 0.5))
+
     def _get(self, url: str) -> bytes:
         for attempt in range(3):
+            self._throttle(self.api_key)
             try:
                 req = urllib.request.Request(url, headers={"User-Agent": "ThorRadar/3.0"})
                 with urllib.request.urlopen(req, timeout=60) as resp:
@@ -1044,8 +1061,9 @@ class Collector:
             except Exception as e:  # noqa: BLE001
                 if attempt == 2:
                     raise
+                backoff = 6 * (attempt + 1) if "429" in str(e) else 2 * (attempt + 1)
                 log(f"  网络重试 {attempt + 1}/3: {e}")
-                time.sleep(2 * (attempt + 1))
+                time.sleep(backoff)
         raise RuntimeError("unreachable")
 
     def esearch_pmids(self, days_back: int, retmax: int = 200,
@@ -1145,7 +1163,7 @@ class Collector:
                     out.append(self._parse_article(art))
                 except Exception as e:  # noqa: BLE001 单篇脏数据不拖垮整批
                     log(f"  单篇解析失败跳过: {e}")
-            time.sleep(0.4 if not self.api_key else 0.12)
+            # 批间隔由 _get 限流闸统一管（旧 0.12/0.4s 定点睡冗余，已并）
         return out
 
     @staticmethod
