@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-01 00:33",
+ "updated_at": "2026-11-01 03:13",
  "papers": {
   "42887497": {
    "kind": "ok",
@@ -27149,6 +27149,86 @@
    "note": "",
    "first_seen": "2026-11-01 00:33",
    "last_checked": "2026-11-01 00:33",
+   "stale": false
+  },
+  "42962920": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-11-01 03:13",
+   "last_checked": "2026-11-01 03:13",
+   "stale": false
+  },
+  "42960165": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-11-01 03:13",
+   "last_checked": "2026-11-01 03:13",
+   "stale": false
+  },
+  "42962692": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-11-01 03:13",
+   "last_checked": "2026-11-01 03:13",
+   "stale": false
+  },
+  "42959496": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-11-01 03:13",
+   "last_checked": "2026-11-01 03:13",
+   "stale": false
+  },
+  "42962660": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-11-01 03:13",
+   "last_checked": "2026-11-01 03:13",
+   "stale": false
+  },
+  "42962203": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-11-01 03:13",
+   "last_checked": "2026-11-01 03:13",
+   "stale": false
+  },
+  "42962384": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-11-01 03:13",
+   "last_checked": "2026-11-01 03:13",
+   "stale": false
+  },
+  "42964354": {
+   "kind": "ok",
+   "notice_pmid": "",
+   "notice_ref": "",
+   "impact_known": true,
+   "note": "",
+   "first_seen": "2026-11-01 03:13",
+   "last_checked": "2026-11-01 03:13",
    "stale": false
   }
  }
