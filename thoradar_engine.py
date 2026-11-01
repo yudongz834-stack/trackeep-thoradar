@@ -1417,8 +1417,10 @@ def llm_prescreen(llm: LLMClient, articles: List[Dict[str, Any]],
     锚点无胸科正指征（PHERGain 判例：写出的锚只能是 breast 之流）→ 视为非胸科拦下；
     LLM 挂→批内全保留（诚实降级，交精评关；机械范围闸在上游已先行拦过明显它科）。"""
     system = system or LIBRARY_PRESCREEN_SYSTEM
-    # 锚点校验词表＝范围闸正锚 + 胸科术域泛称（thoracic/chest 单独作锚也认：如纯手术技法研究）
-    anchor_ok = re.compile(SCOPE_POS.pattern + r"|\bthorac|\bchest\b|\bforegut\b|\breflux\b|\bgerd\b", re.I)
+    # 锚点校验＝与范围闸同构（2026-11-01 消杀干跑两次验尸定版）：锚点作为短文本过
+    # 「负词命中且无胸科正锚」才拦——纯 breast 锚＝判官自招非胸科；pulmonary lymphoma、
+    # 肺转移乳腺癌锚（负正互搏）放行；tracheal/LAM 等词表外生词无负词放行。
+    # 词表只当绊线不当门禁（PI 反关键词立场）：正向清单门禁曾错杀 tracheal/LAM 正当锚。
     kept = []
     n_bad_anchor = 0
     batch = 20
@@ -1440,12 +1442,13 @@ def llm_prescreen(llm: LLMClient, articles: List[Dict[str, Any]],
             d = decisions.get(j)
             if d and d.get("keep") is True:
                 anchor = str(d.get("anchor", "")).strip()
-                if anchor and anchor_ok.search(anchor):
+                anchor_bad = bool(anchor) and (SCOPE_NEG.search(anchor) and not SCOPE_POS.search(anchor))
+                if anchor and not anchor_bad:
                     a["_prescreen"] = "llm"
                     a["_anchor"] = anchor
                     kept.append(a)
                 else:
-                    n_bad_anchor += 1   # 锚点空/非胸科（写出 breast 之流）＝判官自己招了非胸科
+                    n_bad_anchor += 1   # 锚空＝没落笔；锚=纯它科（负词×无正锚）＝自招非胸科
             elif d is None:
                 a["_prescreen"] = "llm"      # 漏判＝宁重看勿漏看，交精评关
                 kept.append(a)
