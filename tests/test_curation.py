@@ -466,6 +466,48 @@ class TestScopeGate(unittest.TestCase):
         self.assertIn("PHERGain", eng.LIBRARY_PRESCREEN_SYSTEM)
 
 
+class TestRefit20261101(unittest.TestCase):
+    """换装三件套（PI 2026-11-01）：检索式路关停／范围闸影子模式／Anthropic 协议支。"""
+
+    def test_query_path_disabled_by_ruling(self):
+        self.assertFalse(eng.QUERY_PATH_ENABLED)      # PI 裁定关停；翻 True 复活
+
+    def test_scope_gate_mode_shadow(self):
+        self.assertEqual(eng.SCOPE_GATE_MODE, "shadow")
+        # 影子模式不改判据：PHERGain 仍判 False（一致性由每日影子账对账）
+        self.assertFalse(eng.thoracic_scope_gate(
+            {"title_en": "chemotherapy de-escalation in HER2-positive early breast cancer",
+             "abstract_en": ""}))
+
+    def test_scope_shadow_ledger_writes(self):
+        import shutil, tempfile
+        from pathlib import Path
+        d = tempfile.mkdtemp()
+        self.addCleanup(shutil.rmtree, d, ignore_errors=True)
+        p = Path(d) / "scope_gate_shadow.json"
+        eng.log_scope_shadow("2026-11-01", [
+            {"pmid": "1", "title_en": "breast cancer trial"},
+            {"pmid": "2", "title_en": "glioblastoma immunity"},
+        ], path=p)
+        state = json.loads(p.read_text(encoding="utf-8"))
+        self.assertEqual(state["2026-11-01"][0]["pmid"], "1")
+        self.assertIn("breast", state["2026-11-01"][0]["title"])
+
+    def test_llm_protocol_autodetect_and_pricing(self):
+        import os
+        saved = {k: os.environ.pop(k, None) for k in
+                 ("LLM_BASE_URL", "LLM_PROTOCOL", "LLM_PRICE_IN", "LLM_PRICE_OUT")}
+        self.addCleanup(lambda: [os.environ.__setitem__(k, v) for k, v in saved.items() if v is not None])
+        llm = eng.LLMClient()
+        self.assertEqual(llm.protocol, "openai")
+        self.assertGreater(llm.price_in, 0)
+        os.environ["LLM_BASE_URL"] = "https://token-plan-sgp.xiaomimimo.com/anthropic"
+        llm2 = eng.LLMClient()
+        self.assertEqual(llm2.protocol, "anthropic")
+        self.assertEqual(llm2.price_in, 0.0)          # 订阅包月＝边际 0
+        self.assertEqual(llm2.price_out, 0.0)
+
+
 class TestPrescreenRejectedLog(unittest.TestCase):
     """拒件落盘（T-THR-REJLOG）：进了预筛但不在幸存列表者记 {pmid, ta} 日档；
     同日多批并集不丢；滚动 90 天清档（边界含）；fail-open 坏目录/烂旧档不打断主管线。"""

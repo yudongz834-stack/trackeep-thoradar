@@ -98,6 +98,10 @@ A_TERMS = (
 )
 DEFAULT_QUERY = "(" + " OR ".join(f'"{t}"[Abstract]' for t in A_TERMS) + ")"
 
+# 检索式路开关（PI 2026-11-01 裁定关停）：v4 名册 1,498 本实测连续 5 天收录中字典外贡献 0，
+# 该路每日 389 篇命中几乎全为名册内重复。词表/分页/MeSH 代码全保留，翻 True 即复活。
+QUERY_PATH_ENABLED = False
+
 # MeSH 月度兜底层词表（2026-10-18 重测立项：双路视野之外独有 1,096 篇/90 天、
 # 27% 普胸相关 → 每天约 3-4 篇独有真货，月扫成本几美分）。
 # 「Esophageal Surgical Procedures」MeSH 无此主题词，不列。
@@ -145,6 +149,24 @@ def thoracic_scope_gate(a: Dict[str, Any]) -> bool:
     """范围闸（机械·判例驱动）：True＝放行。负词命中且无胸科正锚＝明显它科 → False。"""
     blob = (a.get("title_en", "") + " " + a.get("abstract_en", "")[:400]).lower()
     return not (SCOPE_NEG.search(blob) and not SCOPE_POS.search(blob))
+
+
+# 范围闸模式（PI 2026-11-01 降级令）：block＝拦下不进预筛；shadow＝只记账不动手——
+# 判官判词 v2＋锚点校验为主防线，影子账跑两周对账「判官是否把闸要拦的都拦了」，一致即退役。
+SCOPE_GATE_MODE = "shadow"
+
+
+def log_scope_shadow(day: str, articles: List[Dict[str, Any]], path: Optional[Path] = None) -> None:
+    """范围闸影子账：按日存「若拦截会拦哪些」，供两周对账与判官一致性复核。"""
+    path = path or (DATA_DIR / "scope_gate_shadow.json")
+    try:
+        state = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+    except Exception:  # noqa: BLE001 账本损坏从零重建
+        state = {}
+    state[day] = [{"pmid": a.get("pmid", ""), "title": (a.get("title_en", "") or "")[:100]}
+                  for a in articles]
+    path.parent.mkdir(exist_ok=True)
+    path.write_text(json.dumps(state, ensure_ascii=False), encoding="utf-8")
 
 
 # 预筛正选口径 v2（2026-11-01 定稿）：四席外审＋PI 终裁儿科 A 包后的「判案四步」。
@@ -879,8 +901,16 @@ class LLMClient:
         self.key = os.environ.get("LLM_API_KEY", "").strip()
         self.base = os.environ.get("LLM_BASE_URL", "https://api.deepseek.com/v1").strip().rstrip("/")
         self.model = os.environ.get("LLM_MODEL", "deepseek-chat").strip()
-        self.price_in = float(os.environ.get("LLM_PRICE_IN", "0.27"))
-        self.price_out = float(os.environ.get("LLM_PRICE_OUT", "1.10"))
+        # 协议自动识别：base 含 /anthropic 走 Anthropic Messages（Mimo Token Plan 端点只开此口，
+        # OpenAI 口 400 Unsupported model——2026-11-01 实测）。可用 LLM_PROTOCOL 显式指定。
+        self.protocol = os.environ.get("LLM_PROTOCOL", "").strip().lower() or (
+            "anthropic" if "/anthropic" in self.base else "openai")
+        if self.protocol == "anthropic" and not (
+                os.environ.get("LLM_PRICE_IN") or os.environ.get("LLM_PRICE_OUT")):
+            self.price_in = self.price_out = 0.0   # 订阅包月＝边际 0；要按量改 env 覆盖
+        else:
+            self.price_in = float(os.environ.get("LLM_PRICE_IN", "0.27"))
+            self.price_out = float(os.environ.get("LLM_PRICE_OUT", "1.10"))
         self.cap_usd = float(os.environ.get("MAX_DAILY_COST_USD", "0"))  # ≤0＝不封顶（PI 2026-10-26 令拆默认熔断；失控兜底＝工作流 60 分钟超时；要再设环境变量给正数即可）
         self.cost_usd = 0.0
         self.calls = 0
@@ -895,27 +925,44 @@ class LLMClient:
             raise RuntimeError("LLM_API_KEY 未配置")
         if self.cap_usd > 0 and self.cost_usd > self.cap_usd:
             raise BudgetExceeded(f"LLM 成本 ${self.cost_usd:.3f} 超熔断上限 ${self.cap_usd:.2f}")
-        payload = json.dumps({
-            "model": self.model,
-            "messages": [{"role": "system", "content": system},
-                         {"role": "user", "content": user}],
-            "temperature": 0.2,
-            "max_tokens": max_tokens,
-        }).encode("utf-8")
-        req = urllib.request.Request(
-            f"{self.base}/chat/completions", data=payload,
-            headers={"Content-Type": "application/json",
-                     "Authorization": f"Bearer {self.key}"})
+        if self.protocol == "anthropic":
+            # 思考型模型（Mimo）thinking 块先吃 max_tokens——下限 3000 防正文被吃空
+            # 返回空串→整批误判「锚点不合格」的假错杀（2026-11-01 换装验尸发现）。
+            max_tokens = max(max_tokens, 3000)
+            payload = json.dumps({
+                "model": self.model, "max_tokens": max_tokens, "system": system,
+                "messages": [{"role": "user", "content": user}],
+            }).encode("utf-8")
+            req = urllib.request.Request(
+                f"{self.base}/v1/messages", data=payload,
+                headers={"Content-Type": "application/json", "x-api-key": self.key,
+                         "anthropic-version": "2023-06-01"})
+        else:
+            payload = json.dumps({
+                "model": self.model,
+                "messages": [{"role": "system", "content": system},
+                             {"role": "user", "content": user}],
+                "temperature": 0.2,
+                "max_tokens": max_tokens,
+            }).encode("utf-8")
+            req = urllib.request.Request(
+                f"{self.base}/chat/completions", data=payload,
+                headers={"Content-Type": "application/json",
+                         "Authorization": f"Bearer {self.key}"})
         last_err: Optional[Exception] = None
         for attempt in range(3):
             try:
                 with urllib.request.urlopen(req, timeout=120) as resp:
                     data = json.loads(resp.read().decode("utf-8"))
                 usage = data.get("usage", {})
+                pt = usage.get("input_tokens", usage.get("prompt_tokens", 0))     # anthropic/openai 字段名兼容
+                ct = usage.get("output_tokens", usage.get("completion_tokens", 0))
                 with self._lock:
-                    self.cost_usd += (usage.get("prompt_tokens", 0) * self.price_in
-                                      + usage.get("completion_tokens", 0) * self.price_out) / 1e6
+                    self.cost_usd += (pt * self.price_in + ct * self.price_out) / 1e6
                     self.calls += 1
+                if self.protocol == "anthropic":
+                    return "".join(b.get("text", "") for b in data.get("content", [])
+                                   if b.get("type") == "text")
                 return data["choices"][0]["message"]["content"]
             except BudgetExceeded:
                 raise
@@ -1763,10 +1810,10 @@ def main(argv: Optional[List[str]] = None) -> int:
         return list(dict.fromkeys(merged))
 
     def _collect(dback: int):
-        """双路采集：目录路（340 刊全收）＋ 检索式路（字典外世界）→ 合并去重。"""
+        """目录路采集（名册逐刊全收）；检索式路 2026-11-01 PI 裁定关停（QUERY_PATH_ENABLED 复活）。"""
         toc_pmids, toc_counts = collector.fetch_journal_toc(cfg.get("journals", []), dback)
         health = update_journal_health(toc_counts)
-        q_pmids = collector.esearch_pmids(dback, args.retmax)
+        q_pmids = collector.esearch_pmids(dback, args.retmax) if QUERY_PATH_ENABLED else []
         merged = list(dict.fromkeys(toc_pmids + q_pmids))   # TOC 保序在前，PMID 去重
         return toc_pmids, q_pmids, merged, health
 
@@ -1783,7 +1830,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         log(f"见过账本去重后待处理 {len(pmids)} 篇")
         funnel = {"toc_fetched": 0, "query_fetched": len(mesh_pmids), "mesh_mode": True,
                   "fetched": len(pmids), "journal_matched": 0, "scope_rejected": 0,
-                  "prescreened": 0, "final": 0, "curated": 0}
+                  "scope_shadow": 0, "prescreened": 0, "final": 0, "curated": 0}
     else:
         log("目录路：逐刊扫描中…")
         toc_pmids, q_pmids, pmids, health = _collect(days_back)
@@ -1799,7 +1846,7 @@ def main(argv: Optional[List[str]] = None) -> int:
             pmids = [p for p in merged if p not in seen]
         funnel = {"toc_fetched": len(toc_pmids), "query_fetched": len(q_pmids),
                   "fetched": len(pmids), "journal_matched": 0, "scope_rejected": 0,
-                  "prescreened": 0, "final": 0, "curated": 0}
+                  "scope_shadow": 0, "prescreened": 0, "final": 0, "curated": 0}
         log(f"采集：目录路 {len(toc_pmids)} ＋ 检索式路 {len(q_pmids)} → 合并 {len(pmids)} 篇"
             f"（crdt 近 {days_back} 天｜目录健康 红{len(health['red'])}/黄{len(health['yellow'])}）")
 
@@ -1857,13 +1904,23 @@ def main(argv: Optional[List[str]] = None) -> int:
     funnel["journal_matched"] = len(stage_journal)
     log(f"期刊索引阶段留存 {len(stage_journal)} 篇")
 
-    # 胸科范围机械闸（PHERGain 判例）：明显它科在进预筛前拦下——省判官 token，
-    # 也拦住判官手松；负正互搏（乳腺癌肺转移）放行交预筛细判。
-    before_scope = len(stage_journal)
-    stage_journal = [a for a in stage_journal if thoracic_scope_gate(a)]
-    funnel["scope_rejected"] = before_scope - len(stage_journal)
-    if funnel["scope_rejected"]:
-        log(f"范围闸：拦下明显它科 {funnel['scope_rejected']} 篇（负词命中且无胸科正锚）")
+    # 胸科范围机械闸（PHERGain 判例）：block＝预筛前拦下明显它科（省 token＋兜判官手松）；
+    # shadow＝只记账不动手（PI 2026-11-01 降级令——主防线＝判词 v2＋锚点校验，两周对账定去留）。
+    if SCOPE_GATE_MODE == "block":
+        before_scope = len(stage_journal)
+        stage_journal = [a for a in stage_journal if thoracic_scope_gate(a)]
+        funnel["scope_rejected"] = before_scope - len(stage_journal)
+        if funnel["scope_rejected"]:
+            log(f"范围闸：拦下明显它科 {funnel['scope_rejected']} 篇（负词命中且无胸科正锚）")
+    else:
+        shadow_hits = [a for a in stage_journal if not thoracic_scope_gate(a)]
+        funnel["scope_shadow"] = len(shadow_hits)
+        if shadow_hits:
+            log(f"范围闸（影子）：若拦截将拦 {len(shadow_hits)} 篇（只记账不动手，判官为主）")
+            try:
+                log_scope_shadow(day, shadow_hits)
+            except Exception as e:  # noqa: BLE001 影子账失败不影响主流程
+                log(f"⚠ 影子账落盘失败（跳过）: {e}")
 
     # 预筛
     if llm.available:
