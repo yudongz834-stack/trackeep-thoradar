@@ -36,7 +36,9 @@ class TaxonomyV4Tests(unittest.TestCase):
 
     def test_r2_volume_control_six_forced_d(self):
         vc = [j for j in JOURNALS if j.get("tier_rule") == 1]
-        self.assertEqual(len(vc), 6, f"量控应 6 本，实得 {len(vc)}")
+        # v4.2-precision（2026-11-01 PI 令精准优先）：量控 6 本中非胸科专科名三本
+        # （Cancers/Sci Rep/Front Oncol）已封存，余 3 本胸科专科名刊留在核心册
+        self.assertEqual(len(vc), 3, f"量控留册应 3 本，实得 {len(vc)}")
         for j in vc:
             self.assertEqual(j.get("tier_new"), "D", f"量控刊 {j['name']} 应强制 D")
 
@@ -70,14 +72,15 @@ class TaxonomyV4Tests(unittest.TestCase):
     def test_r7_empty_id_rows_reachable_by_name(self):
         """28 本空 NLM ID 刊五键全空、唯一身份＝walk 规范名：name 弱键须可命中且带阵地（红线 2 兜底准入）。"""
         noid = [j for j in JOURNALS if not j.get("nlm_id")]
-        self.assertEqual(len(noid), 28, f"空 ID 刊应 28 本，实得 {len(noid)}")
+        # v4.2-precision：原 28 本空 ID 刊多数随全册封存，核心册余 4 本——name 弱键可达性不变
+        self.assertEqual(len(noid), 3, f"空 ID 刊应 3 本，实得 {len(noid)}")
         for j in noid:
             self.assertTrue(str(j.get("name", "")).strip(), f"空 ID 刊缺 name：{j.get('id')}")
         jm = eng.JournalMatcher(CFG)
-        m = jm.match(title="EUROSURVEILLANCE")
-        self.assertTrue(m["matched"], "name 弱键应命中 Eurosurveillance")
-        self.assertEqual(m["tier"], "C")
-        self.assertEqual(m["journal_category"], "5")  # Eurosurveillance＝感染监测刊，归 5 感染与免疫（实测）
+        m = jm.match(title="EUROPEAN JOURNAL OF CARDIO-THORACIC SURGERY")
+        self.assertTrue(m["matched"], "name 弱键应命中 EJCTS（v4.2 后 Eurosurveillance 已封存）")
+        self.assertEqual(m["tier"], "B")   # 冠冕钉：EJCTS 钉 B
+        self.assertEqual(m["journal_category"], "1")  # EJCTS＝胸外主刊，归 1 呼吸胸科
         self.assertTrue(m["journal_full"], "journal_full 应回落 name 不落空")
 
     def test_r6_bonus_map_and_b_exempt(self):
@@ -87,7 +90,7 @@ class TaxonomyV4Tests(unittest.TestCase):
         self.assertTrue(tiers["B"]["whitelist_exempt"], "新 B 档须沿用旧 A 豁免政策（主控已裁）")
         self.assertFalse(tiers["C"]["whitelist_exempt"])
         self.assertFalse(tiers["D"]["whitelist_exempt"])
-        self.assertEqual(CFG.get("version"), "4.0.1")
+        self.assertEqual(CFG.get("version"), "v4.2-precision")   # 2026-11-01 精准册改版
 
 
 if __name__ == "__main__":

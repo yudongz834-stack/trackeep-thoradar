@@ -550,10 +550,26 @@ class TestLifecycleV2(unittest.TestCase):
         self.assertIn("Biomedicines", eng.load_suspended(path=p))
         p.write_text("not-json{", encoding="utf-8")
         self.assertEqual(eng.load_suspended(path=p), {})                       # 坏档＝无降档
-        # 生产降档册已入库：85 刊、全部带 since 与 v2 评审期限说明
-        prod = eng.load_suspended()
-        self.assertGreaterEqual(len(prod), 80)
-        self.assertTrue(all("2027-02-01" in v.get("reason", "") for v in prod.values()))
+
+    def test_precision_roster_v4_2(self):
+        """核心册 v4.2-precision（PI 2026-11-01 令精准优先）：旗舰全保·水刊封存·EJCTS 补钉。"""
+        import json as _json
+        from pathlib import Path
+        cfg = _json.loads((Path(eng.__file__).parent / "config" / "journals_taxonomy.json")
+                          .read_text(encoding="utf-8"))
+        tas = {(j.get("iso_abbr") or "").strip() for j in cfg["journals"]}
+        for must in ("J Thorac Cardiovasc Surg", "Ann Thorac Surg", "Eur J Cardiothorac Surg",
+                     "J Thorac Oncol", "Lung Cancer", "Chest", "N Engl J Med", "Lancet",
+                     "Respir Res", "Front Immunol"):
+            self.assertIn(must, tas, must)
+        for water in ("Cancers (Basel)", "Sci Rep", "Front Oncol"):           # 量控水刊封存
+            self.assertNotIn(water, tas, water)
+        self.assertLessEqual(len(cfg["journals"]), 250)                        # 精准册体量上限
+        self.assertGreaterEqual(len(cfg["journals"]), 150)
+        sealed = _json.loads((Path(eng.__file__).parent / "design" / "名册封存-20261101.json")
+                             .read_text(encoding="utf-8"))
+        self.assertGreaterEqual(sealed["count"], 1200)                          # 全册封存待唤
+        self.assertEqual(eng.load_suspended(), {})                              # 降档册随册封存清空
 
 
 class TestPrescreenRejectedLog(unittest.TestCase):
