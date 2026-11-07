@@ -274,6 +274,48 @@ html.dark .action-btn.primary{color:var(--on-accent)}
 .sec-picker select{min-width:0;max-width:200px;border:1px solid var(--line);border-radius:7px;background:var(--card-2);color:var(--text);padding:6px 8px;font-size:11px;cursor:pointer}
 .sec-picker select:hover{border-color:var(--accent);color:var(--accent-dark)}
 .coll-op:disabled{opacity:.4;cursor:default}
+/* 我的主题＋AI 设置（第 2 期：自带 Key 按需检索；执行在浏览器现场，零站方服务器） */
+.ai-grid{display:flex;flex-direction:column;gap:8px;margin-bottom:8px}
+.ai-field{display:block;min-width:0}
+.ai-field>span{display:block;margin:0 0 4px 2px;font-size:10px;color:var(--muted)}
+.ai-field input,.ai-field textarea{width:100%;border:1px solid var(--line);border-radius:7px;background:var(--card-2);color:var(--text);padding:7px 9px;font-size:11px}
+.ai-field textarea{resize:vertical;font-family:var(--font-mono);line-height:1.5;min-height:64px}
+.ai-field input:focus,.ai-field textarea:focus{outline:0;border-color:var(--accent)}
+.ai-note{margin:6px 0 8px;font-size:9.5px;line-height:1.6;color:var(--muted)}
+.ai-actions{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.ai-actions .coll-tool{flex:0 0 auto;padding:6px 12px}
+.ai-status{font-size:10px;line-height:1.5;min-width:0;overflow-wrap:anywhere}
+.ai-status.ok{color:var(--success-on-soft)}
+.ai-status.bad{color:var(--danger-on-soft)}
+.ai-status.pending{color:var(--muted)}
+.ai-help,.ai-hint{margin:4px 0 0;font-size:9.5px;line-height:1.6;color:var(--muted)}
+.ai-help a{color:var(--accent-on-soft);text-decoration:underline}
+.ai-hint{color:var(--warning-on-soft)}
+.topic-lastrun{margin-top:3px}
+.topic-mask{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:59}
+.topic-overlay{position:fixed;inset:16px;z-index:60;display:flex;flex-direction:column;overflow:hidden;border-radius:14px;box-shadow:var(--shadow-card)}
+.topic-head{padding:14px 16px 12px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.topic-head h2{margin:5px 0 0;font-size:15px;line-height:1.25;letter-spacing:.02em}
+.topic-run-stats{font:600 10.5px/1.4 var(--font-mono);color:var(--text-2);white-space:nowrap;padding-top:6px}
+.topic-run-ops{display:flex;align-items:center;gap:6px;padding-top:2px}
+.topic-run-ops .coll-op{font-size:10px;padding:6px 10px}
+.topic-run-body{flex:1;min-height:0;overflow:auto;padding:12px 16px 18px;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+.tr-error{margin:0 0 10px;padding:10px 12px;border:1px solid var(--danger);border-radius:8px;background:var(--danger-soft);color:var(--danger-on-soft);font-size:11px;line-height:1.6;overflow-wrap:anywhere}
+.tr-error a{color:inherit;font-weight:650}
+.tr-note{margin:0 0 12px;padding:12px;border:1px dashed var(--line);border-radius:8px;color:var(--muted);font-size:11.5px;text-align:center}
+.tr-phase{margin:0 0 10px;font:600 10px/1 var(--font-mono);letter-spacing:.08em;color:var(--accent-on-soft)}
+.tr-card{border:1px solid var(--line);border-radius:9px;background:var(--card-2);padding:10px 12px;margin-bottom:8px}
+.tr-card-top{display:flex;align-items:flex-start;gap:8px}
+.tr-badge{flex:0 0 auto;border-radius:4px;padding:3px 6px;font:600 9px/1 var(--font-mono);letter-spacing:.06em}
+.tr-badge.related{background:var(--success-soft);color:var(--success-on-soft)}
+.tr-badge.unrelated{background:var(--card);border:1px solid var(--line);color:var(--muted)}
+.tr-badge.unjudged{background:var(--warning-soft);color:var(--warning-on-soft)}
+.tr-badge.unrun{background:var(--card);border:1px dashed var(--line);color:var(--muted)}
+.tr-title{flex:1;min-width:0;font-size:12px;line-height:1.5;font-weight:550;overflow-wrap:anywhere;color:var(--text);text-decoration:none}
+.tr-title:hover{color:var(--accent-dark)}
+.tr-meta{margin:6px 0 0;font-size:9.5px;color:var(--muted)}
+.tr-why{margin:6px 0 0;font-size:10.5px;line-height:1.6;color:var(--text-2);overflow-wrap:anywhere}
+@media(max-width:900px){.topic-overlay{inset:8px}.topic-head{padding:12px}}
 </style>
 </head>
 <body>
@@ -362,16 +404,39 @@ html.dark .action-btn.primary{color:var(--on-accent)}
   </aside>
 </main>
 <div class="coll-mask" id="coll-mask" hidden></div>
-<aside class="panel coll-drawer" id="coll-drawer" role="dialog" aria-modal="true" aria-label="期刊合集与我的阵地" hidden>
-  <div class="coll-head-bar"><div><div class="eyebrow">Collections &amp; sectors</div><h2>合集与我的阵地</h2></div><button class="coll-close" id="coll-close" aria-label="关闭抽屉">✕</button></div>
+<aside class="panel coll-drawer" id="coll-drawer" role="dialog" aria-modal="true" aria-label="合集、我的阵地与我的主题" hidden>
+  <div class="coll-head-bar"><div><div class="eyebrow">Collections · sectors · topics</div><h2>合集 · 阵地 · 主题</h2></div><button class="coll-close" id="coll-close" aria-label="关闭抽屉">✕</button></div>
   <div class="coll-body">
     <section id="coll-list" aria-label="合集列表"></section>
     <section id="coll-editor" aria-label="编辑合集"></section>
     <section id="scheme-list" aria-label="我的阵地方案列表"></section>
     <section id="scheme-editor" aria-label="编辑阵地方案"></section>
+    <section id="topic-list" aria-label="我的检索主题列表"></section>
+    <section id="topic-editor" aria-label="编辑检索主题"></section>
+    <section id="ai-settings" aria-label="AI 设置（自带 Key）">
+      <p class="coll-section-title">AI 设置 · 自带 Key（「我的主题」运行时用）</p>
+      <div class="ai-grid">
+        <label class="ai-field"><span>BaseURL</span><input id="ai-baseurl" type="text" placeholder="如 https://api.anthropic.com 或你的中转地址" autocomplete="off" spellcheck="false"></label>
+        <label class="ai-field"><span>API Key</span><input id="ai-key" type="password" placeholder="只保存在本浏览器" autocomplete="new-password"></label>
+        <label class="ai-field"><span>Model</span><input id="ai-model" type="text" placeholder="模型 ID（Anthropic 协议兼容），自由填写" autocomplete="off" spellcheck="false"></label>
+      </div>
+      <p class="ai-note">Key 只保存在本浏览器，请求从你的设备直连 AI 服务商，本站无服务器不经手。公共电脑勿用。</p>
+      <div class="ai-actions"><button class="coll-tool" id="ai-test">测试连接</button><span id="ai-test-status" class="ai-status" role="status"></span></div>
+      <p class="ai-help">跨域受限？改用中转地址或自部署转发 Worker，模板见 <a href="docs/壳化-自带Token指南.md" target="_blank" rel="noopener">站内帮助</a>。</p>
+      <p class="ai-hint" id="ai-guide-hint" hidden>先在上方 AI 设置填好 BaseURL / Key / Model 三项，再运行主题。</p>
+    </section>
   </div>
 </aside>
 <input type="file" id="coll-import-file" accept="application/json,.json" hidden>
+<div class="topic-mask" id="topic-mask" hidden></div>
+<section class="panel topic-overlay" id="topic-overlay" role="dialog" aria-modal="true" aria-label="我的主题检索结果" hidden>
+  <div class="topic-head">
+    <div class="topic-head-title"><div class="eyebrow">Topic sweep · on demand</div><h2 id="topic-run-title">—</h2></div>
+    <div class="topic-run-stats" id="topic-run-stats">—</div>
+    <div class="topic-run-ops"><button class="coll-op" id="topic-stop" hidden>■ 停止</button><button class="coll-close" id="topic-close" aria-label="关闭结果面板">✕</button></div>
+  </div>
+  <div class="topic-run-body" id="topic-run-body"></div>
+</section>
 <footer class="footer">
   <span>程序生成 · 无人审校 · 期刊与分区按注入字段原样展示 · 摘要仅供检索导读，临床判断请读原文</span>
   <span class="keys">/ 检索　← → 切换　ESC 清除</span>
@@ -1006,6 +1071,7 @@ function render(){
   renderSchemeSelect();
   renderCollections();   // 抽屉打开时同步列表徽章；关着时零开销
   renderSchemes();
+  renderTopics();
 }
 function selectPaper(id,scroll=false){
   if(!PAPERS.some(p=>p.id===id))return;
@@ -1062,6 +1128,7 @@ $('#theme-btn').addEventListener('click',()=>{
 document.addEventListener('keydown',event=>{
   if(event.key==='/'&&document.activeElement!==$('#search')){event.preventDefault();$('#search').focus()}
   if(event.key==='Escape'){
+    if(!$('#topic-overlay').hidden){if(!(runState&&runState.running))closeTopicOverlay();return}   // 结果覆盖层最上层；运行中 ESC 不关防误触中断
     if(!$('#coll-drawer').hidden){closeCollDrawer();return}   // 抽屉开着先关抽屉，不误清筛选
     state.query='';state.quick='all';state.journal=null;state.jcat=null;state.jcatFolded=new Set(JCAT_FOLDABLE);state.gsec=null;state.gsecFolded=new Set();state.tiers=new Set(TIERS);$('#search').value='';render();$('#search').blur();
   }
@@ -1072,7 +1139,7 @@ document.addEventListener('keydown',event=>{
 });
 // ===== 合集抽屉 UI（纯本地；无账号无云端，导出/导入＝手工 JSON 文件） =====
 let collEditingId=null,collSearch='',collRenameId=null;
-function openCollDrawer(){$('#coll-drawer').hidden=false;$('#coll-mask').hidden=false;renderCollections();renderSchemes()}
+function openCollDrawer(){$('#coll-drawer').hidden=false;$('#coll-mask').hidden=false;renderCollections();renderSchemes();renderTopics()}
 function closeCollDrawer(){$('#coll-drawer').hidden=true;$('#coll-mask').hidden=true;collRenameId=null}
 function downloadCollections(){
   const blob=new Blob([exportCollectionsJSON()],{type:'application/json'});
@@ -1295,6 +1362,407 @@ $('#scheme-select').addEventListener('change',event=>{
   setActiveScheme(event.target.value||null);
   render();
 });
+// ===== 我的主题（第 2 期：自定义检索＋自带 AI Key 按需执行；与官方数据完全隔离——不进 SITE_DATA/雷达盘/合集/方案，结果只进 thoradar.topicruns.v1 自己的视图） =====
+const LS_AI='thoradar.ai.v1',LS_TOPICS='thoradar.topics.v1',LS_RUNS='thoradar.topicruns.v1';
+const PUBMED_BASE='https://eutils.ncbi.nlm.nih.gov/entrez/eutils/';
+const PUBMED_THROTTLE_MS=3000;          // 无 NCBI Key 的保守限速：请求间隔 ≥3 秒
+const AI_BATCH_SIZE=10,AI_RETRY=1,RUN_ITEMS_CAP=100,TOPIC_RUN_URL='https://pubmed.ncbi.nlm.nih.gov/';
+const AI_PROXY_HELP='<a href="docs/壳化-自带Token指南.md" target="_blank" rel="noopener">站内帮助</a>';
+const TOPIC_JUDGE_SYSTEM='你是医学文献筛选判官。用户设定了检索主题（见用户消息开头）。逐篇判断文献与主题的相关性：主要研究问题命中主题方向=相关。输出 JSON 数组，每篇：{"pmid":"...","related":true/false,"why":"≤30字中文理由"}。只输出 JSON；不确定判 false 并在 why 注明「边缘」。每篇必须有输出。';
+const clampTopicDays=v=>{const n=Math.round(Number(v));return Number.isFinite(n)?Math.max(1,Math.min(30,n)):7};
+const clampTopicCap=v=>{const n=Math.round(Number(v));return Number.isFinite(n)?Math.max(5,Math.min(50,n)):20};
+class StopError extends Error{constructor(){super('已停止')}}
+class TransportError extends Error{   // fetch 抛 TypeError＝网络层失败，典型 CORS（也可能是断网/DNS，文案一并引导中转/Worker）
+  constructor(kind){super(kind==='cors'?'网络请求失败（常见原因：浏览器跨域受限）':'网络请求失败');this.kind=kind}
+}
+function sanitizeAI(raw){   // 三字段字符串清洗：trim、截长、BaseURL 去尾斜杠
+  const out={baseUrl:'',apiKey:'',model:''};
+  if(!raw||typeof raw!=='object')return out;
+  out.baseUrl=String(raw.baseUrl||'').trim().replace(/\/+$/,'').slice(0,300);
+  out.apiKey=String(raw.apiKey||'').trim().slice(0,400);
+  out.model=String(raw.model||'').trim().slice(0,120);
+  return out;
+}
+function loadAIStore(){try{return sanitizeAI(JSON.parse(localStorage.getItem(LS_AI)||'null'))}catch(e){return sanitizeAI(null)}}
+let aiStore=loadAIStore();
+const persistAI=makeDebounced(()=>{try{localStorage.setItem(LS_AI,JSON.stringify(aiStore))}catch(e){}},250);
+function sanitizeTopics(raw){   // 存储清洗：坏件剪、id 去重、空检索式剪、days/cap 夹紧、lastRun 结构校验
+  const out={version:1,topics:[]};
+  if(!raw||raw.version!==1||!Array.isArray(raw.topics))return out;
+  const seen=new Set();
+  raw.topics.forEach(t=>{
+    if(!t||typeof t!=='object')return;
+    const id=typeof t.id==='string'&&/^t_[\w-]{1,64}$/.test(t.id)?t.id:'';
+    const query=String(t.query||'').trim().slice(0,2000);
+    if(!id||seen.has(id)||!query)return;
+    seen.add(id);
+    let lastRun=null;
+    if(t.lastRun&&typeof t.lastRun==='object'&&Number.isFinite(Number(t.lastRun.at))&&Number(t.lastRun.ran)>=0&&Number(t.lastRun.related)>=0){
+      lastRun={at:Number(t.lastRun.at),ran:Number(t.lastRun.ran),related:Number(t.lastRun.related)};
+    }
+    out.topics.push({id,name:String(t.name||'').trim().slice(0,60)||'未命名主题',query,days:clampTopicDays(t.days),cap:clampTopicCap(t.cap),createdAt:Number.isFinite(Number(t.createdAt))?Number(t.createdAt):Date.now(),lastRun});
+  });
+  return out;
+}
+function loadTopicsStore(){try{return sanitizeTopics(JSON.parse(localStorage.getItem(LS_TOPICS)||'null'))}catch(e){return sanitizeTopics(null)}}
+let topicsStore=loadTopicsStore();
+const persistTopics=makeDebounced(()=>{try{localStorage.setItem(LS_TOPICS,JSON.stringify(topicsStore))}catch(e){}},250);
+function sanitizeRuns(raw,validIds){   // 每主题只留最近一次；悬空 run（主题已删）剪；条目夹 100 上限丢最旧
+  const out={v:1,runs:{}};
+  if(!raw||raw.v!==1||!raw.runs||typeof raw.runs!=='object')return out;
+  Object.keys(raw.runs).forEach(id=>{
+    if(!validIds.has(id))return;
+    const r=raw.runs[id];
+    if(!r||typeof r!=='object'||!Number.isFinite(Number(r.at)))return;
+    const items=(Array.isArray(r.items)?r.items:[]).slice(0,RUN_ITEMS_CAP).map(it=>({
+      pmid:String(it&&it.pmid||'').replace(/\D/g,'').slice(0,16),
+      title:String(it&&it.title||'').slice(0,500),
+      journal:String(it&&it.journal||'').slice(0,160),
+      date:String(it&&it.date||'').slice(0,32),
+      verdict:['related','unrelated','unjudged','unrun'].includes(it&&it.verdict)?it.verdict:'unjudged',
+      why:String(it&&it.why||'').slice(0,160)
+    })).filter(it=>it.pmid);
+    out.runs[id]={at:Number(r.at),ran:Number.isFinite(Number(r.ran))?Number(r.ran):items.length,items};
+  });
+  return out;
+}
+function loadRunsStore(){try{return sanitizeRuns(JSON.parse(localStorage.getItem(LS_RUNS)||'null'),new Set(topicsStore.topics.map(t=>t.id)))}catch(e){return sanitizeRuns(null,new Set())}}
+let runsStore=loadRunsStore();
+function persistRunsNow(){try{localStorage.setItem(LS_RUNS,JSON.stringify(runsStore))}catch(e){}}
+function createTopic(name,query,days,cap){
+  const t={id:'t_'+Date.now().toString(36)+Math.random().toString(36).slice(2,7),name:String(name||'').trim().slice(0,60)||'未命名主题',query:String(query||'').trim().slice(0,2000),days:clampTopicDays(days),cap:clampTopicCap(cap),createdAt:Date.now(),lastRun:null};
+  if(!t.query)return null;
+  topicsStore.topics.push(t);
+  persistTopics();
+  return t.id;
+}
+function deleteTopic(id){   // 主题删除连带清最近一次运行结果（悬空 run 兜底由 sanitizeRuns 剪）
+  const before=topicsStore.topics.length;
+  topicsStore.topics=topicsStore.topics.filter(t=>t.id!==id);
+  if(runsStore.runs[id]){delete runsStore.runs[id];persistRunsNow()}
+  if(before!==topicsStore.topics.length)persistTopics();
+  return before!==topicsStore.topics.length;
+}
+// ----- 传输层：统一 AbortController＋TypeError→跨域判定；停止即时短路 -----
+function sleepAbortable(ms,signal){
+  return new Promise((resolve,reject)=>{
+    if(signal.aborted)return reject(new StopError());
+    const onAbort=()=>{clearTimeout(timer);reject(new StopError())};
+    const timer=setTimeout(()=>{signal.removeEventListener('abort',onAbort);resolve()},ms);
+    signal.addEventListener('abort',onAbort);
+  });
+}
+async function tFetch(url,opts,signal){
+  try{return await fetch(url,Object.assign({},opts,{signal}))}
+  catch(e){
+    if(signal&&signal.aborted)throw new StopError();
+    if(e&&e.name==='AbortError')throw new StopError();
+    if(e instanceof TypeError)throw new TransportError('cors');
+    throw e;
+  }
+}
+// ----- PubMed E-utilities（浏览器现场直连；reldate 回看窗，sort=date，retmax=cap） -----
+async function esearchPubmed(topic,signal){
+  const url=`${PUBMED_BASE}esearch.fcgi?db=pubmed&term=${encodeURIComponent(topic.query)}&reldate=${topic.days}&retmax=${topic.cap}&retmode=json&sort=date`;
+  const res=await tFetch(url,{method:'GET'},signal);
+  if(!res.ok)throw new Error(`PubMed 检索失败（HTTP ${res.status}）`);
+  const data=await res.json();
+  return data&&data.esearchresult&&Array.isArray(data.esearchresult.idlist)?data.esearchresult.idlist.map(String):[];
+}
+async function efetchPubmed(pmids,signal){
+  const url=`${PUBMED_BASE}efetch.fcgi?db=pubmed&id=${pmids.map(encodeURIComponent).join(',')}&retmode=xml`;
+  const res=await tFetch(url,{method:'GET'},signal);
+  if(!res.ok)throw new Error(`PubMed 题录拉取失败（HTTP ${res.status}）`);
+  return parsePubmedXML(await res.text());
+}
+function parsePubmedXML(xmlText){   // 提取 pmid/title/abstract/期刊名；PMID 取 MedlineCitation 直系（ReferenceList 内同名标签不误取）
+  const doc=new DOMParser().parseFromString(String(xmlText||''),'application/xml');
+  if(doc.querySelector('parsererror'))throw new Error('PubMed 题录 XML 解析失败');
+  const out=[];
+  doc.querySelectorAll('PubmedArticle').forEach(article=>{
+    const pmidEl=article.querySelector('MedlineCitation > PMID');
+    const titleEl=article.querySelector('MedlineCitation > Article > ArticleTitle');
+    const journalEl=article.querySelector('MedlineCitation > Article > Journal > Title')||article.querySelector('MedlineCitation > Article > Journal > ISOAbbreviation');
+    const yearEl=article.querySelector('MedlineCitation > Article > Journal > JournalIssue > PubDate > Year');
+    const medlineEl=article.querySelector('MedlineCitation > Article > Journal > JournalIssue > PubDate > MedlineDate');
+    const pmid=String(pmidEl&&pmidEl.textContent||'').trim();
+    if(!pmid)return;
+    const abstract=Array.from(article.querySelectorAll('MedlineCitation > Article > Abstract > AbstractText')).map(el=>{
+      const label=el.getAttribute('Label'),text=String(el.textContent||'').trim();
+      return label?`${label}: ${text}`:text;
+    }).filter(Boolean).join(' ').slice(0,4000);
+    out.push({pmid,title:String(titleEl&&titleEl.textContent||'').trim(),abstract,journal:String(journalEl&&journalEl.textContent||'').trim(),date:String(yearEl&&yearEl.textContent||medlineEl&&medlineEl.textContent||'').trim()});
+  });
+  return out;
+}
+// ----- AI 判官（Anthropic 协议；max_tokens≥3000——思考型模型会把预算吃进思考，低于此正文被吃空＝假失败） -----
+function aiMessagesURL(cfg){return `${cfg.baseUrl}/v1/messages`}
+async function aiMessages(cfg,body,signal){
+  const res=await tFetch(aiMessagesURL(cfg),{method:'POST',headers:{'content-type':'application/json','x-api-key':cfg.apiKey,'anthropic-version':'2023-06-01'},body:JSON.stringify(body)},signal);
+  if(!res.ok){
+    let detail='';
+    try{const err=await res.json();detail=err&&err.error&&err.error.message?String(err.error.message):JSON.stringify(err).slice(0,200)}
+    catch(e){try{detail=(await res.clone().text()).slice(0,200)}catch(e2){}}
+    throw new Error(`AI 服务返回 HTTP ${res.status}${detail?`：${detail}`:''}`);
+  }
+  const data=await res.json();
+  return (Array.isArray(data&&data.content)?data.content:[]).filter(b=>b&&b.type==='text').map(b=>String(b.text||'')).join('');
+}
+function parseJudgeOutput(text,articles){   // 剥代码围栏→JSON 数组→pmid 对位；缺失/非法条目不进 Map（调用方保持未判，不当不相关丢弃）
+  let t=String(text||'').trim();
+  const fence=/```(?:json)?\s*([\s\S]*?)```/i.exec(t);
+  if(fence)t=fence[1].trim();
+  let arr=null;   // 杂言里可能混入示例数组：逐个 [ 候选尝试（配最后一个 ]），解析成功即用
+  for(let idx=t.indexOf('[');idx>=0&&arr===null;idx=t.indexOf('[',idx+1)){
+    const end=t.lastIndexOf(']');
+    if(end<=idx)break;
+    try{arr=JSON.parse(t.slice(idx,end+1))}catch(e){}
+  }
+  if(arr===null)throw new Error('AI 输出 JSON 解析失败（不含可解析的 JSON 数组）');
+  if(!Array.isArray(arr))throw new Error('AI 输出不是数组');
+  const byPmid=new Map();
+  arr.forEach(v=>{
+    if(!v||typeof v!=='object'||typeof v.related!=='boolean')return;
+    const pmid=String(v.pmid==null?'':v.pmid).replace(/\D/g,'');
+    if(pmid)byPmid.set(pmid,{related:v.related,why:String(v.why||'').trim().slice(0,80)});
+  });
+  if(byPmid.size===0&&arr.length===articles.length){   // 兜底：AI 改写/漏写 pmid 且条数恰与批次一致时按序对位
+    arr.forEach((v,i)=>{
+      if(!v||typeof v!=='object'||typeof v.related!=='boolean'||!articles[i])return;
+      byPmid.set(articles[i].pmid,{related:v.related,why:String(v.why||'').trim().slice(0,80)});
+    });
+  }
+  return byPmid;
+}
+async function judgeBatch(cfg,topic,articles,signal){
+  const lines=articles.map((a,i)=>`[${i+1}] PMID ${a.pmid}\n标题：${a.title||'（无标题）'}\n摘要：${a.abstract||'（无摘要）'}`).join('\n\n');
+  const userMsg=`【检索主题】${topic.query}\n\n【文献清单】\n${lines}`;
+  const text=await aiMessages(cfg,{model:cfg.model,max_tokens:3000,system:TOPIC_JUDGE_SYSTEM,messages:[{role:'user',content:userMsg}]},signal);
+  return parseJudgeOutput(text,articles);
+}
+// ----- 运行状态机：runState 单例；逐批落盘＋逐批渲染；停止保留已完成、未完成标未跑 -----
+let topicDraft=null,topicEditError='',runState=null;
+function runStats(){
+  const items=runState?runState.items:[];
+  return {fetched:items.length,related:items.filter(i=>i.verdict==='related').length,unrelated:items.filter(i=>i.verdict==='unrelated').length,unjudged:items.filter(i=>i.verdict==='unjudged'||i.verdict==='unrun').length};
+}
+function markTransportHint(err){if(err instanceof TransportError&&err.kind==='cors'&&runState)runState.cors=true}
+function persistRunCurrent(topic){   // 每批落盘（防中断丢结果）；每主题只留最近一次、条目夹 100
+  if(!runState||!topic)return;
+  runsStore.runs[topic.id]={at:Date.now(),ran:runState.items.length,items:runState.items.slice(0,RUN_ITEMS_CAP).map(it=>({pmid:it.pmid,title:it.title,journal:it.journal,date:it.date,verdict:it.verdict,why:it.why}))};
+  persistRunsNow();
+}
+function finishRun(topic,opts){
+  if(!runState)return;
+  const st=runStats();
+  topic.lastRun={at:Date.now(),ran:st.fetched,related:st.related};
+  persistTopics.now();
+  persistRunCurrent(topic);
+  runState.running=false;
+  runState.stopped=!!opts.stopped;
+  runState.failed=!!opts.failed;
+  if(opts.note)runState.note=opts.note;
+  runState.phase=opts.stopped?'已停止 · 保留已完成结果':opts.failed?'已中止':'完成';
+  renderTopicOverlay();renderTopics();
+}
+async function runTopic(topicId){
+  if(runState&&runState.running)return;
+  const topic=topicsStore.topics.find(t=>t.id===topicId);
+  if(!topic)return;
+  const cfg=readAISettings();
+  if(!cfg.baseUrl||!cfg.apiKey||!cfg.model){guideToAISettings();return}
+  const abort=new AbortController();
+  runState={topicId,topicName:topic.name,abort,running:true,phase:'检索 PubMed…',fetched:0,items:[],batchDone:0,batchTotal:0,error:'',cors:false,stopped:false,failed:false,note:''};
+  openTopicOverlay();
+  renderTopicOverlay();
+  try{
+    const pmids=await esearchPubmed(topic,abort.signal);
+    if(!pmids.length){finishRun(topic,{note:`该检索式 ${topic.days} 天内无命中。`});return}
+    runState.fetched=pmids.length;
+    runState.phase='拉取题录与摘要…';
+    renderTopicOverlay();
+    await sleepAbortable(PUBMED_THROTTLE_MS,abort.signal);
+    const articles=await efetchPubmed(pmids,abort.signal);
+    const byPmid=new Map(articles.map(a=>[a.pmid,a]));
+    const ordered=pmids.map(id=>byPmid.get(id)).filter(Boolean);   // 以 esearch 序为准（sort=date 相关序）
+    pmids.forEach(id=>{if(!byPmid.has(id))ordered.push({pmid:id,title:'（题录缺失）',abstract:'',journal:'',date:''})});
+    runState.items=ordered.map(a=>({pmid:a.pmid,title:a.title,abstract:a.abstract,journal:a.journal,date:a.date,verdict:'unjudged',why:''}));
+    runState.batchTotal=Math.ceil(runState.items.length/AI_BATCH_SIZE);
+    runState.phase='AI 判读中…';
+    renderTopicOverlay();
+    for(let i=0;i<runState.items.length;i+=AI_BATCH_SIZE){
+      const batch=runState.items.slice(i,i+AI_BATCH_SIZE);
+      let verdictMap=null,lastErr=null;
+      for(let attempt=0;attempt<=AI_RETRY;attempt++){
+        if(attempt>0)await sleepAbortable(PUBMED_THROTTLE_MS,abort.signal);
+        try{verdictMap=await judgeBatch(cfg,topic,batch,abort.signal);lastErr=null;break}
+        catch(e){if(e instanceof StopError)throw e;lastErr=e;verdictMap=null}
+      }
+      if(abort.signal.aborted)throw new StopError();
+      if(verdictMap){
+        batch.forEach(it=>{const v=verdictMap.get(String(it.pmid));if(v){it.verdict=v.related?'related':'unrelated';it.why=v.why||''}});   // AI 缺篇→保持未判
+      }else{
+        batch.forEach(it=>{it.verdict='unjudged';it.why=`判读失败：${lastErr&&lastErr.message?lastErr.message:'未知错误'}`});
+        runState.error=`部分批次判读失败（已重试 1 次）：${lastErr&&lastErr.message?lastErr.message:''}`;
+        markTransportHint(lastErr);
+      }
+      runState.batchDone++;
+      persistRunCurrent(topic);
+      renderTopicOverlay();
+      if(i+AI_BATCH_SIZE<runState.items.length)await sleepAbortable(PUBMED_THROTTLE_MS,abort.signal);
+    }
+    finishRun(topic,{});
+  }catch(e){
+    if(e instanceof StopError||abort.signal.aborted){
+      runState.items.forEach((it,idx)=>{if(idx>=runState.batchDone*AI_BATCH_SIZE&&it.verdict==='unjudged')it.verdict='unrun'});   // 未轮到的批次＝未跑
+      finishRun(topic,{stopped:true});
+    }else{
+      runState.error=e&&e.message?e.message:String(e);
+      markTransportHint(e);
+      finishRun(topic,{failed:true});
+    }
+  }
+}
+function viewTopicRun(topicId){   // 只读查看最近一次存档结果（不触发任何请求）
+  if(runState&&runState.running)return;
+  const topic=topicsStore.topics.find(t=>t.id===topicId);
+  const run=runsStore.runs[topicId];
+  if(!topic||!run)return;
+  runState={topicId,topicName:topic.name,abort:null,running:false,phase:'本地存档 · 最近一次运行',fetched:run.ran,items:run.items.map(it=>Object.assign({},it)),batchDone:0,batchTotal:0,error:'',cors:false,stopped:false,failed:false,note:`存档时间 ${new Date(run.at).toLocaleString()}`};
+  openTopicOverlay();
+  renderTopicOverlay();
+}
+function openTopicOverlay(){$('#topic-overlay').hidden=false;$('#topic-mask').hidden=false}
+function closeTopicOverlay(){if(runState&&runState.running)return;$('#topic-overlay').hidden=true;$('#topic-mask').hidden=true;runState=null}
+const VERDICT_LABEL={related:'相关',unrelated:'不相关',unjudged:'未判',unrun:'未跑'};
+const VERDICT_RANK={related:0,unrelated:1,unjudged:2,unrun:3};   // 相关在前；稳定排序保持抓取序
+function renderTopicOverlay(){
+  if($('#topic-overlay').hidden||!runState)return;
+  const el=$('#topic-run-body'),keepScroll=el.scrollTop;
+  const st=runStats();
+  $('#topic-run-title').textContent=runState.topicName;
+  $('#topic-run-stats').textContent=`抓取 ${st.fetched} · 相关 ${st.related} · 不相关 ${st.unrelated} · 未判 ${st.unjudged}`;
+  $('#topic-stop').hidden=!runState.running;
+  const parts=[];
+  if(runState.cors)parts.push(`<div class="tr-error">跨域受限：请改用中转地址或自部署转发 Worker，模板见 ${AI_PROXY_HELP}。</div>`);
+  if(runState.error)parts.push(`<div class="tr-error">${esc(runState.error)}</div>`);
+  if(runState.note)parts.push(`<div class="tr-note">${esc(runState.note)}</div>`);
+  if(runState.running)parts.push(`<p class="tr-phase">${esc(runState.phase)}${runState.batchTotal?` · 批次 ${runState.batchDone}/${runState.batchTotal}`:''}</p>`);
+  const items=[...runState.items].sort((a,b)=>(VERDICT_RANK[a.verdict]??9)-(VERDICT_RANK[b.verdict]??9));
+  parts.push(`<div class="tr-list">${items.map(it=>`<article class="tr-card"><div class="tr-card-top"><span class="tr-badge ${it.verdict}">${VERDICT_LABEL[it.verdict]||'未判'}</span><a class="tr-title" href="${TOPIC_RUN_URL}${encodeURIComponent(it.pmid)}/" target="_blank" rel="noopener">${esc(it.title||`PMID ${it.pmid}`)}</a></div><p class="tr-meta">${esc(it.journal||'期刊未知')} · ${esc(it.date||'日期未知')} · PMID ${esc(it.pmid)}</p>${it.why?`<p class="tr-why">${esc(it.why)}</p>`:''}</article>`).join('')||'<div class="coll-empty">没有可显示的结果。</div>'}</div>`);
+  el.innerHTML=parts.join('');
+  el.scrollTop=keepScroll;
+}
+// ----- 抽屉渲染：主题列表＋编辑器（draft 模式：input 只写内存不重拼，保存才落盘；主渲染循环焦点保护） -----
+function renderTopicList(){
+  const rows=topicsStore.topics.map(t=>{
+    const lr=t.lastRun;
+    const last=lr?`上次运行 ${new Date(lr.at).toLocaleString()} · 抓 ${lr.ran} · 相关 ${lr.related}`:'未运行过';
+    return `<div class="coll-row"><div class="coll-row-main"><b>${esc(t.name)}</b><small title="${esc(t.query)}">${esc(t.query.length>56?t.query.slice(0,56)+'…':t.query)}</small><small class="topic-lastrun">${esc(last)}</small></div><span class="coll-row-ops"><button class="coll-op" data-topic-run="${t.id}" title="立即运行（查 PubMed＋烧你自己的 AI Key）">运行</button><button class="coll-op" data-topic-view="${t.id}"${runsStore.runs[t.id]?'':' disabled'} title="查看最近一次运行结果（本地存档）">结果</button><button class="coll-op" data-topic-edit="${t.id}">编辑</button><button class="coll-op danger" data-topic-delete="${t.id}">删除</button></span></div>`;
+  }).join('')||'<div class="coll-empty">还没有主题。点「＋ 新建主题」：起名、写 PubMed 检索式、设回看天数与单次上限。</div>';
+  $('#topic-list').innerHTML='<p class="coll-section-title">我的主题 · 自定义检索（按需执行 · 烧你自己的 Key）</p>'+rows+'<div class="coll-toolbar"><button class="coll-tool" data-topic-new>＋ 新建主题</button></div>';
+}
+function renderTopicEditor(){
+  const el=$('#topic-editor');
+  if(!topicDraft){
+    el.innerHTML='<p class="coll-section-title">编辑主题</p><div class="coll-empty">在上方点「编辑」或「＋ 新建主题」。</div>';
+    return;
+  }
+  const err=topicEditError?`<p class="ai-hint">${esc(topicEditError)}</p>`:'';
+  el.innerHTML=`<p class="coll-section-title">${topicDraft.id?'编辑主题':'新建主题'}</p>
+  <div class="ai-grid">
+    <label class="ai-field"><span>名称</span><input id="topic-f-name" value="${esc(topicDraft.name)}" maxlength="60" placeholder="如：食管癌微创" autocomplete="off"></label>
+    <label class="ai-field"><span>PubMed 检索式</span><textarea id="topic-f-query" rows="3" placeholder="如: esophagectomy AND minimally invasive（支持 PubMed 语法 [Title/Abstract]、AND、OR）">${esc(topicDraft.query)}</textarea></label>
+    <label class="ai-field"><span>回看天数：<output id="topic-f-days-out">${topicDraft.days}</output> 天</span><input id="topic-f-days" type="range" min="1" max="30" step="1" value="${topicDraft.days}"></label>
+    <label class="ai-field"><span>单次上限（5-50 篇）</span><input id="topic-f-cap" type="number" min="5" max="50" step="1" value="${topicDraft.cap}"></label>
+  </div>${err}<div class="coll-toolbar"><button class="coll-tool" data-topic-save>保存</button><button class="coll-tool" data-topic-cancel>取消</button></div>`;
+}
+function renderTopics(){
+  if($('#coll-drawer').hidden)return;   // 关着零开销
+  const ae=document.activeElement;
+  if(topicDraft&&ae&&(ae.id==='topic-f-name'||ae.id==='topic-f-query'||ae.id==='topic-f-days'||ae.id==='topic-f-cap'))return;   // 正在编辑器输入：主循环重渲染不抢焦点不冲字
+  renderTopicList();renderTopicEditor();
+}
+function saveTopicDraft(){
+  const query=String(topicDraft.query||'').trim().slice(0,2000);
+  if(!query){topicEditError='检索式不能为空：写一条 PubMed 检索式（如 esophagectomy AND minimally invasive）。';renderTopicEditor();return false}
+  const name=String(topicDraft.name||'').trim().slice(0,60)||'未命名主题';
+  const days=clampTopicDays(topicDraft.days),cap=clampTopicCap(topicDraft.cap);
+  if(topicDraft.id){
+    const t=topicsStore.topics.find(t=>t.id===topicDraft.id);
+    if(t){t.name=name;t.query=query;t.days=days;t.cap=cap;persistTopics()}
+  }else{
+    createTopic(name,query,days,cap);
+  }
+  return true;
+}
+function guideToAISettings(){   // 三项任一为空：开抽屉滚到 AI 设置并提示（不阻断其他 UI）
+  if($('#coll-drawer').hidden)openCollDrawer();
+  const sec=$('#ai-settings');
+  try{sec.scrollIntoView({behavior:'smooth',block:'center'})}catch(e){}
+  $('#ai-guide-hint').hidden=false;
+  setTimeout(()=>{const el=$('#ai-guide-hint');if(el)el.hidden=true},6000);
+}
+function readAISettings(){   // 以输入框当前值为准（未失焦也生效）→清洗→落盘
+  aiStore=sanitizeAI({baseUrl:($('#ai-baseurl').value||''),apiKey:($('#ai-key').value||''),model:($('#ai-model').value||'')});
+  persistAI();
+  return aiStore;
+}
+async function testAIConnection(){
+  const cfg=readAISettings();
+  const statusEl=$('#ai-test-status'),btn=$('#ai-test');
+  if(!cfg.baseUrl||!cfg.apiKey||!cfg.model){statusEl.className='ai-status bad';statusEl.textContent='BaseURL / Key / Model 三项都要填。';return}
+  btn.disabled=true;statusEl.className='ai-status pending';statusEl.textContent='测试中…';
+  const ctl=new AbortController();
+  const timer=setTimeout(()=>ctl.abort(),45000);
+  try{
+    const text=await aiMessages(cfg,{model:cfg.model,max_tokens:64,messages:[{role:'user',content:'回复 OK 两个字。'}]},ctl.signal);
+    const clean=String(text||'').trim().slice(0,20);
+    statusEl.className='ai-status ok';statusEl.textContent=`连通 · 模型 ${cfg.model}${clean?` · 回复「${clean}」`:''}`;
+  }catch(e){
+    statusEl.className='ai-status bad';
+    if(e instanceof StopError)statusEl.textContent='连接超时（45 秒无响应）。';
+    else if(e instanceof TransportError&&e.kind==='cors')statusEl.textContent=`跨域受限：请改用中转地址或自部署转发 Worker，模板见站内帮助。`;
+    else statusEl.textContent=`失败：${e&&e.message?e.message:'未知错误'}`;
+  }finally{
+    clearTimeout(timer);btn.disabled=false;
+  }
+}
+function bindTopicUI(){
+  ['ai-baseurl','ai-key','ai-model'].forEach(id=>{$('#'+id).addEventListener('input',readAISettings)});
+  $('#ai-baseurl').value=aiStore.baseUrl;$('#ai-key').value=aiStore.apiKey;$('#ai-model').value=aiStore.model;
+  $('#ai-test').addEventListener('click',testAIConnection);
+  $('#topic-list').addEventListener('click',event=>{
+    const del=event.target.closest('[data-topic-delete]');
+    if(del&&confirm('删除该主题？（最近一次运行结果一并清除；不影响官方雷达内容）')){
+      if(topicDraft&&topicDraft.id===del.dataset.topicDelete)topicDraft=null;
+      deleteTopic(del.dataset.topicDelete);renderTopics();return;
+    }
+    const ed=event.target.closest('[data-topic-edit]');
+    if(ed){const t=topicsStore.topics.find(t=>t.id===ed.dataset.topicEdit);if(t){topicDraft={id:t.id,name:t.name,query:t.query,days:t.days,cap:t.cap};topicEditError='';renderTopics()}return}
+    const run=event.target.closest('[data-topic-run]');
+    if(run){runTopic(run.dataset.topicRun);return}
+    const view=event.target.closest('[data-topic-view]');
+    if(view){viewTopicRun(view.dataset.topicView);return}
+    if(event.target.closest('[data-topic-new]')){topicDraft={id:null,name:'',query:'',days:7,cap:20};topicEditError='';renderTopics();return}
+  });
+  $('#topic-editor').addEventListener('click',event=>{
+    if(event.target.closest('[data-topic-save]')){if(saveTopicDraft()){topicDraft=null;topicEditError='';renderTopics()}return}
+    if(event.target.closest('[data-topic-cancel]')){topicDraft=null;topicEditError='';renderTopics();return}
+  });
+  $('#topic-editor').addEventListener('input',event=>{
+    if(!topicDraft)return;
+    const id=event.target.id;
+    if(id==='topic-f-name')topicDraft.name=event.target.value;
+    else if(id==='topic-f-query')topicDraft.query=event.target.value;
+    else if(id==='topic-f-days'){topicDraft.days=Number(event.target.value);const out=$('#topic-f-days-out');if(out)out.textContent=topicDraft.days}
+    else if(id==='topic-f-cap')topicDraft.cap=Number(event.target.value);
+  });
+  $('#topic-stop').addEventListener('click',()=>{if(runState&&runState.running&&runState.abort)runState.abort.abort()});
+  $('#topic-close').addEventListener('click',closeTopicOverlay);
+  $('#topic-mask').addEventListener('click',closeTopicOverlay);
+}
+bindTopicUI();
 async function loadRollingPapers(){
   try{
     const response=await fetch('data/radar_latest.json');
