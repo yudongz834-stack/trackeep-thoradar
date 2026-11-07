@@ -268,6 +268,12 @@ html.dark .action-btn.primary{color:var(--on-accent)}
 .coll-journal span{flex:1;min-width:0;font-size:10.5px;color:var(--text-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .coll-empty{color:var(--muted);font-size:10.5px;line-height:1.7;padding:14px 4px;text-align:center}
 .badge.stale{background:var(--warning-soft);border-color:transparent;color:var(--warning-on-soft)}
+/* 我的阵地方案（第 1.5 期：自定义钟面；切换器在信号场头部，编辑在抽屉「我的阵地」节，语言沿合集） */
+.sec-picker{display:flex;align-items:center;gap:7px;margin-top:7px}
+.sec-picker label{font:600 9px/1 var(--font-mono);letter-spacing:.14em;color:var(--muted);text-transform:uppercase;white-space:nowrap;cursor:pointer}
+.sec-picker select{min-width:0;max-width:200px;border:1px solid var(--line);border-radius:7px;background:var(--card-2);color:var(--text);padding:6px 8px;font-size:11px;cursor:pointer}
+.sec-picker select:hover{border-color:var(--accent);color:var(--accent-dark)}
+.coll-op:disabled{opacity:.4;cursor:default}
 </style>
 </head>
 <body>
@@ -293,7 +299,7 @@ html.dark .action-btn.primary{color:var(--on-accent)}
 </header>
 <main class="deck">
   <aside class="panel queue-panel" aria-label="文献筛选与信号队列">
-    <div class="panel-head"><div><div class="eyebrow">Sweep director</div><h2>信号队列</h2></div><div class="coll-head"><button class="coll-toggle" id="coll-open" aria-haspopup="dialog" title="期刊合集">◈ 合集</button><span class="counter" id="filter-counter">—</span></div></div>
+    <div class="panel-head"><div><div class="eyebrow">Sweep director</div><h2>信号队列</h2></div><div class="coll-head"><button class="coll-toggle" id="coll-open" aria-haspopup="dialog" title="合集与我的阵地">◈ 合集</button><span class="counter" id="filter-counter">—</span></div></div>
     <div class="filters">
       <div class="quick-row" id="quick-filters">
         <button class="quick-btn active" data-quick="all">全部</button>
@@ -317,7 +323,7 @@ html.dark .action-btn.primary{color:var(--on-accent)}
 
   <section class="scope-panel" aria-label="滚动文献雷达信号场">
     <div class="scope-head">
-      <div><div class="eyebrow">Live signal field</div><h1>滚动信号场</h1><p>方位＝期刊阵地（九阵地上盘 · 邻科公卫并入图例） · 距心＝相对评分 · 形状＝研究设计</p></div>
+      <div><div class="eyebrow">Live signal field</div><h1>滚动信号场</h1><p id="scope-subtitle">方位＝期刊阵地（九阵地上盘 · 邻科公卫并入图例） · 距心＝相对评分 · 形状＝研究设计</p><div class="sec-picker"><label for="scheme-select">阵地</label><select id="scheme-select" aria-label="阵地方案切换"></select></div></div>
       <div class="read-progress"><b id="read-count">—</b><small>本次已扫</small></div>
     </div>
     <div class="scope-stage">
@@ -356,11 +362,13 @@ html.dark .action-btn.primary{color:var(--on-accent)}
   </aside>
 </main>
 <div class="coll-mask" id="coll-mask" hidden></div>
-<aside class="panel coll-drawer" id="coll-drawer" role="dialog" aria-modal="true" aria-label="期刊合集" hidden>
-  <div class="coll-head-bar"><div><div class="eyebrow">Collections</div><h2>期刊合集</h2></div><button class="coll-close" id="coll-close" aria-label="关闭合集抽屉">✕</button></div>
+<aside class="panel coll-drawer" id="coll-drawer" role="dialog" aria-modal="true" aria-label="期刊合集与我的阵地" hidden>
+  <div class="coll-head-bar"><div><div class="eyebrow">Collections &amp; sectors</div><h2>合集与我的阵地</h2></div><button class="coll-close" id="coll-close" aria-label="关闭抽屉">✕</button></div>
   <div class="coll-body">
     <section id="coll-list" aria-label="合集列表"></section>
     <section id="coll-editor" aria-label="编辑合集"></section>
+    <section id="scheme-list" aria-label="我的阵地方案列表"></section>
+    <section id="scheme-editor" aria-label="编辑阵地方案"></section>
   </div>
 </aside>
 <input type="file" id="coll-import-file" accept="application/json,.json" hidden>
@@ -409,7 +417,7 @@ const jcatOf=p=>{
 // 档位＝权威，网页用颜色表达（定案 §五）；v3 旧档（无 tier_scheme）一律灰字＋v3 角标，不与新五档混色
 const TIER_COLORS={S:'#C9A227',A:'#D97757',B:'#5B7DB1',C:'#8A8474',D:'#A8A294'};
 const DAY_MS=86400000;
-const state={quick:'all',query:'',selected:PAPERS[0]?.id||null,read:new Set(),tiers:new Set(TIERS),journal:null,jcat:null,jcatFolded:new Set(JCAT_FOLDABLE),days:90};
+const state={quick:'all',query:'',selected:PAPERS[0]?.id||null,read:new Set(),tiers:new Set(TIERS),journal:null,jcat:null,jcatFolded:new Set(JCAT_FOLDABLE),gsec:null,gsecFolded:new Set(),days:90};
 // ===== 持久化（B）：key 前缀 thoradar.；搜索词/刊源/已扫/选中＝会话态不落盘 =====
 const LS_VIEW='thoradar.view.v1',LS_COLLECTIONS='thoradar.collections.v1';
 function makeDebounced(fn,ms){
@@ -428,10 +436,12 @@ function restoreView(){   // 加载时恢复：扇区/档位/时间窗/折叠/�
   const validJcat=new Set([...JCATS.map(c=>c.id),JCATS_LEGEND_MERGED.id]);
   if(typeof v.jcat==='string'&&validJcat.has(v.jcat))state.jcat=v.jcat;
   if(Array.isArray(v.jcatFolded))state.jcatFolded=new Set(v.jcatFolded.map(c=>String(c)).filter(c=>JCAT_FOLDABLE.includes(c)));
+  if(typeof v.gsec==='string'){const scheme=activeScheme();if(scheme&&(v.gsec===UNGROUPED_ID||scheme.sectors.some(g=>g.id===v.gsec)))state.gsec=v.gsec}   // 自定义扇区过滤：随激活方案校验，悬空回 null
+  if(Array.isArray(v.gsecFolded))state.gsecFolded=new Set(v.gsecFolded.filter(c=>c===UNGROUPED_ID));
   if(v.dark===true)document.documentElement.classList.add('dark');
 }
 const persistView=makeDebounced(()=>{
-  try{localStorage.setItem(LS_VIEW,JSON.stringify({v:1,jcat:state.jcat,tiers:[...state.tiers].sort(),days:state.days,dark:document.documentElement.classList.contains('dark'),jcatFolded:[...state.jcatFolded].sort()}))}catch(e){}
+  try{localStorage.setItem(LS_VIEW,JSON.stringify({v:1,jcat:state.jcat,gsec:state.gsec,gsecFolded:[...state.gsecFolded],tiers:[...state.tiers].sort(),days:state.days,dark:document.documentElement.classList.contains('dark'),jcatFolded:[...state.jcatFolded].sort()}))}catch(e){}
 },250);
 // ===== 期刊合集（C）：稳定键＝nlm_id，缩写仅作运行时解析；名册外的条目降级为「失效」不阻断 =====
 const JOURNAL_IDS=(()=>{const v=SITE_DATA.journal_ids;return v&&typeof v==='object'&&!Array.isArray(v)?v:{}})();
@@ -520,6 +530,158 @@ function importCollectionsJSON(text){   // 整体替换（备份恢复语义）�
   persistCollections.now();
   return {ok:true,count:collectionsStore.collections.length};
 }
+// ===== 自定义阵地方案（S）：storage thoradar.sectors.v1；active=null＝官方九阵地钟面 =====
+// 方案决定「怎么摆」（盘面＝方案 sectors 等角、order 顺时针；不匹配任何阵地的论文归未分组扇区），合集决定「看哪些」——两者可同时成立
+const LS_SECTORS='thoradar.sectors.v1';
+const UNGROUPED_ID='__ungrouped__';   // 未分组伪扇区 id：存储正则 ^g_ 不会撞，做保留字
+function sanitizeSchemes(raw){   // 存储清洗：坏件剪、方案/阵地 id 去重、order 归一（悬空剪＋缺位补尾）、active 悬空回 null
+  const out={version:1,schemes:[],active:null};
+  if(!raw||raw.version!==1||!Array.isArray(raw.schemes))return out;
+  const seen=new Set();
+  raw.schemes.forEach(s=>{
+    if(!s||typeof s!=='object')return;
+    const id=typeof s.id==='string'&&/^s_[\w-]{1,64}$/.test(s.id)?s.id:'';
+    if(!id||seen.has(id))return;
+    seen.add(id);
+    const name=String(s.name||'').trim().slice(0,60)||'未命名方案';
+    const sectors=[],gseen=new Set();
+    (Array.isArray(s.sectors)?s.sectors:[]).forEach(g=>{
+      if(!g||typeof g!=='object')return;
+      const gid=typeof g.id==='string'&&/^g_[\w-]{1,64}$/.test(g.id)?g.id:'';
+      if(!gid||gseen.has(gid))return;
+      gseen.add(gid);
+      const gname=String(g.name||'').trim().slice(0,60)||'未命名阵地';
+      const journals=(Array.isArray(g.journals)?g.journals:[]).map(e=>({k:String(e&&e.k||'').toUpperCase().slice(0,120),nlm:e&&e.nlm!=null?String(e.nlm).slice(0,32):null})).filter(e=>e.k||e.nlm);
+      sectors.push({id:gid,name:gname,folded:g.folded===true,journals});
+    });
+    const order=[...new Set((Array.isArray(s.order)?s.order:[]).map(x=>String(x)))].filter(x=>gseen.has(x));
+    sectors.forEach(g=>{if(!order.includes(g.id))order.push(g.id)});
+    out.schemes.push({id,name,sectors,order});
+  });
+  if(typeof raw.active==='string'&&out.schemes.some(s=>s.id===raw.active))out.active=raw.active;
+  return out;
+}
+function loadSchemesStore(){
+  try{return sanitizeSchemes(JSON.parse(localStorage.getItem(LS_SECTORS)||'null'))}catch(e){return sanitizeSchemes(null)}
+}
+let schemesStore=loadSchemesStore();
+const persistSchemes=makeDebounced(()=>{try{localStorage.setItem(LS_SECTORS,JSON.stringify(schemesStore))}catch(e){}},250);
+function activeScheme(){return schemesStore.active?schemesStore.schemes.find(s=>s.id===schemesStore.active)||null:null}
+const paperJournalKey=p=>String(p.journal_abbr||p.journal_full||'').toUpperCase();
+function schemeKeyMap(scheme){   // 左连接名册（复用合集 resolveEntryKey）：注册刊键→阵地 id；同刊多组按钟面序先到先得；失效条目不入映射
+  const map=new Map();
+  scheme.order.forEach(gid=>{
+    const g=scheme.sectors.find(x=>x.id===gid);
+    if(!g)return;
+    (g.journals||[]).forEach(e=>{const k=resolveEntryKey(e);if(k&&!map.has(k))map.set(k,g.id)});
+  });
+  return map;
+}
+function schemeSectorOf(keyMap,p){return keyMap.get(paperJournalKey(p))||UNGROUPED_ID}
+function sectorStats(g){   // 命中刊数＋失效数（徽章用；失效只标注不剪，沿用合集语义）
+  let live=0,stale=0;
+  (g.journals||[]).forEach(e=>{resolveEntryKey(e)?live++:stale++});
+  return {live,stale};
+}
+function sectorLabelOf(scheme,secId){return secId===UNGROUPED_ID?'未分组':((scheme.sectors.find(g=>g.id===secId)||{}).name||'—')}
+function schemeUniverse(items,scheme,keyMap){   // 自定义盘面宇宙：order 等角出扇（零命中也占位）；未分组非空才出扇（收纳性质，空了不留楔）
+  const groups=scheme.order.map(gid=>{
+    const g=scheme.sectors.find(x=>x.id===gid);
+    return g?{cat:g.id,label:g.name,folded:g.folded===true,journals:new Map()}:null;
+  }).filter(Boolean);
+  const byId=new Map(groups.map(g=>[g.cat,g]));
+  const ungrouped={cat:UNGROUPED_ID,label:'未分组',folded:state.gsecFolded.has(UNGROUPED_ID),journals:new Map()};
+  const sortJ=g=>{g.journals=[...g.journals].map(([name,count])=>({name,count})).sort((a,b)=>b.count-a.count||a.name.localeCompare(b.name))};
+  items.forEach(p=>{const g=byId.get(schemeSectorOf(keyMap,p))||ungrouped;const name=journalName(p);g.journals.set(name,(g.journals.get(name)||0)+1)});
+  groups.forEach(sortJ);
+  if(ungrouped.journals.size){sortJ(ungrouped);groups.push(ungrouped)}
+  return groups;
+}
+function gsecCounts(keyMap){   // 自定义徽章：与 jcatCounts 同源（已加载集合零请求）；按当前筛选态计数，仅扣除自定义扇区过滤本身
+  const query=state.query.trim().toLowerCase();
+  const collKeys=collectionFilterKeys();
+  const counts=new Map();
+  windowPapers().filter(p=>{
+    const quickOk=state.quick==='all'||(state.quick==='nct'?Boolean(p.nct_id):designOf(p)===state.quick);
+    const collOk=!collKeys||collKeys.has(paperJournalKey(p));
+    const hay=[p.title_en,p.title_zh,p.journal_abbr,p.journal_full,p.pmid,p.nct_id,p.category_label].join(' ').toLowerCase();
+    return tierOk(p)&&journalOk(p)&&quickOk&&collOk&&hay.includes(query);
+  }).forEach(p=>{const c=schemeSectorOf(keyMap,p);counts.set(c,(counts.get(c)||0)+1)});
+  return counts;
+}
+function newSchemeId(){return 's_'+Date.now().toString(36)+Math.random().toString(36).slice(2,7)}
+function createScheme(name){
+  const s={id:newSchemeId(),name:String(name||'').trim().slice(0,60)||'未命名方案',sectors:[],order:[]};
+  schemesStore.schemes.push(s);
+  persistSchemes();
+  return s.id;
+}
+function renameScheme(id,name){
+  const s=schemesStore.schemes.find(s=>s.id===id);
+  const clean=String(name||'').trim().slice(0,60);
+  if(s&&clean)s.name=clean;
+  if(s)persistSchemes();
+  return Boolean(s&&clean);
+}
+function deleteScheme(id){   // 激活中删除＝官方钟面回退；扇区过滤随命名空间失效一并清
+  const before=schemesStore.schemes.length;
+  schemesStore.schemes=schemesStore.schemes.filter(s=>s.id!==id);
+  if(schemesStore.active===id){schemesStore.active=null;state.gsec=null}
+  if(before!==schemesStore.schemes.length)persistSchemes();
+  return before!==schemesStore.schemes.length;
+}
+function setActiveScheme(id){
+  schemesStore.active=id&&schemesStore.schemes.some(s=>s.id===id)?id:null;
+  state.gsec=null;   // 切换命名空间时扇区过滤清零，防跨方案悬空
+  persistSchemes();
+}
+function newSectorId(){return 'g_'+Date.now().toString(36)+Math.random().toString(36).slice(2,7)}
+function createSector(schemeId,name){
+  const scheme=schemesStore.schemes.find(s=>s.id===schemeId);
+  if(!scheme)return null;
+  const g={id:newSectorId(),name:String(name||'').trim().slice(0,60)||'未命名阵地',folded:false,journals:[]};
+  scheme.sectors.push(g);scheme.order.push(g.id);
+  persistSchemes();
+  return g.id;
+}
+function renameSector(schemeId,sectorId,name){
+  const scheme=schemesStore.schemes.find(s=>s.id===schemeId);
+  const g=scheme&&scheme.sectors.find(g=>g.id===sectorId);
+  const clean=String(name||'').trim().slice(0,60);
+  if(g&&clean)g.name=clean;
+  if(g)persistSchemes();
+  return Boolean(g&&clean);
+}
+function deleteSector(schemeId,sectorId){
+  const scheme=schemesStore.schemes.find(s=>s.id===schemeId);
+  if(!scheme)return false;
+  const before=scheme.sectors.length;
+  scheme.sectors=scheme.sectors.filter(g=>g.id!==sectorId);
+  scheme.order=scheme.order.filter(x=>x!==sectorId);
+  if(before!==scheme.sectors.length){if(state.gsec===sectorId)state.gsec=null;persistSchemes()}
+  return before!==scheme.sectors.length;
+}
+function moveSector(schemeId,sectorId,delta){   // 钟面顺时针序＝order；上移/下移换位即可
+  const scheme=schemesStore.schemes.find(s=>s.id===schemeId);
+  if(!scheme)return false;
+  const i=scheme.order.indexOf(sectorId),j=i+delta;
+  if(i<0||j<0||j>=scheme.order.length)return false;
+  [scheme.order[i],scheme.order[j]]=[scheme.order[j],scheme.order[i]];
+  persistSchemes();
+  return true;
+}
+function assignJournal(schemeId,sectorId,entry){   // 勾选＝指派（一刊只属一阵地：指派时先从其他阵地摘除）；取消勾选＝摘除
+  const scheme=schemesStore.schemes.find(s=>s.id===schemeId);
+  const target=scheme&&scheme.sectors.find(g=>g.id===sectorId);
+  if(!target||!entry||!entry.k)return null;
+  const k=String(entry.k).toUpperCase();
+  const idx=target.journals.findIndex(e=>e.k===k);
+  if(idx>=0){target.journals.splice(idx,1);persistSchemes();return 'removed'}
+  scheme.sectors.forEach(g=>{if(g.id!==target.id){const i=g.journals.findIndex(e=>e.k===k);if(i>=0)g.journals.splice(i,1)}});
+  target.journals.push({k,nlm:entry.nlm?String(entry.nlm):null});
+  persistSchemes();
+  return 'added';
+}
 let ANCHOR=null;
 const $=s=>document.querySelector(s);
 const esc=value=>String(value??'').replace(/[&<>'"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]));
@@ -568,12 +730,16 @@ const journalName=p=>String(p.journal_abbr||p.journal_full||'—');
 function filtered(){
   const query=state.query.trim().toLowerCase();
   const collKeys=collectionFilterKeys();
+  const scheme=activeScheme();
+  const keyMap=scheme?schemeKeyMap(scheme):null;
   return windowPapers().filter(p=>{
     const quickOk=state.quick==='all'||(state.quick==='nct'?Boolean(p.nct_id):designOf(p)===state.quick);
-    const jcatOk=!state.jcat||(state.jcat===JCATS_LEGEND_MERGED.id?JCATS_LEGEND_MERGED.ids.includes(jcatOf(p)):jcatOf(p)===state.jcat);
-    const collOk=!collKeys||collKeys.has(String(p.journal_abbr||p.journal_full||'').toUpperCase());
+    const secOk=keyMap
+      ?(!state.gsec||schemeSectorOf(keyMap,p)===state.gsec)   // 方案激活＝自定义扇区过滤（含未分组扇区）
+      :(!state.jcat||(state.jcat===JCATS_LEGEND_MERGED.id?JCATS_LEGEND_MERGED.ids.includes(jcatOf(p)):jcatOf(p)===state.jcat));
+    const collOk=!collKeys||collKeys.has(paperJournalKey(p));
     const hay=[p.title_en,p.title_zh,p.journal_abbr,p.journal_full,p.pmid,p.nct_id,p.category_label].join(' ').toLowerCase();
-    return tierOk(p)&&journalOk(p)&&jcatOk&&quickOk&&collOk&&hay.includes(query);
+    return tierOk(p)&&journalOk(p)&&secOk&&quickOk&&collOk&&hay.includes(query);
   }).sort((a,b)=>{
     const as=Number(a.score_total),bs=Number(b.score_total);
     const aScore=Number.isFinite(as)?as:-Infinity,bScore=Number.isFinite(bs)?bs:-Infinity;
@@ -614,12 +780,12 @@ function jcatCounts(){
   }).forEach(p=>{const c=jcatOf(p);counts.set(c,(counts.get(c)||0)+1)});
   return counts;
 }
-function positions(items,groups){
+function positions(items,groups,assignOf){
   const map={},scores=items.map(p=>Number(p.score_total)).filter(Number.isFinite);
   const high=scores.length?Math.max(...scores):1,low=scores.length?Math.min(...scores):0,span=high-low||1;
   const sectorSize=360/Math.max(groups.length,1);
   groups.forEach((group,sector)=>{
-    const members=items.filter(p=>jcatOf(p)===group.cat).sort((a,b)=>(Number(b.score_total)||0)-(Number(a.score_total)||0)||String(a.id||'').localeCompare(String(b.id||'')));
+    const members=items.filter(p=>assignOf(p)===group.cat).sort((a,b)=>(Number(b.score_total)||0)-(Number(a.score_total)||0)||String(a.id||'').localeCompare(String(b.id||'')));
     members.forEach((p,i)=>{
       const offset=(i-(members.length-1)/2)*Math.min(5,sectorSize*.16);
       const angle=(-90+(sector+.5)*sectorSize+offset)*Math.PI/180;
@@ -635,8 +801,8 @@ function point(angle,radius){
   const rad=angle*Math.PI/180;
   return {x:300+Math.cos(rad)*radius,y:300+Math.sin(rad)*radius};
 }
-function sectorMarkup(group,index,total,count){
-  const active=state.jcat===group.cat;
+function sectorMarkup(group,index,total,count,activeSec){
+  const active=activeSec===group.cat;
   const top=group.journals.slice(0,3).map(j=>j.name).join(' · ');
   const attrs=`class="journal-sector ${active?'active':''}" data-jcat="${esc(group.cat)}" tabindex="0" role="button" aria-pressed="${active}" aria-label="按阵地筛选：${esc(group.label)}"`;
   const title=`<title>${esc(group.label)} · ${count} 篇${top?` · 主力：${esc(top)}`:''}</title>`;
@@ -670,13 +836,27 @@ function renderQueue(list){
 }
 function renderJournalLegend(journals){
   const coll=activeCollection();
-  $('#journal-selection').textContent=`刊源：${state.journal||'全部'}${state.jcat?` · 阵地：${jcatLabel(state.jcat)}`:''}${coll?` · 合集：${esc(coll.name)}`:''}`;
-  $('#journal-selection').title=`刊源 ${state.journal||'全部'} · 阵地 ${state.jcat?jcatLabel(state.jcat):'全部'} · 合集 ${coll?coll.name:'官方全部'}`;
-  $('#journal-clear').disabled=!state.journal&&!state.jcat;
+  const scheme=activeScheme();
+  const secLabel=scheme?(state.gsec?sectorLabelOf(scheme,state.gsec):null):(state.jcat?jcatLabel(state.jcat):null);   // 阵地层标签随命名空间切换
+  $('#journal-selection').textContent=`刊源：${state.journal||'全部'}${secLabel?` · 阵地：${secLabel}`:''}${coll?` · 合集：${esc(coll.name)}`:''}`;
+  $('#journal-selection').title=`刊源 ${state.journal||'全部'} · 阵地 ${secLabel||'全部'} · 合集 ${coll?coll.name:'官方全部'}${scheme?` · 方案 ${scheme.name}`:''}`;
+  $('#journal-clear').disabled=!state.journal&&!state.jcat&&!state.gsec;
   $('#journal-legend').innerHTML=journals.map(j=>`<button class="journal-btn ${state.journal===j.name?'active':''}" data-journal="${esc(j.name)}" title="${esc(j.name)}" aria-pressed="${state.journal===j.name}">${esc(j.name)}<em>${j.count}</em></button>`).join('')||'<span class="filter-label">当前窗口无刊源</span>';
 }
 // 阵地折叠（换册 v5）：8 基础·药理与转化 默认折叠压噪声；上盘固定出扇后折叠钮常驻，徽章与扇区同源
 function renderJcatFolds(groups,counts){
+  const scheme=activeScheme();
+  if(scheme){   // 自定义：全部阵地可折叠（folded 存方案＝数据）；未分组折叠态存视图 key（会话态）
+    const ug=groups.find(g=>g.cat===UNGROUPED_ID);
+    $('#jcat-folds').innerHTML=scheme.order.map(gid=>scheme.sectors.find(x=>x.id===gid)).filter(Boolean).map(g=>{
+      const folded=g.folded===true,count=counts.get(g.id)||0;
+      return `<button class="jcat-fold ${folded?'':'open'} ${state.gsec===g.id?'active':''}" data-gsecfold="${esc(g.id)}" aria-pressed="${!folded}" title="${folded?'展开':'折叠'}${esc(g.name)}（命中 ${count} 篇）">${folded?'▸':'▾'} ${esc(g.name)} · ${count}</button>`;
+    }).join('')+(ug?(()=>{
+      const folded=state.gsecFolded.has(UNGROUPED_ID),count=counts.get(UNGROUPED_ID)||0;
+      return `<button class="jcat-fold ${folded?'':'open'} ${state.gsec===UNGROUPED_ID?'active':''}" data-gsecfold="${UNGROUPED_ID}" aria-pressed="${!folded}" title="${folded?'展开':'折叠'}未分组（命中 ${count} 篇）">${folded?'▸':'▾'} 未分组 · ${count}</button>`;
+    })():'');
+    return;
+  }
   $('#jcat-folds').innerHTML=JCAT_FOLDABLE.map(cat=>{
     const g=groups.find(x=>x.cat===cat);
     if(!g)return '';
@@ -686,6 +866,7 @@ function renderJcatFolds(groups,counts){
 }
 // 邻科与公卫合并图例（换册 v5）：6+7 不上盘，单行图例承载过滤入口（点击＝过滤 jcat ∈ {6,7}，再点＝清除），与扇区共用单一选中态 state.jcat
 function renderJcatLegend(counts){
+  if(activeScheme()){$('#jcat-legend').innerHTML='';return}   // 方案激活：官方阵地不驱动盘面，6+7 合并图例无盘可依，留空
   const active=state.jcat===JCATS_LEGEND_MERGED.id;
   const total=JCATS_LEGEND_MERGED.ids.reduce((sum,id)=>sum+(counts.get(id)||0),0);
   $('#jcat-legend').innerHTML=`<button class="journal-btn ${active?'active':''}" data-jcat="${JCATS_LEGEND_MERGED.id}" title="邻科临床＋公共卫生与人群健康 · 合并不上盘，点按过滤 jcat ∈ {6,7}" aria-pressed="${active}">${esc(JCATS_LEGEND_MERGED.label)}<em>${total}</em></button>`;
@@ -694,9 +875,10 @@ function renderDesignLegend(list){
   const count=kind=>list.filter(p=>designOf(p)===kind).length;
   $('#design-legend').innerHTML=`<span><i class="legend-shape rct"></i>RCT · ${count('rct')}</span><span><i class="legend-shape cohort"></i>队列 · ${count('cohort')}</span><span><i class="legend-shape"></i>待评定 · ${count('pending')}</span><span>点按信号锁定 · 点按扇区筛刊</span>`;
 }
-function renderScope(list,base,groups,counts){
-  const visible=new Set(list.map(p=>p.id)),POSITIONS=positions(base,groups);
-  $('#journal-sectors').innerHTML=groups.map((g,i)=>sectorMarkup(g,i,groups.length,counts.get(g.cat)||0)).join('');
+function renderScope(list,base,groups,counts,assignOf){
+  const visible=new Set(list.map(p=>p.id)),POSITIONS=positions(base,groups,assignOf);
+  const activeSec=activeScheme()?state.gsec:state.jcat;   // 扇区选中态随命名空间取值
+  $('#journal-sectors').innerHTML=groups.map((g,i)=>sectorMarkup(g,i,groups.length,counts.get(g.cat)||0,activeSec)).join('');
   $('#blips').innerHTML=base.map(p=>{
     const pos=POSITIONS[p.id]||{left:50,top:50};
     const cls=[designOf(p),state.selected===p.id&&visible.has(p.id)?'selected':'',state.read.has(p.id)?'read':'',visible.has(p.id)?'':'dim'].join(' ');
@@ -801,14 +983,17 @@ function renderHeader(){
 }
 function render(){
   const base=windowPapers(),tierBase=base.filter(tierOk),journals=journalUniverse(tierBase),list=filtered();
-  const allGroups=jcatUniverse(tierBase);
-  const groups=allGroups.filter(g=>!state.jcatFolded.has(g.cat));       // 折叠阵地不出扇区
+  const scheme=activeScheme();
+  const keyMap=scheme?schemeKeyMap(scheme):null;
+  const assignOf=keyMap?p=>schemeSectorOf(keyMap,p):jcatOf;             // 方案激活＝自定义归属驱动盘面；否则官方阵地
+  const allGroups=keyMap?schemeUniverse(tierBase,scheme,keyMap):jcatUniverse(tierBase);
+  const groups=keyMap?allGroups.filter(g=>!g.folded):allGroups.filter(g=>!state.jcatFolded.has(g.cat));   // 折叠阵地不出扇区
   const groupCats=new Set(groups.map(g=>g.cat));
-  const scopeBase=tierBase.filter(p=>groupCats.has(jcatOf(p)));         // 上盘外（折叠/待定/邻科公卫/未知阵地）的信号不上盘
-  const scopeList=list.filter(p=>groupCats.has(jcatOf(p)));
-  const counts=jcatCounts();
+  const scopeBase=tierBase.filter(p=>groupCats.has(assignOf(p)));       // 上盘外（官方：折叠/待定/邻科公卫/未知；自定义：折叠阵地）的信号不上盘
+  const scopeList=list.filter(p=>groupCats.has(assignOf(p)));
+  const counts=keyMap?gsecCounts(keyMap):jcatCounts();
   if(list.length&&!list.some(p=>p.id===state.selected))state.selected=list[0].id;
-  renderWindow();renderTierFilters(base);renderQueue(list);renderJournalLegend(journals);renderJcatFolds(allGroups,counts);renderJcatLegend(counts);renderDesignLegend(list);renderScope(scopeList,scopeBase,groups,counts);renderDetail(list);
+  renderWindow();renderTierFilters(base);renderQueue(list);renderJournalLegend(journals);renderJcatFolds(allGroups,counts);renderJcatLegend(counts);renderDesignLegend(list);renderScope(scopeList,scopeBase,groups,counts,assignOf);renderDetail(list);
   const readCount=PAPERS.filter(p=>state.read.has(p.id)).length;
   $('#read-count').textContent=`${String(readCount).padStart(2,'0')} / ${PAPERS.length}`;
   document.querySelectorAll('[data-quick]').forEach(btn=>btn.classList.toggle('active',btn.dataset.quick===state.quick));
@@ -817,7 +1002,10 @@ function render(){
   collBtn.textContent=collNow?`◈ ${collNow.name}`:'◈ 合集';
   collBtn.classList.toggle('active',Boolean(collNow));
   collBtn.title=collNow?`激活合集：${collNow.name} · 点击打开合集面板`:'期刊合集（当前官方全部）';
+  $('#scope-subtitle').textContent=scheme?`方位＝自定义阵地（方案：${scheme.name} · 未匹配论文归未分组） · 距心＝相对评分 · 形状＝研究设计`:'方位＝期刊阵地（九阵地上盘 · 邻科公卫并入图例） · 距心＝相对评分 · 形状＝研究设计';
+  renderSchemeSelect();
   renderCollections();   // 抽屉打开时同步列表徽章；关着时零开销
+  renderSchemes();
 }
 function selectPaper(id,scroll=false){
   if(!PAPERS.some(p=>p.id===id))return;
@@ -843,10 +1031,26 @@ document.addEventListener('click',event=>{
   if(journal){toggleJournal(journal.dataset.journal);return}
   const foldBtn=event.target.closest('[data-jcatfold]');
   if(foldBtn){const cat=foldBtn.dataset.jcatfold;state.jcatFolded.has(cat)?state.jcatFolded.delete(cat):state.jcatFolded.add(cat);render();return}
+  const gfold=event.target.closest('[data-gsecfold]');
+  if(gfold){toggleSectorFold(gfold.dataset.gsecfold);return}
   const jcatSec=event.target.closest('[data-jcat]');
-  if(jcatSec){state.jcat=state.jcat===jcatSec.dataset.jcat?null:jcatSec.dataset.jcat;render();return}
-  if(event.target.closest('#journal-clear')){state.journal=null;state.jcat=null;render();return}
+  if(jcatSec){toggleSectorFilter(jcatSec.dataset.jcat);return}
+  if(event.target.closest('#journal-clear')){state.journal=null;state.jcat=null;state.gsec=null;render();return}
 });
+function toggleSectorFilter(sec){   // 扇区过滤（再点清除）：官方＝阵地号；自定义＝方案阵地 id/未分组
+  if(activeScheme())state.gsec=state.gsec===sec?null:sec;
+  else state.jcat=state.jcat===sec?null:sec;
+  render();
+}
+function toggleSectorFold(gid){   // 折叠：自定义阵地态存方案（数据，跨会话）；未分组态存视图（会话态）
+  if(gid===UNGROUPED_ID){state.gsecFolded.has(gid)?state.gsecFolded.delete(gid):state.gsecFolded.add(gid);persistView();render();return}
+  const scheme=activeScheme();
+  const g=scheme&&scheme.sectors.find(g=>g.id===gid);
+  if(!g)return;
+  g.folded=!g.folded;
+  persistSchemes();
+  render();
+}
 $('#window-range').addEventListener('input',event=>{state.days=Number(event.target.value);render()});
 $('#search').addEventListener('input',event=>{state.query=event.target.value;render()});
 $('#theme-btn').addEventListener('click',()=>{
@@ -859,16 +1063,16 @@ document.addEventListener('keydown',event=>{
   if(event.key==='/'&&document.activeElement!==$('#search')){event.preventDefault();$('#search').focus()}
   if(event.key==='Escape'){
     if(!$('#coll-drawer').hidden){closeCollDrawer();return}   // 抽屉开着先关抽屉，不误清筛选
-    state.query='';state.quick='all';state.journal=null;state.jcat=null;state.jcatFolded=new Set(JCAT_FOLDABLE);state.tiers=new Set(TIERS);$('#search').value='';render();$('#search').blur();
+    state.query='';state.quick='all';state.journal=null;state.jcat=null;state.jcatFolded=new Set(JCAT_FOLDABLE);state.gsec=null;state.gsecFolded=new Set();state.tiers=new Set(TIERS);$('#search').value='';render();$('#search').blur();
   }
-  if((event.key==='Enter'||event.key===' ')&&document.activeElement?.classList.contains('journal-sector')){event.preventDefault();const cat=document.activeElement.dataset.jcat;state.jcat=state.jcat===cat?null:cat;render();return}
+  if((event.key==='Enter'||event.key===' ')&&document.activeElement?.classList.contains('journal-sector')){event.preventDefault();toggleSectorFilter(document.activeElement.dataset.jcat);return}
   if(!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){
     if(event.key==='ArrowLeft')step(-1);if(event.key==='ArrowRight')step(1);
   }
 });
 // ===== 合集抽屉 UI（纯本地；无账号无云端，导出/导入＝手工 JSON 文件） =====
 let collEditingId=null,collSearch='',collRenameId=null;
-function openCollDrawer(){$('#coll-drawer').hidden=false;$('#coll-mask').hidden=false;renderCollections()}
+function openCollDrawer(){$('#coll-drawer').hidden=false;$('#coll-mask').hidden=false;renderCollections();renderSchemes()}
 function closeCollDrawer(){$('#coll-drawer').hidden=true;$('#coll-mask').hidden=true;collRenameId=null}
 function downloadCollections(){
   const blob=new Blob([exportCollectionsJSON()],{type:'application/json'});
@@ -974,6 +1178,122 @@ $('#coll-import-file').addEventListener('change',event=>{
   };
   reader.readAsText(file);
   event.target.value='';
+});
+// ===== 我的阵地抽屉 UI（与合集节并列；编辑器沿合集的搜索＋分组勾选组件，勾选＝指派进当前阵地） =====
+let schemeEditingId=null,schemeEditingSector=null,schemeSearch='',schemeRenameId=null,sectorRenameId=null;
+function renderSchemeSelect(){   // 头部切换器：官方/各方案；内容未变不重拼（防打断原生下拉）
+  const sel=$('#scheme-select');
+  const sig=schemesStore.active+'|'+schemesStore.schemes.map(s=>s.id+':'+s.name).join('|');
+  if(sel.dataset.sig===sig)return;
+  sel.dataset.sig=sig;
+  sel.innerHTML='<option value="">官方阵地</option>'+schemesStore.schemes.map(s=>`<option value="${esc(s.id)}">${esc(s.name)}</option>`).join('');
+  sel.value=schemesStore.active||'';
+}
+function renderSchemeList(){
+  const rows=[
+    '<p class="coll-section-title">我的阵地 · 点按启用</p>',
+    `<div class="coll-row ${schemesStore.active===null?'active':''}"><button class="coll-row-main" data-scheme-activate="" title="停用方案，恢复官方九阵地钟面"><b>官方阵地</b><small>九阵地上盘 · 默认</small></button>${schemesStore.active===null?'<span class="badge accent">使用中</span>':''}</div>`,
+    ...schemesStore.schemes.map(s=>{
+      const on=schemesStore.active===s.id;
+      const nameCell=schemeRenameId===s.id
+        ?`<input class="coll-rename-input" data-scheme-rename-input="${s.id}" value="${esc(s.name)}" maxlength="60" aria-label="方案名称">`
+        :`<button class="coll-row-main" data-scheme-activate="${s.id}" title="启用该方案"><b>${esc(s.name)}</b><small>${s.sectors.length} 阵地</small></button>`;
+      return `<div class="coll-row ${on?'active':''}">${nameCell}${on?'<span class="badge accent">使用中</span>':''}<span class="coll-row-ops"><button class="coll-op" data-scheme-edit="${s.id}">编辑</button><button class="coll-op" data-scheme-rename="${s.id}">重命名</button><button class="coll-op danger" data-scheme-delete="${s.id}">删除</button></span></div>`;
+    })
+  ].join('');
+  $('#scheme-list').innerHTML=rows+'<div class="coll-toolbar"><button class="coll-tool" data-scheme-new>＋ 新建方案</button></div>';
+  const input=$('#scheme-list').querySelector('[data-scheme-rename-input]');
+  if(input){
+    const commit=()=>{const id=input.dataset.schemeRenameInput;if(renameScheme(id,input.value))schemeRenameId=null;render()};
+    input.addEventListener('keydown',e=>{if(e.key==='Enter')commit();if(e.key==='Escape'){schemeRenameId=null;renderSchemes()}});
+    input.addEventListener('focusout',()=>{if(schemeRenameId===input.dataset.schemeRenameInput){renameScheme(input.dataset.schemeRenameInput,input.value);schemeRenameId=null;renderSchemes()}});
+    input.focus();
+  }
+}
+function renderSchemeEditor(){
+  const el=$('#scheme-editor');
+  const scheme=schemesStore.schemes.find(s=>s.id===schemeEditingId)||null;
+  if(!scheme){
+    el.innerHTML='<p class="coll-section-title">编辑方案</p><div class="coll-empty">在上方点「编辑」或「＋ 新建方案」：加阵地、起名、勾期刊指派。</div>';
+    return;
+  }
+  const ordered=scheme.order.map(gid=>scheme.sectors.find(g=>g.id===gid)).filter(Boolean);
+  const cur=ordered.find(g=>g.id===schemeEditingSector)||null;
+  const checked=new Set(cur?cur.journals.map(e=>e.k):[]);
+  const sectorRows=ordered.map((g,i)=>{
+    const st=sectorStats(g);
+    const nameCell=sectorRenameId===g.id
+      ?`<input class="coll-rename-input" data-sector-rename-input="${g.id}" value="${esc(g.name)}" maxlength="60" aria-label="阵地名称">`
+      :`<button class="coll-row-main" data-sector-select="${g.id}" title="点选为当前指派阵地"><b>${esc(g.name)}</b><small>命中 ${st.live} 刊${g.folded?' · 已折叠':''}</small></button>`;
+    return `<div class="coll-row ${cur&&cur.id===g.id?'active':''}">${nameCell}${st.stale?`<span class="badge stale">失效 ${st.stale}</span>`:''}<span class="coll-row-ops"><button class="coll-op" data-sector-rename="${g.id}">重命名</button><button class="coll-op" data-sector-up="${g.id}"${i===0?' disabled':''} title="上移（顺时针序提前）">↑</button><button class="coll-op" data-sector-down="${g.id}"${i===ordered.length-1?' disabled':''} title="下移（顺时针序靠后）">↓</button><button class="coll-op danger" data-sector-del="${g.id}">删除</button></span></div>`;
+  }).join('')||'<div class="coll-empty">还没有阵地，点「＋ 加阵地」开第一个。</div>';
+  let assignHtml;
+  if(cur){
+    const q=schemeSearch.trim().toLowerCase();
+    const owner=new Map();   // 他组归属提示；一刊只属一阵地，勾他组刊＝移动到当前阵地
+    scheme.sectors.forEach(g=>{if(g.id!==cur.id)g.journals.forEach(e=>{if(!owner.has(e.k))owner.set(e.k,g.name)})});
+    const groups=registryGroups().map(g=>({...g,items:g.items.filter(r=>!q||r.k.toLowerCase().includes(q))})).filter(g=>g.items.length);
+    assignHtml=`<input class="coll-search" id="scheme-search" type="search" placeholder="按缩写过滤刊名…" value="${esc(schemeSearch)}" autocomplete="off">
+      ${groups.map(g=>`<div class="coll-group"><p class="coll-group-label"><span>${esc(g.label)}</span><span>${g.items.filter(r=>checked.has(r.k)).length} / ${g.items.length}</span></p>${g.items.map(r=>`<label class="coll-journal"><input type="checkbox" data-sec-check="${esc(r.k)}" data-sec-nlm="${esc(r.nlm||'')}" ${checked.has(r.k)?'checked':''}><span title="${esc(r.k)} · NLM ${esc(r.nlm||'—')}">${esc(r.k)}</span>${owner.has(r.k)?`<span class="badge" title="已在他组，勾选＝移入当前阵地">← ${esc(owner.get(r.k))}</span>`:`<span class="badge">${esc(jcatLabel(g.cat))}</span>`}</label>`).join('')}</div>`).join('')||'<div class="coll-empty">无匹配期刊。</div>'}`;
+  }else{
+    assignHtml='<div class="coll-empty">点上方一个阵地名选中它，再勾选期刊指派进去。</div>';
+  }
+  el.innerHTML=`<p class="coll-section-title">编辑方案 · ${esc(scheme.name)}（${ordered.length} 阵地）</p>${sectorRows}<div class="coll-toolbar"><button class="coll-tool" data-sector-add>＋ 加阵地</button></div>${cur?`<p class="coll-section-title">指派期刊 · ${esc(cur.name)}（已指 ${checked.size} 刊）</p>`:''}${assignHtml}`;
+  const input=el.querySelector('[data-sector-rename-input]');
+  if(input){
+    const commit=()=>{const gid=input.dataset.sectorRenameInput;if(renameSector(schemeEditingId,gid,input.value))sectorRenameId=null;render()};
+    input.addEventListener('keydown',e=>{if(e.key==='Enter')commit();if(e.key==='Escape'){sectorRenameId=null;renderSchemes()}});
+    input.addEventListener('focusout',()=>{if(sectorRenameId===input.dataset.sectorRenameInput){renameSector(schemeEditingId,input.dataset.sectorRenameInput,input.value);sectorRenameId=null;renderSchemes()}});
+    input.focus();
+  }
+}
+function renderSchemes(){
+  if($('#coll-drawer').hidden)return;   // 关着零开销：打开时才重拼
+  renderSchemeList();renderSchemeEditor();
+}
+$('#scheme-list').addEventListener('click',event=>{
+  const act=event.target.closest('[data-scheme-activate]');
+  if(act){setActiveScheme(act.dataset.schemeActivate||null);schemeRenameId=null;render();return}
+  if(event.target.closest('[data-scheme-new]')){schemeEditingId=createScheme('我的方案');schemeEditingSector=null;schemeRenameId=null;schemeSearch='';render();return}
+  const del=event.target.closest('[data-scheme-delete]');
+  if(del&&confirm('删除该方案？（自定义阵地定义一并移除；不影响已注入数据与合集）')){
+    if(schemeEditingId===del.dataset.schemeDelete){schemeEditingId=null;schemeEditingSector=null}
+    deleteScheme(del.dataset.schemeDelete);render();return;
+  }
+  const ren=event.target.closest('[data-scheme-rename]');
+  if(ren){schemeRenameId=ren.dataset.schemeRename;renderSchemes();return}
+  const edit=event.target.closest('[data-scheme-edit]');
+  if(edit){schemeEditingId=edit.dataset.schemeEdit;schemeEditingSector=null;schemeSearch='';sectorRenameId=null;renderSchemes();return}
+});
+$('#scheme-editor').addEventListener('click',event=>{
+  const box=event.target.closest('[data-sec-check]');
+  if(box){event.preventDefault();assignJournal(schemeEditingId,schemeEditingSector,{k:box.dataset.secCheck,nlm:box.dataset.secNlm||null});render();return}
+  const sel=event.target.closest('[data-sector-select]');
+  if(sel){schemeEditingSector=schemeEditingSector===sel.dataset.sectorSelect?null:sel.dataset.sectorSelect;schemeSearch='';sectorRenameId=null;renderSchemes();return}
+  if(event.target.closest('[data-sector-add]')){const gid=createSector(schemeEditingId,'新阵地');if(gid){schemeEditingSector=gid;schemeSearch='';sectorRenameId=null}render();return}
+  const ren=event.target.closest('[data-sector-rename]');
+  if(ren){sectorRenameId=ren.dataset.sectorRename;renderSchemes();return}
+  const up=event.target.closest('[data-sector-up]');
+  if(up){moveSector(schemeEditingId,up.dataset.sectorUp,-1);renderSchemes();return}
+  const down=event.target.closest('[data-sector-down]');
+  if(down){moveSector(schemeEditingId,down.dataset.sectorDown,1);renderSchemes();return}
+  const del=event.target.closest('[data-sector-del]');
+  if(del&&confirm('删除该阵地？（组内期刊指派一并移除；其下论文回归未分组）')){
+    if(schemeEditingSector===del.dataset.sectorDel)schemeEditingSector=null;
+    deleteSector(schemeEditingId,del.dataset.sectorDel);render();return;
+  }
+});
+$('#scheme-editor').addEventListener('input',event=>{
+  if(event.target.id==='scheme-search'){
+    schemeSearch=event.target.value;
+    renderSchemeEditor();
+    const box=$('#scheme-editor').querySelector('#scheme-search');   // 重拼后焦点归还（光标回末位）
+    if(box){box.focus();try{box.setSelectionRange(box.value.length,box.value.length)}catch(e){}}
+  }
+});
+$('#scheme-select').addEventListener('change',event=>{
+  setActiveScheme(event.target.value||null);
+  render();
 });
 async function loadRollingPapers(){
   try{
