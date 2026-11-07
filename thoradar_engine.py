@@ -783,6 +783,32 @@ SEMANTIC_QUALIFIER_ANCHORS: Dict[str, List[str]] = {
     "实施后结构化报告": ["synoptic reporting", "structured reporting"],
     "实施前后比较": ["before-and-after", "before and after"],
     "全部纳入新生儿": ["neonates", "neonate", "neonatal", "newborn", "newborns"],
+    # 2026-11-08 误杀补锚：泛人群键家族化（套用既有 总体/全人群 锚组）＋统计限定＋实体词；
+    # 挖掘席 R1 提案（日档实证 PMID 逐条登记＝tests 锚表），裸 all/age/validation 级宽锚仍不收。
+    "全体": ["all patients", "entire cohort", "whole cohort", "all enrolled", "entire population"],
+    "全部": ["all patients", "all enrolled", "all centers", "all studies", "entire cohort"],
+    "全组": ["entire cohort", "whole cohort", "all patients", "entire series"],
+    "整体": ["entire cohort", "whole cohort", "overall cohort", "entire population"],
+    "全队列": ["entire cohort", "whole cohort"],
+    "全体受试者": ["all subjects", "all participants", "entire cohort"],
+    "全体受者": ["all recipients", "recipients"],
+    "成人": ["adult", "adults"],
+    "多变量": ["multivariable", "multivariate"],
+    "校正": ["adjusted", "after adjustment", "adjusting"],
+    "匹配": ["matched", "matching"],
+    "匹配后": ["after matching", "matched"],
+    "年龄": ["median age", "mean age", "aged"],
+    "性别": ["sex", "gender"],
+    "度伐利尤单抗": ["durvalumab"],
+    "奥希替尼": ["osimertinib"],
+    "结节病": ["sarcoidosis"],
+    "结核": ["tuberculosis"],
+    "流感": ["influenza"],
+    "香港": ["hong kong"],
+    "肌少症": ["sarcopenia", "sarcopenic"],
+    "精神分裂症": ["schizophrenia", "schizophrenic"],
+    "探索性": ["exploratory"],
+    "全球": ["global", "worldwide"],
 }
 
 # CJK 终点/指标词 → 英文锚（与上面同规则；用于 tuple.metric）
@@ -825,6 +851,11 @@ SEMANTIC_METRIC_ANCHORS: Dict[str, List[str]] = {
             "positive surgical margin", "involved margin"],
     "多因素": ["multivariable", "multivariate", "multivariable analysis",
            "multivariable-adjusted"],
+    # 2026-11-08 误杀补锚（指标侧残余缺口；历史大头 AUC/IC50/Ki-67 等 10-26 已修勿重复）
+    "死亡风险": ["mortality", "risk of death"],
+    "阳性预测值": ["positive predictive value", "ppv"],
+    "阴性预测值": ["negative predictive value", "npv"],
+    "c指数": ["c-index", "concordance index", "c statistic"],
 }
 
 # ASCII 缩写 → 别名锚（缩写本身也是锚，别名单防摘要只写全称的漏杀）
@@ -848,12 +879,19 @@ SEMANTIC_ASCII_ALIASES: Dict[str, List[str]] = {
     # VATS 摘要常只写全称。别名只增不改自锚。
     "vs": ["versus", "compared with", "compared to"],
     "vats": ["video-assisted thoracoscopic", "video-assisted"],
+    # 2026-11-08 补：只增合法通路（缩写自锚已在），不加重放行
+    "or": ["odds ratio"],
+    "aor": ["adjusted odds ratio"],
+    "dcr": ["disease control rate", "disease control"],
 }
 
 # 限定词串里的通用衬底词：不携带人群信息，不产生核验要求
 SEMANTIC_STOPWORDS = ("人群", "患者", "亚组", "分析", "研究", "队列", "治疗组", "的", "率",
                       "期", "年", "月", "例", "岁", "与", "及", "和", "在", "为", "中",
-                      "肺", "非", "型")
+                      "肺", "非", "型",
+                      # 2026-11-08 补：分段残渣衬底（SIP模/多变量模/SALI组/肌少症组/ICI治疗等），
+                      # 实体由 ASCII 锚自核，机械消除假失败（挖掘席 R1：每条救多例）
+                      "组", "模型", "治疗", "相关", "者", "个", "有", "无", "各")
 
 CJK_RUN_RE = re.compile(r"[一-鿿]+")
 ASCII_TOKEN_RE = re.compile(r"[A-Za-z][A-Za-z0-9\-/]{1,}")
