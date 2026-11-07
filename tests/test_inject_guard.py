@@ -33,6 +33,8 @@ class InjectGuardTests(unittest.TestCase):
 
     def tearDown(self):
         eng.INDEX_HTML = self._orig
+        import shutil
+        shutil.rmtree(self.tmp, ignore_errors=True)
 
     def _read(self) -> str:
         return self.path.read_text(encoding="utf-8")
@@ -45,9 +47,12 @@ class InjectGuardTests(unittest.TestCase):
         self.assertEqual(self._read(), before)
 
     def test_empty_papers_writes_when_site_already_empty(self):
-        """线上本来就是空（首启）：0 篇照写，不卡死首注入。"""
+        """线上本来就是空（首启）：0 篇照写，不卡死首注入。
+        断言只可能由注入产生的键（fixture 里没有 briefing_date）——
+        钉「会不会只会拒绝」型缺陷，防拒绝型检查假绿（2026-11-07 复核席 M1）。"""
         self.path.write_text(_html_with("[]"), encoding="utf-8")
-        eng.inject_index_html([], {}, "2026-11-07")
+        eng.inject_index_html([], {}, "2026-11-08")
+        self.assertIn('"briefing_date":"2026-11-08"', self._read())
         self.assertIn('"papers":[]', self._read())
 
     def test_nonempty_papers_still_writes(self):

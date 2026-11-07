@@ -1969,6 +1969,12 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     articles = collector.efetch_articles(pmids)
     log(f"EFetch 解析成功 {len(articles)} 篇")
+    # efetch 产出硬校验（2026-11-07 判例：NCBI 时段降级回 200 空信封，276 个 PMID
+    # 静默解析成 0 篇、exit 0 让 CI 重试失明，好数据被下游注入洗空）。
+    # 有单却零解析＝采集层故障而非「今天真的没有新文献」，非零退出交给 yml 五分钟重试。
+    if pmids and not articles:
+        log("【efetch 硬校验】有单零解析（200 空信封形状）——判采集层故障，非零退出交 CI 重试")
+        return 2
 
     # 去重 + 粗筛 + 通知类排除 + 跨天去重（近 N 天已上过日报的不重发）
     seen_dois = load_seen_dois()
