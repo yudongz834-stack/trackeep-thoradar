@@ -25,3 +25,10 @@ jobs:
           git config user.email "bot@thoradar.local"
           git add design/journal-qc-report.json design/journal-qc-报告.md data/journal_yield.json
           if git diff --cached --quiet; then echo "QC 无变化"; else git commit -m "chore(qc): 周度期刊库质检报告更新 [skip ci]"; git push; fi
+      - name: Gate columns (will v1.1 five-gate extension: 新刊/红灯/预警/量控建议)
+        run: |
+          python3 tools/weekly_gate_columns.py
+          git config user.name "thoradar-bot"
+          git config user.email "bot@thoradar.local"
+          git add data/journal_gate_columns.json
+          if git diff --cached --quiet; then echo "门禁列无变化"; else git commit -m "chore(qc): 周检门禁列更新 [skip ci]"; git push; fi
