@@ -24,7 +24,7 @@ import thoradar_engine as eng  # noqa: E402
 
 CFG = json.loads(eng.JOURNALS_FILE.read_text(encoding="utf-8"))
 JOURNALS = CFG["journals"]
-JCAT_LEGAL = {str(i) for i in range(1, 11)} | {"待定"}
+JCAT_LEGAL = {str(i) for i in range(1, 12)} | {"待定"}   # 11=呼吸与睡眠（2026-11-07 阵地1拆分）
 
 
 class TaxonomyV4Tests(unittest.TestCase):
