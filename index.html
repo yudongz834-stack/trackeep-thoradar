@@ -318,6 +318,108 @@ html.dark .action-btn.primary{color:var(--on-accent)}
 .tr-meta{margin:6px 0 0;font-size:9.5px;color:var(--muted)}
 .tr-why{margin:6px 0 0;font-size:10.5px;line-height:1.6;color:var(--text-2);overflow-wrap:anywhere}
 @media(max-width:900px){.topic-overlay{inset:8px}.topic-head{padding:12px}}
+/* ===== 三期交互层（proto-a 移植）：底版之上仅追加交互层；不改产线令牌与骨架 ===== */
+.proto-view-switcher{display:flex;align-items:center;gap:3px;padding:3px;border:1px solid var(--line);border-radius:9px;background:var(--card-2);min-width:0}
+.proto-view-btn{display:flex;align-items:center;justify-content:center;gap:6px;min-height:32px;padding:6px 11px;border:1px solid transparent;border-radius:6px;background:transparent;color:var(--muted);font-size:11px;font-weight:600;white-space:nowrap;cursor:pointer}
+.proto-view-btn:hover{color:var(--text);background:var(--card)}
+.proto-view-btn[aria-selected="true"]{color:var(--accent-on-soft);border-color:var(--line);background:var(--card);box-shadow:var(--shadow-sm)}
+.proto-view-btn kbd{font:8px/1 var(--font-mono);opacity:.65}
+.topbar{grid-template-columns:auto auto auto minmax(180px,1fr) auto;gap:16px}
+body[data-proto-view="reading"] .deck{grid-template-columns:minmax(0,1fr) 370px;grid-template-areas:"queue detail";max-width:1680px}
+body[data-proto-view="reading"] .scope-panel{display:none}
+body[data-proto-view="reading"] .filters{display:grid;grid-template-columns:minmax(230px,.9fr) minmax(280px,1.3fr) minmax(230px,1fr);gap:16px;align-items:center;padding:11px 16px}
+body[data-proto-view="reading"] .tier-block,body[data-proto-view="reading"] .window-control{margin-top:0}
+body[data-proto-view="reading"] .window-control{padding-top:0;border-top:0}
+.proto-reading-toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 16px;border-bottom:1px solid var(--line);background:var(--card-2)}
+.proto-reading-copy{display:flex;align-items:center;gap:10px;min-width:0;color:var(--muted);font-size:10px}
+.proto-reading-copy b{color:var(--text-2);font-weight:600}
+.proto-density{display:flex;flex:0 0 auto;gap:3px;padding:3px;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.proto-density button{min-height:29px;padding:5px 10px;border:0;border-radius:5px;background:transparent;color:var(--muted);font-size:10px;cursor:pointer}
+.proto-density button[aria-pressed="true"]{background:var(--accent-soft);color:var(--accent-on-soft)}
+body[data-proto-view="reading"] .queue-title{padding-bottom:9px}
+body[data-proto-view="reading"] .queue-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;align-items:start;padding:14px;overflow:auto}
+body[data-proto-view="reading"] .queue-item{margin:0;min-width:0}
+.proto-article{display:block;width:100%;padding:16px 17px 14px;border:1px solid var(--line);border-top:3px solid var(--proto-domain,var(--accent));border-radius:10px;background:var(--card);box-shadow:var(--shadow-sm);text-align:left;cursor:pointer}
+.proto-article:hover{background:var(--card);border-color:var(--accent);box-shadow:var(--shadow-card)}
+.proto-article.selected{background:var(--card);border-color:var(--accent);border-top-color:var(--proto-domain,var(--accent));box-shadow:0 0 0 2px var(--accent-soft)}
+.proto-card-top{display:flex;align-items:center;flex-wrap:wrap;gap:7px 10px;min-width:0}
+.proto-domain{display:inline-flex;align-items:center;gap:6px;color:var(--text-2);font-size:10px;font-weight:650}
+.proto-domain::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--proto-domain,var(--accent))}
+.proto-type{display:inline-flex;align-items:center;gap:5px;padding:4px 6px;border:1px solid var(--line);border-radius:5px;background:var(--card-2);color:var(--text-2);font:600 9px/1 var(--font-mono)}
+.proto-type svg{width:14px;height:14px;flex:0 0 auto}
+.proto-priority{margin-left:auto;color:var(--accent-on-soft);font:600 8px/1 var(--font-mono);letter-spacing:.08em}
+.proto-score-ring{position:relative;display:block;width:52px;height:52px;margin-left:auto;flex:0 0 auto}
+.proto-score-ring svg{display:block;width:100%;height:100%;transform:rotate(-90deg)}
+.proto-score-ring circle{fill:none;stroke-width:3}
+.proto-score-ring .proto-ring-track{stroke:var(--line)}
+.proto-score-ring .proto-ring-value{stroke:var(--accent);stroke-linecap:round}
+.proto-score-number{position:absolute;inset:0;display:grid;place-content:center;text-align:center;font:650 16px/1 var(--font-mono);color:var(--text)}
+.proto-score-number small{display:block;margin-top:3px;font:7px/1 var(--font-mono);color:var(--muted)}
+body[data-proto-view="reading"] .queue-text{display:block;min-width:0}
+body[data-proto-view="reading"] .queue-text strong{display:block;-webkit-line-clamp:unset;-webkit-box-orient:initial;overflow:visible;margin-top:13px;font-size:16px;line-height:1.55;font-weight:650;letter-spacing:-.006em}
+.proto-title-en{display:block;margin-top:7px;color:var(--muted);font-size:11px;line-height:1.6;overflow-wrap:anywhere}
+.proto-finding{display:block;margin-top:13px;padding:11px 12px;border-left:2px solid var(--accent);border-radius:0 7px 7px 0;background:var(--card-2)}
+.proto-finding-label{display:block;margin-bottom:5px;color:var(--accent-on-soft);font:600 8px/1.2 var(--font-mono);letter-spacing:.12em}
+.proto-finding-text{display:block;color:var(--text);font-size:12px;line-height:1.65;font-weight:520}
+.proto-card-meta{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line);color:var(--muted);font:9px/1.5 var(--font-mono)}
+.proto-card-meta b{color:var(--text-2);font-weight:600}
+.proto-card-extra{display:none;margin-top:13px;padding-top:13px;border-top:1px solid var(--line);grid-template-columns:1fr 1fr;gap:12px}
+.proto-extra-block{display:block;padding:11px 12px;border-radius:7px;background:var(--card-2);color:var(--text-2);font-size:11px;line-height:1.7}
+.proto-extra-block b{display:block;margin-bottom:6px;color:var(--muted);font:600 8px/1.2 var(--font-mono);letter-spacing:.12em}
+body[data-proto-density="immersive"] .queue-list{grid-template-columns:minmax(0,1040px);justify-content:center}
+body[data-proto-density="immersive"] .proto-article{padding:23px 25px 20px}
+body[data-proto-density="immersive"] .queue-text strong{font-size:21px;line-height:1.5}
+body[data-proto-density="immersive"] .proto-title-en{font-size:12px}
+body[data-proto-density="immersive"] .proto-finding-text{font-size:14px}
+body[data-proto-density="immersive"] .proto-card-extra{display:grid}
+/* 雷达增强：真实评分驱动点径、色深和光晕；形状沿用并扩展原研究设计语义。 */
+.legend-shape.review{border-radius:0;clip-path:polygon(50% 0,100% 100%,0 100%);background:var(--accent-dark)}
+.legend-shape.ai{border-radius:2px;transform:rotate(45deg);background:var(--card);border:1.5px solid var(--accent-dark)}
+.blip.proto-blip{width:var(--proto-size,12px);height:var(--proto-size,12px);background:var(--proto-domain,var(--muted));box-shadow:0 0 var(--proto-glow,0) color-mix(in srgb,var(--proto-domain,var(--accent)) 60%,transparent)}
+.blip.proto-blip.rct{background:var(--proto-domain,var(--accent))}
+.blip.proto-blip.cohort{background:var(--card);border-color:var(--proto-domain,var(--accent-dark))}
+.blip.proto-blip.proto-kind-review{border-radius:0;clip-path:polygon(50% 0,100% 100%,0 100%)}
+.blip.proto-blip.proto-kind-ai{border-radius:3px;--rot:45deg;box-shadow:inset 0 0 0 3px var(--card),0 0 var(--proto-glow,0) var(--proto-domain,var(--accent))}
+.blip.proto-blip:hover,.blip.proto-blip:focus-visible{background:var(--proto-domain,var(--accent));box-shadow:0 0 0 5px var(--accent-soft),0 0 14px color-mix(in srgb,var(--proto-domain,var(--accent)) 65%,transparent);outline:none}
+.blip.proto-blip.selected{box-shadow:0 0 0 5px var(--accent-soft),0 0 0 6px var(--accent-dark),0 0 16px color-mix(in srgb,var(--proto-domain,var(--accent)) 65%,transparent)}
+.journal-sectors .journal-sector{fill:color-mix(in srgb,var(--proto-domain,var(--accent)) 4%,transparent);stroke:color-mix(in srgb,var(--proto-domain,var(--line)) 38%,var(--line));stroke-width:.8}
+.journal-sectors .journal-sector:nth-child(even){fill:color-mix(in srgb,var(--proto-domain,var(--accent)) 7%,transparent)}
+.journal-sectors .journal-sector:hover,.journal-sectors .journal-sector:focus-visible{fill:color-mix(in srgb,var(--proto-domain,var(--accent)) 14%,transparent);stroke:var(--proto-domain,var(--accent))}
+.journal-sectors .journal-sector.active{fill:color-mix(in srgb,var(--proto-domain,var(--accent)) 20%,transparent);stroke:var(--proto-domain,var(--accent-dark))}
+.proto-radar-tip{position:fixed;z-index:80;width:min(310px,calc(100vw - 24px));padding:13px 14px;border:1px solid var(--line);border-radius:10px;background:var(--card);box-shadow:var(--shadow-card);pointer-events:none}
+.proto-radar-tip .proto-tip-journal{color:var(--accent-on-soft);font:600 9px/1.4 var(--font-mono);letter-spacing:.06em}
+.proto-radar-tip strong{display:block;margin-top:6px;font-size:12px;line-height:1.55}
+.proto-radar-tip p{margin:7px 0 0;color:var(--text-2);font-size:10.5px;line-height:1.6}
+.proto-radar-tip small{display:block;margin-top:8px;color:var(--muted);font:9px/1.4 var(--font-mono)}
+/* 个性化：同一抽屉切为全屏，三个分区复用原合集/阵地/主题模块。 */
+.proto-personal-tabs{display:none;gap:5px;padding:10px 24px;border-bottom:1px solid var(--line);background:var(--card-2)}
+.proto-personal-tab{min-height:34px;padding:7px 13px;border:1px solid transparent;border-radius:7px;background:transparent;color:var(--muted);font-size:11px;cursor:pointer}
+.proto-personal-tab[aria-pressed="true"]{border-color:var(--line);background:var(--card);color:var(--accent-on-soft);box-shadow:var(--shadow-sm)}
+body[data-proto-view="personal"]{overflow:hidden}
+body[data-proto-view="personal"] .deck{display:none}
+body[data-proto-view="personal"] .coll-mask{display:none}
+body[data-proto-view="personal"] .coll-drawer{position:fixed;inset:var(--proto-header-h,76px) 0 0;width:100%;z-index:15;border:0;border-radius:0;background:var(--bg);box-shadow:none}
+body[data-proto-view="personal"] .coll-head-bar{padding:17px 24px;background:var(--card)}
+body[data-proto-view="personal"] .proto-personal-tabs{display:flex}
+body[data-proto-view="personal"] .coll-body{display:block;flex:1;overflow:auto;padding:20px 24px 42px;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+body[data-proto-view="personal"] #coll-list,body[data-proto-view="personal"] #coll-editor,body[data-proto-view="personal"] #scheme-list,body[data-proto-view="personal"] #scheme-editor,body[data-proto-view="personal"] #topic-list,body[data-proto-view="personal"] #topic-editor,body[data-proto-view="personal"] #ai-settings{width:min(1400px,100%);margin:0 auto 18px}
+@media(max-width:1350px) and (min-width:901px){.scan-meta{display:none}.topbar{grid-template-columns:auto auto minmax(180px,1fr) auto}.proto-view-btn{padding-inline:9px}}
+@media(max-width:1100px) and (min-width:901px){body[data-proto-view="reading"] .deck{grid-template-columns:minmax(0,1fr) 315px}body[data-proto-view="reading"] .queue-list{grid-template-columns:1fr}}
+@media(max-width:900px){
+  .topbar{grid-template-columns:1fr auto;gap:10px}
+  .proto-view-switcher{grid-column:1/-1;grid-row:2}.proto-view-btn{flex:1}.search{grid-row:3}
+  body[data-proto-view="reading"] .deck{grid-template-columns:minmax(0,1fr);grid-template-areas:"queue" "detail"}
+  body[data-proto-view="reading"] .filters{display:block;padding:12px}
+  body[data-proto-view="reading"] .tier-block,body[data-proto-view="reading"] .window-control{margin-top:11px}
+  body[data-proto-view="reading"] .window-control{padding-top:11px;border-top:1px solid var(--line)}
+  body[data-proto-view="reading"] .queue-list{grid-template-columns:1fr;max-height:none;overflow:visible;padding:11px}
+  .proto-reading-toolbar{align-items:flex-start;flex-direction:column}.proto-density{align-self:stretch}.proto-density button{flex:1}
+  body[data-proto-density="immersive"] .proto-article{padding:18px}.proto-card-extra{grid-template-columns:1fr}
+  body[data-proto-view="personal"] .coll-body{padding:15px 14px 32px}body[data-proto-view="personal"] .coll-head-bar,body[data-proto-view="personal"] .proto-personal-tabs{padding-inline:14px}
+  .proto-personal-tabs{overflow:auto}.proto-personal-tab{flex:1;white-space:nowrap}
+}
+@media(max-width:480px){.proto-view-btn{padding:6px;font-size:10px}.proto-view-btn kbd{display:none}.proto-card-meta{align-items:flex-start;flex-direction:column}}
+@media(prefers-reduced-motion:reduce){.proto-article{transition:none}}
 </style>
 </head>
 <body>
@@ -332,6 +434,11 @@ html.dark .action-btn.primary{color:var(--on-accent)}
     <div><strong class="brand-name">胸科雷达</strong><span class="brand-sub">THORACIC SIGNAL DESK</span></div>
   </div>
   <div class="scan-meta"><i class="live-dot"></i><div><b id="scan-date">—</b><small id="scan-time">正在读取注入数据…</small></div></div>
+  <nav class="proto-view-switcher" id="proto-view-switcher" role="tablist" aria-label="主视图切换">
+    <button class="proto-view-btn" id="proto-tab-overview" role="tab" aria-selected="true" aria-controls="deck" data-proto-view="overview" title="概览：信号队列、雷达与锁定详情"><kbd>01</kbd>概览</button>
+    <button class="proto-view-btn" id="proto-tab-reading" role="tab" aria-selected="false" aria-controls="deck" data-proto-view="reading" tabindex="-1" title="阅读：完整标题、结论与证据"><kbd>02</kbd>阅读</button>
+    <button class="proto-view-btn" id="proto-tab-personal" role="tab" aria-selected="false" aria-controls="coll-drawer" data-proto-view="personal" tabindex="-1" title="个性化：期刊合集、自定义阵地与我的主题"><kbd>03</kbd>个性化</button>
+  </nav>
   <label class="search" title="搜索标题、期刊、PMID 或试验编号">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
     <input id="search" type="search" placeholder="在信号场中检索…" autocomplete="off" aria-label="检索窗口内文献">
@@ -343,7 +450,7 @@ html.dark .action-btn.primary{color:var(--on-accent)}
 </header>
 <main class="deck">
   <aside class="panel queue-panel" aria-label="文献筛选与信号队列">
-    <div class="panel-head"><div><div class="eyebrow">Sweep director</div><h2>信号队列</h2></div><div class="coll-head"><button class="coll-toggle" id="coll-open" aria-haspopup="dialog" title="合集与我的阵地">◈ 合集</button><span class="counter" id="filter-counter">—</span></div></div>
+    <div class="panel-head"><div><div class="eyebrow">Sweep director</div><h2>信号队列</h2></div><div class="coll-head"><button class="coll-toggle" id="coll-open" title="个性化视图 · 期刊合集/自定义阵地/我的主题">◈ 合集</button><span class="counter" id="filter-counter">—</span></div></div>
     <div class="filters">
       <div class="quick-row" id="quick-filters">
         <button class="quick-btn active" data-quick="all">全部</button>
@@ -362,6 +469,13 @@ html.dark .action-btn.primary{color:var(--on-accent)}
       </div>
     </div>
     <div class="queue-title"><span>信号队列 · 按评分排序</span><span>点击锁定</span></div>
+    <div class="proto-reading-toolbar" id="proto-reading-toolbar" hidden>
+      <div class="proto-reading-copy"><span class="eyebrow">Reading desk</span><span><b>先读这三篇</b> · 前 3 篇已标记</span><span id="proto-reading-count">—</span></div>
+      <div class="proto-density" role="group" aria-label="阅读卡片密度">
+        <button type="button" data-proto-density="compact" aria-pressed="true">紧凑浏览</button>
+        <button type="button" data-proto-density="immersive" aria-pressed="false">展开沉浸</button>
+      </div>
+    </div>
     <ol class="queue-list" id="queue-list"></ol>
   </aside>
 
@@ -405,9 +519,15 @@ html.dark .action-btn.primary{color:var(--on-accent)}
     <div id="detail"></div>
   </aside>
 </main>
+<div class="proto-radar-tip" id="proto-radar-tip" role="tooltip" hidden></div>
 <div class="coll-mask" id="coll-mask" hidden></div>
 <aside class="panel coll-drawer" id="coll-drawer" role="dialog" aria-modal="true" aria-label="合集、我的阵地与我的主题" hidden>
   <div class="coll-head-bar"><div><div class="eyebrow">Collections · sectors · topics</div><h2>合集 · 阵地 · 主题</h2></div><button class="coll-close" id="coll-close" aria-label="关闭抽屉">✕</button></div>
+  <nav class="proto-personal-tabs" aria-label="个性化设置分区">
+    <button type="button" class="proto-personal-tab" data-proto-personal-tab="collections" aria-pressed="true">01 · 期刊合集</button>
+    <button type="button" class="proto-personal-tab" data-proto-personal-tab="sectors" aria-pressed="false">02 · 自定义阵地</button>
+    <button type="button" class="proto-personal-tab" data-proto-personal-tab="topics" aria-pressed="false">03 · 我的主题 · AI 设置</button>
+  </nav>
   <div class="coll-body">
     <section id="coll-list" aria-label="合集列表"></section>
     <section id="coll-editor" aria-label="编辑合集"></section>
@@ -1068,7 +1188,7 @@ function render(){
   const collBtn=$('#coll-open'),collNow=activeCollection();
   collBtn.textContent=collNow?`◈ ${collNow.name}`:'◈ 合集';
   collBtn.classList.toggle('active',Boolean(collNow));
-  collBtn.title=collNow?`激活合集：${collNow.name} · 点击打开合集面板`:'期刊合集（当前官方全部）';
+  collBtn.title=collNow?`激活合集：${collNow.name} · 点击切换个性化视图`:'期刊合集（当前官方全部） · 点击切换个性化视图';
   $('#scope-subtitle').textContent=scheme?`方位＝自定义阵地（方案：${scheme.name} · 未匹配论文归未分组） · 距心＝相对评分 · 形状＝研究设计`:'方位＝期刊阵地（九阵地上盘 · 邻科公卫并入图例） · 距心＝相对评分 · 形状＝研究设计';
   renderSchemeSelect();
   renderCollections();   // 抽屉打开时同步列表徽章；关着时零开销
@@ -1180,7 +1300,7 @@ function renderCollList(){
   const input=$('#coll-list').querySelector('[data-coll-rename-input]');
   if(input){
     const commit=()=>{const id=input.dataset.collRenameInput;if(renameCollection(id,input.value))collRenameId=null;render()};
-    input.addEventListener('keydown',e=>{if(e.key==='Enter')commit();if(e.key==='Escape'){collRenameId=null;renderCollections()}});
+    input.addEventListener('keydown',e=>{if(e.key==='Enter')commit();if(e.key==='Escape'){e.stopPropagation();collRenameId=null;renderCollections()}});   // stopPropagation：Esc 只取消重命名，不放行到 document 级处理（交叉审计补雷）
     input.addEventListener('focusout',()=>{if(collRenameId===input.dataset.collRenameInput){renameCollection(input.dataset.collRenameInput,input.value);collRenameId=null;renderCollections()}});
     input.focus();
   }
@@ -1274,7 +1394,7 @@ function renderSchemeList(){
   const input=$('#scheme-list').querySelector('[data-scheme-rename-input]');
   if(input){
     const commit=()=>{const id=input.dataset.schemeRenameInput;if(renameScheme(id,input.value))schemeRenameId=null;render()};
-    input.addEventListener('keydown',e=>{if(e.key==='Enter')commit();if(e.key==='Escape'){schemeRenameId=null;renderSchemes()}});
+    input.addEventListener('keydown',e=>{if(e.key==='Enter')commit();if(e.key==='Escape'){e.stopPropagation();schemeRenameId=null;renderSchemes()}});   // stopPropagation：Esc 只取消重命名，不放行到 document 级处理（交叉审计补雷）
     input.addEventListener('focusout',()=>{if(schemeRenameId===input.dataset.schemeRenameInput){renameScheme(input.dataset.schemeRenameInput,input.value);schemeRenameId=null;renderSchemes()}});
     input.focus();
   }
@@ -1311,7 +1431,7 @@ function renderSchemeEditor(){
   const input=el.querySelector('[data-sector-rename-input]');
   if(input){
     const commit=()=>{const gid=input.dataset.sectorRenameInput;if(renameSector(schemeEditingId,gid,input.value))sectorRenameId=null;render()};
-    input.addEventListener('keydown',e=>{if(e.key==='Enter')commit();if(e.key==='Escape'){sectorRenameId=null;renderSchemes()}});
+    input.addEventListener('keydown',e=>{if(e.key==='Enter')commit();if(e.key==='Escape'){e.stopPropagation();sectorRenameId=null;renderSchemes()}});   // stopPropagation：Esc 只取消扇区重命名，不放行到 document 级处理（交叉审计补雷）
     input.addEventListener('focusout',()=>{if(sectorRenameId===input.dataset.sectorRenameInput){renameSector(schemeEditingId,input.dataset.sectorRenameInput,input.value);sectorRenameId=null;renderSchemes()}});
     input.focus();
   }
@@ -1780,6 +1900,167 @@ restoreView();   // 先恢复持久化态（扇区/档位/时间窗/折叠/深�
 ANCHOR=findAnchor(PAPERS);
 renderHeader();renderFunnel();render();
 loadRollingPapers();
+</script>
+<script>
+/* ===== 三期交互层（proto-a 移植）：复用底版数据、筛选、详情、合集与明暗机制；视图态为会话态不落盘 ===== */
+(()=>{
+  'use strict';
+  const deck=document.querySelector('.deck');
+  deck.id='deck';
+  deck.setAttribute('role','tabpanel');
+  const baseRenderQueue=renderQueue,baseRenderScope=renderScope;
+  let protoView='overview',protoPersonalTab='collections';
+  const protoDomainColors={1:'var(--accent-dark)',2:TIER_COLORS.B,3:TIER_COLORS.S,4:TIER_COLORS.C,5:'var(--success)',8:'var(--warning)',10:'var(--accent)',11:'#5B7DB1',9:TIER_COLORS.D,6:TIER_COLORS.C,7:TIER_COLORS.C,'6+7':TIER_COLORS.C,'待定':'var(--muted)'};
+  const protoDomainColor=id=>protoDomainColors[String(id)]||'var(--muted)';
+  const protoScore=p=>{const n=Number(p.score_total);return Number.isFinite(n)?Math.max(0,Math.min(100,n)):0};
+  function protoStudyKind(p){
+    const s=String(p.study_type||'').toLowerCase();
+    if(/综述|荟萃|meta/.test(s))return 'review';
+    if(/rct|随机对照|随机/.test(s))return 'rct';
+    if(/机器学习|深度学习|人工智能|lightgbm|数字|\bai\b/.test(s))return 'ai';
+    if(/队列|cohort|回顾|前瞻|登记|病例|诊断|观察|交叉/.test(s))return 'cohort';
+    return 'pending';
+  }
+  const protoTypeLabels={rct:'RCT',cohort:'队列 / 观察',review:'综述 / Meta',ai:'AI / 数字',pending:'其他设计'};
+  function protoTypeIcon(kind){
+    const shapes={
+      rct:'<rect x="4" y="4" width="12" height="12" rx="2"/><path d="M7 10h6M10 7v6"/>',
+      cohort:'<circle cx="10" cy="10" r="6"/><circle cx="10" cy="10" r="2" fill="currentColor" stroke="none"/>',
+      review:'<path d="m10 4 7 12H3Z"/><path d="M7 13h6"/>',
+      ai:'<rect x="5" y="5" width="10" height="10" rx="2"/><path d="M8 2v3M12 2v3M8 15v3M12 15v3M2 8h3M2 12h3M15 8h3M15 12h3"/>',
+      pending:'<circle cx="10" cy="10" r="6"/><path d="M7 10h6"/>'
+    };
+    return `<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true" focusable="false">${shapes[kind]||shapes.pending}</svg>`;
+  }
+  function protoFinding(p){
+    const text=String(p.authors_conclusion||p.ai_note||p.abstract_en||'结论字段暂缺，请在锁定详情中阅读原始摘要。').trim();
+    const zh=/^[^。！？；]+[。！？；]?/.exec(text);
+    if(zh&&/[。！？；]/.test(text))return zh[0];
+    const en=/^.{30,220}?\.\s/.exec(text);
+    return en?text.slice(0,en[0].length).trim():text;
+  }
+  renderDesignLegend=function(list){
+    const count=kind=>list.filter(p=>protoStudyKind(p)===kind).length;
+    $('#design-legend').innerHTML=`<span><i class="legend-shape rct"></i>RCT · ${count('rct')}</span><span><i class="legend-shape cohort"></i>队列 · ${count('cohort')}</span><span><i class="legend-shape review"></i>综述 · ${count('review')}</span><span><i class="legend-shape ai"></i>AI · ${count('ai')}</span><span><i class="legend-shape"></i>其他 · ${count('pending')}</span><span>点按信号锁定 · 悬停或聚焦看摘要</span>`;
+  };
+  /* 阅读视图仍渲染原 #queue-list：原有点击锁定（document 级 data-select 委托）、筛选交集、已扫状态与详情导航全部沿用。 */
+  renderQueue=function(list){
+    $('#filter-counter').textContent=`${String(list.length).padStart(2,'0')} / ${PAPERS.length}`;
+    if(protoView!=='reading'){$('#proto-reading-toolbar').hidden=true;return baseRenderQueue(list)}
+    $('#proto-reading-toolbar').hidden=false;
+    const items=list.slice(0,12);
+    $('#proto-reading-count').textContent=`显示 ${items.length} / ${list.length} 篇 · 完整标题`;
+    if(!items.length){$('#queue-list').innerHTML='<li class="queue-empty">没有匹配信号。<br>清除条件或调整数据窗口后再扫。</li>';return}
+    $('#queue-list').innerHTML=items.map((p,i)=>{
+      const kind=protoStudyKind(p),score=protoScore(p),title=p.title_zh||p.title_en||'—';
+      const abstract=p.abstract_en||p.results||'摘要摘录暂缺，请通过锁定详情查阅题录。';
+      return `<li class="queue-item ${state.read.has(p.id)?'read':''}" style="--proto-domain:${protoDomainColor(jcatOf(p))}">
+        <button type="button" class="queue-btn proto-article ${state.selected===p.id?'selected':''}" data-select="${esc(p.id)}" aria-label="锁定：${esc(title)}；评分 ${esc(show(p.score_total))} 分">
+          <span class="proto-card-top"><span class="proto-domain">${esc(jcatLabel(jcatOf(p)))}</span><span class="proto-type">${protoTypeIcon(kind)}${protoTypeLabels[kind]}</span>${i<3?`<span class="proto-priority">先读 ${String(i+1).padStart(2,'0')}</span>`:''}<span class="proto-score-ring" aria-hidden="true"><svg viewBox="0 0 40 40"><circle class="proto-ring-track" cx="20" cy="20" r="16" pathLength="100"/><circle class="proto-ring-value" cx="20" cy="20" r="16" pathLength="100" stroke-dasharray="${score} 100"/></svg><span class="proto-score-number">${esc(show(p.score_total))}<small>SCORE</small></span></span></span>
+          <span class="queue-text"><strong>${esc(title)}</strong><span class="proto-title-en">${esc(p.title_en||'英文题名暂缺')}</span></span>
+          <span class="proto-finding"><span class="proto-finding-label">一句话结论 · 原文字段首句</span><span class="proto-finding-text">${esc(protoFinding(p))}</span></span>
+          <span class="proto-card-extra"><span class="proto-extra-block"><b>生成解读 · 未经人审</b>${esc(p.ai_note||'生成解读暂缺。')}</span><span class="proto-extra-block"><b>摘要导读 · 原始字段</b>${esc(abstract)}</span></span>
+          <span class="proto-card-meta"><span><b>${esc(journalName(p))}</b> · ${esc(show(p.pub_date))} · ${esc(p.category_label||categoryOf(p.category).short)}</span><span>${tierMark(p)} · 点击锁定 →</span></span>
+        </button>
+      </li>`;
+    }).join('');
+  };
+  document.querySelectorAll('[data-proto-density]').forEach(btn=>btn.addEventListener('click',()=>{
+    document.body.dataset.protoDensity=btn.dataset.protoDensity;
+    document.querySelectorAll('[data-proto-density]').forEach(b=>b.setAttribute('aria-pressed',String(b===btn)));
+  }));
+  /* 雷达增强不重造位置算法：在原渲染后按真实 score/jcat/study_type 增强，并接键盘可达的摘要卡。 */
+  const radarTip=$('#proto-radar-tip');
+  function protoHideRadarTip(){
+    radarTip.hidden=true;
+    document.querySelectorAll('[aria-describedby="proto-radar-tip"]').forEach(el=>el.removeAttribute('aria-describedby'));
+  }
+  function protoShowRadarTip(p,anchor){
+    radarTip.innerHTML=`<span class="proto-tip-journal">${esc(journalName(p))} · ${esc(jcatLabel(jcatOf(p)))}</span><strong>${esc(p.title_zh||p.title_en||'—')}</strong><p>${esc(protoFinding(p))}</p><small>${esc(protoTypeLabels[protoStudyKind(p)])} · ${esc(show(p.score_total))} 分 · 点击锁定</small>`;
+    radarTip.hidden=false;anchor.setAttribute('aria-describedby','proto-radar-tip');
+    const r=anchor.getBoundingClientRect(),w=radarTip.offsetWidth,h=radarTip.offsetHeight;
+    let left=r.right+12;if(left+w>innerWidth-12)left=r.left-w-12;
+    left=Math.max(12,Math.min(innerWidth-w-12,left));
+    radarTip.style.left=`${left}px`;radarTip.style.top=`${Math.max(12,Math.min(innerHeight-h-12,r.top-24))}px`;
+  }
+  renderScope=function(list,base,groups,counts,assignOf){
+    baseRenderScope(list,base,groups,counts,assignOf);
+    $('#blips').querySelectorAll('.blip').forEach(blip=>{
+      const p=PAPERS.find(item=>item.id===blip.dataset.select);if(!p)return;
+      const kind=protoStudyKind(p),score=protoScore(p),size=10+Math.round(score/100*9);
+      blip.classList.add('proto-blip',`proto-kind-${kind}`);
+      blip.style.setProperty('--proto-domain',protoDomainColor(jcatOf(p)));
+      blip.style.setProperty('--proto-size',`${size}px`);
+      blip.style.setProperty('--proto-glow',score>=60?'10px':score>=45?'6px':'2px');
+      blip.removeAttribute('title');
+      blip.addEventListener('mouseenter',()=>protoShowRadarTip(p,blip));
+      blip.addEventListener('focus',()=>protoShowRadarTip(p,blip));
+      blip.addEventListener('mouseleave',protoHideRadarTip);
+      blip.addEventListener('blur',protoHideRadarTip);
+    });
+    $('#journal-sectors').querySelectorAll('.journal-sector').forEach(sec=>sec.style.setProperty('--proto-domain',protoDomainColor(sec.dataset.jcat)));
+  };
+  /* 个性化三分区＝原抽屉三块整体迁入：期刊合集/自定义阵地/我的主题+AI 设置；分区切换只走 hidden 通道。 */
+  const protoPersonalPanels={collections:['coll-list','coll-editor'],sectors:['scheme-list','scheme-editor'],topics:['topic-list','topic-editor','ai-settings']};
+  function protoApplyPersonalPanels(){
+    Object.entries(protoPersonalPanels).forEach(([tab,ids])=>ids.forEach(id=>{const el=document.getElementById(id);if(el)el.hidden=protoView==='personal'&&protoPersonalTab!==tab}));
+    document.querySelectorAll('[data-proto-personal-tab]').forEach(btn=>btn.setAttribute('aria-pressed',String(btn.dataset.protoPersonalTab===protoPersonalTab)));
+  }
+  function protoSetPersonalTab(tab){protoPersonalTab=tab;protoApplyPersonalPanels()}
+  document.querySelectorAll('[data-proto-personal-tab]').forEach(btn=>btn.addEventListener('click',()=>protoSetPersonalTab(btn.dataset.protoPersonalTab)));
+  function protoMeasure(){document.documentElement.style.setProperty('--proto-header-h',`${Math.round(document.querySelector('.topbar').getBoundingClientRect().height)}px`)}
+  function protoSetView(view){
+    if(!['overview','reading','personal'].includes(view))return;
+    protoView=view;document.body.dataset.protoView=view;protoHideRadarTip();
+    if(view==='personal'){
+      if($('#coll-drawer').hidden)openCollDrawer();$('#coll-mask').hidden=true;
+    }else{
+      if(!$('#coll-drawer').hidden)closeCollDrawer();
+      if(view==='reading'){const items=filtered().slice(0,12);if(items.length&&!items.some(p=>p.id===state.selected))state.selected=items[0].id}
+    }
+    document.querySelectorAll('.proto-view-btn[data-proto-view]').forEach(btn=>{const active=btn.dataset.protoView===view;btn.setAttribute('aria-selected',String(active));btn.tabIndex=active?0:-1});
+    const drawer=$('#coll-drawer');
+    if(view==='personal'){drawer.setAttribute('role','region');drawer.removeAttribute('aria-modal')}else{drawer.setAttribute('role','dialog');drawer.setAttribute('aria-modal','true')}
+    deck.setAttribute('aria-labelledby',`proto-tab-${view==='personal'?'overview':view}`);
+    $('#coll-close').setAttribute('aria-label',view==='personal'?'返回概览':'关闭抽屉');
+    protoApplyPersonalPanels();render();protoMeasure();
+  }
+  $('#proto-view-switcher').addEventListener('click',event=>{const btn=event.target.closest('[data-proto-view]');if(btn)protoSetView(btn.dataset.protoView)});
+  $('#proto-view-switcher').addEventListener('keydown',event=>{
+    const tabs=[...document.querySelectorAll('.proto-view-btn')],current=tabs.indexOf(document.activeElement);if(current<0)return;
+    let next=null;if(['ArrowRight','ArrowDown'].includes(event.key))next=(current+1)%tabs.length;if(['ArrowLeft','ArrowUp'].includes(event.key))next=(current-1+tabs.length)%tabs.length;if(event.key==='Home')next=0;if(event.key==='End')next=tabs.length-1;
+    if(next!==null){event.preventDefault();event.stopPropagation();protoSetView(tabs[next].dataset.protoView);tabs[next].focus()}   // stopPropagation：截停产线 ←→ 锁定切换，防一键两动
+  });
+  /* 顶栏「◈ 合集」按钮改道：切换个性化视图（原抽屉打开逻辑退役）；clone 重绑甩掉旧 listener，id 不变故 render() 徽章同步不受影响。 */
+  const collOpenBtn=$('#coll-open'),collOpenRebound=collOpenBtn.cloneNode(true);
+  collOpenBtn.replaceWith(collOpenRebound);
+  collOpenRebound.addEventListener('click',()=>protoSetView(protoView==='personal'?'overview':'personal'));
+  $('#coll-close').addEventListener('click',event=>{if(protoView==='personal'){event.preventDefault();event.stopImmediatePropagation();protoSetView('overview');$('#proto-tab-overview').focus()}},true);
+  document.addEventListener('keydown',event=>{
+    if(event.target.closest('input,textarea,[contenteditable]'))return;   // 输入中的 Esc/按键归输入层：只取消编辑，绝不切视图（交叉审计补雷）
+    if(event.key!=='Escape')return;
+    if(protoView==='personal'){
+      if(!$('#topic-overlay').hidden)return;   // 主题结果覆盖层开着：让产线 ESC 语义处理（运行中不关防误触、空闲则先关覆盖层）
+      event.preventDefault();event.stopImmediatePropagation();protoSetView('overview');$('#proto-tab-overview').focus();return;
+    }
+    if(!radarTip.hidden){event.preventDefault();event.stopImmediatePropagation();protoHideRadarTip()}
+  },true);
+  /* Esc 冒泡闸：个性化态下输入框里的 Esc 到编辑层为止，不放行到产线 document 级「先关抽屉」——防「抽屉关了、视图态还挂在个性化」的错位空屏。 */
+  const protoShieldEditableEsc=event=>{
+    if(event.key!=='Escape')return;
+    if(protoView!=='personal')return;
+    if(event.target.closest('input,textarea,[contenteditable]'))event.stopPropagation();
+  };
+  $('#coll-drawer').addEventListener('keydown',protoShieldEditableEsc,false);
+  document.querySelector('.topbar').addEventListener('keydown',protoShieldEditableEsc,false);
+  window.addEventListener('resize',()=>{protoHideRadarTip();protoMeasure()});
+  if(window.ResizeObserver)new ResizeObserver(protoMeasure).observe(document.querySelector('.topbar'));
+  document.body.dataset.protoView='overview';
+  document.body.dataset.protoDensity='compact';
+  protoApplyPersonalPanels();
+  protoSetView('overview');
+  document.body.dataset.protoReady='true';
+})();
 </script>
 </body>
 </html>
