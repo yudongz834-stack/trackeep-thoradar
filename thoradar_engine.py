@@ -1792,6 +1792,16 @@ def inject_index_html(papers: List[Dict[str, Any]], funnel: Dict[str, int], day:
     html = INDEX_HTML.read_text(encoding="utf-8")
     if DATA_START not in html or DATA_END not in html:
         raise RuntimeError("index.html 缺少数据注入标记（DATA_START/DATA_END），拒绝盲写")
+    # 空数据守卫：产出 0 篇而线上现有非空数据时拒绝覆盖（2026-11-07 判例：一次限流跑
+    # fetched 276 → journal_matched 0，把 13 篇好数据洗成空，全站白屏半天）。
+    # 档案/账本照常在调用方落盘（当日 0 篇是真实历史），只是 index 保留旧数据等正常跑再注入。
+    if not papers:
+        old = re.search(re.escape(DATA_START) + r".*?" + re.escape(DATA_END), html, flags=re.S)
+        if old and '"papers":[]' not in old.group(0):
+            log(f"【空数据守卫】本次产出 0 篇而线上现有非空数据"
+                f"（fetched={funnel.get('fetched')} journal_matched={funnel.get('journal_matched')}），"
+                f"拒绝注入覆盖；待下次正常产出再注入")
+            return
     payload = {
         "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
         "briefing_date": day,
