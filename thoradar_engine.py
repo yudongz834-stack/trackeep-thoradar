@@ -278,6 +278,23 @@ def journal_category_index(cfg: Dict[str, Any]) -> Dict[str, Any]:
     return idx
 
 
+def journal_id_index(cfg: Dict[str, Any]) -> Dict[str, str]:
+    """刊键（与 journal_abbr 生成链同源：iso_abbr→name→title，大写）→ NLM ID 映射。
+    供前端期刊合集的稳定键（nlm_id 不可变；缩写会随改名漂移）；nlm_id 缺失的刊不进映射。
+    平行于 journal_category_index 新增，不改其结构（tools/journal_qc 共用旧结构）。"""
+    idx: Dict[str, str] = {}
+    for j in cfg.get("journals", []):
+        nlm = str(j.get("nlm_id", "") or "").strip()
+        if not nlm:
+            continue
+        key = (str(j.get("iso_abbr", "") or "").strip()
+               or str(j.get("name", "") or "").strip()
+               or str(j.get("title", "") or "").strip()).upper()
+        if key:
+            idx.setdefault(key, nlm)
+    return idx
+
+
 # ============================================================================
 # 1b. 逐刊目录健康台账 + 全量见过账本（目录路护栏：钥匙静默失灵必须响）
 # ============================================================================
@@ -1770,7 +1787,8 @@ def render_briefing_md(papers: List[Dict[str, Any]], day: str, funnel: Dict[str,
 
 
 def inject_index_html(papers: List[Dict[str, Any]], funnel: Dict[str, int], day: str,
-                      journal_meta: Optional[Dict[str, Any]] = None) -> None:
+                      journal_meta: Optional[Dict[str, Any]] = None,
+                      journal_ids: Optional[Dict[str, str]] = None) -> None:
     html = INDEX_HTML.read_text(encoding="utf-8")
     if DATA_START not in html or DATA_END not in html:
         raise RuntimeError("index.html 缺少数据注入标记（DATA_START/DATA_END），拒绝盲写")
@@ -1782,6 +1800,8 @@ def inject_index_html(papers: List[Dict[str, Any]], funnel: Dict[str, int], day:
     }
     if journal_meta is not None:  # 期刊名→阵地类目映射（前端旧档论文无 jcat 时按刊名回补；P21）
         payload["journal_meta"] = journal_meta
+    if journal_ids is not None:  # 刊键→NLM ID（前端期刊合集稳定键；新键平行追加，旧键一字不动）
+        payload["journal_ids"] = journal_ids
     block = f"{DATA_START}\n    const SITE_DATA = {json.dumps(payload, ensure_ascii=False, separators=(',', ':'))};\n    {DATA_END}"
     new_html = re.sub(
         re.escape(DATA_START) + r".*?" + re.escape(DATA_END),
@@ -2124,8 +2144,10 @@ def main(argv: Optional[List[str]] = None) -> int:
                         "llm_cost_usd": round(llm.cost_usd, 4)}, ensure_ascii=False),
             encoding="utf-8")
         log(f"MeSH 兜底报告：data/mesh_backstop_report.json")
+    taxonomy_cfg = json.loads(JOURNALS_FILE.read_text(encoding="utf-8"))
     inject_index_html(papers, funnel, day,
-                      journal_meta=journal_category_index(json.loads(JOURNALS_FILE.read_text(encoding="utf-8"))))
+                      journal_meta=journal_category_index(taxonomy_cfg),
+                      journal_ids=journal_id_index(taxonomy_cfg))
     build_radar_archive(90)
 
     # 见过账本落盘：凡「有效检查过」的都记账；无摘要且非豁免的明天再查（摘要可能后补）
