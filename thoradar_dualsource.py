@@ -196,7 +196,8 @@ def run_dualsource_fallback(collector: Any, pmids: List[str], ncbi_articles: Lis
         return None
 
     esearch_ok = bool(pmids)
-    route, mode = decide_route(esearch_ok, False, breaker)
+    # 探针已在 main 里 record_probe 过；这里再记会把同一次 NCBI 故障计成两次，单日即 OPEN。
+    route, mode = decide_route(esearch_ok, False, breaker, record_probe=False)
     funnel["dualsource_reason"] = reason
     if mode == "normal":  # 防御：降级入口不该拿到 normal
         return ncbi_articles or None

@@ -266,17 +266,21 @@ class CircuitBreaker:
 
 
 def decide_route(
-    esearch_ok: bool, efetch_ok: bool, breaker: CircuitBreaker
+    esearch_ok: bool, efetch_ok: bool, breaker: CircuitBreaker,
+    record_probe: bool = True,
 ) -> tuple[str, str]:
     """返回 (route, mode)，mode 为 normal / patch / full_epmc。
 
     判定用的是调用 record_probe 之前的状态：把 CLOSED 打成 OPEN 的那一次仍返回
     patch，下一次才是 full_epmc。esearch 失败不记探针，避免检索故障烧掉 efetch 熔断计数。
+    record_probe=False 时只判路由、不记探针（main 已记过同轮探针，fallback 禁同日双记）。
     """
     if not isinstance(breaker, CircuitBreaker):
         raise TypeError("breaker 必须是 CircuitBreaker")
     if type(esearch_ok) is not bool or type(efetch_ok) is not bool:
         raise TypeError("esearch_ok 与 efetch_ok 必须是 bool")
+    if type(record_probe) is not bool:
+        raise TypeError("record_probe 必须是 bool")
 
     if not esearch_ok:
         return ("epmc", "full_epmc")
@@ -287,9 +291,11 @@ def decide_route(
             return ("epmc", "full_epmc")
 
     if efetch_ok:
-        breaker.record_probe(True)
+        if record_probe:
+            breaker.record_probe(True)
         return ("ncbi", "normal")
-    breaker.record_probe(False)
+    if record_probe:
+        breaker.record_probe(False)
     return ("ncbi", "patch")
 
 

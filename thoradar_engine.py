@@ -1615,6 +1615,18 @@ def build_paper(a: Dict[str, Any], scored: Dict[str, Any], verdict: Optional[Dic
     # 降级判定：核验未通过/异常，或出版状态要求暂停解读（撤稿/影响不明的更正/关注声明）
     status_degrades = st["kind"] in ("retracted", "concern") or (st["kind"] == "corrected" and not st["impact_known"])
     publish_state = "degraded" if ((critic_verified is False) or status_degrades) else "full"
+    # LLM 把数字写进 results/作者结论但 tuples 空：核验链不启动，critic 停在 None，
+    # 未核验数值会以 full 放行。降到既有枚举 degraded，并注明未经四元组核验。
+    # 只打 score_source==llm；启发式 results 常是摘要原句，数字不得误降。
+    ai_note = llm_data.get("ai_note", "") or ""
+    if scored.get("score_source") == "llm" and not has_tuples:
+        claim = " ".join(str(llm_data.get(k) or "") for k in ("results", "authors_conclusion"))
+        if FourTupleVerifier._norm_numbers(claim):
+            publish_state = "degraded"
+            tag = "数值未经四元组核验"
+            prev = str(ai_note).strip()
+            if tag not in prev:
+                ai_note = f"{prev}；{tag}" if prev else tag
     return {
         "id": f"pmid_{a['pmid']}",
         "pmid": a["pmid"],
@@ -1665,7 +1677,7 @@ def build_paper(a: Dict[str, Any], scored: Dict[str, Any], verdict: Optional[Dic
         "affiliation_highlight": first_sentences(a.get("affiliations", ""), 1, 120),
         "results": llm_data.get("results", ""),
         "authors_conclusion": llm_data.get("authors_conclusion", ""),
-        "ai_note": llm_data.get("ai_note", ""),
+        "ai_note": ai_note,
         "pico": {"p": llm_data.get("pico_p", ""), "ic": llm_data.get("pico_ic", "")},
         "reason": llm_data.get("reason", ""),
         "abstract_en": a["abstract_en"],
@@ -1846,6 +1858,33 @@ def slim_paper(p: Dict[str, Any]) -> Dict[str, Any]:
     return {k: v for k, v in p.items() if k not in SLIM_DROP_FIELDS}
 
 
+def apply_status_overlay(papers: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """热出口组装时应用 status.json。覆盖层有该 PMID 且 kind ≠ 内嵌 status.kind 时，
+    kind/notice_pmid/notice_ref/impact_known/note 以覆盖层为准。
+    读取复用 load_status_db()（坏 JSON 容错照旧）。不改入参，冷档内嵌状态保持原样。"""
+    db = load_status_db()
+    overlay = db.get("papers") if isinstance(db, dict) else None
+    if not isinstance(overlay, dict) or not overlay:
+        return list(papers)
+    out: List[Dict[str, Any]] = []
+    for p in papers:
+        pmid = str(p.get("pmid", "")).strip()
+        rec = overlay.get(pmid)
+        embedded = p.get("status") if isinstance(p.get("status"), dict) else {}
+        overlay_kind = rec.get("kind") if isinstance(rec, dict) else None
+        if overlay_kind not in (None, "") and overlay_kind != embedded.get("kind"):
+            p = dict(p)
+            p["status"] = {
+                "kind": rec.get("kind", ""),
+                "notice_pmid": rec.get("notice_pmid", ""),
+                "notice_ref": rec.get("notice_ref", ""),
+                "impact_known": rec.get("impact_known"),
+                "note": rec.get("note", ""),
+            }
+        out.append(p)
+    return out
+
+
 def inject_index_html(papers: List[Dict[str, Any]], funnel: Dict[str, int], day: str,
                       journal_meta: Optional[Dict[str, Any]] = None,
                       journal_ids: Optional[Dict[str, str]] = None) -> None:
@@ -1866,7 +1905,7 @@ def inject_index_html(papers: List[Dict[str, Any]], funnel: Dict[str, int], day:
         "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
         "briefing_date": day,
         "funnel": funnel,
-        "papers": [slim_paper(p) for p in papers],   # SITE_DATA 同过热视图白名单（冷存储不动）
+        "papers": [slim_paper(p) for p in apply_status_overlay(papers)],   # 覆盖层后过热视图白名单
     }
     if journal_meta is not None:  # 期刊名→阵地类目映射（前端旧档论文无 jcat 时按刊名回补；P21）
         payload["journal_meta"] = journal_meta
@@ -1912,7 +1951,8 @@ def build_radar_archive(days: int = 90, archive_dir: Optional[Path] = None,
         return {}
     anchor = max(str(p.get("briefing_date", "")) for p in papers)
     cutoff = (date.fromisoformat(anchor) - timedelta(days=days - 1)).isoformat()
-    window = [p for p in papers if str(p.get("briefing_date", "")) >= cutoff]
+    window = apply_status_overlay(
+        [p for p in papers if str(p.get("briefing_date", "")) >= cutoff])
     payload = {"generated_at": datetime.now().strftime("%Y-%m-%d %H:%M"), "anchor_date": anchor,
                "window_days": days, "count": len(window), "papers": [slim_paper(p) for p in window]}
     out = out_path or (DATA_DIR / "radar_latest.json")
