@@ -43,6 +43,8 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
+import thoradar_dualsource as dualbridge  # 双源回退桥（模块缺失时回退自动关闭）
+
 ROOT = Path(__file__).resolve().parent
 DATA_DIR = ROOT / "data"
 INDEX_HTML = ROOT / "index.html"
@@ -2017,7 +2019,8 @@ def main(argv: Optional[List[str]] = None) -> int:
         if len(pmids) < args.min_final and days_back < 7:
             log(f"近 {days_back} 天仅 {len(pmids)} 篇，放宽窗口到 7 天重抓")
             days_back = 7
-            toc_pmids, q_pmids, merged, health = _collect(days_back)
+            # 2026-11-08 复核 B0 修：_collect 返回 5 元组（含 susp_skipped），旧解 4 个必崩
+            toc_pmids, q_pmids, merged, health, susp_skipped = _collect(days_back)
             pmids = [p for p in merged if p not in seen]
         funnel = {"toc_fetched": len(toc_pmids), "query_fetched": len(q_pmids),
                   "fetched": len(pmids), "journal_matched": 0, "scope_rejected": 0,
@@ -2026,14 +2029,49 @@ def main(argv: Optional[List[str]] = None) -> int:
         log(f"采集：目录路 {len(toc_pmids)} ＋ 检索式路 {len(q_pmids)} → 合并 {len(pmids)} 篇"
             f"（crdt 近 {days_back} 天｜目录健康 红{len(health['red'])}/黄{len(health['yellow'])}）")
 
-    articles = collector.efetch_articles(pmids)
-    log(f"EFetch 解析成功 {len(articles)} 篇")
+    # 双源断路器（2026-11-08 改造·Astra/Argon 会诊方案）：探针先行健康记账；
+    # OPEN 态跳过 NCBI 批量请求直接回退；探针兼作 OPEN→HALF_OPEN→CLOSED 复位通道。
+    breaker = dualbridge.load_breaker()
+    probe_ok = dualbridge.efetch_probe_ok(collector) if breaker is not None else True
+    if breaker is not None:
+        breaker.record_probe(probe_ok)
+
+    if breaker is not None and breaker.route() == "epmc":
+        log("【双源】断路器 OPEN——跳过 NCBI 批量请求，直接走 EPMC 回退")
+        articles = []
+    else:
+        articles = collector.efetch_articles(pmids)
+        log(f"EFetch 解析成功 {len(articles)} 篇")
     # efetch 产出硬校验（2026-11-07 判例：NCBI 时段降级回 200 空信封，276 个 PMID
     # 静默解析成 0 篇、exit 0 让 CI 重试失明，好数据被下游注入洗空）。
-    # 有单却零解析＝采集层故障而非「今天真的没有新文献」，非零退出交给 yml 五分钟重试。
+    # 有单却零解析＝采集层故障而非「今天真的没有新文献」。
+    # 2026-11-08 双源改造：先走 EPMC 回退（patch/full_epmc），双源齐断才 exit 2 交 CI 重试。
     if pmids and not articles:
-        log("【efetch 硬校验】有单零解析（200 空信封形状）——判采集层故障，非零退出交 CI 重试")
-        return 2
+        log("【efetch 硬校验】有单零解析（200 空信封形状）——判采集层故障，转双源回退")
+        fb = dualbridge.run_dualsource_fallback(
+            collector, pmids, [], cfg, funnel, days_back, seen, breaker,
+            reason="empty" if probe_ok else "probe_fail")
+        if fb is None:
+            log("【efetch 硬校验】双源齐断——非零退出交 CI 重试")
+            return 2
+        articles = fb
+    elif breaker is not None and articles and pmids and \
+            not any((a.get("abstract_en") or "").strip() for a in articles):
+        # 批剥离形（2026-11-08 复核 B1 修：测当日批次本身而非探针代言——
+        # 2026-11-07 判例：403 解析 13 篇全无摘要）
+        fb = dualbridge.run_dualsource_fallback(
+            collector, pmids, articles, cfg, funnel, days_back, seen, breaker, reason="stripped")
+        if fb is not None:
+            articles = fb
+    elif breaker is not None and not pmids and not articles and not mesh_mode \
+            and (len(toc_pmids) + len(q_pmids)) == 0:
+        # 发现层瘫（2026-11-08 复核 B1 修：目录路全败→零单原本直达 exit 0，EPMC 不被问津。
+        # 用「原始采集数为零」区分真瘫与全已见过账本）——esearch 败 → full_epmc 契约分支
+        log("【双源】采集清单为零（esearch 层疑似故障）——转 full_epmc 窗口检索")
+        fb = dualbridge.run_dualsource_fallback(
+            collector, [], [], cfg, funnel, days_back, seen, breaker, reason="empty_discovery")
+        if fb is not None:
+            articles = fb
 
     # 去重 + 粗筛 + 通知类排除 + 跨天去重（近 N 天已上过日报的不重发）
     seen_dois = load_seen_dois()
