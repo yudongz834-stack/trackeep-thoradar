@@ -1824,6 +1824,26 @@ def render_briefing_md(papers: List[Dict[str, Any]], day: str, funnel: Dict[str,
     return "\n".join(lines)
 
 
+# ===== 热视图出口字段白名单（2026-11-08 数据瘦身·agy 方案收窄版）=====
+# 原则：瘦身只发生在热视图出口（radar_latest.json＋SITE_DATA 注入）；data/archive/*.json
+# 冷存储保持全字段（历史为真）。裁撤集＝前端逐字段 grep 复核 0 引用（2026-11-08 复核，
+# 「authors」2 处命中均为 authors_conclusion 子串假阳性）；results 为 p.abstract_en||p.results
+# 的死 fallback（全量 1016 篇均带 abstract_en，实测 0 触发）。
+# authors / affiliation_highlight 虽亦零引用，按委任状保守口径保留（宁多留不错裁）。
+SLIM_DROP_FIELDS = frozenset({
+    "tuple_audit", "semantic_audit", "results", "reason", "pico",
+    "curation_signals", "score_breakdown", "tags",
+    "curation_clinical_value", "is_negative_highlight", "curation_research_value",
+    "ungrounded_numbers", "curation_reason", "critic_verified", "semantic_passed",
+    "prescreen", "verify_error", "pmcid", "one_liner", "methodology_note", "trial_name",
+})
+
+
+def slim_paper(p: Dict[str, Any]) -> Dict[str, Any]:
+    """热视图出口过滤：只裁 SLIM_DROP_FIELDS，其余字段（含 status/jcat/tier/score 全链路）原样保留。"""
+    return {k: v for k, v in p.items() if k not in SLIM_DROP_FIELDS}
+
+
 def inject_index_html(papers: List[Dict[str, Any]], funnel: Dict[str, int], day: str,
                       journal_meta: Optional[Dict[str, Any]] = None,
                       journal_ids: Optional[Dict[str, str]] = None) -> None:
@@ -1844,7 +1864,7 @@ def inject_index_html(papers: List[Dict[str, Any]], funnel: Dict[str, int], day:
         "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
         "briefing_date": day,
         "funnel": funnel,
-        "papers": papers,
+        "papers": [slim_paper(p) for p in papers],   # SITE_DATA 同过热视图白名单（冷存储不动）
     }
     if journal_meta is not None:  # 期刊名→阵地类目映射（前端旧档论文无 jcat 时按刊名回补；P21）
         payload["journal_meta"] = journal_meta
@@ -1865,7 +1885,8 @@ SITE_DATA_MARKER_STALE = re.compile(r"const\s+SITE_DATA\s*=")
 def build_radar_archive(days: int = 90, archive_dir: Optional[Path] = None,
                         out_path: Optional[Path] = None) -> Dict[str, Any]:
     """滚动窗档案：合并 data/archive/*.json，按 pmid 去重（新 briefing 覆盖旧），
-    锚定最新 briefing_date 取近 N 天，写 data/radar_latest.json 供前端滑杆使用。"""
+    锚定最新 briefing_date 取近 N 天，过热视图白名单后写 data/radar_latest.json 供前端滑杆使用。
+    （日档冷存储全字段不动；瘦身只发生在本出口——2026-11-08 数据瘦身。）"""
     adir = archive_dir or (DATA_DIR / "archive")
     by_pmid: Dict[str, Dict[str, Any]] = {}
     for f in sorted(Path(adir).glob("*.json")):
@@ -1891,7 +1912,7 @@ def build_radar_archive(days: int = 90, archive_dir: Optional[Path] = None,
     cutoff = (date.fromisoformat(anchor) - timedelta(days=days - 1)).isoformat()
     window = [p for p in papers if str(p.get("briefing_date", "")) >= cutoff]
     payload = {"generated_at": datetime.now().strftime("%Y-%m-%d %H:%M"), "anchor_date": anchor,
-               "window_days": days, "count": len(window), "papers": window}
+               "window_days": days, "count": len(window), "papers": [slim_paper(p) for p in window]}
     out = out_path or (DATA_DIR / "radar_latest.json")
     out.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
     log(f"滚动窗档案：{len(papers)} 篇去重 → 近 {days} 天 {len(window)} 篇 → {Path(out).name}")
