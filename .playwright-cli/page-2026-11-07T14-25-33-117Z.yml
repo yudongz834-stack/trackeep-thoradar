@@ -1,0 +1,113 @@
+- generic [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e9]:
+      - strong [ref=e10]: 胸科雷达
+      - generic [ref=e11]: THORACIC SIGNAL DESK
+    - generic [ref=e14]:
+      - generic [ref=e15]: 2026.11.07 / ANCHOR
+      - generic [ref=e16]: 2026-11-07 04:53 · 状态分项标注
+    - tablist "视图切换" [ref=e17]:
+      - tab "概览" [ref=e18] [cursor=pointer]
+      - tab "阅读" [ref=e19] [cursor=pointer]
+      - tab "个性化" [active] [selected] [ref=e20] [cursor=pointer]
+    - generic "搜索标题、期刊、PMID 或试验编号" [ref=e21]:
+      - searchbox "检索窗口内文献" [ref=e25]
+      - generic [ref=e26]: /
+    - button "切换深色模式" [ref=e27] [cursor=pointer]
+  - text: 发现 · 发现 · 发现 · 发现 · 发现 · 发现 · 发现 · 发现 · 发现 · 发现 · 发现 · 发现 · 发现 · → → →
+  - dialog "合集、我的阵地与我的主题" [ref=e1015]:
+    - generic [ref=e1016]:
+      - generic [ref=e1017]:
+        - generic [ref=e1018]: Collections · sectors · topics
+        - heading "合集 · 阵地 · 主题" [level=2] [ref=e1019]
+      - button "返回概览" [ref=e1020] [cursor=pointer]: ✕
+    - generic [ref=e1021]:
+      - region "阵地方位主题" [ref=e1022]:
+        - paragraph [ref=e1023]: 个性化全屏。方位口径、分类勾选和合集都在这一页；顶栏或 Esc 回概览。
+        - paragraph [ref=e1024]: 阵地方位 · 主题口径
+        - paragraph [ref=e1025]: 点一个方位（例如医学 AI 与数字医学），改它的主题关键词。保存后检索分类按你的口径走。这里是可交互模拟，不连网。
+        - generic [ref=e1026]:
+          - button "胸外科与胸部肿瘤" [ref=e1027] [cursor=pointer]
+          - button "呼吸与睡眠" [ref=e1028] [cursor=pointer]
+          - button "肿瘤临床" [ref=e1029] [cursor=pointer]
+          - button "影像、病理与检验" [ref=e1030] [cursor=pointer]
+          - button "外科与重症医学" [ref=e1031] [cursor=pointer]
+          - button "感染与免疫" [ref=e1032] [cursor=pointer]
+          - button "基础·药理与转化" [ref=e1033] [cursor=pointer]
+          - button "医学AI与数字医学" [ref=e1034] [cursor=pointer]
+          - button "综合医学与多学科" [ref=e1035] [cursor=pointer]
+      - region "合集列表" [ref=e1036]:
+        - paragraph [ref=e1104]: 合集 · 点按启用
+        - generic [ref=e1105]:
+          - button "官方全部 全部名册期刊 · 默认" [ref=e1106] [cursor=pointer]:
+            - generic [ref=e1107]: 官方全部
+            - generic [ref=e1108]: 全部名册期刊 · 默认
+          - generic [ref=e1109]: 使用中
+        - generic [ref=e1110]:
+          - button "＋ 新建合集" [ref=e1111] [cursor=pointer]
+          - button "导出 JSON" [ref=e1112] [cursor=pointer]
+          - button "导入 JSON" [ref=e1113] [cursor=pointer]
+      - region "编辑合集" [ref=e1047]:
+        - paragraph [ref=e1114]: 期刊分类勾选
+        - paragraph [ref=e1115]: 按阵地一次看一类，替代把名册摊成一长列。勾选会写入合集；点上方合集名才启用过滤。
+        - tablist "期刊类别" [ref=e1116]:
+          - button "胸外科与胸部肿瘤 · 17" [pressed] [ref=e1117] [cursor=pointer]
+          - button "呼吸与睡眠 · 50" [ref=e1118] [cursor=pointer]
+          - button "肿瘤临床 · 25" [ref=e1119] [cursor=pointer]
+          - button "影像、病理与检验 · 10" [ref=e1120] [cursor=pointer]
+          - button "外科与重症医学 · 7" [ref=e1121] [cursor=pointer]
+          - button "感染与免疫 · 14" [ref=e1122] [cursor=pointer]
+          - button "基础·药理与转化 · 34" [ref=e1123] [cursor=pointer]
+          - button "医学AI与数字医学 · 6" [ref=e1124] [cursor=pointer]
+          - button "综合医学与多学科 · 29" [ref=e1125] [cursor=pointer]
+          - button "邻科与公卫 · 5" [ref=e1126] [cursor=pointer]
+        - generic [ref=e1127]: 先新建或点「编辑」。类别按钮现在就能切换，勾选从有合集开始。
+        - button "＋ 新建合集并开始勾选" [ref=e1129] [cursor=pointer]
+        - generic [ref=e1130]:
+          - paragraph [ref=e1131]: 池外刊添加
+          - paragraph [ref=e1132]: 名册里没有的期刊，写上名字收进当前合集。需要先有一个合集。
+      - region "我的阵地方案列表" [ref=e1067]:
+        - paragraph [ref=e1133]: 我的阵地 · 点按启用
+        - generic [ref=e1134]:
+          - button "官方阵地 九阵地上盘 · 默认" [ref=e1135] [cursor=pointer]:
+            - generic [ref=e1136]: 官方阵地
+            - generic [ref=e1137]: 九阵地上盘 · 默认
+          - generic [ref=e1138]: 使用中
+        - button "＋ 新建方案" [ref=e1140] [cursor=pointer]
+      - region "编辑阵地方案" [ref=e1076]:
+        - paragraph [ref=e1141]: 编辑方案
+        - generic [ref=e1142]: 在上方点「编辑」或「＋ 新建方案」：加阵地、起名、勾期刊指派。
+      - region "我的检索主题列表" [ref=e1079]:
+        - paragraph [ref=e1143]: 我的主题 · 自定义检索（按需执行 · 烧你自己的 Key）
+        - generic [ref=e1144]: 还没有主题。点「＋ 新建主题」：起名、写 PubMed 检索式、设回看天数与单次上限。
+        - button "＋ 新建主题" [ref=e1146] [cursor=pointer]
+      - region "编辑检索主题" [ref=e1084]:
+        - paragraph [ref=e1147]: 编辑主题
+        - generic [ref=e1148]: 在上方点「编辑」或「＋ 新建主题」。
+      - region "AI 设置（自带 Key）" [ref=e1087]:
+        - paragraph [ref=e1088]: AI 设置 · 自带 Key（「我的主题」运行时用）
+        - generic [ref=e1089]:
+          - generic [ref=e1090]:
+            - generic [ref=e1091]: BaseURL
+            - textbox "BaseURL" [ref=e1092]:
+              - /placeholder: 如 https://api.anthropic.com 或你的中转地址
+          - generic [ref=e1093]:
+            - generic [ref=e1094]: API Key
+            - textbox "API Key" [ref=e1095]:
+              - /placeholder: 只保存在本浏览器
+          - generic [ref=e1096]:
+            - generic [ref=e1097]: Model
+            - textbox "Model" [ref=e1098]:
+              - /placeholder: 模型 ID（Anthropic 协议兼容），自由填写
+        - paragraph [ref=e1099]: Key 只保存在本浏览器，请求从你的设备直连 AI 服务商，本站无服务器不经手。公共电脑勿用。
+        - generic [ref=e1100]:
+          - button "测试连接" [ref=e1101] [cursor=pointer]
+          - status
+        - paragraph [ref=e1102]:
+          - text: 跨域受限？改用中转地址或自部署转发 Worker，模板见
+          - link "站内帮助" [ref=e1103] [cursor=pointer]:
+            - /url: docs/壳化-自带Token指南.md
+          - text: 。
+  - contentinfo [ref=e320]:
+    - generic [ref=e321]: 程序生成 · 无人审校 · 期刊与分区按注入字段原样展示 · 摘要仅供检索导读，临床判断请读原文
+    - generic [ref=e322]: / 检索 ← → 切换 1 2 3 视图 ESC 清除

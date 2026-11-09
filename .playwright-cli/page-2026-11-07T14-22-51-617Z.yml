@@ -1,0 +1,321 @@
+- generic [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e9]:
+      - strong [ref=e10]: 胸科雷达
+      - generic [ref=e11]: THORACIC SIGNAL DESK
+    - generic [ref=e14]:
+      - generic [ref=e15]: 2026.11.07 / ANCHOR
+      - generic [ref=e16]: 2026-11-07 04:53 · 状态分项标注
+    - tablist "视图切换" [ref=e17]:
+      - tab "概览" [ref=e18] [cursor=pointer]
+      - tab "阅读" [active] [selected] [ref=e19] [cursor=pointer]
+      - tab "个性化" [ref=e20] [cursor=pointer]
+    - generic "搜索标题、期刊、PMID 或试验编号" [ref=e21]:
+      - searchbox "检索窗口内文献" [ref=e25]
+      - generic [ref=e26]: /
+    - button "切换深色模式" [ref=e27] [cursor=pointer]
+  - main [ref=e30]:
+    - complementary "文献筛选与信号队列" [ref=e31]:
+      - generic [ref=e32]:
+        - generic [ref=e33]:
+          - generic [ref=e34]: Sweep director
+          - heading "信号队列" [level=2] [ref=e35]
+        - generic [ref=e36]:
+          - button "◈ 合集" [ref=e37] [cursor=pointer]
+          - generic [ref=e38]: 13 / 13
+      - generic [ref=e39]:
+        - generic [ref=e40]:
+          - button "全部" [ref=e41] [cursor=pointer]
+          - button "RCT" [ref=e42] [cursor=pointer]
+          - button "队列" [ref=e43] [cursor=pointer]
+          - button "含试验号" [ref=e44] [cursor=pointer]
+        - generic [ref=e45]:
+          - paragraph [ref=e46]: 刊源档位 · 可多选
+          - generic [ref=e47]:
+            - button "S · 0" [pressed] [ref=e323] [cursor=pointer]
+            - button "A · 0" [pressed] [ref=e324] [cursor=pointer]
+            - button "B · 8" [pressed] [ref=e325] [cursor=pointer]
+            - button "C · 2" [pressed] [ref=e326] [cursor=pointer]
+            - button "D · 3" [pressed] [ref=e327] [cursor=pointer]
+        - generic [ref=e53]:
+          - generic [ref=e54]:
+            - generic [ref=e55]: 时间滑杆
+            - status [ref=e56]: 90 天
+          - slider "时间滑杆" [ref=e57] [cursor=pointer]: "90"
+          - status [ref=e58]: 数据窗口 08-10 ~ 11-07 · 90 天
+      - generic [ref=e59]:
+        - generic [ref=e60]: 信号队列 · 按评分排序
+        - generic [ref=e61]:
+          - group "卡片密度" [ref=e328]:
+            - button "紧凑" [pressed] [ref=e329] [cursor=pointer]
+            - button "展开" [ref=e330] [cursor=pointer]
+          - generic [ref=e62]: 点击锁定
+      - generic [ref=e331]:
+        - generic [ref=e332]:
+          - generic [ref=e333]: 先读这三篇
+          - generic [ref=e334]:
+            - generic [ref=e335]: RCT · 1
+            - generic [ref=e337]: 队列 · 2
+            - generic [ref=e339]: 综述 · 3
+            - generic [ref=e341]: AI · 1
+            - generic [ref=e343]: 其他 · 6
+        - button "1 食管胃结合部腺癌各期治疗现状的系统综述与荟萃分析：纳入100项RCT后提出按肿瘤部位的疗效差异支持将其视为独立疾病实体 76" [ref=e345] [cursor=pointer]:
+          - generic [ref=e346]: "1"
+          - generic [ref=e347]: 食管胃结合部腺癌各期治疗现状的系统综述与荟萃分析：纳入100项RCT后提出按肿瘤部位的疗效差异支持将其视为独立疾病实体
+          - generic [ref=e348]: "76"
+        - button "2 CLDN18.2免疫组化鉴别肺浸润性黏液腺癌与非黏液NSCLC的诊断效能：敏感度89.3%、特异度97.6% 69" [ref=e349] [cursor=pointer]:
+          - generic [ref=e350]: "2"
+          - generic [ref=e351]: CLDN18.2免疫组化鉴别肺浸润性黏液腺癌与非黏液NSCLC的诊断效能：敏感度89.3%、特异度97.6%
+          - generic [ref=e352]: "69"
+        - button "3 葡萄糖剥夺下DHODH功能切换经SLC7A11二硫化死亡增敏ESCC放疗（临床前研究，PBAGS预测生存但未给数据） 62" [ref=e353] [cursor=pointer]:
+          - generic [ref=e354]: "3"
+          - generic [ref=e355]: 葡萄糖剥夺下DHODH功能切换经SLC7A11二硫化死亡增敏ESCC放疗（临床前研究，PBAGS预测生存但未给数据）
+          - generic [ref=e356]: "62"
+      - list [ref=e63]:
+        - listitem [ref=e357]:
+          - button "锁定：食管胃结合部腺癌各期治疗现状的系统综述与荟萃分析：纳入100项RCT后提出按肿瘤部位的疗效差异支持将其视为独立疾病实体" [ref=e358] [cursor=pointer]:
+            - generic [ref=e359]: "01"
+            - generic [ref=e360]:
+              - strong [ref=e361]: 食管胃结合部腺癌各期治疗现状的系统综述与荟萃分析：纳入100项RCT后提出按肿瘤部位的疗效差异支持将其视为独立疾病实体
+              - emphasis [ref=e362]: "State-of-the-art treatment of Oesophagogastric junction adenocarcinoma: a systematic review and meta-analysis of randomized clinical trials."
+              - generic [ref=e363]: Cancer Treat Rev · 食管与纵隔肿瘤
+              - generic [ref=e364]:
+                - generic [ref=e365]:
+                  - generic [ref=e367]: 食管与纵隔肿瘤
+                  - generic [ref=e369]: 综述
+                - text: 发现 ·
+            - generic [ref=e370]: "76"
+        - listitem [ref=e375]:
+          - button "锁定：CLDN18.2免疫组化鉴别肺浸润性黏液腺癌与非黏液NSCLC的诊断效能：敏感度89.3%、特异度97.6%" [ref=e376] [cursor=pointer]:
+            - generic [ref=e377]: "02"
+            - generic [ref=e378]:
+              - strong [ref=e379]: CLDN18.2免疫组化鉴别肺浸润性黏液腺癌与非黏液NSCLC的诊断效能：敏感度89.3%、特异度97.6%
+              - emphasis [ref=e380]: Claudin 18.2 as a specific diagnostic marker for pulmonary invasive mucinous adenocarcinoma.
+              - generic [ref=e381]: Pathol Res Pract · 微创与无管化胸外科
+              - generic [ref=e382]:
+                - generic [ref=e383]:
+                  - generic [ref=e385]: 微创与无管化胸外科
+                  - generic [ref=e387]: 其他
+                - text: 发现 ·
+            - generic [ref=e388]: "69"
+        - listitem [ref=e393]:
+          - button "锁定：葡萄糖剥夺下DHODH功能切换经SLC7A11二硫化死亡增敏ESCC放疗（临床前研究，PBAGS预测生存但未给数据）" [ref=e394] [cursor=pointer]:
+            - generic [ref=e395]: "03"
+            - generic [ref=e396]:
+              - strong [ref=e397]: 葡萄糖剥夺下DHODH功能切换经SLC7A11二硫化死亡增敏ESCC放疗（临床前研究，PBAGS预测生存但未给数据）
+              - emphasis [ref=e398]: Metabolic Stress Rewires DHODH from Oncogenesis to SLC7A11-driven Disulfidptosis and Radiosensitization in Esophageal Squamous Cell Carcinoma.
+              - generic [ref=e399]: Cancer Lett · 食管与纵隔肿瘤
+              - generic [ref=e400]:
+                - generic [ref=e401]:
+                  - generic [ref=e403]: 食管与纵隔肿瘤
+                  - generic [ref=e405]: 其他
+                - text: 发现 ·
+            - generic [ref=e406]: "62"
+        - listitem [ref=e411]:
+          - button "锁定：基于UNOS数据库的机器学习分析提示供肺冷缺血（体外）时间超过400分钟与移植后1年死亡风险升高相关，DCD供肺风险放大" [ref=e412] [cursor=pointer]:
+            - generic [ref=e413]: "04"
+            - generic [ref=e414]:
+              - strong [ref=e415]: 基于UNOS数据库的机器学习分析提示供肺冷缺血（体外）时间超过400分钟与移植后1年死亡风险升高相关，DCD供肺风险放大
+              - emphasis [ref=e416]: Machine learning modeling of United Network for Organ Sharing database highlights donor-type-specific risk from extended out-of-body time.
+              - generic [ref=e417]: J Thorac Cardiovasc Surg · 局晚期与晚期靶向/免疫
+              - generic [ref=e418]:
+                - generic [ref=e419]:
+                  - generic [ref=e421]: 局晚期与晚期靶向/免疫
+                  - generic [ref=e423]: AI
+                - text: 发现 ·
+            - generic [ref=e424]: "60"
+        - listitem [ref=e429]:
+          - button "锁定：不可切除III期NSCLC同步放化疗后残余病灶自适应SBRT加量的单臂前瞻性队列：较高残余原发累积剂量与局控改善相关，但远处失败仍为主要失败模式且无免疫巩固" [ref=e430] [cursor=pointer]:
+            - generic [ref=e431]: "05"
+            - generic [ref=e432]:
+              - strong [ref=e433]: 不可切除III期NSCLC同步放化疗后残余病灶自适应SBRT加量的单臂前瞻性队列：较高残余原发累积剂量与局控改善相关，但远处失败仍为主要失败模式且无免疫巩固
+              - emphasis [ref=e434]: "RESPONSE-ADAPTIVE STEREOTACTIC BODY RADIOTHERAPY BOOST AFTER CONCURRENT CHEMORADIOTHERAPY IN UNRESECTABLE STAGE III NSCLC: A PROSPECTIVE SINGLE-CENTRE COHORT STUDY."
+              - generic [ref=e435]: Int J Radiat Oncol Biol Phys · 局晚期与晚期靶向/免疫
+              - generic [ref=e436]:
+                - generic [ref=e437]:
+                  - generic [ref=e439]: 局晚期与晚期靶向/免疫
+                  - generic [ref=e441]: 队列
+                - text: 发现 ·
+            - generic [ref=e442]: "60"
+        - listitem [ref=e447]:
+          - button "锁定：IPF中体重下降与FVC下降提供独立且叠加的移植无生存获益信息，二者叠加风险HR 4.11，但无交互作用" [ref=e448] [cursor=pointer]:
+            - generic [ref=e449]: "06"
+            - generic [ref=e450]:
+              - strong [ref=e451]: IPF中体重下降与FVC下降提供独立且叠加的移植无生存获益信息，二者叠加风险HR 4.11，但无交互作用
+              - emphasis [ref=e452]: "Weight Loss, FVC Decline, and Composite Physiologic Index as Complementary Prognostic Indicators in Idiopathic Pulmonary Fibrosis over the Disease Course: Time-Updated and Landmark Analysis."
+              - generic [ref=e453]: Arch Bronconeumol · 非肿瘤呼吸病
+              - generic [ref=e454]:
+                - generic [ref=e455]:
+                  - generic [ref=e457]: 非肿瘤呼吸病
+                  - generic [ref=e459]: 队列
+                - text: 发现 ·
+            - generic [ref=e460]: "58"
+        - listitem [ref=e465]:
+          - button "锁定：NSCLC中细胞因子/趋化因子回路的空间生物标志物与联合免疫治疗证据分级框架（叙述性综述）" [ref=e466] [cursor=pointer]:
+            - generic [ref=e467]: "07"
+            - generic [ref=e468]:
+              - strong [ref=e469]: NSCLC中细胞因子/趋化因子回路的空间生物标志物与联合免疫治疗证据分级框架（叙述性综述）
+              - emphasis [ref=e470]: "Cytokine and chemokine circuits in non-small cell lung cancer: spatial biomarkers and an evidence-guided framework for combination immunotherapy."
+              - generic [ref=e471]: Crit Rev Oncol Hematol · 局晚期与晚期靶向/免疫
+              - generic [ref=e472]:
+                - generic [ref=e473]:
+                  - generic [ref=e475]: 局晚期与晚期靶向/免疫
+                  - generic [ref=e477]: 综述
+                - text: 发现 ·
+            - generic [ref=e478]: "55"
+        - listitem [ref=e483]:
+          - button "锁定：胸外科术前物理治疗教育数字化视频与面对面教育的可行性随机对照预试验" [ref=e484] [cursor=pointer]:
+            - generic [ref=e485]: "08"
+            - generic [ref=e486]:
+              - strong [ref=e487]: 胸外科术前物理治疗教育数字化视频与面对面教育的可行性随机对照预试验
+              - emphasis [ref=e488]: "Digital Versus Face-to-Face Preoperative Physiotherapy Education in Thoracic Surgery: A Pilot Feasibility Randomised Controlled Trial."
+              - generic [ref=e489]: Heart Lung Circ · 围术期与新辅助治疗
+              - generic [ref=e490]:
+                - generic [ref=e491]:
+                  - generic [ref=e493]: 围术期与新辅助治疗
+                  - generic [ref=e495]: RCT
+                - text: 发现 ·
+            - generic [ref=e496]: "48"
+        - listitem [ref=e501]:
+          - button "锁定：CF伴ETI相关神经精神不良反应者换用VTD后症状改善，但量表评分与患者自报改善一致性差" [ref=e502] [cursor=pointer]:
+            - generic [ref=e503]: "09"
+            - generic [ref=e504]:
+              - strong [ref=e505]: CF伴ETI相关神经精神不良反应者换用VTD后症状改善，但量表评分与患者自报改善一致性差
+              - emphasis [ref=e506]: "Changes in Neuropsychiatric Symptoms after Switching from Elexacaftor/Tezacaftor/Ivacaftor to Vanzacaftor/Tezacaftor/Deutivacaftor: A Single-Center Experience."
+              - generic [ref=e507]: Respir Med · 非肿瘤呼吸病
+              - generic [ref=e508]:
+                - generic [ref=e509]:
+                  - generic [ref=e511]: 非肿瘤呼吸病
+                  - generic [ref=e513]: 其他
+                - text: 发现 ·
+            - generic [ref=e514]: "41"
+        - listitem [ref=e519]:
+          - button "锁定：仿生分枝杆菌膜双时空靶向DNA四面体光热平台在小鼠结核模型中提高杀菌率、增强免疫记忆并降低复发率（临床转化价值有限的临床前研究）" [ref=e520] [cursor=pointer]:
+            - generic [ref=e521]: "10"
+            - generic [ref=e522]:
+              - strong [ref=e523]: 仿生分枝杆菌膜双时空靶向DNA四面体光热平台在小鼠结核模型中提高杀菌率、增强免疫记忆并降低复发率（临床转化价值有限的临床前研究）
+              - emphasis [ref=e524]: Biomimetic mycobacterial dual spatiotemporal targeting induces trained immunity for tuberculosis photothermal immunotherapy and relapse prevention.
+              - generic [ref=e525]: EBioMedicine · 非肿瘤呼吸病
+              - generic [ref=e526]:
+                - generic [ref=e527]:
+                  - generic [ref=e529]: 非肿瘤呼吸病
+                  - generic [ref=e531]: 其他
+                - text: 发现 ·
+            - generic [ref=e532]: "36"
+        - listitem [ref=e537]:
+          - button "锁定：利马大气PM2.5短期升高与哮喘急诊就诊关联：居住在主干道400米内是否增强效应" [ref=e538] [cursor=pointer]:
+            - generic [ref=e539]: "11"
+            - generic [ref=e540]:
+              - strong [ref=e541]: 利马大气PM2.5短期升高与哮喘急诊就诊关联：居住在主干道400米内是否增强效应
+              - emphasis [ref=e542]: "Ambient fine particulate matter and asthma emergency visits in Lima, Peru: Does Residential Proximity to Major Roads Matter?"
+              - generic [ref=e543]: Environ Res · 非肿瘤呼吸病
+              - generic [ref=e544]:
+                - generic [ref=e545]:
+                  - generic [ref=e547]: 非肿瘤呼吸病
+                  - generic [ref=e549]: 其他
+                - text: 发现 ·
+            - generic [ref=e550]: "33"
+        - listitem [ref=e555]:
+          - button "锁定：samRNA疫苗递送嵌合与马赛克血凝素在动物模型中对多谱系流感A病毒产生广谱保护，但缺乏定量免疫与保护数据" [ref=e556] [cursor=pointer]:
+            - generic [ref=e557]: "12"
+            - generic [ref=e558]:
+              - strong [ref=e559]: samRNA疫苗递送嵌合与马赛克血凝素在动物模型中对多谱系流感A病毒产生广谱保护，但缺乏定量免疫与保护数据
+              - emphasis [ref=e560]: Self-amplifying RNA vaccines encoding chimeric and mosaic hemagglutinins confer immunity against phylogenetically diverse influenza A viruses.
+              - generic [ref=e561]: Cell Rep · 非肿瘤呼吸病
+              - generic [ref=e562]:
+                - generic [ref=e563]:
+                  - generic [ref=e565]: 非肿瘤呼吸病
+                  - generic [ref=e567]: 其他
+                - text: 发现 ·
+            - generic [ref=e568]: "31"
+        - listitem [ref=e573]:
+          - button "锁定：成年囊性纤维化患者可改变生活方式行为促进健康老龄化的知识现状、关键缺口与未来研究方向：叙述性综述" [ref=e574] [cursor=pointer]:
+            - generic [ref=e575]: "13"
+            - generic [ref=e576]:
+              - strong [ref=e577]: 成年囊性纤维化患者可改变生活方式行为促进健康老龄化的知识现状、关键缺口与未来研究方向：叙述性综述
+              - emphasis [ref=e578]: Current knowledge, key gaps, and opportunities for future research on high-impact, modifiable lifestyle behaviors to promote healthy aging in adults with cystic fibrosis in the era of modulator therapy.
+              - generic [ref=e579]: J Cyst Fibros · 非肿瘤呼吸病
+              - generic [ref=e580]:
+                - generic [ref=e581]:
+                  - generic [ref=e583]: 非肿瘤呼吸病
+                  - generic [ref=e585]: 综述
+                - text: 发现 ·
+            - generic [ref=e586]: "26"
+    - text: → → →
+    - complementary "锁定信号详情" [ref=e250]:
+      - generic [ref=e591]:
+        - generic [ref=e592]:
+          - generic [ref=e593]: SIGNAL LOCK / 01
+          - generic [ref=e594]: 未见异常标记
+        - generic [ref=e595]:
+          - generic [ref=e596]:
+            - generic [ref=e597]: Cancer treatment reviews
+            - generic [ref=e598]:
+              - text: Cancer Treat Rev · 2026-Oct-31 · B 档
+              - generic [ref=e599]: 综述
+          - generic [ref=e600]:
+            - text: "76"
+            - generic [ref=e601]: 评分 · llm
+        - generic "评分 76 分" [ref=e602]
+        - heading "食管胃结合部腺癌各期治疗现状的系统综述与荟萃分析：纳入100项RCT后提出按肿瘤部位的疗效差异支持将其视为独立疾病实体" [level=2] [ref=e604]
+        - generic [ref=e605]:
+          - generic [ref=e606]: 食管与纵隔肿瘤
+          - generic [ref=e607]: 系统综述与荟萃分析 · 纳入2000–2025年100项RCT的叙述性综合
+        - generic [ref=e608]:
+          - generic [ref=e609]:
+            - generic [ref=e610]: PMID
+            - generic [ref=e611]: "42994328"
+          - generic [ref=e612]:
+            - generic [ref=e613]: 出版状态
+            - generic [ref=e614]: 未见异常标记
+          - generic [ref=e615]:
+            - generic [ref=e616]: 影响因子 · 源值
+            - generic [ref=e617]: "10.6"
+          - generic [ref=e618]:
+            - generic [ref=e619]: 分区 · 源值
+            - generic [ref=e620]: JCR Q1
+          - generic [ref=e621]:
+            - generic [ref=e622]: 预警状态
+            - generic [ref=e623]: 正常
+          - generic [ref=e624]:
+            - generic [ref=e625]: 雷达日期
+            - generic [ref=e626]: 2026-11-07
+          - generic [ref=e627]:
+            - generic [ref=e628]: 卷 / 期
+            - generic [ref=e629]: —
+          - generic [ref=e630]:
+            - generic [ref=e631]: 期刊阵地
+            - generic [ref=e632]: 肿瘤临床
+          - generic [ref=e633]:
+            - generic [ref=e634]: 档位口径
+            - generic [ref=e635]: v4 新五档
+          - generic [ref=e636]:
+            - generic [ref=e637]: 评分口径
+            - generic [ref=e638]: llm
+          - generic [ref=e639]:
+            - generic [ref=e640]: 精选状态
+            - generic [ref=e641]: 未入选 · 不凑数
+        - generic [ref=e642]:
+          - generic [ref=e643]:
+            - generic [ref=e644]: 摘要导读
+            - generic [ref=e645]: 原始字段 · 非全文
+          - paragraph [ref=e646]: Oesophagogastric junction adenocarcinoma (OGJ AC) represents an increasingly prevalent malignancy for which treatment recommendations remain challenging, as patients are frequently included within trials addressing gastric or oesophageal cancer. We conducted a systematic review and meta-analysis of randomized clinical trials (RCTs) published between 2000 and 2025 including patients with OGJ AC to provide a comprehensive assessment of contemporary treatment strategies for this disease across all stages. A total of 100 high-quality RCTs including more than 13,000 patients with OGJ tumours were identified. In localized disease, 36 studies evaluated surgical procedures, adjuvant/neoadjuvant/perioperative treatments and definitive approaches. Surgery is still the cornerstone of curative treatment, increasingly incorporating minimally invasive techniques. Perioperative chemotherapy and chemoimmunotherapy represent standard approaches, while neoadjuvant chemoradiotherapy followed by adjuvant nivolumab represents an alternative strategy. In advanced disease, 64 studies assessed systemic therapies in first/second/third lines or palliative interventions. Platinum-fluoropyrimidine chemotherapy persists as the backbone of first-line treatment, with treatment intensification guided by biomarkers. While the benefit of trastuzumab in HER2-positive tumours appears greater in OGJ than in gastric cancer, the opposite pattern is observed with zolbetuximab in CLDN18.2-positive tumours. Several trials testing anti-PD-1 therapies confirm their activity in OGJ AC, despite the predictive value of PD-L1 appearing uncertain in this anatomical subgroup. In later lines, paclitaxel plus ramucirumab, trastuzumab deruxtecan for HER2-positive disease, and trifluridine-tipiracil remain established options. The available evidence suggests clinically meaningful differences in treatment efficacy according to tumour location, supporting the consideration of OGJ AC as a distinct disease entity. Dedicated OGJ AC trials incorporating standardized anatomical classification are needed to improve outcomes in this aggressive disease.
+          - paragraph [ref=e647]:
+            - strong [ref=e648]: 作者结论
+            - text: 现有证据提示不同肿瘤部位的治疗疗效存在临床意义上的差异，支持将OGJ AC视为独立疾病实体；需要采用标准化解剖分类的专门OGJ AC试验以改善这一侵袭性疾病的结果。
+          - paragraph [ref=e649]:
+            - strong [ref=e650]: 生成解读 · 未经人审
+            - text: 摘要自称系统综述与荟萃分析，但未报告任何合并效应量（HR/OR/RR、95%CI或P值），也未说明异质性、偏倚风险评估或证据分级方法，综合为叙述性，具体合并结果信息不足；关于曲妥珠单抗在OGJ获益大于胃癌、而佐贝妥单抗呈相反模式的表述为定性对比，无具体数值支撑；PD-L1预测价值'不确定'但未给出分层数据；以部位亚组差异推导'独立疾病实体'的结论主要基于跨试验间接比较，存在人群与分期构成混杂的可能。
+        - generic [ref=e651]:
+          - link "打开题录 ↗" [ref=e652] [cursor=pointer]:
+            - /url: https://pubmed.ncbi.nlm.nih.gov/42994328/
+          - link "DOI 原文 ↗" [ref=e653] [cursor=pointer]:
+            - /url: https://doi.org/10.1016%2Fj.ctrv.2026.103241
+          - button "标记本篇已扫" [ref=e654] [cursor=pointer]
+        - generic [ref=e655]:
+          - button "← 上一信号" [ref=e656] [cursor=pointer]
+          - generic [ref=e657]: 1 / 13
+          - button "下一信号 →" [ref=e658] [cursor=pointer]
+  - contentinfo [ref=e320]:
+    - generic [ref=e321]: 程序生成 · 无人审校 · 期刊与分区按注入字段原样展示 · 摘要仅供检索导读，临床判断请读原文
+    - generic [ref=e322]: / 检索 ← → 切换 1 2 3 视图 ESC 清除

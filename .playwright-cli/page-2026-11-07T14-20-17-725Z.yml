@@ -1,0 +1,344 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e9]:
+      - strong [ref=e10]: 胸科雷达
+      - generic [ref=e11]: THORACIC SIGNAL DESK
+    - generic [ref=e14]:
+      - generic [ref=e15]: 2026.11.07 / ANCHOR
+      - generic [ref=e16]: 2026-11-07 04:53 · 状态分项标注
+    - tablist "视图切换" [ref=e17]:
+      - tab "概览" [selected] [ref=e18] [cursor=pointer]
+      - tab "阅读" [ref=e19] [cursor=pointer]
+      - tab "个性化" [ref=e20] [cursor=pointer]
+    - generic "搜索标题、期刊、PMID 或试验编号" [ref=e21]:
+      - searchbox "检索窗口内文献" [ref=e25]
+      - generic [ref=e26]: /
+    - button "切换深色模式" [ref=e27] [cursor=pointer]
+  - main [ref=e30]:
+    - complementary "文献筛选与信号队列" [ref=e31]:
+      - generic [ref=e32]:
+        - generic [ref=e33]:
+          - generic [ref=e34]: Sweep director
+          - heading "信号队列" [level=2] [ref=e35]
+        - generic [ref=e36]:
+          - button "◈ 合集" [ref=e37] [cursor=pointer]
+          - generic [ref=e38]: 13 / 13
+      - generic [ref=e39]:
+        - generic [ref=e40]:
+          - button "全部" [ref=e41] [cursor=pointer]
+          - button "RCT" [ref=e42] [cursor=pointer]
+          - button "队列" [ref=e43] [cursor=pointer]
+          - button "含试验号" [ref=e44] [cursor=pointer]
+        - generic [ref=e45]:
+          - paragraph [ref=e46]: 刊源档位 · 可多选
+          - generic [ref=e47]:
+            - button "S · 0" [pressed] [ref=e48] [cursor=pointer]
+            - button "A · 0" [pressed] [ref=e49] [cursor=pointer]
+            - button "B · 8" [pressed] [ref=e50] [cursor=pointer]
+            - button "C · 2" [pressed] [ref=e51] [cursor=pointer]
+            - button "D · 3" [pressed] [ref=e52] [cursor=pointer]
+        - generic [ref=e53]:
+          - generic [ref=e54]:
+            - generic [ref=e55]: 时间滑杆
+            - status [ref=e56]: 90 天
+          - slider "时间滑杆" [ref=e57] [cursor=pointer]: "90"
+          - status [ref=e58]: 数据窗口 08-10 ~ 11-07 · 90 天
+      - generic [ref=e59]:
+        - generic [ref=e60]: 信号队列 · 按评分排序
+        - generic [ref=e61]: 点击锁定
+      - list [ref=e63]:
+        - listitem [ref=e64]:
+          - button "锁定：食管胃结合部腺癌各期治疗现状的系统综述与荟萃分析：纳入100项RCT后提出按肿瘤部位的疗效差异支持将其视为独立疾病实体" [ref=e65] [cursor=pointer]:
+            - generic [ref=e66]: "01"
+            - generic [ref=e67]:
+              - strong [ref=e68]: 食管胃结合部腺癌各期治疗现状的系统综述与荟萃分析：纳入100项RCT后提出按肿瘤部位的疗效差异支持将其视为独立疾病实体
+              - generic [ref=e69]: Cancer Treat Rev · 食管与纵隔肿瘤
+              - text: 发现 ·
+            - generic [ref=e70]: "76"
+        - listitem [ref=e71]:
+          - button "锁定：CLDN18.2免疫组化鉴别肺浸润性黏液腺癌与非黏液NSCLC的诊断效能：敏感度89.3%、特异度97.6%" [ref=e72] [cursor=pointer]:
+            - generic [ref=e73]: "02"
+            - generic [ref=e74]:
+              - strong [ref=e75]: CLDN18.2免疫组化鉴别肺浸润性黏液腺癌与非黏液NSCLC的诊断效能：敏感度89.3%、特异度97.6%
+              - generic [ref=e76]: Pathol Res Pract · 微创与无管化胸外科
+              - text: 发现 ·
+            - generic [ref=e77]: "69"
+        - listitem [ref=e78]:
+          - button "锁定：葡萄糖剥夺下DHODH功能切换经SLC7A11二硫化死亡增敏ESCC放疗（临床前研究，PBAGS预测生存但未给数据）" [ref=e79] [cursor=pointer]:
+            - generic [ref=e80]: "03"
+            - generic [ref=e81]:
+              - strong [ref=e82]: 葡萄糖剥夺下DHODH功能切换经SLC7A11二硫化死亡增敏ESCC放疗（临床前研究，PBAGS预测生存但未给数据）
+              - generic [ref=e83]: Cancer Lett · 食管与纵隔肿瘤
+              - text: 发现 ·
+            - generic [ref=e84]: "62"
+        - listitem [ref=e85]:
+          - button "锁定：基于UNOS数据库的机器学习分析提示供肺冷缺血（体外）时间超过400分钟与移植后1年死亡风险升高相关，DCD供肺风险放大" [ref=e86] [cursor=pointer]:
+            - generic [ref=e87]: "04"
+            - generic [ref=e88]:
+              - strong [ref=e89]: 基于UNOS数据库的机器学习分析提示供肺冷缺血（体外）时间超过400分钟与移植后1年死亡风险升高相关，DCD供肺风险放大
+              - generic [ref=e90]: J Thorac Cardiovasc Surg · 局晚期与晚期靶向/免疫
+              - text: 发现 ·
+            - generic [ref=e91]: "60"
+        - listitem [ref=e92]:
+          - button "锁定：不可切除III期NSCLC同步放化疗后残余病灶自适应SBRT加量的单臂前瞻性队列：较高残余原发累积剂量与局控改善相关，但远处失败仍为主要失败模式且无免疫巩固" [ref=e93] [cursor=pointer]:
+            - generic [ref=e94]: "05"
+            - generic [ref=e95]:
+              - strong [ref=e96]: 不可切除III期NSCLC同步放化疗后残余病灶自适应SBRT加量的单臂前瞻性队列：较高残余原发累积剂量与局控改善相关，但远处失败仍为主要失败模式且无免疫巩固
+              - generic [ref=e97]: Int J Radiat Oncol Biol Phys · 局晚期与晚期靶向/免疫
+              - text: 发现 ·
+            - generic [ref=e98]: "60"
+        - listitem [ref=e99]:
+          - button "锁定：IPF中体重下降与FVC下降提供独立且叠加的移植无生存获益信息，二者叠加风险HR 4.11，但无交互作用" [ref=e100] [cursor=pointer]:
+            - generic [ref=e101]: "06"
+            - generic [ref=e102]:
+              - strong [ref=e103]: IPF中体重下降与FVC下降提供独立且叠加的移植无生存获益信息，二者叠加风险HR 4.11，但无交互作用
+              - generic [ref=e104]: Arch Bronconeumol · 非肿瘤呼吸病
+              - text: 发现 ·
+            - generic [ref=e105]: "58"
+        - listitem [ref=e106]:
+          - button "锁定：NSCLC中细胞因子/趋化因子回路的空间生物标志物与联合免疫治疗证据分级框架（叙述性综述）" [ref=e107] [cursor=pointer]:
+            - generic [ref=e108]: "07"
+            - generic [ref=e109]:
+              - strong [ref=e110]: NSCLC中细胞因子/趋化因子回路的空间生物标志物与联合免疫治疗证据分级框架（叙述性综述）
+              - generic [ref=e111]: Crit Rev Oncol Hematol · 局晚期与晚期靶向/免疫
+              - text: 发现 ·
+            - generic [ref=e112]: "55"
+        - listitem [ref=e113]:
+          - button "锁定：胸外科术前物理治疗教育数字化视频与面对面教育的可行性随机对照预试验" [ref=e114] [cursor=pointer]:
+            - generic [ref=e115]: "08"
+            - generic [ref=e116]:
+              - strong [ref=e117]: 胸外科术前物理治疗教育数字化视频与面对面教育的可行性随机对照预试验
+              - generic [ref=e118]: Heart Lung Circ · 围术期与新辅助治疗
+              - text: 发现 ·
+            - generic [ref=e119]: "48"
+        - listitem [ref=e120]:
+          - button "锁定：CF伴ETI相关神经精神不良反应者换用VTD后症状改善，但量表评分与患者自报改善一致性差" [ref=e121] [cursor=pointer]:
+            - generic [ref=e122]: "09"
+            - generic [ref=e123]:
+              - strong [ref=e124]: CF伴ETI相关神经精神不良反应者换用VTD后症状改善，但量表评分与患者自报改善一致性差
+              - generic [ref=e125]: Respir Med · 非肿瘤呼吸病
+              - text: 发现 ·
+            - generic [ref=e126]: "41"
+        - listitem [ref=e127]:
+          - button "锁定：仿生分枝杆菌膜双时空靶向DNA四面体光热平台在小鼠结核模型中提高杀菌率、增强免疫记忆并降低复发率（临床转化价值有限的临床前研究）" [ref=e128] [cursor=pointer]:
+            - generic [ref=e129]: "10"
+            - generic [ref=e130]:
+              - strong [ref=e131]: 仿生分枝杆菌膜双时空靶向DNA四面体光热平台在小鼠结核模型中提高杀菌率、增强免疫记忆并降低复发率（临床转化价值有限的临床前研究）
+              - generic [ref=e132]: EBioMedicine · 非肿瘤呼吸病
+              - text: 发现 ·
+            - generic [ref=e133]: "36"
+        - listitem [ref=e134]:
+          - button "锁定：利马大气PM2.5短期升高与哮喘急诊就诊关联：居住在主干道400米内是否增强效应" [ref=e135] [cursor=pointer]:
+            - generic [ref=e136]: "11"
+            - generic [ref=e137]:
+              - strong [ref=e138]: 利马大气PM2.5短期升高与哮喘急诊就诊关联：居住在主干道400米内是否增强效应
+              - generic [ref=e139]: Environ Res · 非肿瘤呼吸病
+              - text: 发现 ·
+            - generic [ref=e140]: "33"
+        - listitem [ref=e141]:
+          - button "锁定：samRNA疫苗递送嵌合与马赛克血凝素在动物模型中对多谱系流感A病毒产生广谱保护，但缺乏定量免疫与保护数据" [ref=e142] [cursor=pointer]:
+            - generic [ref=e143]: "12"
+            - generic [ref=e144]:
+              - strong [ref=e145]: samRNA疫苗递送嵌合与马赛克血凝素在动物模型中对多谱系流感A病毒产生广谱保护，但缺乏定量免疫与保护数据
+              - generic [ref=e146]: Cell Rep · 非肿瘤呼吸病
+              - text: 发现 ·
+            - generic [ref=e147]: "31"
+        - listitem [ref=e148]:
+          - button "锁定：成年囊性纤维化患者可改变生活方式行为促进健康老龄化的知识现状、关键缺口与未来研究方向：叙述性综述" [ref=e149] [cursor=pointer]:
+            - generic [ref=e150]: "13"
+            - generic [ref=e151]:
+              - strong [ref=e152]: 成年囊性纤维化患者可改变生活方式行为促进健康老龄化的知识现状、关键缺口与未来研究方向：叙述性综述
+              - generic [ref=e153]: J Cyst Fibros · 非肿瘤呼吸病
+              - text: 发现 ·
+            - generic [ref=e154]: "26"
+    - region "滚动文献雷达信号场" [ref=e155]:
+      - generic [ref=e156]:
+        - generic [ref=e157]:
+          - generic [ref=e158]: Live signal field
+          - heading "滚动信号场" [level=1] [ref=e159]
+          - paragraph [ref=e160]: 方位＝期刊阵地（九阵地上盘 · 邻科公卫并入图例） · 距心＝相对评分 · 形状＝研究设计
+          - generic [ref=e161]:
+            - generic [ref=e162] [cursor=pointer]: 阵地
+            - combobox "阵地方案切换" [ref=e163] [cursor=pointer]:
+              - option "官方阵地" [selected]
+        - generic [ref=e164]:
+          - generic [ref=e165]: 00 / 13
+          - generic [ref=e166]: 本次已扫
+      - generic [ref=e168]:
+        - img "刊源扇区筛选" [ref=e178]:
+          - button "按阵地筛选：胸外科与胸部肿瘤" [ref=e179] [cursor=pointer]
+          - button "按阵地筛选：呼吸与睡眠" [ref=e180] [cursor=pointer]
+          - button "按阵地筛选：肿瘤临床" [ref=e181] [cursor=pointer]
+          - button "按阵地筛选：影像、病理与检验" [ref=e182] [cursor=pointer]
+          - button "按阵地筛选：外科与重症医学" [ref=e183] [cursor=pointer]
+          - button "按阵地筛选：感染与免疫" [ref=e184] [cursor=pointer]
+          - button "按阵地筛选：医学AI与数字医学" [ref=e185] [cursor=pointer]
+          - button "按阵地筛选：综合医学与多学科" [ref=e186] [cursor=pointer]
+        - generic:
+          - generic "胸外科与胸部肿瘤 · 1 篇": 胸外科与胸部肿瘤 · 1
+          - generic "呼吸与睡眠 · 4 篇": 呼吸与睡眠 · 4
+          - generic "肿瘤临床 · 4 篇": 肿瘤临床 · 4
+          - generic "影像、病理与检验 · 1 篇": 影像、病理与检验 · 1
+          - generic "外科与重症医学 · 0 篇": 外科与重症医学 · 0
+          - generic "感染与免疫 · 0 篇": 感染与免疫 · 0
+          - generic "医学AI与数字医学 · 0 篇": 医学AI与数字医学 · 0
+          - generic "综合医学与多学科 · 0 篇": 综合医学与多学科 · 0
+        - generic:
+          - button "食管胃结合部腺癌各期治疗现状的系统综述与荟萃分析：纳入100项RCT后提出按肿瘤部位的疗效差异支持将其视为独立疾病实体" [ref=e187] [cursor=pointer]
+          - button "CLDN18.2免疫组化鉴别肺浸润性黏液腺癌与非黏液NSCLC的诊断效能：敏感度89.3%、特异度97.6%" [ref=e188] [cursor=pointer]
+          - button "葡萄糖剥夺下DHODH功能切换经SLC7A11二硫化死亡增敏ESCC放疗（临床前研究，PBAGS预测生存但未给数据）" [ref=e189] [cursor=pointer]
+          - button "不可切除III期NSCLC同步放化疗后残余病灶自适应SBRT加量的单臂前瞻性队列：较高残余原发累积剂量与局控改善相关，但远处失败仍为主要失败模式且无免疫巩固" [ref=e190] [cursor=pointer]
+          - button "基于UNOS数据库的机器学习分析提示供肺冷缺血（体外）时间超过400分钟与移植后1年死亡风险升高相关，DCD供肺风险放大" [ref=e191] [cursor=pointer]
+          - button "IPF中体重下降与FVC下降提供独立且叠加的移植无生存获益信息，二者叠加风险HR 4.11，但无交互作用" [ref=e192] [cursor=pointer]
+          - button "NSCLC中细胞因子/趋化因子回路的空间生物标志物与联合免疫治疗证据分级框架（叙述性综述）" [ref=e193] [cursor=pointer]
+          - button "胸外科术前物理治疗教育数字化视频与面对面教育的可行性随机对照预试验" [ref=e194] [cursor=pointer]
+          - button "CF伴ETI相关神经精神不良反应者换用VTD后症状改善，但量表评分与患者自报改善一致性差" [ref=e195] [cursor=pointer]
+          - button "成年囊性纤维化患者可改变生活方式行为促进健康老龄化的知识现状、关键缺口与未来研究方向：叙述性综述" [ref=e196] [cursor=pointer]
+        - generic:
+          - generic: "10"
+          - generic: SIGNALS
+      - generic [ref=e197]:
+        - generic [ref=e198]:
+          - generic "刊源 全部 · 阵地 全部 · 合集 官方全部" [ref=e199]: 刊源：全部
+          - button "清除" [disabled] [ref=e200]
+        - generic "阵地折叠" [ref=e201]:
+          - button "▸ 基础·药理与转化 · 2" [ref=e202] [cursor=pointer]
+        - generic "阵地图例 · 邻科与公卫" [ref=e203]:
+          - button [ref=e204] [cursor=pointer]:
+            - text: 邻科与公卫
+            - emphasis [ref=e205]: "1"
+        - generic "刊源图例" [ref=e206]:
+          - button [ref=e207] [cursor=pointer]:
+            - text: Arch Bronconeumol
+            - emphasis [ref=e208]: "1"
+          - button [ref=e209] [cursor=pointer]:
+            - text: Cancer Lett
+            - emphasis [ref=e210]: "1"
+          - button [ref=e211] [cursor=pointer]:
+            - text: Cancer Treat Rev
+            - emphasis [ref=e212]: "1"
+          - button [ref=e213] [cursor=pointer]:
+            - text: Cell Rep
+            - emphasis [ref=e214]: "1"
+          - button [ref=e215] [cursor=pointer]:
+            - text: Crit Rev Oncol Hematol
+            - emphasis [ref=e216]: "1"
+          - button [ref=e217] [cursor=pointer]:
+            - text: EBioMedicine
+            - emphasis [ref=e218]: "1"
+          - button [ref=e219] [cursor=pointer]:
+            - text: Environ Res
+            - emphasis [ref=e220]: "1"
+          - button [ref=e221] [cursor=pointer]:
+            - text: Heart Lung Circ
+            - emphasis [ref=e222]: "1"
+          - button [ref=e223] [cursor=pointer]:
+            - text: Int J Radiat Oncol Biol Phys
+            - emphasis [ref=e224]: "1"
+          - button [ref=e225] [cursor=pointer]:
+            - text: J Cyst Fibros
+            - emphasis [ref=e226]: "1"
+          - button [ref=e227] [cursor=pointer]:
+            - text: J Thorac Cardiovasc Surg
+            - emphasis [ref=e228]: "1"
+          - button [ref=e229] [cursor=pointer]:
+            - text: Pathol Res Pract
+            - emphasis [ref=e230]: "1"
+          - button [ref=e231] [cursor=pointer]:
+            - text: Respir Med
+            - emphasis [ref=e232]: "1"
+        - generic [ref=e233]:
+          - generic [ref=e234]: RCT · 0
+          - generic [ref=e236]: 队列 · 0
+          - generic [ref=e238]: 待评定 · 13
+          - generic [ref=e240]: 点按信号锁定 · 点按扇区筛刊
+        - generic [ref=e241]:
+          - generic [ref=e242]:
+            - generic [ref=e243]: "403"
+            - text: 初抓 →
+          - generic [ref=e244]:
+            - generic [ref=e245]: "58"
+            - text: 刊源匹配 →
+          - generic [ref=e246]:
+            - generic [ref=e247]: "13"
+            - text: 简报入库 →
+          - generic [ref=e248]:
+            - generic [ref=e249]: "0"
+            - text: 规则精选 · 空缺
+    - complementary "锁定信号详情" [ref=e250]:
+      - generic [ref=e252]:
+        - generic [ref=e253]:
+          - generic [ref=e254]: SIGNAL LOCK / 01
+          - generic [ref=e255]: 未见异常标记
+        - generic [ref=e256]:
+          - generic [ref=e257]:
+            - generic [ref=e258]: Cancer treatment reviews
+            - generic [ref=e259]:
+              - text: Cancer Treat Rev · 2026-Oct-31 · B 档
+              - generic [ref=e260]: 综述
+          - generic [ref=e261]:
+            - text: "76"
+            - generic [ref=e262]: 评分 · llm
+        - generic "评分 76 分" [ref=e263]
+        - heading "食管胃结合部腺癌各期治疗现状的系统综述与荟萃分析：纳入100项RCT后提出按肿瘤部位的疗效差异支持将其视为独立疾病实体" [level=2] [ref=e265]
+        - generic [ref=e266]:
+          - generic [ref=e267]: 食管与纵隔肿瘤
+          - generic [ref=e268]: 系统综述与荟萃分析 · 纳入2000–2025年100项RCT的叙述性综合
+        - generic [ref=e269]:
+          - generic [ref=e270]:
+            - generic [ref=e271]: PMID
+            - generic [ref=e272]: "42994328"
+          - generic [ref=e273]:
+            - generic [ref=e274]: 出版状态
+            - generic [ref=e275]: 未见异常标记
+          - generic [ref=e276]:
+            - generic [ref=e277]: 影响因子 · 源值
+            - generic [ref=e278]: "10.6"
+          - generic [ref=e279]:
+            - generic [ref=e280]: 分区 · 源值
+            - generic [ref=e281]: JCR Q1
+          - generic [ref=e282]:
+            - generic [ref=e283]: 预警状态
+            - generic [ref=e284]: 正常
+          - generic [ref=e285]:
+            - generic [ref=e286]: 雷达日期
+            - generic [ref=e287]: 2026-11-07
+          - generic [ref=e288]:
+            - generic [ref=e289]: 卷 / 期
+            - generic [ref=e290]: —
+          - generic [ref=e291]:
+            - generic [ref=e292]: 期刊阵地
+            - generic [ref=e293]: 肿瘤临床
+          - generic [ref=e294]:
+            - generic [ref=e295]: 档位口径
+            - generic [ref=e296]: v4 新五档
+          - generic [ref=e297]:
+            - generic [ref=e298]: 评分口径
+            - generic [ref=e299]: llm
+          - generic [ref=e300]:
+            - generic [ref=e301]: 精选状态
+            - generic [ref=e302]: 未入选 · 不凑数
+        - generic [ref=e303]:
+          - generic [ref=e304]:
+            - generic [ref=e305]: 摘要导读
+            - generic [ref=e306]: 原始字段 · 非全文
+          - paragraph [ref=e307]: Oesophagogastric junction adenocarcinoma (OGJ AC) represents an increasingly prevalent malignancy for which treatment recommendations remain challenging, as patients are frequently included within trials addressing gastric or oesophageal cancer. We conducted a systematic review and meta-analysis of randomized clinical trials (RCTs) published between 2000 and 2025 including patients with OGJ AC to provide a comprehensive assessment of contemporary treatment strategies for this disease across all stages. A total of 100 high-quality RCTs including more than 13,000 patients with OGJ tumours were identified. In localized disease, 36 studies evaluated surgical procedures, adjuvant/neoadjuvant/perioperative treatments and definitive approaches. Surgery is still the cornerstone of curative treatment, increasingly incorporating minimally invasive techniques. Perioperative chemotherapy and chemoimmunotherapy represent standard approaches, while neoadjuvant chemoradiotherapy followed by adjuvant nivolumab represents an alternative strategy. In advanced disease, 64 studies assessed systemic therapies in first/second/third lines or palliative interventions. Platinum-fluoropyrimidine chemotherapy persists as the backbone of first-line treatment, with treatment intensification guided by biomarkers. While the benefit of trastuzumab in HER2-positive tumours appears greater in OGJ than in gastric cancer, the opposite pattern is observed with zolbetuximab in CLDN18.2-positive tumours. Several trials testing anti-PD-1 therapies confirm their activity in OGJ AC, despite the predictive value of PD-L1 appearing uncertain in this anatomical subgroup. In later lines, paclitaxel plus ramucirumab, trastuzumab deruxtecan for HER2-positive disease, and trifluridine-tipiracil remain established options. The available evidence suggests clinically meaningful differences in treatment efficacy according to tumour location, supporting the consideration of OGJ AC as a distinct disease entity. Dedicated OGJ AC trials incorporating standardized anatomical classification are needed to improve outcomes in this aggressive disease.
+          - paragraph [ref=e308]:
+            - strong [ref=e309]: 作者结论
+            - text: 现有证据提示不同肿瘤部位的治疗疗效存在临床意义上的差异，支持将OGJ AC视为独立疾病实体；需要采用标准化解剖分类的专门OGJ AC试验以改善这一侵袭性疾病的结果。
+          - paragraph [ref=e310]:
+            - strong [ref=e311]: 生成解读 · 未经人审
+            - text: 摘要自称系统综述与荟萃分析，但未报告任何合并效应量（HR/OR/RR、95%CI或P值），也未说明异质性、偏倚风险评估或证据分级方法，综合为叙述性，具体合并结果信息不足；关于曲妥珠单抗在OGJ获益大于胃癌、而佐贝妥单抗呈相反模式的表述为定性对比，无具体数值支撑；PD-L1预测价值'不确定'但未给出分层数据；以部位亚组差异推导'独立疾病实体'的结论主要基于跨试验间接比较，存在人群与分期构成混杂的可能。
+        - generic [ref=e312]:
+          - link "打开题录 ↗" [ref=e313] [cursor=pointer]:
+            - /url: https://pubmed.ncbi.nlm.nih.gov/42994328/
+          - link "DOI 原文 ↗" [ref=e314] [cursor=pointer]:
+            - /url: https://doi.org/10.1016%2Fj.ctrv.2026.103241
+          - button "标记本篇已扫" [ref=e315] [cursor=pointer]
+        - generic [ref=e316]:
+          - button "← 上一信号" [ref=e317] [cursor=pointer]
+          - generic [ref=e318]: 1 / 13
+          - button "下一信号 →" [ref=e319] [cursor=pointer]
+  - contentinfo [ref=e320]:
+    - generic [ref=e321]: 程序生成 · 无人审校 · 期刊与分区按注入字段原样展示 · 摘要仅供检索导读，临床判断请读原文
+    - generic [ref=e322]: / 检索 ← → 切换 1 2 3 视图 ESC 清除

@@ -1,0 +1,155 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e9]:
+      - strong [ref=e10]: 胸科雷达
+      - generic [ref=e11]: THORACIC SIGNAL DESK
+    - generic [ref=e14]:
+      - generic [ref=e15]: 2026.11.07 / ANCHOR
+      - generic [ref=e16]: 2026-11-07 04:53 · 状态分项标注
+    - tablist "视图切换" [ref=e17]:
+      - tab "概览" [ref=e18] [cursor=pointer]
+      - tab "阅读" [ref=e19] [cursor=pointer]
+      - tab "个性化" [selected] [ref=e20] [cursor=pointer]
+    - generic "搜索标题、期刊、PMID 或试验编号" [ref=e21]:
+      - searchbox "检索窗口内文献" [ref=e25]
+      - generic [ref=e26]: /
+    - button "切换深色模式" [ref=e27] [cursor=pointer]
+  - text: 发现 · 发现 · 发现 · 发现 · 发现 · 发现 · 发现 · 发现 · 发现 · 发现 · 发现 · 发现 · 发现 · → → →
+  - dialog "合集、我的阵地与我的主题" [ref=e1015]:
+    - generic [ref=e1016]:
+      - generic [ref=e1017]:
+        - generic [ref=e1018]: Collections · sectors · topics
+        - heading "合集 · 阵地 · 主题" [level=2] [ref=e1019]
+      - button "返回概览" [ref=e1020] [cursor=pointer]: ✕
+    - generic [ref=e1021]:
+      - region "阵地方位主题" [ref=e1022]:
+        - paragraph [ref=e1023]: 个性化全屏。方位口径、分类勾选和合集都在这一页；顶栏或 Esc 回概览。
+        - paragraph [ref=e1024]: 阵地方位 · 主题口径
+        - paragraph [ref=e1025]: 点一个方位（例如医学 AI 与数字医学），改它的主题关键词。保存后检索分类按你的口径走。这里是可交互模拟，不连网。
+        - generic [ref=e1026]:
+          - button "胸外科与胸部肿瘤" [ref=e1149] [cursor=pointer]
+          - button "呼吸与睡眠" [ref=e1150] [cursor=pointer]
+          - button "肿瘤临床" [ref=e1151] [cursor=pointer]
+          - button "影像、病理与检验" [ref=e1152] [cursor=pointer]
+          - button "外科与重症医学" [ref=e1153] [cursor=pointer]
+          - button "感染与免疫" [ref=e1154] [cursor=pointer]
+          - button "基础·药理与转化" [ref=e1155] [cursor=pointer]
+          - button "医学AI与数字医学" [pressed] [ref=e1156] [cursor=pointer]
+          - button "综合医学与多学科" [ref=e1157] [cursor=pointer]
+        - generic [ref=e1158]:
+          - paragraph [ref=e1159]: 医学AI与数字医学
+          - textbox "主题关键词" [ref=e1160]:
+            - /placeholder: 关键词用逗号或顿号分开
+            - text: 医学AI，数字病理，影像组学
+          - button "保存口径" [ref=e1162] [cursor=pointer]
+          - status [ref=e1163]: AI 检索分类已跟随你的口径：医学AI与数字医学 ← 医学AI / 数字病理 / 影像组学。原型模拟，未发请求。
+      - region "合集列表" [ref=e1036]:
+        - paragraph [ref=e1321]: 合集 · 点按启用
+        - generic [ref=e1322]:
+          - button "官方全部 全部名册期刊 · 默认" [ref=e1323] [cursor=pointer]:
+            - generic [ref=e1324]: 官方全部
+            - generic [ref=e1325]: 全部名册期刊 · 默认
+          - generic [ref=e1326]: 使用中
+        - generic [ref=e1327]:
+          - button "我的合集 命中 6 刊" [ref=e1328] [cursor=pointer]:
+            - generic [ref=e1329]: 我的合集
+            - generic [ref=e1330]: 命中 6 刊
+          - generic [ref=e1331]:
+            - button "编辑" [ref=e1332] [cursor=pointer]
+            - button "重命名" [ref=e1333] [cursor=pointer]
+            - button "删除" [ref=e1334] [cursor=pointer]
+        - generic [ref=e1335]:
+          - button "＋ 新建合集" [ref=e1336] [cursor=pointer]
+          - button "导出 JSON" [ref=e1337] [cursor=pointer]
+          - button "导入 JSON" [ref=e1338] [cursor=pointer]
+      - region "编辑合集" [ref=e1047]:
+        - paragraph [ref=e1339]: 期刊分类勾选 · 我的合集（已选 6/197 刊）
+        - paragraph [ref=e1340]: 一次只展开一个类别。本类全选／清空作用在当前类别。
+        - tablist "期刊类别" [ref=e1341]:
+          - button "胸外科与胸部肿瘤 · 17" [ref=e1342] [cursor=pointer]
+          - button "呼吸与睡眠 · 50" [ref=e1343] [cursor=pointer]
+          - button "肿瘤临床 · 25" [ref=e1344] [cursor=pointer]
+          - button "影像、病理与检验 · 10" [ref=e1345] [cursor=pointer]
+          - button "外科与重症医学 · 7" [ref=e1346] [cursor=pointer]
+          - button "感染与免疫 · 14" [ref=e1347] [cursor=pointer]
+          - button "基础·药理与转化 · 34" [ref=e1348] [cursor=pointer]
+          - button "医学AI与数字医学 · 6" [pressed] [ref=e1349] [cursor=pointer]
+          - button "综合医学与多学科 · 29" [ref=e1350] [cursor=pointer]
+          - button "邻科与公卫 · 5" [ref=e1351] [cursor=pointer]
+        - searchbox "在当前类别里按缩写过滤…" [ref=e1352]
+        - generic [ref=e1353]:
+          - button "本类全选" [ref=e1354] [cursor=pointer]
+          - button "本类清空" [ref=e1355] [cursor=pointer]
+        - generic [ref=e1356]:
+          - paragraph [ref=e1357]:
+            - generic [ref=e1358]: 医学AI与数字医学
+            - generic [ref=e1359]: 6 / 6
+          - generic [ref=e1360] [cursor=pointer]:
+            - checkbox "IEEE TRANS MED IMAGING" [checked] [ref=e1361]
+            - generic "IEEE TRANS MED IMAGING · NLM 8310780" [ref=e1362]: IEEE TRANS MED IMAGING
+          - generic [ref=e1363] [cursor=pointer]:
+            - checkbox "LANCET DIGIT HEALTH" [checked] [ref=e1364]
+            - generic "LANCET DIGIT HEALTH · NLM 101751302" [ref=e1365]: LANCET DIGIT HEALTH
+          - generic [ref=e1366] [cursor=pointer]:
+            - checkbox "NAT MACH INTELL" [checked] [ref=e1367]
+            - generic "NAT MACH INTELL · NLM 101740243" [ref=e1368]: NAT MACH INTELL
+          - generic [ref=e1369] [cursor=pointer]:
+            - checkbox "NEJM AI" [checked] [ref=e1370]
+            - generic "NEJM AI · NLM 9918752186406676" [ref=e1371]: NEJM AI
+          - generic [ref=e1372] [cursor=pointer]:
+            - checkbox "NPJ DIGIT MED" [checked] [ref=e1373]
+            - generic "NPJ DIGIT MED · NLM 101731738" [ref=e1374]: NPJ DIGIT MED
+          - generic [ref=e1375] [cursor=pointer]:
+            - checkbox "SCI ROBOT" [checked] [ref=e1376]
+            - generic "SCI ROBOT · NLM 101733136" [ref=e1377]: SCI ROBOT
+        - generic [ref=e1378]:
+          - paragraph [ref=e1379]: 池外刊 · 0
+          - paragraph [ref=e1380]: 还没有名册外的期刊。
+          - generic [ref=e1381]:
+            - textbox "添加名册外期刊，如 Lancet Digit Health" [ref=e1382]
+            - button "添加" [ref=e1383] [cursor=pointer]
+      - region "我的阵地方案列表" [ref=e1067]:
+        - paragraph [ref=e1384]: 我的阵地 · 点按启用
+        - generic [ref=e1385]:
+          - button "官方阵地 九阵地上盘 · 默认" [ref=e1386] [cursor=pointer]:
+            - generic [ref=e1387]: 官方阵地
+            - generic [ref=e1388]: 九阵地上盘 · 默认
+          - generic [ref=e1389]: 使用中
+        - button "＋ 新建方案" [ref=e1391] [cursor=pointer]
+      - region "编辑阵地方案" [ref=e1076]:
+        - paragraph [ref=e1392]: 编辑方案
+        - generic [ref=e1393]: 在上方点「编辑」或「＋ 新建方案」：加阵地、起名、勾期刊指派。
+      - region "我的检索主题列表" [ref=e1079]:
+        - paragraph [ref=e1394]: 我的主题 · 自定义检索（按需执行 · 烧你自己的 Key）
+        - generic [ref=e1395]: 还没有主题。点「＋ 新建主题」：起名、写 PubMed 检索式、设回看天数与单次上限。
+        - button "＋ 新建主题" [ref=e1397] [cursor=pointer]
+      - region "编辑检索主题" [ref=e1084]:
+        - paragraph [ref=e1398]: 编辑主题
+        - generic [ref=e1399]: 在上方点「编辑」或「＋ 新建主题」。
+      - region "AI 设置（自带 Key）" [ref=e1087]:
+        - paragraph [ref=e1088]: AI 设置 · 自带 Key（「我的主题」运行时用）
+        - generic [ref=e1089]:
+          - generic [ref=e1090]:
+            - generic [ref=e1091]: BaseURL
+            - textbox "BaseURL" [ref=e1092]:
+              - /placeholder: 如 https://api.anthropic.com 或你的中转地址
+          - generic [ref=e1093]:
+            - generic [ref=e1094]: API Key
+            - textbox "API Key" [ref=e1095]:
+              - /placeholder: 只保存在本浏览器
+          - generic [ref=e1096]:
+            - generic [ref=e1097]: Model
+            - textbox "Model" [ref=e1098]:
+              - /placeholder: 模型 ID（Anthropic 协议兼容），自由填写
+        - paragraph [ref=e1099]: Key 只保存在本浏览器，请求从你的设备直连 AI 服务商，本站无服务器不经手。公共电脑勿用。
+        - generic [ref=e1100]:
+          - button "测试连接" [ref=e1101] [cursor=pointer]
+          - status
+        - paragraph [ref=e1102]:
+          - text: 跨域受限？改用中转地址或自部署转发 Worker，模板见
+          - link "站内帮助" [ref=e1103] [cursor=pointer]:
+            - /url: docs/壳化-自带Token指南.md
+          - text: 。
+  - contentinfo [ref=e320]:
+    - generic [ref=e321]: 程序生成 · 无人审校 · 期刊与分区按注入字段原样展示 · 摘要仅供检索导读，临床判断请读原文
+    - generic [ref=e322]: / 检索 ← → 切换 1 2 3 视图 ESC 清除

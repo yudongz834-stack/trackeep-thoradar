@@ -45,6 +45,12 @@ jobs:
             exit 1
           fi
 
+      - name: 推送日报（企微群机器人·通道①）
+        env:
+          WECOM_WEBHOOK: ${{ secrets.WECOM_WEBHOOK }}
+        run: |
+          python3 tools/push_notify.py || echo "::warning::企微推送失败（不阻断发布），回执见 data/push_log.json"
+
       - name: Commit and push updated data
         run: |
           git config user.name "thoradar-bot"

@@ -1,0 +1,3 @@
+[    3906ms] [VERBOSE] [DOM] Password field is not contained in a form: (More info: https://goo.gl/9p2vKq) %o @ http://127.0.0.1:8765/design/g-proto-a-view-radar.html:0
+[    3934ms] [ERROR] Failed to load resource: the server responded with a status of 404 (File not found) @ http://127.0.0.1:8765/design/data/radar_latest.json:0
+[    3934ms] [INFO] 滚动窗数据不可用，已静默降级为注入数据。 @ http://127.0.0.1:8765/design/g-proto-a-view-radar.html:2020

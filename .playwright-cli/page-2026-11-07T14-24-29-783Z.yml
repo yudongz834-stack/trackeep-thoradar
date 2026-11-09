@@ -1,0 +1,317 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e9]:
+      - strong [ref=e10]: 胸科雷达
+      - generic [ref=e11]: THORACIC SIGNAL DESK
+    - generic [ref=e14]:
+      - generic [ref=e15]: 2026.11.07 / ANCHOR
+      - generic [ref=e16]: 2026-11-07 04:53 · 状态分项标注
+    - tablist "视图切换" [ref=e17]:
+      - tab "概览" [ref=e18] [cursor=pointer]
+      - tab "阅读" [selected] [ref=e19] [cursor=pointer]
+      - tab "个性化" [ref=e20] [cursor=pointer]
+    - generic "搜索标题、期刊、PMID 或试验编号" [ref=e21]:
+      - searchbox "检索窗口内文献" [ref=e25]
+      - generic [ref=e26]: /
+    - button "切换深色模式" [ref=e27] [cursor=pointer]
+  - main [ref=e30]:
+    - complementary "文献筛选与信号队列" [ref=e31]:
+      - generic [ref=e32]:
+        - generic [ref=e33]:
+          - generic [ref=e34]: Sweep director
+          - heading "信号队列" [level=2] [ref=e35]
+        - generic [ref=e36]:
+          - button "◈ 合集" [ref=e37] [cursor=pointer]
+          - generic [ref=e38]: 13 / 13
+      - generic [ref=e39]:
+        - generic [ref=e40]:
+          - button "全部" [ref=e41] [cursor=pointer]
+          - button "RCT" [ref=e42] [cursor=pointer]
+          - button "队列" [ref=e43] [cursor=pointer]
+          - button "含试验号" [ref=e44] [cursor=pointer]
+        - generic [ref=e45]:
+          - paragraph [ref=e46]: 刊源档位 · 可多选
+          - generic [ref=e47]:
+            - button "S · 0" [pressed] [ref=e672] [cursor=pointer]
+            - button "A · 0" [pressed] [ref=e673] [cursor=pointer]
+            - button "B · 8" [pressed] [ref=e674] [cursor=pointer]
+            - button "C · 2" [pressed] [ref=e675] [cursor=pointer]
+            - button "D · 3" [pressed] [ref=e676] [cursor=pointer]
+        - generic [ref=e53]:
+          - generic [ref=e54]:
+            - generic [ref=e55]: 时间滑杆
+            - status [ref=e56]: 90 天
+          - slider "时间滑杆" [ref=e57] [cursor=pointer]: "90"
+          - status [ref=e58]: 数据窗口 08-10 ~ 11-07 · 90 天
+      - generic [ref=e59]:
+        - generic [ref=e60]: 信号队列 · 按评分排序
+        - generic [ref=e61]:
+          - group "卡片密度" [ref=e328]:
+            - button "紧凑" [ref=e329] [cursor=pointer]
+            - button "展开" [pressed] [ref=e330] [cursor=pointer]
+          - generic [ref=e62]: 点击锁定
+      - generic [ref=e331]:
+        - generic [ref=e677]:
+          - generic [ref=e678]: 先读这三篇
+          - generic [ref=e679]:
+            - generic [ref=e680]: RCT · 1
+            - generic [ref=e682]: 队列 · 2
+            - generic [ref=e684]: 综述 · 3
+            - generic [ref=e686]: AI · 1
+            - generic [ref=e688]: 其他 · 6
+        - button "1 食管胃结合部腺癌各期治疗现状的系统综述与荟萃分析：纳入100项RCT后提出按肿瘤部位的疗效差异支持将其视为独立疾病实体 76" [ref=e690] [cursor=pointer]:
+          - generic [ref=e691]: "1"
+          - generic [ref=e692]: 食管胃结合部腺癌各期治疗现状的系统综述与荟萃分析：纳入100项RCT后提出按肿瘤部位的疗效差异支持将其视为独立疾病实体
+          - generic [ref=e693]: "76"
+        - button "2 CLDN18.2免疫组化鉴别肺浸润性黏液腺癌与非黏液NSCLC的诊断效能：敏感度89.3%、特异度97.6% 69" [ref=e694] [cursor=pointer]:
+          - generic [ref=e695]: "2"
+          - generic [ref=e696]: CLDN18.2免疫组化鉴别肺浸润性黏液腺癌与非黏液NSCLC的诊断效能：敏感度89.3%、特异度97.6%
+          - generic [ref=e697]: "69"
+        - button "3 葡萄糖剥夺下DHODH功能切换经SLC7A11二硫化死亡增敏ESCC放疗（临床前研究，PBAGS预测生存但未给数据） 62" [ref=e698] [cursor=pointer]:
+          - generic [ref=e699]: "3"
+          - generic [ref=e700]: 葡萄糖剥夺下DHODH功能切换经SLC7A11二硫化死亡增敏ESCC放疗（临床前研究，PBAGS预测生存但未给数据）
+          - generic [ref=e701]: "62"
+      - list [ref=e63]:
+        - listitem [ref=e702]:
+          - button "锁定：食管胃结合部腺癌各期治疗现状的系统综述与荟萃分析：纳入100项RCT后提出按肿瘤部位的疗效差异支持将其视为独立疾病实体" [ref=e703] [cursor=pointer]:
+            - generic [ref=e704]: "01"
+            - generic [ref=e705]:
+              - strong [ref=e706]: 食管胃结合部腺癌各期治疗现状的系统综述与荟萃分析：纳入100项RCT后提出按肿瘤部位的疗效差异支持将其视为独立疾病实体
+              - emphasis [ref=e707]: "State-of-the-art treatment of Oesophagogastric junction adenocarcinoma: a systematic review and meta-analysis of randomized clinical trials."
+              - generic [ref=e708]: Cancer Treat Rev · 食管与纵隔肿瘤
+              - generic [ref=e709]:
+                - generic [ref=e710]:
+                  - generic [ref=e712]: 食管与纵隔肿瘤
+                  - generic [ref=e714]: 综述
+                - generic [ref=e715]: 发现 · 现有证据提示不同肿瘤部位的治疗疗效存在临床意义上的差异，支持将OGJ AC视为独立疾病实体；需要采用标准化解剖分类的专门OGJ AC试验以改善这一侵袭性疾病的结…
+            - generic [ref=e716]: "76"
+        - listitem [ref=e721]:
+          - button "锁定：CLDN18.2免疫组化鉴别肺浸润性黏液腺癌与非黏液NSCLC的诊断效能：敏感度89.3%、特异度97.6%" [ref=e722] [cursor=pointer]:
+            - generic [ref=e723]: "02"
+            - generic [ref=e724]:
+              - strong [ref=e725]: CLDN18.2免疫组化鉴别肺浸润性黏液腺癌与非黏液NSCLC的诊断效能：敏感度89.3%、特异度97.6%
+              - emphasis [ref=e726]: Claudin 18.2 as a specific diagnostic marker for pulmonary invasive mucinous adenocarcinoma.
+              - generic [ref=e727]: Pathol Res Pract · 微创与无管化胸外科
+              - generic [ref=e728]:
+                - generic [ref=e729]:
+                  - generic [ref=e731]: 微创与无管化胸外科
+                  - generic [ref=e733]: 其他
+                - generic [ref=e734]: 发现 · CLDN18.
+            - generic [ref=e735]: "69"
+        - listitem [ref=e740]:
+          - button "锁定：葡萄糖剥夺下DHODH功能切换经SLC7A11二硫化死亡增敏ESCC放疗（临床前研究，PBAGS预测生存但未给数据）" [ref=e741] [cursor=pointer]:
+            - generic [ref=e742]: "03"
+            - generic [ref=e743]:
+              - strong [ref=e744]: 葡萄糖剥夺下DHODH功能切换经SLC7A11二硫化死亡增敏ESCC放疗（临床前研究，PBAGS预测生存但未给数据）
+              - emphasis [ref=e745]: Metabolic Stress Rewires DHODH from Oncogenesis to SLC7A11-driven Disulfidptosis and Radiosensitization in Esophageal Squamous Cell Carcinoma.
+              - generic [ref=e746]: Cancer Lett · 食管与纵隔肿瘤
+              - generic [ref=e747]:
+                - generic [ref=e748]:
+                  - generic [ref=e750]: 食管与纵隔肿瘤
+                  - generic [ref=e752]: 其他
+                - generic [ref=e753]: 发现 · our findings uncover that under glucose starvation, DHODH and SLC7A11 co-depende…
+            - generic [ref=e754]: "62"
+        - listitem [ref=e759]:
+          - button "锁定：基于UNOS数据库的机器学习分析提示供肺冷缺血（体外）时间超过400分钟与移植后1年死亡风险升高相关，DCD供肺风险放大" [ref=e760] [cursor=pointer]:
+            - generic [ref=e761]: "04"
+            - generic [ref=e762]:
+              - strong [ref=e763]: 基于UNOS数据库的机器学习分析提示供肺冷缺血（体外）时间超过400分钟与移植后1年死亡风险升高相关，DCD供肺风险放大
+              - emphasis [ref=e764]: Machine learning modeling of United Network for Organ Sharing database highlights donor-type-specific risk from extended out-of-body time.
+              - generic [ref=e765]: J Thorac Cardiovasc Surg · 局晚期与晚期靶向/免疫
+              - generic [ref=e766]:
+                - generic [ref=e767]:
+                  - generic [ref=e769]: 局晚期与晚期靶向/免疫
+                  - generic [ref=e771]: AI
+                - generic [ref=e772]: 发现 · These findings identify OOB time > 400 minutes as a critical determinant of post…
+            - generic [ref=e773]: "60"
+        - listitem [ref=e778]:
+          - button "锁定：不可切除III期NSCLC同步放化疗后残余病灶自适应SBRT加量的单臂前瞻性队列：较高残余原发累积剂量与局控改善相关，但远处失败仍为主要失败模式且无免疫巩固" [ref=e779] [cursor=pointer]:
+            - generic [ref=e780]: "05"
+            - generic [ref=e781]:
+              - strong [ref=e782]: 不可切除III期NSCLC同步放化疗后残余病灶自适应SBRT加量的单臂前瞻性队列：较高残余原发累积剂量与局控改善相关，但远处失败仍为主要失败模式且无免疫巩固
+              - emphasis [ref=e783]: "RESPONSE-ADAPTIVE STEREOTACTIC BODY RADIOTHERAPY BOOST AFTER CONCURRENT CHEMORADIOTHERAPY IN UNRESECTABLE STAGE III NSCLC: A PROSPECTIVE SINGLE-CENTRE COHORT STUDY."
+              - generic [ref=e784]: Int J Radiat Oncol Biol Phys · 局晚期与晚期靶向/免疫
+              - generic [ref=e785]:
+                - generic [ref=e786]:
+                  - generic [ref=e788]: 局晚期与晚期靶向/免疫
+                  - generic [ref=e790]: 队列
+                - generic [ref=e791]: 发现 · SBRT加量取得了令人鼓舞的局控（包括在大体积及淋巴结进展期疾病中），且未用免疫治疗；残余原发累积剂量更高与更好局控相关；咯血是主要安全性问题，主要发生在已有咯…
+            - generic [ref=e792]: "60"
+        - listitem [ref=e797]:
+          - button "锁定：IPF中体重下降与FVC下降提供独立且叠加的移植无生存获益信息，二者叠加风险HR 4.11，但无交互作用" [ref=e798] [cursor=pointer]:
+            - generic [ref=e799]: "06"
+            - generic [ref=e800]:
+              - strong [ref=e801]: IPF中体重下降与FVC下降提供独立且叠加的移植无生存获益信息，二者叠加风险HR 4.11，但无交互作用
+              - emphasis [ref=e802]: "Weight Loss, FVC Decline, and Composite Physiologic Index as Complementary Prognostic Indicators in Idiopathic Pulmonary Fibrosis over the Disease Course: Time-Updated and Landmark Analysis."
+              - generic [ref=e803]: Arch Bronconeumol · 非肿瘤呼吸病
+              - generic [ref=e804]:
+                - generic [ref=e805]:
+                  - generic [ref=e807]: 非肿瘤呼吸病
+                  - generic [ref=e809]: 队列
+                - generic [ref=e810]: 发现 · Weight loss and FVC decline provide independent and additive prognostic informat…
+            - generic [ref=e811]: "58"
+        - listitem [ref=e816]:
+          - button "锁定：NSCLC中细胞因子/趋化因子回路的空间生物标志物与联合免疫治疗证据分级框架（叙述性综述）" [ref=e817] [cursor=pointer]:
+            - generic [ref=e818]: "07"
+            - generic [ref=e819]:
+              - strong [ref=e820]: NSCLC中细胞因子/趋化因子回路的空间生物标志物与联合免疫治疗证据分级框架（叙述性综述）
+              - emphasis [ref=e821]: "Cytokine and chemokine circuits in non-small cell lung cancer: spatial biomarkers and an evidence-guided framework for combination immunotherapy."
+              - generic [ref=e822]: Crit Rev Oncol Hematol · 局晚期与晚期靶向/免疫
+              - generic [ref=e823]:
+                - generic [ref=e824]:
+                  - generic [ref=e826]: 局晚期与晚期靶向/免疫
+                  - generic [ref=e828]: 综述
+                - generic [ref=e829]: 发现 · By linking spatial immune organization to mechanisms of response and resistance,…
+            - generic [ref=e830]: "55"
+        - listitem [ref=e835]:
+          - button "锁定：胸外科术前物理治疗教育数字化视频与面对面教育的可行性随机对照预试验" [ref=e836] [cursor=pointer]:
+            - generic [ref=e837]: "08"
+            - generic [ref=e838]:
+              - strong [ref=e839]: 胸外科术前物理治疗教育数字化视频与面对面教育的可行性随机对照预试验
+              - emphasis [ref=e840]: "Digital Versus Face-to-Face Preoperative Physiotherapy Education in Thoracic Surgery: A Pilot Feasibility Randomised Controlled Trial."
+              - generic [ref=e841]: Heart Lung Circ · 围术期与新辅助治疗
+              - generic [ref=e842]:
+                - generic [ref=e843]:
+                  - generic [ref=e845]: 围术期与新辅助治疗
+                  - generic [ref=e847]: RCT
+                - generic [ref=e848]: 发现 · 对接受胸外科手术的患者，数字化术前物理治疗教育可行、可接受且高效，方案依从性与治疗依从性与面对面教育相似。
+            - generic [ref=e849]: "48"
+        - listitem [ref=e854]:
+          - button "锁定：CF伴ETI相关神经精神不良反应者换用VTD后症状改善，但量表评分与患者自报改善一致性差" [ref=e855] [cursor=pointer]:
+            - generic [ref=e856]: "09"
+            - generic [ref=e857]:
+              - strong [ref=e858]: CF伴ETI相关神经精神不良反应者换用VTD后症状改善，但量表评分与患者自报改善一致性差
+              - emphasis [ref=e859]: "Changes in Neuropsychiatric Symptoms after Switching from Elexacaftor/Tezacaftor/Ivacaftor to Vanzacaftor/Tezacaftor/Deutivacaftor: A Single-Center Experience."
+              - generic [ref=e860]: Respir Med · 非肿瘤呼吸病
+              - generic [ref=e861]:
+                - generic [ref=e862]:
+                  - generic [ref=e864]: 非肿瘤呼吸病
+                  - generic [ref=e866]: 其他
+                - generic [ref=e867]: 发现 · 大多数有ETI相关神经精神不良事件的PwCF在换用VTD后报告改善；常规焦虑与抑郁筛查工具可能无法充分捕捉CFTR调节剂相关神经精神症状；需要更大的前瞻性研究
+            - generic [ref=e868]: "41"
+        - listitem [ref=e873]:
+          - button "锁定：仿生分枝杆菌膜双时空靶向DNA四面体光热平台在小鼠结核模型中提高杀菌率、增强免疫记忆并降低复发率（临床转化价值有限的临床前研究）" [ref=e874] [cursor=pointer]:
+            - generic [ref=e875]: "10"
+            - generic [ref=e876]:
+              - strong [ref=e877]: 仿生分枝杆菌膜双时空靶向DNA四面体光热平台在小鼠结核模型中提高杀菌率、增强免疫记忆并降低复发率（临床转化价值有限的临床前研究）
+              - emphasis [ref=e878]: Biomimetic mycobacterial dual spatiotemporal targeting induces trained immunity for tuberculosis photothermal immunotherapy and relapse prevention.
+              - generic [ref=e879]: EBioMedicine · 非肿瘤呼吸病
+              - generic [ref=e880]:
+                - generic [ref=e881]:
+                  - generic [ref=e883]: 非肿瘤呼吸病
+                  - generic [ref=e885]: 其他
+                - generic [ref=e886]: 发现 · 这些发现表明TDN + AIE@MM通过双时空靶向整合了物理杀菌、免疫抑制逆转和持久免疫记忆，有效应对结核治疗的三大核心挑战——递送屏障、免疫逃逸和复发风险，为…
+            - generic [ref=e887]: "36"
+        - listitem [ref=e892]:
+          - button "锁定：利马大气PM2.5短期升高与哮喘急诊就诊关联：居住在主干道400米内是否增强效应" [ref=e893] [cursor=pointer]:
+            - generic [ref=e894]: "11"
+            - generic [ref=e895]:
+              - strong [ref=e896]: 利马大气PM2.5短期升高与哮喘急诊就诊关联：居住在主干道400米内是否增强效应
+              - emphasis [ref=e897]: "Ambient fine particulate matter and asthma emergency visits in Lima, Peru: Does Residential Proximity to Major Roads Matter?"
+              - generic [ref=e898]: Environ Res · 非肿瘤呼吸病
+              - generic [ref=e899]:
+                - generic [ref=e900]:
+                  - generic [ref=e902]: 非肿瘤呼吸病
+                  - generic [ref=e904]: 其他
+                - generic [ref=e905]: 发现 · 短期大气PM2.
+            - generic [ref=e906]: "33"
+        - listitem [ref=e911]:
+          - button "锁定：samRNA疫苗递送嵌合与马赛克血凝素在动物模型中对多谱系流感A病毒产生广谱保护，但缺乏定量免疫与保护数据" [ref=e912] [cursor=pointer]:
+            - generic [ref=e913]: "12"
+            - generic [ref=e914]:
+              - strong [ref=e915]: samRNA疫苗递送嵌合与马赛克血凝素在动物模型中对多谱系流感A病毒产生广谱保护，但缺乏定量免疫与保护数据
+              - emphasis [ref=e916]: Self-amplifying RNA vaccines encoding chimeric and mosaic hemagglutinins confer immunity against phylogenetically diverse influenza A viruses.
+              - generic [ref=e917]: Cell Rep · 非肿瘤呼吸病
+              - generic [ref=e918]:
+                - generic [ref=e919]:
+                  - generic [ref=e921]: 非肿瘤呼吸病
+                  - generic [ref=e923]: 其他
+                - generic [ref=e924]: 发现 · These results support samRNA-delivered cHA and mHA antigens as promising candida…
+            - generic [ref=e925]: "31"
+        - listitem [ref=e930]:
+          - button "锁定：成年囊性纤维化患者可改变生活方式行为促进健康老龄化的知识现状、关键缺口与未来研究方向：叙述性综述" [ref=e931] [cursor=pointer]:
+            - generic [ref=e932]: "13"
+            - generic [ref=e933]:
+              - strong [ref=e934]: 成年囊性纤维化患者可改变生活方式行为促进健康老龄化的知识现状、关键缺口与未来研究方向：叙述性综述
+              - emphasis [ref=e935]: Current knowledge, key gaps, and opportunities for future research on high-impact, modifiable lifestyle behaviors to promote healthy aging in adults with cystic fibrosis in the era of modulator therapy.
+              - generic [ref=e936]: J Cyst Fibros · 非肿瘤呼吸病
+              - generic [ref=e937]:
+                - generic [ref=e938]:
+                  - generic [ref=e940]: 非肿瘤呼吸病
+                  - generic [ref=e942]: 综述
+                - generic [ref=e943]: 发现 · 本文概述当前知识状态，识别关键缺口，并强调针对可改变生活方式行为以促进健康老龄化、保持功能独立和改善生活质量的未来研究关键机遇。
+            - generic [ref=e944]: "26"
+    - text: → → →
+    - complementary "锁定信号详情" [ref=e250]:
+      - generic [ref=e949]:
+        - generic [ref=e950]:
+          - generic [ref=e951]: SIGNAL LOCK / 02
+          - generic [ref=e952]: 未见异常标记
+        - generic [ref=e953]:
+          - generic [ref=e954]:
+            - generic [ref=e955]: Pathology, research and practice
+            - generic [ref=e956]: Pathol Res Pract · 2026-Nov-04 · B 档
+          - generic [ref=e957]:
+            - text: "69"
+            - generic [ref=e958]: 评分 · llm
+        - generic "评分 69 分" [ref=e959]
+        - heading "CLDN18.2免疫组化鉴别肺浸润性黏液腺癌与非黏液NSCLC的诊断效能：敏感度89.3%、特异度97.6%" [level=2] [ref=e961]
+        - generic [ref=e962]:
+          - generic [ref=e963]: 微创与无管化胸外科
+          - generic [ref=e964]: 回顾性诊断准确性研究 · 手术切除标本中CLDN18.2与HNF4A、MUC5AC的免疫组化对比
+          - generic [ref=e965]: 解读暂停
+        - generic [ref=e966]:
+          - generic [ref=e967]:
+            - generic [ref=e968]: PMID
+            - generic [ref=e969]: "42994379"
+          - generic [ref=e970]:
+            - generic [ref=e971]: 出版状态
+            - generic [ref=e972]: 未见异常标记
+          - generic [ref=e973]:
+            - generic [ref=e974]: 影响因子 · 源值
+            - generic [ref=e975]: "3.7"
+          - generic [ref=e976]:
+            - generic [ref=e977]: 分区 · 源值
+            - generic [ref=e978]: JCR Q1
+          - generic [ref=e979]:
+            - generic [ref=e980]: 预警状态
+            - generic [ref=e981]: 正常
+          - generic [ref=e982]:
+            - generic [ref=e983]: 雷达日期
+            - generic [ref=e984]: 2026-11-07
+          - generic [ref=e985]:
+            - generic [ref=e986]: 卷 / 期
+            - generic [ref=e987]: —
+          - generic [ref=e988]:
+            - generic [ref=e989]: 期刊阵地
+            - generic [ref=e990]: 影像、病理与检验
+          - generic [ref=e991]:
+            - generic [ref=e992]: 档位口径
+            - generic [ref=e993]: v4 新五档
+          - generic [ref=e994]:
+            - generic [ref=e995]: 评分口径
+            - generic [ref=e996]: llm
+          - generic [ref=e997]:
+            - generic [ref=e998]: 精选状态
+            - generic [ref=e999]: 未入选 · 不凑数
+        - generic [ref=e1000]:
+          - generic [ref=e1001]:
+            - generic [ref=e1002]: 摘要导读
+            - generic [ref=e1003]: 原始字段 · 非全文
+          - paragraph [ref=e1004]: "BACKGROUND: Claudin 18.2 (CLDN18.2) is physiologically expressed in normal gastric epithelium and is frequently retained in gastric adenocarcinoma. Recent studies have suggested that CLDN18.2 may also be expressed in tumors showing gastric epitheliallike differentiation outside the stomach, including pulmonary invasive mucinous adenocarcinoma (IMA). This study evaluated the diagnostic utility of CLDN18.2 compared with HNF4A and MUC5AC in pulmonary IMA. METHODS: We assessed immunohistochemical expression of CLDN18.2 using clone 43-14A, HNF4A, and MUC5AC in surgically resected pulmonary tumors, including 84 IMAs and 82 other non-small cell lung carcinomas (NSCLCs). Staining was semiquantitatively evaluated using H-scores, and positivity was defined as an H-score greater than 0. Diagnostic performance was assessed using sensitivity, specificity, positive predictive value (PPV), and negative predictive value (NPV), with 95% confidence intervals (CIs). RESULTS: CLDN18.2 was positive in 75 of 84 IMAs (89.3%) but in only 2 of 82 other NSCLCs (2.4%). CLDN18.2H-scores were markedly higher in IMA than in other NSCLC (mean ± SD, 216.6 ± 105.3 vs. 1.6 ± 13.8; P < 0.001). CLDN18.2 showed a sensitivity of 89.3% (95% CI, 80.9-94.3), specificity of 97.6% (95% CI, 91.5-99.3), PPV of 97.4% (95% CI, 91.0-99.3), and NPV of 89.9% (95% CI, 81.9-94.6). Although HNF4A and MUC5AC showed slightly higher sensitivities, their specificities were lower than that of CLDN18.2. CONCLUSIONS: CLDN18.2 is a highly specific immunohistochemical marker for pulmonary IMA and provides superior rule-in performance compared with HNF4A and MUC5AC."
+          - generic [ref=e1005]:
+            - strong [ref=e1006]: 解读暂停
+            - text: 当前仅展示题录与原始摘要，不展示生成解读。
+        - generic [ref=e1007]:
+          - link "打开题录 ↗" [ref=e1008] [cursor=pointer]:
+            - /url: https://pubmed.ncbi.nlm.nih.gov/42994379/
+          - link "DOI 原文 ↗" [ref=e1009] [cursor=pointer]:
+            - /url: https://doi.org/10.1016%2Fj.prp.2026.156738
+          - button "标记本篇已扫" [ref=e1010] [cursor=pointer]
+        - generic [ref=e1011]:
+          - button "← 上一信号" [ref=e1012] [cursor=pointer]
+          - generic [ref=e1013]: 2 / 13
+          - button "下一信号 →" [ref=e1014] [cursor=pointer]
+  - contentinfo [ref=e320]:
+    - generic [ref=e321]: 程序生成 · 无人审校 · 期刊与分区按注入字段原样展示 · 摘要仅供检索导读，临床判断请读原文
+    - generic [ref=e322]: / 检索 ← → 切换 1 2 3 视图 ESC 清除
