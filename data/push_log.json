@@ -1,0 +1,18 @@
+[
+ {
+  "channel": "feishu",
+  "ok": false,
+  "attempts": 1,
+  "key": "****13ed",
+  "error": "业务拒绝 {'code': 19024, 'data': {}, 'msg': 'Key Words Not Found'}",
+  "fallback": "card→text",
+  "ts": "2026-11-10T00:34:10"
+ },
+ {
+  "channel": "feishu",
+  "ok": true,
+  "attempts": 1,
+  "key": "****13ed",
+  "ts": "2026-11-10T00:36:00"
+ }
+]

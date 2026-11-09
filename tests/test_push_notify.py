@@ -47,18 +47,43 @@ class ComposeDigestTests(unittest.TestCase):
         self.assertNotIn("断粮", c2)
 
 
-class SendWecomTests(unittest.TestCase):
-    def test_retry_then_success(self):
-        import io
+class FeishuTests(unittest.TestCase):
+    def test_card_parts_no_heading_no_italics(self):
+        title, body = pn.compose_feishu(_radar())
+        self.assertTrue(title.startswith("🫁 胸科雷达"))
+        self.assertNotIn("#", body, "lark_md 无标题语法")
+        self.assertNotIn("*", body, "lark_md 无斜体，星号必须清掉")
+        self.assertIn("肺癌免疫治疗进展", body)
+        self.assertIn("[🌐 全量看板](", body, "链接保留")
+
+    def test_card_fail_falls_back_to_text(self):
         calls = {"n": 0}
 
-        def boom(req, timeout=20):
+        def fake(url, payload):
+            calls["n"] += 1
+            if b"interactive" in payload:   # 卡片被拒（如关键词安全设置拦截）
+                return {"code": 19024, "msg": "Key Words Not Found"}
+            return {"code": 0, "msg": "success"}
+
+        with mock.patch.object(pn, "_direct_post", fake), \
+             mock.patch.object(pn.time, "sleep"):
+            r = pn.send_feishu("https://open.feishu.cn/open-apis/bot/v2/hook/abcd", "T", "B")
+        self.assertTrue(r["ok"])
+        self.assertEqual(r.get("fallback"), "card→text")
+        self.assertEqual(calls["n"], 2, "卡片失败后应降级纯文本重发")
+
+
+class SendWecomTests(unittest.TestCase):
+    def test_retry_then_success(self):
+        calls = {"n": 0}
+
+        def fake(url, payload):
             calls["n"] += 1
             if calls["n"] < 3:
                 raise OSError("net down")
-            return io.BytesIO(b'{"errcode": 0, "errmsg": "ok"}')
+            return {"errcode": 0, "errmsg": "ok"}
 
-        with mock.patch.object(pn.urllib.request, "urlopen", boom), \
+        with mock.patch.object(pn, "_direct_post", fake), \
              mock.patch.object(pn.time, "sleep"):
             r = pn.send_wecom("https://qyapi.weixin.qq.com/x?key=abcd1234", "hi")
         self.assertTrue(r["ok"])
@@ -66,7 +91,7 @@ class SendWecomTests(unittest.TestCase):
         self.assertEqual(r["key"], "****1234", "密钥必须掩码只留尾 4 位")
 
     def test_three_failures_reported(self):
-        with mock.patch.object(pn.urllib.request, "urlopen", mock.Mock(side_effect=OSError("down"))), \
+        with mock.patch.object(pn, "_direct_post", mock.Mock(side_effect=OSError("down"))), \
              mock.patch.object(pn.time, "sleep"):
             r = pn.send_wecom("https://qyapi.weixin.qq.com/x?key=zz", "hi")
         self.assertFalse(r["ok"])
