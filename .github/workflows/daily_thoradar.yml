@@ -52,10 +52,18 @@ jobs:
         run: |
           python3 tools/push_notify.py || echo "::warning::推送失败（不阻断发布），回执见 data/push_log.json"
 
+      - name: 订阅件（RSS/API/Skill）＋周报月报节奏
+        env:
+          FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK }}
+        run: |
+          python3 tools/subscribe_build.py
+          if [ "$(TZ=Asia/Shanghai date +%u)" = "1" ]; then python3 tools/subscribe_build.py --weekly; fi
+          if [ "$(TZ=Asia/Shanghai date +%d)" = "01" ]; then python3 tools/subscribe_build.py --monthly; fi
+
       - name: Commit and push updated data
         run: |
           git config user.name "thoradar-bot"
           git config user.email "bot@thoradar.local"
-          git add index.html data/
+          git add index.html data/ feed.xml api/ thoradar-skill/
           git commit -m "chore(daily): 胸科雷达 $(TZ=Asia/Shanghai date +%F) 文献雷达更新 [skip ci]"
           git push
