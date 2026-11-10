@@ -11,7 +11,7 @@ import json
 import sys
 import urllib.request
 
-API = "https://yudongz834-stack.github.io/trackeep-thoradar/api/v1"
+API = "https://thoradar.online/api/v1"
 
 TOOLS = [
     {"name": "thoradar_daily", "description": "胸科雷达今日日报：今日新收文献（中文标题/期刊/档次/分数/分类/PubMed 链接）。",

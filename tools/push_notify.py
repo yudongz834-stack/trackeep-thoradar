@@ -23,7 +23,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 LOG = DATA / "push_log.json"
-SITE_URL = os.environ.get("SITE_URL", "https://yudongz834-stack.github.io/trackeep-thoradar/")
+SITE_URL = os.environ.get("SITE_URL", "https://thoradar.online/")
 MSG_LIMIT = 4096  # 企微 markdown／飞书卡片正文同此上限（字节），宁保守
 
 
