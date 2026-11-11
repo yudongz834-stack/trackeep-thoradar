@@ -5,10 +5,10 @@
 
 ## 你（Agent）怎么取数
 
-- 今日日报：GET https://yudongz834-stack.github.io/trackeep-thoradar/api/v1/daily.json
-- 周报（周一更新）：GET https://yudongz834-stack.github.io/trackeep-thoradar/api/v1/weekly.json
-- 月报（每月 1 日更新）：GET https://yudongz834-stack.github.io/trackeep-thoradar/api/v1/monthly.json
-- 近 7 天逐篇（RSS 同源）：GET https://yudongz834-stack.github.io/trackeep-thoradar/feed.xml
+- 今日日报：GET https://thoradar.online/api/v1/daily.json
+- 周报（周一更新）：GET https://thoradar.online/api/v1/weekly.json
+- 月报（每月 1 日更新）：GET https://thoradar.online/api/v1/monthly.json
+- 近 7 天逐篇（RSS 同源）：GET https://thoradar.online/feed.xml
 
 JSON 结构：{date, generated_at, count, categories, papers[]}；
 papers 每条：title_zh/title_en、journal_abbr、tier(S/A/B/C/D)、score_total(0-100)、
