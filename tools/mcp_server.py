@@ -4,7 +4,7 @@
 
 匿名只读，不要 Key。读的与 RSS/API/Skill 同一份数据。
 接法（Claude Code 等支持 MCP 的客户端）：
-  claude mcp add thoradar -- E:/Python/python.exe D:/trackeep-thoradar/tools/mcp_server.py
+  claude mcp add thoradar -- E:/Python/python.exe D:/trackeep/trackeep-product/trackeep-thoradar/tools/mcp_server.py
 协议：MCP stdio JSON-RPC（initialize / tools/list / tools/call），stdlib 零依赖。
 """
 import json
