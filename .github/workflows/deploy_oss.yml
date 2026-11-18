@@ -38,15 +38,16 @@ jobs:
           ./ossutil mb oss://thoradar-online --acl public-read 2>/dev/null || echo "桶已存在，跳过创建"
           ./ossutil website --method put oss://thoradar-online --index-page index.html 2>/dev/null || true
           # 站面文件（首页/图标/搜索登记/订阅件）——ossutil 单命令单源，逐件上传
-          for f in index.html favicon.ico robots.txt sitemap.xml feed.xml; do
+          # 首页/数据/订阅件带 no-cache（每日更新，靠 ETag 304 便宜重验）；静态图标走默认缓存
+          ./ossutil cp -rf --update --meta Cache-Control:no-cache index.html oss://thoradar-online/
+          for f in favicon.ico robots.txt sitemap.xml; do
             ./ossutil cp -rf --update "$f" oss://thoradar-online/
           done
-          ./ossutil cp -rf --update data/radar_latest.json oss://thoradar-online/data/
-          ./ossutil cp -rf --update api/ oss://thoradar-online/api/
+          ./ossutil cp -rf --update --meta Cache-Control:no-cache feed.xml oss://thoradar-online/
+          ./ossutil cp -rf --update --meta Cache-Control:no-cache data/radar_latest.json oss://thoradar-online/data/
+          ./ossutil cp -rf --update --meta Cache-Control:no-cache api/ oss://thoradar-online/api/
           ./ossutil cp -rf --update thoradar-skill/ oss://thoradar-online/thoradar-skill/
-          # 开门：桶级＋对象级全 public-read（新桶默认私有·AccessDenied because of bucket acl 判例）
-          # 若此步报 block public access ＝ 账号总闸在锁，须 PI 控制台关「阻止公共访问」
-          ./ossutil setacl oss://thoradar-online --acl public-read
-          ./ossutil setacl oss://thoradar-online/ --acl public-read -r
+          # 开门＝桶级公共读（控制台定版，对象继承 ACL）——逐件 setacl 按 6.2/Hydrogen 双席审读裁撤
+          # （v1.7.18 无 setacl 命令·对象继承桶权限已实测 200）
           echo "=== 同步完成，桶内对象数："
           ./ossutil ls oss://thoradar-online/ | tail -2
