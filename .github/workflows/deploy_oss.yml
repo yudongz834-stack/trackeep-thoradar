@@ -36,9 +36,11 @@ jobs:
           ./ossutil config -e oss-cn-shenzhen.aliyuncs.com -i "$OSS_KEY_ID" -k "$OSS_KEY_SECRET" -L CH
           # 开桶（幂等：已存在则忽略）＋静态站默认页
           ./ossutil mb oss://thoradar-online --acl public-read 2>/dev/null || echo "桶已存在，跳过创建"
-          ./ossutil website --method put oss://thoradar-online --index index.html 2>/dev/null || true
-          # 站面文件（首页/图标/搜索登记/订阅件）＋前端懒加载的数据档＋订阅 API＋安装件
-          ./ossutil cp -rf --update index.html favicon.ico robots.txt sitemap.xml feed.xml oss://thoradar-online/
+          ./ossutil website --method put oss://thoradar-online --index-page index.html 2>/dev/null || true
+          # 站面文件（首页/图标/搜索登记/订阅件）——ossutil 单命令单源，逐件上传
+          for f in index.html favicon.ico robots.txt sitemap.xml feed.xml; do
+            ./ossutil cp -rf --update "$f" oss://thoradar-online/
+          done
           ./ossutil cp -rf --update data/radar_latest.json oss://thoradar-online/data/
           ./ossutil cp -rf --update api/ oss://thoradar-online/api/
           ./ossutil cp -rf --update thoradar-skill/ oss://thoradar-online/thoradar-skill/
