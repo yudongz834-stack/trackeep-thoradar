@@ -26,8 +26,10 @@ jobs:
           OSS_KEY_SECRET: ${{ secrets.OSS_KEY_SECRET }}
         run: |
           set -e
-          curl -sL https://gossutil.alicdn.com/ossutil -o ossutil
+          # ossutil 走 GitHub 官方发行版（alicdn 域名美国 runner 解析不了·实测 exit 6）
+          curl -sL https://github.com/aliyun/ossutil/releases/download/v1.7.19/ossutil-v1.7.19-linux-amd64/ossutil -o ossutil
           chmod +x ossutil
+          ./ossutil --version | head -1
           ./ossutil config -e oss-cn-shenzhen.aliyuncs.com -i "$OSS_KEY_ID" -k "$OSS_KEY_SECRET" -L CH
           # 开桶（幂等：已存在则忽略）＋静态站默认页
           ./ossutil mb oss://thoradar-online --acl public-read 2>/dev/null || echo "桶已存在，跳过创建"
