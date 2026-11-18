@@ -1,0 +1,41 @@
+name: Deploy to Aliyun OSS
+
+# 迁移役（2026-11-19 起）：每日流水线跑完 → 网站同步到阿里云深圳 OSS（备案接入）
+# 手动可触发（workflow_dispatch）＝首次部署/补发；workflow_run 挂在日报管线尾部自动跟发
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["ThorRadar Daily Pipeline"]
+    types: [completed]
+
+permissions:
+  contents: read
+
+jobs:
+  deploy-oss:
+    # 日报管线成功才跟发；手动触发不受限
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Sync site to Aliyun OSS (thoradar-online · cn-shenzhen)
+        env:
+          OSS_KEY_ID: ${{ secrets.OSS_KEY_ID }}
+          OSS_KEY_SECRET: ${{ secrets.OSS_KEY_SECRET }}
+        run: |
+          set -e
+          curl -sL https://gossutil.alicdn.com/ossutil -o ossutil
+          chmod +x ossutil
+          ./ossutil config -e oss-cn-shenzhen.aliyuncs.com -i "$OSS_KEY_ID" -k "$OSS_KEY_SECRET" -L CH
+          # 开桶（幂等：已存在则忽略）＋静态站默认页
+          ./ossutil mb oss://thoradar-online --acl public-read 2>/dev/null || echo "桶已存在，跳过创建"
+          ./ossutil website --method put oss://thoradar-online --index index.html 2>/dev/null || true
+          # 站面文件（首页/图标/搜索登记/订阅件）＋前端懒加载的数据档＋订阅 API＋安装件
+          ./ossutil cp -rf --update index.html favicon.ico robots.txt sitemap.xml feed.xml oss://thoradar-online/
+          ./ossutil cp -rf --update data/radar_latest.json oss://thoradar-online/data/
+          ./ossutil cp -rf --update api/ oss://thoradar-online/api/
+          ./ossutil cp -rf --update thoradar-skill/ oss://thoradar-online/thoradar-skill/
+          echo "=== 同步完成，桶内对象数："
+          ./ossutil ls oss://thoradar-online/ | tail -2
