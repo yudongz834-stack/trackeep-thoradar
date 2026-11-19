@@ -60,7 +60,12 @@ jobs:
           echo "=== 同步完成，桶内对象数："
           ./ossutil ls oss://thoradar-online/ | tail -2
           # 验锁闸：逼流量走 CNAME 目标实测 HTTPS（DNS 切换前后都成立；证书/绑定/静态页回归＝部署判红）
-          echo "=== HTTPS 预检（SNI=thoradar.online → CNAME 目标）"
-          curl -sf -o /dev/null --connect-timeout 15 \
-            --connect-to "thoradar.online:443:thoradar-online.cn-shenzhen.taihangtop.cn:443" \
-            https://thoradar.online/ && echo "根路径 HTTPS 200 ✅"
+          # 双域逐验＋严格断言 http_code==200（Sol 11-20 审出：curl -sf 连 304 也放行还谎报 200）
+          echo "=== HTTPS 预检（SNI=域名 → CNAME 目标）"
+          for h in thoradar.online www.thoradar.online; do
+            code=$(curl -sS -o /dev/null -w '%{http_code}' --connect-timeout 15 \
+              --connect-to "$h:443:thoradar-online.cn-shenzhen.taihangtop.cn:443" \
+              "https://$h/")
+            if [ "$code" != "200" ]; then echo "✗ $h 根路径 HTTPS $code（期望 200）"; exit 1; fi
+            echo "$h 根路径 HTTPS 200 ✅"
+          done
