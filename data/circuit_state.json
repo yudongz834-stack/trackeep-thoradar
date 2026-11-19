@@ -2,7 +2,7 @@
   "consecutive_failures": 0,
   "consecutive_successes": 0,
   "cooldown_hours": 12,
-  "last_probe_at": "2026-11-18T03:01:52.410102Z",
+  "last_probe_at": "2026-11-19T02:36:40.367662Z",
   "state": "CLOSED",
   "tripped_at": null
 }
