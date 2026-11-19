@@ -42,12 +42,15 @@ jobs:
           <?xml version="1.0" encoding="UTF-8"?>
           <WebsiteConfiguration>
             <IndexDocument><Suffix>index.html</Suffix></IndexDocument>
+            <ErrorDocument><Key>index.html</Key></ErrorDocument>
           </WebsiteConfiguration>
           XML
           ./ossutil website --method put oss://thoradar-online website.xml
           # 站面文件（首页/图标/搜索登记/订阅件）——ossutil 单命令单源，逐件上传
           # 首页/数据/订阅件带 no-cache（每日更新，靠 ETag 304 便宜重验）；静态图标走默认缓存
           ./ossutil cp -rf --update --meta Cache-Control:no-cache index.html oss://thoradar-online/
+          # sitemap lastmod 部署时现打当日戳（Hydrogen 11-20 审出死日期 2026-11-08 滞留）
+          sed -i "s|<lastmod>[^<]*</lastmod>|<lastmod>$(date -u +%Y-%m-%d)</lastmod>|" sitemap.xml
           for f in favicon.ico robots.txt sitemap.xml; do
             ./ossutil cp -rf --update "$f" oss://thoradar-online/
           done
