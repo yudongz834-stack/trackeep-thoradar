@@ -34,9 +34,17 @@ jobs:
           file ossutil | grep -q ELF || { echo "下载的不是程序："; head -c 200 ossutil; exit 9; }
           ./ossutil --version | head -1
           ./ossutil config -e oss-cn-shenzhen.aliyuncs.com -i "$OSS_KEY_ID" -k "$OSS_KEY_SECRET" -L CH
-          # 开桶（幂等：已存在则忽略）＋静态站默认页
+          # 开桶（幂等：已存在则忽略）
           ./ossutil mb oss://thoradar-online --acl public-read 2>/dev/null || echo "桶已存在，跳过创建"
-          ./ossutil website --method put oss://thoradar-online --index-page index.html 2>/dev/null || true
+          # 静态站默认页：v1.7.18 website put 只认 XML 配置文件（--index-page 是幻影旗标，
+          # 2>/dev/null || true 曾吞错致根路径 403——2026-11-20 控制台补设＋此处改 XML 正方）
+          cat > website.xml <<'XML'
+          <?xml version="1.0" encoding="UTF-8"?>
+          <WebsiteConfiguration>
+            <IndexDocument><Suffix>index.html</Suffix></IndexDocument>
+          </WebsiteConfiguration>
+          XML
+          ./ossutil website --method put oss://thoradar-online website.xml
           # 站面文件（首页/图标/搜索登记/订阅件）——ossutil 单命令单源，逐件上传
           # 首页/数据/订阅件带 no-cache（每日更新，靠 ETag 304 便宜重验）；静态图标走默认缓存
           ./ossutil cp -rf --update --meta Cache-Control:no-cache index.html oss://thoradar-online/
@@ -51,3 +59,8 @@ jobs:
           # （v1.7.18 无 setacl 命令·对象继承桶权限已实测 200）
           echo "=== 同步完成，桶内对象数："
           ./ossutil ls oss://thoradar-online/ | tail -2
+          # 验锁闸：逼流量走 CNAME 目标实测 HTTPS（DNS 切换前后都成立；证书/绑定/静态页回归＝部署判红）
+          echo "=== HTTPS 预检（SNI=thoradar.online → CNAME 目标）"
+          curl -sf -o /dev/null --connect-timeout 15 \
+            --connect-to "thoradar.online:443:thoradar-online.cn-shenzhen.taihangtop.cn:443" \
+            https://thoradar.online/ && echo "根路径 HTTPS 200 ✅"
