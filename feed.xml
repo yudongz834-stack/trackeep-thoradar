@@ -4,353 +4,353 @@
   <link>https://thoradar.online/</link>
   <description>胸科医生的每日文献雷达——197 刊自动扫描、专科判官筛选</description>
     <item>
-      <title>诊断5年后胸部CT随访与肺癌事件检出及生存的关联：基于韩国全国医保数据的目标试验模拟队列</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43056125/</link>
-      <description>JAMA Oncol · A · 83 分 · 肺结节与早筛管理</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
+      <title>转移性NSCLC一线纳武利尤单抗+伊匹木单抗 vs 化疗的最终7.5年随访：PD-L1≥1%与&lt;1%人群7年OS率分别为19% vs 10%、14% vs 4%</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43057628/</link>
+      <description>J Thorac Oncol · A · 87 分 · 局晚期与晚期靶向/免疫</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>局晚期与晚期靶向/免疫</category>
+    </item>
+    <item>
+      <title>多组学整合发现血清CXCL9联合外周PD-1+ CD8+ T细胞可预测免疫检查点抑制剂肺炎并提示其发病机制</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43057873/</link>
+      <description>Eur Respir J · A · 74 分 · 局晚期与晚期靶向/免疫</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>局晚期与晚期靶向/免疫</category>
+    </item>
+    <item>
+      <title>阿来替尼围术期治疗潜在可切除III期ALK阳性NSCLC：单臂II期试验达主要终点MPR 42%，但生存数据未成熟且无对照</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43063368/</link>
+      <description>J Clin Oncol · A · 69 分 · 围术期与新辅助治疗</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>围术期与新辅助治疗</category>
+    </item>
+    <item>
+      <title>出院后2周内启动的家庭肺康复未能降低COPD患者12个月非计划再入院率，但完成率高且焦虑评分改善</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43057871/</link>
+      <description>Eur Respir J · A · 67 分 · 非肿瘤呼吸病</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>非肿瘤呼吸病</category>
+    </item>
+    <item>
+      <title>肺大细胞神经内分泌癌多层组学图谱：27例分子特征与NE/非NE谱系可塑性分型</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43058127/</link>
+      <description>Nat Commun · A · 66 分 · 局晚期与晚期靶向/免疫</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>局晚期与晚期靶向/免疫</category>
+    </item>
+    <item>
+      <title>肥胖相关中重度哮喘患者中GLP-1类药物（尤其替尔泊肽）与特泽鲁单抗的呼吸道结局比较：一项真实世界队列研究</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43059008/</link>
+      <description>Am J Respir Crit Care Med · A · 64 分 · 非肿瘤呼吸病</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>非肿瘤呼吸病</category>
+    </item>
+    <item>
+      <title>胸膜间皮瘤中亚克隆演化可驱动肿瘤细胞向肉瘤样表型转变</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43063279/</link>
+      <description>Sci Adv · B · 56 分 · 局晚期与晚期靶向/免疫</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>局晚期与晚期靶向/免疫</category>
+    </item>
+    <item>
+      <title>SCLC中DLL3靶向T细胞衔接器（tarlatamab）的开发进展与CRS/ICANS安全管理综述</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43057499/</link>
+      <description>Crit Rev Oncol Hematol · B · 56 分 · 局晚期与晚期靶向/免疫</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>局晚期与晚期靶向/免疫</category>
+    </item>
+    <item>
+      <title>磨玻璃影特征肺癌的个体化管理策略进展：一篇聚焦精准干预与避免过度治疗的专家综述</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43062399/</link>
+      <description>J Thorac Cardiovasc Surg · B · 54 分 · 肺结节与早筛管理</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
       <category>肺结节与早筛管理</category>
     </item>
     <item>
-      <title>治疗前H&amp;E多尺度图学习模型PRISM预测NSCLC治疗特异性客观缓解的多中心验证研究（摘要未报告具体性能数值）</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43055329/</link>
-      <description>Cancer Res · A · 74 分 · 胸外科 AI 与三维重建</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
-      <category>胸外科 AI 与三维重建</category>
-    </item>
-    <item>
-      <title>CT筛查与小细胞肺癌的分期前移及生存关联：一项Medicare-SEER回顾性队列</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43056109/</link>
-      <description>JAMA Oncol · A · 71 分 · 肺结节与早筛管理</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
-      <category>肺结节与早筛管理</category>
-    </item>
-    <item>
-      <title>夏科-莱登晶体在急性ABPA黏液栓周围形成局部炎症生态位，并作为生物标志物、成像与治疗靶点的转化研究</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43055350/</link>
-      <description>Am J Respir Crit Care Med · A · 68 分 · 非肿瘤呼吸病</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
+      <title>西班牙内科住院AECOPD患者对GOLD与GesEPOC指南推荐的依从性偏低（约40%），存在地区差异而无性别差异</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43061065/</link>
+      <description>Int J Chron Obstruct Pulmon Dis · D · 53 分 · 非肿瘤呼吸病</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
       <category>非肿瘤呼吸病</category>
     </item>
     <item>
-      <title>前瞻性多中心观察：NSCLC一线治疗中3个月内发生免疫检查点抑制剂肺炎（CIP）者总生存更短，而1年与2年landmark分析未见显著差异</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43055942/</link>
-      <description>Lung · D · 62 分 · 局晚期与晚期靶向/免疫</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
-      <category>局晚期与晚期靶向/免疫</category>
-    </item>
-    <item>
-      <title>COPD肺康复中哪些成分能改善身体活动与睡眠：成分网络Meta分析显示下肢有氧、力量训练与活动追踪增加步数，而有人监督方案步数变化反而更小</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43051663/</link>
-      <description>Eur Respir Rev · B · 61 分 · 非肿瘤呼吸病</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
+      <title>英国28家医院EBUS-TBNA全国审计：1859例操作显示时效、系统性淋巴结分期、标本充足率与诊断敏感度普遍未达既定标准且服务间差异显著</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43051950/</link>
+      <description>BMJ Open Respir Res · D · 51 分 · 非肿瘤呼吸病</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
       <category>非肿瘤呼吸病</category>
     </item>
     <item>
-      <title>携带驱动基因突变的寡转移NSCLC局部消融治疗：香港SBRT研究组共识（基于改良Delphi的专家共识，无原始疗效数据）</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43051603/</link>
-      <description>Int J Radiat Oncol Biol Phys · B · 60 分 · 局晚期与晚期靶向/免疫</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
-      <category>局晚期与晚期靶向/免疫</category>
+      <title>可切除NSCLC新辅助化免后多区室应答不一致的解读框架与生物标志物矛盾分析（叙述性综述）</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43060732/</link>
+      <description>Front Immunol · C · 50 分 · 围术期与新辅助治疗</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>围术期与新辅助治疗</category>
     </item>
     <item>
-      <title>食管鳞癌免疫治疗相关肺炎的分层：基线系统性炎症与肺V20交互作用及列线图内部验证</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43054103/</link>
-      <description>Front Immunol · C · 60 分 · 食管与纵隔肿瘤</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
-      <category>食管与纵隔肿瘤</category>
-    </item>
-    <item>
-      <title>胸片肺结节检测商业AI软件独立性能的系统综述：6项研究显示产品间性能差异显著，证据不足以支持整体独立部署</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43051336/</link>
-      <description>J Am Coll Radiol · C · 60 分 · 胸外科 AI 与三维重建</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
-      <category>胸外科 AI 与三维重建</category>
-    </item>
-    <item>
-      <title>基于视觉机器学习模型区分非结核分枝杆菌肺病与肺结核的中国多中心前瞻性监测研究：外部验证中AUC约0.80</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43052916/</link>
-      <description>BMC Pulm Med · D · 60 分 · 胸外科 AI 与三维重建</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
-      <category>胸外科 AI 与三维重建</category>
-    </item>
-    <item>
-      <title>鸟分枝杆菌复合群三种主要菌种所致肺病的致病性比较：134项研究、46980例患者的系统评价与Meta分析显示M. avium与M. intracellulare临床相关性及疗效相当，M. chimaera临床相关性更低</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43051666/</link>
-      <description>Eur Respir Rev · B · 58 分 · 非肿瘤呼吸病</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
+      <title>COVID-19住院患者3个月内症状负担显著下降，但症状变化与HRQoL变化的相关性经多重校正后不显著</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43057542/</link>
+      <description>Respir Med · D · 49 分 · 非肿瘤呼吸病</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
       <category>非肿瘤呼吸病</category>
     </item>
     <item>
-      <title>阻塞性睡眠呼吸暂停患者全因死亡的性别差异：重度OSA中男性死亡风险更高，而≤50岁女性死亡风险更高</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43055360/</link>
-      <description>Ann Am Thorac Soc · C · 56 分 · 非肿瘤呼吸病</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
-      <category>非肿瘤呼吸病</category>
-    </item>
-    <item>
-      <title>利福平敏感性肺结核10种新四药联合方案的II期随机筛选：两种方案（含ganfeborole或BTZ-043）在培养转阴速率这一替代终点上显示优效概率，但疗效未获确证</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43056221/</link>
-      <description>N Engl J Med · S · 55 分 · 非肿瘤呼吸病</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
-      <category>非肿瘤呼吸病</category>
-    </item>
-    <item>
-      <title>COVID-19炎症蛋白轨迹与重度呼吸衰竭：SAVE-MORE随机试验的二次分析</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43050905/</link>
-      <description>EBioMedicine · B · 55 分 · 非肿瘤呼吸病</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
-      <category>非肿瘤呼吸病</category>
-    </item>
-    <item>
-      <title>种系变异对肺-肿瘤转录转换的贡献减弱，但鉴定出与NSCLC术后复发和生存相关的位点</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43053083/</link>
-      <description>Genome Med · B · 55 分 · 微创与无管化胸外科</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
-      <category>微创与无管化胸外科</category>
-    </item>
-    <item>
-      <title>托珠单抗用于风湿病相关间质性肺病急性加重（AE-RD-ILD）的单中心前后瞻观察性队列：24周研究者定义复合临床应答率80.8% vs 13.9%，但为非随机设计且人群以抗合成酶综合征为主</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43054041/</link>
-      <description>Front Immunol · C · 54 分 · 非肿瘤呼吸病</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
-      <category>非肿瘤呼吸病</category>
-    </item>
-    <item>
-      <title>对146个SCLC患者来源异种移植模型做NMF转录组分析，划分出8个生物学亚组并可投影至小鼠模型、细胞系及IMpower133患者数据</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43056244/</link>
-      <description>Cell Rep · B · 53 分 · 局晚期与晚期靶向/免疫</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
-      <category>局晚期与晚期靶向/免疫</category>
-    </item>
-    <item>
-      <title>SHP2碱基编辑饱和突变筛选绘制肺癌细胞中对migoprotafib与TNO155耐药的突变图谱，并提示肿瘤中存在可能介导内在耐药的预存变异</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43056245/</link>
-      <description>Cell Rep · B · 52 分 · 局晚期与晚期靶向/免疫</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
-      <category>局晚期与晚期靶向/免疫</category>
-    </item>
-    <item>
-      <title>0.55T相位分辨功能肺MRI可量化通气与灌注缺损并区分肺病患者与对照，但缺金标准验证且重复性指标参差</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43055619/</link>
-      <description>Radiol Cardiothorac Imaging · D · 50 分 · 非肿瘤呼吸病</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
-      <category>非肿瘤呼吸病</category>
-    </item>
-    <item>
-      <title>基于IPF临床试验安慰剂组数据建立疾病进展模型并用作外部对照的系统综述与模拟研究</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43052894/</link>
+      <title>胸腔积液与外周血生物标志物单项及组合用于恶性与结核性胸腔积液鉴别的回顾性诊断研究</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43058578/</link>
       <description>BMC Pulm Med · D · 49 分 · 非肿瘤呼吸病</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
       <category>非肿瘤呼吸病</category>
     </item>
     <item>
-      <title>肺腺癌细胞中SNORD104及其介导的28S rRNA Cm1327甲基化降低与克唑替尼耐药的早期适应性反应相关（体外机制研究）</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43052254/</link>
-      <description>Cell Death Dis · B · 45 分 · 局晚期与晚期靶向/免疫</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
+      <title>COPD多病共存的机制与管理：综述强调多学科个体化管理与生物标志物作用</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43057872/</link>
+      <description>Eur Respir J · A · 48 分 · 非肿瘤呼吸病</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>非肿瘤呼吸病</category>
+    </item>
+    <item>
+      <title>早期PaO₂/FiO₂轨迹对急性低氧血症呼吸衰竭死亡风险的分层价值有限：基于两个ICU数据库的多队列研究</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43058639/</link>
+      <description>BMC Pulm Med · D · 48 分 · 非肿瘤呼吸病</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>非肿瘤呼吸病</category>
+    </item>
+    <item>
+      <title>临床+影像组学+病理组学多模态模型预测晚期NSCLC免疫治疗疗效（DCB AUC 0.90），但缺乏外部验证且OS差异与PFS定义存在循环论证风险</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43058622/</link>
+      <description>BMC Pulm Med · D · 48 分 · 胸外科 AI 与三维重建</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>胸外科 AI 与三维重建</category>
+    </item>
+    <item>
+      <title>马萨诸塞州逾8.5万条SARS-CoV-2基因组与流行病学数据链接分析显示：传播集中于学校青少年、大学生与养老机构住养者等特定年龄亚群，年轻成人率先驱动新变异株扩散，并呈可重复的城乡传播梯度</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43057225/</link>
+      <description>Cell · S · 47 分 · 非肿瘤呼吸病</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>非肿瘤呼吸病</category>
+    </item>
+    <item>
+      <title>ERS clinical practice guidelines for the management of patients with idiopathic pulmonary fibrosis and lung cancer.</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43057869/</link>
+      <description>Eur Respir J · A · 47 分 · 非肿瘤呼吸病</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>非肿瘤呼吸病</category>
+    </item>
+    <item>
+      <title>ELSO注册中心VV-ECLS脱离实践国际调查：脱离就绪评估与策略高度异质，仅42%中心使用正式脱离方案</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43057567/</link>
+      <description>Chest · B · 47 分 · 非肿瘤呼吸病</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>非肿瘤呼吸病</category>
+    </item>
+    <item>
+      <title>COVID-19后四年时症状提示功能障碍性呼吸的患病率与预测因素：单项术后科门诊PCC队列中50%的NQ评分升高，但为自报筛查、缺乏客观呼吸模式验证</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43058761/</link>
+      <description>Respir Res · C · 47 分 · 非肿瘤呼吸病</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>非肿瘤呼吸病</category>
+    </item>
+    <item>
+      <title>非UIP型ANCA阳性特发性间质性肺炎与MPA-ILD在真实治疗下36个月肺功能轨迹的比较：早期FVC改善后转为下降</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43058596/</link>
+      <description>BMC Pulm Med · D · 46 分 · 非肿瘤呼吸病</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>非肿瘤呼吸病</category>
+    </item>
+    <item>
+      <title>CFTR调节剂时代囊性纤维化女性妊娠者与未妊娠者的肺急性加重年发生率及ppFEV1变化轨迹比较（未见差异）</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43058007/</link>
+      <description>J Cyst Fibros · C · 44 分 · 非肿瘤呼吸病</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>非肿瘤呼吸病</category>
+    </item>
+    <item>
+      <title>在已接受单吸入器三联疗法的COPD患者中加用恩司芬特尼未降低180天编码急性加重风险：TriNetX倾向性匹配真实世界研究</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43057543/</link>
+      <description>Respir Med · D · 44 分 · 非肿瘤呼吸病</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>非肿瘤呼吸病</category>
+    </item>
+    <item>
+      <title>有氧运动经上颈神经节介导的瘤内交感神经-ADRB2/MMP2通路抑制肺腺癌侵袭的机制研究</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43058594/</link>
+      <description>BMC Pulm Med · D · 44 分 · 局晚期与晚期靶向/免疫</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
       <category>局晚期与晚期靶向/免疫</category>
     </item>
     <item>
-      <title>丹麦全国队列中按教育程度与就业状态划分的强化戒烟干预后6个月戒烟结局：教育梯度明显但就业关联不一致</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43054265/</link>
-      <description>Front Public Health · D · 45 分 · 非肿瘤呼吸病</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
+      <title>Nerandomilast在美国PPF患者亚组中的疗效：FIBRONEER-ILD试验事后亚组分析（18 mg组FVC下降减缓达统计学显著，9 mg组及临床事件终点均未达显著）</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43062743/</link>
+      <description>Lung · D · 43 分 · 非肿瘤呼吸病</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
       <category>非肿瘤呼吸病</category>
     </item>
     <item>
-      <title>巨噬细胞膜仿生橙皮苷-镁纳米粒通过铁死亡调控与巨噬细胞重编程减轻小鼠急性肺损伤的临床前机制研究</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43052012/</link>
-      <description>Adv Sci (Weinh) · B · 44 分 · 非肿瘤呼吸病</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
+      <title>9因子逻辑回归模型识别绝经后女性慢性肺病患病率：多队列外部验证显示社区队列判别可接受但医院场景校准严重失准</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43061272/</link>
+      <description>Front Public Health · D · 41 分 · 非肿瘤呼吸病</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
       <category>非肿瘤呼吸病</category>
     </item>
     <item>
-      <title>COPD功能影像综述：提出基于'区域效率'的支气管镜肺减容决策框架（叙述性综述，无原始数据）</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43051664/</link>
-      <description>Eur Respir Rev · B · 44 分 · 非肿瘤呼吸病</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
+      <title>Real-world outcomes of mediastinoscopic esophagectomy for esophageal cancer: a propensity score-matched analysis.</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43058367/</link>
+      <description>Surg Endosc · C · 40 分 · 微创与无管化胸外科</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>微创与无管化胸外科</category>
+    </item>
+    <item>
+      <title>Nerandomilast在美国IPF患者中的疗效：FIBRONEER-IPF试验亚组分析——18 mg bid显著减缓FVC下降，但急性加重/住院/死亡复合终点未达统计学显著</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43062734/</link>
+      <description>Lung · D · 40 分 · 非肿瘤呼吸病</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
       <category>非肿瘤呼吸病</category>
     </item>
     <item>
-      <title>整合bulk转录组与单细胞测序筛选ESCC细胞骨架相关预后基因，构建GABARAPL2/PDLIM2/PPP2R2A三基因风险模型并在两个外部队列验证生存分层（摘要未报告HR/CI/P等效应量）</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43054408/</link>
-      <description>Front Immunol · C · 44 分 · 食管与纵隔肿瘤</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
+      <title>血小板糖蛋白GPIb调控肺损伤中的中性粒细胞浸润与宿主抗感染防御（小鼠实验及ARDS患者生物样本关联分析）</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43063288/</link>
+      <description>Sci Adv · B · 39 分 · 非肿瘤呼吸病</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>非肿瘤呼吸病</category>
+    </item>
+    <item>
+      <title>SARS-CoV-2广谱中和抗体VYD222的结构与功能解析：晶体结构与深度突变扫描揭示其逃逸受限机制</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43063218/</link>
+      <description>PLoS Pathog · B · 39 分 · 非肿瘤呼吸病</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>非肿瘤呼吸病</category>
+    </item>
+    <item>
+      <title>CAP患者症状出现≥7天后延迟入院与ICU转入风险升高相关，但与住院时长及30天再入院/死亡无显著关联</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43045478/</link>
+      <description>BMJ Open Respir Res · D · 39 分 · 非肿瘤呼吸病</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>非肿瘤呼吸病</category>
+    </item>
+    <item>
+      <title>BALF靶向宏基因组测序检出惠普尔养孢体（T. whipplei）的临床特征回顾分析：848份样本阳性率5.2%，肺结节占41.9%</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43058567/</link>
+      <description>BMC Pulm Med · D · 39 分 · 非肿瘤呼吸病</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>非肿瘤呼吸病</category>
+    </item>
+    <item>
+      <title>单中心29例成人CHD-PAH患者肠外前列腺素治疗的长期随访：治疗前后肺血流动力学显著改善，5年生存率86%、10年生存率58%（无对照回顾性队列）</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43057959/</link>
+      <description>Heart Lung Circ · D · 38 分 · 非肿瘤呼吸病</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>非肿瘤呼吸病</category>
+    </item>
+    <item>
+      <title>可切除NSCLC新辅助/围术期免疫治疗耐药中的巨噬细胞状态评述：现有髓系靶向策略（CSF1R、CD47-SIRPα、CAR巨噬细胞等）的疗效证据几乎均来自晚期或临床前疾病</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43060940/</link>
+      <description>Front Immunol · C · 36 分 · 围术期与新辅助治疗</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>围术期与新辅助治疗</category>
+    </item>
+    <item>
+      <title>胸膜间皮瘤分子与免疫图谱整合分析及其对免疫检查点抑制剂疗效的潜在提示（叙述性综述，无新数据）</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43056991/</link>
+      <description>Lung Cancer · C · 36 分 · 局晚期与晚期靶向/免疫</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>局晚期与晚期靶向/免疫</category>
+    </item>
+    <item>
+      <title>COPDGene 队列中社会决定因素相关蛋白特征对种族与性别间 COPD 结局差异的中介作用分析</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43059532/</link>
+      <description>COPD · C · 36 分 · 非肿瘤呼吸病</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>非肿瘤呼吸病</category>
+    </item>
+    <item>
+      <title>ICU患者BALF mNGS检出屎肠球菌时区分感染与定植的临床因素：单中心回顾性分析（仅报P值、无效应量）</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43061188/</link>
+      <description>Front Public Health · D · 36 分 · 非肿瘤呼吸病</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>非肿瘤呼吸病</category>
+    </item>
+    <item>
+      <title>Systematic excipient selection as a tool to optimize solid state properties and aerosol performance of spray dried RNA loaded lipid nanoparticles.</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43057594/</link>
+      <description>Int J Pharm · C · 35 分 · 非肿瘤呼吸病</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>非肿瘤呼吸病</category>
+    </item>
+    <item>
+      <title>阿来替尼治疗后快速进展的ALK阳性NSCLC：EMT相关特征与MAGE-A3上调，Navitoclax联合ALK-TKI在患者来源模型中显示协同作用</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43056990/</link>
+      <description>Lung Cancer · C · 35 分 · 局晚期与晚期靶向/免疫</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>局晚期与晚期靶向/免疫</category>
+    </item>
+    <item>
+      <title>Immunotherapy plus chemotherapy versus immunotherapy alone in esophageal cancer: a real-world pharmacovigilance analysis of safety signals and fatal outcomes.</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43061044/</link>
+      <description>Front Pharmacol · D · 35 分 · 食管与纵隔肿瘤</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
       <category>食管与纵隔肿瘤</category>
     </item>
     <item>
-      <title>单细胞测序描绘I/III期肺腺癌恶性细胞状态与干样亚群，并构建四基因预后标签（摘要未提供效应量数值）</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43054473/</link>
-      <description>Front Pharmacol · D · 42 分 · 局晚期与晚期靶向/免疫</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
+      <title>1977–2024年COPD中性粒细胞相关文献的文献计量学图谱：发文与引文集中于美国，主题仍以气道炎症为主</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43061534/</link>
+      <description>Int J Chron Obstruct Pulmon Dis · D · 35 分 · 非肿瘤呼吸病</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>非肿瘤呼吸病</category>
+    </item>
+    <item>
+      <title>结核分枝杆菌蛋白CpsA通过结合NDP52/TAX1BP1的SKICH结构域、阻断FIP200吞噬体招募及TBK1依赖的p62磷酸化抑制异体吞噬</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43063282/</link>
+      <description>Sci Adv · B · 34 分 · 非肿瘤呼吸病</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>非肿瘤呼吸病</category>
+    </item>
+    <item>
+      <title>COVID-19后肺纤维化患者CT定量塌陷比例与肺功能、运动能力仅呈弱至中度相关，提示二者互补而非可互换</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43058619/</link>
+      <description>BMC Pulm Med · D · 33 分 · 非肿瘤呼吸病</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>非肿瘤呼吸病</category>
+    </item>
+    <item>
+      <title>金叙利亚仓鼠适应性SARS-CoV-2（P16）构建重症COVID-19模型并评价nirmatrelvir与molnupiravir疗效</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43062807/</link>
+      <description>Emerg Microbes Infect · B · 32 分 · 非肿瘤呼吸病</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>非肿瘤呼吸病</category>
+    </item>
+    <item>
+      <title>重症医师与急诊医师床旁ECMO置管：一篇操作路线图综述（无结局数据）</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43057568/</link>
+      <description>Chest · B · 31 分 · 非肿瘤呼吸病</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
+      <category>非肿瘤呼吸病</category>
+    </item>
+    <item>
+      <title>EGFR突变肺腺癌在序贯靶向治疗下出现共存驱动（MET ex14/EML4-ALK）消退并克隆演化出KRAS/BRAF旁路突变的纵向活检个案</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43060583/</link>
+      <description>Front Immunol · C · 30 分 · 局晚期与晚期靶向/免疫</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
       <category>局晚期与晚期靶向/免疫</category>
     </item>
     <item>
-      <title>肿瘤微生物组深度学习模型预测肺癌免疫治疗应答与PFS：训练/验证集AUC达0.989与1.000，但未报告样本量与外部验证</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43053143/</link>
-      <description>J Transl Med · C · 41 分 · 局晚期与晚期靶向/免疫</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
-      <category>局晚期与晚期靶向/免疫</category>
-    </item>
-    <item>
-      <title>胸科移植护理队伍可持续性问题的多方法国际共识：识别职责累积、角色模糊与职业路径缺失并提出七主题建议</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43055710/</link>
-      <description>J Heart Lung Transplant · B · 40 分 · 非肿瘤呼吸病</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
+      <title>高剂量与标准剂量流感疫苗对老年人流感后症状负担的影响：DANFLU-2随机试验子研究显示症状负担无差异，家庭自采样数字报告可行</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43062964/</link>
+      <description>Clin Infect Dis · C · 30 分 · 非肿瘤呼吸病</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
       <category>非肿瘤呼吸病</category>
     </item>
     <item>
-      <title>跨5个季节RSV-A/B交替优势下婴幼儿亚组中和免疫由偏倚趋向平衡，且婴幼儿较低的中和活性与随后一季优势亚组相关</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43054068/</link>
-      <description>Front Immunol · C · 39 分 · 非肿瘤呼吸病</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
+      <title>流感病毒与冠状病毒的演化、流行病学、抗病毒药物与疫苗开发综述：提出基于平台的综合大流行防控框架</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43058094/</link>
+      <description>Signal Transduct Target Ther · A · 28 分 · 非肿瘤呼吸病</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
       <category>非肿瘤呼吸病</category>
     </item>
     <item>
-      <title>利福平暴露量升高与结核预防治疗的不良事件、停药及耐受性差相关，但无肝毒性关联且缺乏疗效终点</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43055268/</link>
-      <description>Clin Infect Dis · C · 39 分 · 非肿瘤呼吸病</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
+      <title>VDAC1/PHB2介导的线粒体自噬调控哮喘气道重塑与炎症反应的机制研究（小鼠与细胞模型）</title>
+      <link>https://pubmed.ncbi.nlm.nih.gov/43058770/</link>
+      <description>Respir Res · C · 28 分 · 非肿瘤呼吸病</description>
+      <pubDate>Sat, 21 Nov 2026 08:00:00 +0800</pubDate>
       <category>非肿瘤呼吸病</category>
-    </item>
-    <item>
-      <title>肺移植长期结局受原发性移植物功能障碍与慢性移植物功能障碍限制，本文提出力学医学框架，将器官尺度力学、细胞力学转导与临床决策相连，并展望AI与数字孪生辅助的移植物风险评估（综述，无原始数据）</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43052020/</link>
-      <description>Adv Sci (Weinh) · B · 38 分 · 非肿瘤呼吸病</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
-      <category>非肿瘤呼吸病</category>
-    </item>
-    <item>
-      <title>Acteoside在NSCLC细胞与异种移植模型中抑制增殖并上调E-cadherin、调控IL-17通路的前临床研究（同时提示其为代谢为咖啡酸的前药）</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43053053/</link>
-      <description>J Transl Med · C · 38 分 · 局晚期与晚期靶向/免疫</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
-      <category>局晚期与晚期靶向/免疫</category>
-    </item>
-    <item>
-      <title>OSA评估患者中自我报告性欲下降患病率44.7%，其独立关联因素为抑郁症状与社会心理因素而非OSA客观严重程度</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43056258/</link>
-      <description>Ther Adv Respir Dis · D · 38 分 · 非肿瘤呼吸病</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
-      <category>非肿瘤呼吸病</category>
-    </item>
-    <item>
-      <title>NSCLC中NK细胞CD226过表达抑制IL-22产生并阻断IL-22RA1-pSTAT3-CD155免疫逃逸环路（临床前机制研究）</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43054156/</link>
-      <description>Front Immunol · C · 36 分 · 局晚期与晚期靶向/免疫</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
-      <category>局晚期与晚期靶向/免疫</category>
-    </item>
-    <item>
-      <title>Association between sodium-glucose cotransporter 2 inhibitors and the risk of chronic lower respiratory disease in type 2 diabetes mellitus: findings from two target trial emulations.</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43053103/</link>
-      <description>Respir Res · C · 35 分 · 非肿瘤呼吸病</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
-      <category>非肿瘤呼吸病</category>
-    </item>
-    <item>
-      <title>复方苦参注射液联合常规治疗改善肺癌患者免疫功能及疗效的系统评价与Meta分析（39项RCT/3846例，摘要报告多指标获益但未提供任何效应量）</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43054085/</link>
-      <description>Front Pharmacol · D · 35 分 · 局晚期与晚期靶向/免疫</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
-      <category>局晚期与晚期靶向/免疫</category>
-    </item>
-    <item>
-      <title>膜锚定F1/LcrV二价mRNA疫苗单次接种在小鼠肺鼠疫模型中提供87.5%保护：抗原构型比较的临床前研究</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43050906/</link>
-      <description>EBioMedicine · B · 34 分 · 非肿瘤呼吸病</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
-      <category>非肿瘤呼吸病</category>
-    </item>
-    <item>
-      <title>美国本土2020-2022年短期PM2.5暴露与每日新增COVID-19病例关联存在显著空间异质性、自相关与聚类，合并RR约1.03但各聚类差异悬殊</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43054150/</link>
-      <description>Front Public Health · D · 34 分 · 非肿瘤呼吸病</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
-      <category>非肿瘤呼吸病</category>
-    </item>
-    <item>
-      <title>雾化干扰素β1a（SNG001）治疗COVID-19的RCT荟萃分析：住院风险降低但死亡与未康复率无显著差异</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43053745/</link>
-      <description>Pulmonology · C · 33 分 · 非肿瘤呼吸病</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
-      <category>非肿瘤呼吸病</category>
-    </item>
-    <item>
-      <title>特发性胸膜肺纤维弹力纤维增生症患者口服阿那瑞林8周的单臂开放标签试点研究：恶病质症状评分与体重改善（无对照）</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43055947/</link>
-      <description>Ther Adv Respir Dis · D · 32 分 · 非肿瘤呼吸病</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
-      <category>非肿瘤呼吸病</category>
-    </item>
-    <item>
-      <title>单臂前后对照研究：恩格列净对2型糖尿病合并COPD患者肺功能与运动能力的3个月影响</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43051472/</link>
-      <description>Respir Med · D · 31 分 · 非肿瘤呼吸病</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
-      <category>非肿瘤呼吸病</category>
-    </item>
-    <item>
-      <title>AI用于无创通气与高流量氧疗监测的现有证据与实施瓶颈：一篇未做定量合成的叙述性综述</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43051668/</link>
-      <description>Eur Respir Rev · B · 30 分 · 非肿瘤呼吸病</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
-      <category>非肿瘤呼吸病</category>
-    </item>
-    <item>
-      <title>囊性纤维化CFTR调控ROS致组织损伤与免疫紊乱的机制综述：三联调节剂不能完全恢复气道氧化还原稳态</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43054804/</link>
-      <description>Front Pharmacol · D · 30 分 · 非肿瘤呼吸病</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
-      <category>非肿瘤呼吸病</category>
-    </item>
-    <item>
-      <title>厄瓜多尔三城438名医学院学生呼吸道病毒快速抗原筛查：总体阳性率3.2%，且过半阳性者无症状</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43054285/</link>
-      <description>Front Public Health · D · 30 分 · 非肿瘤呼吸病</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
-      <category>非肿瘤呼吸病</category>
-    </item>
-    <item>
-      <title>结核病中分枝杆菌与宿主非编码RNA：免疫调控、适应策略与生物标志物潜力的跨物种综述</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43054738/</link>
-      <description>Front Cell Infect Microbiol · C · 28 分 · 非肿瘤呼吸病</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
-      <category>非肿瘤呼吸病</category>
-    </item>
-    <item>
-      <title>大鼠慢性吸烟暴露肺损伤时序代谢组学：候选代谢物可区分吸烟暴露与未暴露（AUC&gt;0.75），但未验证其对早期COPD病理的特异性</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43053957/</link>
-      <description>Front Pharmacol · D · 27 分 · 非肿瘤呼吸病</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
-      <category>非肿瘤呼吸病</category>
-    </item>
-    <item>
-      <title>哮喘气道ILC2中PD-1及其配体的作用：依赖情境的机制综述与转化前景评估（证据仍限于临床前）</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43054465/</link>
-      <description>Front Pharmacol · D · 22 分 · 非肿瘤呼吸病</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
-      <category>非肿瘤呼吸病</category>
-    </item>
-    <item>
-      <title>呼吸衰竭与机械通气会议2026系列：性别差异、COPD鼻高流量氧疗、膈肌功能障碍与AI等议题概览（仅为会议内容介绍，无研究数据）</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43051662/</link>
-      <description>Eur Respir Rev · B · 20 分 · 非肿瘤呼吸病</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
-      <category>非肿瘤呼吸病</category>
-    </item>
-    <item>
-      <title>关于下呼吸道感染噬菌体治疗需临床与生物学精细化的通信回复</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43051665/</link>
-      <description>Eur Respir Rev · B · 18 分 · 非肿瘤呼吸病</description>
-      <pubDate>Fri, 20 Nov 2026 08:00:00 +0800</pubDate>
-      <category>非肿瘤呼吸病</category>
-    </item>
-    <item>
-      <title>SEER-Medicare队列经近端因果推断校正未测混杂后，IA期NSCLC中SBRT相对亚肺叶切除的肺癌特异性死亡差异大幅缩小但仍偏向手术</title>
-      <link>https://pubmed.ncbi.nlm.nih.gov/43050213/</link>
-      <description>JAMA Surg · A · 79 分 · 微创与无管化胸外科</description>
-      <pubDate>Thu, 19 Nov 2026 08:00:00 +0800</pubDate>
-      <category>微创与无管化胸外科</category>
     </item>
 </channel></rss>
