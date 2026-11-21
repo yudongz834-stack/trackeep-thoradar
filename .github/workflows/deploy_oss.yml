@@ -47,15 +47,16 @@ jobs:
           XML
           ./ossutil website --method put oss://thoradar-online website.xml
           # 站面文件（首页/图标/搜索登记/订阅件）——ossutil 单命令单源，逐件上传
-          # 首页/数据/订阅件带 no-cache（每日更新，靠 ETag 304 便宜重验）；静态图标走默认缓存
-          ./ossutil cp -rf --update --meta Cache-Control:no-cache index.html oss://thoradar-online/
+          # 分层缓存（Sol 11-22 审）：浏览器 max-age=60 秒快速见新版，CDN s-maxage 缓存减少回源。
+          # 首页 1 小时 CDN 缓存＝日报 05:03 发布后最晚 06:03 全网可见；数据文件 5 分钟对齐日报粒度。
+          ./ossutil cp -rf --update --meta "Cache-Control:public, max-age=60, s-maxage=3600" index.html oss://thoradar-online/
           # sitemap lastmod 部署时现打当日戳（Hydrogen 11-20 审出死日期 2026-11-08 滞留）
           sed -i "s|<lastmod>[^<]*</lastmod>|<lastmod>$(date -u +%Y-%m-%d)</lastmod>|" sitemap.xml
           for f in favicon.ico robots.txt sitemap.xml; do
             ./ossutil cp -rf --update "$f" oss://thoradar-online/
           done
           ./ossutil cp -rf --update --meta Cache-Control:no-cache feed.xml oss://thoradar-online/
-          ./ossutil cp -rf --update --meta Cache-Control:no-cache data/radar_latest.json oss://thoradar-online/data/
+          ./ossutil cp -rf --update --meta "Cache-Control:public, max-age=60, s-maxage=300" data/radar_latest.json oss://thoradar-online/data/
           ./ossutil cp -rf --update --meta Cache-Control:no-cache api/ oss://thoradar-online/api/
           ./ossutil cp -rf --update thoradar-skill/ oss://thoradar-online/thoradar-skill/
           # 开门＝桶级公共读（控制台定版，对象继承 ACL）——逐件 setacl 按 6.2/Hydrogen 双席审读裁撤
