@@ -38,7 +38,7 @@
 ## 风格（唯一硬约束：Trackeep token 冻结块 v1，逐字用，不改值）
 
 ```css
-/* trackeep 家族 token 冻结块 v1 —— 正本＝terminal-console/web/design-tokens.css */
+/* trackeep 家族 token 冻结块 v1 —— 正本＝trackeep-terminal/web/design-tokens.css */
 :root{--bg:#F0EEE6;--card:#FAF9F5;--card-2:#F5F3EC;--line:#DFDACB;--text:#1F1E1D;--text-2:#46433C;--muted:#7A7568;--accent:#D97757;--accent-dark:#BC5F3F;--accent-soft:#F5E8E1;--accent-on-soft:#A34A28;--success:#2F9E44;--success-soft:#E7F3EA;--success-on-soft:#2B7A3F;--warning:#E8590C;--warning-soft:#FCEBDD;--warning-on-soft:#A64309;--danger:#C92A2A;--danger-soft:#FBE7E7;--danger-on-soft:#B02525;--shadow-sm:0 1px 2px rgba(31,30,29,.05);--shadow-card:0 1px 2px rgba(31,30,29,.04),0 10px 30px -14px rgba(31,30,29,.12)}
 /* /trackeep 家族 token 冻结块 */
 
