@@ -287,6 +287,59 @@ html.dark .action-btn.primary{color:var(--on-accent)}
 .coll-journal input{margin:0;accent-color:var(--accent);flex:0 0 auto}
 .coll-journal span{flex:1;min-width:0;font-size:10.5px;color:var(--text-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .coll-empty{color:var(--muted);font-size:10.5px;line-height:1.7;padding:14px 4px;text-align:center}
+/* 我的书架：刊级收藏属于浏览器个人层；复用合集搜索、行与档位色，不进入公共名册。 */
+.shelf-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:14px}
+.shelf-head-main{min-width:0}
+.shelf-eyebrow{margin:0 0 6px;font:600 10px/1 var(--font-mono);letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+.shelf-title{margin:0;font-size:16px;line-height:1.35;font-weight:650;color:var(--text)}
+.shelf-note{margin:5px 0 0;color:var(--muted);font-size:12px;line-height:1.55}
+.shelf-head-side{display:flex;flex-direction:column;align-items:flex-end;gap:7px;flex:0 0 auto}
+.shelf-local{color:var(--muted);font-size:10px;white-space:nowrap}
+.shelf-summary{padding:7px 10px;border-radius:8px;background:var(--accent-soft);color:var(--accent-on-soft);font:650 16px/1.2 var(--font-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.shelf-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:16px}
+.shelf-search{flex:1 1 320px;max-width:460px;height:38px;margin:0;border-radius:9px;background:var(--card)}
+.shelf-segments{display:flex;flex-wrap:wrap;gap:4px;padding:3px;border:1px solid var(--line);border-radius:8px;background:var(--card-2)}
+.shelf-segment{min-height:30px;padding:5px 9px;border:1px solid transparent;border-radius:6px;background:transparent;color:var(--muted);font-size:10.5px;cursor:pointer}
+.shelf-segment[aria-pressed="true"]{background:var(--accent-soft);color:var(--accent-on-soft);font-weight:600}
+.shelf-overview-btn{margin-left:auto;padding:7px 10px;border:1px solid color-mix(in srgb,var(--accent) 32%,var(--line));border-radius:7px;background:var(--accent-soft);color:var(--accent-on-soft);font-size:11px;cursor:pointer;white-space:nowrap}
+.shelf-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(310px,100%),1fr));gap:10px 12px;align-items:stretch}
+.shelf-journal{width:100%;min-width:0;min-height:68px;display:flex;align-items:flex-start;gap:9px;border:1px solid var(--line);border-radius:10px;background:var(--card);box-shadow:var(--shadow-sm);color:var(--text-2);padding:12px 13px;text-align:left;cursor:pointer;transition:border-color .16s ease,background-color .16s ease,box-shadow .16s ease}
+.shelf-journal:hover{border-color:color-mix(in srgb,var(--accent) 55%,var(--line));box-shadow:var(--shadow-card)}
+.shelf-journal.active{background:var(--accent-soft);border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}
+.shelf-check{flex:0 0 17px;width:17px;height:17px;margin-top:2px;display:grid;place-items:center;border:1.5px solid color-mix(in srgb,var(--muted) 45%,var(--line));border-radius:4px;color:var(--card);background:var(--card)}
+.shelf-check svg{display:block;width:11px;height:11px}
+.shelf-journal.active .shelf-check{border-color:var(--accent);background:var(--accent)}
+.shelf-journal-text{flex:1;min-width:0}
+.shelf-journal-text b{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:13px;line-height:1.38;font-weight:600;color:var(--text);overflow-wrap:anywhere}
+.shelf-journal.active .shelf-journal-text b{color:var(--accent-on-soft)}
+.shelf-journal-text small{display:block;margin-top:4px;color:var(--muted);font:10.5px/1.35 var(--font-mono);letter-spacing:.04em;overflow-wrap:anywhere}
+.shelf-tier{flex:0 0 auto;min-width:42px;margin-top:2px;padding:5px 8px;border-radius:6px;text-align:center;font:600 10.5px/1 var(--font-mono);letter-spacing:.04em}
+.shelf-tier[data-tier="S"]{background:#F7F0D8;border-color:#E2CC82;color:#7D5F08}
+.shelf-tier[data-tier="A"]{background:var(--accent-soft);border-color:color-mix(in srgb,var(--accent) 32%,var(--line));color:var(--accent-on-soft)}
+.shelf-tier[data-tier="B"]{background:#E8EFF7;border-color:#B9CCE3;color:#345787}
+.shelf-tier[data-tier="C"]{background:var(--card-2);border-color:var(--line);color:#5D584C}
+.shelf-tier[data-tier="D"]{background:transparent;border-color:var(--line);color:#6E6A5D}
+html.dark .shelf-tier[data-tier="S"]{background:#3B3420;color:#E8C962}
+html.dark .shelf-tier[data-tier="B"]{background:#253040;color:#96B7E3}
+html.dark .shelf-tier[data-tier="C"]{color:#A39A88}
+html.dark .shelf-tier[data-tier="D"]{color:#9C9488}
+.quick-group{min-width:0}
+.shelf-filter-row{margin-top:7px}
+.shelf-filter{width:100%;height:32px;padding:0 10px;border:1px solid var(--line);border-radius:7px;background:var(--card-2);color:var(--text-2);display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:11px;cursor:pointer}
+.shelf-filter-label{display:flex;align-items:center;gap:7px;min-width:0}
+.shelf-filter-icon{width:13px;height:13px;flex:0 0 auto}
+.shelf-filter-count{padding:4px 6px;border-radius:5px;background:var(--card);color:var(--muted);font:600 10px/1 var(--font-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.shelf-filter.active{background:var(--accent-soft);border-color:color-mix(in srgb,var(--accent) 42%,var(--line));color:var(--accent-on-soft);font-weight:600}
+.shelf-filter.active .shelf-filter-icon{fill:currentColor}
+.shelf-filter.active .shelf-filter-count{color:inherit}
+.shelf-filter.is-empty{border-style:dashed;color:var(--muted)}
+.shelf-filter.is-empty .shelf-filter-count{background:transparent;font-family:var(--font-sans);font-weight:500}
+.scope-empty.shelf-empty{width:min(260px,78%);padding:18px 20px;border-radius:12px}
+.shelf-empty-actions{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.shelf-empty-btn{padding:6px 9px;border:1px solid var(--line);border-radius:7px;background:var(--card);color:var(--text-2);font-size:10.5px;cursor:pointer}
+.shelf-empty-btn.primary{background:var(--accent-soft);border-color:color-mix(in srgb,var(--accent) 32%,var(--line));color:var(--accent-on-soft)}
+.shelf-empty-link{padding:4px;border:0;background:transparent;color:var(--accent-on-soft);font:inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.shelf-mobile-status{display:none}
 .badge.stale{background:var(--warning-soft);border-color:transparent;color:var(--warning-on-soft)}
 /* 我的阵地方案（第 1.5 期：自定义钟面；切换器在信号场头部，编辑在抽屉「我的阵地」节，语言沿合集） */
 .sec-picker{display:flex;align-items:center;gap:7px;margin-top:7px}
@@ -335,6 +388,20 @@ html.dark .action-btn.primary{color:var(--on-accent)}
 .tr-title:hover{color:var(--accent-dark)}
 .tr-meta{margin:6px 0 0;font-size:9.5px;color:var(--muted)}
 .tr-why{margin:6px 0 0;font-size:10.5px;line-height:1.6;color:var(--text-2);overflow-wrap:anywhere}
+/* 池外刊 P3（个性化纵深第 3 期）：NLM 目录候选卡与池外题录卡沿用 coll-row／tr-card 族语言；零新令牌 */
+.pl-abs{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ext-cand{display:flex;flex-direction:column;gap:4px;margin-bottom:8px}
+.ext-cand .coll-row{margin-bottom:0}
+.ext-cand .coll-row-main:disabled{cursor:default}
+.ext-cand .coll-row-main:disabled b{color:var(--muted)}
+.ext-title{margin:6px 0 8px;font-size:12.5px;line-height:1.5;font-weight:600;overflow-wrap:anywhere}
+.ext-picker{margin-bottom:12px}
+.ext-picker>div.coll-row>.coll-row-main{cursor:default}
+/* 边界数据（超长/无空格串）不得横向撑出容器：面板头可收缩可断行、题录卡副行与添加器副行可断行（主行既有单行省略号） */
+#pool-overlay .topic-head-title{min-width:0}
+#pool-title{overflow-wrap:anywhere}
+#pool-body .tr-meta{overflow-wrap:anywhere}
+.ext-picker .coll-row-main small{overflow-wrap:anywhere}
 @media(max-width:900px){.topic-overlay{inset:8px}.topic-head{padding:12px}}
 /* ===== 三期交互层（proto-a 移植）：底版之上仅追加交互层；不改产线令牌与骨架 ===== */
 .proto-view-switcher{display:flex;align-items:center;gap:3px;padding:3px;border:1px solid var(--line);border-radius:9px;background:var(--card-2);min-width:0}
@@ -421,7 +488,7 @@ body[data-proto-view="personal"] .coll-drawer{position:fixed;inset:var(--proto-h
 body[data-proto-view="personal"] .coll-head-bar{padding:17px 24px;background:var(--card)}
 body[data-proto-view="personal"] .proto-personal-tabs{display:flex}
 body[data-proto-view="personal"] .coll-body{display:block;flex:1;overflow:auto;padding:20px 24px 42px;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
-body[data-proto-view="personal"] #coll-list,body[data-proto-view="personal"] #coll-editor,body[data-proto-view="personal"] #scheme-list,body[data-proto-view="personal"] #scheme-editor,body[data-proto-view="personal"] #topic-list,body[data-proto-view="personal"] #topic-editor,body[data-proto-view="personal"] #ai-settings{width:min(1400px,100%);margin:0 auto 18px}
+body[data-proto-view="personal"] #coll-list,body[data-proto-view="personal"] #coll-editor,body[data-proto-view="personal"] #scheme-list,body[data-proto-view="personal"] #scheme-editor,body[data-proto-view="personal"] #topic-list,body[data-proto-view="personal"] #topic-editor,body[data-proto-view="personal"] #ai-settings,body[data-proto-view="personal"] #myjournals-panel{width:min(1400px,100%);margin:0 auto 18px}
 @media(max-width:1350px) and (min-width:901px){.scan-meta{display:none}.topbar{grid-template-columns:auto auto minmax(180px,1fr) auto auto}.proto-view-btn{padding-inline:9px}}
 @media(max-width:1100px) and (min-width:901px){body[data-proto-view="reading"] .deck{grid-template-columns:minmax(0,1fr) 315px}body[data-proto-view="reading"] .queue-list{grid-template-columns:1fr}}
 @media(max-width:900px){
@@ -439,9 +506,12 @@ body[data-proto-view="personal"] #coll-list,body[data-proto-view="personal"] #co
   .proto-reading-toolbar{align-items:flex-start;flex-direction:column}.proto-density{align-self:stretch}.proto-density button{flex:1}
   body[data-proto-density="immersive"] .proto-article{padding:18px}.proto-card-extra{grid-template-columns:1fr}
   body[data-proto-view="personal"] .coll-body{padding:15px 14px 32px}body[data-proto-view="personal"] .coll-head-bar,body[data-proto-view="personal"] .proto-personal-tabs{padding-inline:14px}
+  .shelf-mobile-status:not([hidden]){height:30px;margin:0 4px 8px;padding:0 9px;display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid color-mix(in srgb,var(--accent) 32%,var(--line));border-radius:7px;background:var(--accent-soft);color:var(--accent-on-soft);font-size:11px}
+  .shelf-mobile-status button{padding:3px 0 3px 8px;border:0;border-left:1px solid color-mix(in srgb,var(--accent) 32%,var(--line));background:transparent;color:inherit;font-size:11px;cursor:pointer}
   .proto-personal-tabs{overflow:auto}.proto-personal-tab{flex:1;white-space:nowrap}
 }
-@media(max-width:480px){.proto-view-btn{padding:6px 4px;font-size:10px}.proto-view-btn kbd{display:none}.proto-card-meta{align-items:flex-start;flex-direction:column}.proto-personal-tab{padding:7px 10px;font-size:10px}}
+@media(max-width:480px){.proto-view-btn{padding:6px 4px;font-size:10px}.proto-view-btn kbd{display:none}.proto-card-meta{align-items:flex-start;flex-direction:column}.proto-personal-tab{padding:7px 10px;font-size:10px}body[data-proto-view="personal"] .proto-personal-tabs{display:grid;grid-template-columns:1fr 1fr;gap:6px;overflow:visible}.proto-personal-tab{width:100%;white-space:normal}}
+@media(max-width:420px){.scope-empty,.scope-empty.shelf-empty{width:min(210px,72%);padding:12px 14px;font-size:11px}}
 @media(prefers-reduced-motion:reduce){.proto-article{transition:none}}
 </style>
 </head>
@@ -476,11 +546,14 @@ body[data-proto-view="personal"] #coll-list,body[data-proto-view="personal"] #co
   <aside class="panel queue-panel" aria-label="文献筛选与信号队列" data-i18n-aria="queue.aria">
     <div class="panel-head"><div><div class="eyebrow">Sweep director</div><h2 data-i18n="queue.h2">信号队列</h2></div><div class="coll-head"><button class="coll-toggle" id="coll-open" title="个性化视图 · 期刊合集/自定义阵地/我的主题">◈ 合集</button><span class="counter" id="filter-counter">—</span></div></div>
     <div class="filters">
-      <div class="quick-row" id="quick-filters">
-        <button class="quick-btn active" data-quick="all" data-i18n="quick.all">全部</button>
-        <button class="quick-btn" data-quick="rct">RCT</button>
-        <button class="quick-btn" data-quick="cohort" data-i18n="quick.cohort">队列</button>
-        <button class="quick-btn" data-quick="nct" data-i18n="quick.nct">含试验号</button>
+      <div class="quick-group">
+        <div class="quick-row" id="quick-filters">
+          <button class="quick-btn active" data-quick="all" data-i18n="quick.all">全部</button>
+          <button class="quick-btn" data-quick="rct">RCT</button>
+          <button class="quick-btn" data-quick="cohort" data-i18n="quick.cohort">队列</button>
+          <button class="quick-btn" data-quick="nct" data-i18n="quick.nct">含试验号</button>
+        </div>
+        <div class="shelf-filter-row"><button type="button" class="shelf-filter is-empty" id="myjournals-filter" aria-pressed="false" data-i18n-title="shelf.filter.tip"><span class="shelf-filter-label"><svg class="shelf-filter-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" aria-hidden="true"><path d="M4 2.5h8v11l-4-2.5-4 2.5z"/></svg><span data-i18n="shelf.filter">只看我的书架</span></span><span class="shelf-filter-count" id="myjournals-filter-count" aria-hidden="true"></span></button></div>
       </div>
       <div class="tier-block">
         <p class="filter-label" data-i18n="filter.tier">刊源档位 · 可多选</p>
@@ -512,6 +585,7 @@ body[data-proto-view="personal"] #coll-list,body[data-proto-view="personal"] #co
       <div><div class="eyebrow">Live signal field</div><h1 data-i18n="scope.h1">滚动信号场</h1><p id="scope-subtitle">方位＝期刊阵地（九阵地上盘 · 邻科公卫并入图例） · 距心＝相对评分 · 形状＝研究设计</p><div class="sec-picker"><label for="scheme-select" data-i18n="sec.label">阵地</label><select id="scheme-select" aria-label="阵地方案切换" data-i18n-aria="scheme.select.aria"></select></div></div>
       <div class="read-progress"><b id="read-count">—</b><small data-i18n="read.scanned">本次已扫</small></div>
     </div>
+    <div class="shelf-mobile-status" id="shelf-mobile-status" hidden></div>
     <div class="scope-stage">
       <div class="scope" id="scope">
         <svg class="scope-grid" viewBox="0 0 600 600" aria-hidden="true">
@@ -551,11 +625,12 @@ body[data-proto-view="personal"] #coll-list,body[data-proto-view="personal"] #co
 <div id="toast" role="status" aria-live="polite"></div>
 <div class="coll-mask" id="coll-mask" hidden></div>
 <aside class="panel coll-drawer" id="coll-drawer" role="dialog" aria-modal="true" aria-label="合集、我的阵地与我的主题" data-i18n-aria="drawer.aria" hidden>
-  <div class="coll-head-bar"><div><div class="eyebrow">Collections · sectors · topics</div><h2 data-i18n="drawer.h2">合集 · 阵地 · 主题</h2></div><button class="coll-close" id="coll-close" aria-label="关闭抽屉">✕</button></div>
+  <div class="coll-head-bar"><div><div class="eyebrow">Collections · sectors · topics · bookshelf</div><h2 data-i18n="drawer.h2">合集 · 阵地 · 主题</h2></div><button class="coll-close" id="coll-close" aria-label="关闭抽屉">✕</button></div>
   <nav class="proto-personal-tabs" aria-label="个性化设置分区" data-i18n-aria="personal.aria">
     <button type="button" class="proto-personal-tab" data-proto-personal-tab="collections" aria-pressed="true" data-i18n="tab.collections">01 · 期刊合集</button>
     <button type="button" class="proto-personal-tab" data-proto-personal-tab="sectors" aria-pressed="false" data-i18n="tab.sectors">02 · 自定义阵地</button>
     <button type="button" class="proto-personal-tab" data-proto-personal-tab="topics" aria-pressed="false" data-i18n="tab.topics">03 · 我的主题 · AI 设置</button>
+    <button type="button" class="proto-personal-tab" data-proto-personal-tab="shelf" aria-pressed="false" data-i18n="tab.shelf">04 · 我的书架</button>
   </nav>
   <div class="coll-body">
     <section id="coll-list" aria-label="合集列表" data-i18n-aria="coll.list.aria"></section>
@@ -564,6 +639,7 @@ body[data-proto-view="personal"] #coll-list,body[data-proto-view="personal"] #co
     <section id="scheme-editor" aria-label="编辑阵地方案" data-i18n-aria="scheme.editor.aria"></section>
     <section id="topic-list" aria-label="我的检索主题列表" data-i18n-aria="topic.list.aria"></section>
     <section id="topic-editor" aria-label="编辑检索主题" data-i18n-aria="topic.editor.aria"></section>
+    <section id="myjournals-panel" aria-label="我的书架" data-i18n-aria="shelf.aria"></section>
     <section id="ai-settings" aria-label="AI 设置（自带 Key）" data-i18n-aria="ai.aria">
       <p class="coll-section-title" data-i18n="ai.title">AI 设置 · 自带 Key（「我的主题」运行时用）</p>
       <div class="ai-grid">
@@ -588,6 +664,16 @@ body[data-proto-view="personal"] #coll-list,body[data-proto-view="personal"] #co
   </div>
   <div class="topic-run-body" id="topic-run-body"></div>
 </section>
+<!-- 池外刊题录面板（个性化纵深 P3 §5）：只读 poolcache＋按需拉取；池外论文只在此面板存在，不进雷达盘与队列 -->
+<div class="topic-mask" id="pool-mask" hidden></div>
+<section class="panel topic-overlay" id="pool-overlay" role="dialog" aria-modal="true" aria-label="池外期刊题录（按需拉取）" data-i18n-aria="pool.aria" hidden>
+  <div class="topic-head">
+    <div class="topic-head-title"><div class="eyebrow">Off-pool journal · on demand</div><h2 id="pool-title">—</h2></div>
+    <div class="topic-run-stats" id="pool-stats">—</div>
+    <div class="topic-run-ops"><button class="coll-op" id="pool-refresh">↻ 刷新</button><button class="coll-close" id="pool-close" aria-label="关闭题录面板" data-i18n-aria="pool.close.aria">✕</button></div>
+  </div>
+  <div class="topic-run-body" id="pool-body"></div>
+</section>
 <footer class="footer">
   <span data-i18n="foot.note">程序生成 · 无人审校 · 期刊与分区按注入字段原样展示 · 摘要仅供检索导读，临床判断请读原文</span>
   <span class="keys" data-i18n="foot.keys">/ 检索　← → 切换　ESC 清除</span>
@@ -603,7 +689,7 @@ const I18N={
 zh:{
 'doc.title':'胸科雷达 · 滚动信号场','brand.name':'胸科雷达','lang.tip':'切换到英文界面','lang.btn':'EN',
 'scan.nogen.time':'生成时间 —','scan.note':'状态分项标注',
-'view.switcher.aria':'主视图切换','view.overview':'概览','view.overview.title':'概览：信号队列、雷达与锁定详情','view.reading':'阅读','view.reading.title':'阅读：完整标题、结论与证据','view.personal':'个性化','view.personal.title':'个性化：期刊合集、自定义阵地与我的主题',
+'view.switcher.aria':'主视图切换','view.overview':'概览','view.overview.title':'概览：信号队列、雷达与锁定详情','view.reading':'阅读','view.reading.title':'阅读：完整标题、结论与证据','view.personal':'个性化','view.personal.title':'个性化：期刊合集、自定义阵地、我的主题与我的书架',
 'search.title':'搜索标题、期刊、PMID 或试验编号','search.ph':'在信号场中检索…','search.aria':'检索窗口内文献',
 'theme.toggle':'切换明暗模式','theme.dark':'切换深色模式','theme.light':'切换浅色模式',
 'queue.aria':'文献筛选与信号队列','queue.h2':'信号队列','coll.open':'◈ 合集','coll.active':'激活合集：','personal.open.tip':'点击切换个性化视图','coll.title.off':'期刊合集（当前官方全部） · 点击切换个性化视图',
@@ -625,8 +711,9 @@ zh:{
 'excerpt.label':'摘要导读','excerpt.note':'原始字段 · 非全文','excerpt.missing':'摘要摘录暂缺，请通过题录链接查阅原文。','interp.paused.t':'解读暂停','interp.paused.b':'当前仅展示题录与原始摘要，不展示生成解读。','honest.concl':'作者结论','honest.ai':'生成解读 · 未经人审','honest.none':'作者结论与疑点未生成，本版留白不硬写。评分只用于信号排序，不代表临床推荐。',
 'act.open':'打开题录 ↗','act.open.none':'题录链接 —','act.doi':'DOI 原文 ↗','act.trial.view':'查看','act.trial.record':'试验记录','trial.id':'试验号','link.none':'链接 —','mark.done':'✓ 已扫 · 点击撤销','mark.do':'标记本篇已扫','nav.prev':'← 上一信号','nav.next':'下一信号 →',
 'funnel.fetched':'初抓','funnel.matched':'刊源匹配','funnel.final':'简报入库','funnel.curated':'规则精选','funnel.none':' · 空缺',
-'drawer.aria':'合集、我的阵地与我的主题','drawer.h2':'合集 · 阵地 · 主题','coll.close.label':'关闭抽屉','coll.close.back':'返回概览','personal.aria':'个性化设置分区',
-'tab.collections':'01 · 期刊合集','tab.sectors':'02 · 自定义阵地','tab.topics':'03 · 我的主题 · AI 设置',
+'drawer.aria':'合集、我的阵地、我的主题与我的书架','drawer.h2':'合集 · 阵地 · 主题 · 书架','coll.close.label':'关闭抽屉','coll.close.back':'返回概览','personal.aria':'个性化设置分区',
+'tab.collections':'01 · 期刊合集','tab.sectors':'02 · 自定义阵地','tab.topics':'03 · 我的主题 · AI 设置','tab.shelf':'04 · 我的书架',
+'shelf.aria':'我的书架','shelf.eyebrow':'JOURNAL BOOKSHELF','shelf.title':'我的书架 · 刊级收藏','shelf.selected':'已选 {n} / {N} 刊','shelf.search.ph':'搜索刊名或缩写…','shelf.filter':'只看我的书架','shelf.filter.tip':'仅显示当前时间窗内已收藏期刊的文章','shelf.empty.action':'书架还空着，去个人抽屉挑几本','shelf.cleared':'书架已清空，已关闭书架筛选','shelf.save.fail':'浏览器未能保存书架，请检查存储权限或空间','shelf.hint':'收藏想追踪的期刊，打造自己的阅读书架。','shelf.local':'仅存本机浏览器','shelf.all':'全部','shelf.picked':'已选 ({n})','shelf.pick':'去挑选 →','shelf.go.overview':'去概览只看书架 →','shelf.empty.scope':'已收藏的 {n} 本期刊在当前 {d} 天窗口内暂无收录。','shelf.empty.filtered':'当前 {d} 天窗口内有已收藏刊的文章，但被检索、档位或其他筛选条件筛空。','shelf.empty.close':'关闭书架筛选','shelf.empty.add':'去书架加刊','shelf.mobile.status':'只看我的书架 · {n} 刊','shelf.mobile.close':'关闭','shelf.none':'没有匹配期刊。',
 'coll.list.aria':'合集列表','coll.editor.aria':'编辑合集','scheme.list.aria':'我的阵地方案列表','scheme.editor.aria':'编辑阵地方案','topic.list.aria':'我的检索主题列表','topic.editor.aria':'编辑检索主题','ai.aria':'AI 设置（自带 Key）',
 'ai.title':'AI 设置 · 自带 Key（「我的主题」运行时用）','ai.base.ph':'如 https://api.anthropic.com 或你的中转地址','ai.key.ph':'只保存在本浏览器','ai.model.ph':'模型 ID（Anthropic 协议兼容），自由填写','ai.note':'Key 只保存在本浏览器，请求从你的设备直连 AI 服务商，本站无服务器不经手。公共电脑勿用。','ai.test':'测试连接',
 'ai.help1':'跨域受限？改用中转地址或自部署转发 Worker，模板见','ai.helpLink':'站内帮助','ai.help2':'。','ai.guide.hint':'先在上方 AI 设置填好 BaseURL / Key / Model 三项，再运行主题。',
@@ -641,12 +728,17 @@ zh:{
 'foot.note':'程序生成 · 无人审校 · 期刊与分区按注入字段原样展示 · 摘要仅供检索导读，临床判断请读原文','foot.keys':'/ 检索　← → 切换　ESC 清除',
 'cat.all':'全部信号','cat.all.s':'全部','cat.adv':'晚期靶向/免疫','cat.adv.s':'靶向免疫','cat.surg':'微创/无管胸外科','cat.surg.s':'微创外科','cat.peri':'围术期/新辅助','cat.peri.s':'围术期','cat.eso':'食管/纵隔肿瘤','cat.eso.s':'食管纵隔','cat.nod':'肺结节/早筛','cat.nod.s':'结节早筛','cat.ai':'胸外 AI/三维','cat.ai.s':'数字胸外','cat.pulm':'非肿瘤呼吸病','cat.pulm.s':'呼吸肺病',
 'jcat.1':'胸外科与胸部肿瘤','jcat.11':'呼吸与睡眠','jcat.2':'肿瘤临床','jcat.4':'影像、病理与检验','jcat.3':'外科与重症医学','jcat.5':'感染与免疫','jcat.8':'基础·药理与转化','jcat.10':'医学AI与数字医学','jcat.9':'综合医学与多学科','jcat.pending':'待审定','jcat.67':'邻科与公卫',
-'type.rct':'RCT','type.cohort':'队列 / 观察','type.review':'综述 / Meta','type.ai':'AI / 数字','type.pending':'其他设计'
+'type.rct':'RCT','type.cohort':'队列 / 观察','type.review':'综述 / Meta','type.ai':'AI / 数字','type.pending':'其他设计',
+'ext.add':'＋ 池外期刊','ext.group':'池外 · 未分类','ext.badge':'未分类·池外','ext.list.title':'已入册池外刊 · {n}','ext.list.empty':'还没有池外刊：在下方按缩写或刊名检索 NLM 期刊目录，点候选后确认入册。','ext.records':'题录','ext.records.title':'打开该刊近 30 天题录（按需拉取 PubMed，24 小时内走缓存）','ext.remove':'移除','confirm.ext':'从池外名册移除该刊？（合集与阵地里的同名条目会回到「失效」标注；不影响官方数据）',
+'ext.search.ph':'检索 NLM 期刊目录：PubMed 缩写（如 J Clin Oncol）或刊名…','ext.search.aria':'检索 NLM 期刊目录','ext.searching':'检索中…（NCBI 公共接口限速，每请求间隔 ≥3 秒）','ext.none':'无匹配期刊：换个缩写或刊名再试。','ext.pick':'选择','ext.pick.title':'点选后确认入册','ext.dup.official':'已在官方名册：{k}','ext.dup.ext':'已在池外名册','ext.dup':'该刊已在名册中，不重复入册。','ext.abbr':'缩写','ext.confirm':'确认入册','ext.added':'已入册：{k}',
+'ext.hint':'池外刊只存本浏览器：可指派进合集与阵地（徽章「未分类·池外」）；其题录按需拉取，不进官方雷达盘与队列。',
+'pool.aria':'池外期刊题录（按需拉取）','pool.close.aria':'关闭题录面板','pool.refresh':'↻ 刷新','pool.refresh.title':'现在重拉近 30 天题录','pool.stop.title':'停止本次拉取（保留已显示内容）','pool.stats':'近 {d} 天 · 显示 {a} / {t} 篇','pool.phase':'拉取题录…（与主题检索共用顺序队列，每请求间隔 ≥3 秒）','pool.fresh':'缓存 · 更新于 {ts} · 24 小时内不重复拉取','pool.stale':'旧缓存 · 更新于 {ts}（已过期，点「刷新」重拉）','pool.offline':'拉取失败，保留旧缓存（更新于 {ts}）：{m}','pool.failed':'拉取失败：{m}','pool.stopped':'已停止拉取（点「刷新」重拉）','pool.empty':'近 {d} 天该刊在 PubMed 无新题录。','pool.none':'还没有题录。','pool.inpool':'另有 {n} 篇已在官方池（不重复展示题录）：',
+'err.nlm.search':'NLM 目录检索失败（HTTP {s}）','err.nlm.summary':'NLM 目录详情拉取失败（HTTP {s}）','err.gate':'NCBI 限流：已退避重试 {n} 次仍失败，请稍后再试。','err.ncbi':'NCBI 接口报错：{m}'
 },
 en:{
 'doc.title':'ThorRadar · Rolling Signal Field','brand.name':'ThorRadar','lang.tip':'Switch to Chinese interface','lang.btn':'中',
 'scan.nogen.time':'Generated —','scan.note':'status breakdown annotated',
-'view.switcher.aria':'Primary views','view.overview':'Overview','view.overview.title':'Overview: signal queue, radar and locked detail','view.reading':'Reading','view.reading.title':'Reading: full titles, findings and evidence','view.personal':'Personalize','view.personal.title':'Personalize: journal collections, custom sectors and my topics',
+'view.switcher.aria':'Primary views','view.overview':'Overview','view.overview.title':'Overview: signal queue, radar and locked detail','view.reading':'Reading','view.reading.title':'Reading: full titles, findings and evidence','view.personal':'Personalize','view.personal.title':'Personalize: journal collections, custom sectors, my topics and my bookshelf',
 'search.title':'Search titles, journals, PMIDs or trial IDs','search.ph':'Search the signal field…','search.aria':'Search papers in the window',
 'theme.toggle':'Toggle light/dark mode','theme.dark':'Switch to dark mode','theme.light':'Switch to light mode',
 'queue.aria':'Filters and signal queue','queue.h2':'Signal queue','coll.open':'◈ Collections','coll.active':'Active collection: ','personal.open.tip':'click to open Personalize','coll.title.off':'Journal collections (all official journals) · click to open Personalize',
@@ -668,8 +760,9 @@ en:{
 'excerpt.label':'Abstract digest','excerpt.note':'raw field · not full text','excerpt.missing':'Abstract excerpt unavailable — use the record link to read the original.','interp.paused.t':'Interpretation paused','interp.paused.b':'Only the record and the raw abstract are shown; no generated interpretation.','honest.concl':"Authors' conclusion",'honest.ai':'Generated interpretation · not human-reviewed','honest.none':"Authors' conclusion and caveats not generated — this build leaves it blank rather than inventing. Scores only order signals; they are not clinical recommendations.",
 'act.open':'Open record ↗','act.open.none':'Record link —','act.doi':'DOI full text ↗','act.trial.view':'View','act.trial.record':'trial record','trial.id':'Trial','link.none':'link —','mark.done':'✓ Scanned · click to undo','mark.do':'Mark as scanned','nav.prev':'← Previous signal','nav.next':'Next signal →',
 'funnel.fetched':'Fetched','funnel.matched':'Journal-matched','funnel.final':'Ingested','funnel.curated':'Curated','funnel.none':' · none',
-'drawer.aria':'Collections, my sectors and my topics','drawer.h2':'Collections · Sectors · Topics','coll.close.label':'Close drawer','coll.close.back':'Back to Overview','personal.aria':'Personalize sections',
-'tab.collections':'01 · Journal collections','tab.sectors':'02 · Custom sectors','tab.topics':'03 · My topics · AI',
+'drawer.aria':'Collections, my sectors, my topics and my bookshelf','drawer.h2':'Collections · Sectors · Topics · Bookshelf','coll.close.label':'Close drawer','coll.close.back':'Back to Overview','personal.aria':'Personalize sections',
+'tab.collections':'01 · Journal collections','tab.sectors':'02 · Custom sectors','tab.topics':'03 · My topics · AI','tab.shelf':'04 · My bookshelf',
+'shelf.aria':'My bookshelf','shelf.eyebrow':'JOURNAL BOOKSHELF','shelf.title':'My bookshelf · journal subscriptions','shelf.selected':'{n} / {N} journals selected','shelf.search.ph':'Search journal titles or abbreviations…','shelf.filter':'My bookshelf only','shelf.filter.tip':'Show only articles from bookmarked journals in the current time window','shelf.empty.action':'Your bookshelf is empty — pick a few journals in Personalize first','shelf.cleared':'Bookshelf emptied; bookshelf filter turned off','shelf.save.fail':'The browser could not save your bookshelf; check storage permission or free space','shelf.hint':'Bookmark the journals you want to follow and build your own reading shelf.','shelf.local':'Stored in this browser only','shelf.all':'All','shelf.picked':'Selected ({n})','shelf.pick':'Pick journals →','shelf.go.overview':'View bookshelf in Overview →','shelf.empty.scope':'Your {n} bookmarked journals have no articles in the current {d}-day window.','shelf.empty.filtered':'Articles from bookmarked journals exist in the current {d}-day window, but search, tier or other filters hide them all.','shelf.empty.close':'Turn off bookshelf filter','shelf.empty.add':'Add journals','shelf.mobile.status':'My bookshelf only · {n} journals','shelf.mobile.close':'Close','shelf.none':'No matching journals.',
 'coll.list.aria':'Collections','coll.editor.aria':'Edit collection','scheme.list.aria':'My sector schemes','scheme.editor.aria':'Edit sector scheme','topic.list.aria':'My search topics','topic.editor.aria':'Edit search topic','ai.aria':'AI settings (bring your own key)',
 'ai.title':'AI settings · bring your own key (used when running My topics)','ai.base.ph':'e.g. https://api.anthropic.com or your relay URL','ai.key.ph':'Saved in this browser only','ai.model.ph':'Model ID (Anthropic-compatible), free text','ai.note':'Your key stays in this browser; requests go straight from your device to the AI provider — this site has no server in between. Avoid shared computers.','ai.test':'Test connection',
 'ai.help1':'Behind CORS? Use a relay URL or your own forwarding Worker — template in the','ai.helpLink':'site help','ai.help2':'.','ai.guide.hint':'Fill in BaseURL / Key / Model under AI settings above before running a topic.',
@@ -684,7 +777,12 @@ en:{
 'foot.note':'Auto-generated · not human-reviewed · journals and quartiles shown verbatim from injected fields · abstracts are for retrieval only — read the original paper before clinical decisions','foot.keys':'/ search　← → switch　ESC clear',
 'cat.all':'All signals','cat.all.s':'All','cat.adv':'Advanced targeted / immunotherapy','cat.adv.s':'Targeted·IO','cat.surg':'Minimally invasive / tubeless surgery','cat.surg.s':'MIS','cat.peri':'Perioperative / neoadjuvant','cat.peri.s':'Periop','cat.eso':'Esophageal / mediastinal tumors','cat.eso.s':'Esoph·Med','cat.nod':'Lung nodules / early detection','cat.nod.s':'Nodules','cat.ai':'Thoracic AI / 3D','cat.ai.s':'AI·3D','cat.pulm':'Non-oncologic pulmonary disease','cat.pulm.s':'Pulmonary',
 'jcat.1':'Thoracic surgery & tumors','jcat.11':'Pulmonology & sleep','jcat.2':'Clinical oncology','jcat.4':'Imaging, pathology & labs','jcat.3':'Surgery & critical care','jcat.5':'Infection & immunity','jcat.8':'Basic · pharmacology · translational','jcat.10':'Medical AI & digital medicine','jcat.9':'General medicine & multidisciplinary','jcat.pending':'Pending','jcat.67':'Adjacent & public health',
-'type.rct':'RCT','type.cohort':'Cohort / observational','type.review':'Review / meta-analysis','type.ai':'AI / digital','type.pending':'Other designs'
+'type.rct':'RCT','type.cohort':'Cohort / observational','type.review':'Review / meta-analysis','type.ai':'AI / digital','type.pending':'Other designs',
+'ext.add':'＋ Off-pool journal','ext.group':'Off-pool · Unclassified','ext.badge':'Unclassified·off-pool','ext.list.title':'Off-pool journals · {n}','ext.list.empty':'No off-pool journals yet: search the NLM catalog below by abbreviation or title, pick a candidate and confirm.','ext.records':'Records','ext.records.title':"Open this journal's records from the last 30 days (PubMed on demand; cached for 24 h)",'ext.remove':'Remove','confirm.ext':'Remove this journal from the off-pool registry? (Matching entries in collections and sectors turn "stale" again; official data is not affected.)',
+'ext.search.ph':'Search the NLM catalog: PubMed abbreviation (e.g. J Clin Oncol) or title…','ext.search.aria':'Search the NLM catalog','ext.searching':'Searching… (NCBI public API rate limit: ≥3 s between requests)','ext.none':'No matching journals: try another abbreviation or title.','ext.pick':'Pick','ext.pick.title':'Pick, then confirm','ext.dup.official':'Already official: {k}','ext.dup.ext':'Already off-pool','ext.dup':'This journal is already in the registry — not added again.','ext.abbr':'Abbr.','ext.confirm':'Add journal','ext.added':'Added: {k}',
+'ext.hint':'Off-pool journals live in this browser only: assign them to collections and sectors (badge "Unclassified·off-pool"); their records are fetched on demand and never enter the official radar or queue.',
+'pool.aria':'Off-pool journal records (on demand)','pool.close.aria':'Close the records panel','pool.refresh':'↻ Refresh','pool.refresh.title':'Refetch records from the last 30 days now','pool.stop.title':'Stop this fetch (keep what is shown)','pool.stats':'Last {d} days · showing {a} / {t}','pool.phase':'Fetching records… (shares one serial queue with topic runs; ≥3 s between requests)','pool.fresh':'Cache · updated {ts} · no refetch within 24 h','pool.stale':'Stale cache · updated {ts} (expired — click "Refresh")','pool.offline':'Fetch failed — keeping the old cache (updated {ts}): {m}','pool.failed':'Fetch failed: {m}','pool.stopped':'Fetch stopped (click "Refresh" to retry)','pool.empty':'No new records for this journal in PubMed over the last {d} days.','pool.none':'No records yet.','pool.inpool':'{n} more are already in the official pool (records not repeated): ',
+'err.nlm.search':'NLM catalog search failed (HTTP {s})','err.nlm.summary':'NLM catalog details failed (HTTP {s})','err.gate':'NCBI rate limit: still failing after {n} backed-off retries — try again later.','err.ncbi':'NCBI API error: {m}'
 }
 };
 let LANG='zh';
@@ -701,7 +799,7 @@ function applyLang(){
   const lb=document.getElementById('lang-btn');
   if(lb){lb.textContent=t('lang.btn');lb.setAttribute('title',t('lang.tip'));lb.setAttribute('aria-label',t('lang.tip'))}
 }
-function setLang(lang){LANG=lang==='en'?'en':'zh';try{localStorage.setItem(LS_LANG,LANG)}catch(_e){}applyLang();render();renderHeader();renderFunnel();renderSchemeSelect()}   // header/funnel 不在 render() 链里，切语言须补刷；scheme-select 有 sig 缓存，拼 LANG 强制重拼
+function setLang(lang){LANG=lang==='en'?'en':'zh';try{localStorage.setItem(LS_LANG,LANG)}catch(_e){}applyLang();render();renderHeader();renderFunnel();renderSchemeSelect();renderPoolPanel()}   // header/funnel 不在 render() 链里，切语言须补刷；scheme-select 有 sig 缓存，拼 LANG 强制重拼；池外题录面板开着则补刷文案
 applyLang();
 const INJECTED_PAPERS=Array.isArray(SITE_DATA.papers)?SITE_DATA.papers:[];
 let PAPERS=INJECTED_PAPERS.slice();
@@ -742,7 +840,7 @@ const TIER_COLORS={S:'#C9A227',A:'#D97757',B:'#5B7DB1',C:'#8A8474',D:'#A8A294'};
 const DAY_MS=86400000;
 const state={quick:'all',query:'',selected:PAPERS[0]?.id||null,read:new Set(),tiers:new Set(TIERS),journal:null,jcat:null,jcatFolded:new Set(JCAT_FOLDABLE),gsec:null,gsecFolded:new Set(),days:1};   // 默认窗=1 天：只用内嵌 SITE_DATA，首屏 0 外部请求（2026-11-08 懒加载瘦身）
 // ===== 持久化（B）：key 前缀 thoradar.；搜索词/刊源/已扫/选中＝会话态不落盘 =====
-const LS_VIEW='thoradar.view.v1',LS_COLLECTIONS='thoradar.collections.v1';
+const LS_VIEW='thoradar.view.v1',LS_COLLECTIONS='thoradar.collections.v1',LS_MYJOURNALS='thoradar.myjournals.v1';
 function makeDebounced(fn,ms){
   let tm=null;   // 计时器名 tm：不遮蔽全局 t()（潜伏雷排雷）
   const run=()=>{tm=null;fn()};
@@ -770,7 +868,41 @@ const persistView=makeDebounced(()=>{
 const JOURNAL_IDS=(()=>{const v=SITE_DATA.journal_ids;return v&&typeof v==='object'&&!Array.isArray(v)?v:{}})();
 const JOURNAL_BY_NLM=(()=>{const m={};Object.keys(JOURNAL_IDS).forEach(k=>{const n=JOURNAL_IDS[k];if(n&&!m[n])m[n]=k});return m})();
 const REGISTRY=Object.keys(JOURNAL_IDS).map(k=>({k,nlm:JOURNAL_IDS[k],cat:String((SITE_DATA.journal_meta||{})[k]??'')}));
-function sanitizeCollections(raw){   // 存储清洗：坏件剪、id 去重、active 悬空回 null
+// ===== 我的书架（纯个人层）：picks 只收 SITE_DATA.journal_ids 的存活缩写键；空书架永不开空过滤。 =====
+// 刊名/档位只读快照从 config/journals_taxonomy.json 生成（键=NLM ID）；官方池成员仍以 SITE_DATA.journal_ids 为准。
+const SHELF_META_BY_NLM={"1254354":{"title":"European journal of pharmacology","tier":"D"},"7501160":{"title":"JAMA","tier":"S"},"7502030":{"title":"Cancer treatment reviews","tier":"B"},"7505876":{"title":"Proceedings of the National Academy of Sciences of the United States of America","tier":"B"},"7600053":{"title":"Cancer letters","tier":"B"},"7600076":{"title":"Drugs","tier":"B"},"7603616":{"title":"International journal of radiation oncology, biology, physics","tier":"B"},"7701875":{"title":"Lung","tier":"D"},"7704851":{"title":"Intensive care medicine","tier":"A"},"7802877":{"title":"The Journal of clinical investigation","tier":"B"},"7804127":{"title":"International journal of pharmaceutics","tier":"C"},"7806109":{"title":"Pathology, research and practice","tier":"B"},"7809084":{"title":"Sleep","tier":"C"},"7907612":{"title":"Clinics in chest medicine","tier":"C"},"8309333":{"title":"Journal of clinical oncology : official journal of the American Society of Clinical Oncology","tier":"A"},"8310780":{"title":"IEEE transactions on medical imaging","tier":"B"},"8606160":{"title":"Journal of thoracic imaging","tier":"D"},"8609169":{"title":"Pediatric surgery international","tier":"D"},"8711562":{"title":"Oncogene","tier":"B"},"8800805":{"title":"Lung cancer : journal of the International Association for the Study of Lung Cancer","tier":"C"},"8803460":{"title":"The European respiratory journal","tier":"A"},"8804069":{"title":"Eur J Cardiothorac Surg","tier":"B"},"8806653":{"title":"Surgical endoscopy","tier":"C"},"8809160":{"title":"Diseases of the esophagus : official journal of the International Society for Diseases of the Esophagus","tier":"D"},"8900488":{"title":"BMJ : British medical journal","tier":"S"},"8904683":{"title":"Cellular signalling","tier":"C"},"8908438":{"title":"Respiratory medicine","tier":"D"},"8916049":{"title":"Critical reviews in oncology/hematology","tier":"B"},"8917225":{"title":"American journal of respiratory cell and molecular biology","tier":"C"},"8917640":{"title":"Seminars in thoracic and cardiovascular surgery","tier":"D"},"9005373":{"title":"European journal of cancer : official journal for European Organization for Research and Treatment of Cancer (EORTC) [and] European Association for Cancer Research (EACR)","tier":"B"},"9007735":{"title":"Annals of oncology : official journal of the European Society for Medical Oncology","tier":"A"},"9102703":{"title":"The Journal of heart and lung transplantation : the official publication of the International Society for Heart Transplantation","tier":"B"},"9111391":{"title":"European respiratory review : an official journal of the European Respiratory Society","tier":"B"},"9203213":{"title":"Clinical infectious diseases : an official publication of the Infectious Diseases Society of America","tier":"C"},"9214441":{"title":"Journal of sleep research","tier":"D"},"9216904":{"title":"Nature genetics","tier":"A"},"9420840":{"title":"Annals of surgical oncology","tier":"C"},"9421642":{"title":"American journal of respiratory and critical care medicine","tier":"A"},"9430794":{"title":"Journal of gastroenterology","tier":"B"},"9432918":{"title":"Immunity","tier":"A"},"9435512":{"title":"Medical oncology","tier":"C"},"9437445":{"title":"Cell death and differentiation","tier":"B"},"9440159":{"title":"Academic radiology","tier":"C"},"9502015":{"title":"Nature medicine","tier":"A"},"9502500":{"title":"Clinical cancer research : an official journal of the American Association for Cancer Research","tier":"B"},"9503765":{"title":"Current opinion in pulmonary medicine","tier":"C"},"9604648":{"title":"Nature biotechnology","tier":"A"},"9706389":{"title":"The international journal of tuberculosis and lung disease : the official journal of the International Union against Tuberculosis and Lung Disease","tier":"D"},"9715279":{"title":"Pulmonary pharmacology & therapeutics","tier":"D"},"9717231":{"title":"Journal of biochemical and molecular toxicology","tier":"D"},"9801902":{"title":"Critical care : the official journal of the Critical Care Forum","tier":"B"},"9802571":{"title":"Molecular cell","tier":"B"},"9804678":{"title":"Sleep medicine reviews","tier":"B"},"100893225":{"title":"Clinical lung cancer","tier":"D"},"100898759":{"title":"Sleep medicine","tier":"C"},"100898941":{"title":"Paediatric respiratory reviews","tier":"B"},"100901229":{"title":"American journal of physiology. Lung cellular and molecular physiology","tier":"D"},"100909747":{"title":"The Cochrane database of systematic reviews","tier":"B"},"100941354":{"title":"Nature immunology","tier":"A"},"100956087":{"title":"Acta pharmacologica Sinica","tier":"C"},"100957246":{"title":"The Lancet. Oncology","tier":"A"},"100963739":{"title":"Heart, lung & circulation","tier":"D"},"100965259":{"title":"International immunopharmacology","tier":"C"},"100966981":{"title":"BMC microbiology","tier":"C"},"100968563":{"title":"BMC pulmonary medicine","tier":"D"},"101090633":{"title":"Respiratory research","tier":"C"},"101120028":{"title":"Developmental cell","tier":"B"},"101124168":{"title":"Nature reviews. Cancer","tier":"A"},"101128966":{"title":"Journal of cystic fibrosis : official journal of the European Cystic Fibrosis Society","tier":"C"},"101130617":{"title":"Cancer cell","tier":"A"},"101158399":{"title":"Interactive cardiovascular and thoracic surgery","tier":"D"},"101162515":{"title":"Journal of the National Comprehensive Cancer Network : JNCCN","tier":"C"},"101172931":{"title":"Cancer imaging : the official publication of the International Cancer Imaging Society","tier":"C"},"101190326":{"title":"Journal of the American College of Radiology : JACR","tier":"C"},"101190723":{"title":"BMC medicine","tier":"B"},"101190741":{"title":"Journal of translational medicine","tier":"C"},"101197408":{"title":"Chronic respiratory disease","tier":"D"},"101211769":{"title":"COPD","tier":"C"},"101215604":{"title":"Nature methods","tier":"A"},"101231007":{"title":"Breathe","tier":"B"},"101231360":{"title":"PLoS medicine","tier":"B"},"101231977":{"title":"Journal of clinical sleep medicine : JCSM : official publication of the American Academy of Sleep Medicine","tier":"D"},"101233170":{"title":"Cell metabolism","tier":"A"},"101235568":{"title":"International journal of biological sciences","tier":"B"},"101238921":{"title":"PLoS pathogens","tier":"B"},"101270595":{"title":"Targeted oncology","tier":"D"},"101273481":{"title":"International journal of chronic obstructive pulmonary disease","tier":"D"},"101274235":{"title":"Journal of thoracic oncology : official publication of the International Association for the Study of Lung Cancer","tier":"A"},"101278196":{"title":"Expert review of respiratory medicine","tier":"C"},"101283273":{"title":"Nature nanotechnology","tier":"A"},"101291247":{"title":"Journal of cardiopulmonary rehabilitation and prevention","tier":"D"},"101300401":{"title":"Journal of robotic surgery","tier":"D"},"101302316":{"title":"Cell host & microbe","tier":"A"},"101304007":{"title":"Influenza and other respiratory viruses","tier":"D"},"101311472":{"title":"Cell stem cell","tier":"A"},"101316317":{"title":"Therapeutic advances in respiratory disease","tier":"D"},"101465400":{"title":"Science signaling","tier":"B"},"101472832":{"title":"Biomolecules & therapeutics","tier":"B"},"101475844":{"title":"Genome medicine","tier":"B"},"101479418":{"title":"Tuberculosis and respiratory diseases","tier":"C"},"101490689":{"title":"Japanese journal of radiology","tier":"B"},"101496866":{"title":"Journal of bronchology & interventional pulmonology","tier":"C"},"101500077":{"title":"Nature reviews. Clinical oncology","tier":"A"},"101505086":{"title":"Science translational medicine","tier":"A"},"101524092":{"title":"Cell death & disease","tier":"B"},"101528555":{"title":"Nature communications","tier":"A"},"101533916":{"title":"Journal of thoracic disease","tier":"D"},"101548923":{"title":"Frontiers in pharmacology","tier":"D"},"101560960":{"title":"Frontiers in immunology","tier":"C"},"101561693":{"title":"Cancer discovery","tier":"A"},"101573691":{"title":"Cell reports","tier":"B"},"101585359":{"title":"Frontiers in cellular and infection microbiology","tier":"C"},"101589534":{"title":"JAMA internal medicine","tier":"A"},"101589553":{"title":"JAMA surgery","tier":"A"},"101594885":{"title":"Emerging microbes & infections","tier":"B"},"101597220":{"title":"The journal of allergy and clinical immunology. In practice","tier":"B"},"101600560":{"title":"Acta pharmaceutica Sinica. B","tier":"B"},"101600811":{"title":"Annals of the American Thoracic Society","tier":"C"},"101605555":{"title":"The Lancet. Respiratory medicine","tier":"A"},"101605877":{"title":"Annals of cardiothoracic surgery","tier":"C"},"101616579":{"title":"Frontiers in public health","tier":"D"},"101620585":{"title":"Journal for immunotherapy of cancer","tier":"B"},"101631999":{"title":"NPJ primary care respiratory medicine","tier":"C"},"101632521":{"title":"Lung cancer : targets and therapy","tier":"D"},"101638061":{"title":"BMJ open respiratory research","tier":"D"},"101646875":{"title":"Translational lung cancer research","tier":"D"},"101647039":{"title":"EBioMedicine","tier":"B"},"101652861":{"title":"JAMA oncology","tier":"A"},"101653440":{"title":"Science advances","tier":"B"},"101663459":{"title":"Pneumonia","tier":"D"},"101664569":{"title":"Advanced science","tier":"B"},"101665139":{"title":"Chronic obstructive pulmonary diseases","tier":"D"},"101665956":{"title":"Trends in cancer","tier":"B"},"101671641":{"title":"ERJ open research","tier":"C"},"101672103":{"title":"Nature reviews. Disease primers","tier":"A"},"101674869":{"title":"Nature microbiology","tier":"A"},"101676423":{"title":"Signal transduction and targeted therapy","tier":"A"},"101687144":{"title":"Pulmonary therapy","tier":"C"},"101688533":{"title":"Respirology","tier":"C"},"101688624":{"title":"Science immunology","tier":"A"},"101696896":{"title":"Nature biomedical engineering","tier":"A"},"101697329":{"title":"Advances in respiratory medicine","tier":"B"},"101710063":{"title":"Pleura and peritoneum","tier":"C"},"101719009":{"title":"BMJ evidence-based medicine","tier":"C"},"101723675":{"title":"Cancer communications","tier":"A"},"101723786":{"title":"Pulmonology","tier":"C"},"101724038":{"title":"iScience","tier":"C"},"101729235":{"title":"JAMA network open","tier":"B"},"101731738":{"title":"NPJ digital medicine","tier":"A"},"101731833":{"title":"Mediastinum","tier":"D"},"101733136":{"title":"Science robotics","tier":"A"},"101733727":{"title":"EClinicalMedicine","tier":"B"},"101736592":{"title":"Nature metabolism","tier":"A"},"101740243":{"title":"Nature machine intelligence","tier":"A"},"101748663":{"title":"Radiology. Cardiothoracic imaging","tier":"D"},"101751302":{"title":"The Lancet. Digital health","tier":"A"},"101761119":{"title":"Nature cancer","tier":"A"},"101766894":{"title":"Cell reports. Medicine","tier":"B"},"101768541":{"title":"JTCVS open","tier":"C"},"101769019":{"title":"The Lancet. Microbe","tier":"A"},"101769674":{"title":"The esophagus","tier":"D"},"101769925":{"title":"MedComm","tier":"B"},"101769967":{"title":"JTO clinical and research reports","tier":"C"},"101773306":{"title":"Nature aging","tier":"A"},"101774968":{"title":"The Lancet regional health. Western Pacific","tier":"B"},"101777707":{"title":"The Lancet regional health. Europe","tier":"A"},"2985213R":{"title":"Lancet","tier":"S"},"0255562":{"title":"The New England journal of medicine","tier":"S"},"0410462":{"title":"Nature","tier":"S"},"0404511":{"title":"Science","tier":"S"},"0413066":{"title":"Cell","tier":"S"},"0372351":{"title":"Annals of internal medicine","tier":"A"},"9918317485806676":{"title":"NEJM evidence","tier":"B"},"0231335":{"title":"Chest","tier":"B"},"0217410":{"title":"Journal of nuclear medicine : official publication, Society of Nuclear Medicine","tier":"B"},"9918487584306676":{"title":"BMJ medicine","tier":"B"},"9918232503006676":{"title":"Lancet regional health. Americas","tier":"C"},"9918333279706676":{"title":"The thorax","tier":"B"},"0354720":{"title":"Archivos de bronconeumología","tier":"D"},"0147621":{"title":"Environmental research","tier":"C"},"9918627881206676":{"title":"Chinese medical journal pulmonary and critical care medicine","tier":"B"},"0405543":{"title":"Mayo Clinic proceedings","tier":"C"},"9918419282806676":{"title":"The Lancet regional health. Southeast Asia","tier":"C"},"15030100R":{"title":"The Annals of thoracic surgery","tier":"B"},"0376343":{"title":"The Journal of thoracic and cardiovascular surgery","tier":"B"},"9918646069806676":{"title":"Therapeutic advances in pulmonary and critical care medicine","tier":"B"},"0373125":{"title":"The British journal of radiology","tier":"C"},"9918663679206676":{"title":"Journal of imaging informatics in medicine","tier":"C"},"0137356":{"title":"Respiration; international review of thoracic diseases","tier":"D"},"0330057":{"title":"Heart & lung : the journal of critical care","tier":"C"},"9918881164606676":{"title":"Pediatric pulmonology","tier":"C"},"0401260":{"title":"Radiology","tier":"A"},"0372354":{"title":"Annals of surgery","tier":"B"},"9918752186406676":{"title":"NEJM AI","tier":"D"},"9918284260106676":{"title":"Cell genomics","tier":"B"},"2984705R":{"title":"Cancer research","tier":"A"}};
+function sanitizeMyJournals(raw){
+  const out={v:1,picks:[],filterOn:false},seen=new Set();
+  if(!raw||typeof raw!=='object'||raw.v!==1)return out;
+  (Array.isArray(raw.picks)?raw.picks:[]).forEach(value=>{
+    const k=String(value||'').trim().toUpperCase();
+    if(!Object.prototype.hasOwnProperty.call(JOURNAL_IDS,k)||seen.has(k))return;
+    seen.add(k);out.picks.push(k);
+  });
+  out.filterOn=raw.filterOn===true&&out.picks.length>0;
+  return out;
+}
+function loadMyJournalsStore(){
+  try{return sanitizeMyJournals(JSON.parse(localStorage.getItem(LS_MYJOURNALS)||'null'))}catch(e){return sanitizeMyJournals(null)}
+}
+let myJournalsStore=loadMyJournalsStore();
+function persistMyJournals(){try{localStorage.setItem(LS_MYJOURNALS,JSON.stringify(myJournalsStore))}catch(e){showToast(t('shelf.save.fail'))}}
+function myJournalsFilterKeys(){return myJournalsStore.filterOn&&myJournalsStore.picks.length?new Set(myJournalsStore.picks):null}
+function toggleMyJournal(key){
+  const k=String(key||'').trim().toUpperCase();
+  if(!Object.prototype.hasOwnProperty.call(JOURNAL_IDS,k))return false;
+  const picks=myJournalsStore.picks,idx=picks.indexOf(k),wasFiltering=myJournalsStore.filterOn;
+  if(idx>=0)picks.splice(idx,1);else picks.push(k);
+  if(!picks.length)myJournalsStore.filterOn=false;
+  persistMyJournals();
+  if(wasFiltering&&!myJournalsStore.filterOn)showToast(t('shelf.cleared'));
+  return idx<0;
+}
+function setMyJournalsFilter(on){
+  if(on&&!myJournalsStore.picks.length){showToast(t('shelf.empty.action'));return false}
+  myJournalsStore.filterOn=Boolean(on);persistMyJournals();return true;
+}
+function shelfMetaFor(r){return SHELF_META_BY_NLM[String(r.nlm||'')]||{title:r.k,tier:'—'}}function sanitizeCollections(raw){   // 存储清洗：坏件剪、id 去重、active 悬空回 null
   const out={version:1,collections:[],active:null};
   if(!raw||raw.version!==1||!Array.isArray(raw.collections))return out;
   const seen=new Set();
@@ -792,10 +924,56 @@ function loadCollectionsStore(){
 let collectionsStore=loadCollectionsStore();
 const persistCollections=makeDebounced(()=>{try{localStorage.setItem(LS_COLLECTIONS,JSON.stringify(collectionsStore))}catch(e){}},250);
 function activeCollection(){return collectionsStore.active?collectionsStore.collections.find(c=>c.id===collectionsStore.active)||null:null}
-function resolveEntryKey(e){   // 左连接名册：nlm 优先，abbr 兜底；两不中＝失效（null，调用方降级）
+// ===== 池外扩展名册（个性化纵深 P3 §1.5）：storage thoradar.journals.ext.v1；只进个人层——官方名册钉表（SITE_DATA.journal_ids/journal_meta）只读零写 =====
+const LS_JOURNALS_EXT='thoradar.journals.ext.v1';
+const EXT_NLM_RE=/^\d{1,16}[A-Za-z]{0,2}$/;   // NLM Unique ID：数字串可带 1~2 位字母尾、前导零须保串（官方名册实证 LANCET=2985213R、CHEST=0231335；真样本 9918956761606676）；纯数字起头＝constructor/__proto__ 这类原型名进不了字典键
+function sanitizeExtJournals(raw){   // 存储清洗：坏件剪、k/nlm 双去重、字段截长；输出恒 {v:1,journals:[{k,nlm,title,isoabbr,issn,addedAt}]}
+  const out={v:1,journals:[]};
+  if(!raw||raw.v!==1||!Array.isArray(raw.journals))return out;
+  const seenK=new Set(),seenNlm=new Set();
+  raw.journals.forEach(j=>{
+    if(!j||typeof j!=='object')return;
+    const k=String(j.k||'').trim().toUpperCase().slice(0,120),nlm=String(j.nlm||'').trim();
+    if(!k||!EXT_NLM_RE.test(nlm)||seenK.has(k)||seenNlm.has(nlm))return;
+    seenK.add(k);seenNlm.add(nlm);
+    out.journals.push({k,nlm,title:String(j.title||'').trim().slice(0,300),isoabbr:String(j.isoabbr||'').trim().slice(0,160),issn:String(j.issn||'').trim().slice(0,16),addedAt:Number.isFinite(Number(j.addedAt))?Number(j.addedAt):0});
+  });
+  return out;
+}
+function loadExtStore(){try{return sanitizeExtJournals(JSON.parse(localStorage.getItem(LS_JOURNALS_EXT)||'null'))}catch(e){return sanitizeExtJournals(null)}}
+let extStore=loadExtStore();
+const persistExt=makeDebounced(()=>{try{localStorage.setItem(LS_JOURNALS_EXT,JSON.stringify(extStore))}catch(e){}},250);
+const extByNlm=nlm=>extStore.journals.find(j=>j.nlm===String(nlm||''))||null;
+const extByKey=k=>extStore.journals.find(j=>j.k===String(k||'').toUpperCase())||null;
+function extDupState(c){   // 重名保护（§2.3）：k 或 nlm 已在官方名册＝official（附官方键）；已在池外名册＝ext；否则空串
+  if(!c)return {dup:'',k:''};
+  if(c.nlm&&JOURNAL_BY_NLM[c.nlm])return {dup:'official',k:JOURNAL_BY_NLM[c.nlm]};
+  if(c.k&&JOURNAL_IDS[c.k])return {dup:'official',k:c.k};
+  const hit=extByNlm(c.nlm)||extByKey(c.k);
+  return hit?{dup:'ext',k:hit.k}:{dup:'',k:''};
+}
+function addExtJournal(c){   // 入册唯一写口（候选区禁选＋本函数拒收＝双保险）：重名不重复入册；成功立即落盘
+  const k=String(c&&c.k||'').trim().toUpperCase().slice(0,120),nlm=String(c&&c.nlm||'').trim();
+  if(!k||!EXT_NLM_RE.test(nlm))return {ok:false,reason:'bad',k:''};
+  const dup=extDupState({k,nlm});
+  if(dup.dup)return {ok:false,reason:dup.dup,k:dup.k};
+  extStore.journals.push({k,nlm,title:String(c.title||'').trim().slice(0,300),isoabbr:String(c.isoabbr||'').trim().slice(0,160),issn:String(c.issn||'').trim().slice(0,16),addedAt:Date.now()});
+  persistExt.now();
+  return {ok:true,k};
+}
+function removeExtJournal(nlm){   // 移除后合集/方案里的同名条目回到「失效」标注（不剪不阻断，沿合集语义）；题录缓存连带剪
+  const before=extStore.journals.length;
+  extStore.journals=extStore.journals.filter(j=>j.nlm!==String(nlm||''));
+  if(before===extStore.journals.length)return false;
+  delete poolCache.byNlm[nlm];
+  persistExt.now();poolCachePersist();
+  return true;
+}
+function resolveEntryKey(e){   // 左连接名册：官方 nlm 优先→官方 abbr→池外 ext（nlm→abbr，P3 §1.5 追加左联）；三不中＝失效（null，调用方降级）
   if(e&&e.nlm&&JOURNAL_BY_NLM[e.nlm])return JOURNAL_BY_NLM[e.nlm];
   if(e&&e.k&&JOURNAL_IDS[e.k])return e.k;
-  return null;
+  const x=e&&(extByNlm(e.nlm)||extByKey(e.k));
+  return x?x.k:null;
 }
 function collectionStats(c){   // 命中刊数＋失效数（徽章用；失效只标注不阻断）
   let live=0,stale=0;
@@ -1035,12 +1213,14 @@ function schemeUniverse(items,scheme,keyMap){   // 自定义盘面宇宙：order
 function gsecCounts(scheme,keyMap){   // 自定义徽章：与 jcatCounts 同源（已加载集合零请求）；按当前筛选态计数，仅扣除自定义扇区过滤本身；归属走 sectorAssign（与盘面/扇区标题共点）
   const query=state.query.trim().toLowerCase();
   const collKeys=collectionFilterKeys();
+  const shelfKeys=myJournalsFilterKeys();
   const counts=new Map();
   windowPapers().filter(p=>{
     const quickOk=state.quick==='all'||(state.quick==='nct'?Boolean(p.nct_id):designOf(p)===state.quick);
     const collOk=!collKeys||collKeys.has(paperJournalKey(p));
+    const shelfOk=!shelfKeys||shelfKeys.has(paperJournalKey(p));
     const hay=[p.title_en,p.title_zh,p.journal_abbr,p.journal_full,p.pmid,p.nct_id,p.category_label].join(' ').toLowerCase();
-    return tierOk(p)&&journalOk(p)&&quickOk&&collOk&&hay.includes(query);
+    return tierOk(p)&&journalOk(p)&&quickOk&&collOk&&shelfOk&&hay.includes(query);
   }).forEach(p=>{const c=sectorAssign(scheme,keyMap,p);counts.set(c,(counts.get(c)||0)+1)});
   return counts;
 }
@@ -1179,6 +1359,7 @@ const journalName=p=>String(p.journal_abbr||p.journal_full||'—');
 function filtered(){
   const query=state.query.trim().toLowerCase();
   const collKeys=collectionFilterKeys();
+  const shelfKeys=myJournalsFilterKeys();
   const scheme=activeScheme();
   const keyMap=scheme?schemeKeyMap(scheme):null;
   return windowPapers().filter(p=>{
@@ -1187,8 +1368,9 @@ function filtered(){
       ?(!state.gsec||sectorAssign(scheme,keyMap,p)===state.gsec)   // 方案激活＝自定义扇区过滤（含未分组扇区；topic 态随 kw 归属，规格书三共点外的第四处直呼一并收编）
       :(!state.jcat||(state.jcat===JCATS_LEGEND_MERGED.id?JCATS_LEGEND_MERGED.ids.includes(jcatOf(p)):jcatOf(p)===state.jcat));
     const collOk=!collKeys||collKeys.has(paperJournalKey(p));
+    const shelfOk=!shelfKeys||shelfKeys.has(paperJournalKey(p));
     const hay=[p.title_en,p.title_zh,p.journal_abbr,p.journal_full,p.pmid,p.nct_id,p.category_label].join(' ').toLowerCase();
-    return tierOk(p)&&journalOk(p)&&secOk&&quickOk&&collOk&&hay.includes(query);
+    return tierOk(p)&&journalOk(p)&&secOk&&quickOk&&collOk&&shelfOk&&hay.includes(query);
   }).sort((a,b)=>{
     const as=Number(a.score_total),bs=Number(b.score_total);
     const aScore=Number.isFinite(as)?as:-Infinity,bScore=Number.isFinite(bs)?bs:-Infinity;
@@ -1220,12 +1402,14 @@ function jcatUniverse(items){
 function jcatCounts(){
   const query=state.query.trim().toLowerCase();
   const collKeys=collectionFilterKeys();   // 合集激活时徽章同步扣除（与 filtered 同源，防列表/徽章分叉）
+  const shelfKeys=myJournalsFilterKeys();
   const counts=new Map();
   windowPapers().filter(p=>{
     const quickOk=state.quick==='all'||(state.quick==='nct'?Boolean(p.nct_id):designOf(p)===state.quick);
     const collOk=!collKeys||collKeys.has(String(p.journal_abbr||p.journal_full||'').toUpperCase());
+    const shelfOk=!shelfKeys||shelfKeys.has(paperJournalKey(p));
     const hay=[p.title_en,p.title_zh,p.journal_abbr,p.journal_full,p.pmid,p.nct_id,p.category_label].join(' ').toLowerCase();
-    return tierOk(p)&&journalOk(p)&&quickOk&&collOk&&hay.includes(query);
+    return tierOk(p)&&journalOk(p)&&quickOk&&collOk&&shelfOk&&hay.includes(query);
   }).forEach(p=>{const c=jcatOf(p);counts.set(c,(counts.get(c)||0)+1)});
   return counts;
 }
@@ -1273,9 +1457,13 @@ function renderWindow(){
   const start=isoDate(dateMs(ANCHOR)-(state.days-1)*DAY_MS);
   $('#window-label').textContent=`${t('data.window')} ${monthDay(start)} ~ ${monthDay(ANCHOR)} · ${state.days} ${t('unit.days')}`;
 }
+function shelfQueueEmptyMarkup(){
+  if(myJournalsStore.filterOn)return `<li class="queue-empty shelf-queue-empty">${t('queue.empty1')}<br><button type="button" class="shelf-empty-link" data-shelf-close-filter>${t('shelf.empty.close')}</button></li>`;
+  return `<li class="queue-empty">${t('queue.empty1')}<br>${t('queue.empty2')}</li>`;
+}
 function renderQueue(list){
   $('#filter-counter').textContent=`${String(list.length).padStart(2,'0')} / ${PAPERS.length}`;
-  if(!list.length){$('#queue-list').innerHTML=`<li class="queue-empty">${t('queue.empty1')}<br>${t('queue.empty2')}</li>`;return}
+  if(!list.length){$('#queue-list').innerHTML=shelfQueueEmptyMarkup();return}
   $('#queue-list').innerHTML=list.map((p,i)=>`<li class="queue-item ${state.read.has(p.id)?'read':''}">
     <button class="queue-btn ${state.selected===p.id?'selected':''}" data-select="${esc(p.id)}" aria-label="${tf('lock.aria',{t:esc(p.title_zh||p.title_en||'—')})}">
       <span class="queue-index">${state.read.has(p.id)?'✓':String(i+1).padStart(2,'0')}</span>
@@ -1338,8 +1526,12 @@ function renderScope(list,base,groups,counts,assignOf){
     const a=(-90+(i+.5)*sectorSize)*Math.PI/180,r=45.5,name=g.label.length>13?g.label.slice(0,12)+'…':g.label;
     return `<span class="scope-label" title="${esc(tf('sec.tip',{label:g.label,n:counts.get(g.cat)||0}))}" style="left:${50+Math.cos(a)*r}%;top:${50+Math.sin(a)*r}%">${esc(name)} · ${counts.get(g.cat)||0}</span>`;
   }).join('');
+  const shelfEmpty=myJournalsStore.filterOn&&!list.length;
+  const shelfFiltered=shelfEmpty&&windowPapers().some(p=>myJournalsStore.picks.includes(paperJournalKey(p)));
+  const shelfEmptyText=tf(shelfFiltered?'shelf.empty.filtered':'shelf.empty.scope',{n:myJournalsStore.picks.length,d:state.days});
   $('#scope-empty').classList.toggle('show',!list.length);
-  $('#scope-empty').innerHTML=!base.length?`${t('scope.empty.base')}<br>${t('scope.empty.base2')}`:`${t('scope.empty.none')}<br>${t('scope.empty.none2')}`;
+  $('#scope-empty').classList.toggle('shelf-empty',shelfEmpty);
+  $('#scope-empty').innerHTML=shelfEmpty?`${shelfEmptyText}<div class="shelf-empty-actions"><button type="button" class="shelf-empty-btn primary" data-shelf-close-filter>${t('shelf.empty.close')}</button><button type="button" class="shelf-empty-btn" data-shelf-add>${t('shelf.empty.add')}</button></div>`:!base.length?`${t('scope.empty.base')}<br>${t('scope.empty.base2')}`:`${t('scope.empty.none')}<br>${t('scope.empty.none2')}`;
   $('#hub-count').textContent=list.length;
 }
 function statusOf(p){
@@ -1442,7 +1634,7 @@ function render(){
   const scopeList=list.filter(p=>groupCats.has(assignOf(p)));
   const counts=keyMap?gsecCounts(scheme,keyMap):jcatCounts();
   if(list.length&&!list.some(p=>p.id===state.selected))state.selected=list[0].id;
-  renderWindow();renderTierFilters(base);renderQueue(list);renderJournalLegend(journals);renderJcatFolds(allGroups,counts);renderJcatLegend(counts);renderDesignLegend(list);renderScope(scopeList,scopeBase,groups,counts,assignOf);renderDetail(list);
+  renderWindow();renderMyJournalsFilter();renderTierFilters(base);renderQueue(list);renderJournalLegend(journals);renderJcatFolds(allGroups,counts);renderJcatLegend(counts);renderDesignLegend(list);renderScope(scopeList,scopeBase,groups,counts,assignOf);renderDetail(list);
   const readCount=PAPERS.filter(p=>state.read.has(p.id)).length;
   $('#read-count').textContent=`${String(readCount).padStart(2,'0')} / ${PAPERS.length}`;
   document.querySelectorAll('[data-quick]').forEach(btn=>btn.classList.toggle('active',btn.dataset.quick===state.quick));
@@ -1458,6 +1650,7 @@ function render(){
   renderCollections();   // 抽屉打开时同步列表徽章；关着时零开销
   renderSchemes();
   renderTopics();
+  renderMyJournals();
 }
 function selectPaper(id,scroll=false){
   if(!PAPERS.some(p=>p.id===id))return;
@@ -1473,6 +1666,12 @@ function toggleJournal(name){
   state.journal=state.journal===name?null:name;render();
 }
 document.addEventListener('click',event=>{
+  if(event.target.closest('[data-shelf-close-filter]')){if(setMyJournalsFilter(false))render();return}
+  if(event.target.closest('[data-shelf-add]')){
+    document.querySelector('[data-proto-view="personal"]').click();
+    document.querySelector('[data-proto-personal-tab="shelf"]').click();
+    return;
+  }
   const select=event.target.closest('[data-select]');
   if(select){selectPaper(select.dataset.select,true);return}
   const quick=event.target.closest('[data-quick]');
@@ -1519,6 +1718,7 @@ document.addEventListener('keydown',event=>{
   const isInput=tag==='INPUT'||tag==='TEXTAREA'||tag==='SELECT'||Boolean(t&&t.isContentEditable);
   if(event.key==='/'&&!isInput){event.preventDefault();$('#search').focus()}
   if(event.key==='Escape'){
+    if(!$('#pool-overlay').hidden){closePoolPanel();return}   // 池外题录面板最上层：ESC 随时可关（在途拉取作废）
     if(!$('#topic-overlay').hidden){if(!(runState&&runState.running))closeTopicOverlay();return}   // 结果覆盖层最上层；运行中 ESC 不关防误触中断
     if(!$('#coll-drawer').hidden){closeCollDrawer();return}   // 抽屉开着先关抽屉，不误清筛选
     state.query='';state.quick='all';state.journal=null;state.jcat=null;state.jcatFolded=new Set(JCAT_FOLDABLE);state.gsec=null;state.gsecFolded=new Set();state.tiers=new Set(TIERS);$('#search').value='';render();$('#search').blur();
@@ -1529,8 +1729,8 @@ document.addEventListener('keydown',event=>{
   }
 });
 // ===== 合集抽屉 UI（纯本地；无账号无云端，导出/导入＝手工 JSON 文件） =====
-let collEditingId=null,collSearch='',collRenameId=null;
-function openCollDrawer(){$('#coll-drawer').hidden=false;$('#coll-mask').hidden=false;renderCollections();renderSchemes();renderTopics()}
+let collEditingId=null,collSearch='',collRenameId=null,myJournalsSearch='',myJournalsMode='all',myJournalsTier=null;
+function openCollDrawer(){$('#coll-drawer').hidden=false;$('#coll-mask').hidden=false;renderCollections();renderSchemes();renderTopics();renderMyJournals()}
 function closeCollDrawer(){$('#coll-drawer').hidden=true;$('#coll-mask').hidden=true;collRenameId=null}
 function downloadCollections(){
   const blob=new Blob([exportCollectionsJSON()],{type:'application/json'});
@@ -1550,9 +1750,12 @@ function registryGroups(){
     g.items.push(r);
   });
   const out=[...order,merged,pending].filter(g=>g.items.length);
+  if(extStore.journals.length)out.push({cat:EXT_GROUP_CAT,label:t('ext.group'),badge:t('ext.badge'),items:extStore.journals.map(j=>({k:j.k,nlm:j.nlm}))});   // §2.2 尾组「池外 · 未分类」：条目形制同官方（k/nlm），徽章「未分类·池外」；不入 JCATS/官方阵地语义
   out.forEach(g=>g.items.sort((a,b)=>a.k.localeCompare(b.k)));
   return out;
 }
+const EXT_GROUP_CAT='__ext__';   // 池外尾组伪类目（编辑清单分组键；存储正则 ^g_ 不撞，做保留字）
+const groupBadgeLabel=g=>g.badge||jcatLabel(g.cat);
 function renderCollList(){
   const rows=[
     `<p class="coll-section-title">${t('sec.coll')}</p>`,
@@ -1588,7 +1791,37 @@ function renderCollEditor(){
   const groups=universe.map(g=>({...g,items:g.items.filter(r=>!q||r.k.toLowerCase().includes(q))})).filter(g=>g.items.length);
   el.innerHTML=`<p class="coll-section-title">${tf('coll.editor.title',{name:esc(editing.name),a:checked.size,b:total})}</p>
     <input class="coll-search" id="coll-search" type="search" placeholder="${t('coll.search.ph')}" value="${esc(collSearch)}" autocomplete="off">
-    ${groups.map(g=>`<div class="coll-group"><p class="coll-group-label"><span>${esc(g.label)}</span><span>${g.items.filter(r=>checked.has(r.k)).length} / ${g.items.length}</span></p>${g.items.map(r=>`<label class="coll-journal"><input type="checkbox" data-coll-check="${esc(r.k)}" data-coll-nlm="${esc(r.nlm||'')}" ${checked.has(r.k)?'checked':''}><span title="${esc(r.k)} · NLM ${esc(r.nlm||'—')}">${esc(r.k)}</span><span class="badge">${esc(jcatLabel(g.cat))}</span></label>`).join('')}</div>`).join('')||`<div class="coll-empty">${t('coll.none')}</div>`}`;
+    ${groups.map(g=>`<div class="coll-group"><p class="coll-group-label"><span>${esc(g.label)}</span><span>${g.items.filter(r=>checked.has(r.k)).length} / ${g.items.length}</span></p>${g.items.map(r=>`<label class="coll-journal"><input type="checkbox" data-coll-check="${esc(r.k)}" data-coll-nlm="${esc(r.nlm||'')}" ${checked.has(r.k)?'checked':''}><span title="${esc(r.k)} · NLM ${esc(r.nlm||'—')}">${esc(r.k)}</span><span class="badge">${esc(groupBadgeLabel(g))}</span></label>`).join('')}</div>`).join('')||`<div class="coll-empty">${t('coll.none')}</div>`}`;
+}
+function renderMyJournalsFilter(){
+  const on=myJournalsStore.filterOn,empty=!myJournalsStore.picks.length,btn=$('#myjournals-filter');
+  btn.classList.toggle('active',on);btn.classList.toggle('is-empty',empty);btn.setAttribute('aria-pressed',String(on));
+  $('#myjournals-filter-count').textContent=empty?t('shelf.pick'):`· ${myJournalsStore.picks.length}`;
+  const mobile=$('#shelf-mobile-status');mobile.hidden=!on;
+  mobile.innerHTML=on?`<span>${tf('shelf.mobile.status',{n:myJournalsStore.picks.length})}</span><button type="button" data-shelf-close-filter>${t('shelf.mobile.close')}</button>`:'';
+}
+function shelfTierMark(tier){
+  const tv=TIERS.includes(tier)?tier:'—';
+  return `<span class="badge shelf-tier" data-tier="${tv}" title="${t('tier.v4.title')}">${esc(tf('tier.mark',{n:tv}))}</span>`;
+}
+function renderMyJournals(){
+  const panel=$('#myjournals-panel');
+  if($('#coll-drawer').hidden||panel.hidden)return;   // 关闭或切到别的 tab 时零重拼
+  const q=myJournalsSearch.trim().toLowerCase(),picked=new Set(myJournalsStore.picks);
+  const rows=REGISTRY.map(r=>({...r,meta:shelfMetaFor(r)})).filter(r=>{
+    if(q&&!`${r.k} ${r.meta.title}`.toLowerCase().includes(q))return false;
+    if(myJournalsMode==='picked'&&!picked.has(r.k))return false;
+    return !myJournalsTier||r.meta.tier===myJournalsTier;
+  });
+  const markup=`<div class="shelf-head"><div class="shelf-head-main"><p class="shelf-eyebrow">${t('shelf.eyebrow')}</p><h3 class="shelf-title">${t('shelf.title')}</h3><p class="shelf-note">${t('shelf.hint')}</p></div><div class="shelf-head-side"><span class="shelf-local">${t('shelf.local')}</span><span class="shelf-summary">${tf('shelf.selected',{n:picked.size,N:REGISTRY.length})}</span></div></div>
+    <div class="shelf-toolbar"><label class="search shelf-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="myjournals-search" type="search" placeholder="${t('shelf.search.ph')}" value="${esc(myJournalsSearch)}" autocomplete="off" aria-label="${t('shelf.search.ph')}"></label><div class="shelf-segments" role="group" aria-label="${t('shelf.title')}"><button type="button" class="shelf-segment" data-shelf-view="all" aria-pressed="${myJournalsMode==='all'}">${t('shelf.all')}</button><button type="button" class="shelf-segment" data-shelf-view="picked" aria-pressed="${myJournalsMode==='picked'}">${tf('shelf.picked',{n:picked.size})}</button>${TIERS.map(tier=>`<button type="button" class="shelf-segment" data-shelf-tier="${tier}" aria-pressed="${myJournalsTier===tier}">${tier}</button>`).join('')}</div><button type="button" class="shelf-overview-btn" data-shelf-go-overview ${picked.size?'':'hidden'}>${t('shelf.go.overview')}</button></div>
+    <div class="shelf-list">${rows.map(r=>{
+      const on=picked.has(r.k),fullTitle=String(r.meta.title||r.k),mainTitle=fullTitle.split(' : ')[0];
+      return `<button type="button" class="shelf-journal ${on?'active':''}" data-shelf-toggle="${esc(r.k)}" aria-pressed="${on}" title="${esc(fullTitle)} · ${esc(r.k)} · NLM ${esc(r.nlm||'—')}"><span class="shelf-check" aria-hidden="true">${on?'<svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="m2 5.7 2.1 2.1L9 3.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>':''}</span><span class="shelf-journal-text"><b title="${esc(fullTitle)}">${esc(mainTitle)}</b><small>${esc(r.k)}</small></span>${shelfTierMark(r.meta.tier)}</button>`;
+    }).join('')||`<div class="coll-empty">${t('shelf.none')}</div>`}</div>`;
+  if(panel._shelfMarkup===markup)return;   // 同输出不重复拆建 197 行；内容/语言/收藏变化仍重拼
+  panel._shelfMarkup=markup;
+  panel.innerHTML=markup;
 }
 function renderCollections(){
   if($('#coll-drawer').hidden)return;   // 关着零开销：打开时才重拼
@@ -1620,6 +1853,38 @@ $('#coll-editor').addEventListener('input',event=>{
     renderCollEditor();
     const box=$('#coll-editor').querySelector('#coll-search');   // 重拼后焦点归还（光标回末位）
     if(box){box.focus();try{box.setSelectionRange(box.value.length,box.value.length)}catch(e){}}
+  }
+});
+$('#myjournals-filter').addEventListener('click',()=>{
+  if(!myJournalsStore.filterOn&&!myJournalsStore.picks.length){
+    setMyJournalsFilter(true);
+    document.querySelector('[data-proto-view="personal"]').click();
+    document.querySelector('[data-proto-personal-tab="shelf"]').click();
+    return;
+  }
+  if(setMyJournalsFilter(!myJournalsStore.filterOn))render();
+});
+$('#myjournals-panel').addEventListener('click',event=>{
+  const go=event.target.closest('[data-shelf-go-overview]');
+  if(go&&myJournalsStore.picks.length){if(setMyJournalsFilter(true))document.querySelector('[data-proto-view="overview"]').click();return}
+  const view=event.target.closest('[data-shelf-view]');
+  if(view){myJournalsMode=view.dataset.shelfView;renderMyJournals();return}
+  const tier=event.target.closest('[data-shelf-tier]');
+  if(tier){myJournalsTier=myJournalsTier===tier.dataset.shelfTier?null:tier.dataset.shelfTier;renderMyJournals();return}
+  const row=event.target.closest('[data-shelf-toggle]');
+  if(row){
+    const key=row.dataset.shelfToggle,restoreFocus=row.contains(document.activeElement);
+    event.stopPropagation();
+    toggleMyJournal(key);render();
+    if(restoreFocus){const next=[...document.querySelectorAll('#myjournals-panel [data-shelf-toggle]')].find(el=>el.dataset.shelfToggle===key);if(next)next.focus({preventScroll:true})}
+  }
+});
+$('#myjournals-panel').addEventListener('input',event=>{
+  if(event.target.id==='myjournals-search'){
+    const start=event.target.selectionStart,end=event.target.selectionEnd;
+    myJournalsSearch=event.target.value;renderMyJournals();
+    const box=$('#myjournals-search');
+    if(box){box.focus();try{box.setSelectionRange(start,end)}catch(e){}}
   }
 });
 $('#coll-open').addEventListener('click',()=>$('#coll-drawer').hidden?openCollDrawer():closeCollDrawer());
@@ -1769,11 +2034,11 @@ function renderSchemeEditor(){
     const groups=registryGroups().map(g=>({...g,items:g.items.filter(r=>!q||r.k.toLowerCase().includes(q))})).filter(g=>g.items.length);
     checkallGroups=groups;
     assignHtml=`<input class="coll-search" id="scheme-search" type="search" placeholder="${t('coll.search.ph')}" value="${esc(schemeSearch)}" autocomplete="off">
-      ${groups.map(g=>`<div class="coll-group"><p class="coll-group-label"><span><input type="checkbox" data-sec-checkall="${esc(g.cat)}"${g.items.every(r=>checked.has(r.k))?' checked':''} aria-label="${tf('sec.checkall.aria',{n:esc(g.label)})}"> ${esc(g.label)}</span><span>${g.items.filter(r=>checked.has(r.k)).length} / ${g.items.length}</span></p>${g.items.map(r=>`<label class="coll-journal"><input type="checkbox" data-sec-check="${esc(r.k)}" data-sec-nlm="${esc(r.nlm||'')}" ${checked.has(r.k)?'checked':''}><span title="${esc(r.k)} · NLM ${esc(r.nlm||'—')}">${esc(r.k)}</span>${owner.has(r.k)?`<span class="badge" title="${t('sec.owner.tip')}">← ${esc(owner.get(r.k))}</span>`:`<span class="badge">${esc(jcatLabel(g.cat))}</span>`}</label>`).join('')}</div>`).join('')||`<div class="coll-empty">${t('coll.none')}</div>`}`;
+      ${groups.map(g=>`<div class="coll-group"><p class="coll-group-label"><span><input type="checkbox" data-sec-checkall="${esc(g.cat)}"${g.items.every(r=>checked.has(r.k))?' checked':''} aria-label="${tf('sec.checkall.aria',{n:esc(g.label)})}"> ${esc(g.label)}</span><span>${g.items.filter(r=>checked.has(r.k)).length} / ${g.items.length}</span></p>${g.items.map(r=>`<label class="coll-journal"><input type="checkbox" data-sec-check="${esc(r.k)}" data-sec-nlm="${esc(r.nlm||'')}" ${checked.has(r.k)?'checked':''}><span title="${esc(r.k)} · NLM ${esc(r.nlm||'—')}">${esc(r.k)}</span>${owner.has(r.k)?`<span class="badge" title="${t('sec.owner.tip')}">← ${esc(owner.get(r.k))}</span>`:`<span class="badge">${esc(groupBadgeLabel(g))}</span>`}</label>`).join('')}</div>`).join('')||`<div class="coll-empty">${t('coll.none')}</div>`}`;
   }else{
     assignHtml=`<div class="coll-empty">${t('sec.assign.empty')}</div>`;
   }
-  el.innerHTML=`<p class="coll-section-title">${tf('scheme.editor.title',{name:esc(scheme.name),n:ordered.length})}</p>${sectorRows}<div class="coll-toolbar"><button class="coll-tool" data-sector-add>${t('sec.add')}</button></div>${cur?`<p class="coll-section-title">${tf('sec.assign.title',{name:esc(cur.name),n:checked.size})}</p>`:''}${assignHtml}${cur?topicWordsHtml(scheme,cur):''}`;
+  el.innerHTML=`<p class="coll-section-title">${tf('scheme.editor.title',{name:esc(scheme.name),n:ordered.length})}</p>${sectorRows}<div class="coll-toolbar"><button class="coll-tool" data-sector-add>${t('sec.add')}</button><button class="coll-tool" data-ext-toggle aria-expanded="${extPickerOpen}">${t('ext.add')}</button></div>${extPickerOpen?extPickerHtml():''}${cur?`<p class="coll-section-title">${tf('sec.assign.title',{name:esc(cur.name),n:checked.size})}</p>`:''}${assignHtml}${cur?topicWordsHtml(scheme,cur):''}`;
   if(checkallGroups)el.querySelectorAll('[data-sec-checkall]').forEach(box=>{   // 部分勾选＝indeterminate 态（DOM 属性，innerHTML 拼不进）
     const grp=checkallGroups.find(g=>g.cat===box.dataset.secCheckall);
     if(!grp)return;
@@ -1791,7 +2056,7 @@ function renderSchemeEditor(){
 function renderSchemes(){
   if($('#coll-drawer').hidden)return;   // 关着零开销：打开时才重拼
   const ae=document.activeElement;
-  if(ae&&(ae.id==='tw-add-include'||ae.id==='tw-add-exclude'))return;   // 主题词输入中：主循环重渲染不抢焦点不冲字（沿用主题编辑器焦点保护）
+  if(ae&&(ae.id==='tw-add-include'||ae.id==='tw-add-exclude'||ae.id==='ext-search'))return;   // 主题词/池外刊检索输入中：主循环重渲染不抢焦点不冲字（沿用主题编辑器焦点保护）
   renderSchemeList();renderSchemeEditor();
 }
 $('#scheme-list').addEventListener('click',event=>{
@@ -1810,6 +2075,16 @@ $('#scheme-list').addEventListener('click',event=>{
   if(edit){schemeEditingId=edit.dataset.schemeEdit;schemeEditingSector=null;schemeSearch='';sectorRenameId=null;twDraft=null;twHint='';twPreviewTopic=false;renderSchemes();return}
 });
 $('#scheme-editor').addEventListener('click',event=>{
+  const extToggle=event.target.closest('[data-ext-toggle]');
+  if(extToggle){extPickerOpen=!extPickerOpen;renderSchemes();const extBox=$('#ext-search');if(extBox)extBox.focus();return}   // §2.3 池外刊添加器开关（开＝焦点进检索框）
+  const extRec=event.target.closest('[data-ext-records]');
+  if(extRec){openPoolPanel(extRec.dataset.extRecords);return}   // 打开该刊题录面板（先渲缓存再后台刷新；面板不在重渲染链里，此处不 render）
+  const extRem=event.target.closest('[data-ext-remove]');
+  if(extRem&&confirm(t('confirm.ext'))){removeExtJournal(extRem.dataset.extRemove);render();renderAfterExtChange();return}   // 移除＝合集/方案内同名条目回「失效」，官方数据零影响
+  const extPickBtn=event.target.closest('[data-ext-pick]');
+  if(extPickBtn){const c=extPick.candidates[Number(extPickBtn.dataset.extPick)];if(c&&!extDupState(c).dup){extPick.confirm=c;renderExtCandidates()}return}   // 点选→确认卡（重名者按钮已禁用，此处再兜一道）
+  if(event.target.closest('[data-ext-cancel]')){extPick.confirm=null;renderExtCandidates();return}
+  if(event.target.closest('[data-ext-confirm]')){confirmExtPick();return}
   const box=event.target.closest('[data-sec-check]');
   if(box){event.preventDefault();assignJournal(schemeEditingId,schemeEditingSector,{k:box.dataset.secCheck,nlm:box.dataset.secNlm||null});render();return}
   const twall=event.target.closest('[data-sec-checkall]');
@@ -1851,6 +2126,7 @@ $('#scheme-editor').addEventListener('click',event=>{
   }
 });
 $('#scheme-editor').addEventListener('input',event=>{
+  if(event.target.id==='ext-search'){extSearchText=event.target.value;extSearchDebounced();return}   // 池外刊检索：只写内存＋防抖（§2.3 800ms），不重拼不冲字
   if(event.target.id==='scheme-search'){
     schemeSearch=event.target.value;
     renderSchemeEditor();
@@ -1861,6 +2137,7 @@ $('#scheme-editor').addEventListener('input',event=>{
 $('#scheme-editor').addEventListener('keydown',event=>{   // 主题词 Enter 暂存（input 事件不携 Enter，须键层接）
   if(event.key!=='Enter')return;
   const id=event.target.id;
+  if(id==='ext-search'){event.preventDefault();extSearchDebounced.now();return}   // 池外刊检索框 Enter＝立即检索（不等防抖）
   if(id!=='tw-add-include'&&id!=='tw-add-exclude')return;
   event.preventDefault();
   twAddWord(id==='tw-add-include'?'include':'exclude',event.target.value);
@@ -1968,17 +2245,93 @@ async function tFetch(url,opts,signal){
     throw e;
   }
 }
-// ----- PubMed E-utilities（浏览器现场直连；reldate 回看窗，sort=date，retmax=cap） -----
+// ----- pubmedGate（个性化纵深 P3 §5）：全站浏览器 eutils 调用走同一顺序队列——页内 Promise 尾链串行，跨标签页 Web Locks 互斥 -----
+// 间接口径沿用原手工 sleep：上一请求收尾后 ≥PUBMED_THROTTLE_MS 才发下一个。保证方式＝「收尾后在锁内静默满 3s 才放锁，放锁才轮到下一个」，
+// 不依赖跨标签页共享时间戳（localStorage 写入对别的标签页可见有延迟：实测后持锁者读到旧值，相邻请求只隔 ~310ms）。
+// 429/503＝指数退避 3→6→12s（±20% 抖动）上限 3 次，超限抛 GateError（调用方整批失败走回退文案，不落半截结果）。
+// 无 navigator.locks（非安全上下文等）静默降级为单标签页队列（跨标签页只剩盘上戳作下界兜底）。AI 调用与站内 data/ 取数不是 eutils，不入队。
+const GATE_BACKOFF_MS=[3000,6000,12000],GATE_LOCK='thoradar-eutils-gate',GATE_STAMP='thoradar.eutils.lastdone.v1',GATE_TIMEOUT_MS=20000;
+let gateTail=Promise.resolve(),gateLastDone=0;
+class GateError extends Error{constructor(){super(tf('err.gate',{n:String(GATE_BACKOFF_MS.length)}))}}
+function gateWaitMs(){   // 距「已知最近一次收尾」的剩余间隔（本页内存与盘上戳取较新者；夹上限＝时钟回拨/坏戳不许把等待放大）
+  let done=NaN;
+  try{done=Number(localStorage.getItem(GATE_STAMP))}catch(e){done=NaN}
+  if(!(Number.isFinite(done)&&done>gateLastDone))done=gateLastDone;
+  return Math.max(0,Math.min(PUBMED_THROTTLE_MS,done+PUBMED_THROTTLE_MS-Date.now()));
+}
+function gateStamp(){   // 记收尾时刻：本页内存恒写；盘上尽力写（只供无锁降级路径、以及持锁页中途被关时的别的标签页作下界参考）
+  gateLastDone=Date.now();
+  try{localStorage.setItem(GATE_STAMP,String(gateLastDone))}catch(e){}
+}
+const gateSleep=ms=>new Promise(resolve=>setTimeout(resolve,Math.max(0,ms)));   // 不可打断的等待（静默期用）
+function gatePause(ms,signal){return signal?sleepAbortable(ms,signal):gateSleep(ms)}   // 可被停止打断的等待（退避用；无停止信号＝直呼探针等）
+function gateSignal(signal){   // 锁内请求须有界：悬挂的 fetch 会攥着跨标签页锁不放 → 20s 兜底；旧浏览器无 AbortSignal.timeout 则沿用现状（无超时）
+  if(typeof AbortSignal==='undefined'||typeof AbortSignal.timeout!=='function'||typeof AbortSignal.any!=='function')return {signal,timedOut:false};
+  const timeout=AbortSignal.timeout(GATE_TIMEOUT_MS),ctl={signal,timedOut:false};
+  timeout.addEventListener('abort',()=>{ctl.timedOut=true},{once:true});
+  ctl.signal=signal?AbortSignal.any([signal,timeout]):timeout;
+  return ctl;
+}
+async function gateAttempt(url,signal){
+  for(let attempt=0;;attempt++){
+    if(signal&&signal.aborted)throw new StopError();
+    let res,ctl;
+    try{ctl=gateSignal(signal);res=await fetch(url,{method:'GET',signal:ctl.signal})}
+    catch(e){
+      gateStamp();   // 失败也记账：请求已发出就占 NCBI 的额度——断网／跨域／超时／被停止同样从收尾起静默满间隔；不记＝静默期按旧戳算成 0、下一请求抢跑
+      if(ctl.timedOut)throw new TransportError('net');
+      if((signal&&signal.aborted)||e instanceof StopError||(e&&e.name==='AbortError'))throw new StopError();
+      if(e instanceof TypeError)throw new TransportError('cors');
+      throw e;
+    }
+    gateStamp();
+    if(res.ok)return res;
+    if(res.status!==429&&res.status!==503)return res;   // 其余状态码原样交调用方出文案（err.pubmed.search／err.pubmed.fetch）
+    if(attempt>=GATE_BACKOFF_MS.length)throw new GateError();
+    try{await res.text()}catch(e){}   // 排空失败响应体再退避
+    await gatePause(Math.round(GATE_BACKOFF_MS[attempt]*(0.8+Math.random()*0.4)),signal);   // ±20% 抖动：同出口多标签页不齐步重试
+  }
+}
+function gateTurn(url,signal){   // 一轮请求：result＝应答一到就结算（调用方不等静默期）；quiet＝收尾后静默满 PUBMED_THROTTLE_MS 才走完
+  let answer;
+  const result=new Promise((resolve,reject)=>{answer={resolve,reject}});
+  const critical=async()=>{   // 临界区：等间隔→发请求（含退避重试）→应答即结算→静默满间隔才返回
+    try{await gateSleep(gateWaitMs());answer.resolve(await gateAttempt(url,signal))}
+    catch(e){answer.reject(e)}
+    await gateSleep(gateLastDone+PUBMED_THROTTLE_MS-Date.now());   // 不被停止打断：这是留给 NCBI 的间隔，提前放行＝下一个请求抢跑
+  };
+  const locks=navigator.locks;
+  let quiet;
+  try{quiet=locks&&typeof locks.request==='function'?locks.request(GATE_LOCK,critical):critical()}   // 有锁＝静默期在锁内，别的标签页排不进来；无锁＝页内链已串行
+  catch(e){answer.reject(e);quiet=Promise.resolve()}
+  quiet.catch(e=>{answer.reject(e)});   // 锁本身出故障也不许把调用方挂死
+  return {result,quiet};
+}
+function gateAnswer(result,signal){   // 停止即刻回给调用方（排队/静默期里不让 UI 干等）；请求本体仍在队列里走到自己那一轮才短路
+  if(!signal)return result;
+  let onAbort;
+  const stopped=new Promise((_,reject)=>{onAbort=()=>reject(new StopError());signal.addEventListener('abort',onAbort,{once:true})});
+  if(signal.aborted)onAbort();
+  return Promise.race([result,stopped]).finally(()=>signal.removeEventListener('abort',onAbort));
+}
+function pubmedGate(url,signal){   // 入队即回 Promise（Response 或抛 GateError／TransportError／StopError）
+  let resolve,reject;
+  const answer=new Promise((res,rej)=>{resolve=res;reject=rej});   // 先立应答口再入队：轮到本请求时把应答转给调用方
+  const job=()=>{const run=gateTurn(url,signal);run.result.then(resolve,reject);return run.quiet.catch(()=>{})};
+  gateTail=gateTail.then(job,job);   // 页内顺序队列：上一轮「收尾＋静默期」走完，下一轮才起跑；前任失败不断链
+  return gateAnswer(answer,signal);
+}
+// ----- PubMed E-utilities（浏览器现场直连；reldate 回看窗，sort=date，retmax=cap；一律经 pubmedGate，间隔不再手工 sleep） -----
 async function esearchPubmed(topic,signal){
   const url=`${PUBMED_BASE}esearch.fcgi?db=pubmed&term=${encodeURIComponent(topic.query)}&reldate=${topic.days}&retmax=${topic.cap}&retmode=json&sort=date`;
-  const res=await tFetch(url,{method:'GET'},signal);
+  const res=await pubmedGate(url,signal);
   if(!res.ok)throw new Error(tf('err.pubmed.search',{s:res.status}));
   const data=await res.json();
   return data&&data.esearchresult&&Array.isArray(data.esearchresult.idlist)?data.esearchresult.idlist.map(String):[];
 }
 async function efetchPubmed(pmids,signal){
   const url=`${PUBMED_BASE}efetch.fcgi?db=pubmed&id=${pmids.map(encodeURIComponent).join(',')}&retmode=xml`;
-  const res=await tFetch(url,{method:'GET'},signal);
+  const res=await pubmedGate(url,signal);
   if(!res.ok)throw new Error(tf('err.pubmed.fetch',{s:res.status}));
   return parsePubmedXML(await res.text());
 }
@@ -2088,8 +2441,7 @@ async function runTopic(topicId){
     runState.fetched=pmids.length;
     runState.phase=t('phase.fetch');
     renderTopicOverlay();
-    await sleepAbortable(PUBMED_THROTTLE_MS,abort.signal);
-    const articles=await efetchPubmed(pmids,abort.signal);
+    const articles=await efetchPubmed(pmids,abort.signal);   // 与 esearch 的 ≥3s 间隔已迁入 pubmedGate（P3 §5）；下方两处 AI 批次节拍 sleep 非 eutils，原样保留
     const byPmid=new Map(articles.map(a=>[a.pmid,a]));
     const ordered=pmids.map(id=>byPmid.get(id)).filter(Boolean);   // 以 esearch 序为准（sort=date 相关序）
     pmids.forEach(id=>{if(!byPmid.has(id))ordered.push({pmid:id,title:t('record.missing'),abstract:'',journal:'',date:''})});
@@ -2270,6 +2622,215 @@ function bindTopicUI(){
   $('#topic-mask').addEventListener('click',closeTopicOverlay);
 }
 bindTopicUI();
+// ===== 池外刊 P3（个性化纵深 §2.3／§5／§1.6）：NLM 目录确认入册＋按需题录面板＋poolcache =====
+// 边界（§7 机器禁区）：池外论文只存在于 poolcache 与本面板——不进 PAPERS／雷达盘／队列；公共管线、引擎、官方名册钉表、官方九阵地零动。
+// 真样本校正（2026-11-24 实测 NLM catalog）：①缩写须查 [Title Abbreviation]（[Title] 输缩写＝0 命中、输全名按刊名排目标常不在前 8）；
+// ②esummary 的 uid≠NLM ID（Ann Thorac Surg：uid 20795／nlmuniqueid 15030100R＝官方名册值），isoabbreviation 恒空→缩写取 medlineta。
+const LS_POOLCACHE='thoradar.poolcache.v1';
+const POOL_RELDAYS=30,POOL_MAX=50,POOL_EFETCH_CHUNK=25,POOL_ABS_MAX=300,POOL_CACHE_MS=24*60*60*1000;   // §5：近 30 天·retmax 50·50 id 拆 2×25；§1.6：24h
+const EXT_SEARCH_DEBOUNCE_MS=800,EXT_QUERY_MIN=2,EXT_CAND_MAX=8,EXT_TITLE_FETCH_MAX=20;                  // §2.3：防抖 800ms、候选 ≤8；题名兜底多取 20 供客户端排序
+function sanitizePoolCache(raw,validNlm){   // §1.6 {v:1,byNlm:{nlm:{at,until,total,pmids,items}}}：坏件剪、条目夹 50、未入册刊的缓存剪（该存的才存）
+  const out={v:1,byNlm:Object.create(null)};   // 无原型字典：键来自盘上，不许原型链上的名字（constructor 等）冒充缓存
+  if(!raw||raw.v!==1||!raw.byNlm||typeof raw.byNlm!=='object')return out;
+  Object.keys(raw.byNlm).forEach(nlm=>{
+    const c=raw.byNlm[nlm];
+    if(!EXT_NLM_RE.test(nlm)||!validNlm.has(nlm)||!c||typeof c!=='object'||!Number.isFinite(Number(c.at))||!Number.isFinite(Number(c.until)))return;
+    const pmids=(Array.isArray(c.pmids)?c.pmids:[]).map(x=>String(x).replace(/\D/g,'').slice(0,16)).filter(Boolean).slice(0,POOL_MAX);
+    const items=(Array.isArray(c.items)?c.items:[]).slice(0,POOL_MAX).map(it=>({pmid:String(it&&it.pmid||'').replace(/\D/g,'').slice(0,16),title:String(it&&it.title||'').slice(0,500),journal:String(it&&it.journal||'').slice(0,160),date:String(it&&it.date||'').slice(0,32),abstract:String(it&&it.abstract||'').slice(0,POOL_ABS_MAX)})).filter(it=>it.pmid);
+    out.byNlm[nlm]={at:Number(c.at),until:Number(c.until),total:Number.isFinite(Number(c.total))?Number(c.total):pmids.length,pmids,items};
+  });
+  return out;
+}
+function loadPoolCache(){try{return sanitizePoolCache(JSON.parse(localStorage.getItem(LS_POOLCACHE)||'null'),new Set(extStore.journals.map(j=>j.nlm)))}catch(e){return sanitizePoolCache(null,new Set())}}
+let poolCache=loadPoolCache();
+function poolCachePersist(){   // 落盘：配额吃紧时丢最旧刊的缓存重试（面板本次照常显示，只是那刊下次要重拉）；再败＝放弃本次落盘不抛出
+  for(let i=0;i<4;i++){
+    try{localStorage.setItem(LS_POOLCACHE,JSON.stringify(poolCache));return true}
+    catch(e){
+      const oldest=Object.keys(poolCache.byNlm).map(n=>[n,poolCache.byNlm[n].at]).sort((a,b)=>a[1]-b[1])[0];
+      if(!oldest)return false;
+      delete poolCache.byNlm[oldest[0]];
+    }
+  }
+  return false;
+}
+async function eutilsJSON(url,signal,errKey){   // eutils JSON 取回（经 pubmedGate）：非 2xx 按调用方文案出错
+  const res=await pubmedGate(url,signal);
+  if(!res.ok)throw new Error(tf(errKey,{s:res.status}));
+  return res.json();
+}
+function eutilsSearch(data){   // esearch JSON→idlist。应用层报错＝HTTP 200＋ERROR 字段（2026-11-25 真样本：db 名写错时 eutils 回 200＋「Invalid db name specified」）：有 ERROR 而 0 命中＝报错，不许当「0 命中」缓存 24h
+  const e=data&&data.esearchresult,list=e&&e.idlist;
+  if(!Array.isArray(list)||(e.ERROR&&!list.length))throw new Error(tf('err.ncbi',{m:String(e&&e.ERROR||data&&data.error||'esearch')}));
+  return list.map(String).filter(Boolean);
+}
+const extNorm=s=>String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+function nlmCandidateOf(rec){   // NLM catalog esummary 记录→候选；只收连续出版物（图书等目录记录不入册）；无 medlineta 的刊 k 退题名
+  if(!rec||typeof rec!=='object')return null;
+  const resources=Array.isArray(rec.resourceinfolist)?rec.resourceinfolist:[];
+  if(resources.some(x=>x&&x.typeofresource&&x.typeofresource!=='Serial'))return null;
+  const nlm=String(rec.nlmuniqueid||'').trim();
+  const title=String((Array.isArray(rec.titlemainlist)&&rec.titlemainlist[0]&&rec.titlemainlist[0].title)||'').trim().replace(/[.\s]+$/,'');
+  const ta=String(rec.medlineta||rec.isoabbreviation||'').trim();
+  let issn='',essn='';
+  (Array.isArray(rec.issnlist)?rec.issnlist:[]).forEach(x=>{
+    const v=String(x&&x.issn||'').trim();
+    if(!/^\d{4}-\d{3}[\dXx]$/.test(v))return;
+    if(x.issntype==='Print'){if(!issn)issn=v}else if(!essn)essn=v;
+  });
+  const k=(ta||title).toUpperCase().slice(0,120);
+  if(!EXT_NLM_RE.test(nlm)||!k)return null;
+  return {k,nlm,title:title.slice(0,300),isoabbr:ta.slice(0,160),issn:issn||essn,essn};
+}
+async function searchNlmCatalog(q,signal){   // §5 期刊确认：缩写字段先查（真样本＝精确命中）→未中退题名字段→esummary；客户端按「缩写全等→题名起首→题名包含」排序出候选 ≤8
+  const base=`${PUBMED_BASE}esearch.fcgi?db=nlmcatalog&retmode=json&term=`;
+  const idsOf=async field=>{
+    const data=await eutilsJSON(`${base}${encodeURIComponent(q+field)}&retmax=${field==='[Title]'?EXT_TITLE_FETCH_MAX:EXT_CAND_MAX}`,signal,'err.nlm.search');
+    return eutilsSearch(data);   // 应用层报错（HTTP 200＋ERROR）在此抛出＝失败文案，不落到「无匹配期刊」
+  };
+  let ids=await idsOf('[Title Abbreviation]');
+  if(!ids.length)ids=await idsOf('[Title]');
+  if(!ids.length)return [];
+  const data=await eutilsJSON(`${PUBMED_BASE}esummary.fcgi?db=nlmcatalog&id=${ids.map(encodeURIComponent).join(',')}&retmode=json`,signal,'err.nlm.summary');
+  const result=data&&data.result;
+  if(!result||typeof result!=='object')throw new Error(tf('err.ncbi',{m:String((data&&Array.isArray(data.esummaryresult)&&data.esummaryresult[0])||(data&&data.error)||'esummary')}));   // 应用层报错形制（2026-11-25 真样本）：无效 db＝HTTP 200＋esummaryresult:["Invalid db name…"]
+  const uids=Array.isArray(result.uids)?result.uids:ids,recs=uids.map(uid=>nlmCandidateOf(result[uid])).filter(Boolean);
+  if(!recs.length){const bad=uids.map(id=>result[id]&&result[id].error).find(Boolean);if(bad)throw new Error(tf('err.ncbi',{m:String(bad)}))}   // 逐条报错（真样本：{"uid":…,"error":"cannot get document summary"}）＝失败文案，不当「无匹配期刊」
+  const nq=extNorm(q);
+  return recs
+    .map((c,i)=>({c,i,rank:extNorm(c.isoabbr)===nq?0:extNorm(c.title).startsWith(nq)?1:extNorm(c.title).includes(nq)?2:3}))
+    .sort((a,b)=>a.rank-b.rank||a.i-b.i).map(x=>x.c).slice(0,EXT_CAND_MAX);
+}
+let extPickerOpen=false,extSearchText='',extPickSeq=0,extSearchAbort=null,extPick={status:'idle',error:'',candidates:[],confirm:null};
+async function runExtSearch(raw){
+  const q=String(raw||'').replace(/[\[\](){}<>"']/g,' ').replace(/\s+/g,' ').trim();   // 剥检索式语法字符：用户输入只当检索词，不许自带字段标签/布尔符
+  if(extSearchAbort)extSearchAbort.abort();   // 新一轮起跑＝上一轮在途作废（排队未发的那种到号即短路，不占配额）
+  const mine=++extPickSeq;
+  extPick={status:'idle',error:'',candidates:[],confirm:null};
+  if(q.length<EXT_QUERY_MIN){renderExtCandidates();return}
+  const abort=new AbortController();
+  extSearchAbort=abort;extPick.status='searching';renderExtCandidates();
+  try{
+    const list=await searchNlmCatalog(q,abort.signal);
+    if(mine!==extPickSeq)return;   // 迟到响应不认（已被新一轮取代）
+    extPick.status='done';extPick.candidates=list;
+  }catch(e){
+    if(mine!==extPickSeq)return;
+    extPick.status=e instanceof StopError||abort.signal.aborted?'idle':'error';
+    extPick.error=extPick.status==='error'?(e&&e.message?e.message:String(e)):'';
+  }
+  renderExtCandidates();
+}
+const extSearchDebounced=makeDebounced(()=>{runExtSearch(extSearchText)},EXT_SEARCH_DEBOUNCE_MS);
+function extCandidatesHtml(){   // 候选区四态：确认卡／检索中／失败文案／候选清单（重名者标「已存在」且不可选）
+  const c=extPick.confirm;
+  if(c)return `<div class="tr-card" id="ext-confirm"><p class="tr-meta">NLM ${esc(c.nlm)} · ${t('ext.abbr')} ${esc(c.isoabbr||'—')}${c.issn?` · ISSN ${esc(c.issn)}`:''}${c.essn&&c.essn!==c.issn?` · e-ISSN ${esc(c.essn)}`:''}</p><p class="ext-title">${esc(c.title||c.k)}</p><div class="coll-toolbar"><button class="coll-tool" data-ext-confirm>${t('ext.confirm')}</button><button class="coll-tool" data-ext-cancel>${t('op.cancel')}</button></div></div>`;
+  if(extPick.status==='searching')return `<p class="tr-phase">${t('ext.searching')}</p>`;
+  if(extPick.status==='error')return `<p class="ai-hint">${esc(extPick.error)}</p>`;
+  if(extPick.status!=='done')return '';
+  const rows=extPick.candidates.map((c,i)=>{
+    const dup=extDupState(c),label=dup.dup?tf(dup.dup==='official'?'ext.dup.official':'ext.dup.ext',{k:dup.k}):t('ext.pick');
+    return `<div class="coll-row"><button class="coll-row-main" data-ext-pick="${i}"${dup.dup?' disabled':''} title="${esc(dup.dup?label:t('ext.pick.title'))}"><b>${esc(c.isoabbr||c.k)}</b><small>${esc(c.title)} · NLM ${esc(c.nlm)}</small></button><span class="badge${dup.dup?' stale':''}">${esc(label)}</span></div>`;
+  }).join('');
+  return `<div class="ext-cand">${rows||`<div class="coll-empty">${t('ext.none')}</div>`}</div>`;
+}
+function renderExtCandidates(){const box=$('#ext-candidates');if(box)box.innerHTML=extCandidatesHtml()}
+function extPickerHtml(){   // §2.3 池外刊添加器（挂指派区工具条下）：已入册清单（题录／移除）＋NLM 目录检索框＋候选/确认卡
+  const rows=extStore.journals.map(j=>`<div class="coll-row"><div class="coll-row-main"><b>${esc(j.k)}</b><small title="${esc(j.title)}">${esc(j.title||j.k)} · NLM ${esc(j.nlm)}</small></div><span class="badge">${t('ext.badge')}</span><span class="coll-row-ops"><button class="coll-op" data-ext-records="${esc(j.nlm)}" title="${t('ext.records.title')}">${t('ext.records')}</button><button class="coll-op danger" data-ext-remove="${esc(j.nlm)}">${t('ext.remove')}</button></span></div>`).join('');
+  return `<div id="ext-picker" class="ext-picker"><p class="coll-section-title">${tf('ext.list.title',{n:extStore.journals.length})}</p>${rows||`<div class="coll-empty">${t('ext.list.empty')}</div>`}<input class="coll-search" id="ext-search" type="search" placeholder="${t('ext.search.ph')}" value="${esc(extSearchText)}" autocomplete="off" aria-label="${t('ext.search.aria')}"><div id="ext-candidates">${extCandidatesHtml()}</div><p class="ai-note">${t('ext.hint')}</p></div>`;
+}
+function confirmExtPick(){   // 确认卡→入册：重名拒收（提示已存在）；成功清检索态并整页重渲（尾组/徽章/失效数即时跟上）
+  const c=extPick.confirm;
+  if(!c)return;
+  const res=addExtJournal(c);
+  if(!res.ok){showToast(res.reason==='official'?tf('ext.dup.official',{k:res.k}):t('ext.dup'));return}
+  extPick={status:'idle',error:'',candidates:[],confirm:null};extSearchText='';
+  showToast(tf('ext.added',{k:res.k}));
+  render();renderAfterExtChange();
+}
+function renderAfterExtChange(){   // 名册变了：尾组/徽章/失效数/已入册清单都要跟上。检索框有焦点时主循环会跳过方案编辑器（防冲字），故显式重拼并把焦点还回检索框
+  const keepFocus=document.activeElement&&document.activeElement.id==='ext-search';
+  renderSchemeEditor();
+  if(keepFocus){const box=$('#ext-search');if(box){box.focus();try{box.setSelectionRange(box.value.length,box.value.length)}catch(e){}}}
+}
+function poolJournalTerm(j){return j.isoabbr||j.issn||j.title}   // PubMed [Journal] 检索键（§5 isoabbr 优先；无 medlineta 的刊退 ISSN/题名——空检索键会把检索式打烂）
+async function fetchPoolRecords(j,signal){   // 打开面板才拉（§5）：esearch（edat 近 30 天·retmax 50·sort=date）→efetch 复用 efetchPubmed，50 id 拆 2×25；任一步失败＝整批失败（不落半截缓存）
+  const data=await eutilsJSON(`${PUBMED_BASE}esearch.fcgi?db=pubmed&term=${encodeURIComponent(poolJournalTerm(j)+'[Journal]')}&datetype=edat&reldate=${POOL_RELDAYS}&retmax=${POOL_MAX}&retmode=json&sort=date`,signal,'err.pubmed.search');
+  const e=data&&data.esearchresult,pmids=eutilsSearch(data).slice(0,POOL_MAX);   // 应用层报错（HTTP 200＋ERROR）在此抛出＝整批失败走回退文案，不当「近 30 天 0 篇」缓存
+  const items=[];
+  for(let i=0;i<pmids.length;i+=POOL_EFETCH_CHUNK){
+    const arts=await efetchPubmed(pmids.slice(i,i+POOL_EFETCH_CHUNK),signal);
+    arts.forEach(a=>items.push({pmid:String(a.pmid),title:String(a.title||'').slice(0,500),journal:String(a.journal||'').slice(0,160),date:String(a.date||'').slice(0,32),abstract:String(a.abstract||'').slice(0,POOL_ABS_MAX)}));
+  }
+  if(pmids.length&&!items.length)throw new Error(tf('err.ncbi',{m:'efetch'}));   // 有检索命中却一条都取不回＝取回失败，不落「0 篇」缓存（efetch 报错实测走 HTTP 400 已在上游抛出；此处兜「200＋错误体」）
+  const order=new Map(pmids.map((id,i)=>[id,i]));
+  items.sort((a,b)=>(order.get(a.pmid)??1e9)-(order.get(b.pmid)??1e9));   // 以 esearch 序为准（sort=date 新→旧）
+  const at=Date.now();
+  return {at,until:at+POOL_CACHE_MS,total:Number.isFinite(Number(e&&e.count))?Number(e.count):pmids.length,pmids,items:items.slice(0,POOL_MAX)};
+}
+let poolView=null;   // 题录面板单例：{nlm,journal,abort,loading,failed,stopped,fresh,items,at,total}；null＝面板关着
+function openPoolPanel(nlm){   // 先渲缓存再后台刷新（§5）：24h 内命中＝秒开零请求；陈旧/无缓存＝后台拉取
+  const j=extByNlm(nlm);
+  if(!j)return;
+  if(poolView&&poolView.abort)poolView.abort.abort();   // 换刊/重开：上一轮在途拉取作废（不许回写新面板）
+  const cached=poolCache.byNlm[j.nlm]||null;
+  poolView={nlm:j.nlm,journal:j,abort:null,loading:false,failed:'',stopped:false,items:cached?cached.items:[],at:cached?cached.at:0,total:cached?cached.total:0,fresh:Boolean(cached&&cached.until>Date.now()),trigger:document.activeElement};
+  $('#pool-overlay').hidden=false;$('#pool-mask').hidden=false;
+  renderPoolPanel();
+  $('#pool-close').focus();
+  if(!poolView.fresh)refreshPool();
+}
+async function refreshPool(){   // 后台拉取：成功＝整批落缓存并重渲；失败＝保留旧结果＋失败文案（断网不空盘）；面板已关/已换刊＝在途作废且不许回写
+  const view=poolView;
+  if(!view||view.loading)return;
+  const abort=new AbortController();
+  view.abort=abort;view.loading=true;view.failed='';view.stopped=false;
+  renderPoolPanel();
+  try{
+    const data=await fetchPoolRecords(view.journal,abort.signal);
+    if(poolView!==view)return;
+    poolCache.byNlm[view.nlm]=data;poolCachePersist();
+    view.items=data.items;view.at=data.at;view.total=data.total;view.fresh=true;
+  }catch(e){
+    if(poolView!==view)return;
+    view.stopped=e instanceof StopError||abort.signal.aborted;
+    if(!view.stopped)view.failed=e&&e.message?e.message:String(e);
+  }
+  view.loading=false;view.abort=null;
+  if(poolView===view)renderPoolPanel();
+}
+function closePoolPanel(){
+  const trigger=poolView&&poolView.trigger;
+  if(poolView&&poolView.abort)poolView.abort.abort();
+  poolView=null;
+  $('#pool-overlay').hidden=true;$('#pool-mask').hidden=true;
+  if(trigger&&trigger.isConnected&&trigger.focus)trigger.focus();
+}
+function renderPoolPanel(){
+  const view=poolView;
+  if(!view||$('#pool-overlay').hidden)return;
+  const el=$('#pool-body'),keepScroll=el.scrollTop,j=view.journal,stamp=view.at?new Date(view.at).toLocaleString():'';
+  const official=new Set(PAPERS.map(paperKey));
+  const inPool=view.items.filter(it=>official.has(it.pmid)),shown=view.items.filter(it=>!official.has(it.pmid));   // PMID 去重（§5）：与官方 PAPERS 撞者标「已在官方池」不重复展示题录（比对当前已加载官方集合，不落缓存）
+  $('#pool-title').textContent=j.title||j.k;
+  $('#pool-stats').textContent=tf('pool.stats',{d:POOL_RELDAYS,a:shown.length,t:view.total||shown.length});
+  const btn=$('#pool-refresh');
+  btn.textContent=view.loading?t('stop.btn'):t('pool.refresh');
+  btn.title=view.loading?t('pool.stop.title'):t('pool.refresh.title');
+  const parts=[`<p class="tr-meta">${esc(j.isoabbr||j.k)} · NLM ${esc(j.nlm)}${j.issn?` · ISSN ${esc(j.issn)}`:''}</p>`];
+  if(view.failed)parts.push(`<div class="tr-error">${esc(view.at?tf('pool.offline',{ts:stamp,m:view.failed}):tf('pool.failed',{m:view.failed}))}</div>`);
+  if(view.loading)parts.push(`<p class="tr-phase">${t('pool.phase')}</p>`);
+  else if(view.stopped)parts.push(`<div class="tr-note">${t('pool.stopped')}</div>`);
+  else if(view.at)parts.push(`<div class="tr-note">${esc(view.fresh?tf('pool.fresh',{ts:stamp}):tf('pool.stale',{ts:stamp}))}</div>`);
+  if(inPool.length)parts.push(`<div class="tr-note">${tf('pool.inpool',{n:inPool.length})}PMID ${inPool.map(it=>esc(it.pmid)).join(' · ')}</div>`);
+  if(shown.length)parts.push(`<div class="tr-list">${shown.map(it=>`<article class="tr-card"><div class="tr-card-top"><a class="tr-title" href="${TOPIC_RUN_URL}${encodeURIComponent(it.pmid)}/" target="_blank" rel="noopener">${esc(it.title||`PMID ${it.pmid}`)}</a></div><p class="tr-meta">${esc(it.journal||t('j.unknown'))} · ${esc(it.date||t('d.unknown'))} · PMID ${esc(it.pmid)}</p>${it.abstract?`<p class="tr-why pl-abs">${esc(it.abstract)}</p>`:''}</article>`).join('')}</div>`);
+  else if(!view.loading&&!view.failed&&!inPool.length)parts.push(`<div class="coll-empty">${view.at?t('pool.empty'):t('pool.none')}</div>`);
+  el.innerHTML=parts.join('');
+  el.scrollTop=keepScroll;
+}
+$('#pool-close').addEventListener('click',closePoolPanel);
+$('#pool-mask').addEventListener('click',closePoolPanel);
+$('#pool-refresh').addEventListener('click',()=>{if(!poolView)return;poolView.loading?poolView.abort.abort():refreshPool()});   // 拉取中＝停止（保留已显示内容）；否则＝现在重拉
 // ===== 懒加载（2026-11-08 数据瘦身）：默认窗=1 天只用内嵌 SITE_DATA，首屏 0 外部请求；
 // 拖滑杆 >1 天/点击滑杆/启动时窗口偏好 >1 天才拉 radar_latest.json；单例 Promise 防重；
 // 加载中骨架屏＋aria-busy；失败静默保留现有数据＋滑杆旁提示（可重试）。
@@ -2347,7 +2908,7 @@ if(state.days>1)ensureRollingData();   // 老用户窗口偏好 >1 天：首屏�
     $('#proto-reading-toolbar').hidden=false;
     const items=list.slice(0,12);
     $('#proto-reading-count').textContent=tf('read.count',{a:items.length,b:list.length});
-    if(!items.length){$('#queue-list').innerHTML=`<li class="queue-empty">${t('queue.empty1')}<br>${t('queue.empty2')}</li>`;return}
+    if(!items.length){$('#queue-list').innerHTML=shelfQueueEmptyMarkup();return}
     $('#queue-list').innerHTML=items.map((p,i)=>{
       const kind=protoStudyKind(p),score=protoScore(p),title=p.title_zh||p.title_en||'—';
       const abstract=p.abstract_en||p.results||t('abs.missing.read');
@@ -2397,13 +2958,13 @@ if(state.days>1)ensureRollingData();   // 老用户窗口偏好 >1 天：首屏�
     });
     $('#journal-sectors').querySelectorAll('.journal-sector').forEach(sec=>sec.style.setProperty('--proto-domain',protoDomainColor(sec.dataset.jcat)));
   };
-  /* 个性化三分区＝原抽屉三块整体迁入：期刊合集/自定义阵地/我的主题+AI 设置；分区切换只走 hidden 通道。 */
-  const protoPersonalPanels={collections:['coll-list','coll-editor'],sectors:['scheme-list','scheme-editor'],topics:['topic-list','topic-editor','ai-settings']};
+  /* 个性化四分区＝期刊合集/自定义阵地/我的主题+AI 设置/我的书架；分区切换只走 hidden 通道。 */
+  const protoPersonalPanels={collections:['coll-list','coll-editor'],sectors:['scheme-list','scheme-editor'],topics:['topic-list','topic-editor','ai-settings'],shelf:['myjournals-panel']};
   function protoApplyPersonalPanels(){
     Object.entries(protoPersonalPanels).forEach(([tab,ids])=>ids.forEach(id=>{const el=document.getElementById(id);if(el)el.hidden=protoView==='personal'&&protoPersonalTab!==tab}));
     document.querySelectorAll('[data-proto-personal-tab]').forEach(btn=>btn.setAttribute('aria-pressed',String(btn.dataset.protoPersonalTab===protoPersonalTab)));
   }
-  function protoSetPersonalTab(tab){protoPersonalTab=tab;protoApplyPersonalPanels()}
+  function protoSetPersonalTab(tab){protoPersonalTab=tab;protoApplyPersonalPanels();if(tab==='shelf')renderMyJournals()}
   document.querySelectorAll('[data-proto-personal-tab]').forEach(btn=>btn.addEventListener('click',()=>protoSetPersonalTab(btn.dataset.protoPersonalTab)));
   function protoMeasure(){document.documentElement.style.setProperty('--proto-header-h',`${Math.round(document.querySelector('.topbar').getBoundingClientRect().height)}px`)}
   function protoSetView(view){
@@ -2437,7 +2998,7 @@ if(state.days>1)ensureRollingData();   // 老用户窗口偏好 >1 天：首屏�
     if(event.target.closest('input,textarea,[contenteditable]'))return;   // 输入中的 Esc/按键归输入层：只取消编辑，绝不切视图（交叉审计补雷）
     if(event.key!=='Escape')return;
     if(protoView==='personal'){
-      if(!$('#topic-overlay').hidden)return;   // 主题结果覆盖层开着：让产线 ESC 语义处理（运行中不关防误触、空闲则先关覆盖层）
+      if(!$('#topic-overlay').hidden||!$('#pool-overlay').hidden)return;   // 主题结果／池外题录覆盖层开着：让产线 ESC 语义处理（运行中不关防误触、空闲则先关覆盖层）
       event.preventDefault();event.stopImmediatePropagation();protoSetView('overview');$('#proto-tab-overview').focus();return;
     }
     if(!radarTip.hidden){event.preventDefault();event.stopImmediatePropagation();protoHideRadarTip()}
