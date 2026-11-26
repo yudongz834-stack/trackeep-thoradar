@@ -15,6 +15,7 @@
 //   S16 深评护栏（停止钮／60s 超时／空白应答／正文截 3000 字／缓存夹 200 丢最旧／盘上坏件清洗）；S06 另含分类缓存每方案 ≤2000 丢最旧
 //   S17 钥匙零回显（服务商把钥匙回写进应答：连通测试回复／主题判官理由／判官报错报文／深评正文——四处都不得上屏、不得落盘、不得进控制台；反向：占位短 Key 不参与打码、正文不打烂；请求发出后才换 Key 的在途应答，回写的旧 Key 照样打码）
 //   S18 分类在途时重命名阵地：逐批重渲不得打断重命名（打了一半的名字不被提交、焦点光标都在）；回车／失焦才提交、Esc 仍取消（S04 另含「在途时主题词输入框打字不被冲掉」）
+//   S19 会话档盘上 Key 恒空·异常旧档（返修补证）：预置 sessionOnly:true 却仍带非空 apiKey 的档（正常路径不产生）→重载→盘上 apiKey 当场清空并回写一次、不捡回内存、页面仍是会话档；其它形状（钥匙带空白／纯空白／没这个字段／不是字符串）同样清成空串；已清空的档再重载零写盘（幂等）；记住档加载零写盘（原行为不变）
 // 退出码：0＝全绿，1＝有红，2＝探针自身崩溃。
 import {readFileSync,mkdirSync,rmSync} from 'node:fs';
 import {join,resolve} from 'node:path';
@@ -163,7 +164,8 @@ async function main(){
         const untracked=gitRead(['status','--porcelain','--untracked-files=all']).split('\n').filter(l=>l.startsWith('??')).map(l=>l.slice(3).trim().replace(/^"|"$/g));
         note(`相对基线 ${BASE} 的已跟踪改动：${changed.join(' , ')||'（无）'}｜未跟踪：${untracked.join(' , ')||'（无）'}`);
         check(!changed.some(f=>/thoradar_engine\.py|^\.github\/|^data\/|^api\/|^tools\/|^config\/|^thoradar-skill\//.test(f)),`补丁碰了禁区文件：${changed.join(',')}`);
-        const allowed=/^index\.html$|^tests\/aicls\/|^deliver\//,stray=[...changed,...untracked].filter(f=>!allowed.test(f)&&!/^_dispatch\//.test(f));
+        // 允许清单＝本单交付面（index.html、tests/aicls/、deliver/）＋随最终提交入仓的两件 docs（规格书与架构地图的 T1125-AICLS 回填）。照 T1122 先例——考卷随合流面适配，不是放宽产品断言：两件只按全名精确放行，docs/ 下其余任何文件仍算任务外
+        const allowed=/^index\.html$|^tests\/aicls\/|^deliver\/|^docs\/(?:build-spec-个性化纵深|架构地图)\.md$/,stray=[...changed,...untracked].filter(f=>!allowed.test(f)&&!/^_dispatch\//.test(f));
         check(stray.length===0,`改动面含任务外文件：${stray.join(',')}`);   // _dispatch/＝派遣机落单目录（非施工产出），单列不计
       }catch(e){check(false,'S01 执行故障：'+e.message)}end()}
 
@@ -1009,6 +1011,74 @@ async function main(){
         check(blur.here===false&&blur.name==='Beta renamed'&&blur.renameId===null,'失焦应提交重命名（P1 既有语义不变）');
         noErrors(tab,'S18');
       }catch(e){check(false,'S18 执行故障：'+e.message)}finally{srv.ai.respond=null;end()}}
+
+    // ---- S19 会话档异常旧档：加载时盘上 Key 幂等清洗（返修补证） ----
+    // 「仅本会话」档的承诺是盘上 apiKey 恒空，且要对任意持久态成立：S13 走的是正常切档（盘上那把当场抹掉）；这里补的是「盘上已经是 sessionOnly:true＋非空 apiKey」的旧档／异常档——正常路径不产生，预置后看加载路径清不清。
+    // 写盘次数靠「新文档脚本」包一层 Storage.prototype.setItem 记账（每次重载从零记起）；末尾做一次正向对照（正常编辑会落盘），证明记到 0 次不是记录器没生效
+    if(!skip('S19')){begin('S19','会话档盘上 Key 恒空·异常旧档：预置 sessionOnly:true 却仍带非空 apiKey 的档（正常路径不产生）→重载→盘上 apiKey 当场清空并回写一次、BaseURL／Model 原样；页面仍是会话档（开关勾着、内存／输入框／生效配置全空——盘上那把不捡回内存）；钥匙带空白／纯空白／没这个字段／不是字符串等形状同样清成空串；已清空的档再重载零写盘（幂等）；记住档加载零写盘（原行为不变）');
+      let recId=null;
+      try{
+        const LSAI='thoradar.ai.v1',n0=srv.ai.log.length;
+        const onDisk=()=>tab.eval(`Object.keys(localStorage).some(k=>{const v=String(localStorage.getItem(k));return v.includes(${K})||v.includes(${K2})})`);
+        const aiWrites=async()=>{const w=await tab.eval('window.__lsWrites');return Array.isArray(w)?w.filter(k=>k===LSAI).length:-1};   // 本次加载以来对 thoradar.ai.v1 的 setItem 次数；-1＝记录器不在（结果不可判读）
+        const snap=model=>tab.eval(`(()=>{const k=document.querySelector('#ai-key'),c=document.querySelector('#ai-session-only'),n=document.querySelector('.ai-note[data-i18n]');let d=null;try{d=JSON.parse(localStorage.getItem('thoradar.ai.v1'))}catch(e){d={bad:1}}
+          const o=d&&typeof d==='object'&&!d.bad;if(!o)return {have:false};   // 盘面只报「空不空／长几字／是不是那把」，钥匙值不进输出
+          return {have:true,keyEmpty:d.apiKey==='',keyLen:String(d.apiKey===undefined||d.apiKey===null?'':d.apiKey).length,keyIsA:d.apiKey===${K},sess:d.sessionOnly===true,base:d.baseUrl===${JSON.stringify(srv.origin)},model:d.model===${JSON.stringify(model)},
+            memEmpty:typeof aiSessionKey==='undefined'?null:aiSessionKey==='',effEmpty:typeof aiEffective==='function'?aiEffective().apiKey==='':null,effIsA:typeof aiEffective==='function'?aiEffective().apiKey===${K}:null,
+            storeEmpty:typeof aiStore==='undefined'||!aiStore?null:aiStore.apiKey==='',boxEmpty:k?k.value==='':null,boxIsA:k?k.value===${K}:null,type:k?k.type:null,checked:c?c.checked:null,
+            phKey:k?k.getAttribute('data-i18n-ph'):null,noteKey:n?n.getAttribute('data-i18n'):null}})()`);
+        // ① 预置异常旧档（会话档却带着 Key）→重载：盘上当场清空，页面仍是会话档
+        await tab.eval(`localStorage.clear();${LS(LSAI,{baseUrl:srv.origin,apiKey:FAKE_KEY_B,model:'probe-mock',sessionOnly:true})};1`);
+        const seeded=await tab.eval(`(()=>{const d=JSON.parse(localStorage.getItem('thoradar.ai.v1'));return {sess:d.sessionOnly===true,keyLen:String(d.apiKey).length}})()`);
+        await tab.goto(`${srv.origin}/index.html`);
+        await tab.eval(P.view('personal'));await tab.eval(P.tab('topics'));
+        const s1=await snap('probe-mock');
+        note(`① 场景自检：种下的档＝sessionOnly:${seeded.sess}＋apiKey ${seeded.keyLen} 字｜重载后盘上 apiKey ${s1.keyLen} 字、sessionOnly=${s1.sess}｜内存空=${s1.memEmpty}、生效配置空=${s1.effEmpty}、输入框空=${s1.boxEmpty}、开关勾=${s1.checked}`);
+        check(seeded.sess&&seeded.keyLen>0,'场景自检：预置的应是 sessionOnly:true＋非空 apiKey 的档');
+        check(s1.have&&s1.keyEmpty,`异常旧档重载后盘上 apiKey 应当场清空，实得${s1.have?`非空（${s1.keyLen} 字）`:'盘上无档／坏档'}`);
+        check(Boolean(s1.have&&s1.sess&&s1.base&&s1.model),'清洗只动 Key：盘上 sessionOnly／baseUrl／model 应原样');
+        check(!(await onDisk()),'浏览器存储任一键值里都不得残留那把钥匙');
+        check(s1.memEmpty===true&&s1.effEmpty===true&&s1.storeEmpty===true,'盘上那把不得捡回内存：内存变量／生效配置／内存档的 Key 应全空');
+        check(s1.boxEmpty===true&&s1.type==='password'&&s1.checked===true,'页面应仍是会话档：开关勾着、Key 框为空且是密码框');
+        check(s1.phKey==='ai.key.ph.session'&&s1.noteKey==='ai.note.session','Key 框占位语与说明行应仍是会话档的说法');
+        // ①b 同一道清洗对其它形状的「会话档却不是空 Key」同样成立（承诺对任意持久态）：钥匙两侧带空白／纯空白／没有 apiKey 字段／钥匙不是字符串
+        const odd=[];
+        for(const [name,shape] of [
+          ['钥匙两侧带空白',{baseUrl:srv.origin,apiKey:`  ${FAKE_KEY_B}  `,model:'probe-mock',sessionOnly:true}],
+          ['纯空白',{baseUrl:srv.origin,apiKey:'   ',model:'probe-mock',sessionOnly:true}],
+          ['没有 apiKey 字段',{baseUrl:srv.origin,model:'probe-mock',sessionOnly:true}],
+          ['钥匙不是字符串',{baseUrl:srv.origin,apiKey:123456789012,model:'probe-mock',sessionOnly:true}]
+        ]){
+          await tab.eval(`localStorage.clear();${LS(LSAI,shape)};1`);await tab.goto(`${srv.origin}/index.html`);
+          const s=await snap('probe-mock');odd.push([name,{...s,clean:!(await onDisk())}]);
+        }
+        note(`①b 其它形状重载后：${odd.map(([n,s])=>`${n}→盘上 apiKey ${s.have?s.keyLen:'?'} 字、${s.sess?'会话档':'非会话档'}${s.clean?'':'、存储里残留钥匙'}`).join('；')}`);
+        check(odd.every(([,s])=>s.have&&s.keyEmpty&&s.sess&&s.base&&s.model&&s.clean&&s.memEmpty===true&&s.effEmpty===true&&s.storeEmpty===true&&s.checked===true&&s.boxEmpty===true),'会话档不论盘上 apiKey 是什么形状（钥匙带空白／纯空白／没这个字段／不是字符串），重载后盘上都应是空串、仍是会话档、内存与输入框全空、存储里无残留');
+        // ② 已清空的会话档再重载：加载路径零写盘（幂等；也＝正常会话档加载零写盘），状态不变
+        recId=(await tab.h.cdp.send('Page.addScriptToEvaluateOnNewDocument',{source:'(()=>{const o=Storage.prototype.setItem;window.__lsWrites=[];Storage.prototype.setItem=function(k,v){window.__lsWrites.push(String(k));return o.call(this,k,v)}})()'},tab.sid)).identifier;
+        await tab.goto(`${srv.origin}/index.html`);
+        const s2=await snap('probe-mock'),w2=await aiWrites();
+        note(`② 已清空的会话档再重载：加载期写 thoradar.ai.v1 ${Math.max(w2,0)} 次｜盘上 apiKey ${s2.keyLen} 字、sessionOnly=${s2.sess}｜内存空=${s2.memEmpty}、输入框空=${s2.boxEmpty}、开关勾=${s2.checked}`);
+        check(w2===0,`已清空的会话档再重载不得再写盘（幂等），实得写 ${Math.max(w2,0)} 次${w2<0?'｜写盘记录器不在，结果不可判读':''}`);
+        check(Boolean(s2.have&&s2.keyEmpty&&s2.sess&&s2.base&&s2.model&&s2.memEmpty===true&&s2.effEmpty===true&&s2.boxEmpty===true&&s2.checked===true),'再重载后应仍是干净的会话档：盘上 Key 空、档位与 BaseURL／Model 不变、内存／输入框空、开关勾着');
+        // ③ 记住档（原行为）：加载零写盘，Key 照旧在盘上并回填生效配置与输入框
+        await tab.eval(`localStorage.clear();${LS(LSAI,{baseUrl:srv.origin,apiKey:FAKE_KEY_A,model:'probe-mock',sessionOnly:false})};1`);
+        await tab.goto(`${srv.origin}/index.html`);
+        await tab.eval(P.view('personal'));await tab.eval(P.tab('topics'));
+        const s3=await snap('probe-mock'),w3=await aiWrites();
+        note(`③ 记住档重载：加载期写 thoradar.ai.v1 ${Math.max(w3,0)} 次｜盘上钥匙仍是记住档那把=${s3.keyIsA}｜生效配置带钥匙=${s3.effIsA}、输入框回填=${s3.boxIsA}、开关勾=${s3.checked}`);
+        check(w3===0&&Boolean(s3.have&&s3.keyIsA&&s3.base&&s3.model&&s3.effIsA===true&&s3.boxIsA===true&&s3.type==='password'&&s3.checked===false&&s3.memEmpty===true),`记住档加载应零写盘、Key 照旧在盘上并回填生效配置与输入框、开关未勾，实得写 ${Math.max(w3,0)} 次`);
+        // ④ 记录器自检（正向对照）：正常改一次 Model＝防抖后落盘——上面的「0 次」才作数
+        await tab.eval(P.type('#ai-model','probe-mock2'));await sleep(600);
+        const w4=await aiWrites(),s4=await snap('probe-mock2');
+        note(`④ 记录器自检：改一次 Model 后共写 thoradar.ai.v1 ${Math.max(w4,0)} 次｜盘上 model ${s4.model?'已更新':'未更新'}、钥匙仍是记住档那把=${s4.keyIsA}`);
+        check(w4>=1&&Boolean(s4.have&&s4.model&&s4.keyIsA),'场景自检：写盘记录器应记下正常编辑触发的落盘（记不到＝上面的「零写盘」不作数）');
+        // ⑤ 全程零外发零回显
+        const bodyText=await tab.eval('document.body.innerText'),dialogs=tab.dialogs.map(d=>d.message);
+        check(srv.ai.log.length===n0,`本场景不得发任何 AI 请求，实发 ${srv.ai.log.length-n0} 次`);
+        check(!hasKey(tab.consoleTexts,FAKE_KEY_A)&&!hasKey(tab.consoleTexts,FAKE_KEY_B)&&!hasKey(tab.errors,FAKE_KEY_A)&&!hasKey(tab.errors,FAKE_KEY_B)&&!hasKey(dialogs,FAKE_KEY_A)&&!hasKey(dialogs,FAKE_KEY_B)&&!bodyText.includes(FAKE_KEY_A)&&!bodyText.includes(FAKE_KEY_B),'两把假钥匙不得进控制台／异常／对话框／页面可见文本');
+        noErrors(tab,'S19');
+      }catch(e){check(false,'S19 执行故障：'+e.message)}finally{if(recId)await tab.h.cdp.send('Page.removeScriptToEvaluateOnNewDocument',{identifier:recId},tab.sid).catch(()=>{});end()}}
   }finally{
     try{cdp&&cdp.close()}catch(e){}
     const left=await browser.stop();

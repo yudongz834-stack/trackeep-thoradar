@@ -2205,7 +2205,12 @@ function sanitizeAI(raw){   // 三字段字符串清洗：trim、截长、BaseUR
   out.sessionOnly=raw.sessionOnly===true;
   return out;
 }
-function loadAIStore(){try{return sanitizeAI(JSON.parse(localStorage.getItem(LS_AI)||'null'))}catch(e){return sanitizeAI(null)}}
+function loadAIStore(){   // 读盘→清洗。会话档盘上 Key 恒空：读到 sessionOnly:true 而盘上 apiKey 不是空串的档（正常路径不产生——旧档／异常档／手改）＝当场清空并回写一次，也不留在内存；本就是空串不写（幂等，正常路径加载零写盘）
+  let raw=null;try{raw=JSON.parse(localStorage.getItem(LS_AI)||'null')}catch(e){}
+  const out=sanitizeAI(raw);
+  if(out.sessionOnly&&(!raw||raw.apiKey!=='')){out.apiKey='';try{localStorage.setItem(LS_AI,JSON.stringify(out))}catch(e){}}   // 回写不进去（配额／隐私模式）不抛：内存照常为空，盘上那把下次加载再清
+  return out;
+}
 let aiStore=loadAIStore();
 const persistAI=makeDebounced(()=>{try{localStorage.setItem(LS_AI,JSON.stringify(aiStore))}catch(e){}},250);
 let aiSessionKey='';   // 钥匙两档·「仅本会话」档的 Key：只在本页内存（模块级变量），关页／刷新即失；任何路径不写盘

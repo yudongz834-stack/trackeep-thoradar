@@ -135,6 +135,10 @@ const MUTANTS=[
   {id:'RG17',what:'〔既有〕快筛（研究设计）失效',scene:'R07b',patch:[["  return windowPapers().filter(p=>{\n    const quickOk=state.quick==='all'||(state.quick==='nct'?Boolean(p.nct_id):designOf(p)===state.quick);\n    const secOk=keyMap","  return windowPapers().filter(p=>{\n    const quickOk=true;\n    const secOk=keyMap"]]},
   {id:'RG18',what:'〔既有〕档位（S/A/B/C/D）筛选失效',scene:'R07',patch:[["return tierOk(p)&&journalOk(p)&&secOk&&quickOk&&collOk&&shelfOk&&hay.includes(query);","return journalOk(p)&&secOk&&quickOk&&collOk&&shelfOk&&hay.includes(query);"]]},
   {id:'RG19',what:'〔既有〕页面上一个既有文案件的键被换成别的键（「测试连接」钮）',scene:'R23',patch:[["id=\"ai-test\" data-i18n=\"ai.test\"","id=\"ai-test\" data-i18n=\"ai.note\""]]},
+  // ---- 返修 T1125-AICLS-FIXG 补（独立复核 B3：会话档盘上 Key 恒空，须对异常旧档也成立）——三只各盯 FIX-1 的一句：清空〔M81 整段清洗删掉〕、落盘〔M83 只清内存不回写盘〕、幂等〔M82 本就是空串也每次加载都回写〕 ----
+  {id:'M81',what:'会话档异常旧档的加载清洗整段删掉（盘上既有的非空 apiKey 重载后原样留着）',scene:'S19',patch:[["if(out.sessionOnly&&(!raw||raw.apiKey!=='')){out.apiKey='';try{localStorage.setItem(LS_AI,JSON.stringify(out))}catch(e){}}",""]]},
+  {id:'M82',what:'会话档加载清洗去掉幂等条件（盘上 apiKey 本就是空串也每次加载都回写一遍）',scene:'S19',patch:[["if(out.sessionOnly&&(!raw||raw.apiKey!=='')){","if(out.sessionOnly){"]]},
+  {id:'M83',what:'会话档加载清洗只清内存、不回写盘（盘上 apiKey 仍非空）',scene:'S19',patch:[["{out.apiKey='';try{localStorage.setItem(LS_AI,JSON.stringify(out))}catch(e){}}","{out.apiKey=''}"]]},
 ];
 
 const count=(s,find)=>s.split(find).length-1;
