@@ -462,12 +462,12 @@ body[data-proto-view="reading"] .queue-text strong{display:block;-webkit-line-cl
 .proto-card-extra{display:none;margin-top:13px;padding-top:13px;border-top:1px solid var(--line);grid-template-columns:1fr 1fr;gap:12px}
 .proto-extra-block{display:block;padding:11px 12px;border-radius:7px;background:var(--card-2);color:var(--text-2);font-size:11px;line-height:1.7}
 .proto-extra-block b{display:block;margin-bottom:6px;color:var(--muted);font:600 8px/1.2 var(--font-mono);letter-spacing:.12em}
-body[data-proto-density="immersive"] .queue-list{grid-template-columns:minmax(0,1040px);justify-content:center}
-body[data-proto-density="immersive"] .proto-article{padding:23px 25px 20px}
-body[data-proto-density="immersive"] .queue-text strong{font-size:21px;line-height:1.5}
-body[data-proto-density="immersive"] .proto-title-en{font-size:12px}
-body[data-proto-density="immersive"] .proto-finding-text{font-size:14px}
-body[data-proto-density="immersive"] .proto-card-extra{display:grid}
+body[data-proto-view="reading"][data-proto-density="immersive"] .queue-list{grid-template-columns:minmax(0,1040px);justify-content:center}
+body[data-proto-view="reading"][data-proto-density="immersive"] .proto-article{padding:23px 25px 20px}
+body[data-proto-view="reading"][data-proto-density="immersive"] .queue-text strong{font-size:21px;line-height:1.5}
+body[data-proto-view="reading"][data-proto-density="immersive"] .proto-title-en{font-size:12px}
+body[data-proto-view="reading"][data-proto-density="immersive"] .proto-finding-text{font-size:14px}
+body[data-proto-view="reading"][data-proto-density="immersive"] .proto-card-extra{display:grid}
 /* 雷达增强：真实评分驱动点径、色深和光晕；形状沿用并扩展原研究设计语义。 */
 .legend-shape.review{border-radius:0;clip-path:polygon(50% 0,100% 100%,0 100%);background:var(--accent-dark)}
 .legend-shape.ai{border-radius:2px;transform:rotate(45deg);background:var(--card);border:1.5px solid var(--accent-dark)}
@@ -515,7 +515,7 @@ body[data-proto-view="personal"] #coll-list,body[data-proto-view="personal"] #co
   body[data-proto-view="reading"] .window-control{padding-top:11px;border-top:1px solid var(--line)}
   body[data-proto-view="reading"] .queue-list{grid-template-columns:1fr;max-height:none;overflow:visible;padding:11px}
   .proto-reading-toolbar{align-items:flex-start;flex-direction:column}.proto-density{align-self:stretch}.proto-density button{flex:1}
-  body[data-proto-density="immersive"] .proto-article{padding:18px}.proto-card-extra{grid-template-columns:1fr}
+  body[data-proto-view="reading"][data-proto-density="immersive"] .proto-article{padding:18px}.proto-card-extra{grid-template-columns:1fr}
   body[data-proto-view="personal"] .coll-body{padding:15px 14px 32px}body[data-proto-view="personal"] .coll-head-bar,body[data-proto-view="personal"] .proto-personal-tabs{padding-inline:14px}
   .shelf-mobile-status:not([hidden]){height:30px;margin:0 4px 8px;padding:0 9px;display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid color-mix(in srgb,var(--accent) 32%,var(--line));border-radius:7px;background:var(--accent-soft);color:var(--accent-on-soft);font-size:11px}
   .shelf-mobile-status button{padding:3px 0 3px 8px;border:0;border-left:1px solid color-mix(in srgb,var(--accent) 32%,var(--line));background:transparent;color:inherit;font-size:11px;cursor:pointer}
@@ -526,29 +526,55 @@ body[data-proto-view="personal"] #coll-list,body[data-proto-view="personal"] #co
 @media(prefers-reduced-motion:reduce){.proto-article{transition:none}}
 /* ===== UX 原地瘦身（mock 2026-11-27）：只压缩占视野块，结构与功能不动；每条挂双诊断证据 ===== */
 .topbar{height:58px}                                            /* 顶栏 76→58 */
-.scope{width:min(100%,380px)}                                   /* 雷达直径 cap 380px（原 calc(100vh-360px) 过大且矮屏溢出·Gemini 高3） */
-#funnel{display:none}                                           /* 管线漏斗报表撤下用户面（Gemini 中5） */
-.ai-help[data-i18n="poolup.hint"]{display:none}                 /* 说明书墙收编·开关留 title（D7①＋Gemini 高1） */
-.jl-fold{margin:4px 0;font-size:11px;color:var(--muted)}        /* 刊源图例折叠（D7⑤＋Gemini 低9） */
+.scope{width:min(100%,380px);min-width:0}                       /* 桌面默认 cap；手机/平板仍可到 560 */
+#funnel{display:none}                                           /* 管线漏斗报表撤下用户面 */
+.ai-help[data-i18n="poolup.hint"]{display:none}                 /* 说明书墙收编·开关留 title */
+.jl-fold{margin:4px 0;font-size:11px;color:var(--muted)}
 .jl-fold summary{cursor:pointer;list-style:none;text-align:center}
 .jl-fold summary::before{content:'▸ '}
 .jl-fold[open] summary::before{content:'▾ '}
 .jl-fold .journal-legend{max-height:120px;margin-top:6px}
-.detail-title{font-size:17px;line-height:1.45}                  /* 详情大标题缩一号 */
-.meta-fold{margin:10px 0;font-size:12px;color:var(--muted)}     /* 元数据折叠（D7④＋Gemini 高2） */
+.detail-title{font-size:16px;line-height:1.45}
+.meta-fold{margin:10px 0;font-size:12px;color:var(--muted)}
 .meta-fold summary{cursor:pointer}
-.interpretation-paused.slim{padding:6px 10px;background:none}   /* 提示框改一行轻字（Gemini 中8） */
+.interpretation-paused.slim{padding:6px 10px;background:none}
 .deep-paused.slim{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .deep-paused.slim br{display:none}
-@media(min-width:901px){body{overflow:auto}.deck{min-height:0}} /* 矮屏裁切修复（Gemini 高3） */
-/* ===== 二轮（PI 实测反馈）：筛选区折叠（阅读默认收／概览默认开可收）＋阅读卡紧凑＋顶栏钮紧凑 ===== */
-body[data-proto-view="overview"]:not(.filters-open) .filters{display:none}        /* 概览也可收起（PI 追加：队列腾空间） */
-body[data-proto-view="reading"] .filters{display:none}                              /* 阅读时筛选区默认整区收起 */
-body[data-proto-view="reading"].filters-open .filters{display:grid}                 /* 点「筛选 ▾」才展开 */
+@media(min-width:901px){
+  body{overflow:auto}
+  .deck{height:calc(100vh - 94px);min-height:0}                 /* 58 顶栏＋36 页脚：页脚完整且不残留 18px 空带 */
+  .scope-stage{container-type:size}                             /* 盘同时受舞台宽、高约束，展开图例也会再缩小 */
+  .scope{width:min(100cqw,100cqh,380px)}
+}
+/* 双视图筛选默认收起；各视图独立保留本次会话的展开选择，按钮文字/aria 由 protoSyncFilters 同步。 */
+body[data-proto-view="reading"] .filters{display:none}
+body[data-proto-view="reading"].filters-open .filters{display:grid}
+body[data-proto-view="overview"]:not(.filters-open) .filters{display:none}
+body[data-proto-view="overview"].filters-open .filters{display:block}
 .filters-toggle{display:block;margin:8px 12px 6px;padding:6px 12px;border:1px solid var(--line);border-radius:7px;background:var(--card);color:var(--muted);font-size:11px;cursor:pointer;width:fit-content}
-body[data-proto-view="reading"] .queue-text strong{font-size:14px;line-height:1.5}  /* 阅读卡标题 16→14 */
-.detail-title{font-size:16px}                                                       /* 详情标题再降一号 */
-.proto-view-btn{min-height:28px;padding:5px 10px}                                   /* 顶栏视图钮 32→28 */
+@media(max-width:900px){
+  .topbar{height:auto}                                                     /* 三排控件按内容撑高，严禁压住主区 */
+  body[data-proto-view="reading"].filters-open .filters{display:block}  /* 窄屏必须竖排，不能回退成三列横溢 */
+  .scope{width:min(100%,560px)}
+}
+body[data-proto-view="reading"][data-proto-density="compact"] .queue-text strong{font-size:14px;line-height:1.5}  /* 只缩紧凑档；沉浸档保持 21px */
+.proto-view-btn{min-height:28px;padding:5px 10px}
+/* 阅读/概览头部压缩；排序行只在阅读隐藏，概览保留供队列参考。 */
+body[data-proto-view="reading"] .queue-panel .panel-head{padding:8px 14px}
+.queue-panel .panel-head .eyebrow{display:none}
+.queue-panel .panel-head h2{font-size:15px}
+body[data-proto-view="reading"] .queue-title{display:none}
+body[data-proto-view="overview"] .queue-text strong{font-size:12px;line-height:1.4}
+.proto-reading-copy{display:none}
+body[data-proto-view="reading"] .proto-reading-toolbar{display:none}
+.proto-reading-more-item{grid-column:1/-1;margin:0;padding:0 2px}
+.proto-reading-more{width:100%;min-height:34px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--muted);font-size:11px;cursor:pointer}
+.proto-reading-more:hover{border-color:var(--accent);color:var(--accent-dark)}
+body[data-proto-view="reading"] .queue-panel .coll-head .proto-density{display:flex;gap:2px}
+body:not([data-proto-view="reading"]) .proto-density{display:none}       /* 密度钮只属于阅读视图 */
+.queue-panel .coll-head .proto-density button{min-height:24px;font-size:10px;padding:3px 8px;border:1px solid var(--line)}
+#scope-subtitle{display:none}
+.detail-top .lock-id{display:none}
 </style>
 </head>
 <body>
@@ -581,7 +607,7 @@ body[data-proto-view="reading"] .queue-text strong{font-size:14px;line-height:1.
 <main class="deck">
   <aside class="panel queue-panel" aria-label="文献筛选与信号队列" data-i18n-aria="queue.aria">
     <div class="panel-head"><div><div class="eyebrow">Sweep director</div><h2 data-i18n="queue.h2">信号队列</h2></div><div class="coll-head"><button class="coll-toggle" id="coll-open" title="个性化视图 · 期刊合集/自定义阵地/我的主题">◈ 合集</button><span class="counter" id="filter-counter">—</span></div></div>
-    <div class="filters">
+    <div class="filters" id="queue-filters">
       <div class="quick-group">
         <div class="quick-row" id="quick-filters">
           <button class="quick-btn active" data-quick="all" data-i18n="quick.all">全部</button>
@@ -622,7 +648,7 @@ body[data-proto-view="reading"] .queue-text strong{font-size:14px;line-height:1.
 
   <section class="scope-panel" aria-label="滚动文献雷达信号场" data-i18n-aria="scope.aria">
     <div class="scope-head">
-      <div><div class="eyebrow">Live signal field</div><h1 data-i18n="scope.h1">滚动信号场</h1><p id="scope-subtitle">方位＝期刊阵地（九阵地上盘 · 邻科公卫并入图例） · 距心＝相对评分 · 形状＝研究设计</p><div class="sec-picker"><label for="scheme-select" data-i18n="sec.label">阵地</label><select id="scheme-select" aria-label="阵地方案切换" data-i18n-aria="scheme.select.aria"></select></div></div>
+      <div><div class="eyebrow">Live signal field</div><h1 data-i18n="scope.h1" data-i18n-title="scope.h1.tip">滚动信号场</h1><p id="scope-subtitle">方位＝期刊阵地（九阵地上盘 · 邻科公卫并入图例） · 距心＝相对评分 · 形状＝研究设计</p><div class="sec-picker"><label for="scheme-select" data-i18n="sec.label">阵地</label><select id="scheme-select" aria-label="阵地方案切换" data-i18n-aria="scheme.select.aria"></select></div></div>
       <div class="read-progress"><b id="read-count">—</b><small data-i18n="read.scanned">本次已扫</small></div>
     </div>
     <div class="shelf-mobile-status" id="shelf-mobile-status" hidden></div>
@@ -651,7 +677,7 @@ body[data-proto-view="reading"] .queue-text strong{font-size:14px;line-height:1.
       <div class="journal-toolbar"><span id="journal-selection">刊源：全部</span><button class="journal-clear" id="journal-clear" disabled data-i18n="jrn.clear">清除</button></div>
       <div class="jcat-folds" id="jcat-folds" aria-label="阵地折叠" data-i18n-aria="folds.aria"></div>
       <div class="journal-legend" id="jcat-legend" aria-label="阵地图例 · 邻科与公卫" data-i18n-aria="legend.sector.aria"></div>
-      <details class="jl-fold"><summary>按刊源筛选（点击展开）</summary><div class="journal-legend" id="journal-legend" aria-label="刊源图例" data-i18n-aria="legend.journal.aria"></div></details>
+      <details class="jl-fold"><summary data-i18n="jrn.fold">按刊源筛选（点击展开）</summary><div class="journal-legend" id="journal-legend" aria-label="刊源图例" data-i18n-aria="legend.journal.aria"></div></details>
       <div class="legend" id="design-legend"></div>
       <div class="funnel" id="funnel"></div>
     </div>
@@ -737,6 +763,7 @@ zh:{
 'quick.all':'全部','quick.cohort':'队列','quick.nct':'含试验号','filter.tier':'刊源档位 · 可多选','window.label':'时间滑杆','unit.days':'天','data.window':'数据窗口',
 'queue.title1':'信号队列 · 按评分排序','queue.title2':'点击锁定','read.first3':'先读这三篇','read.marked':'前 3 篇已标记',
 'density.aria':'阅读卡片密度','density.compact':'紧凑浏览','density.immersive':'展开沉浸',
+'filters.show':'筛选 · 时间窗 / 档位 / 专题 ▾','filters.hide':'收起筛选 ▴','filters.aria':'展开或收起文献筛选区','jrn.fold':'按刊源筛选（点击展开）','detail.moreMeta':'更多元数据（PMID／出版状态／预警／雷达日期／卷期／阵地／口径）','scope.h1.tip':'方位＝期刊阵地（九阵地上盘·邻科公卫并入图例）·距心＝相对评分·形状＝研究设计','read.more':'显示其余 {n} 篇',
 'queue.empty1':'没有匹配信号。','queue.empty2':'清除条件或调整数据窗口后再扫。','lock.aria':'锁定：{t}','card.aria':'锁定：{t}；评分 {s} 分',
 'read.count':'显示 {a} / {b} 篇 · 完整标题','read.prio':'先读 {n}','title.en.missing':'英文题名暂缺','abs.missing.read':'摘要摘录暂缺，请通过锁定详情查阅题录。','finding.label':'一句话结论 · 原文字段首句','finding.missing':'结论字段暂缺，请在锁定详情中阅读原始摘要。','extra.ai':'生成解读 · 未经人审','extra.abs':'摘要导读 · 原始字段','ai.note.missing':'生成解读暂缺。','card.lock':'点击锁定 →','tip.score':'{n} 分 · 点击锁定',
 'scope.aria':'滚动文献雷达信号场','scope.h1':'滚动信号场','scope.sub.rest':'距心＝相对评分 · 形状＝研究设计','scope.sub.official':'方位＝期刊阵地（九阵地上盘 · 邻科公卫并入图例） · ','scope.sub.scheme.pre':'方位＝自定义阵地（方案：','scope.sub.scheme.mid':' · 未匹配论文归未分组） · ','scope.sub.topic.pre':'方位＝主题阵地（方案：','scope.sub.topic.mid':' · 主题词 {n} 条） · ',
@@ -792,6 +819,7 @@ en:{
 'quick.all':'All','quick.cohort':'Cohort','quick.nct':'With trial ID','filter.tier':'Source tiers · multi-select','window.label':'Time window','unit.days':'days','data.window':'Data window',
 'queue.title1':'Signal queue · by score','queue.title2':'Click to lock','read.first3':'Read these first','read.marked':'top 3 flagged',
 'density.aria':'Reading card density','density.compact':'Compact','density.immersive':'Immersive',
+'filters.show':'Filters · window / tiers / topics ▾','filters.hide':'Hide filters ▴','filters.aria':'Expand or collapse paper filters','jrn.fold':'Filter by journal (click to expand)','detail.moreMeta':'More metadata (PMID / publication status / watchlist / radar date / volume & issue / sector / scheme)','scope.h1.tip':'Angle = journal sector (nine on scope; adjacent and public health merged in legend) · radius = relative score · shape = study design','read.more':'Show remaining {n} papers',
 'queue.empty1':'No matching signals.','queue.empty2':'Clear the filters or adjust the data window and sweep again.','lock.aria':'Lock: {t}','card.aria':'Lock: {t}; score {s}',
 'read.count':'Showing {a} / {b} · full titles','read.prio':'Read {n} first','title.en.missing':'English title unavailable','abs.missing.read':'Abstract excerpt unavailable — see the locked detail for the record.','finding.label':'One-line finding · first sentence of the source field','finding.missing':'Conclusion field unavailable — read the raw abstract in the locked detail.','extra.ai':'Generated interpretation · not human-reviewed','extra.abs':'Abstract digest · raw field','ai.note.missing':'Generated interpretation unavailable.','card.lock':'Click to lock →','tip.score':'{n} pts · click to lock',
 'scope.aria':'Rolling literature radar signal field','scope.h1':'Rolling signal field','scope.sub.rest':'radius = relative score · shape = study design','scope.sub.official':'angle = journal sectors (nine on the scope · adjacent & public health merged into the legend) · ','scope.sub.scheme.pre':'angle = custom sectors (scheme: ','scope.sub.scheme.mid':' · unmatched journals fall into Ungrouped) · ','scope.sub.topic.pre':'angle = topic sectors (scheme: ','scope.sub.topic.mid':' · {n} topic words) · ',
@@ -851,6 +879,8 @@ function applyLang(){
   document.querySelectorAll('[data-i18n-aria]').forEach(el=>{el.setAttribute('aria-label',t(el.getAttribute('data-i18n-aria')))});
   const lb=document.getElementById('lang-btn');
   if(lb){lb.textContent=t('lang.btn');lb.setAttribute('title',t('lang.tip'));lb.setAttribute('aria-label',t('lang.tip'))}
+  const filterToggle=document.querySelector('.filters-toggle');
+  if(filterToggle)filterToggle.textContent=t(filterToggle.getAttribute('aria-expanded')==='true'?'filters.hide':'filters.show');
 }
 function setLang(lang){LANG=lang==='en'?'en':'zh';try{localStorage.setItem(LS_LANG,LANG)}catch(_e){}applyLang();render();renderHeader();renderFunnel();renderSchemeSelect();renderPoolPanel()}   // header/funnel 不在 render() 链里，切语言须补刷；scheme-select 有 sig 缓存，拼 LANG 强制重拼；池外题录面板开着则补刷文案
 applyLang();
@@ -1666,7 +1696,7 @@ function renderDetail(list){
       ${deepReviewMarkup(p)}
     </div>
     <div class="detail-actions">${paperLink}${doiLink}${trial}<button class="action-btn wide ${marked?'marked':''}" id="mark-read">${marked?t('mark.done'):t('mark.do')}</button></div>
-    <details class="meta-fold"><summary>更多元数据（PMID／出版状态／预警／雷达日期／卷期／阵地／口径）</summary>
+    <details class="meta-fold"><summary data-i18n="detail.moreMeta">${t('detail.moreMeta')}</summary>
     <div class="meta-grid">
       <div class="meta-cell"><small>PMID</small><b>${esc(show(p.pmid))}</b></div><div class="meta-cell"><small>${t('meta.status')}</small><b>${esc(p.pool_ext?t('poolup.unchecked'):status.label)}</b></div>
       <div class="meta-cell"><small>${t('meta.if')}</small><b>${esc(show(p.if_val || null))}</b></div><div class="meta-cell"><small>${t('meta.zone')}</small><b>${esc(show(p.zone))}</b></div><div class="meta-cell"><small>${t('meta.warn')}</small><b>${p.pool_ext?t('poolup.unchecked'):p.warned ? t('warn.yes') : t('warn.no')}</b></div>
@@ -3308,7 +3338,7 @@ clsPrewarm();   // 已有 AI 分类缓存的回访用户：首帧先按内容哈
   deck.id='deck';
   deck.setAttribute('role','tabpanel');
   const baseRenderQueue=renderQueue,baseRenderScope=renderScope;
-  let protoView='overview',protoPersonalTab='collections';
+  let protoView='overview',protoPersonalTab='collections',protoReadingShowAll=false,protoReadingSig='';
   const protoDomainColors={1:'var(--accent-dark)',2:TIER_COLORS.B,3:TIER_COLORS.S,4:TIER_COLORS.C,5:'var(--success)',8:'var(--warning)',10:'var(--accent)',11:'#5B7DB1',9:TIER_COLORS.D,6:TIER_COLORS.C,7:TIER_COLORS.C,'6+7':TIER_COLORS.C,'待定':'var(--muted)'};
   const protoDomainColor=id=>protoDomainColors[String(id)]||'var(--muted)';
   const protoScore=p=>{const n=Number(p.score_total);return Number.isFinite(n)?Math.max(0,Math.min(100,n)):0};
@@ -3346,11 +3376,16 @@ clsPrewarm();   // 已有 AI 分类缓存的回访用户：首帧先按内容哈
     }
     return out;
   }
+  function protoReadingItems(list){
+    const sig=list.map(p=>p.id).join('|');
+    if(sig!==protoReadingSig){protoReadingSig=sig;protoReadingShowAll=false}   // 筛选或数据窗变了就回到前 12；标记已扫等原列表重渲不收回
+    return protoReadingShowAll?list:readingTop12(list);
+  }
   renderQueue=function(list){
     $('#filter-counter').textContent=`${String(list.length).padStart(2,'0')} / ${personalPaperTotal()}`;
     if(protoView!=='reading'){$('#proto-reading-toolbar').hidden=true;return baseRenderQueue(list)}
     $('#proto-reading-toolbar').hidden=false;
-    const items=readingTop12(list);
+    const items=protoReadingItems(list);
     $('#proto-reading-count').textContent=tf('read.count',{a:items.length,b:list.length});
     if(!items.length){$('#queue-list').innerHTML=shelfQueueEmptyMarkup();return}
     $('#queue-list').innerHTML=items.map((p,i)=>{
@@ -3366,6 +3401,11 @@ clsPrewarm();   // 已有 AI 分类缓存的回访用户：首帧先按内容哈
         </button>
       </li>`;
     }).join('');
+    const remaining=list.length-items.length;
+    if(remaining>0){
+      $('#queue-list').insertAdjacentHTML('beforeend',`<li class="queue-item proto-reading-more-item"><button type="button" class="proto-reading-more" id="proto-reading-more">${tf('read.more',{n:remaining})}</button></li>`);
+      $('#proto-reading-more').onclick=()=>{protoReadingShowAll=true;renderQueue(list)};
+    }
   };
   document.querySelectorAll('[data-proto-density]').forEach(btn=>btn.addEventListener('click',()=>{
     document.body.dataset.protoDensity=btn.dataset.protoDensity;
@@ -3415,15 +3455,21 @@ clsPrewarm();   // 已有 AI 分类缓存的回访用户：首帧先按内容哈
   function protoSetPersonalTab(tab){protoPersonalTab=tab;protoApplyPersonalPanels();if(tab==='shelf')renderMyJournals()}
   document.querySelectorAll('[data-proto-personal-tab]').forEach(btn=>btn.addEventListener('click',()=>protoSetPersonalTab(btn.dataset.protoPersonalTab)));
   function protoMeasure(){document.documentElement.style.setProperty('--proto-header-h',`${Math.round(document.querySelector('.topbar').getBoundingClientRect().height)}px`)}
+  const protoFiltersOpen={overview:false,reading:false};   /* 两视图缺省都收起；各自保留本次会话选择，不持久化 */
+  function protoSyncFilters(){
+    const open=Object.prototype.hasOwnProperty.call(protoFiltersOpen,protoView)?protoFiltersOpen[protoView]:false;
+    document.body.classList.toggle('filters-open',open);
+    const b=document.querySelector('.filters-toggle');
+    if(b){b.setAttribute('aria-expanded',String(open));b.textContent=t(open?'filters.hide':'filters.show')}
+  }
   function protoSetView(view){
     if(!['overview','reading','personal'].includes(view))return;
-    protoView=view;document.body.dataset.protoView=view;protoHideRadarTip();
-    if(view==='reading')document.body.classList.remove('filters-open');   /* UX 瘦身：阅读进场筛选区恒收起（要用再点「筛选 ▾」）；概览保留用户展开选择 */
+    protoView=view;document.body.dataset.protoView=view;protoHideRadarTip();protoSyncFilters();
     if(view==='personal'){
       if($('#coll-drawer').hidden)openCollDrawer();$('#coll-mask').hidden=true;
     }else{
       if(!$('#coll-drawer').hidden)closeCollDrawer();
-      if(view==='reading'){const items=readingTop12(personalFiltered());if(items.length&&!items.some(p=>p.id===state.selected))state.selected=items[0].id}   // 选中校正与渲染同一份 top12（含池外上限），否则校正到一张不存在的卡上
+      if(view==='reading'){const items=protoReadingItems(personalFiltered());if(items.length&&!items.some(p=>p.id===state.selected))state.selected=items[0].id}   // 选中校正与可见阅读卡同一份清单（含「显示其余」展开态）
     }
     document.querySelectorAll('.proto-view-btn[data-proto-view]').forEach(btn=>{const active=btn.dataset.protoView===view;btn.setAttribute('aria-selected',String(active));btn.tabIndex=active?0:-1});
     const drawer=$('#coll-drawer');
@@ -3465,11 +3511,17 @@ clsPrewarm();   // 已有 AI 分类缓存的回访用户：首帧先按内容哈
   document.body.dataset.protoView='overview';
   document.body.dataset.protoDensity='compact';
   protoApplyPersonalPanels();
+  (function(){
+    const f=document.querySelector('.filters');if(!f)return;
+    const b=document.createElement('button');b.type='button';b.className='filters-toggle';
+    b.setAttribute('aria-controls',f.id);b.setAttribute('aria-expanded','false');b.setAttribute('data-i18n-aria','filters.aria');b.setAttribute('aria-label',t('filters.aria'));
+    b.textContent=t('filters.show');
+    b.onclick=()=>{if(!Object.prototype.hasOwnProperty.call(protoFiltersOpen,protoView))return;protoFiltersOpen[protoView]=!protoFiltersOpen[protoView];protoSyncFilters()};
+    f.parentElement.insertBefore(b,f);
+  })();
+  (function(){const dens=document.querySelector('.proto-density'),head=document.querySelector('.queue-panel .coll-head');if(dens&&head)head.insertBefore(dens,head.firstChild)})();
   protoSetView('overview');
-  document.body.classList.add('filters-open');   /* UX 瘦身：概览默认展开筛选（可一键收起腾队列空间） */
   document.body.dataset.protoReady='true';
-  // UX 瘦身 mock 二轮：阅读筛选区折叠钮（插在 filters 前；仅阅读态显示，CSS 控制）
-  (function(){const f=document.querySelector('.filters');if(!f)return;const b=document.createElement('button');b.type='button';b.className='filters-toggle';b.textContent='筛选 · 时间窗 / 档位 / 专题 ▾';b.onclick=()=>{document.body.classList.toggle('filters-open');b.textContent=document.body.classList.contains('filters-open')?'收起筛选 ▴':'筛选 · 时间窗 / 档位 / 专题 ▾'};f.parentElement.insertBefore(b,f)})();
 })();
 </script>
 </body>

@@ -143,7 +143,7 @@ async classifyScheme(schemeId, {force}) -> {done, cached, failed}  // 编排器
 - 不动公共数据管线：SITE_DATA、INJECTED_PAPERS、data/radar_latest.json、mergePapers/inWindow 语义零改。
 - 不动引擎：thoradar_engine.py 的 min_gap 0.35、LIBRARY_PRESCREEN_SYSTEM、精评七类 category 生成，一行不碰。
 - 不动官方名册钉表：SITE_DATA.journal_ids/journal_meta 本体只读；池外刊只进 thoradar.journals.ext.v1。
-- 不动官方九阵地：JCATS/jcatOf/JCAT_OFFDIAL/「待定」语义零改；官方视图行为必须与现网逐项等价。
+- 不动官方九阵地：JCATS/jcatOf/JCAT_OFFDIAL/「待定」语义零改；官方数据与筛选语义零改。T1127-UX 起展示层按 §9 原地瘦身，不再要求与旧版 DOM／截图像素逐项等价。
 - 分类结果不回写：tier/study_type/score/jcat/官方 category/topicruns 永不被个人分类写入。
 - 池外论文不进官方数据集／官方雷达盘：只写 poolcache；T1125-POOLUP 起可经个人派生层进入概览、阅读队列与详情，永不写 `PAPERS`／`SITE_DATA`／官方九阵地。
 - 静态站边界：localStorage 配置不进任何 CI/云端；不做自动定时任务。
@@ -170,5 +170,19 @@ P3 施工共 8 处偏离本规格书字面，均由真实 NCBI 样本逼出（�
 | 6 | （无超时规定） | 新增 20 秒兜底超时 | 悬挂请求会攥着跨标签页锁不放 |
 | 7 | （无报错形制规定） | NCBI 报错（HTTP 200＋`ERROR` 字段）按失败显示，不缓存 24h | db 名写错、检索式语法坏均回 200＋ERROR；当 0 命中缓存会把错误冻 24 小时 |
 | 8 | （无断行样式规定） | 面板头、卡片副行、添加器副行可断行；入口＝指派区工具条（先有方案并点「编辑」才出现） | 超长刊名把面板横向撑出（1475>1406） |
+
+---
+
+## 9. T1127-UX 展示层追认（2026-11-27）
+
+PI 口令「照此施工」，范围为原地瘦身，不重做三视图结构；后续五轮截图反馈与 GLM 独立复核的返修项同属本单。
+
+- **不改的契约**：`SITE_DATA`／`PAPERS`／`mergePapers`／`inWindow`、官方名册与九阵地、筛选交集和 AI 调用时机均不变。旧考卷的「DOM 逐字等价」只对本节批准的展示改形让位；数据面差分与功能探针仍须全绿。
+- **批准的展示改形**：顶栏 58px；桌面主区高度按顶栏 58＋页脚 36 扣；雷达盘同时受实际舞台宽、高约束，桌面最大 380px，窄屏最大 560px；管线漏斗撤下；刊源图例、详情元数据折叠；详情摘要与操作位于元数据之前；暂停/深评说明收进 `title`。
+- **筛选折叠**：概览与阅读缺省都收起；`protoFiltersOpen` 分别保留两视图在本次会话里的选择，不持久化；`protoSyncFilters()` 统一同步实际显隐、按钮中英文字与 `aria-expanded`／`aria-controls`。
+- **阅读可达性**：默认仍为 `readingTop12()`（池外 ≤3）；底部「显示其余 N 篇」经 `protoReadingShowAll` 展示当前筛选下全部条目，筛选或数据窗改变后回到前 12 篇；选中校正与可见清单同源。
+- **字号与窄屏**：详情摘要正文 12px 不缩；阅读紧凑标题 14px、沉浸标题 21px；概览队列标题固定 12px，密度按钮只在阅读出现；390px 展开筛选必须竖排且零横向溢出。
+- **随仓验收**：`tests/ux/ux_probe.mjs` 覆盖双视图折叠、真鼠标清除、六档视口、展开图例、紧凑/沉浸、英文态、390/深色、阅读第 13 篇及官方面差分；`tests/aicls/aicls_probe.mjs` 与 `tests/poolup/poolup_probe.mjs` 继续守功能与钥匙红线。
+
 
 补记（非偏离）：队列失败路径记账＝T1122-FIXG 返修——任何请求尝试（含失败／超时／被取消）都记账并静默满 3000ms，与本规格「间隔沿用 3000」一致，属补实不属改规格。

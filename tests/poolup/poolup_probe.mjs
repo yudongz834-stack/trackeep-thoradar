@@ -35,7 +35,7 @@ async function main(){
   const browser=await launch({chrome:CHROME,profile,port,label:LABEL});let cdp,tab;
   try{
     console.log(`poolup probe | ${browser.ver.Browser} | target=${TARGET} | sha256=${sha256(readFileSync(TARGET))} | base=${BASE} | label=${LABEL}`);
-    if(!skip('S01')){begin('S01','静态：官方数据/筛选/雷达函数逐字守基线，T13 锚点与 tests/aicls 零改，改动面限本单');try{
+    if(!skip('S01')){begin('S01','静态：官方数据/筛选/雷达函数逐字守基线，T13 锚点零改，改动面限已合流功能与随仓探针');try{
       const dataBlock=s=>{const a=s.indexOf('__THORADAR_DATA_START__'),b=s.indexOf('__THORADAR_DATA_END__');return a>=0&&b>a?s.slice(a,b):null};
       check(dataBlock(src)===dataBlock(base),'SITE_DATA 注入区变化');
       for(const [name,fn] of [
@@ -49,8 +49,8 @@ async function main(){
       for(const k of ['poolup.toggle','poolup.hint','poolup.badge','poolup.notier','poolup.uncategorized'])check(tables&&tables.zh.has(k)&&tables.en.has(k),'缺文案键 '+k);
       let scripts=0;for(const s of inlineScripts(src)){scripts++;new vm.Script(s)}check(scripts===2,'内联脚本段数不是 2');
       const changed=gitRead(['diff','--name-only',BASE]).split('\n').filter(Boolean),untracked=gitRead(['status','--porcelain','--untracked-files=all']).split('\n').filter(l=>l.startsWith('??')).map(l=>l.slice(3).trim().replace(/^"|"$/g,''));
-      const allowed=/^index\.html$|^tests\/poolup\/|^deliver\//,stray=[...changed,...untracked].filter(f=>!allowed.test(f)&&!/^_dispatch\//.test(f));
-      check(stray.length===0,'任务外改动面 '+stray.join(','));check(!changed.some(f=>/^tests\/aicls\//.test(f)),'tests/aicls 被改');
+      const allowed=/^index\.html$|^tests\/(?:poolup|aicls|ux)\/|^deliver\/|^docs\/(?:build-spec-个性化纵深|架构地图)\.md$/,stray=[...changed,...untracked].filter(f=>!allowed.test(f)&&!/^_dispatch\//.test(f));
+      check(stray.length===0,'任务外改动面 '+stray.join(','));
       check(!/(?:api_key|Bearer\s+[A-Za-z0-9]|sk-[A-Za-z0-9]{8})/i.test(src),'产品件疑似真 Key／sk- 假 Key');
       note(`静态基线 ${BASE}；改动 ${changed.join(',')||'无'}；未跟踪 ${untracked.join(',')||'无'}`);
     }catch(e){check(false,'S01 执行故障 '+e.message)}end()}

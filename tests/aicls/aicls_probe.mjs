@@ -59,12 +59,13 @@ const LS=(k,v)=>`localStorage.setItem(${JSON.stringify(k)},${JSON.stringify(JSON
 const AI_CFG=origin=>({baseUrl:origin,apiKey:FAKE_KEY_A,model:'probe-mock'});
 const K=JSON.stringify(FAKE_KEY_A),K2=JSON.stringify(FAKE_KEY_B);   // 只用于页内比较表达式，不进任何输出
 const SK_LIKE='sk-PROBE0000000000fake0000000000';   // 一条「形似钥匙」的占位串（不是任何真钥匙）：模拟服务商在报错报文里回写一条别的钥匙串
-// 合成论文：只进测试页内存里的 PAPERS（不落任何文件）
+// 合成论文：只进测试页内存里的 PAPERS（不落任何文件）。每个场景先固定取注入前 35 篇，再加 N 篇合成，
+// 使原夹具总篇数与批次数不随每日数据更新漂移；SITE_DATA 与真实数据文件不动。
 const seedPapers=(start,count)=>`(()=>{const out=[],T=['minimally invasive lobectomy','neoadjuvant esophagectomy','lung nodule screening'];
   for(let i=0;i<${count};i++){const n=${start}+i;out.push({id:'pmid_'+(90000000+n),pmid:String(90000000+n),title_en:'Probe synthetic paper '+n+' about '+T[n%3],title_zh:'',
     abstract_en:'Synthetic abstract '+n+' on '+T[n%3]+' outcomes.',results:'',briefing_date:ANCHOR,pub_date:ANCHOR,score_total:40-(n%20),tier:'B',tier_scheme:'v4',
     journal_abbr:'PROBE J',journal_full:'Probe Journal',category:'surgery',category_label:'probe',study_type:'RCT',publish_state:'ok',status:{kind:'ok'}})}
-  PAPERS=PAPERS.concat(out);return out.length})()`;
+  PAPERS=INJECTED_PAPERS.slice(0,35).concat(out);return out.length})()`;
 const X={   // 页面侧表达式
   items:`(()=>{const s=clsStore.schemes.s_probe1;return s?JSON.parse(JSON.stringify(s.items)):null})()`,
   assignAll:`(()=>{const s=schemesStore.schemes[0],km=schemeKeyMap(s);return windowPapers().map(p=>({pmid:String(p.pmid),a:sectorAssign(s,km,p),k:kwClassify(s,p)}))})()`,
@@ -73,7 +74,7 @@ const X={   // 页面侧表达式
   clsState:`(()=>{const r=clsRun;return r?{running:r.running,note:r.note,stopped:r.stopped,done:r.done,cached:r.cached,failed:r.failed,plain:r.plain,batchDone:r.batchDone,batchTotal:r.batchTotal,skipped:r.skipped,error:r.error,gen:r.gen}:'null'})()`,
   progress:`(()=>{const el=document.querySelector('#cls-progress');return el?{hidden:el.hidden,text:el.textContent}:null})()`,
   deepNote:`(()=>{const el=document.querySelector('#detail .deep-note');return el?el.textContent:null})()`,
-  deepBox:`(()=>{const b=document.querySelector('#deep-box'),e=document.querySelector('#detail .deep-err');return b?{text:b.textContent,btn:!!document.querySelector('#deepreview-btn'),err:e?e.textContent:''}:null})()`,
+  deepBox:`(()=>{const b=document.querySelector('#deep-box'),e=document.querySelector('#detail .deep-err');return b?{text:b.textContent,title:b.getAttribute('title')||'',btn:!!document.querySelector('#deepreview-btn'),err:e?e.textContent:''}:null})()`,
   lsAI:'localStorage.getItem("thoradar.ai.v1")'
 };
 async function fresh(tab,seeds,origin){await tab.eval(`localStorage.clear();${seeds.join(';')};1`);await tab.goto(`${origin}/index.html`)}   // 清库→种存储→重载（存储先落盘再重载，不靠「新文档脚本」）
@@ -121,8 +122,14 @@ async function main(){
         const wrapAi=b=>{   // 把基线 aiMessages 的出口两行套上打码＝施工后期望的样子；两处各须恰好命中一次
           const pairs=[[`throw new Error(\`\${tf('err.ai.http',{s:res.status})}\${detail?\`：\${detail}\`:''}\`);`,`throw new Error(redactSecret(\`\${tf('err.ai.http',{s:res.status})}\${detail?\`：\${detail}\`:''}\`,true,cfg.apiKey));`],
             [`return (Array.isArray(data&&data.content)?data.content:[]).filter(b=>b&&b.type==='text').map(b=>String(b.text||'')).join('');`,`return redactSecret((Array.isArray(data&&data.content)?data.content:[]).filter(b=>b&&b.type==='text').map(b=>String(b.text||'')).join(''),false,cfg.apiKey);`]];
+          if(pairs.every(([,c])=>b.split(c).length-1===1))return b;   // 基线若已含单A打码，直接使用；不得重复包装
           for(const [a,c] of pairs){if(b.split(a).length-1!==1)throw new Error('基线 aiMessages 出口行与预期不符');b=b.replace(a,()=>c)}
-          return b};
+          return b};        const normUxInterpretation=b=>{   // T1127-UX 已批准的唯一改形：说明从可见正文收进 title；函数其余字节仍与基线相同
+          if(!b)return b;
+          const before="  if(degraded)return `<div class=\"interpretation-paused\"><strong>${t('interp.paused.t')}</strong><br>${t('interp.paused.b')}</div>`;";
+          const after="  if(degraded)return `<div class=\"interpretation-paused slim\" title=\"${t('interp.paused.b')}\"><strong>${t('interp.paused.t')}</strong></div>`;   /* UX 瘦身 mock：提示改一行轻字，说明收 title（Gemini 中8） */";
+          return b.includes(after)?b.replace(after,before):b;
+        };
         for(const [name,fn,fnBase] of [
           ['官方名册钉表读取层（JOURNAL_IDS／JOURNAL_BY_NLM／REGISTRY＋书架快照）',registryLayer],
           ['JCATS 九阵地表',x=>between(x,'const JCATS=[','];')],
@@ -134,7 +141,7 @@ async function main(){
           ['mergePapers',x=>block(x,'function mergePapers(')],['inWindow',x=>block(x,'function inWindow(')],['findAnchor',x=>block(x,'function findAnchor(')],
           ['filtered',x=>block(x,'function filtered(')],['jcatUniverse',x=>block(x,'function jcatUniverse(')],['jcatCounts',x=>block(x,'function jcatCounts(')],
           ['positions',x=>block(x,'function positions(')],['sectorMarkup',x=>block(x,'function sectorMarkup(')],['renderScope',x=>block(x,'function renderScope(')],
-          ['interpretationMarkup（解读暂停块）',x=>block(x,'function interpretationMarkup(')],
+          ['interpretationMarkup（解读暂停块：T1127-UX 只许说明收 title）',x=>normUxInterpretation(block(x,'function interpretationMarkup('))],
           ['parseJudgeOutput（主题判官，按序兜底只许留在这里）',x=>block(x,'function parseJudgeOutput(')],
           // aiMessages：签名、请求构造、报错提取逐字不动；只许「出口两行各套一层 redactSecret」（钥匙零回显的最后一道——四处调用共用这一条路，S17／M61／M62 盯着它）。
           // 期望件＝把基线那两行原样套上打码后得到的函数；其余任何一行不同都算改动
@@ -164,8 +171,8 @@ async function main(){
         const untracked=gitRead(['status','--porcelain','--untracked-files=all']).split('\n').filter(l=>l.startsWith('??')).map(l=>l.slice(3).trim().replace(/^"|"$/g));
         note(`相对基线 ${BASE} 的已跟踪改动：${changed.join(' , ')||'（无）'}｜未跟踪：${untracked.join(' , ')||'（无）'}`);
         check(!changed.some(f=>/thoradar_engine\.py|^\.github\/|^data\/|^api\/|^tools\/|^config\/|^thoradar-skill\//.test(f)),`补丁碰了禁区文件：${changed.join(',')}`);
-        // 允许清单＝本单交付面（index.html、tests/aicls/、deliver/）＋随最终提交入仓的两件 docs（规格书与架构地图的 T1125-AICLS 回填）。照 T1122 先例——考卷随合流面适配，不是放宽产品断言：两件只按全名精确放行，docs/ 下其余任何文件仍算任务外
-        const allowed=/^index\.html$|^tests\/aicls\/|^deliver\/|^docs\/(?:build-spec-个性化纵深|架构地图)\.md$/,stray=[...changed,...untracked].filter(f=>!allowed.test(f)&&!/^_dispatch\//.test(f));
+        // 允许清单＝产品页、两套随仓探针与两件明确规格/地图文档；docs/ 下其余文件仍算任务外
+        const allowed=/^index\.html$|^tests\/(?:aicls|poolup|ux)\/|^deliver\/|^docs\/(?:build-spec-个性化纵深|架构地图)\.md$/,stray=[...changed,...untracked].filter(f=>!allowed.test(f)&&!/^_dispatch\//.test(f));
         check(stray.length===0,`改动面含任务外文件：${stray.join(',')}`);   // _dispatch/＝派遣机落单目录（非施工产出），单列不计
       }catch(e){check(false,'S01 执行故障：'+e.message)}end()}
 
@@ -649,7 +656,7 @@ async function main(){
         const sent0=srv.ai.log.length-n0;
         note(`无 Key：浏览＋点击合计 AI 请求 ${sent0} 次｜解读位「${box0?box0.text.replace(/\s+/g,' ').slice(0,60):'（无块）'}」｜点击后 view=${guided.view}、AI 设置 hidden=${guided.settingsHidden}、提示「${guided.hint}」`);
         check(sent0===0,'无 Key 时浏览与点击都不得发 AI 请求');
-        check(Boolean(box0)&&box0.btn&&box0.text.includes('深评 · 默认关闭')&&box0.text.includes('不点不调用')&&keyType==='password','解读位应有「深评 · 默认关闭」块与按钮；Key 框须是密码框');
+        check(Boolean(box0)&&box0.btn&&box0.text.includes('深评 · 默认关闭')&&(box0.text+box0.title).includes('不点不调用')&&keyType==='password','解读位应有「深评 · 默认关闭」块与按钮；「不点不调用」可在正文或 title；Key 框须是密码框');
         check(guided.view==='personal'&&guided.settingsHidden===false&&guided.hintHidden===false&&guided.hint.includes('再点深评'),'无 Key 点击应切到个性化·AI 设置并提示「再点深评」');
         check(await tab.eval('Object.keys(deepStore.items).length')===0,'无 Key 点击不得写深评缓存');
         const hintReset=await tab.eval('(()=>{guideToAISettings();return {hint:document.querySelector("#ai-guide-hint").textContent,want:t("ai.guide.hint")}})()');   // 主题检索入口的引导：应写回它自己那句
@@ -786,9 +793,9 @@ async function main(){
         check(/^[0-9a-f]{8}\|cls-v1~djb2$/.test(fp),'方案指纹应以「|cls-v1~djb2」结尾');
         check(dial.length===40&&dial.every(d=>d.a==='g_a')&&srv.ai.log.length-n0===2,'降级态下分类应照常 2 批落库、盘面全归 Alpha');
         await tab.goto(`${srv.origin}/index.html`);await sleep(600);   // 同一份盘上缓存拿到 SHA-256 页签里：指纹不等＝全部陈旧
-        const dialA=await tab.eval(X.assignAll),envA=await tab.eval('({sha:CLS_SHA,tag:CLS_HASH_TAG})');
+        const dialA=await tab.eval(X.assignAll),envA=await tab.eval('({sha:CLS_SHA,tag:CLS_HASH_TAG})'),plainN=await tab.eval('PAPERS.length');
         note(`SHA-256 页签读同一份缓存：CLS_SHA=${envA.sha}、标记「${envA.tag}」｜窗内 ${dialA.length} 篇：归 Alpha ${dialA.filter(d=>d.a==='g_a').length} 篇、未分组 ${dialA.filter(d=>d.a==='__ungrouped__').length} 篇`);
-        check(envA.sha===true&&envA.tag===''&&dialA.length===35&&dialA.every(d=>d.a==='__ungrouped__'),'两种哈希的 ck 互不相认：SHA 页签不应命中 djb2 页签写的缓存（保守回关键词）');
+        check(envA.sha===true&&envA.tag===''&&dialA.length===plainN&&dialA.every(d=>d.a==='__ungrouped__'),`两种哈希的 ck 互不相认：SHA 页签当前 ${plainN} 篇应全部保守回关键词，不应命中 djb2 页签写的缓存`);
         noErrors(B,'S14');noErrors(tab,'S14');
       }catch(e){check(false,'S14 执行故障：'+e.message)}finally{srv.ai.respond=null;if(B)await B.close()}end()}
 
