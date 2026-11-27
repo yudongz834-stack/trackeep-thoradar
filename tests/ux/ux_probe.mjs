@@ -99,12 +99,15 @@ const brief=s=>({view:s.view,filters:vis(s)?`${s.filters.display} ${s.filters.w}
 const sec=(id,name)=>L.begin(id,name);
 const save=(name,data)=>{mkdirSync(OUT,{recursive:true});writeFileSync(join(OUT,name),JSON.stringify(data,null,1))};
 const clickSector=tab=>tab.eval(`(()=>{const ss=[...document.querySelectorAll('#journal-sectors .journal-sector')];if(!ss.length)return null;const s=ss[0];s.dispatchEvent(new MouseEvent('click',{bubbles:true,cancelable:true}));return s.dataset.jcat})()`);
-const mouseClick=async(h,tab,selector)=>{
-  const p=await tab.eval(`(()=>{const e=document.querySelector(${JSON.stringify(selector)});if(!e)return null;e.scrollIntoView({block:'center',inline:'center'});const r=e.getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2}})()`);
-  if(!p)throw new Error(`真实鼠标目标不存在：${selector}`);
+const mousePoint=async(h,tab,p)=>{
   await h.cdp.send('Input.dispatchMouseEvent',{type:'mouseMoved',x:p.x,y:p.y,button:'none',pointerType:'mouse'},tab.sid);
   await h.cdp.send('Input.dispatchMouseEvent',{type:'mousePressed',x:p.x,y:p.y,button:'left',clickCount:1,pointerType:'mouse'},tab.sid);
   await h.cdp.send('Input.dispatchMouseEvent',{type:'mouseReleased',x:p.x,y:p.y,button:'left',clickCount:1,pointerType:'mouse'},tab.sid);
+};
+const mouseClick=async(h,tab,selector)=>{
+  const p=await tab.eval(`(()=>{const e=document.querySelector(${JSON.stringify(selector)});if(!e)return null;e.scrollIntoView({block:'center',inline:'center'});const r=e.getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2}})()`);
+  if(!p)throw new Error(`真实鼠标目标不存在：${selector}`);
+  await mousePoint(h,tab,p);
 };
 
 async function main(){
@@ -280,6 +283,41 @@ async function main(){
       }
       await t.close();
     }
+    // ================= F10 雷达点径、形状与点击热区 =================
+    if(ONLY('F10')){
+      const measureMarks=tab=>tab.eval(`(()=>{const es=[...document.querySelectorAll('#blips .blip')].filter(e=>e.getBoundingClientRect().width&&getComputedStyle(e).opacity!=='0');let centerOwn=0,lowMismatch=0,lowFadeBad=0,zeroLabels=0,reviewN=0,reviewShapeBad=0;const widths=[];
+        for(const e of es){const r=e.getBoundingClientRect(),p=PAPERS.find(x=>x.id===e.dataset.select);widths.push(parseFloat(getComputedStyle(e).width));if(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2)===e)centerOwn++;
+          if(p){const sn=Number(p.score_total),score=Number.isFinite(sn)?Math.max(0,Math.min(100,sn)):0,low=score<45;if(e.classList.contains('proto-low')!==low)lowMismatch++;if(low&&!e.classList.contains('selected')&&!e.classList.contains('read')&&!e.classList.contains('dim')&&parseFloat(getComputedStyle(e).opacity)>.69)lowFadeBad++}
+          if(e.classList.contains('proto-kind-review')){reviewN++;if(!getComputedStyle(e,'::before').clipPath.includes('polygon'))reviewShapeBad++}}
+        zeroLabels=[...document.querySelectorAll('#scope-labels .scope-label')].filter(e=>/·\\s*0$/.test(e.textContent.trim())).length;
+        return {n:es.length,min:Math.min(...widths),max:Math.max(...widths),centerOwn,lowMismatch,lowFadeBad,zeroLabels,reviewN,reviewShapeBad}})()`);
+      const dTab=await fresh(h,path,1440,900,false),d=await measureMarks(dTab);await shot(h,dTab,'1440x900-radar-small');
+      const mTab=await fresh(h,path,390,844,true),m=await measureMarks(mTab);await shot(h,mTab,'390-radar-small');
+      const point=await mTab.eval(`(()=>{
+        const es=[...document.querySelectorAll('#blips .blip')].filter(e=>e.getBoundingClientRect().width&&!e.classList.contains('dim'));
+        for(const e of es){
+          const r=e.getBoundingClientRect();
+          for(const [dx,dy] of [[r.width/2+4,0],[-r.width/2-4,0],[0,r.height/2+4],[0,-r.height/2-4]]){
+            const x=r.x+r.width/2+dx,y=r.y+r.height/2+dy;
+            if(x>0&&x<innerWidth&&y>0&&y<innerHeight&&document.elementFromPoint(x,y)===e){return {x,y,id:e.dataset.select};}
+          }
+        }
+        return null;
+      })()`);
+      let hitPass=false;if(point){await mousePoint(h,mTab,point);await sleep(300);hitPass=await mTab.eval(`state.selected===${JSON.stringify(point.id)}`)}
+      const keyboardId=await mTab.eval(`(()=>{const e=[...document.querySelectorAll('#blips .blip')].find(e=>e.getBoundingClientRect().width&&!e.classList.contains('dim')&&e.dataset.select!==state.selected);if(!e)return null;e.focus();return e.dataset.select})()`);
+      if(keyboardId){await h.cdp.send('Input.dispatchKeyEvent',{type:'keyDown',key:'Enter',code:'Enter',windowsVirtualKeyCode:13,nativeVirtualKeyCode:13,text:'\r'},mTab.sid);await h.cdp.send('Input.dispatchKeyEvent',{type:'keyUp',key:'Enter',code:'Enter',windowsVirtualKeyCode:13,nativeVirtualKeyCode:13},mTab.sid);await sleep(300)}
+      const keyboardPass=keyboardId?await mTab.eval(`state.selected===${JSON.stringify(keyboardId)}`):false;
+      console.log(`  [雷达点径] 桌面 ${JSON.stringify(d)}｜390 ${JSON.stringify(m)}｜透明区点击=${hitPass}｜键盘 Enter=${keyboardPass}`);
+      save('f10-radar.json',{desktop:d,mobile:m,point,hitPass,keyboardId,keyboardPass});
+      if(JUDGE){
+        sec('F10a','F10a 桌面点径 5–9px，0 篇不占标签，低分淡化且研究设计形状保留');check(d.n>0&&d.min>=4.99&&d.max<=9.01,`桌面点径实得 ${d.min}–${d.max}px`);check(d.zeroLabels===0&&d.lowMismatch===0&&d.lowFadeBad===0,`0 篇标签 ${d.zeroLabels}、低分标记错 ${d.lowMismatch}、低分未淡 ${d.lowFadeBad}`);check(d.reviewN>0&&d.reviewShapeBad===0,`综述三角形缺失 ${d.reviewShapeBad}/${d.reviewN}`);L.end();
+        sec('F10b','F10b 手机点径为桌面 75%，且每个点中心都命中自己');check(m.n>0&&m.min>=3.74&&m.max<=6.76,`手机点径实得 ${m.min}–${m.max}px`);check(m.centerOwn===m.n&&d.centerOwn===d.n,`中心命中：桌面 ${d.centerOwn}/${d.n}、手机 ${m.centerOwn}/${m.n}`);L.end();
+        sec('F10c','F10c 小点仍有可用热区，且键盘 Enter 可选中');check(Boolean(point)&&hitPass,'透明热区真点击未选中目标');check(Boolean(keyboardId)&&keyboardPass,'键盘 Enter 未选中目标');L.end();
+        sec('F10d','F10d 雷达点径流页面零运行期异常');check(dTab.errors.length===0&&mTab.errors.length===0,`桌面 ${dTab.errors.length}／手机 ${mTab.errors.length} 条异常`);L.end();
+      }
+      await dTab.close();await mTab.close();
+    }
     // ================= F9 阅读视图第 13 篇起可达 =================
     if(ONLY('F9')){
       const t=await fresh(h,path);await t.eval(P.view('reading'));await sleep(450);
@@ -305,7 +343,9 @@ async function main(){
       const LS=(k,v)=>`localStorage.setItem(${JSON.stringify(k)},${JSON.stringify(JSON.stringify(v))})`;
       const SEEDS=`${LS('thoradar.collections.v1',SEED_COLL)};${LS('thoradar.sectors.v2',SEED_SECT)};localStorage.setItem('thoradar.poolview.v1','{"v":1,"mix":false}')`;
       const KEYS=`(()=>{const q=s=>{const el=document.querySelector(s);if(!el)return null;const c=el.cloneNode(true);c.querySelectorAll('#cls-progress,#deep-box,.deep-note,.deep-err,.ai-session,[data-i18n="ai.title"],#pool-mix-control,.proto-reading-more-item').forEach(n=>{const x=n.nextSibling;if(x&&x.nodeType===3&&!x.nodeValue.trim())x.remove();n.remove()});return c.innerHTML};
-        return {queue:q('#queue-list'),blips:q('#blips'),sectors:q('#journal-sectors'),labels:q('#scope-labels'),detail:q('#detail'),jlegend:q('#journal-legend'),folds:q('#jcat-folds'),clegend:q('#jcat-legend'),dlegend:q('#design-legend'),funnel:q('#funnel'),scan:q('#scan-date')+q('#scan-time'),read:q('#read-count'),counter:q('#filter-counter'),sub:q('#scope-subtitle'),hub:q('#hub-count'),collList:q('#coll-list'),collEditor:q('#coll-editor'),topicList:q('#topic-list'),ai:q('#ai-settings')}})()`;
+        const blipSig=()=>[...document.querySelectorAll('#blips .blip')].map(e=>[e.dataset.select,e.style.left,e.style.top,[...e.classList].find(c=>c.startsWith('proto-kind-'))||'',e.style.getPropertyValue('--proto-domain')].join(':')).join('|');
+        const labelSig=()=>[...document.querySelectorAll('#scope-labels .scope-label')].filter(e=>!/·\\s*0$/.test(e.textContent.trim())).map(e=>e.textContent.trim()+'@'+e.style.left+','+e.style.top).join('|');
+        return {queue:q('#queue-list'),blips:blipSig(),sectors:q('#journal-sectors'),labels:labelSig(),detail:q('#detail'),jlegend:q('#journal-legend'),folds:q('#jcat-folds'),clegend:q('#jcat-legend'),dlegend:q('#design-legend'),funnel:q('#funnel'),scan:q('#scan-date')+q('#scan-time'),read:q('#read-count'),counter:q('#filter-counter'),sub:q('#scope-subtitle'),hub:q('#hub-count'),collList:q('#coll-list'),collEditor:q('#coll-editor'),topicList:q('#topic-list'),ai:q('#ai-settings')}})()`;
       const STATE=`(()=>{try{const tierEls=[...document.querySelectorAll('.tier-chip')];return JSON.stringify({sel:state.selected,journal:state.journal===undefined?null:state.journal,days:state.days,tiers:[...state.tiers],filtered:filtered().map(p=>p.id),personal:personalFiltered().map(p=>p.id),papers:PAPERS.length,counter:document.querySelector('#filter-counter').textContent,read:document.querySelector('#read-count').textContent,windowLabel:document.querySelector('#window-label').textContent,windowValue:document.querySelector('#window-value').textContent,schemeValue:document.querySelector('#scheme-select').value,schemeOptions:[...document.querySelectorAll('#scheme-select option')].map(o=>o.textContent),tierBtns:tierEls.map(b=>b.textContent.trim()+(b.classList.contains('active')?'*':'')),queueIds:[...document.querySelectorAll('#queue-list [data-select]')].map(e=>e.dataset.select),journalSel:document.querySelector('#journal-selection').textContent,quickActive:(document.querySelector('#quick-filters button.active')||{dataset:{}}).dataset.quick})}catch(e){return 'ERR '+e.message}})()`;
       const BLOCKS=`(()=>{const inner=document.querySelector('#detail .detail-inner');if(!inner)return null;const out={};for(const el of inner.children){let k=(el.className||el.tagName).toString().split(' ')[0],html=el.innerHTML;if(k==='meta-fold'){k='meta-grid';html=el.querySelector('.meta-grid').innerHTML}if(k==='detail-journal'){const jm=el.querySelector('.journal-meta');const clone=el.cloneNode(true);const j2=clone.querySelector('.journal-meta');j2.innerHTML=j2.innerHTML.replace(/\\s·\\sIF [^<]*$/,'');html=clone.innerHTML}
     if(k==='interpretation'){const clone=el.cloneNode(true);const db=clone.querySelector('#deep-box');if(db)db.remove();const pb=clone.querySelector('.interpretation-paused');if(pb){const body=pb.getAttribute('title')||[...pb.childNodes].filter(n=>n.nodeType===3).map(n=>n.nodeValue).join('').replace(/\\s+/g,' ').trim();const st=pb.querySelector('strong');pb.outerHTML='PAUSED['+(st?st.textContent:'')+'|'+body+']'}html=clone.innerHTML}   // 解读暂停块：标题＋说明文字（施工前说明在块内、施工后在 title）两版归一；深评块本单有意改形，单列不比

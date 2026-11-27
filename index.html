@@ -471,13 +471,21 @@ body[data-proto-view="reading"][data-proto-density="immersive"] .proto-card-extr
 /* 雷达增强：真实评分驱动点径、色深和光晕；形状沿用并扩展原研究设计语义。 */
 .legend-shape.review{border-radius:0;clip-path:polygon(50% 0,100% 100%,0 100%);background:var(--accent-dark)}
 .legend-shape.ai{border-radius:2px;transform:rotate(45deg);background:var(--card);border:1.5px solid var(--accent-dark)}
-.blip.proto-blip{width:var(--proto-size,12px);height:var(--proto-size,12px);background:var(--proto-domain,var(--muted));box-shadow:0 0 var(--proto-glow,0) color-mix(in srgb,var(--proto-domain,var(--accent)) 60%,transparent)}
+.blip.proto-blip{width:calc(var(--proto-size,12px)*var(--proto-mark-scale,1));height:calc(var(--proto-size,12px)*var(--proto-mark-scale,1));background:var(--proto-domain,var(--muted));box-shadow:0 0 var(--proto-glow,0) color-mix(in srgb,var(--proto-domain,var(--accent)) 60%,transparent)}
+.blip.proto-blip::after{content:"";position:absolute;inset:-5px;border-radius:50%}   /* 视觉点缩小，点击热区适度外扩；密集处不再抢邻点 */
 .blip.proto-blip.rct{background:var(--proto-domain,var(--accent))}
 .blip.proto-blip.cohort{background:var(--card);border-color:var(--proto-domain,var(--accent-dark))}
-.blip.proto-blip.proto-kind-review{border-radius:0;clip-path:polygon(50% 0,100% 100%,0 100%)}
+.blip.proto-blip.proto-kind-review{clip-path:none;background:transparent;box-shadow:none}
+.blip.proto-blip.proto-kind-review::before{content:"";position:absolute;inset:0;background:var(--proto-domain,var(--muted));clip-path:polygon(50% 0,100% 100%,0 100%)}
+.blip.proto-blip.proto-kind-review.selected,.blip.proto-blip.proto-kind-review:hover,.blip.proto-blip.proto-kind-review:focus-visible{background:transparent}
+.blip.proto-blip.proto-kind-review.selected::before{background:var(--accent-dark)}
 .blip.proto-blip.proto-kind-ai{border-radius:3px;--rot:45deg;box-shadow:inset 0 0 0 3px var(--card),0 0 var(--proto-glow,0) var(--proto-domain,var(--accent))}
+.blip.proto-blip.proto-low:not(.selected):not(.read){opacity:.68}
+.blip.proto-blip.proto-low:hover,.blip.proto-blip.proto-low:focus-visible{opacity:1}
+.blip.proto-blip.dim{opacity:.07}
 .blip.proto-blip:hover,.blip.proto-blip:focus-visible{background:var(--proto-domain,var(--accent));box-shadow:0 0 0 5px var(--accent-soft),0 0 14px color-mix(in srgb,var(--proto-domain,var(--accent)) 65%,transparent);outline:none}
-.blip.proto-blip.selected{box-shadow:0 0 0 5px var(--accent-soft),0 0 0 6px var(--accent-dark),0 0 16px color-mix(in srgb,var(--proto-domain,var(--accent)) 65%,transparent)}
+.blip.proto-blip.selected{box-shadow:0 0 0 4px var(--accent-soft),0 0 0 5px var(--accent-dark),0 0 16px color-mix(in srgb,var(--proto-domain,var(--accent)) 65%,transparent)}
+@media(max-width:900px){.blip.proto-blip{--proto-mark-scale:.75}.blip.proto-blip::after{inset:-5px}}
 .journal-sectors .journal-sector{fill:color-mix(in srgb,var(--proto-domain,var(--accent)) 4%,transparent);stroke:color-mix(in srgb,var(--proto-domain,var(--line)) 38%,var(--line));stroke-width:.8}
 .journal-sectors .journal-sector:nth-child(even){fill:color-mix(in srgb,var(--proto-domain,var(--accent)) 7%,transparent)}
 .journal-sectors .journal-sector:hover,.journal-sectors .journal-sector:focus-visible{fill:color-mix(in srgb,var(--proto-domain,var(--accent)) 14%,transparent);stroke:var(--proto-domain,var(--accent))}
@@ -3427,14 +3435,16 @@ clsPrewarm();   // 已有 AI 分类缓存的回访用户：首帧先按内容哈
   }
   renderScope=function(list,base,groups,counts,assignOf){
     baseRenderScope(list,base,groups,counts,assignOf);
+    $('#scope-labels').querySelectorAll('.scope-label').forEach(el=>{if(/·\s*0$/.test(el.textContent.trim()))el.remove()});   // 0 篇不占标签位；不动原 renderScope 的角度与数据语义
     if(!list.length&&$('#scope-empty').classList.contains('show')&&!myJournalsStore.filterOn){   // FIX-3：官方在列为空而池外派生条在列时，空态不再写「当前数据窗口内无论文」（那只是官方口径）
       const poolN=personalFiltered().filter(p=>p.pool_ext).length;
       if(poolN)$('#scope-empty').innerHTML=`${tf('poolup.scope.empty',{n:poolN})}<br>${t('poolup.scope.empty2')}`;
     }
     $('#blips').querySelectorAll('.blip').forEach(blip=>{
       const p=PAPERS.find(item=>item.id===blip.dataset.select);if(!p)return;
-      const kind=protoStudyKind(p),score=protoScore(p),size=10+Math.round(score/100*9);
+      const kind=protoStudyKind(p),score=protoScore(p),size=5+Math.round(score/100*4);
       blip.classList.add('proto-blip',`proto-kind-${kind}`);
+      blip.classList.toggle('proto-low',score<45);
       blip.style.setProperty('--proto-domain',protoDomainColor(jcatOf(p)));
       blip.style.setProperty('--proto-size',`${size}px`);
       blip.style.setProperty('--proto-glow',score>=60?'10px':score>=45?'6px':'2px');
