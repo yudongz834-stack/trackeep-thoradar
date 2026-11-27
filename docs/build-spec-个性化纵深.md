@@ -39,7 +39,10 @@ h8 = crypto.subtle SHA-256 取前 8 hex（GitHub Pages 为 https 可用）；fil
 `{v:1, journals:[{k(大写缩写≤120), nlm, title, isoabbr, issn, addedAt}]}`。
 `resolveEntryKey`（L665）追加左联：官方名册未中→ext 名册→k；两不中才 null（失效）。池外刊从此不再标失效；其无官方 jcat，分区徽章标「未分类·池外」，不进官方分组。
 ### 1.6 池外拉取缓存＝新键 `thoradar.poolcache.v1`
-`{v:1, byNlm:{[nlmid]:{at, until(=at+24h), total, pmids:[≤50]}}}`；过 until 即陈旧。
+`{v:1, byNlm:{[nlmid]:{at, until(=at+24h), total, pmids:[≤50], items:[≤50]}}}`；过 until 即陈旧。T1125-POOLUP 起 `items[]` 增加 `day:'YYYY-MM-DD'|''`（entrez→ArticleDate→Journal PubDate 首个精确日），仅供个人时间窗；旧缓存仅有年份时不猜日期，须显式刷新补齐。
+
+### 1.7 池外混排偏好＝新键 `thoradar.poolview.v1`
+`{v:1,mix:boolean}`；缺键／坏档默认 `mix:true`（PI 五点定案①）。只控制个人派生视图，不触发网络，不写官方数据集。
 
 ## 2. UI 组件
 
@@ -72,6 +75,12 @@ const assignOf = keyMap ? p=>sectorAssign(scheme,keyMap,p) : jcatOf;
 ### 2.3 池外刊添加 UI（指派区工具条「＋ 池外期刊」）
 流程：弹出检索 input（复用 coll-search 样式）→防抖 800ms→esearchNlmCatalog（5.1）→候选列表（规范刊名/NLM ID/ISSN）→点选→confirm 卡片确认→push ext 名册→persist→render()。重名保护：k 已在官方名册或 ext→提示已存在，不重复入册。
 
+### 2.4 池外文上个人盘·混排带标（T1125-POOLUP）
+- 队列筛选区新增 `#pool-mix-toggle`，默认开、跨刷新保持；只读已入册刊的 poolcache，经 `poolPapersDerived()`／`personalFiltered()` 并入个人概览与阅读队列。每条沿用 `.badge` 标「池外」，详情明示无官方档位／评分／阵地。FIXK：缓存过 until 照常混排但追加 `.badge.stale[data-pool-stale]`「已过期」；详情「预警状态／精选状态／出版状态」三格与状态胶囊对池外一律「未核查」（池外不做这些核查，中英成对）；阅读卡不再重复英文副标（池外无中文题名，主标题已是原文）。
+- 有池外可见条时按日期新→旧混排，同日池外在前，同日官方保持原评分顺序；无池外名册／无可见池外条／开关关时官方结果逐对象同序。FIXK：阅读视图 top12 改经 `readingTop12()`——池外派生条 ≤3 条、其余位置由官方条按混排原序补满（GLM B2-1：17 条高产池外曾把官方挤出前 12），概览完整队列仍全列出；切阅读视图时的选中篇校正与渲染共用这同一份 top12。
+- 筛选口径：检索、合集、刊源同官方；池外无 tier，不受档位开关影响；快筛非 all、书架过滤、官方或自定义阵地过滤选中时排除池外。FIXK：池外入窗改走 `poolInWindow()`，上界＝max(官方锚点日, 浏览器本地当天)、下界仍按官方锚点起算（GLM B2-2：官方数据滞后时新拉到的池外新文可入窗），官方 `inWindow()` 一字不动；PubMed 入库美东时区与本地日历的错位只挂账不处理。官方在列为空而池外在列时，雷达空态改写「官方当前筛选下无在列信号；池外缓存有 N 条在信号队列」。
+- 官方雷达、扇区计数、设计图例仍只消费 `filtered()`；池外永不写 `PAPERS`／`SITE_DATA`。
+
 ## 3. 分类模块
 
 ```js
@@ -87,7 +96,7 @@ async classifyScheme(schemeId, {force}) -> {done, cached, failed}  // 编排器
 ```
 - classifyScheme 编排：目标集＝windowPapers()（当前时间窗）→滤除 ck 全等已缓存→余量夹 `CLS_RUN_CAP=200`→`CLS_BATCH_SIZE=20`/批串行 for 循环（骨架照抄 runTopic L1721-1741）→批间 `sleepAbortable(PUBMED_THROTTLE_MS)`→`AI_RETRY=1`→批失败整批回退 kwClassify→逐批 persistSectorCls＋render()。
 - 并发＝1；与 runTopic **互斥**（personalBusy 闸：任一运行中，另一入口 confirm 拒绝——防 3s 队列交错与 Key 双烧）。
-- 回退链：LLM 失败→kw→仍无→UNGROUPED_ID（雷达不空转）；池外题录无官方 jcat→标「未分类」不入盘。
+- 回退链：LLM 失败→kw→仍无→UNGROUPED_ID（雷达不空转）；池外题录无官方 jcat→标「池外 · 未分类」，不入官方雷达盘；T1125-POOLUP 起可经派生层进个人队列。
 
 ## 4. 护栏实现清单（逐条对应 Astra 三层＋消费端零面）
 
@@ -103,7 +112,7 @@ async classifyScheme(schemeId, {force}) -> {done, cached, failed}  // 编排器
 - 期刊确认：`esearch.fcgi?db=nlmcatalog&term=${encodeURIComponent(q)}[Title]&retmax=8&retmode=json` → `esummary.fcgi?db=nlmcatalog&id=${ids}&retmode=json`，取 nlmid/title/isoabbr/issn/essn。
 - 文章拉取（打开池外刊题录面板时）：`esearch.fcgi?db=pubmed&term=${encodeURIComponent(isoabbr)}[Journal]&datetype=edat&reldate=30&retmax=50&retmode=json&sort=date`；EFetch 复用 efetchPubmed（L1600），50 id 拆 2×25 请求（GET URL 长度保守）。
 - 统一队列（新增 pubmedGate）：全站浏览器 eutils 调用改走同一顺序队列，间隔沿用 `PUBMED_THROTTLE_MS=3000`；runTopic L1712/1725/1740 的手工 sleep 迁入 gate（个人层内改，引擎 0.35s 锁不涉及）。429/503→指数退避 3→6→12s＋±20% 抖动，上限 3 次，超限整批失败走回退文案。`navigator.locks`（Web Locks）协调同源多标签页，无该 API 静默降级为单标签页队列。
-- 缓存/去重：poolcache 24h；打开面板**先渲缓存再后台刷新**，断网保留旧结果；PMID 去重：与 PAPERS 撞者标「已在官方池」不重复展示题录。
+- 缓存/去重：poolcache 24h；打开面板**先渲缓存再后台刷新**，断网保留旧结果；PMID 去重：与 PAPERS 撞者标「已在官方池」，不重复展示题录也不重复混入个人队列；跨池外刊同 PMID 首个入册刊胜。池外拉取走 `efetchPubmed(...,true)` 另取精确 `day`，主题检索默认输出形状不变。
 
 ## 6. 分阶段施工切分
 
@@ -124,7 +133,10 @@ async classifyScheme(schemeId, {force}) -> {done, cached, failed}  // 编排器
 
 
 **P3**（可独立于 P2 并行）：nlmcatalog 确认＋ext 名册＋resolveEntryKey 左联＋池外题录面板＋pubmedGate＋poolcache。
-验收：确认入册后该刊不再标失效；24h 内二次打开秒开零请求；与主题运行排队互斥串行；429 退避后拉取成功；断网展示旧缓存；池外论文不出现在官方雷达盘与队列。
+验收：确认入册后该刊不再标失效；24h 内二次打开秒开零请求；与主题运行排队互斥串行；429 退避后拉取成功；断网展示旧缓存；池外论文不出现在官方雷达盘。
+
+**T1125-POOLUP（单B）**：池外缓存派生层＋个人混排开关＋带标概览/阅读/详情。
+验收：默认混排带标；开关跨刷新；时间窗与各项筛选按 §2.4 逐项有探针；官方/跨刊 PMID 去重；无缓存零拉取、24h 零请求、显式刷新即时重渲、断网留旧；无池外名册时官方视图与基线逐项等价；单A功能面零回归。FIXK 返修后：阅读上限／独立锚当天／诚实性措辞与空态各有探针（S09–S11），变异原 18＋GLM 并入 15＋FIX 自证 6 全杀。
 
 ## 7. 不做什么（机器禁区）
 
@@ -133,7 +145,7 @@ async classifyScheme(schemeId, {force}) -> {done, cached, failed}  // 编排器
 - 不动官方名册钉表：SITE_DATA.journal_ids/journal_meta 本体只读；池外刊只进 thoradar.journals.ext.v1。
 - 不动官方九阵地：JCATS/jcatOf/JCAT_OFFDIAL/「待定」语义零改；官方视图行为必须与现网逐项等价。
 - 分类结果不回写：tier/study_type/score/jcat/官方 category/topicruns 永不被个人分类写入。
-- 池外论文不上盘不进队列：只存在于个人题录面板；未来要上盘另立委托再议。
+- 池外论文不进官方数据集／官方雷达盘：只写 poolcache；T1125-POOLUP 起可经个人派生层进入概览、阅读队列与详情，永不写 `PAPERS`／`SITE_DATA`／官方九阵地。
 - 静态站边界：localStorage 配置不进任何 CI/云端；不做自动定时任务。
 
 ---
