@@ -524,6 +524,31 @@ body[data-proto-view="personal"] #coll-list,body[data-proto-view="personal"] #co
 @media(max-width:480px){.proto-view-btn{padding:6px 4px;font-size:10px}.proto-view-btn kbd{display:none}.proto-card-meta{align-items:flex-start;flex-direction:column}.proto-personal-tab{padding:7px 10px;font-size:10px}body[data-proto-view="personal"] .proto-personal-tabs{display:grid;grid-template-columns:1fr 1fr;gap:6px;overflow:visible}.proto-personal-tab{width:100%;white-space:normal}}
 @media(max-width:420px){.scope-empty,.scope-empty.shelf-empty{width:min(210px,72%);padding:12px 14px;font-size:11px}}
 @media(prefers-reduced-motion:reduce){.proto-article{transition:none}}
+/* ===== UX 原地瘦身（mock 2026-11-27）：只压缩占视野块，结构与功能不动；每条挂双诊断证据 ===== */
+.topbar{height:58px}                                            /* 顶栏 76→58 */
+.scope{width:min(100%,380px)}                                   /* 雷达直径 cap 380px（原 calc(100vh-360px) 过大且矮屏溢出·Gemini 高3） */
+#funnel{display:none}                                           /* 管线漏斗报表撤下用户面（Gemini 中5） */
+.ai-help[data-i18n="poolup.hint"]{display:none}                 /* 说明书墙收编·开关留 title（D7①＋Gemini 高1） */
+.jl-fold{margin:4px 0;font-size:11px;color:var(--muted)}        /* 刊源图例折叠（D7⑤＋Gemini 低9） */
+.jl-fold summary{cursor:pointer;list-style:none;text-align:center}
+.jl-fold summary::before{content:'▸ '}
+.jl-fold[open] summary::before{content:'▾ '}
+.jl-fold .journal-legend{max-height:120px;margin-top:6px}
+.detail-title{font-size:17px;line-height:1.45}                  /* 详情大标题缩一号 */
+.meta-fold{margin:10px 0;font-size:12px;color:var(--muted)}     /* 元数据折叠（D7④＋Gemini 高2） */
+.meta-fold summary{cursor:pointer}
+.interpretation-paused.slim{padding:6px 10px;background:none}   /* 提示框改一行轻字（Gemini 中8） */
+.deep-paused.slim{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.deep-paused.slim br{display:none}
+@media(min-width:901px){body{overflow:auto}.deck{min-height:0}} /* 矮屏裁切修复（Gemini 高3） */
+/* ===== 二轮（PI 实测反馈）：筛选区折叠（阅读默认收／概览默认开可收）＋阅读卡紧凑＋顶栏钮紧凑 ===== */
+body[data-proto-view="overview"]:not(.filters-open) .filters{display:none}        /* 概览也可收起（PI 追加：队列腾空间） */
+body[data-proto-view="reading"] .filters{display:none}                              /* 阅读时筛选区默认整区收起 */
+body[data-proto-view="reading"].filters-open .filters{display:grid}                 /* 点「筛选 ▾」才展开 */
+.filters-toggle{display:block;margin:8px 12px 6px;padding:6px 12px;border:1px solid var(--line);border-radius:7px;background:var(--card);color:var(--muted);font-size:11px;cursor:pointer;width:fit-content}
+body[data-proto-view="reading"] .queue-text strong{font-size:14px;line-height:1.5}  /* 阅读卡标题 16→14 */
+.detail-title{font-size:16px}                                                       /* 详情标题再降一号 */
+.proto-view-btn{min-height:28px;padding:5px 10px}                                   /* 顶栏视图钮 32→28 */
 </style>
 </head>
 <body>
@@ -626,7 +651,7 @@ body[data-proto-view="personal"] #coll-list,body[data-proto-view="personal"] #co
       <div class="journal-toolbar"><span id="journal-selection">刊源：全部</span><button class="journal-clear" id="journal-clear" disabled data-i18n="jrn.clear">清除</button></div>
       <div class="jcat-folds" id="jcat-folds" aria-label="阵地折叠" data-i18n-aria="folds.aria"></div>
       <div class="journal-legend" id="jcat-legend" aria-label="阵地图例 · 邻科与公卫" data-i18n-aria="legend.sector.aria"></div>
-      <div class="journal-legend" id="journal-legend" aria-label="刊源图例" data-i18n-aria="legend.journal.aria"></div>
+      <details class="jl-fold"><summary>按刊源筛选（点击展开）</summary><div class="journal-legend" id="journal-legend" aria-label="刊源图例" data-i18n-aria="legend.journal.aria"></div></details>
       <div class="legend" id="design-legend"></div>
       <div class="funnel" id="funnel"></div>
     </div>
@@ -1594,7 +1619,7 @@ function issueOf(p){
   return show(p.journal_issue||p.issue_info||p.volume_issue);
 }
 function interpretationMarkup(p,degraded){
-  if(degraded)return `<div class="interpretation-paused"><strong>${t('interp.paused.t')}</strong><br>${t('interp.paused.b')}</div>`;
+  if(degraded)return `<div class="interpretation-paused slim" title="${t('interp.paused.b')}"><strong>${t('interp.paused.t')}</strong></div>`;   /* UX 瘦身 mock：提示改一行轻字，说明收 title（Gemini 中8） */
   const blocks=[];
   if(hasValue(p.authors_conclusion))blocks.push(`<p class="honesty-note"><strong>${t('honest.concl')}</strong><br>${esc(p.authors_conclusion)}</p>`);
   if(hasValue(p.ai_note))blocks.push(`<p class="honesty-note"><strong>${t('honest.ai')}</strong><br>${esc(p.ai_note)}</p>`);
@@ -1630,17 +1655,10 @@ function renderDetail(list){
   $('#detail').innerHTML=`<div class="detail-inner ${status.kind==='retracted'?'is-retracted':''}">
     <div class="detail-top"><span class="lock-id">SIGNAL LOCK / ${String(index+1).padStart(2,'0')}</span><span class="status-pill ${['retracted','concern','corrected'].includes(status.kind)?'has-icon':''} ${status.cls}">${p.pool_ext?t('poolup.unchecked.status'):status.label}</span></div>
     ${noticeMarkup(p,status)}
-    <div class="detail-journal"><div><div class="journal-name">${esc(p.journal_full||p.journal_abbr||'—')}</div><div class="journal-meta">${esc(journalName(p))} · ${esc(show(p.pub_date))} · ${tierMark(p)}${jsubMark(p)}</div></div><div class="score-box"><b>${esc(show(p.score_total))}</b><small>${t('detail.score')} · ${esc(show(p.score_source))}</small></div></div>
+    <div class="detail-journal"><div><div class="journal-name">${esc(p.journal_full||p.journal_abbr||'—')}</div><div class="journal-meta">${esc(journalName(p))} · ${esc(show(p.pub_date))} · ${tierMark(p)}${jsubMark(p)} · IF ${esc(show(p.if_val||null))} · ${esc(show(p.zone))}</div></div><div class="score-box"><b>${esc(show(p.score_total))}</b><small>${t('detail.score')} · ${esc(show(p.score_source))}</small></div></div>
     ${scoreTrack}
     <h2 class="detail-title">${esc(p.title_zh||p.title_en||'—')}</h2>
     <div class="badges"><span class="badge accent">${esc(p.category_label||categoryOf(p.category).label)}</span><span class="badge">${esc(show(p.study_type))}</span>${p.nct_id?`<span class="badge">${esc(p.nct_id)}</span>`:''}${degraded?`<span class="badge paused">${t('detail.paused')}</span>`:''}</div>
-    <div class="meta-grid">
-      <div class="meta-cell"><small>PMID</small><b>${esc(show(p.pmid))}</b></div><div class="meta-cell"><small>${t('meta.status')}</small><b>${esc(p.pool_ext?t('poolup.unchecked'):status.label)}</b></div>
-      <div class="meta-cell"><small>${t('meta.if')}</small><b>${esc(show(p.if_val || null))}</b></div><div class="meta-cell"><small>${t('meta.zone')}</small><b>${esc(show(p.zone))}</b></div><div class="meta-cell"><small>${t('meta.warn')}</small><b>${p.pool_ext?t('poolup.unchecked'):p.warned ? t('warn.yes') : t('warn.no')}</b></div>
-      <div class="meta-cell"><small>${t('meta.date')}</small><b>${esc(show(p.briefing_date))}</b></div><div class="meta-cell"><small>${t('meta.vol')}</small><b>${esc(issueOf(p))}</b></div>
-      <div class="meta-cell"><small>${t('meta.jcat')}</small><b>${esc(p.pool_ext?t('poolup.uncategorized'):jcatLabel(jcatOf(p)))}</b></div><div class="meta-cell"><small>${t('meta.scheme')}</small><b>${p.pool_ext?t('poolup.notier'):String(p.tier_scheme||'')==='v4'?t('scheme.v4'):t('scheme.v3')}</b></div>
-      <div class="meta-cell"><small>${t('meta.score')}</small><b>${esc(show(p.score_source))}</b></div><div class="meta-cell"><small>${t('meta.curated')}</small><b>${p.pool_ext?t('poolup.unchecked.curated'):p.curated?t('curated.yes'):t('curated.no')}</b></div>
-    </div>
     <div class="interpretation">
       <div class="excerpt-label"><b>${t('excerpt.label')}</b><span>${t('excerpt.note')}</span></div>
       <p class="excerpt">${esc(abstract||t('excerpt.missing'))}</p>
@@ -1648,6 +1666,15 @@ function renderDetail(list){
       ${deepReviewMarkup(p)}
     </div>
     <div class="detail-actions">${paperLink}${doiLink}${trial}<button class="action-btn wide ${marked?'marked':''}" id="mark-read">${marked?t('mark.done'):t('mark.do')}</button></div>
+    <details class="meta-fold"><summary>更多元数据（PMID／出版状态／预警／雷达日期／卷期／阵地／口径）</summary>
+    <div class="meta-grid">
+      <div class="meta-cell"><small>PMID</small><b>${esc(show(p.pmid))}</b></div><div class="meta-cell"><small>${t('meta.status')}</small><b>${esc(p.pool_ext?t('poolup.unchecked'):status.label)}</b></div>
+      <div class="meta-cell"><small>${t('meta.if')}</small><b>${esc(show(p.if_val || null))}</b></div><div class="meta-cell"><small>${t('meta.zone')}</small><b>${esc(show(p.zone))}</b></div><div class="meta-cell"><small>${t('meta.warn')}</small><b>${p.pool_ext?t('poolup.unchecked'):p.warned ? t('warn.yes') : t('warn.no')}</b></div>
+      <div class="meta-cell"><small>${t('meta.date')}</small><b>${esc(show(p.briefing_date))}</b></div><div class="meta-cell"><small>${t('meta.vol')}</small><b>${esc(issueOf(p))}</b></div>
+      <div class="meta-cell"><small>${t('meta.jcat')}</small><b>${esc(p.pool_ext?t('poolup.uncategorized'):jcatLabel(jcatOf(p)))}</b></div><div class="meta-cell"><small>${t('meta.scheme')}</small><b>${p.pool_ext?t('poolup.notier'):String(p.tier_scheme||'')==='v4'?t('scheme.v4'):t('scheme.v3')}</b></div>
+      <div class="meta-cell"><small>${t('meta.score')}</small><b>${esc(show(p.score_source))}</b></div><div class="meta-cell"><small>${t('meta.curated')}</small><b>${p.pool_ext?t('poolup.unchecked.curated'):p.curated?t('curated.yes'):t('curated.no')}</b></div>
+    </div>
+    </details>
     <div class="detail-nav"><button class="nav-btn" id="prev-btn">${t('nav.prev')}</button><span class="nav-position">${index+1} / ${list.length}</span><button class="nav-btn" id="next-btn">${t('nav.next')}</button></div>
   </div>`;
   $('#mark-read')?.addEventListener('click',()=>{state.read.has(p.id)?state.read.delete(p.id):state.read.add(p.id);render()});
@@ -2931,7 +2958,7 @@ function deepReviewMarkup(p){   // 详情卡解读位的深评块（沿用「解
   if(hit)return `<p class="honesty-note deep-note"><strong>${t('deep.label')}</strong><br>${esc(hit.text)}</p>`;   // AI 输出是不可信内容：一律转义后上屏
   if(deepRun&&deepRun.running&&deepRun.pmid===pid)return `<div class="interpretation-paused deep-paused" id="deep-box"><strong>${t('deep.running')}</strong><br><button type="button" class="action-btn" id="deep-stop">${t('stop.btn')}</button></div>`;
   const err=deepError.pmid===pid?deepError.msg:'';
-  return `<div class="interpretation-paused deep-paused" id="deep-box"><strong>${t('deep.off.t')}</strong><br>${t('deep.off.b')}<br><button type="button" class="action-btn" id="deepreview-btn">${t('deep.btn')}</button>${err?`<span class="deep-err">${esc(err)}</span>`:''}</div>`;
+  return `<div class="interpretation-paused deep-paused slim" id="deep-box" title="${t('deep.off.b')}"><strong>${t('deep.off.t')}</strong><button type="button" class="action-btn" id="deepreview-btn">${t('deep.btn')}</button>${err?`<span class="deep-err">${esc(err)}</span>`:''}</div>`;   /* UX 瘦身 mock：说明收 title，按钮与标题同行 */
 }
 async function startDeepReview(p){   // 点击才调 AI 评当前一篇：缓存命中＝零调用；无 Key＝引导去 AI 设置（零调用）；另有 AI 任务在途＝拒绝
   const pid=paperKey(p);
@@ -3391,6 +3418,7 @@ clsPrewarm();   // 已有 AI 分类缓存的回访用户：首帧先按内容哈
   function protoSetView(view){
     if(!['overview','reading','personal'].includes(view))return;
     protoView=view;document.body.dataset.protoView=view;protoHideRadarTip();
+    if(view==='reading')document.body.classList.remove('filters-open');   /* UX 瘦身：阅读进场筛选区恒收起（要用再点「筛选 ▾」）；概览保留用户展开选择 */
     if(view==='personal'){
       if($('#coll-drawer').hidden)openCollDrawer();$('#coll-mask').hidden=true;
     }else{
@@ -3438,7 +3466,10 @@ clsPrewarm();   // 已有 AI 分类缓存的回访用户：首帧先按内容哈
   document.body.dataset.protoDensity='compact';
   protoApplyPersonalPanels();
   protoSetView('overview');
+  document.body.classList.add('filters-open');   /* UX 瘦身：概览默认展开筛选（可一键收起腾队列空间） */
   document.body.dataset.protoReady='true';
+  // UX 瘦身 mock 二轮：阅读筛选区折叠钮（插在 filters 前；仅阅读态显示，CSS 控制）
+  (function(){const f=document.querySelector('.filters');if(!f)return;const b=document.createElement('button');b.type='button';b.className='filters-toggle';b.textContent='筛选 · 时间窗 / 档位 / 专题 ▾';b.onclick=()=>{document.body.classList.toggle('filters-open');b.textContent=document.body.classList.contains('filters-open')?'收起筛选 ▴':'筛选 · 时间窗 / 档位 / 专题 ▾'};f.parentElement.insertBefore(b,f)})();
 })();
 </script>
 </body>
