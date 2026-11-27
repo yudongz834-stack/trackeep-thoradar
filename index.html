@@ -583,6 +583,17 @@ body:not([data-proto-view="reading"]) .proto-density{display:none}       /* 密�
 .queue-panel .coll-head .proto-density button{min-height:24px;font-size:10px;padding:3px 8px;border:1px solid var(--line)}
 #scope-subtitle{display:none}
 .detail-top .lock-id{display:none}
+/* T1127-UX2 比例调优（PI 2026-11-27 认图）：只动概览空间分配与 TAB 点击高度；数据、功能和已认可点径不变。 */
+.proto-view-btn{min-height:30px}
+@media(min-width:1181px){
+  body[data-proto-view="overview"] .deck{grid-template-columns:280px minmax(420px,1fr) 350px}
+}
+@media(max-width:1180px) and (min-width:901px){
+  body[data-proto-view="overview"] .deck{grid-template-columns:240px minmax(360px,1fr) 315px}
+}
+@media(min-width:901px){
+  body[data-proto-view="overview"] .scope{width:min(100cqw,100cqh,420px)}
+}
 </style>
 </head>
 <body>

@@ -318,6 +318,27 @@ async function main(){
       }
       await dTab.close();await mTab.close();
     }
+    // ================= F11 概览三栏比例、雷达盘上限与主 TAB 高度 =================
+    if(ONLY('F11')){
+      const measureLayout=tab=>tab.eval(`(()=>{
+        const q=s=>document.querySelector(s),panel=q('.queue-panel').getBoundingClientRect(),scope=q('#scope').getBoundingClientRect(),foot=q('.scope-foot').getBoundingClientRect(),tab=q('#proto-tab-overview').getBoundingClientRect();
+        const es=[...document.querySelectorAll('#blips .blip')].filter(e=>e.getBoundingClientRect().width&&getComputedStyle(e).opacity!=='0');let centerOwn=0;
+        for(const e of es){const r=e.getBoundingClientRect();if(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2)===e)centerOwn++}
+        return {view:document.body.dataset.protoView,queue:panel.width,scope:scope.width,scopeBottom:scope.bottom,footTop:foot.top,tabH:tab.height,overflow:document.documentElement.scrollWidth-innerWidth,n:es.length,centerOwn,grid:getComputedStyle(q('.deck')).gridTemplateColumns};
+      })()`);
+      const dTab=await fresh(h,path,1440,900,false),d=await measureLayout(dTab);await shot(h,dTab,'1440x900-layout-proportions');
+      const nTab=await fresh(h,path,1024,768,false),n=await measureLayout(nTab);await shot(h,nTab,'1024x768-layout-proportions');
+      const mTab=await fresh(h,path,390,844,true),m=await measureLayout(mTab);await shot(h,mTab,'390-layout-proportions');
+      console.log(`  [整体比例] 桌面 ${JSON.stringify(d)}｜窄桌面 ${JSON.stringify(n)}｜手机 ${JSON.stringify(m)}`);
+      save('f11-layout.json',{desktop:d,narrow:n,mobile:m});
+      if(JUDGE){
+        sec('F11a','F11a 桌面左栏 280px、雷达上限 420px、主 TAB 高 30px');check(Math.abs(d.queue-280)<.2&&Math.abs(d.scope-420)<.2&&Math.abs(d.tabH-30)<.2,`实得左栏 ${d.queue}、雷达 ${d.scope}、TAB ${d.tabH}`);check(d.overflow<=.5&&d.scopeBottom<=d.footTop+1&&d.centerOwn===d.n,`横溢 ${d.overflow}、盘底/下部 ${d.scopeBottom}/${d.footTop}、中心命中 ${d.centerOwn}/${d.n}`);L.end();
+        sec('F11b','F11b 901–1180px 左栏 240px，雷达超过旧 380px 上限且不压下部');check(Math.abs(n.queue-240)<.2&&n.scope>380.5&&n.scope<=420.1,`实得左栏 ${n.queue}、雷达 ${n.scope}`);check(n.overflow<=.5&&n.scopeBottom<=n.footTop+1&&n.centerOwn===n.n,`横溢 ${n.overflow}、盘底/下部 ${n.scopeBottom}/${n.footTop}、中心命中 ${n.centerOwn}/${n.n}`);L.end();
+        sec('F11c','F11c 手机单栏与盘宽不被桌面规则改变，TAB 同高且不横溢');check(Math.abs(m.queue-370)<.2&&Math.abs(m.scope-m.queue)<.2&&Math.abs(m.tabH-30)<.2,`实得左栏 ${m.queue}、雷达 ${m.scope}、TAB ${m.tabH}`);check(m.overflow<=.5&&m.centerOwn===m.n,`横溢 ${m.overflow}、中心命中 ${m.centerOwn}/${m.n}`);L.end();
+        sec('F11d','F11d 三种视口比例流页面零运行期异常');check(dTab.errors.length===0&&nTab.errors.length===0&&mTab.errors.length===0,`桌面 ${dTab.errors.length}／窄桌面 ${nTab.errors.length}／手机 ${mTab.errors.length} 条异常`);L.end();
+      }
+      await dTab.close();await nTab.close();await mTab.close();
+    }
     // ================= F9 阅读视图第 13 篇起可达 =================
     if(ONLY('F9')){
       const t=await fresh(h,path);await t.eval(P.view('reading'));await sleep(450);
