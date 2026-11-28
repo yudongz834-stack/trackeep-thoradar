@@ -164,10 +164,10 @@ jobs:
           for attempt in 1 2; do
             echo "CDN RefreshObjectCaches attempt $attempt"
             if refresh_id=$(
-              "$aliyun" cdn RefreshObjectCaches --region cn-shenzhen --ObjectType File --ObjectPath "$refresh_paths" 2>/dev/null |
+              "$aliyun" cdn RefreshObjectCaches --region cn-shenzhen --ObjectType File --ObjectPath "$refresh_paths" |
                 python3 -c 'import json, sys; value = json.load(sys.stdin).get("RefreshTaskId");
           if type(value) not in (str, int) or not value or not str(value).strip(): sys.exit(1)
-          print(json.dumps(value))' 2>/dev/null
+          print(json.dumps(value))'
             ); then
               echo "CDN RefreshTaskId=$refresh_id"
               break
