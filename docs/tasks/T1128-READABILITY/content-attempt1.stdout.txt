@@ -1,0 +1,26 @@
+PASS Chinese document title
+PASS English document title
+PASS HTML and share titles
+PASS queue labels
+PASS scope labels
+PASS daily research eyebrow
+PASS paper hub
+PASS data date labels
+PASS publication status note
+PASS search placeholders
+PASS paper selection legend
+PASS paper navigation
+PASS no signal wording in translations
+PASS AbortSignal implementation untouched
+PASS brand typography
+PASS tab typography and selected state
+PASS filter prominence
+PASS mid-width overlap guards
+FAIL official SITE_DATA unchanged
+FAIL mergePapers unchanged
+FAIL inWindow unchanged
+PASS cache workers and deploy workflow unchanged
+PASS tracked source changes limited to page and UX contract | index.html, tests/ux/ux_probe.mjs
+PASS legacy translation negative control
+PASS legacy typography negative control
+SUMMARY {"passed":22,"failed":3}

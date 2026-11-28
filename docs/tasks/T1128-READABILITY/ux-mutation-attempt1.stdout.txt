@@ -1,0 +1,17 @@
+ux probe | Chrome/158.0.8127.88 | page=/index.html（受测件 D:\claude-tmp\thoradar-readability-mutation.html）| judge=true | label=readability-mutation
+页面概况：{"ready":"true","papers":43,"anchor":"2026-11-28","lang":"zh","site":"2026-11-28","degraded":25,"hasToggle":true}
+  [官方面逐键差分·19 键×3 视图] 归一认可措辞后不一致：（无）｜仅认可的措辞差异：overview.detail（基线 4584 字／被审 4584 字，首差 @4466）；overview.dlegend（基线 287 字／被审 289 字，首差 @264）；overview.scan（基线 44 字／被审 43 字，首差 @13）；reading.detail（基线 4584 字／被审 4584 字，首差 @4466）；reading.dlegend（基线 287 字／被审 289 字，首差 @264）；reading.scan（基线 44 字／被审 43 字，首差 @13）；personal.detail（基线 4584 字／被审 4584 字，首差 @4466）；personal.dlegend（基线 287 字／被审 289 字，首差 @264）；personal.scan（基线 44 字／被审 43 字，首差 @13）
+  [详情卡各块内容（不管先后/折叠包裹/刊源行 IF 尾巴）] 归一认可措辞后逐字一致｜仅认可的措辞差异：blocksOv
+  [状态面 8 幕（概览/阅读/个性化/点快筛/快筛复原/点扇区/点档位/拉时间窗）] 逐字一致｜动作自检（该幕较上一幕有变＝动作生效；基线／被审）：点快筛 true／true，点扇区 true／true，点档位 true／true，拉时间窗 true／true｜快筛「RCT」／「RCT」 扇区=1／1 清除钮可点 true／true 档位钮 5／5 个
+  [状态样例·被审件·时间窗幕后 160 字] …cheme"],"tierBtns":["S · 1","A · 21*","B · 40*","C · 95*","D · 99*"],"queueIds":[],"journalSel":"刊源：全部 · 阵地：胸外科与胸部肿瘤 · 合集：probe collection","quickActive":"all"}
+PASS F8a F8a 官方面逐键差分：认可措辞精确归一后，数据承载面（队列/盘点/扇区/标签/图例/折叠/计数/合集/阵地/主题/AI 设置）与父提交逐字一致
+     · 19 键×3 视图＝57 格，归一后不一致 0 格：无；仅认可措辞差异 9 格：overview.detail（基线 4584 字／被审 4584 字，首差 @4466）；overview.dlegend（基线 287 字／被审 289 字，首差 @264）；overview.scan（基线 44 字／被审 43 字，首差 @13）；reading.detail（基线 4584 字／被审 4584 字，首差 @4466）；reading.dlegend（基线 287 字／被审 289 字，首差 @264）；reading.scan（基线 44 字／被审 43 字，首差 @13）；personal.detail（基线 4584 字／被审 4584 字，首差 @4466）；personal.dlegend（基线 287 字／被审 289 字，首差 @264）；personal.scan（基线 44 字／被审 43 字，首差 @13）
+PASS F8b F8b 状态面差分：选中项/筛选结果/档位钮/时间窗/队列序 在 8 幕里与父提交逐字一致，且各动作在两边都真改了状态
+     · 8 幕状态串逐字一致（幕长 Ov 455／Rd 455／Pn 455／Quick 410／QuickAll 455／Sec 424／Tier 419／Win 426 字）；动作自检 点快筛 true／true、点扇区 true／true、点档位 true／true、拉时间窗 true／true（基线／被审）
+PASS F8c F8c 详情卡各块内容：认可措辞精确归一后，各块与父提交逐字一致
+     · 仅认可的措辞差异：blocksOv
+PASS F8d F8d 差分流页面零运行期异常（两棵树）
+
+==== UX PROBE [readability-mutation] SUMMARY 4 PASS / 0 FAIL：F8a ✓  F8b ✓  F8c ✓  F8d ✓ ====
+     cleanup | browser pid=62888 exitCode=null signalCode=SIGTERM | 带 profile 标记的进程：收尾前=62888,63160,58208,61848,57636,39372,45180,12716,33540,53136,53428 | 主进程结束后残留=无 | 逐 PID 结束=无 | 复查仍存活=无
+     cleanup | 临时目录 D:\claude-tmp\T1127-ux-probe\ux-harness-readability-mutation 已清

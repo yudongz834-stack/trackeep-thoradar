@@ -1,0 +1,134 @@
+{
+  "baseRev": "2826461b93d0ae7d099746e12544bfbaaf960f93",
+  "checks": [
+    {
+      "name": "Chinese document title",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "English document title",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "HTML and share titles",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "queue labels",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "scope labels",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "daily research eyebrow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "paper hub",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "data date labels",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "publication status note",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "search placeholders",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "paper selection legend",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "paper navigation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "no signal wording in translations",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "AbortSignal implementation untouched",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "brand typography",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "tab typography and selected state",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "filter prominence",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "mid-width overlap guards",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "official SITE_DATA unchanged",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "name": "mergePapers unchanged",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "name": "inWindow unchanged",
+      "pass": false,
+      "detail": ""
+    },
+    {
+      "name": "cache workers and deploy workflow unchanged",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "tracked source changes limited to page and UX contract",
+      "pass": true,
+      "detail": "index.html, tests/ux/ux_probe.mjs"
+    },
+    {
+      "name": "legacy translation negative control",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "legacy typography negative control",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "summary": {
+    "passed": 22,
+    "failed": 3
+  }
+}

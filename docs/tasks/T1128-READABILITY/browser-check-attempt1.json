@@ -1,0 +1,2718 @@
+{
+  "baseRev": "2826461b93d0ae7d099746e12544bfbaaf960f93",
+  "rows": [
+    {
+      "variant": "baseline",
+      "viewport": [
+        1422,
+        800
+      ],
+      "lang": "zh",
+      "pass": true,
+      "checks": {
+        "rendered": true
+      },
+      "measured": {
+        "title": "Thoradar · 滚动信号场",
+        "brand": "Thoradar",
+        "brandSize": 17,
+        "subtitle": "胸科医学文献 · 每日扫描与个性化追踪",
+        "subtitleSize": 9,
+        "searchPh": "在信号场中检索…",
+        "scanDate": "2026.11.28 / ANCHOR",
+        "scanNote": "2026-11-28 03:40 · 状态分项标注",
+        "queue": "信号队列",
+        "scope": "滚动信号场",
+        "eyebrow": "Live signal field",
+        "hub": "SIGNALS",
+        "visibleTerminologyOK": false,
+        "tabSize": 11,
+        "tabHeight": 34,
+        "activeBg": "rgb(250, 249, 245)",
+        "inactiveBg": "rgba(0, 0, 0, 0)",
+        "activeColor": "rgb(163, 74, 40)",
+        "inactiveColor": "rgb(122, 117, 104)",
+        "filterSize": 11,
+        "filterHeight": 30,
+        "docWidth": 1422,
+        "bodyWidth": 1422,
+        "controlContentOK": true,
+        "controls": [
+          {
+            "id": "proto-tab-overview",
+            "box": {
+              "x": 455.5625,
+              "y": 11.5,
+              "right": 518.9375,
+              "bottom": 45.5,
+              "width": 63.375,
+              "height": 34
+            },
+            "text": {
+              "x": 468.5625,
+              "y": 20.5,
+              "right": 505.9375,
+              "bottom": 36.5,
+              "width": 37.375,
+              "height": 16
+            },
+            "clientWidth": 61,
+            "scrollWidth": 61
+          },
+          {
+            "id": "proto-tab-reading",
+            "box": {
+              "x": 521.9375,
+              "y": 11.5,
+              "right": 585.3125,
+              "bottom": 45.5,
+              "width": 63.375,
+              "height": 34
+            },
+            "text": {
+              "x": 534.9375,
+              "y": 20.5,
+              "right": 572.3125,
+              "bottom": 36.5,
+              "width": 37.375,
+              "height": 16
+            },
+            "clientWidth": 61,
+            "scrollWidth": 61
+          },
+          {
+            "id": "proto-tab-personal",
+            "box": {
+              "x": 588.3125,
+              "y": 11.5,
+              "right": 662.6875,
+              "bottom": 45.5,
+              "width": 74.375,
+              "height": 34
+            },
+            "text": {
+              "x": 601.3125,
+              "y": 20.5,
+              "right": 649.6875,
+              "bottom": 36.5,
+              "width": 48.375,
+              "height": 16
+            },
+            "clientWidth": 72,
+            "scrollWidth": 72
+          },
+          {
+            "id": "filters-toggle",
+            "box": {
+              "x": 29,
+              "y": 138,
+              "right": 195.25,
+              "bottom": 168,
+              "width": 166.25,
+              "height": 30
+            },
+            "text": {
+              "x": 42,
+              "y": 146,
+              "right": 182.25,
+              "bottom": 161,
+              "width": 140.25,
+              "height": 15
+            },
+            "clientWidth": 164,
+            "scrollWidth": 164
+          }
+        ],
+        "switcherWidth": 213,
+        "switcherScrollWidth": 213,
+        "brandWidth": 203,
+        "brandScrollWidth": 203,
+        "headerOK": true
+      },
+      "errors": []
+    },
+    {
+      "variant": "baseline",
+      "viewport": [
+        1422,
+        800
+      ],
+      "lang": "en",
+      "pass": true,
+      "checks": {
+        "rendered": true
+      },
+      "measured": {
+        "title": "Thoradar · Rolling Signal Field",
+        "brand": "Thoradar",
+        "brandSize": 17,
+        "subtitle": "Thoracic Medical Literature · Daily Scanning and Personalized Tracking",
+        "subtitleSize": 9,
+        "searchPh": "Search the signal field…",
+        "scanDate": "2026.11.28 / ANCHOR",
+        "scanNote": "2026-11-28 03:40 · status breakdown annotated",
+        "queue": "Signal queue",
+        "scope": "Rolling signal field",
+        "eyebrow": "Live signal field",
+        "hub": "SIGNALS",
+        "visibleTerminologyOK": true,
+        "tabSize": 11,
+        "tabHeight": 34,
+        "activeBg": "rgb(250, 249, 245)",
+        "inactiveBg": "rgba(0, 0, 0, 0)",
+        "activeColor": "rgb(163, 74, 40)",
+        "inactiveColor": "rgb(122, 117, 104)",
+        "filterSize": 11,
+        "filterHeight": 29,
+        "docWidth": 1422,
+        "bodyWidth": 1422,
+        "controlContentOK": true,
+        "controls": [
+          {
+            "id": "proto-tab-overview",
+            "box": {
+              "x": 663.90625,
+              "y": 11.5,
+              "right": 751.71875,
+              "bottom": 45.5,
+              "width": 87.8125,
+              "height": 34
+            },
+            "text": {
+              "x": 676.90625,
+              "y": 21,
+              "right": 738.71875,
+              "bottom": 36,
+              "width": 61.8125,
+              "height": 15
+            },
+            "clientWidth": 86,
+            "scrollWidth": 86
+          },
+          {
+            "id": "proto-tab-reading",
+            "box": {
+              "x": 754.71875,
+              "y": 11.5,
+              "right": 836.765625,
+              "bottom": 45.5,
+              "width": 82.046875,
+              "height": 34
+            },
+            "text": {
+              "x": 767.71875,
+              "y": 21,
+              "right": 823.765625,
+              "bottom": 36,
+              "width": 56.046875,
+              "height": 15
+            },
+            "clientWidth": 80,
+            "scrollWidth": 80
+          },
+          {
+            "id": "proto-tab-personal",
+            "box": {
+              "x": 839.765625,
+              "y": 11.5,
+              "right": 937.25,
+              "bottom": 45.5,
+              "width": 97.484375,
+              "height": 34
+            },
+            "text": {
+              "x": 852.765625,
+              "y": 21,
+              "right": 924.25,
+              "bottom": 36,
+              "width": 71.484375,
+              "height": 15
+            },
+            "clientWidth": 95,
+            "scrollWidth": 95
+          },
+          {
+            "id": "filters-toggle",
+            "box": {
+              "x": 29,
+              "y": 137,
+              "right": 212.3125,
+              "bottom": 166,
+              "width": 183.3125,
+              "height": 29
+            },
+            "text": {
+              "x": 42,
+              "y": 144,
+              "right": 199.3125,
+              "bottom": 159,
+              "width": 157.3125,
+              "height": 15
+            },
+            "clientWidth": 181,
+            "scrollWidth": 181
+          }
+        ],
+        "switcherWidth": 279,
+        "switcherScrollWidth": 279,
+        "brandWidth": 339,
+        "brandScrollWidth": 339,
+        "headerOK": true
+      },
+      "errors": []
+    },
+    {
+      "variant": "baseline",
+      "viewport": [
+        2134,
+        1073
+      ],
+      "lang": "en",
+      "pass": true,
+      "checks": {
+        "rendered": true
+      },
+      "measured": {
+        "title": "Thoradar · Rolling Signal Field",
+        "brand": "Thoradar",
+        "brandSize": 17,
+        "subtitle": "Thoracic Medical Literature · Daily Scanning and Personalized Tracking",
+        "subtitleSize": 9,
+        "searchPh": "Search the signal field…",
+        "scanDate": "2026.11.28 / ANCHOR",
+        "scanNote": "2026-11-28 03:40 · status breakdown annotated",
+        "queue": "Signal queue",
+        "scope": "Rolling signal field",
+        "eyebrow": "Live signal field",
+        "hub": "SIGNALS",
+        "visibleTerminologyOK": true,
+        "tabSize": 11,
+        "tabHeight": 34,
+        "activeBg": "rgb(250, 249, 245)",
+        "inactiveBg": "rgba(0, 0, 0, 0)",
+        "activeColor": "rgb(163, 74, 40)",
+        "inactiveColor": "rgb(122, 117, 104)",
+        "filterSize": 11,
+        "filterHeight": 29,
+        "docWidth": 2134,
+        "bodyWidth": 2134,
+        "controlContentOK": true,
+        "controls": [
+          {
+            "id": "proto-tab-overview",
+            "box": {
+              "x": 663.90625,
+              "y": 11.5,
+              "right": 751.71875,
+              "bottom": 45.5,
+              "width": 87.8125,
+              "height": 34
+            },
+            "text": {
+              "x": 676.90625,
+              "y": 21,
+              "right": 738.71875,
+              "bottom": 36,
+              "width": 61.8125,
+              "height": 15
+            },
+            "clientWidth": 86,
+            "scrollWidth": 86
+          },
+          {
+            "id": "proto-tab-reading",
+            "box": {
+              "x": 754.71875,
+              "y": 11.5,
+              "right": 836.765625,
+              "bottom": 45.5,
+              "width": 82.046875,
+              "height": 34
+            },
+            "text": {
+              "x": 767.71875,
+              "y": 21,
+              "right": 823.765625,
+              "bottom": 36,
+              "width": 56.046875,
+              "height": 15
+            },
+            "clientWidth": 80,
+            "scrollWidth": 80
+          },
+          {
+            "id": "proto-tab-personal",
+            "box": {
+              "x": 839.765625,
+              "y": 11.5,
+              "right": 937.25,
+              "bottom": 45.5,
+              "width": 97.484375,
+              "height": 34
+            },
+            "text": {
+              "x": 852.765625,
+              "y": 21,
+              "right": 924.25,
+              "bottom": 36,
+              "width": 71.484375,
+              "height": 15
+            },
+            "clientWidth": 95,
+            "scrollWidth": 95
+          },
+          {
+            "id": "filters-toggle",
+            "box": {
+              "x": 96,
+              "y": 137,
+              "right": 279.3125,
+              "bottom": 166,
+              "width": 183.3125,
+              "height": 29
+            },
+            "text": {
+              "x": 109,
+              "y": 144,
+              "right": 266.3125,
+              "bottom": 159,
+              "width": 157.3125,
+              "height": 15
+            },
+            "clientWidth": 181,
+            "scrollWidth": 181
+          }
+        ],
+        "switcherWidth": 279,
+        "switcherScrollWidth": 279,
+        "brandWidth": 339,
+        "brandScrollWidth": 339,
+        "headerOK": true
+      },
+      "errors": []
+    },
+    {
+      "variant": "baseline",
+      "viewport": [
+        1366,
+        768
+      ],
+      "lang": "en",
+      "pass": true,
+      "checks": {
+        "rendered": true
+      },
+      "measured": {
+        "title": "Thoradar · Rolling Signal Field",
+        "brand": "Thoradar",
+        "brandSize": 17,
+        "subtitle": "Thoracic Medical Literature · Daily Scanning and Personalized Tracking",
+        "subtitleSize": 9,
+        "searchPh": "Search the signal field…",
+        "scanDate": "2026.11.28 / ANCHOR",
+        "scanNote": "2026-11-28 03:40 · status breakdown annotated",
+        "queue": "Signal queue",
+        "scope": "Rolling signal field",
+        "eyebrow": "Live signal field",
+        "hub": "SIGNALS",
+        "visibleTerminologyOK": true,
+        "tabSize": 11,
+        "tabHeight": 34,
+        "activeBg": "rgb(250, 249, 245)",
+        "inactiveBg": "rgba(0, 0, 0, 0)",
+        "activeColor": "rgb(163, 74, 40)",
+        "inactiveColor": "rgb(122, 117, 104)",
+        "filterSize": 11,
+        "filterHeight": 29,
+        "docWidth": 1366,
+        "bodyWidth": 1366,
+        "controlContentOK": true,
+        "controls": [
+          {
+            "id": "proto-tab-overview",
+            "box": {
+              "x": 663.90625,
+              "y": 11.5,
+              "right": 751.71875,
+              "bottom": 45.5,
+              "width": 87.8125,
+              "height": 34
+            },
+            "text": {
+              "x": 676.90625,
+              "y": 21,
+              "right": 738.71875,
+              "bottom": 36,
+              "width": 61.8125,
+              "height": 15
+            },
+            "clientWidth": 86,
+            "scrollWidth": 86
+          },
+          {
+            "id": "proto-tab-reading",
+            "box": {
+              "x": 754.71875,
+              "y": 11.5,
+              "right": 836.765625,
+              "bottom": 45.5,
+              "width": 82.046875,
+              "height": 34
+            },
+            "text": {
+              "x": 767.71875,
+              "y": 21,
+              "right": 823.765625,
+              "bottom": 36,
+              "width": 56.046875,
+              "height": 15
+            },
+            "clientWidth": 80,
+            "scrollWidth": 80
+          },
+          {
+            "id": "proto-tab-personal",
+            "box": {
+              "x": 839.765625,
+              "y": 11.5,
+              "right": 937.25,
+              "bottom": 45.5,
+              "width": 97.484375,
+              "height": 34
+            },
+            "text": {
+              "x": 852.765625,
+              "y": 21,
+              "right": 924.25,
+              "bottom": 36,
+              "width": 71.484375,
+              "height": 15
+            },
+            "clientWidth": 95,
+            "scrollWidth": 95
+          },
+          {
+            "id": "filters-toggle",
+            "box": {
+              "x": 29,
+              "y": 137,
+              "right": 212.3125,
+              "bottom": 166,
+              "width": 183.3125,
+              "height": 29
+            },
+            "text": {
+              "x": 42,
+              "y": 144,
+              "right": 199.3125,
+              "bottom": 159,
+              "width": 157.3125,
+              "height": 15
+            },
+            "clientWidth": 181,
+            "scrollWidth": 181
+          }
+        ],
+        "switcherWidth": 279,
+        "switcherScrollWidth": 279,
+        "brandWidth": 339,
+        "brandScrollWidth": 339,
+        "headerOK": true
+      },
+      "errors": []
+    },
+    {
+      "variant": "baseline",
+      "viewport": [
+        1180,
+        900
+      ],
+      "lang": "en",
+      "pass": true,
+      "checks": {
+        "rendered": true
+      },
+      "measured": {
+        "title": "Thoradar · Rolling Signal Field",
+        "brand": "Thoradar",
+        "brandSize": 17,
+        "subtitle": "Thoracic Medical Literature · Daily Scanning and Personalized Tracking",
+        "subtitleSize": 9,
+        "searchPh": "Search the signal field…",
+        "scanDate": "2026.11.28 / ANCHOR",
+        "scanNote": "2026-11-28 03:40 · status breakdown annotated",
+        "queue": "Signal queue",
+        "scope": "Rolling signal field",
+        "eyebrow": "Live signal field",
+        "hub": "SIGNALS",
+        "visibleTerminologyOK": true,
+        "tabSize": 11,
+        "tabHeight": 30,
+        "activeBg": "rgb(250, 249, 245)",
+        "inactiveBg": "rgba(0, 0, 0, 0)",
+        "activeColor": "rgb(163, 74, 40)",
+        "inactiveColor": "rgb(122, 117, 104)",
+        "filterSize": 11,
+        "filterHeight": 29,
+        "docWidth": 1180,
+        "bodyWidth": 1180,
+        "controlContentOK": true,
+        "controls": [
+          {
+            "id": "proto-tab-overview",
+            "box": {
+              "x": 374.046875,
+              "y": 13.5,
+              "right": 457.859375,
+              "bottom": 43.5,
+              "width": 83.8125,
+              "height": 30
+            },
+            "text": {
+              "x": 385.046875,
+              "y": 21,
+              "right": 446.859375,
+              "bottom": 36,
+              "width": 61.8125,
+              "height": 15
+            },
+            "clientWidth": 82,
+            "scrollWidth": 82
+          },
+          {
+            "id": "proto-tab-reading",
+            "box": {
+              "x": 460.859375,
+              "y": 13.5,
+              "right": 538.90625,
+              "bottom": 43.5,
+              "width": 78.046875,
+              "height": 30
+            },
+            "text": {
+              "x": 471.859375,
+              "y": 21,
+              "right": 527.90625,
+              "bottom": 36,
+              "width": 56.046875,
+              "height": 15
+            },
+            "clientWidth": 76,
+            "scrollWidth": 76
+          },
+          {
+            "id": "proto-tab-personal",
+            "box": {
+              "x": 541.90625,
+              "y": 13.5,
+              "right": 635.390625,
+              "bottom": 43.5,
+              "width": 93.484375,
+              "height": 30
+            },
+            "text": {
+              "x": 552.90625,
+              "y": 21,
+              "right": 624.390625,
+              "bottom": 36,
+              "width": 71.484375,
+              "height": 15
+            },
+            "clientWidth": 91,
+            "scrollWidth": 91
+          },
+          {
+            "id": "filters-toggle",
+            "box": {
+              "x": 25,
+              "y": 150.5,
+              "right": 208.3125,
+              "bottom": 179.5,
+              "width": 183.3125,
+              "height": 29
+            },
+            "text": {
+              "x": 38,
+              "y": 157.5,
+              "right": 195.3125,
+              "bottom": 172.5,
+              "width": 157.3125,
+              "height": 15
+            },
+            "clientWidth": 181,
+            "scrollWidth": 181
+          }
+        ],
+        "switcherWidth": 267,
+        "switcherScrollWidth": 267,
+        "brandWidth": 339,
+        "brandScrollWidth": 339,
+        "headerOK": true
+      },
+      "errors": []
+    },
+    {
+      "variant": "baseline",
+      "viewport": [
+        1024,
+        900
+      ],
+      "lang": "en",
+      "pass": true,
+      "checks": {
+        "rendered": true
+      },
+      "measured": {
+        "title": "Thoradar · Rolling Signal Field",
+        "brand": "Thoradar",
+        "brandSize": 17,
+        "subtitle": "Thoracic Medical Literature · Daily Scanning and Personalized Tracking",
+        "subtitleSize": 9,
+        "searchPh": "Search the signal field…",
+        "scanDate": "2026.11.28 / ANCHOR",
+        "scanNote": "2026-11-28 03:40 · status breakdown annotated",
+        "queue": "Signal queue",
+        "scope": "Rolling signal field",
+        "eyebrow": "Live signal field",
+        "hub": "SIGNALS",
+        "visibleTerminologyOK": true,
+        "tabSize": 11,
+        "tabHeight": 30,
+        "activeBg": "rgb(250, 249, 245)",
+        "inactiveBg": "rgba(0, 0, 0, 0)",
+        "activeColor": "rgb(163, 74, 40)",
+        "inactiveColor": "rgb(122, 117, 104)",
+        "filterSize": 11,
+        "filterHeight": 29,
+        "docWidth": 1024,
+        "bodyWidth": 1024,
+        "controlContentOK": true,
+        "controls": [
+          {
+            "id": "proto-tab-overview",
+            "box": {
+              "x": 374.046875,
+              "y": 13.5,
+              "right": 457.859375,
+              "bottom": 43.5,
+              "width": 83.8125,
+              "height": 30
+            },
+            "text": {
+              "x": 385.046875,
+              "y": 21,
+              "right": 446.859375,
+              "bottom": 36,
+              "width": 61.8125,
+              "height": 15
+            },
+            "clientWidth": 82,
+            "scrollWidth": 82
+          },
+          {
+            "id": "proto-tab-reading",
+            "box": {
+              "x": 460.859375,
+              "y": 13.5,
+              "right": 538.90625,
+              "bottom": 43.5,
+              "width": 78.046875,
+              "height": 30
+            },
+            "text": {
+              "x": 471.859375,
+              "y": 21,
+              "right": 527.90625,
+              "bottom": 36,
+              "width": 56.046875,
+              "height": 15
+            },
+            "clientWidth": 76,
+            "scrollWidth": 76
+          },
+          {
+            "id": "proto-tab-personal",
+            "box": {
+              "x": 541.90625,
+              "y": 13.5,
+              "right": 635.390625,
+              "bottom": 43.5,
+              "width": 93.484375,
+              "height": 30
+            },
+            "text": {
+              "x": 552.90625,
+              "y": 21,
+              "right": 624.390625,
+              "bottom": 36,
+              "width": 71.484375,
+              "height": 15
+            },
+            "clientWidth": 91,
+            "scrollWidth": 91
+          },
+          {
+            "id": "filters-toggle",
+            "box": {
+              "x": 25,
+              "y": 150.5,
+              "right": 208.3125,
+              "bottom": 179.5,
+              "width": 183.3125,
+              "height": 29
+            },
+            "text": {
+              "x": 38,
+              "y": 157.5,
+              "right": 195.3125,
+              "bottom": 172.5,
+              "width": 157.3125,
+              "height": 15
+            },
+            "clientWidth": 181,
+            "scrollWidth": 181
+          }
+        ],
+        "switcherWidth": 267,
+        "switcherScrollWidth": 267,
+        "brandWidth": 339,
+        "brandScrollWidth": 339,
+        "headerOK": true
+      },
+      "errors": []
+    },
+    {
+      "variant": "baseline",
+      "viewport": [
+        901,
+        1000
+      ],
+      "lang": "en",
+      "pass": true,
+      "checks": {
+        "rendered": true
+      },
+      "measured": {
+        "title": "Thoradar · Rolling Signal Field",
+        "brand": "Thoradar",
+        "brandSize": 17,
+        "subtitle": "Thoracic Medical Literature · Daily Scanning and Personalized Tracking",
+        "subtitleSize": 9,
+        "searchPh": "Search the signal field…",
+        "scanDate": "2026.11.28 / ANCHOR",
+        "scanNote": "2026-11-28 03:40 · status breakdown annotated",
+        "queue": "Signal queue",
+        "scope": "Rolling signal field",
+        "eyebrow": "Live signal field",
+        "hub": "SIGNALS",
+        "visibleTerminologyOK": true,
+        "tabSize": 11,
+        "tabHeight": 30,
+        "activeBg": "rgb(250, 249, 245)",
+        "inactiveBg": "rgba(0, 0, 0, 0)",
+        "activeColor": "rgb(163, 74, 40)",
+        "inactiveColor": "rgb(122, 117, 104)",
+        "filterSize": 11,
+        "filterHeight": 29,
+        "docWidth": 901,
+        "bodyWidth": 901,
+        "controlContentOK": false,
+        "controls": [
+          {
+            "id": "proto-tab-overview",
+            "box": {
+              "x": 374.046875,
+              "y": 13.5,
+              "right": 457.859375,
+              "bottom": 43.5,
+              "width": 83.8125,
+              "height": 30
+            },
+            "text": {
+              "x": 385.046875,
+              "y": 21,
+              "right": 446.859375,
+              "bottom": 36,
+              "width": 61.8125,
+              "height": 15
+            },
+            "clientWidth": 82,
+            "scrollWidth": 82
+          },
+          {
+            "id": "proto-tab-reading",
+            "box": {
+              "x": 460.859375,
+              "y": 13.5,
+              "right": 538.90625,
+              "bottom": 43.5,
+              "width": 78.046875,
+              "height": 30
+            },
+            "text": {
+              "x": 471.859375,
+              "y": 21,
+              "right": 527.90625,
+              "bottom": 36,
+              "width": 56.046875,
+              "height": 15
+            },
+            "clientWidth": 76,
+            "scrollWidth": 76
+          },
+          {
+            "id": "proto-tab-personal",
+            "box": {
+              "x": 541.90625,
+              "y": 13.5,
+              "right": 635.390625,
+              "bottom": 43.5,
+              "width": 93.484375,
+              "height": 30
+            },
+            "text": {
+              "x": 552.90625,
+              "y": 21,
+              "right": 624.390625,
+              "bottom": 36,
+              "width": 71.484375,
+              "height": 15
+            },
+            "clientWidth": 91,
+            "scrollWidth": 91
+          },
+          {
+            "id": "filters-toggle",
+            "box": {
+              "x": 25,
+              "y": 150.5,
+              "right": 208.3125,
+              "bottom": 179.5,
+              "width": 183.3125,
+              "height": 29
+            },
+            "text": {
+              "x": 38,
+              "y": 157.5,
+              "right": 195.3125,
+              "bottom": 172.5,
+              "width": 157.3125,
+              "height": 15
+            },
+            "clientWidth": 181,
+            "scrollWidth": 181
+          }
+        ],
+        "switcherWidth": 210,
+        "switcherScrollWidth": 264,
+        "brandWidth": 339,
+        "brandScrollWidth": 339,
+        "headerOK": true
+      },
+      "errors": []
+    },
+    {
+      "variant": "baseline",
+      "viewport": [
+        900,
+        1000
+      ],
+      "lang": "en",
+      "pass": true,
+      "checks": {
+        "rendered": true
+      },
+      "measured": {
+        "title": "Thoradar · Rolling Signal Field",
+        "brand": "Thoradar",
+        "brandSize": 15,
+        "subtitle": "Thoracic Medical Literature · Daily Scanning and Personalized Tracking",
+        "subtitleSize": 8,
+        "searchPh": "Search the signal field…",
+        "scanDate": "2026.11.28 / ANCHOR",
+        "scanNote": "2026-11-28 03:40 · status breakdown annotated",
+        "queue": "Signal queue",
+        "scope": "Rolling signal field",
+        "eyebrow": "Live signal field",
+        "hub": "SIGNALS",
+        "visibleTerminologyOK": true,
+        "tabSize": 11,
+        "tabHeight": 30,
+        "activeBg": "rgb(250, 249, 245)",
+        "inactiveBg": "rgba(0, 0, 0, 0)",
+        "activeColor": "rgb(163, 74, 40)",
+        "inactiveColor": "rgb(122, 117, 104)",
+        "filterSize": 11,
+        "filterHeight": 29,
+        "docWidth": 885,
+        "bodyWidth": 885,
+        "controlContentOK": true,
+        "controls": [
+          {
+            "id": "proto-tab-overview",
+            "box": {
+              "x": 18,
+              "y": 60,
+              "right": 299,
+              "bottom": 90,
+              "width": 281,
+              "height": 30
+            },
+            "text": {
+              "x": 127.59375,
+              "y": 67.5,
+              "right": 189.40625,
+              "bottom": 82.5,
+              "width": 61.8125,
+              "height": 15
+            },
+            "clientWidth": 279,
+            "scrollWidth": 279
+          },
+          {
+            "id": "proto-tab-reading",
+            "box": {
+              "x": 302,
+              "y": 60,
+              "right": 583,
+              "bottom": 90,
+              "width": 281,
+              "height": 30
+            },
+            "text": {
+              "x": 414.46875,
+              "y": 67.5,
+              "right": 470.515625,
+              "bottom": 82.5,
+              "width": 56.046875,
+              "height": 15
+            },
+            "clientWidth": 279,
+            "scrollWidth": 279
+          },
+          {
+            "id": "proto-tab-personal",
+            "box": {
+              "x": 586,
+              "y": 60,
+              "right": 867,
+              "bottom": 90,
+              "width": 281,
+              "height": 30
+            },
+            "text": {
+              "x": 690.75,
+              "y": 67.5,
+              "right": 762.234375,
+              "bottom": 82.5,
+              "width": 71.484375,
+              "height": 15
+            },
+            "clientWidth": 279,
+            "scrollWidth": 279
+          },
+          {
+            "id": "filters-toggle",
+            "box": {
+              "x": 25,
+              "y": 2109.890625,
+              "right": 208.3125,
+              "bottom": 2138.890625,
+              "width": 183.3125,
+              "height": 29
+            },
+            "text": {
+              "x": 38,
+              "y": 2116.890625,
+              "right": 195.3125,
+              "bottom": 2131.890625,
+              "width": 157.3125,
+              "height": 15
+            },
+            "clientWidth": 181,
+            "scrollWidth": 181
+          }
+        ],
+        "switcherWidth": 855,
+        "switcherScrollWidth": 855,
+        "brandWidth": 857,
+        "brandScrollWidth": 857,
+        "headerOK": true
+      },
+      "errors": []
+    },
+    {
+      "variant": "baseline",
+      "viewport": [
+        390,
+        844
+      ],
+      "lang": "zh",
+      "pass": true,
+      "checks": {
+        "rendered": true
+      },
+      "measured": {
+        "title": "Thoradar · 滚动信号场",
+        "brand": "Thoradar",
+        "brandSize": 15,
+        "subtitle": "胸科医学文献 · 每日扫描与个性化追踪",
+        "subtitleSize": 8,
+        "searchPh": "在信号场中检索…",
+        "scanDate": "2026.11.28 / ANCHOR",
+        "scanNote": "2026-11-28 03:40 · 状态分项标注",
+        "queue": "信号队列",
+        "scope": "滚动信号场",
+        "eyebrow": "Live signal field",
+        "hub": "SIGNALS",
+        "visibleTerminologyOK": false,
+        "tabSize": 10,
+        "tabHeight": 30,
+        "activeBg": "rgb(250, 249, 245)",
+        "inactiveBg": "rgba(0, 0, 0, 0)",
+        "activeColor": "rgb(163, 74, 40)",
+        "inactiveColor": "rgb(122, 117, 104)",
+        "filterSize": 11,
+        "filterHeight": 30,
+        "docWidth": 390,
+        "bodyWidth": 390,
+        "controlContentOK": true,
+        "controls": [
+          {
+            "id": "proto-tab-overview",
+            "box": {
+              "x": 16,
+              "y": 59,
+              "right": 133.328125,
+              "bottom": 89,
+              "width": 117.328125,
+              "height": 30
+            },
+            "text": {
+              "x": 64.65625,
+              "y": 66.5,
+              "right": 84.65625,
+              "bottom": 81.5,
+              "width": 20,
+              "height": 15
+            },
+            "clientWidth": 115,
+            "scrollWidth": 115
+          },
+          {
+            "id": "proto-tab-reading",
+            "box": {
+              "x": 136.328125,
+              "y": 59,
+              "right": 253.671875,
+              "bottom": 89,
+              "width": 117.34375,
+              "height": 30
+            },
+            "text": {
+              "x": 185,
+              "y": 66.5,
+              "right": 205,
+              "bottom": 81.5,
+              "width": 20,
+              "height": 15
+            },
+            "clientWidth": 115,
+            "scrollWidth": 115
+          },
+          {
+            "id": "proto-tab-personal",
+            "box": {
+              "x": 256.671875,
+              "y": 59,
+              "right": 374,
+              "bottom": 89,
+              "width": 117.328125,
+              "height": 30
+            },
+            "text": {
+              "x": 300.328125,
+              "y": 66.5,
+              "right": 330.328125,
+              "bottom": 81.5,
+              "width": 30,
+              "height": 15
+            },
+            "clientWidth": 115,
+            "scrollWidth": 115
+          },
+          {
+            "id": "filters-toggle",
+            "box": {
+              "x": 23,
+              "y": 2935.421875,
+              "right": 189.25,
+              "bottom": 2965.421875,
+              "width": 166.25,
+              "height": 30
+            },
+            "text": {
+              "x": 36,
+              "y": 2943.421875,
+              "right": 176.25,
+              "bottom": 2958.421875,
+              "width": 140.25,
+              "height": 15
+            },
+            "clientWidth": 164,
+            "scrollWidth": 164
+          }
+        ],
+        "switcherWidth": 364,
+        "switcherScrollWidth": 364,
+        "brandWidth": 366,
+        "brandScrollWidth": 366,
+        "headerOK": true
+      },
+      "errors": []
+    },
+    {
+      "variant": "baseline",
+      "viewport": [
+        390,
+        844
+      ],
+      "lang": "en",
+      "pass": true,
+      "checks": {
+        "rendered": true
+      },
+      "measured": {
+        "title": "Thoradar · Rolling Signal Field",
+        "brand": "Thoradar",
+        "brandSize": 15,
+        "subtitle": "Thoracic Medical Literature · Daily Scanning and Personalized Tracking",
+        "subtitleSize": 8,
+        "searchPh": "Search the signal field…",
+        "scanDate": "2026.11.28 / ANCHOR",
+        "scanNote": "2026-11-28 03:40 · status breakdown annotated",
+        "queue": "Signal queue",
+        "scope": "Rolling signal field",
+        "eyebrow": "Live signal field",
+        "hub": "SIGNALS",
+        "visibleTerminologyOK": true,
+        "tabSize": 10,
+        "tabHeight": 30,
+        "activeBg": "rgb(250, 249, 245)",
+        "inactiveBg": "rgba(0, 0, 0, 0)",
+        "activeColor": "rgb(163, 74, 40)",
+        "inactiveColor": "rgb(122, 117, 104)",
+        "filterSize": 11,
+        "filterHeight": 29,
+        "docWidth": 390,
+        "bodyWidth": 390,
+        "controlContentOK": true,
+        "controls": [
+          {
+            "id": "proto-tab-overview",
+            "box": {
+              "x": 16,
+              "y": 59,
+              "right": 133.328125,
+              "bottom": 89,
+              "width": 117.328125,
+              "height": 30
+            },
+            "text": {
+              "x": 53.546875,
+              "y": 67,
+              "right": 95.765625,
+              "bottom": 81,
+              "width": 42.21875,
+              "height": 14
+            },
+            "clientWidth": 115,
+            "scrollWidth": 115
+          },
+          {
+            "id": "proto-tab-reading",
+            "box": {
+              "x": 136.328125,
+              "y": 59,
+              "right": 253.671875,
+              "bottom": 89,
+              "width": 117.34375,
+              "height": 30
+            },
+            "text": {
+              "x": 176.515625,
+              "y": 67,
+              "right": 213.484375,
+              "bottom": 81,
+              "width": 36.96875,
+              "height": 14
+            },
+            "clientWidth": 115,
+            "scrollWidth": 115
+          },
+          {
+            "id": "proto-tab-personal",
+            "box": {
+              "x": 256.671875,
+              "y": 59,
+              "right": 374,
+              "bottom": 89,
+              "width": 117.328125,
+              "height": 30
+            },
+            "text": {
+              "x": 289.828125,
+              "y": 67,
+              "right": 340.84375,
+              "bottom": 81,
+              "width": 51.015625,
+              "height": 14
+            },
+            "clientWidth": 115,
+            "scrollWidth": 115
+          },
+          {
+            "id": "filters-toggle",
+            "box": {
+              "x": 23,
+              "y": 2926.421875,
+              "right": 206.3125,
+              "bottom": 2955.421875,
+              "width": 183.3125,
+              "height": 29
+            },
+            "text": {
+              "x": 36,
+              "y": 2933.421875,
+              "right": 193.3125,
+              "bottom": 2948.421875,
+              "width": 157.3125,
+              "height": 15
+            },
+            "clientWidth": 181,
+            "scrollWidth": 181
+          }
+        ],
+        "switcherWidth": 364,
+        "switcherScrollWidth": 364,
+        "brandWidth": 366,
+        "brandScrollWidth": 366,
+        "headerOK": true
+      },
+      "errors": []
+    },
+    {
+      "variant": "candidate",
+      "viewport": [
+        1422,
+        800
+      ],
+      "lang": "zh",
+      "pass": true,
+      "checks": {
+        "brand": true,
+        "labels": true,
+        "searchAndMeta": true,
+        "visibleTerminology": true,
+        "brandProminent": true,
+        "tabsVisible": true,
+        "filterVisible": true,
+        "noOverflow": true,
+        "headerOK": true,
+        "controlContentOK": true,
+        "noErrors": true
+      },
+      "measured": {
+        "title": "Thoradar · 胸科文献雷达",
+        "brand": "Thoradar",
+        "brandSize": 24,
+        "subtitle": "胸科医学文献 · 每日扫描与个性化追踪",
+        "subtitleSize": 12,
+        "searchPh": "检索文献…",
+        "scanDate": "2026.11.28 / 数据日期",
+        "scanNote": "2026-11-28 03:40 · 出版状态已标注",
+        "queue": "文献队列",
+        "scope": "胸科文献雷达",
+        "eyebrow": "每日新文献",
+        "hub": "文献",
+        "visibleTerminologyOK": true,
+        "tabSize": 12.5,
+        "tabHeight": 36,
+        "activeBg": "rgb(31, 30, 29)",
+        "inactiveBg": "rgba(0, 0, 0, 0)",
+        "activeColor": "rgb(250, 249, 245)",
+        "inactiveColor": "rgb(70, 67, 60)",
+        "filterSize": 12,
+        "filterHeight": 36,
+        "docWidth": 1422,
+        "bodyWidth": 1422,
+        "controlContentOK": true,
+        "controls": [
+          {
+            "id": "proto-tab-overview",
+            "box": {
+              "x": 515.71875,
+              "y": 10.5,
+              "right": 583.265625,
+              "bottom": 46.5,
+              "width": 67.546875,
+              "height": 36
+            },
+            "text": {
+              "x": 528.71875,
+              "y": 19,
+              "right": 570.265625,
+              "bottom": 38,
+              "width": 41.546875,
+              "height": 19
+            },
+            "clientWidth": 66,
+            "scrollWidth": 66
+          },
+          {
+            "id": "proto-tab-reading",
+            "box": {
+              "x": 586.265625,
+              "y": 10.5,
+              "right": 653.8125,
+              "bottom": 46.5,
+              "width": 67.546875,
+              "height": 36
+            },
+            "text": {
+              "x": 599.265625,
+              "y": 19,
+              "right": 640.8125,
+              "bottom": 38,
+              "width": 41.546875,
+              "height": 19
+            },
+            "clientWidth": 66,
+            "scrollWidth": 66
+          },
+          {
+            "id": "proto-tab-personal",
+            "box": {
+              "x": 656.8125,
+              "y": 10.5,
+              "right": 736.859375,
+              "bottom": 46.5,
+              "width": 80.046875,
+              "height": 36
+            },
+            "text": {
+              "x": 669.8125,
+              "y": 19,
+              "right": 723.859375,
+              "bottom": 38,
+              "width": 54.046875,
+              "height": 19
+            },
+            "clientWidth": 78,
+            "scrollWidth": 78
+          },
+          {
+            "id": "filters-toggle",
+            "box": {
+              "x": 29,
+              "y": 138,
+              "right": 211.078125,
+              "bottom": 174,
+              "width": 182.078125,
+              "height": 36
+            },
+            "text": {
+              "x": 42,
+              "y": 148,
+              "right": 198.078125,
+              "bottom": 164,
+              "width": 156.078125,
+              "height": 16
+            },
+            "clientWidth": 180,
+            "scrollWidth": 180
+          }
+        ],
+        "switcherWidth": 227,
+        "switcherScrollWidth": 227,
+        "brandWidth": 252,
+        "brandScrollWidth": 252,
+        "headerOK": true
+      },
+      "errors": []
+    },
+    {
+      "variant": "candidate",
+      "viewport": [
+        1422,
+        800
+      ],
+      "lang": "en",
+      "pass": true,
+      "checks": {
+        "brand": true,
+        "labels": true,
+        "searchAndMeta": true,
+        "visibleTerminology": true,
+        "brandProminent": true,
+        "tabsVisible": true,
+        "filterVisible": true,
+        "noOverflow": true,
+        "headerOK": true,
+        "controlContentOK": true,
+        "noErrors": true
+      },
+      "measured": {
+        "title": "Thoradar · Thoracic Literature Radar",
+        "brand": "Thoradar",
+        "brandSize": 24,
+        "subtitle": "Thoracic Medical Literature · Daily Scanning and Personalized Tracking",
+        "subtitleSize": 12,
+        "searchPh": "Search the literature…",
+        "scanDate": "2026.11.28 / DATA DATE",
+        "scanNote": "2026-11-28 03:40 · Publication status annotated",
+        "queue": "Literature queue",
+        "scope": "Thoracic literature radar",
+        "eyebrow": "Daily new research",
+        "hub": "PAPERS",
+        "visibleTerminologyOK": true,
+        "tabSize": 12.5,
+        "tabHeight": 36,
+        "activeBg": "rgb(31, 30, 29)",
+        "inactiveBg": "rgba(0, 0, 0, 0)",
+        "activeColor": "rgb(250, 249, 245)",
+        "inactiveColor": "rgb(70, 67, 60)",
+        "filterSize": 12,
+        "filterHeight": 36,
+        "docWidth": 1422,
+        "bodyWidth": 1422,
+        "controlContentOK": true,
+        "controls": [
+          {
+            "id": "proto-tab-overview",
+            "box": {
+              "x": 751.90625,
+              "y": 10.5,
+              "right": 847.21875,
+              "bottom": 46.5,
+              "width": 95.3125,
+              "height": 36
+            },
+            "text": {
+              "x": 764.90625,
+              "y": 20.5,
+              "right": 834.21875,
+              "bottom": 36.5,
+              "width": 69.3125,
+              "height": 16
+            },
+            "clientWidth": 93,
+            "scrollWidth": 93
+          },
+          {
+            "id": "proto-tab-reading",
+            "box": {
+              "x": 850.21875,
+              "y": 10.5,
+              "right": 938.984375,
+              "bottom": 46.5,
+              "width": 88.765625,
+              "height": 36
+            },
+            "text": {
+              "x": 863.21875,
+              "y": 20.5,
+              "right": 925.984375,
+              "bottom": 36.5,
+              "width": 62.765625,
+              "height": 16
+            },
+            "clientWidth": 87,
+            "scrollWidth": 87
+          },
+          {
+            "id": "proto-tab-personal",
+            "box": {
+              "x": 941.984375,
+              "y": 10.5,
+              "right": 1048.296875,
+              "bottom": 46.5,
+              "width": 106.3125,
+              "height": 36
+            },
+            "text": {
+              "x": 954.984375,
+              "y": 20.5,
+              "right": 1035.296875,
+              "bottom": 36.5,
+              "width": 80.3125,
+              "height": 16
+            },
+            "clientWidth": 104,
+            "scrollWidth": 104
+          },
+          {
+            "id": "filters-toggle",
+            "box": {
+              "x": 29,
+              "y": 150.5,
+              "right": 240.453125,
+              "bottom": 186.5,
+              "width": 211.453125,
+              "height": 36
+            },
+            "text": {
+              "x": 42,
+              "y": 160,
+              "right": 227.453125,
+              "bottom": 176,
+              "width": 185.453125,
+              "height": 16
+            },
+            "clientWidth": 209,
+            "scrollWidth": 209
+          }
+        ],
+        "switcherWidth": 302,
+        "switcherScrollWidth": 302,
+        "brandWidth": 427,
+        "brandScrollWidth": 427,
+        "headerOK": true
+      },
+      "errors": []
+    },
+    {
+      "variant": "candidate",
+      "viewport": [
+        2134,
+        1073
+      ],
+      "lang": "en",
+      "pass": true,
+      "checks": {
+        "brand": true,
+        "labels": true,
+        "searchAndMeta": true,
+        "visibleTerminology": true,
+        "brandProminent": true,
+        "tabsVisible": true,
+        "filterVisible": true,
+        "noOverflow": true,
+        "headerOK": true,
+        "controlContentOK": true,
+        "noErrors": true
+      },
+      "measured": {
+        "title": "Thoradar · Thoracic Literature Radar",
+        "brand": "Thoradar",
+        "brandSize": 24,
+        "subtitle": "Thoracic Medical Literature · Daily Scanning and Personalized Tracking",
+        "subtitleSize": 12,
+        "searchPh": "Search the literature…",
+        "scanDate": "2026.11.28 / DATA DATE",
+        "scanNote": "2026-11-28 03:40 · Publication status annotated",
+        "queue": "Literature queue",
+        "scope": "Thoracic literature radar",
+        "eyebrow": "Daily new research",
+        "hub": "PAPERS",
+        "visibleTerminologyOK": true,
+        "tabSize": 12.5,
+        "tabHeight": 36,
+        "activeBg": "rgb(31, 30, 29)",
+        "inactiveBg": "rgba(0, 0, 0, 0)",
+        "activeColor": "rgb(250, 249, 245)",
+        "inactiveColor": "rgb(70, 67, 60)",
+        "filterSize": 12,
+        "filterHeight": 36,
+        "docWidth": 2134,
+        "bodyWidth": 2134,
+        "controlContentOK": true,
+        "controls": [
+          {
+            "id": "proto-tab-overview",
+            "box": {
+              "x": 751.90625,
+              "y": 10.5,
+              "right": 847.21875,
+              "bottom": 46.5,
+              "width": 95.3125,
+              "height": 36
+            },
+            "text": {
+              "x": 764.90625,
+              "y": 20.5,
+              "right": 834.21875,
+              "bottom": 36.5,
+              "width": 69.3125,
+              "height": 16
+            },
+            "clientWidth": 93,
+            "scrollWidth": 93
+          },
+          {
+            "id": "proto-tab-reading",
+            "box": {
+              "x": 850.21875,
+              "y": 10.5,
+              "right": 938.984375,
+              "bottom": 46.5,
+              "width": 88.765625,
+              "height": 36
+            },
+            "text": {
+              "x": 863.21875,
+              "y": 20.5,
+              "right": 925.984375,
+              "bottom": 36.5,
+              "width": 62.765625,
+              "height": 16
+            },
+            "clientWidth": 87,
+            "scrollWidth": 87
+          },
+          {
+            "id": "proto-tab-personal",
+            "box": {
+              "x": 941.984375,
+              "y": 10.5,
+              "right": 1048.296875,
+              "bottom": 46.5,
+              "width": 106.3125,
+              "height": 36
+            },
+            "text": {
+              "x": 954.984375,
+              "y": 20.5,
+              "right": 1035.296875,
+              "bottom": 36.5,
+              "width": 80.3125,
+              "height": 16
+            },
+            "clientWidth": 104,
+            "scrollWidth": 104
+          },
+          {
+            "id": "filters-toggle",
+            "box": {
+              "x": 96,
+              "y": 137,
+              "right": 307.453125,
+              "bottom": 173,
+              "width": 211.453125,
+              "height": 36
+            },
+            "text": {
+              "x": 109,
+              "y": 146.5,
+              "right": 294.453125,
+              "bottom": 162.5,
+              "width": 185.453125,
+              "height": 16
+            },
+            "clientWidth": 209,
+            "scrollWidth": 209
+          }
+        ],
+        "switcherWidth": 302,
+        "switcherScrollWidth": 302,
+        "brandWidth": 427,
+        "brandScrollWidth": 427,
+        "headerOK": true
+      },
+      "errors": []
+    },
+    {
+      "variant": "candidate",
+      "viewport": [
+        1366,
+        768
+      ],
+      "lang": "en",
+      "pass": true,
+      "checks": {
+        "brand": true,
+        "labels": true,
+        "searchAndMeta": true,
+        "visibleTerminology": true,
+        "brandProminent": true,
+        "tabsVisible": true,
+        "filterVisible": true,
+        "noOverflow": true,
+        "headerOK": true,
+        "controlContentOK": true,
+        "noErrors": true
+      },
+      "measured": {
+        "title": "Thoradar · Thoracic Literature Radar",
+        "brand": "Thoradar",
+        "brandSize": 24,
+        "subtitle": "Thoracic Medical Literature · Daily Scanning and Personalized Tracking",
+        "subtitleSize": 12,
+        "searchPh": "Search the literature…",
+        "scanDate": "2026.11.28 / DATA DATE",
+        "scanNote": "2026-11-28 03:40 · Publication status annotated",
+        "queue": "Literature queue",
+        "scope": "Thoracic literature radar",
+        "eyebrow": "Daily new research",
+        "hub": "PAPERS",
+        "visibleTerminologyOK": true,
+        "tabSize": 12.5,
+        "tabHeight": 36,
+        "activeBg": "rgb(31, 30, 29)",
+        "inactiveBg": "rgba(0, 0, 0, 0)",
+        "activeColor": "rgb(250, 249, 245)",
+        "inactiveColor": "rgb(70, 67, 60)",
+        "filterSize": 12,
+        "filterHeight": 36,
+        "docWidth": 1366,
+        "bodyWidth": 1366,
+        "controlContentOK": true,
+        "controls": [
+          {
+            "id": "proto-tab-overview",
+            "box": {
+              "x": 737.90625,
+              "y": 10.5,
+              "right": 833.21875,
+              "bottom": 46.5,
+              "width": 95.3125,
+              "height": 36
+            },
+            "text": {
+              "x": 750.90625,
+              "y": 20.5,
+              "right": 820.21875,
+              "bottom": 36.5,
+              "width": 69.3125,
+              "height": 16
+            },
+            "clientWidth": 93,
+            "scrollWidth": 93
+          },
+          {
+            "id": "proto-tab-reading",
+            "box": {
+              "x": 836.21875,
+              "y": 10.5,
+              "right": 924.984375,
+              "bottom": 46.5,
+              "width": 88.765625,
+              "height": 36
+            },
+            "text": {
+              "x": 849.21875,
+              "y": 20.5,
+              "right": 911.984375,
+              "bottom": 36.5,
+              "width": 62.765625,
+              "height": 16
+            },
+            "clientWidth": 87,
+            "scrollWidth": 87
+          },
+          {
+            "id": "proto-tab-personal",
+            "box": {
+              "x": 927.984375,
+              "y": 10.5,
+              "right": 1034.296875,
+              "bottom": 46.5,
+              "width": 106.3125,
+              "height": 36
+            },
+            "text": {
+              "x": 940.984375,
+              "y": 20.5,
+              "right": 1021.296875,
+              "bottom": 36.5,
+              "width": 80.3125,
+              "height": 16
+            },
+            "clientWidth": 104,
+            "scrollWidth": 104
+          },
+          {
+            "id": "filters-toggle",
+            "box": {
+              "x": 29,
+              "y": 150.5,
+              "right": 240.453125,
+              "bottom": 186.5,
+              "width": 211.453125,
+              "height": 36
+            },
+            "text": {
+              "x": 42,
+              "y": 160,
+              "right": 227.453125,
+              "bottom": 176,
+              "width": 185.453125,
+              "height": 16
+            },
+            "clientWidth": 209,
+            "scrollWidth": 209
+          }
+        ],
+        "switcherWidth": 302,
+        "switcherScrollWidth": 302,
+        "brandWidth": 427,
+        "brandScrollWidth": 427,
+        "headerOK": true
+      },
+      "errors": []
+    },
+    {
+      "variant": "candidate",
+      "viewport": [
+        1180,
+        900
+      ],
+      "lang": "en",
+      "pass": true,
+      "checks": {
+        "brand": true,
+        "labels": true,
+        "searchAndMeta": true,
+        "visibleTerminology": true,
+        "brandProminent": true,
+        "tabsVisible": true,
+        "filterVisible": true,
+        "noOverflow": true,
+        "headerOK": true,
+        "controlContentOK": true,
+        "noErrors": true
+      },
+      "measured": {
+        "title": "Thoradar · Thoracic Literature Radar",
+        "brand": "Thoradar",
+        "brandSize": 22,
+        "subtitle": "Thoracic Medical Literature · Daily Scanning and Personalized Tracking",
+        "subtitleSize": 11,
+        "searchPh": "Search the literature…",
+        "scanDate": "2026.11.28 / DATA DATE",
+        "scanNote": "2026-11-28 03:40 · Publication status annotated",
+        "queue": "Literature queue",
+        "scope": "Thoracic literature radar",
+        "eyebrow": "Daily new research",
+        "hub": "PAPERS",
+        "visibleTerminologyOK": true,
+        "tabSize": 12.5,
+        "tabHeight": 36,
+        "activeBg": "rgb(31, 30, 29)",
+        "inactiveBg": "rgba(0, 0, 0, 0)",
+        "activeColor": "rgb(250, 249, 245)",
+        "inactiveColor": "rgb(70, 67, 60)",
+        "filterSize": 12,
+        "filterHeight": 36,
+        "docWidth": 1180,
+        "bodyWidth": 1180,
+        "controlContentOK": true,
+        "controls": [
+          {
+            "id": "proto-tab-overview",
+            "box": {
+              "x": 430.796875,
+              "y": 10.5,
+              "right": 526.109375,
+              "bottom": 46.5,
+              "width": 95.3125,
+              "height": 36
+            },
+            "text": {
+              "x": 443.796875,
+              "y": 20.5,
+              "right": 513.109375,
+              "bottom": 36.5,
+              "width": 69.3125,
+              "height": 16
+            },
+            "clientWidth": 93,
+            "scrollWidth": 93
+          },
+          {
+            "id": "proto-tab-reading",
+            "box": {
+              "x": 529.109375,
+              "y": 10.5,
+              "right": 617.875,
+              "bottom": 46.5,
+              "width": 88.765625,
+              "height": 36
+            },
+            "text": {
+              "x": 542.109375,
+              "y": 20.5,
+              "right": 604.875,
+              "bottom": 36.5,
+              "width": 62.765625,
+              "height": 16
+            },
+            "clientWidth": 87,
+            "scrollWidth": 87
+          },
+          {
+            "id": "proto-tab-personal",
+            "box": {
+              "x": 620.875,
+              "y": 10.5,
+              "right": 727.1875,
+              "bottom": 46.5,
+              "width": 106.3125,
+              "height": 36
+            },
+            "text": {
+              "x": 633.875,
+              "y": 20.5,
+              "right": 714.1875,
+              "bottom": 36.5,
+              "width": 80.3125,
+              "height": 16
+            },
+            "clientWidth": 104,
+            "scrollWidth": 104
+          },
+          {
+            "id": "filters-toggle",
+            "box": {
+              "x": 25,
+              "y": 150.5,
+              "right": 236.453125,
+              "bottom": 186.5,
+              "width": 211.453125,
+              "height": 36
+            },
+            "text": {
+              "x": 38,
+              "y": 160,
+              "right": 223.453125,
+              "bottom": 176,
+              "width": 185.453125,
+              "height": 16
+            },
+            "clientWidth": 209,
+            "scrollWidth": 209
+          }
+        ],
+        "switcherWidth": 302,
+        "switcherScrollWidth": 302,
+        "brandWidth": 396,
+        "brandScrollWidth": 396,
+        "headerOK": true
+      },
+      "errors": []
+    },
+    {
+      "variant": "candidate",
+      "viewport": [
+        1024,
+        900
+      ],
+      "lang": "en",
+      "pass": true,
+      "checks": {
+        "brand": true,
+        "labels": true,
+        "searchAndMeta": true,
+        "visibleTerminology": true,
+        "brandProminent": true,
+        "tabsVisible": true,
+        "filterVisible": true,
+        "noOverflow": true,
+        "headerOK": true,
+        "controlContentOK": true,
+        "noErrors": true
+      },
+      "measured": {
+        "title": "Thoradar · Thoracic Literature Radar",
+        "brand": "Thoradar",
+        "brandSize": 22,
+        "subtitle": "Thoracic Medical Literature · Daily Scanning and Personalized Tracking",
+        "subtitleSize": 11,
+        "searchPh": "Search the literature…",
+        "scanDate": "2026.11.28 / DATA DATE",
+        "scanNote": "2026-11-28 03:40 · Publication status annotated",
+        "queue": "Literature queue",
+        "scope": "Thoracic literature radar",
+        "eyebrow": "Daily new research",
+        "hub": "PAPERS",
+        "visibleTerminologyOK": true,
+        "tabSize": 12,
+        "tabHeight": 36,
+        "activeBg": "rgb(31, 30, 29)",
+        "inactiveBg": "rgba(0, 0, 0, 0)",
+        "activeColor": "rgb(250, 249, 245)",
+        "inactiveColor": "rgb(70, 67, 60)",
+        "filterSize": 12,
+        "filterHeight": 36,
+        "docWidth": 1024,
+        "bodyWidth": 1024,
+        "controlContentOK": true,
+        "controls": [
+          {
+            "id": "proto-tab-overview",
+            "box": {
+              "x": 425.84375,
+              "y": 10.5,
+              "right": 494.5,
+              "bottom": 46.5,
+              "width": 68.65625,
+              "height": 36
+            },
+            "text": {
+              "x": 434.84375,
+              "y": 20.5,
+              "right": 485.5,
+              "bottom": 36.5,
+              "width": 50.65625,
+              "height": 16
+            },
+            "clientWidth": 67,
+            "scrollWidth": 67
+          },
+          {
+            "id": "proto-tab-reading",
+            "box": {
+              "x": 497.5,
+              "y": 10.5,
+              "right": 559.859375,
+              "bottom": 46.5,
+              "width": 62.359375,
+              "height": 36
+            },
+            "text": {
+              "x": 506.5,
+              "y": 20.5,
+              "right": 550.859375,
+              "bottom": 36.5,
+              "width": 44.359375,
+              "height": 16
+            },
+            "clientWidth": 60,
+            "scrollWidth": 60
+          },
+          {
+            "id": "proto-tab-personal",
+            "box": {
+              "x": 562.859375,
+              "y": 10.5,
+              "right": 642.078125,
+              "bottom": 46.5,
+              "width": 79.21875,
+              "height": 36
+            },
+            "text": {
+              "x": 571.859375,
+              "y": 20.5,
+              "right": 633.078125,
+              "bottom": 36.5,
+              "width": 61.21875,
+              "height": 16
+            },
+            "clientWidth": 77,
+            "scrollWidth": 77
+          },
+          {
+            "id": "filters-toggle",
+            "box": {
+              "x": 25,
+              "y": 150.5,
+              "right": 236.453125,
+              "bottom": 186.5,
+              "width": 211.453125,
+              "height": 36
+            },
+            "text": {
+              "x": 38,
+              "y": 160,
+              "right": 223.453125,
+              "bottom": 176,
+              "width": 185.453125,
+              "height": 16
+            },
+            "clientWidth": 209,
+            "scrollWidth": 209
+          }
+        ],
+        "switcherWidth": 222,
+        "switcherScrollWidth": 222,
+        "brandWidth": 400,
+        "brandScrollWidth": 400,
+        "headerOK": true
+      },
+      "errors": []
+    },
+    {
+      "variant": "candidate",
+      "viewport": [
+        901,
+        1000
+      ],
+      "lang": "en",
+      "pass": true,
+      "checks": {
+        "brand": true,
+        "labels": true,
+        "searchAndMeta": true,
+        "visibleTerminology": true,
+        "brandProminent": true,
+        "tabsVisible": true,
+        "filterVisible": true,
+        "noOverflow": true,
+        "headerOK": true,
+        "controlContentOK": true,
+        "noErrors": true
+      },
+      "measured": {
+        "title": "Thoradar · Thoracic Literature Radar",
+        "brand": "Thoradar",
+        "brandSize": 22,
+        "subtitle": "Thoracic Medical Literature · Daily Scanning and Personalized Tracking",
+        "subtitleSize": 11,
+        "searchPh": "Search the literature…",
+        "scanDate": "2026.11.28 / DATA DATE",
+        "scanNote": "2026-11-28 03:40 · Publication status annotated",
+        "queue": "Literature queue",
+        "scope": "Thoracic literature radar",
+        "eyebrow": "Daily new research",
+        "hub": "PAPERS",
+        "visibleTerminologyOK": true,
+        "tabSize": 12,
+        "tabHeight": 36,
+        "activeBg": "rgb(31, 30, 29)",
+        "inactiveBg": "rgba(0, 0, 0, 0)",
+        "activeColor": "rgb(250, 249, 245)",
+        "inactiveColor": "rgb(70, 67, 60)",
+        "filterSize": 12,
+        "filterHeight": 36,
+        "docWidth": 901,
+        "bodyWidth": 901,
+        "controlContentOK": true,
+        "controls": [
+          {
+            "id": "proto-tab-overview",
+            "box": {
+              "x": 351.3125,
+              "y": 10.984375,
+              "right": 419.96875,
+              "bottom": 46.984375,
+              "width": 68.65625,
+              "height": 36
+            },
+            "text": {
+              "x": 360.3125,
+              "y": 20.984375,
+              "right": 410.96875,
+              "bottom": 36.984375,
+              "width": 50.65625,
+              "height": 16
+            },
+            "clientWidth": 67,
+            "scrollWidth": 67
+          },
+          {
+            "id": "proto-tab-reading",
+            "box": {
+              "x": 422.96875,
+              "y": 10.984375,
+              "right": 485.328125,
+              "bottom": 46.984375,
+              "width": 62.359375,
+              "height": 36
+            },
+            "text": {
+              "x": 431.96875,
+              "y": 20.984375,
+              "right": 476.328125,
+              "bottom": 36.984375,
+              "width": 44.359375,
+              "height": 16
+            },
+            "clientWidth": 60,
+            "scrollWidth": 60
+          },
+          {
+            "id": "proto-tab-personal",
+            "box": {
+              "x": 488.328125,
+              "y": 10.984375,
+              "right": 567.546875,
+              "bottom": 46.984375,
+              "width": 79.21875,
+              "height": 36
+            },
+            "text": {
+              "x": 497.328125,
+              "y": 20.984375,
+              "right": 558.546875,
+              "bottom": 36.984375,
+              "width": 61.21875,
+              "height": 16
+            },
+            "clientWidth": 77,
+            "scrollWidth": 77
+          },
+          {
+            "id": "filters-toggle",
+            "box": {
+              "x": 25,
+              "y": 150.5,
+              "right": 236.453125,
+              "bottom": 186.5,
+              "width": 211.453125,
+              "height": 36
+            },
+            "text": {
+              "x": 38,
+              "y": 160,
+              "right": 223.453125,
+              "bottom": 176,
+              "width": 185.453125,
+              "height": 16
+            },
+            "clientWidth": 209,
+            "scrollWidth": 209
+          }
+        ],
+        "switcherWidth": 222,
+        "switcherScrollWidth": 222,
+        "brandWidth": 325,
+        "brandScrollWidth": 325,
+        "headerOK": true
+      },
+      "errors": []
+    },
+    {
+      "variant": "candidate",
+      "viewport": [
+        900,
+        1000
+      ],
+      "lang": "en",
+      "pass": true,
+      "checks": {
+        "brand": true,
+        "labels": true,
+        "searchAndMeta": true,
+        "visibleTerminology": true,
+        "brandProminent": true,
+        "tabsVisible": true,
+        "filterVisible": true,
+        "noOverflow": true,
+        "headerOK": true,
+        "controlContentOK": true,
+        "noErrors": true
+      },
+      "measured": {
+        "title": "Thoradar · Thoracic Literature Radar",
+        "brand": "Thoradar",
+        "brandSize": 22,
+        "subtitle": "Thoracic Medical Literature · Daily Scanning and Personalized Tracking",
+        "subtitleSize": 11,
+        "searchPh": "Search the literature…",
+        "scanDate": "2026.11.28 / DATA DATE",
+        "scanNote": "2026-11-28 03:40 · Publication status annotated",
+        "queue": "Literature queue",
+        "scope": "Thoracic literature radar",
+        "eyebrow": "Daily new research",
+        "hub": "PAPERS",
+        "visibleTerminologyOK": true,
+        "tabSize": 12,
+        "tabHeight": 36,
+        "activeBg": "rgb(31, 30, 29)",
+        "inactiveBg": "rgba(0, 0, 0, 0)",
+        "activeColor": "rgb(250, 249, 245)",
+        "inactiveColor": "rgb(70, 67, 60)",
+        "filterSize": 12,
+        "filterHeight": 36,
+        "docWidth": 885,
+        "bodyWidth": 885,
+        "controlContentOK": true,
+        "controls": [
+          {
+            "id": "proto-tab-overview",
+            "box": {
+              "x": 18,
+              "y": 69.140625,
+              "right": 299,
+              "bottom": 105.140625,
+              "width": 281,
+              "height": 36
+            },
+            "text": {
+              "x": 124.890625,
+              "y": 79.140625,
+              "right": 192.09375,
+              "bottom": 95.140625,
+              "width": 67.203125,
+              "height": 16
+            },
+            "clientWidth": 279,
+            "scrollWidth": 279
+          },
+          {
+            "id": "proto-tab-reading",
+            "box": {
+              "x": 302,
+              "y": 69.140625,
+              "right": 583,
+              "bottom": 105.140625,
+              "width": 281,
+              "height": 36
+            },
+            "text": {
+              "x": 412.046875,
+              "y": 79.140625,
+              "right": 472.953125,
+              "bottom": 95.140625,
+              "width": 60.90625,
+              "height": 16
+            },
+            "clientWidth": 279,
+            "scrollWidth": 279
+          },
+          {
+            "id": "proto-tab-personal",
+            "box": {
+              "x": 586,
+              "y": 69.140625,
+              "right": 867,
+              "bottom": 105.140625,
+              "width": 281,
+              "height": 36
+            },
+            "text": {
+              "x": 687.609375,
+              "y": 79.140625,
+              "right": 765.375,
+              "bottom": 95.140625,
+              "width": 77.765625,
+              "height": 16
+            },
+            "clientWidth": 279,
+            "scrollWidth": 279
+          },
+          {
+            "id": "filters-toggle",
+            "box": {
+              "x": 25,
+              "y": 2132.484375,
+              "right": 236.453125,
+              "bottom": 2168.484375,
+              "width": 211.453125,
+              "height": 36
+            },
+            "text": {
+              "x": 38,
+              "y": 2141.984375,
+              "right": 223.453125,
+              "bottom": 2157.984375,
+              "width": 185.453125,
+              "height": 16
+            },
+            "clientWidth": 209,
+            "scrollWidth": 209
+          }
+        ],
+        "switcherWidth": 855,
+        "switcherScrollWidth": 855,
+        "brandWidth": 857,
+        "brandScrollWidth": 857,
+        "headerOK": true
+      },
+      "errors": []
+    },
+    {
+      "variant": "candidate",
+      "viewport": [
+        390,
+        844
+      ],
+      "lang": "zh",
+      "pass": true,
+      "checks": {
+        "brand": true,
+        "labels": true,
+        "searchAndMeta": true,
+        "visibleTerminology": true,
+        "brandProminent": true,
+        "tabsVisible": true,
+        "filterVisible": true,
+        "noOverflow": true,
+        "headerOK": true,
+        "controlContentOK": true,
+        "noErrors": true
+      },
+      "measured": {
+        "title": "Thoradar · 胸科文献雷达",
+        "brand": "Thoradar",
+        "brandSize": 22,
+        "subtitle": "胸科医学文献 · 每日扫描与个性化追踪",
+        "subtitleSize": 10.5,
+        "searchPh": "检索文献…",
+        "scanDate": "2026.11.28 / 数据日期",
+        "scanNote": "2026-11-28 03:40 · 出版状态已标注",
+        "queue": "文献队列",
+        "scope": "胸科文献雷达",
+        "eyebrow": "每日新文献",
+        "hub": "文献",
+        "visibleTerminologyOK": true,
+        "tabSize": 12,
+        "tabHeight": 36,
+        "activeBg": "rgb(31, 30, 29)",
+        "inactiveBg": "rgba(0, 0, 0, 0)",
+        "activeColor": "rgb(250, 249, 245)",
+        "inactiveColor": "rgb(70, 67, 60)",
+        "filterSize": 12,
+        "filterHeight": 36,
+        "docWidth": 390,
+        "bodyWidth": 390,
+        "controlContentOK": true,
+        "controls": [
+          {
+            "id": "proto-tab-overview",
+            "box": {
+              "x": 16,
+              "y": 67.46875,
+              "right": 133.328125,
+              "bottom": 103.46875,
+              "width": 117.328125,
+              "height": 36
+            },
+            "text": {
+              "x": 62.65625,
+              "y": 76.96875,
+              "right": 86.65625,
+              "bottom": 93.96875,
+              "width": 24,
+              "height": 17
+            },
+            "clientWidth": 115,
+            "scrollWidth": 115
+          },
+          {
+            "id": "proto-tab-reading",
+            "box": {
+              "x": 136.328125,
+              "y": 67.46875,
+              "right": 253.671875,
+              "bottom": 103.46875,
+              "width": 117.34375,
+              "height": 36
+            },
+            "text": {
+              "x": 183,
+              "y": 76.96875,
+              "right": 207,
+              "bottom": 93.96875,
+              "width": 24,
+              "height": 17
+            },
+            "clientWidth": 115,
+            "scrollWidth": 115
+          },
+          {
+            "id": "proto-tab-personal",
+            "box": {
+              "x": 256.671875,
+              "y": 67.46875,
+              "right": 374,
+              "bottom": 103.46875,
+              "width": 117.328125,
+              "height": 36
+            },
+            "text": {
+              "x": 297.328125,
+              "y": 76.96875,
+              "right": 333.328125,
+              "bottom": 93.96875,
+              "width": 36,
+              "height": 17
+            },
+            "clientWidth": 115,
+            "scrollWidth": 115
+          },
+          {
+            "id": "filters-toggle",
+            "box": {
+              "x": 23,
+              "y": 2956.140625,
+              "right": 205.078125,
+              "bottom": 2992.140625,
+              "width": 182.078125,
+              "height": 36
+            },
+            "text": {
+              "x": 36,
+              "y": 2966.140625,
+              "right": 192.078125,
+              "bottom": 2982.140625,
+              "width": 156.078125,
+              "height": 16
+            },
+            "clientWidth": 180,
+            "scrollWidth": 180
+          }
+        ],
+        "switcherWidth": 364,
+        "switcherScrollWidth": 364,
+        "brandWidth": 366,
+        "brandScrollWidth": 366,
+        "headerOK": true
+      },
+      "errors": []
+    },
+    {
+      "variant": "candidate",
+      "viewport": [
+        390,
+        844
+      ],
+      "lang": "en",
+      "pass": true,
+      "checks": {
+        "brand": true,
+        "labels": true,
+        "searchAndMeta": true,
+        "visibleTerminology": true,
+        "brandProminent": true,
+        "tabsVisible": true,
+        "filterVisible": true,
+        "noOverflow": true,
+        "headerOK": true,
+        "controlContentOK": true,
+        "noErrors": true
+      },
+      "measured": {
+        "title": "Thoradar · Thoracic Literature Radar",
+        "brand": "Thoradar",
+        "brandSize": 22,
+        "subtitle": "Thoracic Medical Literature · Daily Scanning and Personalized Tracking",
+        "subtitleSize": 10.5,
+        "searchPh": "Search the literature…",
+        "scanDate": "2026.11.28 / DATA DATE",
+        "scanNote": "2026-11-28 03:40 · Publication status annotated",
+        "queue": "Literature queue",
+        "scope": "Thoracic literature radar",
+        "eyebrow": "Daily new research",
+        "hub": "PAPERS",
+        "visibleTerminologyOK": true,
+        "tabSize": 12,
+        "tabHeight": 36,
+        "activeBg": "rgb(31, 30, 29)",
+        "inactiveBg": "rgba(0, 0, 0, 0)",
+        "activeColor": "rgb(250, 249, 245)",
+        "inactiveColor": "rgb(70, 67, 60)",
+        "filterSize": 12,
+        "filterHeight": 36,
+        "docWidth": 390,
+        "bodyWidth": 390,
+        "controlContentOK": true,
+        "controls": [
+          {
+            "id": "proto-tab-overview",
+            "box": {
+              "x": 16,
+              "y": 81.640625,
+              "right": 133.328125,
+              "bottom": 117.640625,
+              "width": 117.328125,
+              "height": 36
+            },
+            "text": {
+              "x": 49.328125,
+              "y": 91.640625,
+              "right": 99.984375,
+              "bottom": 107.640625,
+              "width": 50.65625,
+              "height": 16
+            },
+            "clientWidth": 115,
+            "scrollWidth": 115
+          },
+          {
+            "id": "proto-tab-reading",
+            "box": {
+              "x": 136.328125,
+              "y": 81.640625,
+              "right": 253.671875,
+              "bottom": 117.640625,
+              "width": 117.34375,
+              "height": 36
+            },
+            "text": {
+              "x": 172.8125,
+              "y": 91.640625,
+              "right": 217.171875,
+              "bottom": 107.640625,
+              "width": 44.359375,
+              "height": 16
+            },
+            "clientWidth": 115,
+            "scrollWidth": 115
+          },
+          {
+            "id": "proto-tab-personal",
+            "box": {
+              "x": 256.671875,
+              "y": 81.640625,
+              "right": 374,
+              "bottom": 117.640625,
+              "width": 117.328125,
+              "height": 36
+            },
+            "text": {
+              "x": 284.71875,
+              "y": 91.640625,
+              "right": 345.9375,
+              "bottom": 107.640625,
+              "width": 61.21875,
+              "height": 16
+            },
+            "clientWidth": 115,
+            "scrollWidth": 115
+          },
+          {
+            "id": "filters-toggle",
+            "box": {
+              "x": 23,
+              "y": 2961.3125,
+              "right": 234.453125,
+              "bottom": 2997.3125,
+              "width": 211.453125,
+              "height": 36
+            },
+            "text": {
+              "x": 36,
+              "y": 2970.8125,
+              "right": 221.453125,
+              "bottom": 2986.8125,
+              "width": 185.453125,
+              "height": 16
+            },
+            "clientWidth": 209,
+            "scrollWidth": 209
+          }
+        ],
+        "switcherWidth": 364,
+        "switcherScrollWidth": 364,
+        "brandWidth": 366,
+        "brandScrollWidth": 366,
+        "headerOK": true
+      },
+      "errors": []
+    }
+  ],
+  "cleanup": {
+    "residual": 0
+  },
+  "negativeControls": {
+    "baseline901InternalClippingDetected": true,
+    "baseline1422LegacyTerminologyDetected": false
+  },
+  "summary": {
+    "passed": 20,
+    "failed": 0,
+    "candidateChecksPassed": 110,
+    "candidateChecksTotal": 110
+  }
+}

@@ -1,0 +1,328 @@
+diff --git a/index.html b/index.html
+index 1e946b8..ed27c59 100644
+--- a/index.html
++++ b/index.html
+@@ -7,10 +7,10 @@
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="color-scheme" content="light dark">
+-<title>Thoradar · 滚动信号场</title>
++<title>Thoradar · 胸科文献雷达</title>
+ <meta name="google-site-verification" content="kXQe4EmshGf3zBJEGxLI5uTkVK7D2n4gn6xPdPNkBVU" />
+ <meta name="description" content="胸科雷达 Thoradar：每天自动扫描 197 本医学期刊，把胸外科、肺部与食管肿瘤最新重要文献做成一张可视化雷达——评分排序、中文解读、个性化追踪。">
+-<meta property="og:title" content="Thoradar · 滚动信号场">
++<meta property="og:title" content="Thoradar · 胸科文献雷达">
+ <meta property="og:description" content="每天一张胸科文献雷达：评分排序、中文解读、个性化期刊追踪。">
+ <meta property="og:url" content="https://thoradar.online/">
+ <meta property="og:type" content="website">
+@@ -624,6 +624,39 @@ body:not([data-proto-view="reading"]) .proto-density{display:none}       /* 密
+   .topbar:has(> :is(.shell-status,.window-hint)){grid-template-rows:46px;row-gap:0;padding-bottom:6px}
+   .topbar:has(> :is(.shell-status,.window-hint))+.deck{height:calc(100vh - var(--proto-header-h,58px) - 36px)}
+ }
++
++/* T1128-READABILITY: formal hierarchy and user-facing terminology; presentation only. */
++.brand-name{font-size:24px;letter-spacing:.04em}
++.brand-sub{margin-top:3px;font-size:12px;line-height:1.35;letter-spacing:.01em;color:var(--text-2)}
++.topbar:has(> :is(.shell-status,.window-hint)){grid-template-rows:56px}
++.proto-view-btn{min-height:36px;padding:6px 12px;font-size:12.5px;color:var(--text-2)}
++.proto-view-btn kbd{font-size:9px;opacity:.75}
++.proto-view-btn[aria-selected="true"]{color:var(--card);border-color:var(--text);background:var(--text);box-shadow:var(--shadow-sm)}
++.filters-toggle{min-height:36px;font-size:12px;font-weight:650;color:var(--text);border-color:color-mix(in srgb,var(--accent) 28%,var(--line));background:var(--card)}
++.filters-toggle:hover{background:var(--accent-soft)}
++.panel-head h2{font-size:17px}
++.eyebrow{font-size:10px;letter-spacing:.12em}
++.scope-head h1{font-size:22px}
++@media(max-width:1350px) and (min-width:901px){
++  .brand-name{font-size:22px}.brand-sub{font-size:11px}
++  .topbar:has(> :is(.shell-status,.window-hint)){grid-template-rows:52px}
++  .scope-head h1{font-size:19px}
++}
++@media(min-width:1351px) and (max-width:1400px){
++  .topbar{gap:12px;padding-inline:14px}
++}
++@media(max-width:1100px) and (min-width:901px){
++  .topbar{grid-template-columns:minmax(220px,1fr) auto minmax(140px,.65fr) auto auto;gap:10px;padding-inline:12px}
++  .brand{min-width:0}.brand>div{min-width:0}.brand-sub{white-space:normal}
++  .proto-view-btn{font-size:12px;padding-inline:8px}
++  .proto-view-btn kbd{display:none}
++  .topbar:has(> :is(.shell-status,.window-hint)){grid-template-rows:64px}
++}
++@media(max-width:900px){
++  .brand-name{font-size:22px}.brand-sub{font-size:11px;max-width:calc(100vw - 82px)}
++  .proto-view-btn{font-size:12px;min-height:36px;padding-inline:8px}
++}
++@media(max-width:420px){.brand-sub{font-size:10.5px}.eyebrow{font-size:9px}}
+ </style>
+ </head>
+ <body>
+@@ -639,13 +672,13 @@ body:not([data-proto-view="reading"]) .proto-density{display:none}       /* 密
+   </div>
+   <div class="scan-meta"><i class="live-dot"></i><div><b id="scan-date">—</b><small id="scan-time">正在读取注入数据…</small></div></div>
+   <nav class="proto-view-switcher" id="proto-view-switcher" role="tablist" aria-label="主视图切换" data-i18n-aria="view.switcher.aria">
+-    <button class="proto-view-btn" id="proto-tab-overview" role="tab" aria-selected="true" aria-controls="deck" data-proto-view="overview" title="概览：信号队列、雷达与锁定详情" data-i18n-title="view.overview.title"><kbd>01</kbd><span data-i18n="view.overview">概览</span></button>
++    <button class="proto-view-btn" id="proto-tab-overview" role="tab" aria-selected="true" aria-controls="deck" data-proto-view="overview" title="概览：文献队列、雷达与锁定详情" data-i18n-title="view.overview.title"><kbd>01</kbd><span data-i18n="view.overview">概览</span></button>
+     <button class="proto-view-btn" id="proto-tab-reading" role="tab" aria-selected="false" aria-controls="deck" data-proto-view="reading" tabindex="-1" title="阅读：完整标题、结论与证据" data-i18n-title="view.reading.title"><kbd>02</kbd><span data-i18n="view.reading">阅读</span></button>
+     <button class="proto-view-btn" id="proto-tab-personal" role="tab" aria-selected="false" aria-controls="coll-drawer" data-proto-view="personal" tabindex="-1" title="个性化：期刊合集、自定义阵地与我的主题" data-i18n-title="view.personal.title"><kbd>03</kbd><span data-i18n="view.personal">个性化</span></button>
+   </nav>
+   <label class="search" title="搜索标题、期刊、PMID 或试验编号" data-i18n-title="search.title">
+     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+-    <input id="search" type="search" placeholder="在信号场中检索…" autocomplete="off" aria-label="检索窗口内文献" data-i18n-ph="search.ph" data-i18n-aria="search.aria">
++    <input id="search" type="search" placeholder="检索文献…" autocomplete="off" aria-label="检索窗口内文献" data-i18n-ph="search.ph" data-i18n-aria="search.aria">
+     <kbd>/</kbd>
+   </label>
+   <button class="icon-btn" id="theme-btn" aria-label="切换深色模式" title="切换明暗模式" data-i18n-title="theme.toggle">
+@@ -654,8 +687,8 @@ body:not([data-proto-view="reading"]) .proto-density{display:none}       /* 密
+   <button class="icon-btn lang-btn" id="lang-btn" type="button" aria-label="切换到英文界面" title="切换到英文界面 / Switch to English">EN</button>
+ </header>
+ <main class="deck">
+-  <aside class="panel queue-panel" aria-label="文献筛选与信号队列" data-i18n-aria="queue.aria">
+-    <div class="panel-head"><div><div class="eyebrow">Sweep director</div><h2 data-i18n="queue.h2">信号队列</h2></div><div class="coll-head"><button class="coll-toggle" id="coll-open" title="个性化视图 · 期刊合集/自定义阵地/我的主题">◈ 合集</button><span class="counter" id="filter-counter">—</span></div></div>
++  <aside class="panel queue-panel" aria-label="文献筛选与文献队列" data-i18n-aria="queue.aria">
++    <div class="panel-head"><div><div class="eyebrow">Sweep director</div><h2 data-i18n="queue.h2">文献队列</h2></div><div class="coll-head"><button class="coll-toggle" id="coll-open" title="个性化视图 · 期刊合集/自定义阵地/我的主题">◈ 合集</button><span class="counter" id="filter-counter">—</span></div></div>
+     <div class="filters" id="queue-filters">
+       <div class="quick-group">
+         <div class="quick-row" id="quick-filters">
+@@ -681,7 +714,7 @@ body:not([data-proto-view="reading"]) .proto-density{display:none}       /* 密
+         <span class="window-hint" id="window-hint" role="status" hidden data-i18n="roll.fail">历史档案拉取失败，已保留当前数据</span>
+       </div>
+     </div>
+-    <div class="queue-title"><span data-i18n="queue.title1">信号队列 · 按评分排序</span><span data-i18n="queue.title2">点击锁定</span></div>
++    <div class="queue-title"><span data-i18n="queue.title1">文献队列 · 按评分排序</span><span data-i18n="queue.title2">点击锁定</span></div>
+     <div class="proto-reading-toolbar" id="proto-reading-toolbar" hidden>
+       <div class="proto-reading-copy"><span class="eyebrow">Reading desk</span><span><b data-i18n="read.first3">先读这三篇</b> · <span data-i18n="read.marked">前 3 篇已标记</span></span><span id="proto-reading-count">—</span></div>
+       <div class="proto-density" role="group" aria-label="阅读卡片密度" data-i18n-aria="density.aria">
+@@ -695,9 +728,9 @@ body:not([data-proto-view="reading"]) .proto-density{display:none}       /* 密
+     <ol class="queue-list" id="queue-list"></ol>
+   </aside>
+ 
+-  <section class="scope-panel" aria-label="滚动文献雷达信号场" data-i18n-aria="scope.aria">
++  <section class="scope-panel" aria-label="胸科文献雷达" data-i18n-aria="scope.aria">
+     <div class="scope-head">
+-      <div><div class="eyebrow">Live signal field</div><h1 data-i18n="scope.h1" data-i18n-title="scope.h1.tip">滚动信号场</h1><p id="scope-subtitle">方位＝期刊阵地（九阵地上盘 · 邻科公卫并入图例） · 距心＝相对评分 · 形状＝研究设计</p><div class="sec-picker"><label for="scheme-select" data-i18n="sec.label">阵地</label><select id="scheme-select" aria-label="阵地方案切换" data-i18n-aria="scheme.select.aria"></select></div></div>
++      <div><div class="eyebrow" data-i18n="scope.eyebrow">每日新文献</div><h1 data-i18n="scope.h1" data-i18n-title="scope.h1.tip">胸科文献雷达</h1><p id="scope-subtitle">方位＝期刊阵地（九阵地上盘 · 邻科公卫并入图例） · 距心＝相对评分 · 形状＝研究设计</p><div class="sec-picker"><label for="scheme-select" data-i18n="sec.label">阵地</label><select id="scheme-select" aria-label="阵地方案切换" data-i18n-aria="scheme.select.aria"></select></div></div>
+       <div class="read-progress"><b id="read-count">—</b><small data-i18n="read.scanned">本次已扫</small></div>
+     </div>
+     <div class="shelf-mobile-status" id="shelf-mobile-status" hidden></div>
+@@ -718,8 +751,8 @@ body:not([data-proto-view="reading"]) .proto-density{display:none}       /* 密
+         <div class="sweep"></div>
+         <div id="scope-labels"></div>
+         <div id="blips"></div>
+-        <div class="scope-hub"><b id="hub-count">—</b><small>SIGNALS</small></div>
+-        <div class="scope-empty" id="scope-empty">当前条件下没有信号。</div>
++        <div class="scope-hub"><b id="hub-count">—</b><small data-i18n="scope.hub">文献</small></div>
++        <div class="scope-empty" id="scope-empty">当前条件下没有文献。</div>
+       </div>
+     </div>
+     <div class="scope-foot">
+@@ -732,7 +765,7 @@ body:not([data-proto-view="reading"]) .proto-density{display:none}       /* 密
+     </div>
+   </section>
+ 
+-  <aside class="panel detail-panel" aria-label="锁定信号详情" data-i18n-aria="detail.aria">
++  <aside class="panel detail-panel" aria-label="锁定文献详情" data-i18n-aria="detail.aria">
+     <div id="detail"></div>
+   </aside>
+ </main>
+@@ -802,30 +835,30 @@ body:not([data-proto-view="reading"]) .proto-density{display:none}       /* 密
+ const LS_LANG='thoradar.lang.v1';
+ const I18N={
+ zh:{
+-'doc.title':'Thoradar · 滚动信号场','brand.name':'Thoradar','brand.sub':'胸科医学文献 · 每日扫描与个性化追踪','lang.tip':'切换到英文界面','lang.btn':'EN',
+-'scan.nogen.time':'生成时间 —','scan.note':'状态分项标注',
+-'view.switcher.aria':'主视图切换','view.overview':'概览','view.overview.title':'概览：信号队列、雷达与锁定详情','view.reading':'阅读','view.reading.title':'阅读：完整标题、结论与证据','view.personal':'个性化','view.personal.title':'个性化：期刊合集、自定义阵地、我的主题与我的书架',
+-'search.title':'搜索标题、期刊、PMID 或试验编号','search.ph':'在信号场中检索…','search.aria':'检索窗口内文献',
++'doc.title':'Thoradar · 胸科文献雷达','brand.name':'Thoradar','brand.sub':'胸科医学文献 · 每日扫描与个性化追踪','lang.tip':'切换到英文界面','lang.btn':'EN',
++'scan.nogen.time':'生成时间 —','scan.date':'数据日期','scan.nodata':'暂无数据','scan.note':'出版状态已标注',
++'view.switcher.aria':'主视图切换','view.overview':'概览','view.overview.title':'概览：文献队列、雷达与锁定详情','view.reading':'阅读','view.reading.title':'阅读：完整标题、结论与证据','view.personal':'个性化','view.personal.title':'个性化：期刊合集、自定义阵地、我的主题与我的书架',
++'search.title':'搜索标题、期刊、PMID 或试验编号','search.ph':'检索文献…','search.aria':'检索窗口内文献',
+ 'theme.toggle':'切换明暗模式','theme.dark':'切换深色模式','theme.light':'切换浅色模式',
+-'queue.aria':'文献筛选与信号队列','queue.h2':'信号队列','coll.open':'◈ 合集','coll.active':'激活合集：','personal.open.tip':'点击切换个性化视图','coll.title.off':'期刊合集（当前官方全部） · 点击切换个性化视图',
++'queue.aria':'文献筛选与文献队列','queue.h2':'文献队列','coll.open':'◈ 合集','coll.active':'激活合集：','personal.open.tip':'点击切换个性化视图','coll.title.off':'期刊合集（当前官方全部） · 点击切换个性化视图',
+ 'quick.all':'全部','quick.cohort':'队列','quick.nct':'含试验号','filter.tier':'刊源档位 · 可多选','window.label':'时间滑杆','unit.days':'天','data.window':'数据窗口',
+-'queue.title1':'信号队列 · 按评分排序','queue.title2':'点击锁定','read.first3':'先读这三篇','read.marked':'前 3 篇已标记',
++'queue.title1':'文献队列 · 按评分排序','queue.title2':'点击锁定','read.first3':'先读这三篇','read.marked':'前 3 篇已标记',
+ 'density.aria':'阅读卡片密度','density.compact':'紧凑浏览','density.immersive':'展开沉浸',
+ 'filters.show':'筛选 · 时间窗 / 档位 / 专题 ▾','filters.hide':'收起筛选 ▴','filters.aria':'展开或收起文献筛选区','jrn.fold':'按刊源筛选（点击展开）','detail.moreMeta':'更多元数据（PMID／出版状态／预警／雷达日期／卷期／阵地／口径）','scope.h1.tip':'方位＝期刊阵地（九阵地上盘·邻科公卫并入图例）·距心＝相对评分·形状＝研究设计','read.more':'显示其余 {n} 篇',
+-'queue.empty1':'没有匹配信号。','queue.empty2':'清除条件或调整数据窗口后再扫。','lock.aria':'锁定：{t}','card.aria':'锁定：{t}；评分 {s} 分',
++'queue.empty1':'没有匹配文献。','queue.empty2':'清除条件或调整数据窗口后再扫。','lock.aria':'锁定：{t}','card.aria':'锁定：{t}；评分 {s} 分',
+ 'read.count':'显示 {a} / {b} 篇 · 完整标题','read.prio':'先读 {n}','title.en.missing':'英文题名暂缺','abs.missing.read':'摘要摘录暂缺，请通过锁定详情查阅题录。','finding.label':'一句话结论 · 原文字段首句','finding.missing':'结论字段暂缺，请在锁定详情中阅读原始摘要。','extra.ai':'生成解读 · 未经人审','extra.abs':'摘要导读 · 原始字段','ai.note.missing':'生成解读暂缺。','card.lock':'点击锁定 →','tip.score':'{n} 分 · 点击锁定',
+-'scope.aria':'滚动文献雷达信号场','scope.h1':'滚动信号场','scope.sub.rest':'距心＝相对评分 · 形状＝研究设计','scope.sub.official':'方位＝期刊阵地（九阵地上盘 · 邻科公卫并入图例） · ','scope.sub.scheme.pre':'方位＝自定义阵地（方案：','scope.sub.scheme.mid':' · 未匹配论文归未分组） · ','scope.sub.topic.pre':'方位＝主题阵地（方案：','scope.sub.topic.mid':' · 主题词 {n} 条） · ',
++'scope.aria':'胸科文献雷达','scope.eyebrow':'每日新文献','scope.hub':'文献','scope.h1':'胸科文献雷达','scope.sub.rest':'距心＝相对评分 · 形状＝研究设计','scope.sub.official':'方位＝期刊阵地（九阵地上盘 · 邻科公卫并入图例） · ','scope.sub.scheme.pre':'方位＝自定义阵地（方案：','scope.sub.scheme.mid':' · 未匹配论文归未分组） · ','scope.sub.topic.pre':'方位＝主题阵地（方案：','scope.sub.topic.mid':' · 主题词 {n} 条） · ',
+ 'sec.label':'阵地','scheme.select.aria':'阵地方案切换','read.scanned':'本次已扫','sec.tip':'{label} · {n} 篇','sec.tip.top':' · 主力：{top}','sec.filter.aria':'按阵地筛选：{n}','merged.tip':'邻科临床＋公共卫生与人群健康 · 合并不上盘，点按过滤 jcat ∈ {6,7}','sector.filter.aria2':'刊源扇区筛选','folds.aria':'阵地折叠','legend.sector.aria':'阵地图例 · 邻科与公卫','legend.journal.aria':'刊源图例',
+ 'jrn.sel':'刊源：','jrn.all':'全部','sec.prefix':' · 阵地：','coll.prefix':' · 合集：','jrn.title':'刊源 {j} · 阵地 {s} · 合集 {c}','jrn.title.scheme':' · 方案 {n}','jrn.allofficial':'官方全部','jrn.none':'当前窗口无刊源','jrn.clear':'清除',
+ 'fold.expand':'展开','fold.collapse':'折叠','fold.hits':'（命中 {n} 篇）','sec.ungrouped':'未分组',
+-'scope.empty.base':'当前数据窗口内无论文。','scope.empty.base2':'请调整滑杆或刊源档位。','scope.empty.none':'当前条件下没有信号。','scope.empty.none2':'试试清除检索、阵地或刊源。','blip.title':'{j} · {s}分 · {t}',
+-'design.cohort':'队列','design.review':'综述','design.ai':'AI','design.other':'其他','design.pending':'待评定','legend.tip':'点按信号锁定 · 点按扇区筛刊','legend.tip2':'点按信号锁定 · 悬停或聚焦看摘要',
+-'detail.aria':'锁定信号详情','detail.empty1':'信号已移出当前视野。','detail.empty2':'清除筛选或调整数据窗口后可继续查看详情。',
++'scope.empty.base':'当前数据窗口内无论文。','scope.empty.base2':'请调整滑杆或刊源档位。','scope.empty.none':'当前条件下没有文献。','scope.empty.none2':'试试清除检索、阵地或刊源。','blip.title':'{j} · {s}分 · {t}',
++'design.cohort':'队列','design.review':'综述','design.ai':'AI','design.other':'其他','design.pending':'待评定','legend.tip':'点选文献查看详情 · 点按扇区筛刊','legend.tip2':'点选文献查看详情 · 悬停或聚焦看摘要',
++'detail.aria':'锁定文献详情','detail.empty1':'文献已移出当前视野。','detail.empty2':'清除筛选或调整数据窗口后可继续查看详情。',
+ 'status.retracted':'🚫 已撤稿','status.concern':'⚠ 关注声明','status.corrected':'📄 更正启事','status.ok':'未见异常标记','status.unknown':'出版状态 —','notice.generic':'题录状态说明','notice.ref':'关联：','notice.link':'查看出版方声明 ↗',
+ 'detail.score':'评分','score.aria':'评分 {n} 分','detail.paused':'解读暂停','tier.mark':'{n} 档','tier.chip.title':'切换 {n} 档','tier.legacy.title':'旧制档位（换册前 90 天窗内自然滚动）','tier.v4.title':'v4 新五档',
+ 'meta.status':'出版状态','meta.if':'影响因子 · 源值','meta.zone':'分区 · 源值','meta.warn':'预警状态','warn.yes':'⚠ 在预警名单','warn.no':'正常','meta.date':'雷达日期','meta.vol':'卷 / 期','meta.jcat':'期刊阵地','meta.scheme':'档位口径','scheme.v4':'v4 新五档','scheme.v3':'v3 旧四档 · 滚动出窗中','meta.score':'评分口径','meta.curated':'精选状态','curated.yes':'已入选','curated.no':'未入选 · 不凑数',
+-'excerpt.label':'摘要导读','excerpt.note':'原始字段 · 非全文','excerpt.missing':'摘要摘录暂缺，请通过题录链接查阅原文。','interp.paused.t':'解读暂停','interp.paused.b':'当前仅展示题录与原始摘要，不展示生成解读。','honest.concl':'作者结论','honest.ai':'生成解读 · 未经人审','honest.none':'作者结论与疑点未生成，本版留白不硬写。评分只用于信号排序，不代表临床推荐。',
+-'act.open':'打开题录 ↗','act.open.none':'题录链接 —','act.doi':'DOI 原文 ↗','act.trial.view':'查看','act.trial.record':'试验记录','trial.id':'试验号','link.none':'链接 —','mark.done':'✓ 已扫 · 点击撤销','mark.do':'标记本篇已扫','nav.prev':'← 上一信号','nav.next':'下一信号 →',
++'excerpt.label':'摘要导读','excerpt.note':'原始字段 · 非全文','excerpt.missing':'摘要摘录暂缺，请通过题录链接查阅原文。','interp.paused.t':'解读暂停','interp.paused.b':'当前仅展示题录与原始摘要，不展示生成解读。','honest.concl':'作者结论','honest.ai':'生成解读 · 未经人审','honest.none':'作者结论与疑点未生成，本版留白不硬写。评分只用于文献排序，不代表临床推荐。',
++'act.open':'打开题录 ↗','act.open.none':'题录链接 —','act.doi':'DOI 原文 ↗','act.trial.view':'查看','act.trial.record':'试验记录','trial.id':'试验号','link.none':'链接 —','mark.done':'✓ 已扫 · 点击撤销','mark.do':'标记本篇已扫','nav.prev':'← 上一文献','nav.next':'下一文献 →',
+ 'funnel.fetched':'初抓','funnel.matched':'刊源匹配','funnel.final':'简报入库','funnel.curated':'规则精选','funnel.none':' · 空缺',
+ 'drawer.aria':'合集、我的阵地、我的主题与我的书架','drawer.h2':'合集 · 阵地 · 主题 · 书架','coll.close.label':'关闭抽屉','coll.close.back':'返回概览','personal.aria':'个性化设置分区',
+ 'tab.collections':'01 · 期刊合集','tab.sectors':'02 · 自定义阵地','tab.topics':'03 · 我的主题 · AI 设置','tab.shelf':'04 · 我的书架',
+@@ -839,49 +872,49 @@ zh:{
+ 'deep.off.t':'深评 · 默认关闭','deep.off.b':'点一下才调用你自己的 AI 解读这一篇（消耗你的额度）；不点不调用。结果只保存在本浏览器。','deep.btn':'深评 · 用我的 AI Key 解读本篇','deep.label':'深评 · 你自带的 AI 生成 · 未经人审','deep.running':'深评中…','deep.fail':'深评失败：{m}','deep.empty':'AI 没有返回正文。','deep.save.fail':'浏览器未能保存深评结果，请检查存储权限或空间','deep.timeout':'深评超时（60 秒无响应）。',
+ 'ai.need3':'BaseURL / Key / Model 三项都要填。','ai.testing':'测试中…','ai.ok':'连通 · 模型','ai.reply':' · 回复「{c}」','ai.timeout':'连接超时（45 秒无响应）。','ai.cors':'跨域受限：请改用中转地址或自部署转发 Worker，模板见站内帮助。','ai.fail':'失败：{m}',
+ 'sec.coll':'合集 · 点按启用','coll.official':'官方全部','coll.official.sub':'全部名册期刊 · 默认','badge.inuse':'使用中','coll.hit':'命中 {n} 刊','badge.stale':'失效 {n}','op.edit':'编辑','op.rename':'重命名','op.del':'删除','op.save':'保存','op.cancel':'取消',
+-'coll.new':'＋ 新建合集','exp.json':'导出 JSON','imp.json':'导入 JSON','coll.editor.empty':'在上方点「编辑」或「＋ 新建合集」，按阵地勾选期刊。','coll.editor.title':'编辑合集 · {name}（已选 {a}/{b} 刊）','coll.search.ph':'按缩写过滤刊名…','coll.none':'无匹配期刊。','coll.name.aria':'合集名称','confirm.coll':'删除该合集？（不影响已注入数据与本地信号）','unnamed.coll':'未命名合集','my.coll':'我的合集','coll.activate.title':'启用该合集','coll.deactivate.title':'停用合集，恢复官方全部',
++'coll.new':'＋ 新建合集','exp.json':'导出 JSON','imp.json':'导入 JSON','coll.editor.empty':'在上方点「编辑」或「＋ 新建合集」，按阵地勾选期刊。','coll.editor.title':'编辑合集 · {name}（已选 {a}/{b} 刊）','coll.search.ph':'按缩写过滤刊名…','coll.none':'无匹配期刊。','coll.name.aria':'合集名称','confirm.coll':'删除该合集？（不影响已注入数据与本地文献）','unnamed.coll':'未命名合集','my.coll':'我的合集','coll.activate.title':'启用该合集','coll.deactivate.title':'停用合集，恢复官方全部',
+ 'sec.scheme':'我的阵地 · 点按启用','scheme.official':'官方阵地','scheme.official.sub':'九阵地上盘 · 默认','scheme.n':'{n} 阵地','scheme.new':'＋ 新建方案','scheme.editor.empty':'在上方点「编辑」或「＋ 新建方案」：加阵地、起名、勾期刊指派。','scheme.editor.title':'编辑方案 · {name}（{n} 阵地）','scheme.name.aria':'方案名称','sec.folded':' · 已折叠','sec.assign.title':'指派期刊 · {name}（已指 {n} 刊）','sec.assign.empty':'点上方一个阵地名选中它，再勾选期刊指派进去。','sec.add':'＋ 加阵地','sec.none':'还没有阵地，点「＋ 加阵地」开第一个。','sec.limit':'阵地数量已达上限（最多 10 个）','sec.owner.tip':'已在他组，勾选＝移入当前阵地','sec.up.title':'上移（顺时针序提前）','sec.down.title':'下移（顺时针序靠后）','sec.name.aria':'阵地名称','confirm.scheme':'删除该方案？（自定义阵地定义一并移除；不影响已注入数据与合集）','confirm.sector':'删除该阵地？（组内期刊指派一并移除；其下论文回归未分组）','unnamed.scheme':'未命名方案','my.scheme':'我的方案','unnamed.sector':'未命名阵地','new.sector':'新阵地','sec.select.title':'点选为当前指派阵地','scheme.activate.title':'启用该方案','scheme.deactivate.title':'停用方案，恢复官方九阵地钟面',
+ 'tw.title':'主题词 · {name}（include {a}/20 · exclude {b}/20）','tw.include.ph':'＋ include 主题词，Enter 暂存','tw.exclude.ph':'＋ exclude 主题词，Enter 暂存','tw.mode.topic':'转主题模式','tw.save':'保存并重分类','tw.mode.journal':'转回期刊模式','tw.empty':'暂无主题词：输入后 Enter 暂存，「保存并重分类」后雷达按词重排','tw.hint.blocked':'已拒收：该词命中指令句黑名单','tw.hint.dup':'该词已在清单中','tw.hint.trunc':'超 40 字，已截断','tw.hint.cap':'每阵地 include/exclude 各上限 20 词','tw.hint.total':'方案主题词总量超 4000 字，超出部分已裁剪','sec.checkall.aria':'整组勾选 {n} 进当前阵地','cls.progress':'分类中 批次 {a}/{b} · 命中缓存 {m} · 失败 {f}',
+ 'topic.sec.title':'我的主题 · 自定义检索（按需执行 · 烧你自己的 Key）','topic.none':'还没有主题。点「＋ 新建主题」：起名、写 PubMed 检索式、设回看天数与单次上限。','topic.new':'＋ 新建主题','topic.lastrun':'上次运行 {ts} · 抓 {n} · 相关 {m}','topic.never':'未运行过','topic.run':'运行','topic.results':'结果','topic.run.title':'立即运行（查 PubMed＋烧你自己的 AI Key）','topic.view.title':'查看最近一次运行结果（本地存档）','topic.editor.empty':'在上方点「编辑」或「＋ 新建主题」。','topic.edit':'编辑主题','topic.create':'新建主题','f.name':'名称','f.name.ph':'如：食管癌微创','f.query':'PubMed 检索式','f.query.ph':'如: esophagectomy AND minimally invasive（支持 PubMed 语法 [Title/Abstract]、AND、OR）','f.days':'回看天数：','f.cap':'单次上限（5-50 篇）','topic.err':'检索式不能为空：写一条 PubMed 检索式（如 esophagectomy AND minimally invasive）。','unnamed.topic':'未命名主题','confirm.topic':'删除该主题？（最近一次运行结果一并清除；不影响官方雷达内容）',
+ 'run.aria':'我的主题检索结果','stop.btn':'■ 停止','run.close.aria':'关闭结果面板','run.stats':'抓取 {a} · 相关 {b} · 不相关 {c} · 未判 {d}','phase.pubmed':'检索 PubMed…','phase.fetch':'拉取题录与摘要…','phase.ai':'AI 判读中…','phase.batch':' · 批次 {a}/{b}','phase.done':'完成','phase.stopped':'已停止 · 保留已完成结果','phase.failed':'已中止','phase.archive':'本地存档 · 最近一次运行','archive.at':'存档时间 {ts}','cors.err':'跨域受限：请改用中转地址或自部署转发 Worker，模板见 ','no.results':'没有可显示的结果。','v.related':'相关','v.unrelated':'不相关','v.unjudged':'未判','v.unrun':'未跑','j.unknown':'期刊未知','d.unknown':'日期未知','record.missing':'（题录缺失）','roll.load':'正在同步历史档案…','roll.fail':'历史档案拉取失败，已保留当前数据',
+ 'err.pubmed.search':'PubMed 检索失败（HTTP {s}）','err.pubmed.fetch':'PubMed 题录拉取失败（HTTP {s}）','err.pubmed.xml':'PubMed 题录 XML 解析失败','err.ai.http':'AI 服务返回 HTTP {s}','err.judge.json':'AI 输出 JSON 解析失败（不含可解析的 JSON 数组）','err.judge.arr':'AI 输出不是数组','err.net.cors':'网络请求失败（常见原因：浏览器跨域受限）','err.net':'网络请求失败','err.stopped':'已停止','err.judge':'判读失败：{m}','err.partial':'部分批次判读失败（已重试 1 次）：{m}','topic.nohit':'该检索式 {d} 天内无命中。',
+ 'foot.keys':'/ 检索　← → 切换　ESC 清除',
+-'cat.all':'全部信号','cat.all.s':'全部','cat.adv':'晚期靶向/免疫','cat.adv.s':'靶向免疫','cat.surg':'微创/无管胸外科','cat.surg.s':'微创外科','cat.peri':'围术期/新辅助','cat.peri.s':'围术期','cat.eso':'食管/纵隔肿瘤','cat.eso.s':'食管纵隔','cat.nod':'肺结节/早筛','cat.nod.s':'结节早筛','cat.ai':'胸外 AI/三维','cat.ai.s':'数字胸外','cat.pulm':'非肿瘤呼吸病','cat.pulm.s':'呼吸肺病',
++'cat.all':'全部文献','cat.all.s':'全部','cat.adv':'晚期靶向/免疫','cat.adv.s':'靶向免疫','cat.surg':'微创/无管胸外科','cat.surg.s':'微创外科','cat.peri':'围术期/新辅助','cat.peri.s':'围术期','cat.eso':'食管/纵隔肿瘤','cat.eso.s':'食管纵隔','cat.nod':'肺结节/早筛','cat.nod.s':'结节早筛','cat.ai':'胸外 AI/三维','cat.ai.s':'数字胸外','cat.pulm':'非肿瘤呼吸病','cat.pulm.s':'呼吸肺病',
+ 'jcat.1':'胸外科与胸部肿瘤','jcat.11':'呼吸与睡眠','jcat.2':'肿瘤临床','jcat.4':'影像、病理与检验','jcat.3':'外科与重症医学','jcat.5':'感染与免疫','jcat.8':'基础·药理与转化','jcat.10':'医学AI与数字医学','jcat.9':'综合医学与多学科','jcat.pending':'待审定','jcat.67':'邻科与公卫',
+ 'type.rct':'RCT','type.cohort':'队列 / 观察','type.review':'综述 / Meta','type.ai':'AI / 数字','type.pending':'其他设计',
+ 'ext.add':'＋ 池外期刊','ext.group':'池外 · 未分类','ext.badge':'未分类·池外','ext.list.title':'已入册池外刊 · {n}','ext.list.empty':'还没有池外刊：在下方按缩写或刊名检索 NLM 期刊目录，点候选后确认入册。','ext.records':'题录','ext.records.title':'打开该刊近 30 天题录（按需拉取 PubMed，24 小时内走缓存）','ext.remove':'移除','confirm.ext':'从池外名册移除该刊？（合集与阵地里的同名条目会回到「失效」标注；不影响官方数据）',
+ 'ext.search.ph':'检索 NLM 期刊目录：PubMed 缩写（如 J Clin Oncol）或刊名…','ext.search.aria':'检索 NLM 期刊目录','ext.searching':'检索中…（NCBI 公共接口限速，每请求间隔 ≥3 秒）','ext.none':'无匹配期刊：换个缩写或刊名再试。','ext.pick':'选择','ext.pick.title':'点选后确认入册','ext.dup.official':'已在官方名册：{k}','ext.dup.ext':'已在池外名册','ext.dup':'该刊已在名册中，不重复入册。','ext.abbr':'缩写','ext.confirm':'确认入册','ext.added':'已入册：{k}',
+ 'ext.hint':'池外刊只存本浏览器：可指派进合集与阵地（徽章「未分类·池外」）；题录按需拉取，缓存可经「混排池外缓存」开关进入个人概览与阅读队列，永不写官方数据集。',
+-'poolup.toggle':'混排池外缓存 · 带「池外」标','poolup.toggle.tip':'只混排已缓存的池外题录；不自动拉取，不写官方数据','poolup.hint':'有池外条目时按日期混排；池外无官方档位／评分，不参与档位与阵地筛选。阅读视图前 12 条里池外最多 3 条，其余位置由官方条补满，概览队列仍全列出。池外入窗上界取官方锚点日与本地当天的较晚者，下界仍按官方锚点。旧缓存仅有年份时不猜日期，请在题录面板显式刷新；缓存过期照常混排但带「已过期」标。池外条未做预警／精选／出版状态核查。','poolup.sorted':'信号队列 · 按日期混排（同日池外在前）','poolup.badge':'池外','poolup.notier':'池外 · 无官方档位','poolup.uncategorized':'池外 · 未分类','poolup.detail.tip':'来自个人池外题录缓存；无官方档位、评分与阵地归类',
+-'poolup.stale':'已过期','poolup.stale.tip':'池外缓存已过期：混排的是旧题录，请在题录面板点「刷新」重拉','poolup.unchecked':'未核查','poolup.unchecked.status':'出版状态 · 未核查','poolup.unchecked.curated':'未核查 · 不参与精选','poolup.scope.empty':'官方当前筛选下无在列信号；池外缓存有 {n} 条在信号队列。','poolup.scope.empty2':'雷达盘只画官方信号；池外条见信号队列。',
++'poolup.toggle':'混排池外缓存 · 带「池外」标','poolup.toggle.tip':'只混排已缓存的池外题录；不自动拉取，不写官方数据','poolup.hint':'有池外条目时按日期混排；池外无官方档位／评分，不参与档位与阵地筛选。阅读视图前 12 条里池外最多 3 条，其余位置由官方条补满，概览队列仍全列出。池外入窗上界取官方锚点日与本地当天的较晚者，下界仍按官方锚点。旧缓存仅有年份时不猜日期，请在题录面板显式刷新；缓存过期照常混排但带「已过期」标。池外条未做预警／精选／出版状态核查。','poolup.sorted':'文献队列 · 按日期混排（同日池外在前）','poolup.badge':'池外','poolup.notier':'池外 · 无官方档位','poolup.uncategorized':'池外 · 未分类','poolup.detail.tip':'来自个人池外题录缓存；无官方档位、评分与阵地归类',
++'poolup.stale':'已过期','poolup.stale.tip':'池外缓存已过期：混排的是旧题录，请在题录面板点「刷新」重拉','poolup.unchecked':'未核查','poolup.unchecked.status':'出版状态 · 未核查','poolup.unchecked.curated':'未核查 · 不参与精选','poolup.scope.empty':'官方当前筛选下无在列文献；池外缓存有 {n} 条在文献队列。','poolup.scope.empty2':'雷达盘只画官方文献；池外条见文献队列。',
+ 'pool.aria':'池外期刊题录（按需拉取）','pool.close.aria':'关闭题录面板','pool.refresh':'↻ 刷新','pool.refresh.title':'现在重拉近 30 天题录','pool.stop.title':'停止本次拉取（保留已显示内容）','pool.stats':'近 {d} 天 · 显示 {a} / {t} 篇','pool.phase':'拉取题录…（与主题检索共用顺序队列，每请求间隔 ≥3 秒）','pool.fresh':'缓存 · 更新于 {ts} · 24 小时内不重复拉取','pool.stale':'旧缓存 · 更新于 {ts}（已过期，点「刷新」重拉）','pool.offline':'拉取失败，保留旧缓存（更新于 {ts}）：{m}','pool.failed':'拉取失败：{m}','pool.stopped':'已停止拉取（点「刷新」重拉）','pool.empty':'近 {d} 天该刊在 PubMed 无新题录。','pool.none':'还没有题录。','pool.inpool':'另有 {n} 篇已在官方池（不重复展示题录）：',
+ 'err.nlm.search':'NLM 目录检索失败（HTTP {s}）','err.nlm.summary':'NLM 目录详情拉取失败（HTTP {s}）','err.gate':'NCBI 限流：已退避重试 {n} 次仍失败，请稍后再试。','err.ncbi':'NCBI 接口报错：{m}'
+ },
+ en:{
+-'doc.title':'Thoradar · Rolling Signal Field','brand.name':'Thoradar','brand.sub':'Thoracic Medical Literature · Daily Scanning and Personalized Tracking','lang.tip':'Switch to Chinese interface','lang.btn':'中',
+-'scan.nogen.time':'Generated —','scan.note':'status breakdown annotated',
+-'view.switcher.aria':'Primary views','view.overview':'Overview','view.overview.title':'Overview: signal queue, radar and locked detail','view.reading':'Reading','view.reading.title':'Reading: full titles, findings and evidence','view.personal':'Personalize','view.personal.title':'Personalize: journal collections, custom sectors, my topics and my bookshelf',
+-'search.title':'Search titles, journals, PMIDs or trial IDs','search.ph':'Search the signal field…','search.aria':'Search papers in the window',
++'doc.title':'Thoradar · Thoracic Literature Radar','brand.name':'Thoradar','brand.sub':'Thoracic Medical Literature · Daily Scanning and Personalized Tracking','lang.tip':'Switch to Chinese interface','lang.btn':'中',
++'scan.nogen.time':'Generated —','scan.date':'DATA DATE','scan.nodata':'NO DATA','scan.note':'Publication status annotated',
++'view.switcher.aria':'Primary views','view.overview':'Overview','view.overview.title':'Overview: literature queue, radar and selected detail','view.reading':'Reading','view.reading.title':'Reading: full titles, findings and evidence','view.personal':'Personalize','view.personal.title':'Personalize: journal collections, custom sectors, my topics and my bookshelf',
++'search.title':'Search titles, journals, PMIDs or trial IDs','search.ph':'Search the literature…','search.aria':'Search papers in the window',
+ 'theme.toggle':'Toggle light/dark mode','theme.dark':'Switch to dark mode','theme.light':'Switch to light mode',
+-'queue.aria':'Filters and signal queue','queue.h2':'Signal queue','coll.open':'◈ Collections','coll.active':'Active collection: ','personal.open.tip':'click to open Personalize','coll.title.off':'Journal collections (all official journals) · click to open Personalize',
++'queue.aria':'Filters and literature queue','queue.h2':'Literature queue','coll.open':'◈ Collections','coll.active':'Active collection: ','personal.open.tip':'click to open Personalize','coll.title.off':'Journal collections (all official journals) · click to open Personalize',
+ 'quick.all':'All','quick.cohort':'Cohort','quick.nct':'With trial ID','filter.tier':'Source tiers · multi-select','window.label':'Time window','unit.days':'days','data.window':'Data window',
+-'queue.title1':'Signal queue · by score','queue.title2':'Click to lock','read.first3':'Read these first','read.marked':'top 3 flagged',
++'queue.title1':'Literature queue · by score','queue.title2':'Click to select','read.first3':'Read these first','read.marked':'top 3 flagged',
+ 'density.aria':'Reading card density','density.compact':'Compact','density.immersive':'Immersive',
+ 'filters.show':'Filters · window / tiers / topics ▾','filters.hide':'Hide filters ▴','filters.aria':'Expand or collapse paper filters','jrn.fold':'Filter by journal (click to expand)','detail.moreMeta':'More metadata (PMID / publication status / watchlist / radar date / volume & issue / sector / scheme)','scope.h1.tip':'Angle = journal sector (nine on scope; adjacent and public health merged in legend) · radius = relative score · shape = study design','read.more':'Show remaining {n} papers',
+-'queue.empty1':'No matching signals.','queue.empty2':'Clear the filters or adjust the data window and sweep again.','lock.aria':'Lock: {t}','card.aria':'Lock: {t}; score {s}',
+-'read.count':'Showing {a} / {b} · full titles','read.prio':'Read {n} first','title.en.missing':'English title unavailable','abs.missing.read':'Abstract excerpt unavailable — see the locked detail for the record.','finding.label':'One-line finding · first sentence of the source field','finding.missing':'Conclusion field unavailable — read the raw abstract in the locked detail.','extra.ai':'Generated interpretation · not human-reviewed','extra.abs':'Abstract digest · raw field','ai.note.missing':'Generated interpretation unavailable.','card.lock':'Click to lock →','tip.score':'{n} pts · click to lock',
+-'scope.aria':'Rolling literature radar signal field','scope.h1':'Rolling signal field','scope.sub.rest':'radius = relative score · shape = study design','scope.sub.official':'angle = journal sectors (nine on the scope · adjacent & public health merged into the legend) · ','scope.sub.scheme.pre':'angle = custom sectors (scheme: ','scope.sub.scheme.mid':' · unmatched journals fall into Ungrouped) · ','scope.sub.topic.pre':'angle = topic sectors (scheme: ','scope.sub.topic.mid':' · {n} topic words) · ',
++'queue.empty1':'No matching papers.','queue.empty2':'Clear the filters or adjust the data window and sweep again.','lock.aria':'Selected: {t}','card.aria':'Selected: {t}; score {s}',
++'read.count':'Showing {a} / {b} · full titles','read.prio':'Read {n} first','title.en.missing':'English title unavailable','abs.missing.read':'Abstract excerpt unavailable — see the selected detail for the record.','finding.label':'One-line finding · first sentence of the source field','finding.missing':'Conclusion field unavailable — read the raw abstract in the selected detail.','extra.ai':'Generated interpretation · not human-reviewed','extra.abs':'Abstract digest · raw field','ai.note.missing':'Generated interpretation unavailable.','card.lock':'Click to select →','tip.score':'{n} pts · click to select',
++'scope.aria':'Thoracic literature radar','scope.eyebrow':'Daily new research','scope.hub':'PAPERS','scope.h1':'Thoracic literature radar','scope.sub.rest':'radius = relative score · shape = study design','scope.sub.official':'angle = journal sectors (nine on the scope · adjacent & public health merged into the legend) · ','scope.sub.scheme.pre':'angle = custom sectors (scheme: ','scope.sub.scheme.mid':' · unmatched journals fall into Ungrouped) · ','scope.sub.topic.pre':'angle = topic sectors (scheme: ','scope.sub.topic.mid':' · {n} topic words) · ',
+ 'sec.label':'Sectors','scheme.select.aria':'Switch sector scheme','read.scanned':'scanned this session','sec.tip':'{label} · {n} papers','sec.tip.top':' · leaders: {top}','sec.filter.aria':'Filter by sector: {n}','merged.tip':'Adjacent clinical + public & population health · merged off-scope, click to filter jcat ∈ {6,7}','sector.filter.aria2':'Journal sector filter','folds.aria':'Sector folds','legend.sector.aria':'Sector legend · adjacent & public health','legend.journal.aria':'Journal legend',
+ 'jrn.sel':'Journals: ','jrn.all':'All','sec.prefix':' · sector: ','coll.prefix':' · collection: ','jrn.title':'Journals {j} · sector {s} · collection {c}','jrn.title.scheme':' · scheme {n}','jrn.allofficial':'all official','jrn.none':'No journals in the current window','jrn.clear':'Clear',
+ 'fold.expand':'Expand ','fold.collapse':'Collapse ','fold.hits':' ({n} hits)','sec.ungrouped':'Ungrouped',
+-'scope.empty.base':'No papers in the current data window.','scope.empty.base2':'Adjust the time slider or the source tiers.','scope.empty.none':'No signals under the current conditions.','scope.empty.none2':'Try clearing the search, sector or journal filters.','blip.title':'{j} · {s} pts · {t}',
+-'design.cohort':'Cohort','design.review':'Review','design.ai':'AI','design.other':'Other','design.pending':'Pending','legend.tip':'Click a signal to lock · click a sector to filter journals','legend.tip2':'Click a signal to lock · hover or focus for the abstract',
+-'detail.aria':'Locked signal detail','detail.empty1':'This signal has left the current view.','detail.empty2':'Clear the filters or adjust the data window to keep reading.',
++'scope.empty.base':'No papers in the current data window.','scope.empty.base2':'Adjust the time slider or the source tiers.','scope.empty.none':'No papers under the current conditions.','scope.empty.none2':'Try clearing the search, sector or journal filters.','blip.title':'{j} · {s} pts · {t}',
++'design.cohort':'Cohort','design.review':'Review','design.ai':'AI','design.other':'Other','design.pending':'Pending','legend.tip':'Click a paper to select · click a sector to filter journals','legend.tip2':'Click a paper to select · hover or focus for the abstract',
++'detail.aria':'Selected paper detail','detail.empty1':'This paper has left the current view.','detail.empty2':'Clear the filters or adjust the data window to keep reading.',
+ 'status.retracted':'🚫 Retracted','status.concern':'⚠ Expression of concern','status.corrected':'📄 Correction','status.ok':'No anomaly flags','status.unknown':'Publication status —','notice.generic':'Record status note','notice.ref':'Related: ','notice.link':"View the publisher's notice ↗",
+ 'detail.score':'Score','score.aria':'Score {n}','detail.paused':'Interpretation paused','tier.mark':'Tier {n}','tier.chip.title':'Toggle tier {n}','tier.legacy.title':'Legacy tier (naturally rolling out of the pre-v4 90-day window)','tier.v4.title':'v4 five-tier scheme',
+ 'meta.status':'Publication status','meta.if':'Impact factor · source value','meta.zone':'Quartile · source value','meta.warn':'Watchlist status','warn.yes':'⚠ On the watchlist','warn.no':'Normal','meta.date':'Radar date','meta.vol':'Vol. / issue','meta.jcat':'Journal sector','meta.scheme':'Tier scheme','scheme.v4':'v4 five-tier','scheme.v3':'v3 legacy four-tier · rolling out of window','meta.score':'Score source','meta.curated':'Curation','curated.yes':'Curated in','curated.no':'Not curated · no padding',
+-'excerpt.label':'Abstract digest','excerpt.note':'raw field · not full text','excerpt.missing':'Abstract excerpt unavailable — use the record link to read the original.','interp.paused.t':'Interpretation paused','interp.paused.b':'Only the record and the raw abstract are shown; no generated interpretation.','honest.concl':"Authors' conclusion",'honest.ai':'Generated interpretation · not human-reviewed','honest.none':"Authors' conclusion and caveats not generated — this build leaves it blank rather than inventing. Scores only order signals; they are not clinical recommendations.",
+-'act.open':'Open record ↗','act.open.none':'Record link —','act.doi':'DOI full text ↗','act.trial.view':'View','act.trial.record':'trial record','trial.id':'Trial','link.none':'link —','mark.done':'✓ Scanned · click to undo','mark.do':'Mark as scanned','nav.prev':'← Previous signal','nav.next':'Next signal →',
++'excerpt.label':'Abstract digest','excerpt.note':'raw field · not full text','excerpt.missing':'Abstract excerpt unavailable — use the record link to read the original.','interp.paused.t':'Interpretation paused','interp.paused.b':'Only the record and the raw abstract are shown; no generated interpretation.','honest.concl':"Authors' conclusion",'honest.ai':'Generated interpretation · not human-reviewed','honest.none':"Authors' conclusion and caveats not generated — this build leaves it blank rather than inventing. Scores only prioritize papers; they are not clinical recommendations.",
++'act.open':'Open record ↗','act.open.none':'Record link —','act.doi':'DOI full text ↗','act.trial.view':'View','act.trial.record':'trial record','trial.id':'Trial','link.none':'link —','mark.done':'✓ Scanned · click to undo','mark.do':'Mark as scanned','nav.prev':'← Previous paper','nav.next':'Next paper →',
+ 'funnel.fetched':'Fetched','funnel.matched':'Journal-matched','funnel.final':'Ingested','funnel.curated':'Curated','funnel.none':' · none',
+ 'drawer.aria':'Collections, my sectors, my topics and my bookshelf','drawer.h2':'Collections · Sectors · Topics · Bookshelf','coll.close.label':'Close drawer','coll.close.back':'Back to Overview','personal.aria':'Personalize sections',
+ 'tab.collections':'01 · Journal collections','tab.sectors':'02 · Custom sectors','tab.topics':'03 · My topics · AI','tab.shelf':'04 · My bookshelf',
+@@ -895,21 +928,21 @@ en:{
+ 'deep.off.t':'Deep review · off by default','deep.off.b':'Click to have your own AI interpret this paper (uses your quota); nothing is called until you click. Results stay in this browser.','deep.btn':'Deep review with my AI key','deep.label':'Deep review · generated by your own AI · not human-reviewed','deep.running':'Deep review in progress…','deep.fail':'Deep review failed: {m}','deep.empty':'The AI returned no text.','deep.save.fail':'The browser could not save the deep review — check storage permission or free space','deep.timeout':'Deep review timed out (60 s, no response).',
+ 'ai.need3':'Fill in BaseURL, Key and Model.','ai.testing':'Testing…','ai.ok':'Connected · model','ai.reply':' · replied "{c}"','ai.timeout':'Connection timed out (45 s, no response).','ai.cors':'CORS blocked: use a relay URL or a self-hosted forwarding Worker — see the site help.','ai.fail':'Failed: {m}',
+ 'sec.coll':'Collections · click to activate','coll.official':'All official','coll.official.sub':'All registry journals · default','badge.inuse':'In use','coll.hit':'{n} journals matched','badge.stale':'{n} stale','op.edit':'Edit','op.rename':'Rename','op.del':'Delete','op.save':'Save','op.cancel':'Cancel',
+-'coll.new':'＋ New collection','exp.json':'Export JSON','imp.json':'Import JSON','coll.editor.empty':'Click "Edit" or "＋ New collection" above, then tick journals by sector.','coll.editor.title':'Edit collection · {name} ({a}/{b} journals selected)','coll.search.ph':'Filter journals by abbreviation…','coll.none':'No matching journals.','coll.name.aria':'Collection name','confirm.coll':'Delete this collection? (Injected data and local signals are not affected.)','unnamed.coll':'Untitled collection','my.coll':'My collection','coll.activate.title':'Activate this collection','coll.deactivate.title':'Deactivate the collection; back to all official',
++'coll.new':'＋ New collection','exp.json':'Export JSON','imp.json':'Import JSON','coll.editor.empty':'Click "Edit" or "＋ New collection" above, then tick journals by sector.','coll.editor.title':'Edit collection · {name} ({a}/{b} journals selected)','coll.search.ph':'Filter journals by abbreviation…','coll.none':'No matching journals.','coll.name.aria':'Collection name','confirm.coll':'Delete this collection? (Injected data and local papers are not affected.)','unnamed.coll':'Untitled collection','my.coll':'My collection','coll.activate.title':'Activate this collection','coll.deactivate.title':'Deactivate the collection; back to all official',
+ 'sec.scheme':'My sectors · click to activate','scheme.official':'Official sectors','scheme.official.sub':'Nine-sector scope · default','scheme.n':'{n} sectors','scheme.new':'＋ New scheme','scheme.editor.empty':'Click "Edit" or "＋ New scheme" above: add sectors, name them, assign journals.','scheme.editor.title':'Edit scheme · {name} ({n} sectors)','scheme.name.aria':'Scheme name','sec.folded':' · folded','sec.assign.title':'Assign journals · {name} ({n} assigned)','sec.assign.empty':'Select a sector name above, then tick journals to assign them.','sec.add':'＋ Add sector','sec.none':'No sectors yet — click "＋ Add sector" to create the first one.','sec.limit':'Maximum of 10 sectors allowed (cap: 10)','sec.owner.tip':'Already in another sector; ticking moves it here','sec.up.title':'Move up (earlier in clockwise order)','sec.down.title':'Move down (later in clockwise order)','sec.name.aria':'Sector name','confirm.scheme':'Delete this scheme? (Its custom sector definitions are removed; injected data and collections are not affected.)','confirm.sector':'Delete this sector? (Its journal assignments are removed; its papers return to Ungrouped.)','unnamed.scheme':'Untitled scheme','my.scheme':'My scheme','unnamed.sector':'Untitled sector','new.sector':'New sector','sec.select.title':'Select as the sector to assign into','scheme.activate.title':'Activate this scheme','scheme.deactivate.title':'Deactivate the scheme; back to the official nine-sector scope',
+ 'tw.title':'Topic words · {name} (include {a}/20 · exclude {b}/20)','tw.include.ph':'+ include word, Enter to stage','tw.exclude.ph':'+ exclude word, Enter to stage','tw.mode.topic':'Switch to topic mode','tw.save':'Save & reclassify','tw.mode.journal':'Back to journal mode','tw.empty':'No topic words yet: type and press Enter to stage, then "Save & reclassify" re-angles the radar by words','tw.hint.blocked':'Rejected: the word matches the instruction blacklist','tw.hint.dup':'Already in the list','tw.hint.trunc':'Longer than 40 chars — trimmed','tw.hint.cap':'Max 20 words per include/exclude list per sector','tw.hint.total':'Scheme word budget (4000 chars) exceeded — excess trimmed','sec.checkall.aria':'Check all of {n} into the current sector','cls.progress':'Classifying batch {a}/{b} · cache hits {m} · failed {f}',
+ 'topic.sec.title':'My topics · custom searches (on demand · burns your own key)','topic.none':'No topics yet. Click "＋ New topic": name it, write a PubMed query, set the lookback window and per-run cap.','topic.new':'＋ New topic','topic.lastrun':'Last run {ts} · fetched {n} · relevant {m}','topic.never':'Never run','topic.run':'Run','topic.results':'Results','topic.run.title':'Run now (queries PubMed and burns your own AI key)','topic.view.title':'View the last run (local archive)','topic.editor.empty':'Click "Edit" or "＋ New topic" above.','topic.edit':'Edit topic','topic.create':'New topic','f.name':'Name','f.name.ph':'e.g. Minimally invasive esophagectomy','f.query':'PubMed query','f.query.ph':'e.g. esophagectomy AND minimally invasive (PubMed syntax supported: [Title/Abstract], AND, OR)','f.days':'Lookback: ','f.cap':'Per-run cap (5-50 papers)','topic.err':'Query required: write a PubMed query (e.g. esophagectomy AND minimally invasive).','unnamed.topic':'Untitled topic','confirm.topic':'Delete this topic? (Its latest run is removed; official radar content is not affected.)',
+ 'run.aria':'My topic results','stop.btn':'■ Stop','run.close.aria':'Close the results panel','run.stats':'Fetched {a} · relevant {b} · unrelated {c} · unjudged {d}','phase.pubmed':'Searching PubMed…','phase.fetch':'Fetching records and abstracts…','phase.ai':'AI judging…','phase.batch':' · batch {a}/{b}','phase.done':'Completed','phase.stopped':'Stopped · completed results kept','phase.failed':'Aborted','phase.archive':'Local archive · latest run','archive.at':'Archived {ts}','cors.err':'CORS blocked: use a relay URL or a self-hosted forwarding Worker — template in the ','no.results':'Nothing to show.','v.related':'Relevant','v.unrelated':'Unrelated','v.unjudged':'Unjudged','v.unrun':'Not run','j.unknown':'journal unknown','d.unknown':'date unknown','record.missing':'(record missing)','roll.load':'Syncing history archive…','roll.fail':'Failed to load history — keeping current data',
+ 'err.pubmed.search':'PubMed search failed (HTTP {s})','err.pubmed.fetch':'PubMed record fetch failed (HTTP {s})','err.pubmed.xml':'PubMed record XML parse failed','err.ai.http':'AI service returned HTTP {s}','err.judge.json':'AI output JSON parse failed (no parseable JSON array)','err.judge.arr':'AI output is not an array','err.net.cors':'Network request failed (often a browser CORS restriction)','err.net':'Network request failed','err.stopped':'Stopped','err.judge':'Judge failed: {m}','err.partial':'Some batches failed judging (retried once): {m}','topic.nohit':'No hits for this query within {d} days.',
+ 'foot.keys':'/ search　← → switch　ESC clear',
+-'cat.all':'All signals','cat.all.s':'All','cat.adv':'Advanced targeted / immunotherapy','cat.adv.s':'Targeted·IO','cat.surg':'Minimally invasive / tubeless surgery','cat.surg.s':'MIS','cat.peri':'Perioperative / neoadjuvant','cat.peri.s':'Periop','cat.eso':'Esophageal / mediastinal tumors','cat.eso.s':'Esoph·Med','cat.nod':'Lung nodules / early detection','cat.nod.s':'Nodules','cat.ai':'Thoracic AI / 3D','cat.ai.s':'AI·3D','cat.pulm':'Non-oncologic pulmonary disease','cat.pulm.s':'Pulmonary',
++'cat.all':'All papers','cat.all.s':'All','cat.adv':'Advanced targeted / immunotherapy','cat.adv.s':'Targeted·IO','cat.surg':'Minimally invasive / tubeless surgery','cat.surg.s':'MIS','cat.peri':'Perioperative / neoadjuvant','cat.peri.s':'Periop','cat.eso':'Esophageal / mediastinal tumors','cat.eso.s':'Esoph·Med','cat.nod':'Lung nodules / early detection','cat.nod.s':'Nodules','cat.ai':'Thoracic AI / 3D','cat.ai.s':'AI·3D','cat.pulm':'Non-oncologic pulmonary disease','cat.pulm.s':'Pulmonary',
+ 'jcat.1':'Thoracic surgery & tumors','jcat.11':'Pulmonology & sleep','jcat.2':'Clinical oncology','jcat.4':'Imaging, pathology & labs','jcat.3':'Surgery & critical care','jcat.5':'Infection & immunity','jcat.8':'Basic · pharmacology · translational','jcat.10':'Medical AI & digital medicine','jcat.9':'General medicine & multidisciplinary','jcat.pending':'Pending','jcat.67':'Adjacent & public health',
+ 'type.rct':'RCT','type.cohort':'Cohort / observational','type.review':'Review / meta-analysis','type.ai':'AI / digital','type.pending':'Other designs',
+ 'ext.add':'＋ Off-pool journal','ext.group':'Off-pool · Unclassified','ext.badge':'Unclassified·off-pool','ext.list.title':'Off-pool journals · {n}','ext.list.empty':'No off-pool journals yet: search the NLM catalog below by abbreviation or title, pick a candidate and confirm.','ext.records':'Records','ext.records.title':"Open this journal's records from the last 30 days (PubMed on demand; cached for 24 h)",'ext.remove':'Remove','confirm.ext':'Remove this journal from the off-pool registry? (Matching entries in collections and sectors turn "stale" again; official data is not affected.)',
+ 'ext.search.ph':'Search the NLM catalog: PubMed abbreviation (e.g. J Clin Oncol) or title…','ext.search.aria':'Search the NLM catalog','ext.searching':'Searching… (NCBI public API rate limit: ≥3 s between requests)','ext.none':'No matching journals: try another abbreviation or title.','ext.pick':'Pick','ext.pick.title':'Pick, then confirm','ext.dup.official':'Already official: {k}','ext.dup.ext':'Already off-pool','ext.dup':'This journal is already in the registry — not added again.','ext.abbr':'Abbr.','ext.confirm':'Add journal','ext.added':'Added: {k}',
+ 'ext.hint':'Off-pool journals live in this browser only: assign them to collections and sectors (badge "Unclassified·off-pool"); cached records can enter your personal overview and reading queue through "Mix off-pool cache", never the official datasets.',
+-'poolup.toggle':'Mix off-pool cache · with an "Off-pool" badge','poolup.toggle.tip':'Mix cached off-pool records only; no automatic fetch and no writes to official data','poolup.hint':'When off-pool records are present, entries are mixed by date. They have no official tier, score or sector, and tier/sector filters do not apply to them. In the reading view at most 3 of the first 12 cards are off-pool; official papers fill the rest, and the overview queue still lists everything. Off-pool entries use the later of the official anchor day and your local today as the upper window bound, while the lower bound still follows the official anchor. Legacy year-only cache entries are not assigned a guessed date: refresh the records panel explicitly. Expired cache still mixes in, but carries a "Stale" badge. Off-pool entries have no warning, curation or publication-status checks.','poolup.sorted':'Signal queue · by date, off-pool first','poolup.badge':'Off-pool','poolup.notier':'Off-pool · no official tier','poolup.uncategorized':'Off-pool · Unclassified','poolup.detail.tip':'From your personal off-pool records cache; no official tier, score or sector assignment',
+-'poolup.stale':'Stale','poolup.stale.tip':'Off-pool cache expired: these are older records. Click "Refresh" in the records panel to refetch','poolup.unchecked':'Not checked','poolup.unchecked.status':'Publication status · not checked','poolup.unchecked.curated':'Not checked · not part of curation','poolup.scope.empty':'No official signals in the list under the current filters; {n} off-pool cached records are in the signal queue.','poolup.scope.empty2':'The radar plots official signals only; off-pool entries are in the signal queue.',
++'poolup.toggle':'Mix off-pool cache · with an "Off-pool" badge','poolup.toggle.tip':'Mix cached off-pool records only; no automatic fetch and no writes to official data','poolup.hint':'When off-pool records are present, entries are mixed by date. They have no official tier, score or sector, and tier/sector filters do not apply to them. In the reading view at most 3 of the first 12 cards are off-pool; official papers fill the rest, and the overview queue still lists everything. Off-pool entries use the later of the official anchor day and your local today as the upper window bound, while the lower bound still follows the official anchor. Legacy year-only cache entries are not assigned a guessed date: refresh the records panel explicitly. Expired cache still mixes in, but carries a "Stale" badge. Off-pool entries have no warning, curation or publication-status checks.','poolup.sorted':'Literature queue · by date, off-pool first','poolup.badge':'Off-pool','poolup.notier':'Off-pool · no official tier','poolup.uncategorized':'Off-pool · Unclassified','poolup.detail.tip':'From your personal off-pool records cache; no official tier, score or sector assignment',
++'poolup.stale':'Stale','poolup.stale.tip':'Off-pool cache expired: these are older records. Click "Refresh" in the records panel to refetch','poolup.unchecked':'Not checked','poolup.unchecked.status':'Publication status · not checked','poolup.unchecked.curated':'Not checked · not part of curation','poolup.scope.empty':'No official papers in the list under the current filters; {n} off-pool cached records are in the literature queue.','poolup.scope.empty2':'The radar plots official papers only; off-pool entries are in the literature queue.',
+ 'pool.aria':'Off-pool journal records (on demand)','pool.close.aria':'Close the records panel','pool.refresh':'↻ Refresh','pool.refresh.title':'Refetch records from the last 30 days now','pool.stop.title':'Stop this fetch (keep what is shown)','pool.stats':'Last {d} days · showing {a} / {t}','pool.phase':'Fetching records… (shares one serial queue with topic runs; ≥3 s between requests)','pool.fresh':'Cache · updated {ts} · no refetch within 24 h','pool.stale':'Stale cache · updated {ts} (expired — click "Refresh")','pool.offline':'Fetch failed — keeping the old cache (updated {ts}): {m}','pool.failed':'Fetch failed: {m}','pool.stopped':'Fetch stopped (click "Refresh" to retry)','pool.empty':'No new records for this journal in PubMed over the last {d} days.','pool.none':'No records yet.','pool.inpool':'{n} more are already in the official pool (records not repeated): ',
+ 'err.nlm.search':'NLM catalog search failed (HTTP {s})','err.nlm.summary':'NLM catalog details failed (HTTP {s})','err.gate':'NCBI rate limit: still failing after {n} backed-off retries — try again later.','err.ncbi':'NCBI API error: {m}'
+ }
+@@ -1767,7 +1800,7 @@ function renderFunnel(){
+   $('#funnel').innerHTML=[['funnel.fetched',f.fetched],['funnel.matched',f.journal_matched],['funnel.final',f.final],['funnel.curated',f.curated]].map(([key,value])=>`<div class="funnel-step"><b>${esc(show(value))}</b>${t(key)}${key==='funnel.curated'&&value===0?t('funnel.none'):''}</div>`).join('');
+ }
+ function renderHeader(){
+-  $('#scan-date').textContent=ANCHOR?ANCHOR.replaceAll('-','.')+' / ANCHOR':'— / NO DATA';
++  $('#scan-date').textContent=ANCHOR?ANCHOR.replaceAll('-','.')+' / '+t('scan.date'):t('scan.nodata');
+   const generated=String(SITE_DATA.generated_at||SITE_DATA.updated_at||'');
+   $('#scan-time').textContent=`${generated?generated.slice(0,16):t('scan.nogen.time')} · ${t('scan.note')}`;
+ }
+diff --git a/tests/ux/ux_probe.mjs b/tests/ux/ux_probe.mjs
+index c5d25ac..602b9c4 100644
+--- a/tests/ux/ux_probe.mjs
++++ b/tests/ux/ux_probe.mjs
+@@ -342,9 +342,9 @@ async function main(){
+       console.log(`  [整体比例] 桌面 ${JSON.stringify(d)}｜窄桌面 ${JSON.stringify(n)}｜手机 ${JSON.stringify(m)}`);
+       save('f11-layout.json',{desktop:d,narrow:n,mobile:m});
+       if(JUDGE){
+-        sec('F11a','F11a 桌面左栏 280px、雷达上限 420px、主 TAB 高 30px');check(Math.abs(d.queue-280)<.2&&Math.abs(d.scope-420)<.2&&Math.abs(d.tabH-30)<.2,`实得左栏 ${d.queue}、雷达 ${d.scope}、TAB ${d.tabH}`);check(d.overflow<=.5&&d.scopeBottom<=d.footTop+1&&d.centerOwn===d.n,`横溢 ${d.overflow}、盘底/下部 ${d.scopeBottom}/${d.footTop}、中心命中 ${d.centerOwn}/${d.n}`);L.end();
++        sec('F11a','F11a 桌面左栏 280px、雷达上限 420px、主 TAB 高 36px');check(Math.abs(d.queue-280)<.2&&Math.abs(d.scope-420)<.2&&Math.abs(d.tabH-36)<.2,`实得左栏 ${d.queue}、雷达 ${d.scope}、TAB ${d.tabH}`);check(d.overflow<=.5&&d.scopeBottom<=d.footTop+1&&d.centerOwn===d.n,`横溢 ${d.overflow}、盘底/下部 ${d.scopeBottom}/${d.footTop}、中心命中 ${d.centerOwn}/${d.n}`);L.end();
+         sec('F11b','F11b 901–1180px 左栏 240px，雷达超过旧 380px 上限且不压下部');check(Math.abs(n.queue-240)<.2&&n.scope>380.5&&n.scope<=420.1,`实得左栏 ${n.queue}、雷达 ${n.scope}`);check(n.overflow<=.5&&n.scopeBottom<=n.footTop+1&&n.centerOwn===n.n,`横溢 ${n.overflow}、盘底/下部 ${n.scopeBottom}/${n.footTop}、中心命中 ${n.centerOwn}/${n.n}`);L.end();
+-        sec('F11c','F11c 手机单栏与盘宽不被桌面规则改变，TAB 同高且不横溢');check(Math.abs(m.queue-370)<.2&&Math.abs(m.scope-m.queue)<.2&&Math.abs(m.tabH-30)<.2,`实得左栏 ${m.queue}、雷达 ${m.scope}、TAB ${m.tabH}`);check(m.overflow<=.5&&m.centerOwn===m.n,`横溢 ${m.overflow}、中心命中 ${m.centerOwn}/${m.n}`);L.end();
++        sec('F11c','F11c 手机单栏与盘宽不被桌面规则改变，TAB 高 36px 且不横溢');check(Math.abs(m.queue-370)<.2&&Math.abs(m.scope-m.queue)<.2&&Math.abs(m.tabH-36)<.2,`实得左栏 ${m.queue}、雷达 ${m.scope}、TAB ${m.tabH}`);check(m.overflow<=.5&&m.centerOwn===m.n,`横溢 ${m.overflow}、中心命中 ${m.centerOwn}/${m.n}`);L.end();
+         sec('F11d','F11d 三种视口比例流页面零运行期异常');check(dTab.errors.length===0&&nTab.errors.length===0&&mTab.errors.length===0,`桌面 ${dTab.errors.length}／窄桌面 ${nTab.errors.length}／手机 ${mTab.errors.length} 条异常`);L.end();
+       }
+       await dTab.close();await nTab.close();await mTab.close();
+@@ -394,22 +394,31 @@ async function main(){
+         await t.close();return o};
+       const PREV={Quick:'Ov',Sec:'QuickAll',Tier:'Sec',Win:'Tier'},changed=(o,k)=>String(o['state'+k])!==String(o['state'+PREV[k]]);   // 每幕对上一幕：动作是否真改了状态（场景自检，防「两边一样坏」的空对空）
+       const STATES=['stateOv','stateRd','statePn','stateQuick','stateQuickAll','stateSec','stateTier','stateWin'],ACTS=[['点快筛','Quick'],['点扇区','Sec'],['点档位','Tier'],['拉时间窗','Win']];
++      // T1128-READABILITY：只把 PI 认可的旧/新措辞映射到同一记号；其余 HTML、数据与结构仍逐字对拍。
++      const TEXT_ALIASES=[
++        [' / ANCHOR',' / 数据日期',' / DATA DATE'],
++        ['状态分项标注','出版状态已标注','status breakdown annotated','Publication status annotated'],
++        ['点按信号锁定','点选文献查看详情','Click a signal to lock','Click a paper to select'],
++        ['上一信号','上一文献','Previous signal','Previous paper'],
++        ['下一信号','下一文献','Next signal','Next paper'],
++      ];
++      const canonicalText=value=>{let s=String(value);TEXT_ALIASES.forEach((aliases,i)=>{for(const text of aliases)s=s.split(text).join(`APPROVED_TEXT_${i}`)});return s};
+       const a=await run('/baseline.html'),b=await run(path);
+-      const diffKeys=[],stateDiff=[],blockDiff=[];
+-      for(const view of ['overview','reading','personal'])for(const k of Object.keys(a[view])){const x=String(a[view][k]),y=String(b[view][k]);if(x!==y){let i=0;while(i<Math.min(x.length,y.length)&&x[i]===y[i])i++;diffKeys.push(`${view}.${k}（基线 ${x.length} 字／被审 ${y.length} 字，首差 @${i}）`)}}
++      const diffKeys=[],approvedDiffKeys=[],stateDiff=[],blockDiff=[],approvedBlockDiff=[];
++      for(const view of ['overview','reading','personal'])for(const k of Object.keys(a[view])){const x=String(a[view][k]),y=String(b[view][k]);if(x!==y){let i=0;while(i<Math.min(x.length,y.length)&&x[i]===y[i])i++;const desc=`${view}.${k}（基线 ${x.length} 字／被审 ${y.length} 字，首差 @${i}）`;if(canonicalText(x)!==canonicalText(y))diffKeys.push(desc);else approvedDiffKeys.push(desc)}}
+       for(const k of STATES){const x=String(a[k]),y=String(b[k]);if(x!==y){let i=0;while(i<Math.min(x.length,y.length)&&x[i]===y[i])i++;stateDiff.push(`${k} 首差 @${i}：基线…${x.slice(Math.max(0,i-50),i+90)}…‖被审…${y.slice(Math.max(0,i-50),i+90)}…`)}}
+-      for(const k of ['blocksOv','blocksSec'])if(String(a[k])!==String(b[k]))blockDiff.push(k);
++      for(const k of ['blocksOv','blocksSec'])if(String(a[k])!==String(b[k])){if(canonicalText(a[k])!==canonicalText(b[k]))blockDiff.push(k);else approvedBlockDiff.push(k)}
+       const total=Object.keys(a.overview).length;
+-      console.log(`  [官方面逐键差分·${total} 键×3 视图] 不一致的键：${diffKeys.join('；')||'（无）'}`);
+-      console.log(`  [详情卡各块内容（不管先后/折叠包裹/刊源行 IF 尾巴）] ${blockDiff.length?'不一致：'+blockDiff.join('、'):'概览态与选扇区态均逐字一致'}`);
++      console.log(`  [官方面逐键差分·${total} 键×3 视图] 归一认可措辞后不一致：${diffKeys.join('；')||'（无）'}｜仅认可的措辞差异：${approvedDiffKeys.join('；')||'无'}`);
++      console.log(`  [详情卡各块内容（不管先后/折叠包裹/刊源行 IF 尾巴）] ${blockDiff.length?'归一后仍不一致：'+blockDiff.join('、'):'归一认可措辞后逐字一致'}｜仅认可的措辞差异：${approvedBlockDiff.join('、')||'无'}`);
+       console.log(`  [状态面 8 幕（概览/阅读/个性化/点快筛/快筛复原/点扇区/点档位/拉时间窗）] ${stateDiff.length?'不一致：'+stateDiff.join('；'):'逐字一致'}｜动作自检（该幕较上一幕有变＝动作生效；基线／被审）：${ACTS.map(([n,k])=>n+' '+changed(a,k)+'／'+changed(b,k)).join('，')}｜快筛「${a.quick}」／「${b.quick}」 扇区=${a.sector}／${b.sector} 清除钮可点 ${a.clearEnabled}／${b.clearEnabled} 档位钮 ${a.chipN}／${b.chipN} 个`);
+       console.log(`  [状态样例·被审件·时间窗幕后 160 字] …${String(b.stateWin).slice(-160)}`);
+-      save('f8-diff.json',{diffKeys,stateDiff,blockDiff,a:Object.fromEntries(Object.entries(a).filter(([k])=>/^state|^blocks|^clear/.test(k))),b:Object.fromEntries(Object.entries(b).filter(([k])=>/^state|^blocks|^clear/.test(k)))});
++      save('f8-diff.json',{diffKeys,approvedDiffKeys,stateDiff,blockDiff,approvedBlockDiff,a:Object.fromEntries(Object.entries(a).filter(([k])=>/^state|^blocks|^clear/.test(k))),b:Object.fromEntries(Object.entries(b).filter(([k])=>/^state|^blocks|^clear/.test(k)))});
+       if(JUDGE){
+         const nonDetail=diffKeys.filter(d=>!/\.detail（/.test(d));
+-        sec('F8a','F8a 官方面逐键差分：数据承载面（队列/盘点/扇区/标签/图例/折叠/计数/合集/阵地/主题/AI 设置）与父提交逐字一致');check(nonDetail.length===0,`除详情卡外还有键变了：${nonDetail.join('；')}`);note(`${total} 键×3 视图＝${total*3} 格，不一致 ${diffKeys.length} 格：${diffKeys.join('；')||'无'}`);L.end();
++        sec('F8a','F8a 官方面逐键差分：认可措辞精确归一后，数据承载面（队列/盘点/扇区/标签/图例/折叠/计数/合集/阵地/主题/AI 设置）与父提交逐字一致');check(nonDetail.length===0,`除详情卡外还有键变了：${nonDetail.join('；')}`);note(`${total} 键×3 视图＝${total*3} 格，归一后不一致 ${diffKeys.length} 格：${diffKeys.join('；')||'无'}；仅认可措辞差异 ${approvedDiffKeys.length} 格：${approvedDiffKeys.join('；')||'无'}`);L.end();
+         sec('F8b','F8b 状态面差分：选中项/筛选结果/档位钮/时间窗/队列序 在 8 幕里与父提交逐字一致，且各动作在两边都真改了状态');check(stateDiff.length===0,`状态面有变：${stateDiff.join('；')}`);const dead=ACTS.filter(([,k])=>!(changed(a,k)&&changed(b,k)));check(dead.length===0,`动作没生效（两边都没变＝空对空）：${dead.map(([n])=>n).join('、')||'无'}`);note(`8 幕状态串逐字${stateDiff.length?'不一致':'一致'}（幕长 ${STATES.map(k=>k.slice(5)+' '+String(a[k]).length).join('／')} 字）；动作自检 ${ACTS.map(([n,k])=>n+' '+changed(a,k)+'／'+changed(b,k)).join('、')}（基线／被审）`);L.end();
+-        sec('F8c','F8c 详情卡各块内容（不管先后/折叠包裹/刊源行 IF 尾巴）与父提交逐字一致');check(blockDiff.length===0,`详情卡有块内容变了：${blockDiff.join('、')}`);L.end();
++        sec('F8c','F8c 详情卡各块内容：认可措辞精确归一后，各块与父提交逐字一致');check(blockDiff.length===0,`详情卡有块内容变了：${blockDiff.join('、')}`);note(`仅认可的措辞差异：${approvedBlockDiff.join('、')||'无'}`);L.end();
+         sec('F8d','F8d 差分流页面零运行期异常（两棵树）');check(a.errors.length===0&&b.errors.length===0,`基线 ${a.errors.length} 条／被审 ${b.errors.length} 条：${a.errors.concat(b.errors).slice(0,2).join(' | ').slice(0,300)}`);L.end();
+       }
+     }

@@ -342,9 +342,9 @@ async function main(){
       console.log(`  [整体比例] 桌面 ${JSON.stringify(d)}｜窄桌面 ${JSON.stringify(n)}｜手机 ${JSON.stringify(m)}`);
       save('f11-layout.json',{desktop:d,narrow:n,mobile:m});
       if(JUDGE){
-        sec('F11a','F11a 桌面左栏 280px、雷达上限 420px、主 TAB 高 30px');check(Math.abs(d.queue-280)<.2&&Math.abs(d.scope-420)<.2&&Math.abs(d.tabH-30)<.2,`实得左栏 ${d.queue}、雷达 ${d.scope}、TAB ${d.tabH}`);check(d.overflow<=.5&&d.scopeBottom<=d.footTop+1&&d.centerOwn===d.n,`横溢 ${d.overflow}、盘底/下部 ${d.scopeBottom}/${d.footTop}、中心命中 ${d.centerOwn}/${d.n}`);L.end();
+        sec('F11a','F11a 桌面左栏 280px、雷达上限 420px、主 TAB 高 36px');check(Math.abs(d.queue-280)<.2&&Math.abs(d.scope-420)<.2&&Math.abs(d.tabH-36)<.2,`实得左栏 ${d.queue}、雷达 ${d.scope}、TAB ${d.tabH}`);check(d.overflow<=.5&&d.scopeBottom<=d.footTop+1&&d.centerOwn===d.n,`横溢 ${d.overflow}、盘底/下部 ${d.scopeBottom}/${d.footTop}、中心命中 ${d.centerOwn}/${d.n}`);L.end();
         sec('F11b','F11b 901–1180px 左栏 240px，雷达超过旧 380px 上限且不压下部');check(Math.abs(n.queue-240)<.2&&n.scope>380.5&&n.scope<=420.1,`实得左栏 ${n.queue}、雷达 ${n.scope}`);check(n.overflow<=.5&&n.scopeBottom<=n.footTop+1&&n.centerOwn===n.n,`横溢 ${n.overflow}、盘底/下部 ${n.scopeBottom}/${n.footTop}、中心命中 ${n.centerOwn}/${n.n}`);L.end();
-        sec('F11c','F11c 手机单栏与盘宽不被桌面规则改变，TAB 同高且不横溢');check(Math.abs(m.queue-370)<.2&&Math.abs(m.scope-m.queue)<.2&&Math.abs(m.tabH-30)<.2,`实得左栏 ${m.queue}、雷达 ${m.scope}、TAB ${m.tabH}`);check(m.overflow<=.5&&m.centerOwn===m.n,`横溢 ${m.overflow}、中心命中 ${m.centerOwn}/${m.n}`);L.end();
+        sec('F11c','F11c 手机单栏与盘宽不被桌面规则改变，TAB 高 36px 且不横溢');check(Math.abs(m.queue-370)<.2&&Math.abs(m.scope-m.queue)<.2&&Math.abs(m.tabH-36)<.2,`实得左栏 ${m.queue}、雷达 ${m.scope}、TAB ${m.tabH}`);check(m.overflow<=.5&&m.centerOwn===m.n,`横溢 ${m.overflow}、中心命中 ${m.centerOwn}/${m.n}`);L.end();
         sec('F11d','F11d 三种视口比例流页面零运行期异常');check(dTab.errors.length===0&&nTab.errors.length===0&&mTab.errors.length===0,`桌面 ${dTab.errors.length}／窄桌面 ${nTab.errors.length}／手机 ${mTab.errors.length} 条异常`);L.end();
       }
       await dTab.close();await nTab.close();await mTab.close();
@@ -394,22 +394,31 @@ async function main(){
         await t.close();return o};
       const PREV={Quick:'Ov',Sec:'QuickAll',Tier:'Sec',Win:'Tier'},changed=(o,k)=>String(o['state'+k])!==String(o['state'+PREV[k]]);   // 每幕对上一幕：动作是否真改了状态（场景自检，防「两边一样坏」的空对空）
       const STATES=['stateOv','stateRd','statePn','stateQuick','stateQuickAll','stateSec','stateTier','stateWin'],ACTS=[['点快筛','Quick'],['点扇区','Sec'],['点档位','Tier'],['拉时间窗','Win']];
+      // T1128-READABILITY：只把 PI 认可的旧/新措辞映射到同一记号；其余 HTML、数据与结构仍逐字对拍。
+      const TEXT_ALIASES=[
+        [' / ANCHOR',' / 数据日期',' / DATA DATE'],
+        ['状态分项标注','出版状态已标注','status breakdown annotated','Publication status annotated'],
+        ['点按信号锁定','点选文献查看详情','Click a signal to lock','Click a paper to select'],
+        ['上一信号','上一文献','Previous signal','Previous paper'],
+        ['下一信号','下一文献','Next signal','Next paper'],
+      ];
+      const canonicalText=value=>{let s=String(value);TEXT_ALIASES.forEach((aliases,i)=>{for(const text of aliases)s=s.split(text).join(`APPROVED_TEXT_${i}`)});return s};
       const a=await run('/baseline.html'),b=await run(path);
-      const diffKeys=[],stateDiff=[],blockDiff=[];
-      for(const view of ['overview','reading','personal'])for(const k of Object.keys(a[view])){const x=String(a[view][k]),y=String(b[view][k]);if(x!==y){let i=0;while(i<Math.min(x.length,y.length)&&x[i]===y[i])i++;diffKeys.push(`${view}.${k}（基线 ${x.length} 字／被审 ${y.length} 字，首差 @${i}）`)}}
+      const diffKeys=[],approvedDiffKeys=[],stateDiff=[],blockDiff=[],approvedBlockDiff=[];
+      for(const view of ['overview','reading','personal'])for(const k of Object.keys(a[view])){const x=String(a[view][k]),y=String(b[view][k]);if(x!==y){let i=0;while(i<Math.min(x.length,y.length)&&x[i]===y[i])i++;const desc=`${view}.${k}（基线 ${x.length} 字／被审 ${y.length} 字，首差 @${i}）`;if(canonicalText(x)!==canonicalText(y))diffKeys.push(desc);else approvedDiffKeys.push(desc)}}
       for(const k of STATES){const x=String(a[k]),y=String(b[k]);if(x!==y){let i=0;while(i<Math.min(x.length,y.length)&&x[i]===y[i])i++;stateDiff.push(`${k} 首差 @${i}：基线…${x.slice(Math.max(0,i-50),i+90)}…‖被审…${y.slice(Math.max(0,i-50),i+90)}…`)}}
-      for(const k of ['blocksOv','blocksSec'])if(String(a[k])!==String(b[k]))blockDiff.push(k);
+      for(const k of ['blocksOv','blocksSec'])if(String(a[k])!==String(b[k])){if(canonicalText(a[k])!==canonicalText(b[k]))blockDiff.push(k);else approvedBlockDiff.push(k)}
       const total=Object.keys(a.overview).length;
-      console.log(`  [官方面逐键差分·${total} 键×3 视图] 不一致的键：${diffKeys.join('；')||'（无）'}`);
-      console.log(`  [详情卡各块内容（不管先后/折叠包裹/刊源行 IF 尾巴）] ${blockDiff.length?'不一致：'+blockDiff.join('、'):'概览态与选扇区态均逐字一致'}`);
+      console.log(`  [官方面逐键差分·${total} 键×3 视图] 归一认可措辞后不一致：${diffKeys.join('；')||'（无）'}｜仅认可的措辞差异：${approvedDiffKeys.join('；')||'无'}`);
+      console.log(`  [详情卡各块内容（不管先后/折叠包裹/刊源行 IF 尾巴）] ${blockDiff.length?'归一后仍不一致：'+blockDiff.join('、'):'归一认可措辞后逐字一致'}｜仅认可的措辞差异：${approvedBlockDiff.join('、')||'无'}`);
       console.log(`  [状态面 8 幕（概览/阅读/个性化/点快筛/快筛复原/点扇区/点档位/拉时间窗）] ${stateDiff.length?'不一致：'+stateDiff.join('；'):'逐字一致'}｜动作自检（该幕较上一幕有变＝动作生效；基线／被审）：${ACTS.map(([n,k])=>n+' '+changed(a,k)+'／'+changed(b,k)).join('，')}｜快筛「${a.quick}」／「${b.quick}」 扇区=${a.sector}／${b.sector} 清除钮可点 ${a.clearEnabled}／${b.clearEnabled} 档位钮 ${a.chipN}／${b.chipN} 个`);
       console.log(`  [状态样例·被审件·时间窗幕后 160 字] …${String(b.stateWin).slice(-160)}`);
-      save('f8-diff.json',{diffKeys,stateDiff,blockDiff,a:Object.fromEntries(Object.entries(a).filter(([k])=>/^state|^blocks|^clear/.test(k))),b:Object.fromEntries(Object.entries(b).filter(([k])=>/^state|^blocks|^clear/.test(k)))});
+      save('f8-diff.json',{diffKeys,approvedDiffKeys,stateDiff,blockDiff,approvedBlockDiff,a:Object.fromEntries(Object.entries(a).filter(([k])=>/^state|^blocks|^clear/.test(k))),b:Object.fromEntries(Object.entries(b).filter(([k])=>/^state|^blocks|^clear/.test(k)))});
       if(JUDGE){
         const nonDetail=diffKeys.filter(d=>!/\.detail（/.test(d));
-        sec('F8a','F8a 官方面逐键差分：数据承载面（队列/盘点/扇区/标签/图例/折叠/计数/合集/阵地/主题/AI 设置）与父提交逐字一致');check(nonDetail.length===0,`除详情卡外还有键变了：${nonDetail.join('；')}`);note(`${total} 键×3 视图＝${total*3} 格，不一致 ${diffKeys.length} 格：${diffKeys.join('；')||'无'}`);L.end();
+        sec('F8a','F8a 官方面逐键差分：认可措辞精确归一后，数据承载面（队列/盘点/扇区/标签/图例/折叠/计数/合集/阵地/主题/AI 设置）与父提交逐字一致');check(nonDetail.length===0,`除详情卡外还有键变了：${nonDetail.join('；')}`);note(`${total} 键×3 视图＝${total*3} 格，归一后不一致 ${diffKeys.length} 格：${diffKeys.join('；')||'无'}；仅认可措辞差异 ${approvedDiffKeys.length} 格：${approvedDiffKeys.join('；')||'无'}`);L.end();
         sec('F8b','F8b 状态面差分：选中项/筛选结果/档位钮/时间窗/队列序 在 8 幕里与父提交逐字一致，且各动作在两边都真改了状态');check(stateDiff.length===0,`状态面有变：${stateDiff.join('；')}`);const dead=ACTS.filter(([,k])=>!(changed(a,k)&&changed(b,k)));check(dead.length===0,`动作没生效（两边都没变＝空对空）：${dead.map(([n])=>n).join('、')||'无'}`);note(`8 幕状态串逐字${stateDiff.length?'不一致':'一致'}（幕长 ${STATES.map(k=>k.slice(5)+' '+String(a[k]).length).join('／')} 字）；动作自检 ${ACTS.map(([n,k])=>n+' '+changed(a,k)+'／'+changed(b,k)).join('、')}（基线／被审）`);L.end();
-        sec('F8c','F8c 详情卡各块内容（不管先后/折叠包裹/刊源行 IF 尾巴）与父提交逐字一致');check(blockDiff.length===0,`详情卡有块内容变了：${blockDiff.join('、')}`);L.end();
+        sec('F8c','F8c 详情卡各块内容：认可措辞精确归一后，各块与父提交逐字一致');check(blockDiff.length===0,`详情卡有块内容变了：${blockDiff.join('、')}`);note(`仅认可的措辞差异：${approvedBlockDiff.join('、')||'无'}`);L.end();
         sec('F8d','F8d 差分流页面零运行期异常（两棵树）');check(a.errors.length===0&&b.errors.length===0,`基线 ${a.errors.length} 条／被审 ${b.errors.length} 条：${a.errors.concat(b.errors).slice(0,2).join(' | ').slice(0,300)}`);L.end();
       }
     }

@@ -1,0 +1,13 @@
+ux probe | Chrome/158.0.8127.88 | page=/baseline.html（基线 2826461b93d0ae7d099746e12544bfbaaf960f93＝负对照）| judge=true | label=readability-negative
+页面概况：{"ready":"true","papers":43,"anchor":"2026-11-28","lang":"zh","site":"2026-11-28","degraded":25,"hasToggle":true}
+  [整体比例] 桌面 {"view":"overview","queue":280,"scope":420,"scopeBottom":657.140625,"footTop":732,"tabH":30,"overflow":0,"n":36,"centerOwn":36,"grid":"280px 742px 350px"}｜窄桌面 {"view":"overview","queue":240,"scope":407,"scopeBottom":571.140625,"footTop":577,"tabH":30,"overflow":0,"n":36,"centerOwn":36,"grid":"240px 423px 315px"}｜手机 {"view":"overview","queue":370,"scope":370,"scopeBottom":623.046875,"footTop":623.046875,"tabH":30,"overflow":0,"n":36,"centerOwn":36,"grid":"370px"}
+FAIL F11a F11a 桌面左栏 280px、雷达上限 420px、主 TAB 高 36px
+     ✗ 实得左栏 280、雷达 420、TAB 30
+PASS F11b F11b 901–1180px 左栏 240px，雷达超过旧 380px 上限且不压下部
+FAIL F11c F11c 手机单栏与盘宽不被桌面规则改变，TAB 高 36px 且不横溢
+     ✗ 实得左栏 370、雷达 370、TAB 30
+PASS F11d F11d 三种视口比例流页面零运行期异常
+
+==== UX PROBE [readability-negative] SUMMARY 2 PASS / 2 FAIL：F11a ✗  F11b ✓  F11c ✗  F11d ✓ ====
+     cleanup | browser pid=51544 exitCode=null signalCode=SIGTERM | 带 profile 标记的进程：收尾前=51544,51756,40464,36628,26076,39520,46340,49520,62104,65488,58616 | 主进程结束后残留=无 | 逐 PID 结束=无 | 复查仍存活=无
+     cleanup | 临时目录 D:\claude-tmp\T1127-ux-probe\ux-harness-readability-negative 已清
