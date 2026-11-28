@@ -6,7 +6,9 @@ import { Tab, connect, freePort, launch, startServer, wire } from '../../../test
 
 const evidence = dirname(fileURLToPath(import.meta.url));
 const repo = fileURLToPath(new URL('../../../', import.meta.url));
-const shots = join(evidence, 'screens');
+const live = process.env.THORADAR_LIVE === '1';
+const outputFile = live ? join(evidence, 'online-release', 'browser-final.json') : join(evidence, 'browser-check.json');
+const shots = live ? join(evidence, 'online-release', 'screens') : join(evidence, 'screens');
 mkdirSync(shots, { recursive: true });
 const scratch = mkdtempSync(join(tmpdir(), 'thoradar-branding-'));
 const result = { rows: [], cleanup: {} };
@@ -14,7 +16,7 @@ let browser;
 let harness;
 let server;
 try {
-  server = await startServer({ target: join(repo, 'index.html'), baseline: join(repo, 'index.html') });
+  server = live ? { origin: 'https://thoradar.online' } : await startServer({ target: join(repo, 'index.html'), baseline: join(repo, 'index.html') });
   browser = await launch({ chrome: 'C:/Program Files/Google/Chrome/Application/chrome.exe', profile: join(scratch, 'profile'), port: await freePort(), label: 'branding' });
   harness = { cdp: await connect(browser.ver.webSocketDebuggerUrl), tabs: new Map(), origin: server.origin };
   wire(harness);
@@ -74,11 +76,11 @@ try {
 } catch (error) { result.harnessError = String(error); } finally {
   harness?.cdp.close();
   if (browser) result.cleanup.residual = await browser.stop();
-  if (server) await new Promise(resolve => server.server.close(resolve));
+  if (server?.server) await new Promise(resolve => server.server.close(resolve));
   rmSync(scratch, { recursive:true, force:true });
   result.cleanup.profileRemoved = true;
 }
 result.summary = { passed:result.rows.filter(x => x.pass).length, failed:result.rows.filter(x => !x.pass).length };
-writeFileSync(join(evidence, 'browser-check.json'), JSON.stringify(result, null, 2) + '\n');
+writeFileSync(outputFile, JSON.stringify(result, null, 2) + '\n');
 console.log('SUMMARY ' + JSON.stringify(result.summary));
 if (result.harnessError || result.summary.failed || result.cleanup.residual) process.exitCode = 1;

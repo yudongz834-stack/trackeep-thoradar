@@ -1,0 +1,406 @@
+{
+  "startedAt": "2026-11-28T16:37:04.224Z",
+  "environment": {
+    "os": "Windows 11 Pro",
+    "release": "10.0.26300",
+    "arch": "x64",
+    "node": "v24.14.0",
+    "chrome": {
+      "protocolVersion": "1.3",
+      "product": "Chrome/158.0.8127.88",
+      "revision": "@0cefb18236a23db1ebb6b2bc040fbbaf8cbe759e",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/158.0.0.0 Safari/537.36",
+      "jsVersion": "15.8.62.31"
+    }
+  },
+  "runs": 1,
+  "seed": null,
+  "headers": [
+    {
+      "url": "https://thoradar.online/",
+      "status": 200,
+      "md5": "rC5sZ6dh1b23k0NTPM5VaA==",
+      "expectedMd5": "rC5sZ6dh1b23k0NTPM5VaA==",
+      "mime": "text/html",
+      "cacheControl": "public, max-age=60, s-maxage=3600",
+      "attempts": 1
+    },
+    {
+      "url": "https://thoradar.online/index.html",
+      "status": 200,
+      "md5": "rC5sZ6dh1b23k0NTPM5VaA==",
+      "expectedMd5": "rC5sZ6dh1b23k0NTPM5VaA==",
+      "mime": "text/html",
+      "cacheControl": "public, max-age=60, s-maxage=3600",
+      "attempts": 1
+    },
+    {
+      "url": "https://thoradar.online/sw.js",
+      "status": 200,
+      "md5": "nrgKbeazqBXvILkgAlssIg==",
+      "expectedMd5": "nrgKbeazqBXvILkgAlssIg==",
+      "mime": "application/javascript",
+      "cacheControl": "no-store",
+      "attempts": 1
+    },
+    {
+      "url": "https://thoradar.online/sw-retire.js",
+      "status": 200,
+      "md5": "xviHOEexQQLp0q41sv2uuA==",
+      "expectedMd5": "xviHOEexQQLp0q41sv2uuA==",
+      "mime": "application/javascript",
+      "cacheControl": "no-store",
+      "attempts": 1
+    }
+  ],
+  "sites": [
+    {
+      "domain": "thoradar.online",
+      "network": [
+        {
+          "requestId": "745741241D16749F07DFE2FF8928BF21",
+          "type": "Document",
+          "loaderId": "745741241D16749F07DFE2FF8928BF21",
+          "url": "https://thoradar.online/index.html",
+          "status": 200,
+          "fromServiceWorker": false,
+          "serviceWorkerResponseSource": null,
+          "fromDiskCache": false
+        },
+        {
+          "requestId": "7B5BEAA388B4847C6B22C329BD3A4752",
+          "type": "Document",
+          "loaderId": "7B5BEAA388B4847C6B22C329BD3A4752",
+          "url": "https://thoradar.online/index.html",
+          "status": 200,
+          "fromServiceWorker": true,
+          "serviceWorkerResponseSource": "cache-storage",
+          "fromDiskCache": true
+        },
+        {
+          "requestId": "A8083FF7F92AC2E37E8084309D7C3390",
+          "type": "Document",
+          "loaderId": "A8083FF7F92AC2E37E8084309D7C3390",
+          "url": "https://thoradar.online/",
+          "status": 200,
+          "fromServiceWorker": true,
+          "serviceWorkerResponseSource": "cache-storage",
+          "fromDiskCache": true
+        },
+        {
+          "requestId": "F953323856731650A049D896F18E88C1",
+          "type": "Document",
+          "loaderId": "F953323856731650A049D896F18E88C1",
+          "url": "https://thoradar.online/?sw=0",
+          "status": 200,
+          "fromServiceWorker": false,
+          "serviceWorkerResponseSource": null,
+          "fromDiskCache": false
+        },
+        {
+          "requestId": "B16DFB41D0A5B1C0FB46DAD83D59C25F",
+          "type": "Document",
+          "loaderId": "B16DFB41D0A5B1C0FB46DAD83D59C25F",
+          "url": "https://thoradar.online/",
+          "status": 200,
+          "fromServiceWorker": false,
+          "serviceWorkerResponseSource": null,
+          "fromDiskCache": false
+        }
+      ],
+      "failures": [],
+      "errors": [],
+      "checks": []
+    }
+  ],
+  "checks": [
+    {
+      "name": "header https://thoradar.online/",
+      "pass": true,
+      "detail": {
+        "url": "https://thoradar.online/",
+        "status": 200,
+        "md5": "rC5sZ6dh1b23k0NTPM5VaA==",
+        "expectedMd5": "rC5sZ6dh1b23k0NTPM5VaA==",
+        "mime": "text/html",
+        "cacheControl": "public, max-age=60, s-maxage=3600",
+        "attempts": 1
+      }
+    },
+    {
+      "name": "header https://thoradar.online/index.html",
+      "pass": true,
+      "detail": {
+        "url": "https://thoradar.online/index.html",
+        "status": 200,
+        "md5": "rC5sZ6dh1b23k0NTPM5VaA==",
+        "expectedMd5": "rC5sZ6dh1b23k0NTPM5VaA==",
+        "mime": "text/html",
+        "cacheControl": "public, max-age=60, s-maxage=3600",
+        "attempts": 1
+      }
+    },
+    {
+      "name": "header https://thoradar.online/sw.js",
+      "pass": true,
+      "detail": {
+        "url": "https://thoradar.online/sw.js",
+        "status": 200,
+        "md5": "nrgKbeazqBXvILkgAlssIg==",
+        "expectedMd5": "nrgKbeazqBXvILkgAlssIg==",
+        "mime": "application/javascript",
+        "cacheControl": "no-store",
+        "attempts": 1
+      }
+    },
+    {
+      "name": "header https://thoradar.online/sw-retire.js",
+      "pass": true,
+      "detail": {
+        "url": "https://thoradar.online/sw-retire.js",
+        "status": 200,
+        "md5": "xviHOEexQQLp0q41sv2uuA==",
+        "expectedMd5": "xviHOEexQQLp0q41sv2uuA==",
+        "mime": "application/javascript",
+        "cacheControl": "no-store",
+        "attempts": 1
+      }
+    },
+    {
+      "name": "thoradar.online cold first visit is native and warms current shell",
+      "pass": true,
+      "detail": {
+        "first": {
+          "response": {
+            "requestId": "745741241D16749F07DFE2FF8928BF21",
+            "type": "Document",
+            "loaderId": "745741241D16749F07DFE2FF8928BF21",
+            "url": "https://thoradar.online/index.html",
+            "status": 200,
+            "fromServiceWorker": false,
+            "serviceWorkerResponseSource": null,
+            "fromDiskCache": false
+          },
+          "page": {
+            "url": "https://thoradar.online/index.html",
+            "date": "2026-11-28",
+            "papers": 43,
+            "rendered": 43,
+            "points": 36,
+            "view": "overview",
+            "documentId": "5395edef-d6a6-4872-b420-80634fddd72a",
+            "timeOrigin": 1795883829476.7,
+            "controller": false,
+            "banner": "数据 2026-11-28 · 联网打开"
+          }
+        },
+        "warm": {
+          "registrations": 1,
+          "activated": true,
+          "controller": false,
+          "names": [
+            "thoradar-shell-v1"
+          ],
+          "shellNames": [
+            "thoradar-shell-v1"
+          ],
+          "paths": [
+            "/index.html"
+          ],
+          "cachedDate": "2026-11-28",
+          "cachedPapers": 43,
+          "complete": true,
+          "sentinel": "keep"
+        }
+      }
+    },
+    {
+      "name": "thoradar.online repeat visit uses cache storage and background check does not reload reading",
+      "pass": true,
+      "detail": {
+        "second": {
+          "response": {
+            "requestId": "7B5BEAA388B4847C6B22C329BD3A4752",
+            "type": "Document",
+            "loaderId": "7B5BEAA388B4847C6B22C329BD3A4752",
+            "url": "https://thoradar.online/index.html",
+            "status": 200,
+            "fromServiceWorker": true,
+            "serviceWorkerResponseSource": "cache-storage",
+            "fromDiskCache": true
+          },
+          "page": {
+            "url": "https://thoradar.online/index.html",
+            "date": "2026-11-28",
+            "papers": 43,
+            "rendered": 43,
+            "points": 36,
+            "view": "overview",
+            "documentId": "593e4c4d-bcc9-4528-969d-5ca40c9b2aed",
+            "timeOrigin": 1795883832115.1,
+            "controller": true,
+            "banner": "数据 2026-11-28 · 本地副本 · 核对更新中"
+          }
+        },
+        "during": {
+          "url": "https://thoradar.online/index.html",
+          "date": "2026-11-28",
+          "papers": 43,
+          "rendered": 43,
+          "points": 36,
+          "view": "reading",
+          "documentId": "593e4c4d-bcc9-4528-969d-5ca40c9b2aed",
+          "timeOrigin": 1795883832115.1,
+          "controller": true,
+          "banner": "数据 2026-11-28 · 本地副本 · 已核对，与服务器一致"
+        },
+        "refreshed": {
+          "registrations": 1,
+          "activated": true,
+          "controller": true,
+          "names": [
+            "thoradar-shell-v1"
+          ],
+          "shellNames": [
+            "thoradar-shell-v1"
+          ],
+          "paths": [
+            "/index.html"
+          ],
+          "cachedDate": "2026-11-28",
+          "cachedPapers": 43,
+          "complete": true,
+          "sentinel": "keep"
+        }
+      }
+    },
+    {
+      "name": "thoradar.online offline opens the current daily copy",
+      "pass": true,
+      "detail": {
+        "response": {
+          "requestId": "A8083FF7F92AC2E37E8084309D7C3390",
+          "type": "Document",
+          "loaderId": "A8083FF7F92AC2E37E8084309D7C3390",
+          "url": "https://thoradar.online/",
+          "status": 200,
+          "fromServiceWorker": true,
+          "serviceWorkerResponseSource": "cache-storage",
+          "fromDiskCache": true
+        },
+        "page": {
+          "url": "https://thoradar.online/",
+          "date": "2026-11-28",
+          "papers": 43,
+          "rendered": 43,
+          "points": 36,
+          "view": "overview",
+          "documentId": "65ae6d95-a93b-4240-9f77-0601ebc684a9",
+          "timeOrigin": 1795883832446.4,
+          "controller": true,
+          "banner": "数据 2026-11-28 · 本地副本 · 核对更新中"
+        }
+      }
+    },
+    {
+      "name": "thoradar.online single-page ?sw=0 clears shell and the next visit starts native and clean",
+      "pass": true,
+      "detail": {
+        "exit": {
+          "response": {
+            "requestId": "F953323856731650A049D896F18E88C1",
+            "type": "Document",
+            "loaderId": "F953323856731650A049D896F18E88C1",
+            "url": "https://thoradar.online/?sw=0",
+            "status": 200,
+            "fromServiceWorker": false,
+            "serviceWorkerResponseSource": null,
+            "fromDiskCache": false
+          },
+          "page": {
+            "url": "https://thoradar.online/?sw=0",
+            "date": "2026-11-28",
+            "papers": 43,
+            "rendered": 43,
+            "points": 36,
+            "view": "overview",
+            "documentId": "724b99ea-9a70-4806-aaf3-127910beffee",
+            "timeOrigin": 1795883832618.9,
+            "controller": true,
+            "banner": "数据 2026-11-28 · 联网打开"
+          }
+        },
+        "cleared": {
+          "registrations": 0,
+          "activated": false,
+          "controller": true,
+          "names": [],
+          "shellNames": [],
+          "paths": [],
+          "cachedDate": null,
+          "cachedPapers": null,
+          "complete": null,
+          "sentinel": "keep"
+        },
+        "after": {
+          "response": {
+            "requestId": "B16DFB41D0A5B1C0FB46DAD83D59C25F",
+            "type": "Document",
+            "loaderId": "B16DFB41D0A5B1C0FB46DAD83D59C25F",
+            "url": "https://thoradar.online/",
+            "status": 200,
+            "fromServiceWorker": false,
+            "serviceWorkerResponseSource": null,
+            "fromDiskCache": false
+          },
+          "page": {
+            "url": "https://thoradar.online/",
+            "date": "2026-11-28",
+            "papers": 43,
+            "rendered": 43,
+            "points": 36,
+            "view": "overview",
+            "documentId": "a5f9bce2-b32b-40a2-bbaf-805a5f39e5cb",
+            "timeOrigin": 1795883833499.4,
+            "controller": false,
+            "banner": "数据 2026-11-28 · 联网打开"
+          }
+        },
+        "finalStorage": {
+          "registrations": 1,
+          "activated": false,
+          "controller": false,
+          "names": [],
+          "shellNames": [],
+          "paths": [],
+          "cachedDate": null,
+          "cachedPapers": null,
+          "complete": null,
+          "sentinel": "keep"
+        },
+        "persistentOptOutRequired": false
+      }
+    },
+    {
+      "name": "thoradar.online no uncaught page errors",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "cleanup": {
+    "browser": {
+      "pid": 39320,
+      "exit": {
+        "code": 0,
+        "signal": null
+      },
+      "forced": false
+    },
+    "profileRemoved": true
+  },
+  "endedAt": "2026-11-28T16:37:14.427Z",
+  "summary": {
+    "passed": 9,
+    "failed": 0
+  }
+}
