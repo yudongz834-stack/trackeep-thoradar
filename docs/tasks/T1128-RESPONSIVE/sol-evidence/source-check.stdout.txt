@@ -1,0 +1,15 @@
+git rev-parse HEAD
+2acc32d354555db6f245cb1a25055b450a7c0c3d
+HTML outside the style element (LF-normalized checkout) MATCH sha256=06f24c4940e075cf012fca93d756d6888d2275311faef3a41dde37107d9250bf
+SITE_DATA (complete line) MATCH sha256=d4bfc34d10e0a7038ef7c8d78d671543ba1ff3bbb2aa40766c1bb492e1925414
+script 1 MATCH sha256=3e3705f62fc5d4a5366fdc097dee164f4402a10ce5cd693a085009752f46a047
+script 2 MATCH sha256=605d24739a8f85f8ced231a27371f8f9b139aa7b0b1b1b57dd6296b5d2470fb1
+script 3 MATCH sha256=533c5bc8705263e150cb95a0c70112fec6abf4467a9e9cd31be0fa40ea40c713
+git diff --exit-code HEAD -- sw.js sw-retire.js tests/ .github/ README.md 架构.md docs/tasks/T1128-RESPONSIVE/acceptance-contract.md
+exit=0; no tracked diff output
+git ls-files --others --exclude-standard -- tests/ .github/
+(no output)
+git diff --name-only HEAD
+index.html
+git diff --check
+exit=0

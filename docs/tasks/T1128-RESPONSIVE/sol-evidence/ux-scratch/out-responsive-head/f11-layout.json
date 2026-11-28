@@ -1,0 +1,38 @@
+{
+ "desktop": {
+  "view": "overview",
+  "queue": 280,
+  "scope": 420,
+  "scopeBottom": 657.140625,
+  "footTop": 732,
+  "tabH": 30,
+  "overflow": 0,
+  "n": 36,
+  "centerOwn": 36,
+  "grid": "280px 742px 350px"
+ },
+ "narrow": {
+  "view": "overview",
+  "queue": 240,
+  "scope": 407,
+  "scopeBottom": 571.140625,
+  "footTop": 577,
+  "tabH": 30,
+  "overflow": 0,
+  "n": 36,
+  "centerOwn": 36,
+  "grid": "240px 423px 315px"
+ },
+ "mobile": {
+  "view": "overview",
+  "queue": 370,
+  "scope": 370,
+  "scopeBottom": 623.046875,
+  "footTop": 623.046875,
+  "tabH": 30,
+  "overflow": 0,
+  "n": 36,
+  "centerOwn": 36,
+  "grid": "370px"
+ }
+}

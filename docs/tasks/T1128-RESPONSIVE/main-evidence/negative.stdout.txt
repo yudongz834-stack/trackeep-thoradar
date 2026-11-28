@@ -1,0 +1,3 @@
+browser=Chrome/158.0.8127.88 origin=http://127.0.0.1:56386 mode=mutation SITE_DATA.sha256=a93729ac5b65565f7e8480763bedc1b89f2690012d2a0f7e35383106e1427f97
+mutation 901x1000 FAIL grid=240px 360px 315px dial=344 stage=344x650.7 points=36/36 overflow=48 reading=— | overview: page horizontal overflow (949/949 > 901) | overview: panel outside deck | overview-filters: page horizontal overflow (949/949 > 901) | overview-filters: panel outside deck | overview-legend: page horizontal overflow (949/949 > 901) | overview-legend: panel outside deck
+     cleanup | browser pid=13764 exitCode=null signalCode=SIGTERM | 带 profile 标记的进程：收尾前=13764,50624,28076,42400,57472,49688,57580,46564,18408,13616,46264 | 主进程结束后残留=无 | 逐 PID 结束=无 | 复查仍存活=无

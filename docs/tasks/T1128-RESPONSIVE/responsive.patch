@@ -1,0 +1,49 @@
+diff --git a/index.html b/index.html
+index 7ee203a..6129652 100644
+--- a/index.html
++++ b/index.html
+@@ -541,7 +541,8 @@ body[data-proto-view="personal"] #coll-list,body[data-proto-view="personal"] #co
+ .jl-fold summary{cursor:pointer;list-style:none;text-align:center}
+ .jl-fold summary::before{content:'▸ '}
+ .jl-fold[open] summary::before{content:'▾ '}
+-.jl-fold .journal-legend{max-height:120px;margin-top:6px}
++.jl-fold .journal-legend{max-height:120px;margin-top:6px;align-content:safe center}
++.jl-fold .journal-btn{max-width:100%;white-space:normal;overflow-wrap:anywhere}
+ .detail-title{font-size:16px;line-height:1.45}
+ .meta-fold{margin:10px 0;font-size:12px;color:var(--muted)}
+ .meta-fold summary{cursor:pointer}
+@@ -589,10 +590,32 @@ body:not([data-proto-view="reading"]) .proto-density{display:none}       /* 密
+   body[data-proto-view="overview"] .deck{grid-template-columns:280px minmax(420px,1fr) 350px}
+ }
+ @media(max-width:1180px) and (min-width:901px){
+-  body[data-proto-view="overview"] .deck{grid-template-columns:240px minmax(360px,1fr) 315px}
++  body[data-proto-view="overview"] .deck{grid-template-columns:240px minmax(0,1fr) 315px}
++}
++/* 标签沿盘缘定位。窄舞台给标签留内侧空间，盘和可点击的点保持原坐标。 */
++#scope-labels{position:absolute;inset:0;pointer-events:none}
++@media(max-width:1180px) and (min-width:901px), (max-width:480px){
++  #scope-labels{inset:6px 30px}
+ }
+ @media(min-width:901px){
+-  body[data-proto-view="overview"] .scope{width:min(100cqw,100cqh,420px)}
++  body[data-proto-view="overview"] .scope{width:min(100cqw,100cqh,var(--overview-dial-max,420px))}
++  body[data-proto-view="reading"].filters-open .filters{grid-template-columns:repeat(2,minmax(0,1fr))}
++  body[data-proto-view="reading"] .filters .quick-row{flex-wrap:wrap}
++}
++@media(min-width:1360px){
++  body[data-proto-view="reading"].filters-open .filters{grid-template-columns:repeat(4,minmax(0,1fr))}
++}
++/* 横向工作区收紧外边距，增宽详情栏，余下盘径同时受舞台宽、高约束。 */
++@media(min-width:1181px) and (min-aspect-ratio:5/3){
++  .deck{gap:14px;padding:12px 16px}
++  body[data-proto-view="overview"] .deck{--overview-dial-max:520px;grid-template-columns:270px minmax(0,1fr) 390px}
++  body[data-proto-view="reading"] .deck{grid-template-columns:minmax(0,1fr) 390px}
++  .proto-view-btn{min-height:34px;padding-inline:12px}
++}
++@media(min-width:1600px){
++  body[data-proto-view="overview"] .deck{--overview-dial-max:620px;max-width:2000px;grid-template-columns:clamp(294px,15vw,322px) minmax(0,1fr) clamp(390px,22vw,460px)}
++  body[data-proto-view="reading"] .deck{max-width:1840px;grid-template-columns:minmax(0,1fr) clamp(390px,22vw,460px)}
++  .proto-view-btn{min-height:34px;padding-inline:12px}
+ }
+ /* 首页副本状态跟随顶栏，窄屏也能看到正在阅读的数据日期。 */
+ .topbar:has(> :is(.shell-status,.window-hint)){height:auto;min-height:58px}

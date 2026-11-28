@@ -1,0 +1,6 @@
+Copy-Item -LiteralPath D:\trackeep\trackeep-product\trackeep-thoradar-responsive-T1128\index.html -Destination D:\trackeep\trackeep-product\trackeep-thoradar-responsive-T1128\docs\tasks\T1128-RESPONSIVE\sol-evidence\index.candidate.backup
+Temporarily removed 100cqh from min(100cqw,100cqh,var(--overview-dial-max,420px)); SHA256=021399D0520491E0CBCA837A8AB489E45B39B556E0A3F67F92DD1DE83D235DF0
+node D:\trackeep\trackeep-product\trackeep-thoradar-responsive-T1128\docs\tasks\T1128-RESPONSIVE\sol-evidence/responsive-probe.mjs mutation 1422x800
+mutation exit=1
+Copy-Item -LiteralPath D:\trackeep\trackeep-product\trackeep-thoradar-responsive-T1128\docs\tasks\T1128-RESPONSIVE\sol-evidence\index.candidate.backup -Destination D:\trackeep\trackeep-product\trackeep-thoradar-responsive-T1128\index.html -Force
+before SHA256=F33C55DF01DDBBF9A6DC004F7B6539D76AAD7918B09E63360CBA7846627D4104; restored SHA256=F33C55DF01DDBBF9A6DC004F7B6539D76AAD7918B09E63360CBA7846627D4104

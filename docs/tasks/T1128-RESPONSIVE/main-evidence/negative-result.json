@@ -1,0 +1,11 @@
+{
+  "mutation": "restore the old 360px minimum middle column at 901x1000",
+  "expectedFailure": "page horizontal overflow",
+  "probeExit": 1,
+  "probeSignal": null,
+  "harnessError": null,
+  "discriminating": true,
+  "restored": true,
+  "originalHash": "f33c55df01ddbbf9a6dc004f7b6539d76aad7918b09e63360cba7846627d4104",
+  "restoredHash": "f33c55df01ddbbf9a6dc004f7b6539d76aad7918b09e63360cba7846627d4104"
+}

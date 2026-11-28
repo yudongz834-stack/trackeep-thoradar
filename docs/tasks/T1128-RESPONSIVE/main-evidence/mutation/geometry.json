@@ -1,0 +1,3801 @@
+{
+  "variant": "mutation",
+  "browser": "Chrome/158.0.8127.88",
+  "origin": "http://127.0.0.1:56386",
+  "dataHash": "a93729ac5b65565f7e8480763bedc1b89f2690012d2a0f7e35383106e1427f97",
+  "results": [
+    {
+      "viewport": [
+        901,
+        1000
+      ],
+      "emulation": "desktop viewport emulation",
+      "states": {
+        "overview": {
+          "viewport": [
+            901,
+            1000
+          ],
+          "dpr": 1,
+          "view": "overview",
+          "density": "compact",
+          "language": "zh-CN",
+          "docWidth": 949,
+          "bodyWidth": 949,
+          "grid": "240px 360px 315px",
+          "filterGrid": "none",
+          "boxes": {
+            "header": {
+              "x": 0,
+              "y": 0,
+              "w": 886,
+              "h": 58,
+              "right": 886,
+              "bottom": 58,
+              "font": "16px",
+              "line": "normal"
+            },
+            "deck": {
+              "x": 0,
+              "y": 58,
+              "w": 886,
+              "h": 906,
+              "right": 886,
+              "bottom": 964,
+              "font": "16px",
+              "line": "normal"
+            },
+            "queue": {
+              "x": 12,
+              "y": 70,
+              "w": 240,
+              "h": 882,
+              "right": 252,
+              "bottom": 952,
+              "font": "16px",
+              "line": "normal"
+            },
+            "radar": {
+              "x": 263,
+              "y": 70,
+              "w": 360,
+              "h": 882,
+              "right": 623,
+              "bottom": 952,
+              "font": "16px",
+              "line": "normal"
+            },
+            "detail": {
+              "x": 634,
+              "y": 70,
+              "w": 315,
+              "h": 882,
+              "right": 949,
+              "bottom": 952,
+              "font": "16px",
+              "line": "normal"
+            },
+            "stage": {
+              "x": 271,
+              "y": 158.3,
+              "w": 344,
+              "h": 650.7,
+              "right": 615,
+              "bottom": 809,
+              "font": "16px",
+              "line": "normal"
+            },
+            "dial": {
+              "x": 271,
+              "y": 311.64,
+              "w": 344,
+              "h": 344,
+              "right": 615,
+              "bottom": 655.64,
+              "font": "16px",
+              "line": "normal"
+            },
+            "radarHead": {
+              "x": 271,
+              "y": 73,
+              "w": 344,
+              "h": 85.3,
+              "right": 615,
+              "bottom": 158.3,
+              "font": "16px",
+              "line": "normal"
+            },
+            "radarFoot": {
+              "x": 271,
+              "y": 809,
+              "w": 344,
+              "h": 143,
+              "right": 615,
+              "bottom": 952,
+              "font": "16px",
+              "line": "normal"
+            },
+            "footer": {
+              "x": 0,
+              "y": 964,
+              "w": 886,
+              "h": 36,
+              "right": 886,
+              "bottom": 1000,
+              "font": "9px",
+              "line": "normal"
+            },
+            "filters": null,
+            "queueList": {
+              "x": 13,
+              "y": 208,
+              "w": 238,
+              "h": 743,
+              "right": 251,
+              "bottom": 951,
+              "font": "16px",
+              "line": "normal"
+            },
+            "density": null,
+            "finding": null,
+            "title": null,
+            "excerpt": {
+              "x": 650,
+              "y": 452.22,
+              "w": 273,
+              "h": 1608.75,
+              "right": 923,
+              "bottom": 2060.97,
+              "font": "12px",
+              "line": "20.64px"
+            },
+            "personal": null,
+            "personalBody": null
+          },
+          "headerChildren": [
+            {
+              "name": "brand",
+              "x": 15,
+              "y": 9.5,
+              "w": 185.08,
+              "h": 38,
+              "right": 200.08,
+              "bottom": 47.5,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "name": "proto-view-switcher",
+              "x": 216.08,
+              "y": 9.5,
+              "w": 203.13,
+              "h": 38,
+              "right": 419.2,
+              "bottom": 47.5,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "name": "search",
+              "x": 435.2,
+              "y": 9.5,
+              "w": 327.8,
+              "h": 38,
+              "right": 763,
+              "bottom": 47.5,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "name": "theme-btn",
+              "x": 779,
+              "y": 9.5,
+              "w": 38,
+              "h": 38,
+              "right": 817,
+              "bottom": 47.5,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "name": "lang-btn",
+              "x": 833,
+              "y": 9.5,
+              "w": 38,
+              "h": 38,
+              "right": 871,
+              "bottom": 47.5,
+              "font": "11px",
+              "line": "11px"
+            }
+          ],
+          "filterChildren": [],
+          "controls": [
+            {
+              "name": "proto-tab-overview",
+              "x": 220.08,
+              "y": 13.5,
+              "w": 59.38,
+              "h": 30,
+              "right": 279.45,
+              "bottom": 43.5,
+              "font": "11px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "proto-tab-reading",
+              "x": 282.45,
+              "y": 13.5,
+              "w": 59.38,
+              "h": 30,
+              "right": 341.83,
+              "bottom": 43.5,
+              "font": "11px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "proto-tab-personal",
+              "x": 344.83,
+              "y": 13.5,
+              "w": 70.38,
+              "h": 30,
+              "right": 415.2,
+              "bottom": 43.5,
+              "font": "11px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "search",
+              "x": 470.2,
+              "y": 19.5,
+              "w": 254.94,
+              "h": 18,
+              "right": 725.14,
+              "bottom": 37.5,
+              "font": "12px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "theme-btn",
+              "x": 779,
+              "y": 9.5,
+              "w": 38,
+              "h": 38,
+              "right": 817,
+              "bottom": 47.5,
+              "font": "16px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "lang-btn",
+              "x": 833,
+              "y": 9.5,
+              "w": 38,
+              "h": 38,
+              "right": 871,
+              "bottom": 47.5,
+              "font": "11px",
+              "line": "11px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "coll-open",
+              "x": 130.78,
+              "y": 88,
+              "w": 51.09,
+              "h": 29,
+              "right": 181.88,
+              "bottom": 117,
+              "font": "10px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "filters-toggle",
+              "x": 25,
+              "y": 138,
+              "w": 166.25,
+              "h": 30,
+              "right": 191.25,
+              "bottom": 168,
+              "font": "11px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "scheme-select",
+              "x": 302.88,
+              "y": 122.3,
+              "w": 82,
+              "h": 28,
+              "right": 384.88,
+              "bottom": 150.3,
+              "font": "11px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "journal-clear",
+              "x": 452.5,
+              "y": 817.5,
+              "w": 34,
+              "h": 21,
+              "right": 486.5,
+              "bottom": 838.5,
+              "font": "9px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": null
+            },
+            {
+              "name": "jcat-fold  ",
+              "x": 396.47,
+              "y": 841,
+              "w": 93.05,
+              "h": 18,
+              "right": 489.52,
+              "bottom": 859,
+              "font": "8px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "journal-btn ",
+              "x": 411.66,
+              "y": 865,
+              "w": 62.69,
+              "h": 18,
+              "right": 474.34,
+              "bottom": 883,
+              "font": "8px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "SUMMARY",
+              "x": 275,
+              "y": 891,
+              "w": 336,
+              "h": 16,
+              "right": 611,
+              "bottom": 907,
+              "font": "11px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            }
+          ],
+          "points": [
+            {
+              "id": "pmid_43098161",
+              "selected": true,
+              "center": true,
+              "target": {
+                "x": 465.359375,
+                "y": 422.234375
+              },
+              "x": 459.7,
+              "y": 416.58,
+              "w": 11.31,
+              "h": 11.31,
+              "right": 471.02,
+              "bottom": 427.89,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43078581",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 510.03125,
+                "y": 501.59375
+              },
+              "x": 506.03,
+              "y": 497.59,
+              "w": 8,
+              "h": 8,
+              "right": 514.03,
+              "bottom": 505.59,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43098160",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 477.5,
+                "y": 409.640625
+              },
+              "x": 473.5,
+              "y": 405.64,
+              "w": 8,
+              "h": 8,
+              "right": 481.5,
+              "bottom": 413.64,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43098163",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 490.53125,
+                "y": 401.3125
+              },
+              "x": 487.03,
+              "y": 397.81,
+              "w": 7,
+              "h": 7,
+              "right": 494.03,
+              "bottom": 404.81,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43100223",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 488.84375,
+                "y": 418.171875
+              },
+              "x": 485.34,
+              "y": 414.67,
+              "w": 7,
+              "h": 7,
+              "right": 492.34,
+              "bottom": 421.67,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43098350",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 500,
+                "y": 415.734375
+              },
+              "x": 496.5,
+              "y": 412.23,
+              "w": 7,
+              "h": 7,
+              "right": 503.5,
+              "bottom": 419.23,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43098937",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 398.171875,
+                "y": 413.28125
+              },
+              "x": 394.67,
+              "y": 409.78,
+              "w": 7,
+              "h": 7,
+              "right": 401.67,
+              "bottom": 416.78,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43102091",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 400.98439025878906,
+                "y": 402.9375
+              },
+              "x": 396.03,
+              "y": 397.99,
+              "w": 9.9,
+              "h": 9.9,
+              "right": 405.93,
+              "bottom": 407.89,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43098157",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 373.703125,
+                "y": 532.171875
+              },
+              "x": 370.2,
+              "y": 528.67,
+              "w": 7,
+              "h": 7,
+              "right": 377.2,
+              "bottom": 535.67,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43102925",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 403.953125,
+                "y": 389.34375
+              },
+              "x": 400.45,
+              "y": 385.84,
+              "w": 7,
+              "h": 7,
+              "right": 407.45,
+              "bottom": 392.84,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43098945",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 415.78125,
+                "y": 397.390625
+              },
+              "x": 412.28,
+              "y": 393.89,
+              "w": 7,
+              "h": 7,
+              "right": 419.28,
+              "bottom": 400.89,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43101127",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 357.09375,
+                "y": 533.234375
+              },
+              "x": 353.59,
+              "y": 529.73,
+              "w": 7,
+              "h": 7,
+              "right": 360.59,
+              "bottom": 536.73,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43101081",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 345.1875,
+                "y": 529.25
+              },
+              "x": 341.69,
+              "y": 525.75,
+              "w": 7,
+              "h": 7,
+              "right": 348.69,
+              "bottom": 532.75,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099636",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 521.765625,
+                "y": 404.859375
+              },
+              "x": 518.27,
+              "y": 401.36,
+              "w": 7,
+              "h": 7,
+              "right": 525.27,
+              "bottom": 408.36,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43078578",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 541.6875,
+                "y": 519.546875
+              },
+              "x": 538.19,
+              "y": 516.05,
+              "w": 7,
+              "h": 7,
+              "right": 545.19,
+              "bottom": 523.05,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099536",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 517.640625,
+                "y": 420.984375
+              },
+              "x": 512.69,
+              "y": 416.03,
+              "w": 9.9,
+              "h": 9.9,
+              "right": 522.59,
+              "bottom": 425.93,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43101476",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 532.359375,
+                "y": 441.9375
+              },
+              "x": 528.86,
+              "y": 438.44,
+              "w": 7,
+              "h": 7,
+              "right": 535.86,
+              "bottom": 445.44,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099584",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 541.515625,
+                "y": 426.765625
+              },
+              "x": 538.02,
+              "y": 423.27,
+              "w": 7,
+              "h": 7,
+              "right": 545.02,
+              "bottom": 430.27,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099540",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 529.984375,
+                "y": 422.703125
+              },
+              "x": 526.48,
+              "y": 419.2,
+              "w": 7,
+              "h": 7,
+              "right": 533.48,
+              "bottom": 426.2,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099277",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 548.21875,
+                "y": 532.6875
+              },
+              "x": 544.72,
+              "y": 529.19,
+              "w": 7,
+              "h": 7,
+              "right": 551.72,
+              "bottom": 536.19,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099332",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 347.015625,
+                "y": 518.546875
+              },
+              "x": 343.52,
+              "y": 515.05,
+              "w": 7,
+              "h": 7,
+              "right": 350.52,
+              "bottom": 522.05,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43098826",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 482.078125,
+                "y": 577.984375
+              },
+              "x": 478.58,
+              "y": 574.48,
+              "w": 7,
+              "h": 7,
+              "right": 485.58,
+              "bottom": 581.48,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43102657",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 548.25,
+                "y": 445.3125
+              },
+              "x": 545.25,
+              "y": 442.31,
+              "w": 6,
+              "h": 6,
+              "right": 551.25,
+              "bottom": 448.31,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099001",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 418.5,
+                "y": 373.109375
+              },
+              "x": 415.5,
+              "y": 370.11,
+              "w": 6,
+              "h": 6,
+              "right": 421.5,
+              "bottom": 376.11,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43100947",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 333.671875,
+                "y": 512.9375
+              },
+              "x": 330.67,
+              "y": 509.94,
+              "w": 6,
+              "h": 6,
+              "right": 336.67,
+              "bottom": 515.94,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43100972",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 322.90625,
+                "y": 504.828125
+              },
+              "x": 319.91,
+              "y": 501.83,
+              "w": 6,
+              "h": 6,
+              "right": 325.91,
+              "bottom": 507.83,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43101819",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 564.9375,
+                "y": 483.640625
+              },
+              "x": 561.94,
+              "y": 480.64,
+              "w": 6,
+              "h": 6,
+              "right": 567.94,
+              "bottom": 486.64,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099480",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 556.921875,
+                "y": 473.65625
+              },
+              "x": 553.92,
+              "y": 470.66,
+              "w": 6,
+              "h": 6,
+              "right": 559.92,
+              "bottom": 476.66,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099452",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 548.15625,
+                "y": 465.09375
+              },
+              "x": 545.16,
+              "y": 462.09,
+              "w": 6,
+              "h": 6,
+              "right": 551.16,
+              "bottom": 468.09,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099405",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 560.78125,
+                "y": 452.09375
+              },
+              "x": 557.78,
+              "y": 449.09,
+              "w": 6,
+              "h": 6,
+              "right": 563.78,
+              "bottom": 455.09,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099043",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 554.03125,
+                "y": 493.328125
+              },
+              "x": 551.03,
+              "y": 490.33,
+              "w": 6,
+              "h": 6,
+              "right": 557.03,
+              "bottom": 496.33,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43102678",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 541.546875,
+                "y": 540.53125
+              },
+              "x": 538.55,
+              "y": 537.53,
+              "w": 6,
+              "h": 6,
+              "right": 544.55,
+              "bottom": 543.53,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099534",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 562.53125,
+                "y": 504.71875
+              },
+              "x": 559.53,
+              "y": 501.72,
+              "w": 6,
+              "h": 6,
+              "right": 565.53,
+              "bottom": 507.72,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43101775",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 557.609375,
+                "y": 525.359375
+              },
+              "x": 554.61,
+              "y": 522.36,
+              "w": 6,
+              "h": 6,
+              "right": 560.61,
+              "bottom": 528.36,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099449",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 575.4375,
+                "y": 519.140625
+              },
+              "x": 572.44,
+              "y": 516.14,
+              "w": 6,
+              "h": 6,
+              "right": 578.44,
+              "bottom": 522.14,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43101461",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 561.46875,
+                "y": 538.875
+              },
+              "x": 558.47,
+              "y": 535.88,
+              "w": 6,
+              "h": 6,
+              "right": 564.47,
+              "bottom": 541.88,
+              "font": "16px",
+              "line": "normal"
+            }
+          ],
+          "clippedLabels": 0,
+          "queueItems": 43,
+          "visibleQueueItems": 9,
+          "findingChars": 0,
+          "excerptChars": 3670,
+          "data": {
+            "date": "2026-11-28",
+            "injected": 43,
+            "merged": 43,
+            "ids": [
+              "pmid_43098161",
+              "pmid_43101394",
+              "pmid_43078581",
+              "pmid_43098160",
+              "pmid_43098163",
+              "pmid_43100223",
+              "pmid_43098350",
+              "pmid_43102874",
+              "pmid_43098937",
+              "pmid_43102091",
+              "pmid_43098157",
+              "pmid_43102925",
+              "pmid_43098945",
+              "pmid_43098313",
+              "pmid_43101127",
+              "pmid_43101081",
+              "pmid_43099636",
+              "pmid_43078578",
+              "pmid_43099536",
+              "pmid_43099703",
+              "pmid_43101476",
+              "pmid_43099584",
+              "pmid_43099540",
+              "pmid_43099277",
+              "pmid_43101871",
+              "pmid_43099332",
+              "pmid_43098826",
+              "pmid_43099565",
+              "pmid_43102657",
+              "pmid_43099001",
+              "pmid_43100947",
+              "pmid_43100972",
+              "pmid_43101819",
+              "pmid_43099480",
+              "pmid_43099452",
+              "pmid_43099405",
+              "pmid_43099043",
+              "pmid_43100722",
+              "pmid_43102678",
+              "pmid_43099534",
+              "pmid_43101775",
+              "pmid_43099449",
+              "pmid_43101461"
+            ]
+          },
+          "failures": [
+            "page horizontal overflow (949/949 > 901)",
+            "panel outside deck"
+          ]
+        },
+        "overview-filters": {
+          "viewport": [
+            901,
+            1000
+          ],
+          "dpr": 1,
+          "view": "overview",
+          "density": "compact",
+          "language": "zh-CN",
+          "docWidth": 949,
+          "bodyWidth": 949,
+          "grid": "240px 360px 315px",
+          "filterGrid": "none",
+          "boxes": {
+            "header": {
+              "x": 0,
+              "y": 0,
+              "w": 886,
+              "h": 58,
+              "right": 886,
+              "bottom": 58,
+              "font": "16px",
+              "line": "normal"
+            },
+            "deck": {
+              "x": 0,
+              "y": 58,
+              "w": 886,
+              "h": 906,
+              "right": 886,
+              "bottom": 964,
+              "font": "16px",
+              "line": "normal"
+            },
+            "queue": {
+              "x": 12,
+              "y": 70,
+              "w": 240,
+              "h": 882,
+              "right": 252,
+              "bottom": 952,
+              "font": "16px",
+              "line": "normal"
+            },
+            "radar": {
+              "x": 263,
+              "y": 70,
+              "w": 360,
+              "h": 882,
+              "right": 623,
+              "bottom": 952,
+              "font": "16px",
+              "line": "normal"
+            },
+            "detail": {
+              "x": 634,
+              "y": 70,
+              "w": 315,
+              "h": 882,
+              "right": 949,
+              "bottom": 952,
+              "font": "16px",
+              "line": "normal"
+            },
+            "stage": {
+              "x": 271,
+              "y": 158.3,
+              "w": 344,
+              "h": 650.7,
+              "right": 615,
+              "bottom": 809,
+              "font": "16px",
+              "line": "normal"
+            },
+            "dial": {
+              "x": 271,
+              "y": 311.64,
+              "w": 344,
+              "h": 344,
+              "right": 615,
+              "bottom": 655.64,
+              "font": "16px",
+              "line": "normal"
+            },
+            "radarHead": {
+              "x": 271,
+              "y": 73,
+              "w": 344,
+              "h": 85.3,
+              "right": 615,
+              "bottom": 158.3,
+              "font": "16px",
+              "line": "normal"
+            },
+            "radarFoot": {
+              "x": 271,
+              "y": 809,
+              "w": 344,
+              "h": 143,
+              "right": 615,
+              "bottom": 952,
+              "font": "16px",
+              "line": "normal"
+            },
+            "footer": {
+              "x": 0,
+              "y": 964,
+              "w": 886,
+              "h": 36,
+              "right": 886,
+              "bottom": 1000,
+              "font": "9px",
+              "line": "normal"
+            },
+            "filters": {
+              "x": 13,
+              "y": 174,
+              "w": 238,
+              "h": 264,
+              "right": 251,
+              "bottom": 438,
+              "font": "16px",
+              "line": "normal"
+            },
+            "queueList": {
+              "x": 13,
+              "y": 472,
+              "w": 238,
+              "h": 479,
+              "right": 251,
+              "bottom": 951,
+              "font": "16px",
+              "line": "normal"
+            },
+            "density": null,
+            "finding": null,
+            "title": null,
+            "excerpt": {
+              "x": 650,
+              "y": 452.22,
+              "w": 273,
+              "h": 1608.75,
+              "right": 923,
+              "bottom": 2060.97,
+              "font": "12px",
+              "line": "20.64px"
+            },
+            "personal": null,
+            "personalBody": null
+          },
+          "headerChildren": [
+            {
+              "name": "brand",
+              "x": 15,
+              "y": 9.5,
+              "w": 185.08,
+              "h": 38,
+              "right": 200.08,
+              "bottom": 47.5,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "name": "proto-view-switcher",
+              "x": 216.08,
+              "y": 9.5,
+              "w": 203.13,
+              "h": 38,
+              "right": 419.2,
+              "bottom": 47.5,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "name": "search",
+              "x": 435.2,
+              "y": 9.5,
+              "w": 327.8,
+              "h": 38,
+              "right": 763,
+              "bottom": 47.5,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "name": "theme-btn",
+              "x": 779,
+              "y": 9.5,
+              "w": 38,
+              "h": 38,
+              "right": 817,
+              "bottom": 47.5,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "name": "lang-btn",
+              "x": 833,
+              "y": 9.5,
+              "w": 38,
+              "h": 38,
+              "right": 871,
+              "bottom": 47.5,
+              "font": "11px",
+              "line": "11px"
+            }
+          ],
+          "filterChildren": [
+            {
+              "name": "quick-group",
+              "x": 25,
+              "y": 195,
+              "w": 214,
+              "h": 67,
+              "right": 239,
+              "bottom": 262,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "name": "pool-mix-control",
+              "x": 25,
+              "y": 269,
+              "w": 214,
+              "h": 15.5,
+              "right": 239,
+              "bottom": 284.5,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "name": "tier-block",
+              "x": 25,
+              "y": 295.5,
+              "w": 214,
+              "h": 47,
+              "right": 239,
+              "bottom": 342.5,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "name": "window-control",
+              "x": 25,
+              "y": 354.5,
+              "w": 214,
+              "h": 72.5,
+              "right": 239,
+              "bottom": 427,
+              "font": "16px",
+              "line": "normal"
+            }
+          ],
+          "controls": [
+            {
+              "name": "proto-tab-overview",
+              "x": 220.08,
+              "y": 13.5,
+              "w": 59.38,
+              "h": 30,
+              "right": 279.45,
+              "bottom": 43.5,
+              "font": "11px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "proto-tab-reading",
+              "x": 282.45,
+              "y": 13.5,
+              "w": 59.38,
+              "h": 30,
+              "right": 341.83,
+              "bottom": 43.5,
+              "font": "11px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "proto-tab-personal",
+              "x": 344.83,
+              "y": 13.5,
+              "w": 70.38,
+              "h": 30,
+              "right": 415.2,
+              "bottom": 43.5,
+              "font": "11px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "search",
+              "x": 470.2,
+              "y": 19.5,
+              "w": 254.94,
+              "h": 18,
+              "right": 725.14,
+              "bottom": 37.5,
+              "font": "12px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "theme-btn",
+              "x": 779,
+              "y": 9.5,
+              "w": 38,
+              "h": 38,
+              "right": 817,
+              "bottom": 47.5,
+              "font": "16px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "lang-btn",
+              "x": 833,
+              "y": 9.5,
+              "w": 38,
+              "h": 38,
+              "right": 871,
+              "bottom": 47.5,
+              "font": "11px",
+              "line": "11px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "coll-open",
+              "x": 130.78,
+              "y": 88,
+              "w": 51.09,
+              "h": 29,
+              "right": 181.88,
+              "bottom": 117,
+              "font": "10px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "filters-toggle",
+              "x": 25,
+              "y": 138,
+              "w": 82.2,
+              "h": 30,
+              "right": 107.2,
+              "bottom": 168,
+              "font": "11px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "all",
+              "x": 25,
+              "y": 195,
+              "w": 49.75,
+              "h": 28,
+              "right": 74.75,
+              "bottom": 223,
+              "font": "9.5px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "rct",
+              "x": 79.75,
+              "y": 195,
+              "w": 49.75,
+              "h": 28,
+              "right": 129.5,
+              "bottom": 223,
+              "font": "9.5px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "cohort",
+              "x": 134.5,
+              "y": 195,
+              "w": 49.75,
+              "h": 28,
+              "right": 184.25,
+              "bottom": 223,
+              "font": "9.5px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "nct",
+              "x": 189.25,
+              "y": 195,
+              "w": 49.75,
+              "h": 28,
+              "right": 239,
+              "bottom": 223,
+              "font": "9.5px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "myjournals-filter",
+              "x": 25,
+              "y": 230,
+              "w": 214,
+              "h": 32,
+              "right": 239,
+              "bottom": 262,
+              "font": "11px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "pool-mix-toggle",
+              "x": 25,
+              "y": 271,
+              "w": 13,
+              "h": 13,
+              "right": 38,
+              "bottom": 284,
+              "font": "10px",
+              "line": "15.5px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "tier-chip active",
+              "x": 25,
+              "y": 318.5,
+              "w": 38.8,
+              "h": 24,
+              "right": 63.8,
+              "bottom": 342.5,
+              "font": "10px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "tier-chip active",
+              "x": 68.8,
+              "y": 318.5,
+              "w": 38.8,
+              "h": 24,
+              "right": 107.59,
+              "bottom": 342.5,
+              "font": "10px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "tier-chip active",
+              "x": 112.59,
+              "y": 318.5,
+              "w": 38.8,
+              "h": 24,
+              "right": 151.39,
+              "bottom": 342.5,
+              "font": "10px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "tier-chip active",
+              "x": 156.39,
+              "y": 318.5,
+              "w": 38.8,
+              "h": 24,
+              "right": 195.19,
+              "bottom": 342.5,
+              "font": "10px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "tier-chip active",
+              "x": 200.19,
+              "y": 318.5,
+              "w": 38.8,
+              "h": 24,
+              "right": 238.98,
+              "bottom": 342.5,
+              "font": "10px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "window-range",
+              "x": 25,
+              "y": 390.5,
+              "w": 214,
+              "h": 16,
+              "right": 239,
+              "bottom": 406.5,
+              "font": "16px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "scheme-select",
+              "x": 302.88,
+              "y": 122.3,
+              "w": 82,
+              "h": 28,
+              "right": 384.88,
+              "bottom": 150.3,
+              "font": "11px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "journal-clear",
+              "x": 452.5,
+              "y": 817.5,
+              "w": 34,
+              "h": 21,
+              "right": 486.5,
+              "bottom": 838.5,
+              "font": "9px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": null
+            },
+            {
+              "name": "jcat-fold  ",
+              "x": 396.47,
+              "y": 841,
+              "w": 93.05,
+              "h": 18,
+              "right": 489.52,
+              "bottom": 859,
+              "font": "8px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "journal-btn ",
+              "x": 411.66,
+              "y": 865,
+              "w": 62.69,
+              "h": 18,
+              "right": 474.34,
+              "bottom": 883,
+              "font": "8px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "SUMMARY",
+              "x": 275,
+              "y": 891,
+              "w": 336,
+              "h": 16,
+              "right": 611,
+              "bottom": 907,
+              "font": "11px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            }
+          ],
+          "points": [
+            {
+              "id": "pmid_43098161",
+              "selected": true,
+              "center": true,
+              "target": {
+                "x": 465.359375,
+                "y": 422.234375
+              },
+              "x": 459.7,
+              "y": 416.58,
+              "w": 11.31,
+              "h": 11.31,
+              "right": 471.02,
+              "bottom": 427.89,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43078581",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 510.03125,
+                "y": 501.59375
+              },
+              "x": 506.03,
+              "y": 497.59,
+              "w": 8,
+              "h": 8,
+              "right": 514.03,
+              "bottom": 505.59,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43098160",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 477.5,
+                "y": 409.640625
+              },
+              "x": 473.5,
+              "y": 405.64,
+              "w": 8,
+              "h": 8,
+              "right": 481.5,
+              "bottom": 413.64,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43098163",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 490.53125,
+                "y": 401.3125
+              },
+              "x": 487.03,
+              "y": 397.81,
+              "w": 7,
+              "h": 7,
+              "right": 494.03,
+              "bottom": 404.81,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43100223",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 488.84375,
+                "y": 418.171875
+              },
+              "x": 485.34,
+              "y": 414.67,
+              "w": 7,
+              "h": 7,
+              "right": 492.34,
+              "bottom": 421.67,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43098350",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 500,
+                "y": 415.734375
+              },
+              "x": 496.5,
+              "y": 412.23,
+              "w": 7,
+              "h": 7,
+              "right": 503.5,
+              "bottom": 419.23,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43098937",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 398.171875,
+                "y": 413.28125
+              },
+              "x": 394.67,
+              "y": 409.78,
+              "w": 7,
+              "h": 7,
+              "right": 401.67,
+              "bottom": 416.78,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43102091",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 400.98439025878906,
+                "y": 402.9375
+              },
+              "x": 396.03,
+              "y": 397.99,
+              "w": 9.9,
+              "h": 9.9,
+              "right": 405.93,
+              "bottom": 407.89,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43098157",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 373.703125,
+                "y": 532.171875
+              },
+              "x": 370.2,
+              "y": 528.67,
+              "w": 7,
+              "h": 7,
+              "right": 377.2,
+              "bottom": 535.67,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43102925",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 403.953125,
+                "y": 389.34375
+              },
+              "x": 400.45,
+              "y": 385.84,
+              "w": 7,
+              "h": 7,
+              "right": 407.45,
+              "bottom": 392.84,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43098945",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 415.78125,
+                "y": 397.390625
+              },
+              "x": 412.28,
+              "y": 393.89,
+              "w": 7,
+              "h": 7,
+              "right": 419.28,
+              "bottom": 400.89,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43101127",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 357.09375,
+                "y": 533.234375
+              },
+              "x": 353.59,
+              "y": 529.73,
+              "w": 7,
+              "h": 7,
+              "right": 360.59,
+              "bottom": 536.73,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43101081",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 345.1875,
+                "y": 529.25
+              },
+              "x": 341.69,
+              "y": 525.75,
+              "w": 7,
+              "h": 7,
+              "right": 348.69,
+              "bottom": 532.75,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099636",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 521.765625,
+                "y": 404.859375
+              },
+              "x": 518.27,
+              "y": 401.36,
+              "w": 7,
+              "h": 7,
+              "right": 525.27,
+              "bottom": 408.36,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43078578",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 541.6875,
+                "y": 519.546875
+              },
+              "x": 538.19,
+              "y": 516.05,
+              "w": 7,
+              "h": 7,
+              "right": 545.19,
+              "bottom": 523.05,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099536",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 517.640625,
+                "y": 420.984375
+              },
+              "x": 512.69,
+              "y": 416.03,
+              "w": 9.9,
+              "h": 9.9,
+              "right": 522.59,
+              "bottom": 425.93,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43101476",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 532.359375,
+                "y": 441.9375
+              },
+              "x": 528.86,
+              "y": 438.44,
+              "w": 7,
+              "h": 7,
+              "right": 535.86,
+              "bottom": 445.44,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099584",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 541.515625,
+                "y": 426.765625
+              },
+              "x": 538.02,
+              "y": 423.27,
+              "w": 7,
+              "h": 7,
+              "right": 545.02,
+              "bottom": 430.27,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099540",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 529.984375,
+                "y": 422.703125
+              },
+              "x": 526.48,
+              "y": 419.2,
+              "w": 7,
+              "h": 7,
+              "right": 533.48,
+              "bottom": 426.2,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099277",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 548.21875,
+                "y": 532.6875
+              },
+              "x": 544.72,
+              "y": 529.19,
+              "w": 7,
+              "h": 7,
+              "right": 551.72,
+              "bottom": 536.19,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099332",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 347.015625,
+                "y": 518.546875
+              },
+              "x": 343.52,
+              "y": 515.05,
+              "w": 7,
+              "h": 7,
+              "right": 350.52,
+              "bottom": 522.05,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43098826",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 482.078125,
+                "y": 577.984375
+              },
+              "x": 478.58,
+              "y": 574.48,
+              "w": 7,
+              "h": 7,
+              "right": 485.58,
+              "bottom": 581.48,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43102657",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 548.25,
+                "y": 445.3125
+              },
+              "x": 545.25,
+              "y": 442.31,
+              "w": 6,
+              "h": 6,
+              "right": 551.25,
+              "bottom": 448.31,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099001",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 418.5,
+                "y": 373.109375
+              },
+              "x": 415.5,
+              "y": 370.11,
+              "w": 6,
+              "h": 6,
+              "right": 421.5,
+              "bottom": 376.11,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43100947",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 333.671875,
+                "y": 512.9375
+              },
+              "x": 330.67,
+              "y": 509.94,
+              "w": 6,
+              "h": 6,
+              "right": 336.67,
+              "bottom": 515.94,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43100972",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 322.90625,
+                "y": 504.828125
+              },
+              "x": 319.91,
+              "y": 501.83,
+              "w": 6,
+              "h": 6,
+              "right": 325.91,
+              "bottom": 507.83,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43101819",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 564.9375,
+                "y": 483.640625
+              },
+              "x": 561.94,
+              "y": 480.64,
+              "w": 6,
+              "h": 6,
+              "right": 567.94,
+              "bottom": 486.64,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099480",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 556.921875,
+                "y": 473.65625
+              },
+              "x": 553.92,
+              "y": 470.66,
+              "w": 6,
+              "h": 6,
+              "right": 559.92,
+              "bottom": 476.66,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099452",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 548.15625,
+                "y": 465.09375
+              },
+              "x": 545.16,
+              "y": 462.09,
+              "w": 6,
+              "h": 6,
+              "right": 551.16,
+              "bottom": 468.09,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099405",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 560.78125,
+                "y": 452.09375
+              },
+              "x": 557.78,
+              "y": 449.09,
+              "w": 6,
+              "h": 6,
+              "right": 563.78,
+              "bottom": 455.09,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099043",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 554.03125,
+                "y": 493.328125
+              },
+              "x": 551.03,
+              "y": 490.33,
+              "w": 6,
+              "h": 6,
+              "right": 557.03,
+              "bottom": 496.33,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43102678",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 541.546875,
+                "y": 540.53125
+              },
+              "x": 538.55,
+              "y": 537.53,
+              "w": 6,
+              "h": 6,
+              "right": 544.55,
+              "bottom": 543.53,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099534",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 562.53125,
+                "y": 504.71875
+              },
+              "x": 559.53,
+              "y": 501.72,
+              "w": 6,
+              "h": 6,
+              "right": 565.53,
+              "bottom": 507.72,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43101775",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 557.609375,
+                "y": 525.359375
+              },
+              "x": 554.61,
+              "y": 522.36,
+              "w": 6,
+              "h": 6,
+              "right": 560.61,
+              "bottom": 528.36,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099449",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 575.4375,
+                "y": 519.140625
+              },
+              "x": 572.44,
+              "y": 516.14,
+              "w": 6,
+              "h": 6,
+              "right": 578.44,
+              "bottom": 522.14,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43101461",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 561.46875,
+                "y": 538.875
+              },
+              "x": 558.47,
+              "y": 535.88,
+              "w": 6,
+              "h": 6,
+              "right": 564.47,
+              "bottom": 541.88,
+              "font": "16px",
+              "line": "normal"
+            }
+          ],
+          "clippedLabels": 0,
+          "queueItems": 43,
+          "visibleQueueItems": 6,
+          "findingChars": 0,
+          "excerptChars": 3670,
+          "data": {
+            "date": "2026-11-28",
+            "injected": 43,
+            "merged": 43,
+            "ids": [
+              "pmid_43098161",
+              "pmid_43101394",
+              "pmid_43078581",
+              "pmid_43098160",
+              "pmid_43098163",
+              "pmid_43100223",
+              "pmid_43098350",
+              "pmid_43102874",
+              "pmid_43098937",
+              "pmid_43102091",
+              "pmid_43098157",
+              "pmid_43102925",
+              "pmid_43098945",
+              "pmid_43098313",
+              "pmid_43101127",
+              "pmid_43101081",
+              "pmid_43099636",
+              "pmid_43078578",
+              "pmid_43099536",
+              "pmid_43099703",
+              "pmid_43101476",
+              "pmid_43099584",
+              "pmid_43099540",
+              "pmid_43099277",
+              "pmid_43101871",
+              "pmid_43099332",
+              "pmid_43098826",
+              "pmid_43099565",
+              "pmid_43102657",
+              "pmid_43099001",
+              "pmid_43100947",
+              "pmid_43100972",
+              "pmid_43101819",
+              "pmid_43099480",
+              "pmid_43099452",
+              "pmid_43099405",
+              "pmid_43099043",
+              "pmid_43100722",
+              "pmid_43102678",
+              "pmid_43099534",
+              "pmid_43101775",
+              "pmid_43099449",
+              "pmid_43101461"
+            ]
+          },
+          "failures": [
+            "page horizontal overflow (949/949 > 901)",
+            "panel outside deck"
+          ]
+        },
+        "overview-legend": {
+          "viewport": [
+            901,
+            1000
+          ],
+          "dpr": 1,
+          "view": "overview",
+          "density": "compact",
+          "language": "zh-CN",
+          "docWidth": 949,
+          "bodyWidth": 949,
+          "grid": "240px 360px 315px",
+          "filterGrid": "none",
+          "boxes": {
+            "header": {
+              "x": 0,
+              "y": 0,
+              "w": 886,
+              "h": 58,
+              "right": 886,
+              "bottom": 58,
+              "font": "16px",
+              "line": "normal"
+            },
+            "deck": {
+              "x": 0,
+              "y": 58,
+              "w": 886,
+              "h": 906,
+              "right": 886,
+              "bottom": 964,
+              "font": "16px",
+              "line": "normal"
+            },
+            "queue": {
+              "x": 12,
+              "y": 70,
+              "w": 240,
+              "h": 882,
+              "right": 252,
+              "bottom": 952,
+              "font": "16px",
+              "line": "normal"
+            },
+            "radar": {
+              "x": 263,
+              "y": 70,
+              "w": 360,
+              "h": 882,
+              "right": 623,
+              "bottom": 952,
+              "font": "16px",
+              "line": "normal"
+            },
+            "detail": {
+              "x": 634,
+              "y": 70,
+              "w": 315,
+              "h": 882,
+              "right": 949,
+              "bottom": 952,
+              "font": "16px",
+              "line": "normal"
+            },
+            "stage": {
+              "x": 271,
+              "y": 158.3,
+              "w": 344,
+              "h": 521.7,
+              "right": 615,
+              "bottom": 680,
+              "font": "16px",
+              "line": "normal"
+            },
+            "dial": {
+              "x": 271,
+              "y": 247.14,
+              "w": 344,
+              "h": 344,
+              "right": 615,
+              "bottom": 591.14,
+              "font": "16px",
+              "line": "normal"
+            },
+            "radarHead": {
+              "x": 271,
+              "y": 73,
+              "w": 344,
+              "h": 85.3,
+              "right": 615,
+              "bottom": 158.3,
+              "font": "16px",
+              "line": "normal"
+            },
+            "radarFoot": {
+              "x": 271,
+              "y": 680,
+              "w": 344,
+              "h": 272,
+              "right": 615,
+              "bottom": 952,
+              "font": "16px",
+              "line": "normal"
+            },
+            "footer": {
+              "x": 0,
+              "y": 964,
+              "w": 886,
+              "h": 36,
+              "right": 886,
+              "bottom": 1000,
+              "font": "9px",
+              "line": "normal"
+            },
+            "filters": null,
+            "queueList": {
+              "x": 13,
+              "y": 208,
+              "w": 238,
+              "h": 743,
+              "right": 251,
+              "bottom": 951,
+              "font": "16px",
+              "line": "normal"
+            },
+            "density": null,
+            "finding": null,
+            "title": null,
+            "excerpt": {
+              "x": 650,
+              "y": 452.22,
+              "w": 273,
+              "h": 1608.75,
+              "right": 923,
+              "bottom": 2060.97,
+              "font": "12px",
+              "line": "20.64px"
+            },
+            "personal": null,
+            "personalBody": null
+          },
+          "headerChildren": [
+            {
+              "name": "brand",
+              "x": 15,
+              "y": 9.5,
+              "w": 185.08,
+              "h": 38,
+              "right": 200.08,
+              "bottom": 47.5,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "name": "proto-view-switcher",
+              "x": 216.08,
+              "y": 9.5,
+              "w": 203.13,
+              "h": 38,
+              "right": 419.2,
+              "bottom": 47.5,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "name": "search",
+              "x": 435.2,
+              "y": 9.5,
+              "w": 327.8,
+              "h": 38,
+              "right": 763,
+              "bottom": 47.5,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "name": "theme-btn",
+              "x": 779,
+              "y": 9.5,
+              "w": 38,
+              "h": 38,
+              "right": 817,
+              "bottom": 47.5,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "name": "lang-btn",
+              "x": 833,
+              "y": 9.5,
+              "w": 38,
+              "h": 38,
+              "right": 871,
+              "bottom": 47.5,
+              "font": "11px",
+              "line": "11px"
+            }
+          ],
+          "filterChildren": [],
+          "controls": [
+            {
+              "name": "proto-tab-overview",
+              "x": 220.08,
+              "y": 13.5,
+              "w": 59.38,
+              "h": 30,
+              "right": 279.45,
+              "bottom": 43.5,
+              "font": "11px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "proto-tab-reading",
+              "x": 282.45,
+              "y": 13.5,
+              "w": 59.38,
+              "h": 30,
+              "right": 341.83,
+              "bottom": 43.5,
+              "font": "11px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "proto-tab-personal",
+              "x": 344.83,
+              "y": 13.5,
+              "w": 70.38,
+              "h": 30,
+              "right": 415.2,
+              "bottom": 43.5,
+              "font": "11px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "search",
+              "x": 470.2,
+              "y": 19.5,
+              "w": 254.94,
+              "h": 18,
+              "right": 725.14,
+              "bottom": 37.5,
+              "font": "12px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "theme-btn",
+              "x": 779,
+              "y": 9.5,
+              "w": 38,
+              "h": 38,
+              "right": 817,
+              "bottom": 47.5,
+              "font": "16px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "lang-btn",
+              "x": 833,
+              "y": 9.5,
+              "w": 38,
+              "h": 38,
+              "right": 871,
+              "bottom": 47.5,
+              "font": "11px",
+              "line": "11px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "coll-open",
+              "x": 130.78,
+              "y": 88,
+              "w": 51.09,
+              "h": 29,
+              "right": 181.88,
+              "bottom": 117,
+              "font": "10px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "filters-toggle",
+              "x": 25,
+              "y": 138,
+              "w": 166.25,
+              "h": 30,
+              "right": 191.25,
+              "bottom": 168,
+              "font": "11px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "scheme-select",
+              "x": 302.88,
+              "y": 122.3,
+              "w": 82,
+              "h": 28,
+              "right": 384.88,
+              "bottom": 150.3,
+              "font": "11px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "journal-clear",
+              "x": 452.5,
+              "y": 688.5,
+              "w": 34,
+              "h": 21,
+              "right": 486.5,
+              "bottom": 709.5,
+              "font": "9px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": null
+            },
+            {
+              "name": "jcat-fold  ",
+              "x": 396.47,
+              "y": 712,
+              "w": 93.05,
+              "h": 18,
+              "right": 489.52,
+              "bottom": 730,
+              "font": "8px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "journal-btn ",
+              "x": 411.66,
+              "y": 736,
+              "w": 62.69,
+              "h": 18,
+              "right": 474.34,
+              "bottom": 754,
+              "font": "8px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "SUMMARY",
+              "x": 275,
+              "y": 762,
+              "w": 336,
+              "h": 16,
+              "right": 611,
+              "bottom": 778,
+              "font": "11px",
+              "line": "normal",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "BMC Pulm Med",
+              "x": 288.64,
+              "y": 785,
+              "w": 77.72,
+              "h": 18,
+              "right": 366.36,
+              "bottom": 803,
+              "font": "8px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "Int J Chron Obstruct Pulmon Dis",
+              "x": 371.36,
+              "y": 785,
+              "w": 135.89,
+              "h": 18,
+              "right": 507.25,
+              "bottom": 803,
+              "font": "8px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "Front Immunol",
+              "x": 512.25,
+              "y": 785,
+              "w": 75.09,
+              "h": 18,
+              "right": 587.34,
+              "bottom": 803,
+              "font": "8px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "Lancet Respir Med",
+              "x": 301.25,
+              "y": 808,
+              "w": 87.66,
+              "h": 18,
+              "right": 388.91,
+              "bottom": 826,
+              "font": "8px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "Adv Sci (Weinh)",
+              "x": 393.91,
+              "y": 808,
+              "w": 77.83,
+              "h": 18,
+              "right": 471.73,
+              "bottom": 826,
+              "font": "8px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "J Immunother Cancer",
+              "x": 476.73,
+              "y": 808,
+              "w": 98,
+              "h": 18,
+              "right": 574.73,
+              "bottom": 826,
+              "font": "8px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "Acad Radiol",
+              "x": 295.7,
+              "y": 831,
+              "w": 64.66,
+              "h": 18,
+              "right": 360.36,
+              "bottom": 849,
+              "font": "8px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "Ann Surg Oncol",
+              "x": 365.36,
+              "y": 831,
+              "w": 78.44,
+              "h": 18,
+              "right": 443.8,
+              "bottom": 849,
+              "font": "8px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "BMC Microbiol",
+              "x": 448.8,
+              "y": 831,
+              "w": 75.16,
+              "h": 18,
+              "right": 523.95,
+              "bottom": 849,
+              "font": "8px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "Cell Rep",
+              "x": 528.95,
+              "y": 831,
+              "w": 51.33,
+              "h": 18,
+              "right": 580.28,
+              "bottom": 849,
+              "font": "8px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "Cell Signal",
+              "x": 321.06,
+              "y": 854,
+              "w": 59.33,
+              "h": 18,
+              "right": 380.39,
+              "bottom": 872,
+              "font": "8px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "Chest",
+              "x": 385.39,
+              "y": 854,
+              "w": 42.47,
+              "h": 18,
+              "right": 427.86,
+              "bottom": 872,
+              "font": "8px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "Cochrane Database Syst Rev",
+              "x": 432.86,
+              "y": 854,
+              "w": 122.06,
+              "h": 18,
+              "right": 554.92,
+              "bottom": 872,
+              "font": "8px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "Front Cell Infect Microbiol",
+              "x": 300.13,
+              "y": 877,
+              "w": 114.19,
+              "h": 18,
+              "right": 414.31,
+              "bottom": 895,
+              "font": "8px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "Front Pharmacol",
+              "x": 419.31,
+              "y": 877,
+              "w": 80.64,
+              "h": 18,
+              "right": 499.95,
+              "bottom": 895,
+              "font": "8px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "Genome Med",
+              "x": 504.95,
+              "y": 877,
+              "w": 70.92,
+              "h": 18,
+              "right": 575.88,
+              "bottom": 895,
+              "font": "8px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": true
+            },
+            {
+              "name": "J Biochem Mol Toxicol",
+              "x": 288.53,
+              "y": 900,
+              "w": 100.47,
+              "h": 18,
+              "right": 389,
+              "bottom": 918,
+              "font": "8px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": null
+            },
+            {
+              "name": "J Transl Med",
+              "x": 394,
+              "y": 900,
+              "w": 66.22,
+              "h": 18,
+              "right": 460.22,
+              "bottom": 918,
+              "font": "8px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": null
+            },
+            {
+              "name": "Lancet Microbe",
+              "x": 465.22,
+              "y": 900,
+              "w": 77.02,
+              "h": 18,
+              "right": 542.23,
+              "bottom": 918,
+              "font": "8px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": null
+            },
+            {
+              "name": "Lung",
+              "x": 547.23,
+              "y": 900,
+              "w": 40.22,
+              "h": 18,
+              "right": 587.45,
+              "bottom": 918,
+              "font": "8px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": null
+            },
+            {
+              "name": "Med Oncol",
+              "x": 323.78,
+              "y": 923,
+              "w": 61.84,
+              "h": 18,
+              "right": 385.63,
+              "bottom": 941,
+              "font": "8px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": null
+            },
+            {
+              "name": "MedComm (2020)",
+              "x": 390.63,
+              "y": 923,
+              "w": 86.47,
+              "h": 18,
+              "right": 477.09,
+              "bottom": 941,
+              "font": "8px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": null
+            },
+            {
+              "name": "Nat Commun",
+              "x": 482.09,
+              "y": 923,
+              "w": 70.13,
+              "h": 18,
+              "right": 552.22,
+              "bottom": 941,
+              "font": "8px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": null
+            },
+            {
+              "name": "NPJ Prim Care Respir Med",
+              "x": 285.17,
+              "y": 946,
+              "w": 113.98,
+              "h": 18,
+              "right": 399.16,
+              "bottom": 964,
+              "font": "8px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": null
+            },
+            {
+              "name": "Pulmonology",
+              "x": 404.16,
+              "y": 946,
+              "w": 69.64,
+              "h": 18,
+              "right": 473.8,
+              "bottom": 964,
+              "font": "8px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": null
+            },
+            {
+              "name": "Respir Res",
+              "x": 478.8,
+              "y": 946,
+              "w": 58.56,
+              "h": 18,
+              "right": 537.36,
+              "bottom": 964,
+              "font": "8px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": null
+            },
+            {
+              "name": "Sci Adv",
+              "x": 542.36,
+              "y": 946,
+              "w": 48.47,
+              "h": 18,
+              "right": 590.83,
+              "bottom": 964,
+              "font": "8px",
+              "line": "10px",
+              "textClip": false,
+              "outsidePanel": false,
+              "hit": null
+            }
+          ],
+          "points": [
+            {
+              "id": "pmid_43098161",
+              "selected": true,
+              "center": true,
+              "target": {
+                "x": 465.359375,
+                "y": 357.734375
+              },
+              "x": 459.7,
+              "y": 352.08,
+              "w": 11.31,
+              "h": 11.31,
+              "right": 471.02,
+              "bottom": 363.39,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43078581",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 510.03125,
+                "y": 437.09375
+              },
+              "x": 506.03,
+              "y": 433.09,
+              "w": 8,
+              "h": 8,
+              "right": 514.03,
+              "bottom": 441.09,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43098160",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 477.5,
+                "y": 345.140625
+              },
+              "x": 473.5,
+              "y": 341.14,
+              "w": 8,
+              "h": 8,
+              "right": 481.5,
+              "bottom": 349.14,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43098163",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 490.53125,
+                "y": 336.8125
+              },
+              "x": 487.03,
+              "y": 333.31,
+              "w": 7,
+              "h": 7,
+              "right": 494.03,
+              "bottom": 340.31,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43100223",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 488.84375,
+                "y": 353.671875
+              },
+              "x": 485.34,
+              "y": 350.17,
+              "w": 7,
+              "h": 7,
+              "right": 492.34,
+              "bottom": 357.17,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43098350",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 500,
+                "y": 351.234375
+              },
+              "x": 496.5,
+              "y": 347.73,
+              "w": 7,
+              "h": 7,
+              "right": 503.5,
+              "bottom": 354.73,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43098937",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 398.171875,
+                "y": 348.78125
+              },
+              "x": 394.67,
+              "y": 345.28,
+              "w": 7,
+              "h": 7,
+              "right": 401.67,
+              "bottom": 352.28,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43102091",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 400.98439025878906,
+                "y": 338.4375
+              },
+              "x": 396.03,
+              "y": 333.49,
+              "w": 9.9,
+              "h": 9.9,
+              "right": 405.93,
+              "bottom": 343.39,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43098157",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 373.703125,
+                "y": 467.671875
+              },
+              "x": 370.2,
+              "y": 464.17,
+              "w": 7,
+              "h": 7,
+              "right": 377.2,
+              "bottom": 471.17,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43102925",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 403.953125,
+                "y": 324.84375
+              },
+              "x": 400.45,
+              "y": 321.34,
+              "w": 7,
+              "h": 7,
+              "right": 407.45,
+              "bottom": 328.34,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43098945",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 415.78125,
+                "y": 332.890625
+              },
+              "x": 412.28,
+              "y": 329.39,
+              "w": 7,
+              "h": 7,
+              "right": 419.28,
+              "bottom": 336.39,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43101127",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 357.09375,
+                "y": 468.734375
+              },
+              "x": 353.59,
+              "y": 465.23,
+              "w": 7,
+              "h": 7,
+              "right": 360.59,
+              "bottom": 472.23,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43101081",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 345.1875,
+                "y": 464.75
+              },
+              "x": 341.69,
+              "y": 461.25,
+              "w": 7,
+              "h": 7,
+              "right": 348.69,
+              "bottom": 468.25,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099636",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 521.765625,
+                "y": 340.359375
+              },
+              "x": 518.27,
+              "y": 336.86,
+              "w": 7,
+              "h": 7,
+              "right": 525.27,
+              "bottom": 343.86,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43078578",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 541.6875,
+                "y": 455.046875
+              },
+              "x": 538.19,
+              "y": 451.55,
+              "w": 7,
+              "h": 7,
+              "right": 545.19,
+              "bottom": 458.55,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099536",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 517.640625,
+                "y": 356.484375
+              },
+              "x": 512.69,
+              "y": 351.53,
+              "w": 9.9,
+              "h": 9.9,
+              "right": 522.59,
+              "bottom": 361.43,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43101476",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 532.359375,
+                "y": 377.4375
+              },
+              "x": 528.86,
+              "y": 373.94,
+              "w": 7,
+              "h": 7,
+              "right": 535.86,
+              "bottom": 380.94,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099584",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 541.515625,
+                "y": 362.265625
+              },
+              "x": 538.02,
+              "y": 358.77,
+              "w": 7,
+              "h": 7,
+              "right": 545.02,
+              "bottom": 365.77,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099540",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 529.984375,
+                "y": 358.203125
+              },
+              "x": 526.48,
+              "y": 354.7,
+              "w": 7,
+              "h": 7,
+              "right": 533.48,
+              "bottom": 361.7,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099277",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 548.21875,
+                "y": 468.1875
+              },
+              "x": 544.72,
+              "y": 464.69,
+              "w": 7,
+              "h": 7,
+              "right": 551.72,
+              "bottom": 471.69,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099332",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 347.015625,
+                "y": 454.046875
+              },
+              "x": 343.52,
+              "y": 450.55,
+              "w": 7,
+              "h": 7,
+              "right": 350.52,
+              "bottom": 457.55,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43098826",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 482.078125,
+                "y": 513.484375
+              },
+              "x": 478.58,
+              "y": 509.98,
+              "w": 7,
+              "h": 7,
+              "right": 485.58,
+              "bottom": 516.98,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43102657",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 548.25,
+                "y": 380.8125
+              },
+              "x": 545.25,
+              "y": 377.81,
+              "w": 6,
+              "h": 6,
+              "right": 551.25,
+              "bottom": 383.81,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099001",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 418.5,
+                "y": 308.609375
+              },
+              "x": 415.5,
+              "y": 305.61,
+              "w": 6,
+              "h": 6,
+              "right": 421.5,
+              "bottom": 311.61,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43100947",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 333.671875,
+                "y": 448.4375
+              },
+              "x": 330.67,
+              "y": 445.44,
+              "w": 6,
+              "h": 6,
+              "right": 336.67,
+              "bottom": 451.44,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43100972",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 322.90625,
+                "y": 440.328125
+              },
+              "x": 319.91,
+              "y": 437.33,
+              "w": 6,
+              "h": 6,
+              "right": 325.91,
+              "bottom": 443.33,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43101819",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 564.9375,
+                "y": 419.140625
+              },
+              "x": 561.94,
+              "y": 416.14,
+              "w": 6,
+              "h": 6,
+              "right": 567.94,
+              "bottom": 422.14,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099480",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 556.921875,
+                "y": 409.15625
+              },
+              "x": 553.92,
+              "y": 406.16,
+              "w": 6,
+              "h": 6,
+              "right": 559.92,
+              "bottom": 412.16,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099452",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 548.15625,
+                "y": 400.59375
+              },
+              "x": 545.16,
+              "y": 397.59,
+              "w": 6,
+              "h": 6,
+              "right": 551.16,
+              "bottom": 403.59,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099405",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 560.78125,
+                "y": 387.59375
+              },
+              "x": 557.78,
+              "y": 384.59,
+              "w": 6,
+              "h": 6,
+              "right": 563.78,
+              "bottom": 390.59,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099043",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 554.03125,
+                "y": 428.828125
+              },
+              "x": 551.03,
+              "y": 425.83,
+              "w": 6,
+              "h": 6,
+              "right": 557.03,
+              "bottom": 431.83,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43102678",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 541.546875,
+                "y": 476.03125
+              },
+              "x": 538.55,
+              "y": 473.03,
+              "w": 6,
+              "h": 6,
+              "right": 544.55,
+              "bottom": 479.03,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099534",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 562.53125,
+                "y": 440.21875
+              },
+              "x": 559.53,
+              "y": 437.22,
+              "w": 6,
+              "h": 6,
+              "right": 565.53,
+              "bottom": 443.22,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43101775",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 557.609375,
+                "y": 460.859375
+              },
+              "x": 554.61,
+              "y": 457.86,
+              "w": 6,
+              "h": 6,
+              "right": 560.61,
+              "bottom": 463.86,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43099449",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 575.4375,
+                "y": 454.640625
+              },
+              "x": 572.44,
+              "y": 451.64,
+              "w": 6,
+              "h": 6,
+              "right": 578.44,
+              "bottom": 457.64,
+              "font": "16px",
+              "line": "normal"
+            },
+            {
+              "id": "pmid_43101461",
+              "selected": false,
+              "center": true,
+              "target": {
+                "x": 561.46875,
+                "y": 474.375
+              },
+              "x": 558.47,
+              "y": 471.38,
+              "w": 6,
+              "h": 6,
+              "right": 564.47,
+              "bottom": 477.38,
+              "font": "16px",
+              "line": "normal"
+            }
+          ],
+          "clippedLabels": 0,
+          "queueItems": 43,
+          "visibleQueueItems": 9,
+          "findingChars": 0,
+          "excerptChars": 3670,
+          "data": {
+            "date": "2026-11-28",
+            "injected": 43,
+            "merged": 43,
+            "ids": [
+              "pmid_43098161",
+              "pmid_43101394",
+              "pmid_43078581",
+              "pmid_43098160",
+              "pmid_43098163",
+              "pmid_43100223",
+              "pmid_43098350",
+              "pmid_43102874",
+              "pmid_43098937",
+              "pmid_43102091",
+              "pmid_43098157",
+              "pmid_43102925",
+              "pmid_43098945",
+              "pmid_43098313",
+              "pmid_43101127",
+              "pmid_43101081",
+              "pmid_43099636",
+              "pmid_43078578",
+              "pmid_43099536",
+              "pmid_43099703",
+              "pmid_43101476",
+              "pmid_43099584",
+              "pmid_43099540",
+              "pmid_43099277",
+              "pmid_43101871",
+              "pmid_43099332",
+              "pmid_43098826",
+              "pmid_43099565",
+              "pmid_43102657",
+              "pmid_43099001",
+              "pmid_43100947",
+              "pmid_43100972",
+              "pmid_43101819",
+              "pmid_43099480",
+              "pmid_43099452",
+              "pmid_43099405",
+              "pmid_43099043",
+              "pmid_43100722",
+              "pmid_43102678",
+              "pmid_43099534",
+              "pmid_43101775",
+              "pmid_43099449",
+              "pmid_43101461"
+            ]
+          },
+          "failures": [
+            "page horizontal overflow (949/949 > 901)",
+            "panel outside deck"
+          ]
+        }
+      },
+      "actions": {
+        "overviewFilters": true,
+        "overviewFiltersClose": true,
+        "legend": true,
+        "legendJournal": true,
+        "legendClear": true,
+        "legendClose": true,
+        "radar:pmid_43078581": true,
+        "radar:pmid_43098160": true,
+        "radar:pmid_43098163": true,
+        "radarTargetsExercised": true
+      },
+      "errors": []
+    }
+  ]
+}

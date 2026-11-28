@@ -1,0 +1,22 @@
+browser=Chrome/158.0.8127.88 origin=http://127.0.0.1:54786 mode=compare SITE_DATA.sha256=a93729ac5b65565f7e8480763bedc1b89f2690012d2a0f7e35383106e1427f97
+head 1422x800 PASS grid=280px 724px 350px dial=420 stage=708x469.7 points=36/36 overflow=0 reading=12px/12px
+head 2134x1073 PASS grid=280px 1102px 350px dial=420 stage=1086x742.7 points=36/36 overflow=0 reading=12px/12px
+head 1920x1080 PASS grid=280px 1102px 350px dial=420 stage=1086x749.7 points=36/36 overflow=0 reading=—
+head 1366x768 PASS grid=280px 668px 350px dial=420 stage=652x437.7 points=36/36 overflow=0 reading=—
+head 1180x900 FAIL grid=240px 579px 315px dial=420 stage=563x577.7 points=36/36 overflow=0 reading=12px/12px | reading-filters: control clipping tier-chip active | reading-filters: filter spills outside its panel: tier-block
+head 1024x768 FAIL grid=240px 423px 315px dial=407 stage=407x418.7 points=36/36 overflow=0 reading=12px/12px | overview: radar labels outside stage (3) | overview-filters: radar labels outside stage (3) | reading-filters: control clipping tier-chip active | reading-filters: control center covered tier-chip active | reading-filters: control clipping tier-chip active | reading-filters: control center covered tier-chip active | reading-filters: control clipping tier-chip active | reading-filters: control center covered tier-chip active | reading-filters: filter spills outside its panel: tier-block
+head 901x1000 FAIL grid=240px 360px 315px dial=344 stage=344x650.7 points=36/36 overflow=48 reading=— | overview: page horizontal overflow (949/949 > 901) | overview: panel outside deck | overview: radar labels outside stage (3) | overview-filters: page horizontal overflow (949/949 > 901) | overview-filters: panel outside deck | overview-filters: radar labels outside stage (3) | overview-legend: page horizontal overflow (949/949 > 901) | overview-legend: panel outside deck | overview-legend: radar labels outside stage (3)
+head 900x1000 PASS grid=861px dial=560 stage=861x560 points=36/36 overflow=0 reading=—
+head 768x1024 PASS grid=729px dial=560 stage=729x560 points=36/36 overflow=0 reading=—
+head 390x844 FAIL grid=370px dial=370 stage=370x370 points=36/36 overflow=0 reading=12px/12.5px | overview: radar labels outside stage (2) | overview-filters: radar labels outside stage (2) | overview-legend: control clipping Int J Chron Obstruct Pulmon Dis | overview-legend: control clipping Cochrane Database Syst Rev | overview-legend: radar labels outside stage (2)
+candidate 1422x800 PASS grid=270px 702px 390px dial=477.7 stage=686x477.7 points=36/36 overflow=0 reading=12px/12px
+candidate 2134x1073 PASS grid=320.094px 1159.91px 460px dial=620 stage=1143.91x750.7 points=36/36 overflow=0 reading=12px/12px
+candidate 1920x1080 PASS grid=294px 1143.61px 422.391px dial=620 stage=1127.61x757.7 points=36/36 overflow=0 reading=—
+candidate 1366x768 PASS grid=270px 646px 390px dial=445.7 stage=630x445.7 points=36/36 overflow=0 reading=—
+candidate 1180x900 PASS grid=240px 579px 315px dial=420 stage=563x577.7 points=36/36 overflow=0 reading=12px/12px
+candidate 1024x768 PASS grid=240px 423px 315px dial=407 stage=407x418.7 points=36/36 overflow=0 reading=12px/12px
+candidate 901x1000 PASS grid=240px 300px 315px dial=284 stage=284x650.7 points=36/36 overflow=0 reading=—
+candidate 900x1000 PASS grid=861px dial=560 stage=861x560 points=36/36 overflow=0 reading=—
+candidate 768x1024 PASS grid=729px dial=560 stage=729x560 points=36/36 overflow=0 reading=—
+candidate 390x844 PASS grid=370px dial=370 stage=370x370 points=36/36 overflow=0 reading=12px/12.5px
+     cleanup | browser pid=34664 exitCode=null signalCode=SIGTERM | 带 profile 标记的进程：收尾前=34664,53744,39044,37504,44688,44140,55796,43248 | 主进程结束后残留=无 | 逐 PID 结束=无 | 复查仍存活=无

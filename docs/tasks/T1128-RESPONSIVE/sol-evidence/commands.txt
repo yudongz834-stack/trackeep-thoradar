@@ -1,0 +1,27 @@
+Working directory: D:/trackeep/trackeep-product/trackeep-thoradar-responsive-T1128
+Run in PowerShell. The initial UX baseline preparation must run while index.html still matches HEAD. The prepared first-parent baseline is retained to rerun UX against the candidate.
+
+$e = Resolve-Path 'docs/tasks/T1128-RESPONSIVE/sol-evidence'
+git status --short
+git rev-parse --show-toplevel
+git rev-parse HEAD
+git worktree list
+
+# Before the CSS edit
+node tests/smooth/prepare-ci-ux-baseline.mjs (git rev-parse HEAD) (Join-Path $e 'ux-parent.html')
+$env:XREV_SCRATCH = Join-Path $e 'ux-scratch'
+node tests/ux/ux_probe.mjs --target index.html --base-html (Join-Path $e 'ux-parent.html') --label responsive-head
+node "$e/responsive-probe.mjs" baseline
+
+# After the CSS edit
+node "$e/responsive-probe.mjs" compare
+$env:XREV_SCRATCH = Join-Path $e 'ux-scratch'
+node tests/ux/ux_probe.mjs --target index.html --base-html (Join-Path $e 'ux-parent.html') --label responsive-candidate
+
+# Run only after the other candidate browser runs exit. The script restores index.html in finally.
+pwsh -NoProfile -File "$e/layout-mutation.ps1"
+
+# After restoring index.html
+node "$e/source-check.mjs"
+git diff --check
+git status --short
