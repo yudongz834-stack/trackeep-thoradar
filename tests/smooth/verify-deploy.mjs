@@ -185,8 +185,9 @@ try {
     'set -e', 'mock_bin="$RUNNER_TEMP/bin"',
     'if [[ "$OSTYPE" == msys* ]]; then mock_bin=$(cygpath -u "$mock_bin"); fi',
     'export PATH="$mock_bin:$PATH"',
-    '# Hosted Windows may prefer the system curl.exe over a no-extension PATH mock.',
+    '# Hosted Windows may prefer system executables over no-extension PATH mocks.',
     'curl() { "$mock_bin/curl" "$@"; }',
+    'sleep() { "$mock_bin/sleep" "$@"; }',
     deployScript
   ].join('\n'));
 
