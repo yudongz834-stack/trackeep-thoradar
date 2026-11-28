@@ -1,0 +1,416 @@
+deploy-oss	Set up job	﻿2026-11-28T13:23:18.3675698Z Current runner version: '2.338.2'
+deploy-oss	Set up job	2026-11-28T13:23:18.3735884Z ##[group]Runner Image Provisioner
+deploy-oss	Set up job	2026-11-28T13:23:18.3737392Z Hosted Compute Agent
+deploy-oss	Set up job	2026-11-28T13:23:18.3738163Z Version: 20261111.635
+deploy-oss	Set up job	2026-11-28T13:23:18.3738929Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+deploy-oss	Set up job	2026-11-28T13:23:18.3739917Z Build Date: 2026-11-11T01:49:01Z
+deploy-oss	Set up job	2026-11-28T13:23:18.3740816Z Worker ID: {875b9988-426c-49fd-89cd-5a40e43dc3b0}
+deploy-oss	Set up job	2026-11-28T13:23:18.3741772Z Region: eastus2
+deploy-oss	Set up job	2026-11-28T13:23:18.3742453Z Cloud: Azure
+deploy-oss	Set up job	2026-11-28T13:23:18.3743592Z ##[endgroup]
+deploy-oss	Set up job	2026-11-28T13:23:18.3745890Z ##[group]Operating System
+deploy-oss	Set up job	2026-11-28T13:23:18.3746816Z Ubuntu
+deploy-oss	Set up job	2026-11-28T13:23:18.3747498Z 26.04.1
+deploy-oss	Set up job	2026-11-28T13:23:18.3748536Z LTS
+deploy-oss	Set up job	2026-11-28T13:23:18.3749199Z ##[endgroup]
+deploy-oss	Set up job	2026-11-28T13:23:18.3749966Z ##[group]Runner Image
+deploy-oss	Set up job	2026-11-28T13:23:18.3750822Z Image: ubuntu-26.04
+deploy-oss	Set up job	2026-11-28T13:23:18.3751548Z Version: 20261122.9.1
+deploy-oss	Set up job	2026-11-28T13:23:18.3753140Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261122.9/images/ubuntu/Ubuntu2604-Readme.md
+deploy-oss	Set up job	2026-11-28T13:23:18.3755530Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261122.9
+deploy-oss	Set up job	2026-11-28T13:23:18.3756774Z ##[endgroup]
+deploy-oss	Set up job	2026-11-28T13:23:18.3758158Z ##[group]GITHUB_TOKEN Permissions
+deploy-oss	Set up job	2026-11-28T13:23:18.3760920Z Contents: read
+deploy-oss	Set up job	2026-11-28T13:23:18.3761718Z Metadata: read
+deploy-oss	Set up job	2026-11-28T13:23:18.3762398Z ##[endgroup]
+deploy-oss	Set up job	2026-11-28T13:23:18.3765367Z Secret source: Actions
+deploy-oss	Set up job	2026-11-28T13:23:18.3766527Z Cache mode: write
+deploy-oss	Set up job	2026-11-28T13:23:18.3767912Z Prepare workflow directory
+deploy-oss	Set up job	2026-11-28T13:23:18.4169933Z Prepare all required actions
+deploy-oss	Set up job	2026-11-28T13:23:18.4231329Z Getting action download info
+deploy-oss	Set up job	2026-11-28T13:23:18.5738435Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+deploy-oss	Set up job	2026-11-28T13:23:19.5211367Z Complete job name: deploy-oss
+deploy-oss	Checkout repository	﻿2026-11-28T13:23:19.6202054Z ##[group]Run actions/checkout@v4
+deploy-oss	Checkout repository	2026-11-28T13:23:19.6203494Z with:
+deploy-oss	Checkout repository	2026-11-28T13:23:19.6204351Z   ref: 2c43373aec098375edb9500b2b12e02cb12f2b06
+deploy-oss	Checkout repository	2026-11-28T13:23:19.6205482Z   persist-credentials: false
+deploy-oss	Checkout repository	2026-11-28T13:23:19.6206519Z   repository: yudongz834-stack/trackeep-thoradar
+deploy-oss	Checkout repository	2026-11-28T13:23:19.6214799Z   token: ***
+deploy-oss	Checkout repository	2026-11-28T13:23:19.6215590Z   ssh-strict: true
+deploy-oss	Checkout repository	2026-11-28T13:23:19.6216397Z   ssh-user: git
+deploy-oss	Checkout repository	2026-11-28T13:23:19.6217269Z   clean: true
+deploy-oss	Checkout repository	2026-11-28T13:23:19.6218097Z   sparse-checkout-cone-mode: true
+deploy-oss	Checkout repository	2026-11-28T13:23:19.6219061Z   fetch-depth: 1
+deploy-oss	Checkout repository	2026-11-28T13:23:19.6219859Z   fetch-tags: false
+deploy-oss	Checkout repository	2026-11-28T13:23:19.6220712Z   show-progress: true
+deploy-oss	Checkout repository	2026-11-28T13:23:19.6221537Z   lfs: false
+deploy-oss	Checkout repository	2026-11-28T13:23:19.6222319Z   submodules: false
+deploy-oss	Checkout repository	2026-11-28T13:23:19.6223320Z   set-safe-directory: true
+deploy-oss	Checkout repository	2026-11-28T13:23:19.6224257Z   allow-unsafe-pr-checkout: false
+deploy-oss	Checkout repository	2026-11-28T13:23:19.6225471Z ##[endgroup]
+deploy-oss	Checkout repository	2026-11-28T13:23:20.2855477Z Syncing repository: yudongz834-stack/trackeep-thoradar
+deploy-oss	Checkout repository	2026-11-28T13:23:20.2857690Z ##[group]Getting Git version info
+deploy-oss	Checkout repository	2026-11-28T13:23:20.2858302Z Working directory is '/home/runner/work/trackeep-thoradar/trackeep-thoradar'
+deploy-oss	Checkout repository	2026-11-28T13:23:20.2859163Z [command]/usr/bin/git version
+deploy-oss	Checkout repository	2026-11-28T13:23:20.2869613Z git version 2.56.1
+deploy-oss	Checkout repository	2026-11-28T13:23:20.2886319Z ##[endgroup]
+deploy-oss	Checkout repository	2026-11-28T13:23:20.2899344Z Temporarily overriding HOME='/home/runner/work/_temp/b8de3e6d-0c97-4637-9a01-b68456009166' before making global git config changes
+deploy-oss	Checkout repository	2026-11-28T13:23:20.2900492Z Adding repository directory to the temporary git global config as a safe directory
+deploy-oss	Checkout repository	2026-11-28T13:23:20.2904988Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/trackeep-thoradar/trackeep-thoradar
+deploy-oss	Checkout repository	2026-11-28T13:23:20.2961617Z Deleting the contents of '/home/runner/work/trackeep-thoradar/trackeep-thoradar'
+deploy-oss	Checkout repository	2026-11-28T13:23:20.2965114Z ##[group]Initializing the repository
+deploy-oss	Checkout repository	2026-11-28T13:23:20.2969222Z [command]/usr/bin/git init /home/runner/work/trackeep-thoradar/trackeep-thoradar
+deploy-oss	Checkout repository	2026-11-28T13:23:20.3045708Z hint: Using 'master' as the name for the initial branch. This default branch name
+deploy-oss	Checkout repository	2026-11-28T13:23:20.3046732Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+deploy-oss	Checkout repository	2026-11-28T13:23:20.3048133Z hint: to use in all of your new repositories, which will suppress this warning,
+deploy-oss	Checkout repository	2026-11-28T13:23:20.3048825Z hint: call:
+deploy-oss	Checkout repository	2026-11-28T13:23:20.3049279Z hint:
+deploy-oss	Checkout repository	2026-11-28T13:23:20.3049836Z hint: 	git config --global init.defaultBranch <name>
+deploy-oss	Checkout repository	2026-11-28T13:23:20.3050436Z hint:
+deploy-oss	Checkout repository	2026-11-28T13:23:20.3051006Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+deploy-oss	Checkout repository	2026-11-28T13:23:20.3051864Z hint: 'development'. The just-created branch can be renamed via this command:
+deploy-oss	Checkout repository	2026-11-28T13:23:20.3052545Z hint:
+deploy-oss	Checkout repository	2026-11-28T13:23:20.3053188Z hint: 	git branch -m <name>
+deploy-oss	Checkout repository	2026-11-28T13:23:20.3053709Z hint:
+deploy-oss	Checkout repository	2026-11-28T13:23:20.3054312Z hint: Disable this message with "git config set advice.defaultBranchName false"
+deploy-oss	Checkout repository	2026-11-28T13:23:20.3055389Z Initialized empty Git repository in /home/runner/work/trackeep-thoradar/trackeep-thoradar/.git/
+deploy-oss	Checkout repository	2026-11-28T13:23:20.3063335Z [command]/usr/bin/git remote add origin https://github.com/yudongz834-stack/trackeep-thoradar
+deploy-oss	Checkout repository	2026-11-28T13:23:20.3110743Z ##[endgroup]
+deploy-oss	Checkout repository	2026-11-28T13:23:20.3111406Z ##[group]Disabling automatic garbage collection
+deploy-oss	Checkout repository	2026-11-28T13:23:20.3114080Z [command]/usr/bin/git config --local gc.auto 0
+deploy-oss	Checkout repository	2026-11-28T13:23:20.3226562Z ##[endgroup]
+deploy-oss	Checkout repository	2026-11-28T13:23:20.3227189Z ##[group]Setting up auth
+deploy-oss	Checkout repository	2026-11-28T13:23:20.3227791Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+deploy-oss	Checkout repository	2026-11-28T13:23:20.3257737Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+deploy-oss	Checkout repository	2026-11-28T13:23:20.3860136Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+deploy-oss	Checkout repository	2026-11-28T13:23:20.3891233Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+deploy-oss	Checkout repository	2026-11-28T13:23:20.4144944Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+deploy-oss	Checkout repository	2026-11-28T13:23:20.4176708Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+deploy-oss	Checkout repository	2026-11-28T13:23:20.4420843Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+deploy-oss	Checkout repository	2026-11-28T13:23:20.4456456Z ##[endgroup]
+deploy-oss	Checkout repository	2026-11-28T13:23:20.4457192Z ##[group]Fetching the repository
+deploy-oss	Checkout repository	2026-11-28T13:23:20.4464901Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin 2c43373aec098375edb9500b2b12e02cb12f2b06
+deploy-oss	Checkout repository	2026-11-28T13:23:22.9526846Z From https://github.com/yudongz834-stack/trackeep-thoradar
+deploy-oss	Checkout repository	2026-11-28T13:23:22.9527685Z  * branch            2c43373aec098375edb9500b2b12e02cb12f2b06 -> FETCH_HEAD
+deploy-oss	Checkout repository	2026-11-28T13:23:22.9536189Z ##[endgroup]
+deploy-oss	Checkout repository	2026-11-28T13:23:22.9536701Z ##[group]Determining the checkout info
+deploy-oss	Checkout repository	2026-11-28T13:23:22.9537252Z ##[endgroup]
+deploy-oss	Checkout repository	2026-11-28T13:23:22.9540041Z [command]/usr/bin/git sparse-checkout disable
+deploy-oss	Checkout repository	2026-11-28T13:23:22.9588692Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+deploy-oss	Checkout repository	2026-11-28T13:23:22.9615725Z ##[group]Checking out the ref
+deploy-oss	Checkout repository	2026-11-28T13:23:22.9626448Z [command]/usr/bin/git checkout --progress --force 2c43373aec098375edb9500b2b12e02cb12f2b06
+deploy-oss	Checkout repository	2026-11-28T13:23:23.2046761Z Note: switching to '2c43373aec098375edb9500b2b12e02cb12f2b06'.
+deploy-oss	Checkout repository	2026-11-28T13:23:23.2047194Z 
+deploy-oss	Checkout repository	2026-11-28T13:23:23.2047436Z You are in 'detached HEAD' state. You can look around, make experimental
+deploy-oss	Checkout repository	2026-11-28T13:23:23.2048008Z changes and commit them, and you can discard any commits you make in this
+deploy-oss	Checkout repository	2026-11-28T13:23:23.2048563Z state without impacting any branches by switching back to a branch.
+deploy-oss	Checkout repository	2026-11-28T13:23:23.2048903Z 
+deploy-oss	Checkout repository	2026-11-28T13:23:23.2049174Z If you want to create a new branch to retain commits you create, you may
+deploy-oss	Checkout repository	2026-11-28T13:23:23.2049735Z do so (now or later) by using -c with the switch command. Example:
+deploy-oss	Checkout repository	2026-11-28T13:23:23.2050025Z 
+deploy-oss	Checkout repository	2026-11-28T13:23:23.2050534Z   git switch -c <new-branch-name>
+deploy-oss	Checkout repository	2026-11-28T13:23:23.2050746Z 
+deploy-oss	Checkout repository	2026-11-28T13:23:23.2050861Z Or undo this operation with:
+deploy-oss	Checkout repository	2026-11-28T13:23:23.2051058Z 
+deploy-oss	Checkout repository	2026-11-28T13:23:23.2051168Z   git switch -
+deploy-oss	Checkout repository	2026-11-28T13:23:23.2051328Z 
+deploy-oss	Checkout repository	2026-11-28T13:23:23.2051571Z Turn off this advice by setting config variable advice.detachedHead to false
+deploy-oss	Checkout repository	2026-11-28T13:23:23.2051900Z 
+deploy-oss	Checkout repository	2026-11-28T13:23:23.2052135Z HEAD is now at 2c43373 T1128: publish canonical host with verified local shell
+deploy-oss	Checkout repository	2026-11-28T13:23:23.2070581Z ##[endgroup]
+deploy-oss	Checkout repository	2026-11-28T13:23:23.2117704Z [command]/usr/bin/git log -1 --format=%H
+deploy-oss	Checkout repository	2026-11-28T13:23:23.2140908Z 2c43373aec098375edb9500b2b12e02cb12f2b06
+deploy-oss	Checkout repository	2026-11-28T13:23:23.2152243Z ##[group]Removing auth
+deploy-oss	Checkout repository	2026-11-28T13:23:23.2153931Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+deploy-oss	Checkout repository	2026-11-28T13:23:23.2181544Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+deploy-oss	Checkout repository	2026-11-28T13:23:23.2428880Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+deploy-oss	Checkout repository	2026-11-28T13:23:23.2451304Z http.https://github.com/.extraheader
+deploy-oss	Checkout repository	2026-11-28T13:23:23.2458217Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+deploy-oss	Checkout repository	2026-11-28T13:23:23.2487404Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+deploy-oss	Checkout repository	2026-11-28T13:23:23.2729501Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+deploy-oss	Checkout repository	2026-11-28T13:23:23.2757808Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+deploy-oss	Checkout repository	2026-11-28T13:23:23.2997791Z ##[endgroup]
+deploy-oss	Install OSS and CDN tools	﻿2026-11-28T13:23:23.3183167Z ##[group]Run set -euo pipefail
+deploy-oss	Install OSS and CDN tools	2026-11-28T13:23:23.3183598Z ^[[36;1mset -euo pipefail^[[0m
+deploy-oss	Install OSS and CDN tools	2026-11-28T13:23:23.3184013Z ^[[36;1m# ossutil 走 GitHub 官方发行版 v1.7.18 zip（v1.7.19 无 linux 资产·alicdn 域名美国 runner 不通）^[[0m
+deploy-oss	Install OSS and CDN tools	2026-11-28T13:23:23.3184371Z ^[[36;1mcd "$RUNNER_TEMP"^[[0m
+deploy-oss	Install OSS and CDN tools	2026-11-28T13:23:23.3184821Z ^[[36;1mcurl -fsSL https://github.com/aliyun/ossutil/releases/download/v1.7.18/ossutil-v1.7.18-linux-amd64.zip -o ossutil.zip^[[0m
+deploy-oss	Install OSS and CDN tools	2026-11-28T13:23:23.3185272Z ^[[36;1munzip -q ossutil.zip^[[0m
+deploy-oss	Install OSS and CDN tools	2026-11-28T13:23:23.3185524Z ^[[36;1mmv ossutil-v1.7.18-linux-amd64/ossutil ./ossutil^[[0m
+deploy-oss	Install OSS and CDN tools	2026-11-28T13:23:23.3185791Z ^[[36;1mchmod +x ossutil^[[0m
+deploy-oss	Install OSS and CDN tools	2026-11-28T13:23:23.3186103Z ^[[36;1mfile ossutil | grep -q ELF || { echo 'ossutil download is not an ELF binary'; exit 9; }^[[0m
+deploy-oss	Install OSS and CDN tools	2026-11-28T13:23:23.3186444Z ^[[36;1m./ossutil --version^[[0m
+deploy-oss	Install OSS and CDN tools	2026-11-28T13:23:23.3186637Z ^[[36;1m^[[0m
+deploy-oss	Install OSS and CDN tools	2026-11-28T13:23:23.3186813Z ^[[36;1mmkdir -p aliyun^[[0m
+deploy-oss	Install OSS and CDN tools	2026-11-28T13:23:23.3187254Z ^[[36;1mcurl -fsSL https://github.com/aliyun/aliyun-cli/releases/download/v3.5.4/aliyun-cli-linux-3.5.4-amd64.tgz -o aliyun/cli.tgz^[[0m
+deploy-oss	Install OSS and CDN tools	2026-11-28T13:23:23.3187953Z ^[[36;1mecho 'e1eefcbbe9d772d61f770d4af8595e7297e081a0348b096765d2c41e581c3e72  aliyun/cli.tgz' | sha256sum -c -^[[0m
+deploy-oss	Install OSS and CDN tools	2026-11-28T13:23:23.3188393Z ^[[36;1mtar -xzf aliyun/cli.tgz -C aliyun^[[0m
+deploy-oss	Install OSS and CDN tools	2026-11-28T13:23:23.3188625Z ^[[36;1mchmod +x aliyun/aliyun^[[0m
+deploy-oss	Install OSS and CDN tools	2026-11-28T13:23:23.3222605Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+deploy-oss	Install OSS and CDN tools	2026-11-28T13:23:23.3222914Z ##[endgroup]
+deploy-oss	Install OSS and CDN tools	2026-11-28T13:23:23.7281764Z ossutil version: v1.7.18
+deploy-oss	Install OSS and CDN tools	2026-11-28T13:23:24.2510203Z aliyun/cli.tgz: OK
+deploy-oss	Publish and verify site	﻿2026-11-28T13:23:24.6045328Z ##[group]Run set -euo pipefail
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6046000Z ^[[36;1mset -euo pipefail^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6046223Z ^[[36;1mossutil="$RUNNER_TEMP/ossutil"^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6046475Z ^[[36;1maliyun="$RUNNER_TEMP/aliyun/aliyun"^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6046918Z ^[[36;1m"$ossutil" config -e oss-cn-shenzhen.aliyuncs.com -i "$OSS_KEY_ID" -k "$OSS_KEY_SECRET" -L CH >/dev/null 2>&1 || {^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6047362Z ^[[36;1m  echo 'OSS configuration failed' >&2^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6047594Z ^[[36;1m  exit 1^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6047929Z ^[[36;1m}^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6048101Z ^[[36;1m# 开桶（幂等：已存在则忽略）^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6048446Z ^[[36;1m"$ossutil" mb oss://thoradar-online --acl public-read 2>/dev/null || echo "跳过桶创建，继续检查现有桶"^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6048890Z ^[[36;1m# 静态站默认页：v1.7.18 website put 只认 XML 配置文件（--index-page 是幻影旗标，^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6049239Z ^[[36;1m# 2>/dev/null || true 曾吞错致根路径 403——2026-11-20 控制台补设＋此处改 XML 正方）^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6049520Z ^[[36;1mcat > website.xml <<'XML'^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6049817Z ^[[36;1m<?xml version="1.0" encoding="UTF-8"?>^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6050060Z ^[[36;1m<WebsiteConfiguration>^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6050341Z ^[[36;1m  <IndexDocument><Suffix>index.html</Suffix></IndexDocument>^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6050682Z ^[[36;1m  <ErrorDocument><Key>index.html</Key></ErrorDocument>^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6050957Z ^[[36;1m</WebsiteConfiguration>^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6051160Z ^[[36;1mXML^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6051411Z ^[[36;1m"$ossutil" website --method put oss://thoradar-online website.xml^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6051747Z ^[[36;1m# 站面文件（首页/图标/搜索登记/订阅件）——ossutil 单命令单源，逐件上传^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6052040Z ^[[36;1m# sitemap lastmod 部署时现打当日戳（Hydrogen 11-20 审出死日期 2026-11-08 滞留）^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6052503Z ^[[36;1msed "s|<lastmod>[^<]*</lastmod>|<lastmod>$(date -u +%Y-%m-%d)</lastmod>|" sitemap.xml > "$RUNNER_TEMP/sitemap.xml"^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6052917Z ^[[36;1mmv "$RUNNER_TEMP/sitemap.xml" sitemap.xml^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6053419Z ^[[36;1mfor f in favicon.ico robots.txt sitemap.xml; do^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6053751Z ^[[36;1m  "$ossutil" cp -rf --update "$f" oss://thoradar-online/^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6054019Z ^[[36;1mdone^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6054317Z ^[[36;1m"$ossutil" cp -rf --update --meta Cache-Control:no-cache feed.xml oss://thoradar-online/^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6054889Z ^[[36;1m"$ossutil" cp -rf --update --meta "Cache-Control:public, max-age=60, s-maxage=300" data/radar_latest.json oss://thoradar-online/data/^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6055445Z ^[[36;1m"$ossutil" cp -rf --update --meta Cache-Control:no-cache api/ oss://thoradar-online/api/^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6055903Z ^[[36;1m"$ossutil" cp -rf --update thoradar-skill/ oss://thoradar-online/thoradar-skill/^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6056229Z ^[[36;1m^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6056400Z ^[[36;1mactive_worker=sw.js^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6056682Z ^[[36;1mif [[ "$SMOOTH_RETIRE" == true ]]; then active_worker=sw-retire.js; fi^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6057077Z ^[[36;1mworker_meta='Content-Type:application/javascript#Cache-Control:no-store'^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6057436Z ^[[36;1m# 始终覆盖 worker，确保正常与退役可双向切换；首页沿用现有缓存头并最后写入。^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6057805Z ^[[36;1m"$ossutil" cp -f --meta "$worker_meta" sw-retire.js oss://thoradar-online/sw-retire.js^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6058242Z ^[[36;1m"$ossutil" cp -f --meta "$worker_meta" "$active_worker" oss://thoradar-online/sw.js^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6058749Z ^[[36;1m"$ossutil" cp -f --meta 'Cache-Control:public, max-age=60, s-maxage=3600' index.html oss://thoradar-online/index.html^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6059160Z ^[[36;1m^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6059369Z ^[[36;1m# 开门＝桶级公共读（控制台定版，对象继承 ACL）——逐件 setacl 按 6.2/Hydrogen 双席审读裁撤^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6059649Z ^[[36;1m# （v1.7.18 无 setacl 命令·对象继承桶权限已实测 200）^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6059909Z ^[[36;1mecho '=== OSS uploads recorded'^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6060178Z ^[[36;1m"$ossutil" ls oss://thoradar-online/ | tail -2^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6060453Z ^[[36;1m# 两个域名都直连源站验证 SNI 与根路径 200；公网 CDN 响应在刷新提交后单独验证。^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6060708Z ^[[36;1mecho "=== HTTPS 预检（SNI=域名 → CNAME 目标）"^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6061160Z ^[[36;1mdomains=(thoradar.online www.thoradar.online)^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6061453Z ^[[36;1mpaths=(/ /index.html /sw.js /sw-retire.js)^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6061699Z ^[[36;1mfor h in "${domains[@]}"; do^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6061995Z ^[[36;1m  code=$(curl -sS -o /dev/null -w '%{http_code}' --connect-timeout 15 \^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6062295Z ^[[36;1m    --max-time 30 \^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6062603Z ^[[36;1m    --connect-to "$h:443:thoradar-online.cn-shenzhen.taihangtop.cn:443" \^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6063192Z ^[[36;1m    "https://$h/")^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6063485Z ^[[36;1m  if [ "$code" != "200" ]; then echo "✗ $h 根路径 HTTPS $code（期望 200）" >&2; exit 1; fi^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6063788Z ^[[36;1m  echo "$h 根路径 HTTPS 200 ✅"^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6064002Z ^[[36;1mdone^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6064171Z ^[[36;1m^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6064399Z ^[[36;1m# 只刷新正式域 thoradar.online。www 的永久跳转和退役 worker 例外由 CDN 配置提供。^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6064796Z ^[[36;1mrefresh_paths=$(printf 'https://thoradar.online%s\n' "${paths[@]}")^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6065110Z ^[[36;1mrefresh_id=''^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6065316Z ^[[36;1mfor attempt in 1 2; do^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6065568Z ^[[36;1m  echo "CDN RefreshObjectCaches attempt $attempt"^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6065827Z ^[[36;1m  if refresh_id=$(^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6066215Z ^[[36;1m    "$aliyun" cdn RefreshObjectCaches --region cn-shenzhen --ObjectType File --ObjectPath "$refresh_paths" |^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6066743Z ^[[36;1m      python3 -c 'import json, sys; value = json.load(sys.stdin).get("RefreshTaskId");^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6067209Z ^[[36;1mif type(value) not in (str, int) or not value or not str(value).strip(): sys.exit(1)^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6067602Z ^[[36;1mprint(json.dumps(value))'^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6067817Z ^[[36;1m  ); then^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6068020Z ^[[36;1m    echo "CDN RefreshTaskId=$refresh_id"^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6068262Z ^[[36;1m    break^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6068446Z ^[[36;1m  fi^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6068630Z ^[[36;1m  if [[ "$attempt" == 2 ]]; then^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6068919Z ^[[36;1m    echo 'CDN refresh failed or returned no RefreshTaskId' >&2^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6069199Z ^[[36;1m    exit 1^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6069377Z ^[[36;1m  fi^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6069539Z ^[[36;1m  sleep 5^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6069710Z ^[[36;1mdone^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6069870Z ^[[36;1m^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6070045Z ^[[36;1mcheck_object_headers() {^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6070289Z ^[[36;1m  awk -v expected="$1" -v worker="$2" '^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6070552Z ^[[36;1m    { sub(/\r$/, "") }^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6070828Z ^[[36;1m    /^HTTP\// { status=$2; md5=""; mime=""; cache=""; next }^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6137626Z ^[[36;1m    tolower($0) ~ /^content-md5:/ { md5=$0; sub(/^[^:]+:[ \t]*/, "", md5); sub(/[ \t]+$/, "", md5) }^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6138171Z ^[[36;1m    tolower($0) ~ /^content-type:/ { mime=tolower($0); sub(/^[^:]+:[ \t]*/, "", mime); sub(/([ \t]*;.*|[ \t]+)$/, "", mime) }^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6138762Z ^[[36;1m    tolower($0) ~ /^cache-control:/ { line=tolower($0); sub(/^[^:]+:[ \t]*/, "", line); cache=cache "," line }^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6139169Z ^[[36;1m    END {^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6139545Z ^[[36;1m      printf "HTTP=%s Content-MD5=%s expected=%s MIME=%s Cache-Control=%s", status, md5, expected, mime, cache^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6139956Z ^[[36;1m      if (status != 200 || md5 != expected) exit 1^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6140406Z ^[[36;1m      if (worker && (mime !~ /^(application|text)\/(javascript|ecmascript)$/ || cache !~ /,[ \t]*no-store[ \t]*(,|$)/)) exit 1^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6140862Z ^[[36;1m      if (!worker && mime != "text/html") exit 1^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6141095Z ^[[36;1m    }^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6141261Z ^[[36;1m  '^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6141422Z ^[[36;1m}^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6141588Z ^[[36;1m^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6141756Z ^[[36;1mcheck_redirect_headers() {^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6141981Z ^[[36;1m  awk -v expected="$1" '^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6142482Z ^[[36;1m    { sub(/\r$/, "") }^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6142738Z ^[[36;1m    /^HTTP\// { status=$2; location=""; locations=0; next }^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6143193Z ^[[36;1m    tolower($0) ~ /^location:/ {^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6143535Z ^[[36;1m      locations++^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6143814Z ^[[36;1m      location=$0; sub(/^[^:]+:[ \t]*/, "", location); sub(/[ \t]+$/, "", location)^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6144106Z ^[[36;1m    }^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6144281Z ^[[36;1m    END {^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6144628Z ^[[36;1m      printf "HTTP=%s Location=%s", status, location^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6144912Z ^[[36;1m      if (status != 301 && status != 308) exit 1^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6145192Z ^[[36;1m      if (locations != 1 || location != expected) exit 1^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6145452Z ^[[36;1m    }^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6145612Z ^[[36;1m  '^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6145773Z ^[[36;1m}^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6145927Z ^[[36;1m^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6146094Z ^[[36;1mverify_public() {^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6146316Z ^[[36;1m  local url="$1" headers result attempt^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6146547Z ^[[36;1m  shift^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6146721Z ^[[36;1m  for attempt in {1..12}; do^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6146983Z ^[[36;1m    # 读取首个公网响应，不跟随跳转。-q 禁止 curl 配置文件覆盖命令行为。^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6147410Z ^[[36;1m    if headers=$(curl -q -sS -I -H 'Accept-Encoding: identity' --connect-timeout 5 --max-time 10 "$url"); then^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6147814Z ^[[36;1m      if result=$("$@" <<< "$headers"); then^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6148075Z ^[[36;1m        echo "Verified $url $result"^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6148301Z ^[[36;1m        return 0^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6148493Z ^[[36;1m      fi^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6148656Z ^[[36;1m    else^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6148835Z ^[[36;1m      result='HEAD request failed'^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6149049Z ^[[36;1m    fi^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6149277Z ^[[36;1m    echo "Waiting for $url ($attempt/12) $result"^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6149562Z ^[[36;1m    # CDN 刷新从提交到生效约需 5–6 分钟。两次短等后拉长间隔，末次至少在 370 秒后。^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6149868Z ^[[36;1m    if (( attempt <= 2 )); then^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6150090Z ^[[36;1m      sleep 5^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6150289Z ^[[36;1m    elif (( attempt < 12 )); then^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6150507Z ^[[36;1m      sleep 40^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6150689Z ^[[36;1m    fi^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6150850Z ^[[36;1m  done^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6151038Z ^[[36;1m  echo "Verification failed for $url" >&2^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6151275Z ^[[36;1m  return 1^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6151454Z ^[[36;1m}^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6151611Z ^[[36;1m^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6151768Z ^[[36;1mverify_object() {^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6151990Z ^[[36;1m  local url="$1" source="$2" worker="$3" expected^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6152396Z ^[[36;1m  if ! expected=$(git cat-file blob "HEAD:$source" | openssl dgst -md5 -binary | openssl base64 -A); then^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6152830Z ^[[36;1m    echo "Unable to compute Content-MD5 from HEAD:$source" >&2^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6153202Z ^[[36;1m    return 1^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6153391Z ^[[36;1m  fi^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6153623Z ^[[36;1m  verify_public "$url" check_object_headers "$expected" "$worker"^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6153900Z ^[[36;1m}^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6154042Z ^[[36;1m^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6154210Z ^[[36;1mfor path in "${paths[@]}"; do^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6154459Z ^[[36;1m  url="https://thoradar.online$path"^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6154688Z ^[[36;1m  case "$path" in^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6154916Z ^[[36;1m    /sw.js) verify_object "$url" "$active_worker" 1 ;;^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6155218Z ^[[36;1m    /sw-retire.js) verify_object "$url" sw-retire.js 1 ;;^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6155505Z ^[[36;1m    *) verify_object "$url" index.html 0 ;;^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6155725Z ^[[36;1m  esac^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6155881Z ^[[36;1mdone^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6156029Z ^[[36;1m^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6156224Z ^[[36;1mfor path in / /index.html '/?from=www'; do^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6156633Z ^[[36;1m  verify_public "https://www.thoradar.online$path" check_redirect_headers "https://thoradar.online$path"^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6157210Z ^[[36;1mdone^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6157404Z ^[[36;1m# 保留旧 www 客户端的退役入口，两件 worker 在两种发布模式都返回退役文件。^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6157722Z ^[[36;1mverify_object 'https://www.thoradar.online/sw.js' sw-retire.js 1^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6158115Z ^[[36;1mverify_object 'https://www.thoradar.online/sw-retire.js' sw-retire.js 1^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6158451Z ^[[36;1mecho 'Publish verified on both domains'^[[0m
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6188379Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6188679Z env:
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6189104Z   OSS_KEY_ID: ***
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6189344Z   OSS_KEY_SECRET: ***
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6189584Z   ALIBABA_CLOUD_ACCESS_KEY_ID: ***
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6189874Z   ALIBABA_CLOUD_ACCESS_KEY_SECRET: ***
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6190098Z   SMOOTH_RETIRE: false
+deploy-oss	Publish and verify site	2026-11-28T13:23:24.6190284Z ##[endgroup]
+deploy-oss	Publish and verify site	2026-11-28T13:23:27.5232933Z Error: oss: service returned error: StatusCode=403, ErrorCode=AccessDenied, ErrorMessage="The bucket you access does not belong to you.", RequestId=6B0AD5CFAF47593032DD86A4, Ec=0003-00000001, Bucket=thoradar-online
+deploy-oss	Publish and verify site	2026-11-28T13:23:27.5234367Z 跳过桶创建，继续检查现有桶
+deploy-oss	Publish and verify site	2026-11-28T13:23:28.1510750Z 
+deploy-oss	Publish and verify site	2026-11-28T13:23:28.1514896Z 0.615328(s) elapsed
+deploy-oss	Publish and verify site	2026-11-28T13:23:29.4653771Z 
+deploy-oss	Publish and verify site	2026-11-28T13:23:29.4654510Z Succeed: Total num: 1, size: 31,101. OK num: 1(upload 1 files).
+deploy-oss	Publish and verify site	2026-11-28T13:23:29.4654840Z 
+deploy-oss	Publish and verify site	2026-11-28T13:23:29.4654966Z average speed 24000(byte/s)
+deploy-oss	Publish and verify site	2026-11-28T13:23:29.4655201Z 
+deploy-oss	Publish and verify site	2026-11-28T13:23:29.4655309Z 1.280804(s) elapsed
+deploy-oss	Publish and verify site	2026-11-28T13:23:30.3370502Z 
+deploy-oss	Publish and verify site	2026-11-28T13:23:30.3371155Z Succeed: Total num: 1, size: 69. OK num: 1(upload 1 files).
+deploy-oss	Publish and verify site	2026-11-28T13:23:30.3371512Z 
+deploy-oss	Publish and verify site	2026-11-28T13:23:30.3371619Z average speed 0(byte/s)
+deploy-oss	Publish and verify site	2026-11-28T13:23:30.3371897Z 
+deploy-oss	Publish and verify site	2026-11-28T13:23:30.3372096Z 0.861249(s) elapsed
+deploy-oss	Publish and verify site	2026-11-28T13:23:31.2253573Z 
+deploy-oss	Publish and verify site	2026-11-28T13:23:31.2254432Z Succeed: Total num: 1, size: 265. OK num: 1(upload 1 files).
+deploy-oss	Publish and verify site	2026-11-28T13:23:31.2254789Z 
+deploy-oss	Publish and verify site	2026-11-28T13:23:31.2254956Z average speed 0(byte/s)
+deploy-oss	Publish and verify site	2026-11-28T13:23:31.2255134Z 
+deploy-oss	Publish and verify site	2026-11-28T13:23:31.2255528Z 0.877322(s) elapsed
+deploy-oss	Publish and verify site	2026-11-28T13:23:32.3576090Z 
+deploy-oss	Publish and verify site	2026-11-28T13:23:32.3576973Z Succeed: Total num: 1, size: 22,396. OK num: 1(upload 1 files).
+deploy-oss	Publish and verify site	2026-11-28T13:23:32.3577359Z 
+deploy-oss	Publish and verify site	2026-11-28T13:23:32.3577477Z average speed 19000(byte/s)
+deploy-oss	Publish and verify site	2026-11-28T13:23:32.3577666Z 
+deploy-oss	Publish and verify site	2026-11-28T13:23:32.3577928Z 1.122104(s) elapsed
+deploy-oss	Publish and verify site	2026-11-28T13:23:35.4870577Z 
+deploy-oss	Publish and verify site	2026-11-28T13:23:35.4871404Z Succeed: Total num: 1, size: 7,209,614. OK num: 1(upload 1 files).
+deploy-oss	Publish and verify site	2026-11-28T13:23:35.4871803Z 
+deploy-oss	Publish and verify site	2026-11-28T13:23:35.4871925Z average speed 2311000(byte/s)
+deploy-oss	Publish and verify site	2026-11-28T13:23:35.4872126Z 
+deploy-oss	Publish and verify site	2026-11-28T13:23:35.4872222Z 3.119560(s) elapsed
+deploy-oss	Publish and verify site	2026-11-28T13:23:37.8921102Z 
+deploy-oss	Publish and verify site	2026-11-28T13:23:37.8921743Z Succeed: Total num: 3, size: 1,245,411. OK num: 3(upload 2 files, 1 directories).
+deploy-oss	Publish and verify site	2026-11-28T13:23:37.8922102Z 
+deploy-oss	Publish and verify site	2026-11-28T13:23:37.8922220Z average speed 520000(byte/s)
+deploy-oss	Publish and verify site	2026-11-28T13:23:37.8922482Z 
+deploy-oss	Publish and verify site	2026-11-28T13:23:37.8922710Z 2.395327(s) elapsed
+deploy-oss	Publish and verify site	2026-11-28T13:23:38.7164275Z 
+deploy-oss	Publish and verify site	2026-11-28T13:23:38.7164915Z Succeed: Total num: 1, size: 1,044. OK num: 1(upload 1 files).
+deploy-oss	Publish and verify site	2026-11-28T13:23:38.7165261Z 
+deploy-oss	Publish and verify site	2026-11-28T13:23:38.7165372Z average speed 1000(byte/s)
+deploy-oss	Publish and verify site	2026-11-28T13:23:38.7165553Z 
+deploy-oss	Publish and verify site	2026-11-28T13:23:38.7165712Z 0.814410(s) elapsed
+deploy-oss	Publish and verify site	2026-11-28T13:23:39.2521598Z 
+deploy-oss	Publish and verify site	2026-11-28T13:23:39.2524245Z Succeed: Total num: 1, size: 832. OK num: 1(upload 1 files).
+deploy-oss	Publish and verify site	2026-11-28T13:23:39.2524598Z 
+deploy-oss	Publish and verify site	2026-11-28T13:23:39.2524704Z average speed 1000(byte/s)
+deploy-oss	Publish and verify site	2026-11-28T13:23:39.2524874Z 
+deploy-oss	Publish and verify site	2026-11-28T13:23:39.2525050Z 0.525534(s) elapsed
+deploy-oss	Publish and verify site	2026-11-28T13:23:39.8368276Z 
+deploy-oss	Publish and verify site	2026-11-28T13:23:39.8368964Z Succeed: Total num: 1, size: 5,846. OK num: 1(upload 1 files).
+deploy-oss	Publish and verify site	2026-11-28T13:23:39.8369323Z 
+deploy-oss	Publish and verify site	2026-11-28T13:23:39.8369447Z average speed 10000(byte/s)
+deploy-oss	Publish and verify site	2026-11-28T13:23:39.8369651Z 
+deploy-oss	Publish and verify site	2026-11-28T13:23:39.8369744Z 0.574455(s) elapsed
+deploy-oss	Publish and verify site	2026-11-28T13:23:41.5706063Z 
+deploy-oss	Publish and verify site	2026-11-28T13:23:41.5706816Z Succeed: Total num: 1, size: 557,847. OK num: 1(upload 1 files).
+deploy-oss	Publish and verify site	2026-11-28T13:23:41.5707160Z 
+deploy-oss	Publish and verify site	2026-11-28T13:23:41.5707658Z average speed 323000(byte/s)
+deploy-oss	Publish and verify site	2026-11-28T13:23:41.5707858Z 
+deploy-oss	Publish and verify site	2026-11-28T13:23:41.5707950Z 1.723416(s) elapsed
+deploy-oss	Publish and verify site	2026-11-28T13:23:41.5713415Z === OSS uploads recorded
+deploy-oss	Publish and verify site	2026-11-28T13:23:42.1719620Z 
+deploy-oss	Publish and verify site	2026-11-28T13:23:42.1720153Z 0.591032(s) elapsed
+deploy-oss	Publish and verify site	2026-11-28T13:23:42.1725199Z === HTTPS 预检（SNI=域名 → CNAME 目标）
+deploy-oss	Publish and verify site	2026-11-28T13:23:44.4798608Z thoradar.online 根路径 HTTPS 200 ✅
+deploy-oss	Publish and verify site	2026-11-28T13:23:46.6213365Z www.thoradar.online 根路径 HTTPS 200 ✅
+deploy-oss	Publish and verify site	2026-11-28T13:23:46.6218294Z CDN RefreshObjectCaches attempt 1
+deploy-oss	Publish and verify site	2026-11-28T13:23:48.5809491Z CDN RefreshTaskId="33911284451"
+deploy-oss	Publish and verify site	2026-11-28T13:23:50.4103940Z Verified https://thoradar.online/ HTTP=200 Content-MD5=80mggny6RjRXP9Uw4zglxQ== expected=80mggny6RjRXP9Uw4zglxQ== MIME=text/html Cache-Control=,public, max-age=60, s-maxage=3600
+deploy-oss	Publish and verify site	2026-11-28T13:23:52.4845414Z Verified https://thoradar.online/index.html HTTP=200 Content-MD5=80mggny6RjRXP9Uw4zglxQ== expected=80mggny6RjRXP9Uw4zglxQ== MIME=text/html Cache-Control=,public, max-age=60, s-maxage=3600
+deploy-oss	Publish and verify site	2026-11-28T13:23:53.9993561Z Verified https://thoradar.online/sw.js HTTP=200 Content-MD5=nrgKbeazqBXvILkgAlssIg== expected=nrgKbeazqBXvILkgAlssIg== MIME=application/javascript Cache-Control=,no-store
+deploy-oss	Publish and verify site	2026-11-28T13:23:56.8698227Z Verified https://thoradar.online/sw-retire.js HTTP=200 Content-MD5=xviHOEexQQLp0q41sv2uuA== expected=xviHOEexQQLp0q41sv2uuA== MIME=application/javascript Cache-Control=,no-store
+deploy-oss	Publish and verify site	2026-11-28T13:23:58.3075603Z Verified https://www.thoradar.online/ HTTP=301 Location=https://thoradar.online/
+deploy-oss	Publish and verify site	2026-11-28T13:24:02.6378785Z Verified https://www.thoradar.online/index.html HTTP=301 Location=https://thoradar.online/index.html
+deploy-oss	Publish and verify site	2026-11-28T13:24:03.4791014Z Verified https://www.thoradar.online/?from=www HTTP=301 Location=https://thoradar.online/?from=www
+deploy-oss	Publish and verify site	2026-11-28T13:24:04.8848892Z Verified https://www.thoradar.online/sw.js HTTP=200 Content-MD5=xviHOEexQQLp0q41sv2uuA== expected=xviHOEexQQLp0q41sv2uuA== MIME=application/javascript Cache-Control=,no-store
+deploy-oss	Publish and verify site	2026-11-28T13:24:06.1494636Z Verified https://www.thoradar.online/sw-retire.js HTTP=200 Content-MD5=xviHOEexQQLp0q41sv2uuA== expected=xviHOEexQQLp0q41sv2uuA== MIME=application/javascript Cache-Control=,no-store
+deploy-oss	Publish and verify site	2026-11-28T13:24:06.1495616Z Publish verified on both domains
+deploy-oss	Post Checkout repository	﻿2026-11-28T13:24:06.1588479Z Post job cleanup.
+deploy-oss	Post Checkout repository	2026-11-28T13:24:06.2311791Z [command]/usr/bin/git version
+deploy-oss	Post Checkout repository	2026-11-28T13:24:06.2343304Z git version 2.56.1
+deploy-oss	Post Checkout repository	2026-11-28T13:24:06.2377947Z Temporarily overriding HOME='/home/runner/work/_temp/2d3d2690-b136-432d-9db3-c52b3ab784d3' before making global git config changes
+deploy-oss	Post Checkout repository	2026-11-28T13:24:06.2378781Z Adding repository directory to the temporary git global config as a safe directory
+deploy-oss	Post Checkout repository	2026-11-28T13:24:06.2383403Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/trackeep-thoradar/trackeep-thoradar
+deploy-oss	Post Checkout repository	2026-11-28T13:24:06.2422014Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+deploy-oss	Post Checkout repository	2026-11-28T13:24:06.2454060Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+deploy-oss	Post Checkout repository	2026-11-28T13:24:06.2722805Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+deploy-oss	Post Checkout repository	2026-11-28T13:24:06.2756575Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+deploy-oss	Post Checkout repository	2026-11-28T13:24:06.3040340Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+deploy-oss	Post Checkout repository	2026-11-28T13:24:06.3073821Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+deploy-oss	Complete job	﻿2026-11-28T13:24:06.3473445Z Cleaning up orphan processes
+deploy-oss	Complete job	2026-11-28T13:24:06.3786177Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

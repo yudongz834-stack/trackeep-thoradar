@@ -7,7 +7,7 @@ import { chromeArgs, connect, sleep } from 'file:///D:/trackeep/trackeep-product
 
 const output = process.argv[2] || 'D:/claude-tmp/T1128-online-verify.json';
 const repo = 'D:/trackeep/trackeep-product/trackeep-thoradar';
-const domains = ['thoradar.online', 'www.thoradar.online'];
+const domains = (process.env.THORADAR_ONLINE_DOMAINS || 'thoradar.online,www.thoradar.online').split(',').map(value => value.trim()).filter(Boolean);
 const expectedDate = '2026-11-28';
 const expectedPapers = 43;
 const result = {

@@ -1,0 +1,400 @@
+{
+  "startedAt": "2026-11-28T13:26:14.932Z",
+  "environment": {
+    "os": "Windows 11 Pro",
+    "release": "10.0.26300",
+    "arch": "x64",
+    "node": "v24.14.0",
+    "chrome": {
+      "protocolVersion": "1.3",
+      "product": "Chrome/158.0.8127.88",
+      "revision": "@0cefb18236a23db1ebb6b2bc040fbbaf8cbe759e",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/158.0.0.0 Safari/537.36",
+      "jsVersion": "15.8.62.31"
+    }
+  },
+  "runs": 1,
+  "seed": null,
+  "headers": [
+    {
+      "url": "https://thoradar.online/",
+      "error": "TypeError: fetch failed",
+      "cause": "ConnectTimeoutError: Connect Timeout Error (attempted address: thoradar.online:443, timeout: 10000ms)",
+      "attempts": 3
+    },
+    {
+      "url": "https://thoradar.online/index.html",
+      "status": 200,
+      "md5": "80mggny6RjRXP9Uw4zglxQ==",
+      "expectedMd5": "80mggny6RjRXP9Uw4zglxQ==",
+      "mime": "text/html",
+      "cacheControl": "public, max-age=60, s-maxage=3600",
+      "attempts": 2
+    },
+    {
+      "url": "https://thoradar.online/sw.js",
+      "status": 200,
+      "md5": "nrgKbeazqBXvILkgAlssIg==",
+      "expectedMd5": "nrgKbeazqBXvILkgAlssIg==",
+      "mime": "application/javascript",
+      "cacheControl": "no-store",
+      "attempts": 1
+    },
+    {
+      "url": "https://thoradar.online/sw-retire.js",
+      "status": 200,
+      "md5": "xviHOEexQQLp0q41sv2uuA==",
+      "expectedMd5": "xviHOEexQQLp0q41sv2uuA==",
+      "mime": "application/javascript",
+      "cacheControl": "no-store",
+      "attempts": 1
+    }
+  ],
+  "sites": [
+    {
+      "domain": "thoradar.online",
+      "network": [
+        {
+          "requestId": "A8C9EBC647B064D9A339127D6B5ADB50",
+          "type": "Document",
+          "loaderId": "A8C9EBC647B064D9A339127D6B5ADB50",
+          "url": "https://thoradar.online/index.html",
+          "status": 200,
+          "fromServiceWorker": false,
+          "serviceWorkerResponseSource": null,
+          "fromDiskCache": false
+        },
+        {
+          "requestId": "88295F4B29325E00AF0160B01255653C",
+          "type": "Document",
+          "loaderId": "88295F4B29325E00AF0160B01255653C",
+          "url": "https://thoradar.online/index.html",
+          "status": 200,
+          "fromServiceWorker": true,
+          "serviceWorkerResponseSource": "cache-storage",
+          "fromDiskCache": true
+        },
+        {
+          "requestId": "B13674F17BB72513E989BE0F44B2352C",
+          "type": "Document",
+          "loaderId": "B13674F17BB72513E989BE0F44B2352C",
+          "url": "https://thoradar.online/",
+          "status": 200,
+          "fromServiceWorker": true,
+          "serviceWorkerResponseSource": "cache-storage",
+          "fromDiskCache": true
+        },
+        {
+          "requestId": "612A1ADE3ECC89A4E392B1B17C11807B",
+          "type": "Document",
+          "loaderId": "612A1ADE3ECC89A4E392B1B17C11807B",
+          "url": "https://thoradar.online/?sw=0",
+          "status": 200,
+          "fromServiceWorker": false,
+          "serviceWorkerResponseSource": null,
+          "fromDiskCache": false
+        },
+        {
+          "requestId": "86D5F985D0C98E59850567905F0F1534",
+          "type": "Document",
+          "loaderId": "86D5F985D0C98E59850567905F0F1534",
+          "url": "https://thoradar.online/",
+          "status": 200,
+          "fromServiceWorker": false,
+          "serviceWorkerResponseSource": null,
+          "fromDiskCache": false
+        }
+      ],
+      "failures": [],
+      "errors": [],
+      "checks": []
+    }
+  ],
+  "checks": [
+    {
+      "name": "header https://thoradar.online/",
+      "pass": false,
+      "detail": {
+        "url": "https://thoradar.online/",
+        "error": "TypeError: fetch failed",
+        "cause": "ConnectTimeoutError: Connect Timeout Error (attempted address: thoradar.online:443, timeout: 10000ms)",
+        "attempts": 3
+      }
+    },
+    {
+      "name": "header https://thoradar.online/index.html",
+      "pass": true,
+      "detail": {
+        "url": "https://thoradar.online/index.html",
+        "status": 200,
+        "md5": "80mggny6RjRXP9Uw4zglxQ==",
+        "expectedMd5": "80mggny6RjRXP9Uw4zglxQ==",
+        "mime": "text/html",
+        "cacheControl": "public, max-age=60, s-maxage=3600",
+        "attempts": 2
+      }
+    },
+    {
+      "name": "header https://thoradar.online/sw.js",
+      "pass": true,
+      "detail": {
+        "url": "https://thoradar.online/sw.js",
+        "status": 200,
+        "md5": "nrgKbeazqBXvILkgAlssIg==",
+        "expectedMd5": "nrgKbeazqBXvILkgAlssIg==",
+        "mime": "application/javascript",
+        "cacheControl": "no-store",
+        "attempts": 1
+      }
+    },
+    {
+      "name": "header https://thoradar.online/sw-retire.js",
+      "pass": true,
+      "detail": {
+        "url": "https://thoradar.online/sw-retire.js",
+        "status": 200,
+        "md5": "xviHOEexQQLp0q41sv2uuA==",
+        "expectedMd5": "xviHOEexQQLp0q41sv2uuA==",
+        "mime": "application/javascript",
+        "cacheControl": "no-store",
+        "attempts": 1
+      }
+    },
+    {
+      "name": "thoradar.online cold first visit is native and warms current shell",
+      "pass": true,
+      "detail": {
+        "first": {
+          "response": {
+            "requestId": "A8C9EBC647B064D9A339127D6B5ADB50",
+            "type": "Document",
+            "loaderId": "A8C9EBC647B064D9A339127D6B5ADB50",
+            "url": "https://thoradar.online/index.html",
+            "status": 200,
+            "fromServiceWorker": false,
+            "serviceWorkerResponseSource": null,
+            "fromDiskCache": false
+          },
+          "page": {
+            "url": "https://thoradar.online/index.html",
+            "date": "2026-11-28",
+            "papers": 43,
+            "rendered": 43,
+            "points": 36,
+            "view": "overview",
+            "documentId": "aed25066-b242-40a7-932d-0e896f122521",
+            "timeOrigin": 1795872422926.6,
+            "controller": false,
+            "banner": "数据 2026-11-28 · 联网打开"
+          }
+        },
+        "warm": {
+          "registrations": 1,
+          "activated": true,
+          "controller": false,
+          "names": [
+            "thoradar-shell-v1"
+          ],
+          "shellNames": [
+            "thoradar-shell-v1"
+          ],
+          "paths": [
+            "/index.html"
+          ],
+          "cachedDate": "2026-11-28",
+          "cachedPapers": 43,
+          "complete": true,
+          "sentinel": "keep"
+        }
+      }
+    },
+    {
+      "name": "thoradar.online repeat visit uses cache storage and background check does not reload reading",
+      "pass": true,
+      "detail": {
+        "second": {
+          "response": {
+            "requestId": "88295F4B29325E00AF0160B01255653C",
+            "type": "Document",
+            "loaderId": "88295F4B29325E00AF0160B01255653C",
+            "url": "https://thoradar.online/index.html",
+            "status": 200,
+            "fromServiceWorker": true,
+            "serviceWorkerResponseSource": "cache-storage",
+            "fromDiskCache": true
+          },
+          "page": {
+            "url": "https://thoradar.online/index.html",
+            "date": "2026-11-28",
+            "papers": 43,
+            "rendered": 43,
+            "points": 36,
+            "view": "overview",
+            "documentId": "27b08818-f455-4ae2-ae2a-ab34cd81989d",
+            "timeOrigin": 1795872425798.6,
+            "controller": true,
+            "banner": "数据 2026-11-28 · 本地副本 · 核对更新中"
+          }
+        },
+        "during": {
+          "url": "https://thoradar.online/index.html",
+          "date": "2026-11-28",
+          "papers": 43,
+          "rendered": 43,
+          "points": 36,
+          "view": "reading",
+          "documentId": "27b08818-f455-4ae2-ae2a-ab34cd81989d",
+          "timeOrigin": 1795872425798.6,
+          "controller": true,
+          "banner": "数据 2026-11-28 · 本地副本 · 已核对，与服务器一致"
+        },
+        "refreshed": {
+          "registrations": 1,
+          "activated": true,
+          "controller": true,
+          "names": [
+            "thoradar-shell-v1"
+          ],
+          "shellNames": [
+            "thoradar-shell-v1"
+          ],
+          "paths": [
+            "/index.html"
+          ],
+          "cachedDate": "2026-11-28",
+          "cachedPapers": 43,
+          "complete": true,
+          "sentinel": "keep"
+        }
+      }
+    },
+    {
+      "name": "thoradar.online offline opens the current daily copy",
+      "pass": true,
+      "detail": {
+        "response": {
+          "requestId": "B13674F17BB72513E989BE0F44B2352C",
+          "type": "Document",
+          "loaderId": "B13674F17BB72513E989BE0F44B2352C",
+          "url": "https://thoradar.online/",
+          "status": 200,
+          "fromServiceWorker": true,
+          "serviceWorkerResponseSource": "cache-storage",
+          "fromDiskCache": true
+        },
+        "page": {
+          "url": "https://thoradar.online/",
+          "date": "2026-11-28",
+          "papers": 43,
+          "rendered": 43,
+          "points": 36,
+          "view": "overview",
+          "documentId": "8b981085-a35f-43ef-9f4c-5edf93318d31",
+          "timeOrigin": 1795872426179,
+          "controller": true,
+          "banner": "数据 2026-11-28 · 本地副本 · 核对更新中"
+        }
+      }
+    },
+    {
+      "name": "thoradar.online single-page ?sw=0 clears shell and the next visit starts native and clean",
+      "pass": true,
+      "detail": {
+        "exit": {
+          "response": {
+            "requestId": "612A1ADE3ECC89A4E392B1B17C11807B",
+            "type": "Document",
+            "loaderId": "612A1ADE3ECC89A4E392B1B17C11807B",
+            "url": "https://thoradar.online/?sw=0",
+            "status": 200,
+            "fromServiceWorker": false,
+            "serviceWorkerResponseSource": null,
+            "fromDiskCache": false
+          },
+          "page": {
+            "url": "https://thoradar.online/?sw=0",
+            "date": "2026-11-28",
+            "papers": 43,
+            "rendered": 43,
+            "points": 36,
+            "view": "overview",
+            "documentId": "6f7c6e99-ad23-44c0-99ac-d8034610eeb7",
+            "timeOrigin": 1795872426344.2,
+            "controller": true,
+            "banner": "数据 2026-11-28 · 联网打开"
+          }
+        },
+        "cleared": {
+          "registrations": 0,
+          "activated": false,
+          "controller": true,
+          "names": [],
+          "shellNames": [],
+          "paths": [],
+          "cachedDate": null,
+          "cachedPapers": null,
+          "complete": null,
+          "sentinel": "keep"
+        },
+        "after": {
+          "response": {
+            "requestId": "86D5F985D0C98E59850567905F0F1534",
+            "type": "Document",
+            "loaderId": "86D5F985D0C98E59850567905F0F1534",
+            "url": "https://thoradar.online/",
+            "status": 200,
+            "fromServiceWorker": false,
+            "serviceWorkerResponseSource": null,
+            "fromDiskCache": false
+          },
+          "page": {
+            "url": "https://thoradar.online/",
+            "date": "2026-11-28",
+            "papers": 43,
+            "rendered": 43,
+            "points": 36,
+            "view": "overview",
+            "documentId": "119c345e-01ce-4e8a-9756-7bc604395a5f",
+            "timeOrigin": 1795872427302.7,
+            "controller": false,
+            "banner": "数据 2026-11-28 · 联网打开"
+          }
+        },
+        "finalStorage": {
+          "registrations": 1,
+          "activated": false,
+          "controller": false,
+          "names": [],
+          "shellNames": [],
+          "paths": [],
+          "cachedDate": null,
+          "cachedPapers": null,
+          "complete": null,
+          "sentinel": "keep"
+        },
+        "persistentOptOutRequired": false
+      }
+    },
+    {
+      "name": "thoradar.online no uncaught page errors",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "cleanup": {
+    "browser": {
+      "pid": 59380,
+      "exit": {
+        "code": 0,
+        "signal": null
+      },
+      "forced": false
+    },
+    "profileRemoved": true
+  },
+  "endedAt": "2026-11-28T13:27:08.483Z",
+  "summary": {
+    "passed": 8,
+    "failed": 1
+  }
+}

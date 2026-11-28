@@ -1,14 +1,14 @@
 # T1128-SMOOTH C2 发布候选报告
 
-**干了什么**　在最新 2026-11-28、43 篇日报上完成本地副本加速、主域唯一正式地址、`www` 永久跳转和旧客户端退出迁移。S13 已关闭 Astra A5 的 Git blob MD5、错主机和首页 MIME 三项发现，主控发布模拟 32/32、源码检查 5/5。Mimo M3 已在生产配置 www 普通路径 301 到短域同路径同查询、两件 worker 永远返回退役版；真实旧客户端已完成“旧缓存打开→注销并清壳→下次跳短域”验收。最终提交、推送和发布仍待 PI 亲手执行。
+**干了什么**　在最新 2026-11-28、43 篇日报上完成本地副本加速、主域唯一正式地址、`www` 永久跳转和旧客户端退出迁移。PI 已亲手提交并推送 `2c43373aec098375edb9500b2b12e02cb12f2b06`，触发工作流 `46148918001`；真实 OSS 上传、主域 CDN 刷新和发布后验证均成功。
 
-**PI 怎么亲手验**　发布前看 `online-release/main-s13-deploy.json` 为 32/32、`main-s13-source.json` 为 5/5；发布后由主控核对工作流刷新回执、主域 4 地址 MD5、www 3 个永久跳转和 www 2 个退役入口，再复测主域本地副本行为。实际 push 和手动触发 `deploy_oss.yml` 唯 PI 亲手。
+**最终线上验收**　工作流 `smooth-verify` 与 `deploy-oss` 均成功，真实刷新任务号 `33911284451`，日志末行 `Publish verified on both domains`。主控独立公网检查 10/10：主域 4 地址 MD5/MIME 正确，www 4 个普通路径样本 301 到短域同路径同查询，www 两 worker 为退役版且 JS/no-store。隔离 Chrome 复跑 9/9：冷首访原生打开并预热、复访 Cache Storage、后台核新不重载阅读页、离线当日副本、单页 `?sw=0` 退出及无未捕获异常均通过。
 
-**还剩什么坑**　最终 GitHub 真实重发尚未执行；真机/iOS、线上跨日和完整主域退役演练未做。公网取证据有间歇连接超时，均有原始失败和成功重跑，不冒称网络完全稳定。Mimo M3 的身份闸因辅助 flash 调用出现多型号键而退出 8，不记派遣全绿；配置以主控公网实测为准。F2/F3、R08 与派遣闸旧自检的既有遗留不因本轮消失。
+**还剩什么坑**　真机/iOS、真实跨日和完整主域退役演练未做。公网仍有间歇连接超时：最终浏览器初跑 8/1 的根地址 HEAD 失败已保留，完整复跑 9/9；不冒称各地网络永远稳定。发布日志保留一次“桶创建 403 后跳过并继续使用现有桶”的记录，实际上传、刷新与验真均成功。F2/F3、R08 与派遣闸旧自检的既有遗留不因本轮消失。
 
 ## 地图影响
 
-⑥ 发布接线与日报验收闸已整合到 `T1128-SMOOTH-RELEASE`。⑦ Astra V4 完成旧候选复核；G18 改向为短域唯一后，Astra A5 完成唯一独立复核，S13 按原样本关闭三项且不再送复审。⑧ M3 生产跳转和旧客户端迁移已验，待 PI 最终发布后做同版本线上复核。
+⑥ 发布接线与日报验收闸已整合并随 `2c43373` 发布。⑦ Astra V4 完成旧候选复核；G18 改向后 Astra A5 完成唯一独立复核，S13 按原样本关闭三项。⑧ M3 生产跳转、旧客户端迁移、真实工作流、主域刷新和最终线上复核均已完成；本任务进入已发布状态。
 
 ## 验证状态
 
@@ -24,6 +24,9 @@
 | 当前线上双域浏览器验收（改向前） | 18 PASS / 0 FAIL：双域 8 个 HEAD 的 MD5/MIME/no-store，加每域冷首访原生打开并预热、复访 Cache Storage、后台核新不重载阅读页、离线当日副本、单页 `?sw=0` 退出与无未捕获异常 | `online-release/online-verify-current-v4.json`、`online-verify-current-v4.stdout.txt`、`online-verify-current.mjs` |
 | G18 单域最终发布模拟与源码检查 | 32 PASS / 0 FAIL；源码 5/5。A5 的 CRLF/Git blob、错主机和首页 MIME 原样本均关闭；八组撤防均判红 | `online-release/main-s13-deploy.json`、`main-s13-source.json`、`sol-s13-a5-repair-report.md`、`astra-v5/report.md` |
 | M3 生产跳转与独立公网复核 | www 根/index/带查询/任意路径均 301 到短域同路径同查询；www 两 worker 为退役 MD5、JS/no-store；主域四地址未退化。主控初跑 9/10，唯一连接超时，补跑取得正确 301 | `mimo-m3-canonical-report.md`、`online-release/canonical-public-current.json`、`canonical-public-current-retry.txt` |
+| 最终真实发布 | PI 推送 `2c43373` 并触发 run `46148918001`；smooth-verify、deploy-oss 成功，主域刷新任务 `33911284451`，主域四地址、www 三跳转和两退役入口均在 runner 验真，末行 `Publish verified on both domains` | `online-release/deploy-46148918001.json`、`deploy-46148918001.log` |
+| 最终独立公网复核 | 10 PASS / 0 FAIL：主域四地址 MD5/MIME/no-store，www 四跳转样本与两退役入口；`/index.html` 第一次网络失败后第二次成功，尝试次数保留 | `online-release/canonical-public-final.json`、`verify-canonical-public-final.mjs` |
+| 最终主域浏览器验收 | 初跑 8/1，仅根地址 HEAD 三次连接超时，五项实际浏览器行为全过；完整复跑 9/9。冷首访、复访本地先开、后台核新不重载、离线、单页退出、无异常全过；浏览器和 profile 已清理 | `online-release/canonical-browser-final.json`、`canonical-browser-final-retry.json`、`online-verify-current.mjs` |
 | 真实旧 www 客户端迁移 | 旧缓存打开→worker 注销、壳缓存清空、个人标记保留→下次到短域同查询且 43 篇。原始探针 3/1，缺记 redirectResponse；与独立 301 联合裁定 4/0，原红保留 | `online-release/www-legacy-migration-v3.json`、`www-legacy-migration-review.json`、`adjudicate-www-legacy.mjs` |
 | 日报发布复演 | 26 个命令均符合预期；合法日报通过，旧数据基线、坏 JSON、非法日期、非数组论文、初始化／合并改动、未提交及暂存越权写入均判红 | `release-candidate-check/daily.stdout.txt`、`daily/` |
 | 撤防负对照 | 去掉 JSON 解析、日历日校验或基线防错后，对应错误样本能穿过被撤防的检查，证明负对照有区分力 | `release-candidate-check/daily/mutation-*.json`、对应 stdout/stderr |
@@ -54,23 +57,17 @@ M3 的派遣回执出现 `mimo-v2.6-pro` 与辅助 flash 两个型号键，身�
 
 ## 遗留风险
 
-1. **最终真实发布未跑**：主域 RAM 已有最小刷新授权，www 生产跳转与退役入口已生效；但最终 S13 工作流尚未在 GitHub 执行，刷新回执、主域 Git blob MD5 和传播收敛仍待 PI 重发后确认。
-2. **线上迁移已验，最终版本待复核**：旧客户端已真实完成退出并跳短域；最终重发后仍需核对主域内容、www 跳转和主域本地副本未退化。主域一次预热超时及公网间歇连接失败不冒称已根治。
-3. **明确不冒称**：真机/iOS、线上跨日、完整主域退役演练未做；桌面设备模拟不等于真机。公网只从本机一个接入点实测，不等于多地域验收。
+1. **公网间歇失败仍存在**：最终独立公网检查有一次 `/index.html` 重试，浏览器初跑根地址 HEAD 三次超时；完整复跑 9/9。只证明本机当前入口最终可取到正确版本，不证明各地网络永远稳定。
+2. **明确不冒称**：真机/iOS、真实跨日、完整主域退役演练未做；桌面设备模拟不等于真机。公网只从本机一个接入点实测，不等于多地域验收。
+3. **部署日志有已知非阻断错误行**：现有桶创建返回 403 后按流程跳过，随后上传、CDN 刷新和全部公网验真成功；不写成“日志零错误”，后续可另评估是否去掉无必要的建桶尝试。
 4. **F2 低危未修**：冷缓存未命中会多发一次首页请求，状态可能短闪。
 5. **F3 低危未修**：`run-regressions.mjs` 在干净父目录可能 `ENOENT`；本轮直接运行各原脚本。
 6. **R08 未有效验证**：AICLS/POOLUP 沿用 Neon V2 各 39 PASS / 1 FAIL，检索选词得到零结果；不宣称 40/40。
 7. **派遣旧自检未全绿**：真实派遣可工作，但旧自检 61 PASS / 26 FAIL 含过时型号和失效夹具路径，未为赶进度改绿。
 8. **S6 收工路径曾写错**：调度器因 `--expect` 指向外层而重发，主控已停止并按 PID 验尸；最终报告和 rerun 证据已收回，产品哈希未变。
 
-## 地图终态与 PI 发布动作
+## 地图终态
 
-⑥ 本机候选、⑦ V4/A5 独立复核及修复、⑧ 发布前配置和迁移验收均已完成；现在只差 PI 最终提交、推送、触发发布和发布后验收。以下命令仅供 PI 亲手执行，主控没有执行：
+⑥ 本机候选、⑦ V4/A5 独立复核及修复、⑧ 发布与线上验收全部完成。正式发布提交为 `2c43373aec098375edb9500b2b12e02cb12f2b06`，真实工作流为 `46148918001`，主域刷新任务为 `33911284451`。主域唯一正文、www 永久跳转与旧客户端退役入口均已从 GitHub runner 和主控本机两个独立入口核实。
 
-```bash
-git -C "D:/trackeep/trackeep-product/trackeep-thoradar" add -- .github/workflows/deploy_oss.yml README.md 架构.md docs/架构地图.md index.html sw.js sw-retire.js tests/smooth tests/ux/ux_probe.mjs docs/tasks/T1128-SMOOTH && git -C "D:/trackeep/trackeep-product/trackeep-thoradar" diff --cached --check -- .github/workflows/deploy_oss.yml tests/smooth tests/ux/ux_probe.mjs index.html sw.js sw-retire.js README.md 架构.md docs/架构地图.md && git -C "D:/trackeep/trackeep-product/trackeep-thoradar" commit -m "T1128: publish canonical host with verified local shell" && git -C "D:/trackeep/trackeep-product/trackeep-thoradar" push origin T1128-SMOOTH-RELEASE:main && gh --repo yudongz834-stack/trackeep-thoradar workflow run deploy_oss.yml --ref main
-```
-
-空白检查只覆盖产品、代码和说明文件，不清洗原始证据，也不使用 `--no-verify`。
-
-只推分支不会上线；以上命令推到 `main` 并手动触发发布。发布后主控再查工作流结果并做线上验收，不能把触发成功当作网站已经更新。
+本机线上验收完成后，不再自动重发、不刷新 CDN、不执行主域退役。后续真机/iOS、真实跨日与完整主域退役分别另开验证；其中完整主域退役必须由 PI 当次明确触发。
