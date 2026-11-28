@@ -1,0 +1,932 @@
+{
+ "rows": [
+  {
+   "tag": "验收档",
+   "size": "1440×714",
+   "topbar": 58,
+   "deck": 620,
+   "footerBottom": 714,
+   "footerH": 36,
+   "gap": 0,
+   "footerOK": true,
+   "footTxt": "/ 检索 ← → 切换 ESC 清除 粤ICP备2026184706号-1",
+   "bodyOv": "auto",
+   "docSH": 714,
+   "scope": "391.7×391.7",
+   "stageH": 391.7,
+   "footH": 116,
+   "headH": 85.3,
+   "foldN": 1,
+   "covered": [],
+   "maxCovered": 0,
+   "cover": {
+    "toolbar": {
+     "y": 558,
+     "w": 696,
+     "h": 22,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "clear": {
+     "y": 558.5,
+     "w": 34,
+     "h": 21,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "selection": {
+     "y": 562.5,
+     "w": 45,
+     "h": 13,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "jcatLegend": {
+     "y": 605,
+     "w": 696,
+     "h": 20,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "jlSummary": {
+     "y": 632,
+     "w": 696,
+     "h": 16,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "design": {
+     "y": 652,
+     "w": 696,
+     "h": 14,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "scheme": {
+     "y": 122.3,
+     "w": 82,
+     "h": 28,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "progress": {
+     "y": 114.3,
+     "w": 73.8,
+     "h": 36,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "folds": [
+     {
+      "y": 582,
+      "w": 93,
+      "h": 18,
+      "inDisc": 0,
+      "covered": 0,
+      "tops": ""
+     }
+    ]
+   },
+   "blipOut": 0,
+   "qOpen": 2,
+   "qOpenHalf": 1,
+   "qClosed": 6,
+   "qClosedHalf": 1,
+   "filtersH": 264,
+   "hintH": 0,
+   "funnelH": 0,
+   "readCards": 2,
+   "readHalf": 2,
+   "readListH": 500,
+   "readFiltersH": 0,
+   "detailPanelH": 596,
+   "excerptY": 431,
+   "excerptIn": true,
+   "actionsY": 1818.8,
+   "metaGridH": 311
+  },
+  {
+   "tag": "主控截图档",
+   "size": "1440×900",
+   "topbar": 58,
+   "deck": 806,
+   "footerBottom": 900,
+   "footerH": 36,
+   "gap": 0,
+   "footerOK": true,
+   "footTxt": "/ 检索 ← → 切换 ESC 清除 粤ICP备2026184706号-1",
+   "bodyOv": "auto",
+   "docSH": 900,
+   "scope": "420×420",
+   "stageH": 569.7,
+   "footH": 116,
+   "headH": 85.3,
+   "foldN": 1,
+   "covered": [],
+   "maxCovered": 0,
+   "cover": {
+    "toolbar": {
+     "y": 740,
+     "w": 718,
+     "h": 22,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "clear": {
+     "y": 740.5,
+     "w": 34,
+     "h": 21,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "selection": {
+     "y": 744.5,
+     "w": 45,
+     "h": 13,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "jcatLegend": {
+     "y": 787,
+     "w": 718,
+     "h": 20,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "jlSummary": {
+     "y": 814,
+     "w": 718,
+     "h": 16,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "design": {
+     "y": 834,
+     "w": 718,
+     "h": 14,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "scheme": {
+     "y": 126.3,
+     "w": 82,
+     "h": 28,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "progress": {
+     "y": 118.3,
+     "w": 73.8,
+     "h": 36,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "folds": [
+     {
+      "y": 764,
+      "w": 93,
+      "h": 18,
+      "inDisc": 0,
+      "covered": 0,
+      "tops": ""
+     }
+    ]
+   },
+   "blipOut": 0,
+   "qOpen": 4,
+   "qOpenHalf": 1,
+   "qClosed": 8,
+   "qClosedHalf": 1,
+   "filtersH": 264,
+   "hintH": 0,
+   "funnelH": 0,
+   "readCards": 3,
+   "readHalf": 1,
+   "readListH": 678,
+   "readFiltersH": 0,
+   "detailPanelH": 774,
+   "excerptY": 458.2,
+   "excerptIn": true,
+   "actionsY": 1928.4,
+   "metaGridH": 311
+  },
+  {
+   "tag": "常见笔记本",
+   "size": "1366×768",
+   "topbar": 58,
+   "deck": 674,
+   "footerBottom": 768,
+   "footerH": 36,
+   "gap": 0,
+   "footerOK": true,
+   "footTxt": "/ 检索 ← → 切换 ESC 清除 粤ICP备2026184706号-1",
+   "bodyOv": "auto",
+   "docSH": 768,
+   "scope": "445.7×445.7",
+   "stageH": 445.7,
+   "footH": 116,
+   "headH": 85.3,
+   "foldN": 1,
+   "covered": [],
+   "maxCovered": 0,
+   "cover": {
+    "toolbar": {
+     "y": 612,
+     "w": 622,
+     "h": 22,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "clear": {
+     "y": 612.5,
+     "w": 34,
+     "h": 21,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "selection": {
+     "y": 616.5,
+     "w": 45,
+     "h": 13,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "jcatLegend": {
+     "y": 659,
+     "w": 622,
+     "h": 20,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "jlSummary": {
+     "y": 686,
+     "w": 622,
+     "h": 16,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "design": {
+     "y": 706,
+     "w": 622,
+     "h": 14,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "scheme": {
+     "y": 122.3,
+     "w": 82,
+     "h": 28,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "progress": {
+     "y": 114.3,
+     "w": 73.8,
+     "h": 36,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "folds": [
+     {
+      "y": 636,
+      "w": 93,
+      "h": 18,
+      "inDisc": 0,
+      "covered": 0,
+      "tops": ""
+     }
+    ]
+   },
+   "blipOut": 0,
+   "qOpen": 3,
+   "qOpenHalf": 1,
+   "qClosed": 6,
+   "qClosedHalf": 1,
+   "filtersH": 264,
+   "hintH": 0,
+   "funnelH": 0,
+   "readCards": 2,
+   "readHalf": 2,
+   "readListH": 554,
+   "readFiltersH": 0,
+   "detailPanelH": 650,
+   "excerptY": 431,
+   "excerptIn": true,
+   "actionsY": 1818.8,
+   "metaGridH": 311
+  },
+  {
+   "tag": "720p",
+   "size": "1280×720",
+   "topbar": 58,
+   "deck": 626,
+   "footerBottom": 720,
+   "footerH": 36,
+   "gap": 0,
+   "footerOK": true,
+   "footTxt": "/ 检索 ← → 切换 ESC 清除 粤ICP备2026184706号-1",
+   "bodyOv": "auto",
+   "docSH": 720,
+   "scope": "397.7×397.7",
+   "stageH": 397.7,
+   "footH": 116,
+   "headH": 85.3,
+   "foldN": 1,
+   "covered": [],
+   "maxCovered": 0,
+   "cover": {
+    "toolbar": {
+     "y": 564,
+     "w": 536,
+     "h": 22,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "clear": {
+     "y": 564.5,
+     "w": 34,
+     "h": 21,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "selection": {
+     "y": 568.5,
+     "w": 45,
+     "h": 13,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "jcatLegend": {
+     "y": 611,
+     "w": 536,
+     "h": 20,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "jlSummary": {
+     "y": 638,
+     "w": 536,
+     "h": 16,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "design": {
+     "y": 658,
+     "w": 536,
+     "h": 14,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "scheme": {
+     "y": 122.3,
+     "w": 82,
+     "h": 28,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "progress": {
+     "y": 114.3,
+     "w": 73.8,
+     "h": 36,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "folds": [
+     {
+      "y": 588,
+      "w": 93,
+      "h": 18,
+      "inDisc": 0,
+      "covered": 0,
+      "tops": ""
+     }
+    ]
+   },
+   "blipOut": 0,
+   "qOpen": 2,
+   "qOpenHalf": 1,
+   "qClosed": 6,
+   "qClosedHalf": 1,
+   "filtersH": 264,
+   "hintH": 0,
+   "funnelH": 0,
+   "readCards": 2,
+   "readHalf": 2,
+   "readListH": 506,
+   "readFiltersH": 0,
+   "detailPanelH": 602,
+   "excerptY": 431,
+   "excerptIn": true,
+   "actionsY": 1818.8,
+   "metaGridH": 311
+  },
+  {
+   "tag": "1080p@125%",
+   "size": "1536×864",
+   "topbar": 58,
+   "deck": 770,
+   "footerBottom": 864,
+   "footerH": 36,
+   "gap": 0,
+   "footerOK": true,
+   "footTxt": "/ 检索 ← → 切换 ESC 清除 粤ICP备2026184706号-1",
+   "bodyOv": "auto",
+   "docSH": 864,
+   "scope": "520×520",
+   "stageH": 541.7,
+   "footH": 116,
+   "headH": 85.3,
+   "foldN": 1,
+   "covered": [],
+   "maxCovered": 0,
+   "cover": {
+    "toolbar": {
+     "y": 708,
+     "w": 792,
+     "h": 22,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "clear": {
+     "y": 708.5,
+     "w": 34,
+     "h": 21,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "selection": {
+     "y": 712.5,
+     "w": 45,
+     "h": 13,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "jcatLegend": {
+     "y": 755,
+     "w": 792,
+     "h": 20,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "jlSummary": {
+     "y": 782,
+     "w": 792,
+     "h": 16,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "design": {
+     "y": 802,
+     "w": 792,
+     "h": 14,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "scheme": {
+     "y": 122.3,
+     "w": 82,
+     "h": 28,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "progress": {
+     "y": 114.3,
+     "w": 73.8,
+     "h": 36,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "folds": [
+     {
+      "y": 732,
+      "w": 93,
+      "h": 18,
+      "inDisc": 0,
+      "covered": 0,
+      "tops": ""
+     }
+    ]
+   },
+   "blipOut": 0,
+   "qOpen": 4,
+   "qOpenHalf": 1,
+   "qClosed": 8,
+   "qClosedHalf": 0,
+   "filtersH": 264,
+   "hintH": 0,
+   "funnelH": 0,
+   "readCards": 4,
+   "readHalf": 0,
+   "readListH": 650,
+   "readFiltersH": 0,
+   "detailPanelH": 746,
+   "excerptY": 431,
+   "excerptIn": true,
+   "actionsY": 1818.8,
+   "metaGridH": 311
+  },
+  {
+   "tag": "1080p",
+   "size": "1920×1080",
+   "topbar": 58,
+   "deck": 986,
+   "footerBottom": 1080,
+   "footerH": 36,
+   "gap": 0,
+   "footerOK": true,
+   "footTxt": "/ 检索 ← → 切换 ESC 清除 粤ICP备2026184706号-1",
+   "bodyOv": "auto",
+   "docSH": 1080,
+   "scope": "620×620",
+   "stageH": 757.7,
+   "footH": 116,
+   "headH": 85.3,
+   "foldN": 1,
+   "covered": [],
+   "maxCovered": 0,
+   "cover": {
+    "toolbar": {
+     "y": 924,
+     "w": 1119.6,
+     "h": 22,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "clear": {
+     "y": 924.5,
+     "w": 34,
+     "h": 21,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "selection": {
+     "y": 928.5,
+     "w": 45,
+     "h": 13,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "jcatLegend": {
+     "y": 971,
+     "w": 1119.6,
+     "h": 20,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "jlSummary": {
+     "y": 998,
+     "w": 1119.6,
+     "h": 16,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "design": {
+     "y": 1018,
+     "w": 1119.6,
+     "h": 14,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "scheme": {
+     "y": 122.3,
+     "w": 82,
+     "h": 28,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "progress": {
+     "y": 114.3,
+     "w": 73.8,
+     "h": 36,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "folds": [
+     {
+      "y": 948,
+      "w": 93,
+      "h": 18,
+      "inDisc": 0,
+      "covered": 0,
+      "tops": ""
+     }
+    ]
+   },
+   "blipOut": 0,
+   "qOpen": 7,
+   "qOpenHalf": 1,
+   "qClosed": 10,
+   "qClosedHalf": 1,
+   "filtersH": 264,
+   "hintH": 0,
+   "funnelH": 0,
+   "readCards": 4,
+   "readHalf": 2,
+   "readListH": 866,
+   "readFiltersH": 0,
+   "detailPanelH": 962,
+   "excerptY": 417.6,
+   "excerptIn": true,
+   "actionsY": 1702.2,
+   "metaGridH": 311
+  },
+  {
+   "tag": "更矮",
+   "size": "1440×660",
+   "topbar": 58,
+   "deck": 566,
+   "footerBottom": 660,
+   "footerH": 36,
+   "gap": 0,
+   "footerOK": true,
+   "footTxt": "/ 检索 ← → 切换 ESC 清除 粤ICP备2026184706号-1",
+   "bodyOv": "auto",
+   "docSH": 660,
+   "scope": "337.7×337.7",
+   "stageH": 337.7,
+   "footH": 116,
+   "headH": 85.3,
+   "foldN": 1,
+   "covered": [],
+   "maxCovered": 0,
+   "cover": {
+    "toolbar": {
+     "y": 504,
+     "w": 696,
+     "h": 22,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "clear": {
+     "y": 504.5,
+     "w": 34,
+     "h": 21,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "selection": {
+     "y": 508.5,
+     "w": 45,
+     "h": 13,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "jcatLegend": {
+     "y": 551,
+     "w": 696,
+     "h": 20,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "jlSummary": {
+     "y": 578,
+     "w": 696,
+     "h": 16,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "design": {
+     "y": 598,
+     "w": 696,
+     "h": 14,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "scheme": {
+     "y": 122.3,
+     "w": 82,
+     "h": 28,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "progress": {
+     "y": 114.3,
+     "w": 73.8,
+     "h": 36,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "folds": [
+     {
+      "y": 528,
+      "w": 93,
+      "h": 18,
+      "inDisc": 0,
+      "covered": 0,
+      "tops": ""
+     }
+    ]
+   },
+   "blipOut": 0,
+   "qOpen": 1,
+   "qOpenHalf": 1,
+   "qClosed": 5,
+   "qClosedHalf": 1,
+   "filtersH": 264,
+   "hintH": 0,
+   "funnelH": 0,
+   "readCards": 2,
+   "readHalf": 2,
+   "readListH": 446,
+   "readFiltersH": 0,
+   "detailPanelH": 542,
+   "excerptY": 431,
+   "excerptIn": true,
+   "actionsY": 1818.8,
+   "metaGridH": 311
+  },
+  {
+   "tag": "更矮",
+   "size": "1440×600",
+   "topbar": 58,
+   "deck": 506,
+   "footerBottom": 600,
+   "footerH": 36,
+   "gap": 0,
+   "footerOK": true,
+   "footTxt": "/ 检索 ← → 切换 ESC 清除 粤ICP备2026184706号-1",
+   "bodyOv": "auto",
+   "docSH": 600,
+   "scope": "277.7×277.7",
+   "stageH": 277.7,
+   "footH": 116,
+   "headH": 85.3,
+   "foldN": 1,
+   "covered": [],
+   "maxCovered": 0,
+   "cover": {
+    "toolbar": {
+     "y": 444,
+     "w": 696,
+     "h": 22,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "clear": {
+     "y": 444.5,
+     "w": 34,
+     "h": 21,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "selection": {
+     "y": 448.5,
+     "w": 45,
+     "h": 13,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "jcatLegend": {
+     "y": 491,
+     "w": 696,
+     "h": 20,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "jlSummary": {
+     "y": 518,
+     "w": 696,
+     "h": 16,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "design": {
+     "y": 538,
+     "w": 696,
+     "h": 14,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "scheme": {
+     "y": 122.3,
+     "w": 82,
+     "h": 28,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "progress": {
+     "y": 114.3,
+     "w": 73.8,
+     "h": 36,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "folds": [
+     {
+      "y": 468,
+      "w": 93,
+      "h": 18,
+      "inDisc": 0,
+      "covered": 0,
+      "tops": ""
+     }
+    ]
+   },
+   "blipOut": 0,
+   "qOpen": 1,
+   "qOpenHalf": 1,
+   "qClosed": 4,
+   "qClosedHalf": 1,
+   "filtersH": 264,
+   "hintH": 0,
+   "funnelH": 0,
+   "readCards": 2,
+   "readHalf": 2,
+   "readListH": 386,
+   "readFiltersH": 0,
+   "detailPanelH": 482,
+   "excerptY": 431,
+   "excerptIn": true,
+   "actionsY": 1818.8,
+   "metaGridH": 311
+  }
+ ],
+ "sectorRows": [
+  {
+   "size": "1440×714",
+   "jcat": "1",
+   "toolbarTxt": "刊源：全部 · 阵地：胸外科与胸部肿瘤 清除",
+   "clearDisabled": false,
+   "clearCovered": 0,
+   "clearTops": "",
+   "clearRect": "34×21@y558.5",
+   "covered": [],
+   "clearWorked": true
+  },
+  {
+   "size": "1440×900",
+   "jcat": "1",
+   "toolbarTxt": "刊源：全部 · 阵地：胸外科与胸部肿瘤 清除",
+   "clearDisabled": false,
+   "clearCovered": 0,
+   "clearTops": "",
+   "clearRect": "34×21@y740.5",
+   "covered": [],
+   "clearWorked": true
+  }
+ ]
+}

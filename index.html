@@ -7,10 +7,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<title>胸科雷达 · 滚动信号场</title>
+<title>Thoradar · 滚动信号场</title>
 <meta name="google-site-verification" content="kXQe4EmshGf3zBJEGxLI5uTkVK7D2n4gn6xPdPNkBVU" />
-<meta name="description" content="胸科雷达 ThorRadar：每天自动扫描 197 本医学期刊，把胸外科、肺部与食管肿瘤最新重要文献做成一张可视化雷达——评分排序、中文解读、个性化追踪。">
-<meta property="og:title" content="胸科雷达 ThorRadar · 滚动信号场">
+<meta name="description" content="胸科雷达 Thoradar：每天自动扫描 197 本医学期刊，把胸外科、肺部与食管肿瘤最新重要文献做成一张可视化雷达——评分排序、中文解读、个性化追踪。">
+<meta property="og:title" content="Thoradar · 滚动信号场">
 <meta property="og:description" content="每天一张胸科文献雷达：评分排序、中文解读、个性化期刊追踪。">
 <meta property="og:url" content="https://thoradar.online/">
 <meta property="og:type" content="website">
@@ -37,7 +37,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(-
 .brand{display:flex;align-items:center;gap:11px;min-width:max-content}
 .brand-mark{width:38px;height:38px;color:var(--accent-dark)}
 .brand-name{display:block;font-size:17px;letter-spacing:.08em;line-height:1.15}
-.brand-sub{display:block;margin-top:5px;font:9px/1 var(--font-mono);letter-spacing:.17em;color:var(--muted)}
+.brand-sub{display:block;margin-top:4px;font:9px/1.3 var(--font-sans);letter-spacing:.02em;color:var(--muted)}
 .scan-meta{display:flex;align-items:center;gap:9px;padding-left:22px;border-left:1px solid var(--line);white-space:nowrap}
 .scan-meta b{display:block;font:600 12px/1.2 var(--font-mono);letter-spacing:.04em}
 .scan-meta small{display:block;margin-top:5px;color:var(--muted);font-size:11px}
@@ -244,7 +244,7 @@ html.dark .action-btn.primary{color:var(--on-accent)}
   .journal-legend{max-height:74px}.journal-btn{font-size:9px}.window-label{font-size:10px}
 }
 @media(max-width:420px){
-  .topbar{padding:11px 12px}.deck{padding:10px}.brand-sub{letter-spacing:.1em}
+  .topbar{padding:11px 12px}.deck{padding:10px}.brand-sub{letter-spacing:.02em}
   .scope-head p{max-width:210px;line-height:1.5}.read-progress b{font-size:16px}
   .scope-label{font-size:7px;padding:3px 4px;letter-spacing:0}.scope-hub{width:56px;height:56px}.scope-hub b{font-size:18px}.scope-hub small{font-size:7px}
   .blip{width:10px;height:10px}.blip.rct{width:12px;height:12px}.blip.cohort{width:11px;height:11px}
@@ -635,7 +635,7 @@ body:not([data-proto-view="reading"]) .proto-density{display:none}       /* 密�
       <path d="M20 3v34M3 20h34M20 20l11-11" stroke="currentColor" stroke-width="1" opacity=".65"/>
       <circle cx="27" cy="14" r="3" fill="currentColor"/>
     </svg>
-    <div><strong class="brand-name" data-i18n="brand.name">胸科雷达</strong><span class="brand-sub">THORACIC SIGNAL DESK</span></div>
+    <div><strong class="brand-name" data-i18n="brand.name">Thoradar</strong><span class="brand-sub" data-i18n="brand.sub">胸科医学文献 · 每日扫描与个性化追踪</span></div>
   </div>
   <div class="scan-meta"><i class="live-dot"></i><div><b id="scan-date">—</b><small id="scan-time">正在读取注入数据…</small></div></div>
   <nav class="proto-view-switcher" id="proto-view-switcher" role="tablist" aria-label="主视图切换" data-i18n-aria="view.switcher.aria">
@@ -791,7 +791,6 @@ body:not([data-proto-view="reading"]) .proto-density{display:none}       /* 密�
   <div class="topic-run-body" id="pool-body"></div>
 </section>
 <footer class="footer">
-  <span data-i18n="foot.note">程序生成 · 无人审校 · 期刊与分区按注入字段原样展示 · 摘要仅供检索导读，临床判断请读原文</span>
   <span class="keys" data-i18n="foot.keys">/ 检索　← → 切换　ESC 清除</span>
   <a class="beian" href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">粤ICP备2026184706号-1</a>
 </footer>
@@ -803,7 +802,7 @@ body:not([data-proto-view="reading"]) .proto-density{display:none}       /* 密�
 const LS_LANG='thoradar.lang.v1';
 const I18N={
 zh:{
-'doc.title':'胸科雷达 · 滚动信号场','brand.name':'胸科雷达','lang.tip':'切换到英文界面','lang.btn':'EN',
+'doc.title':'Thoradar · 滚动信号场','brand.name':'Thoradar','brand.sub':'胸科医学文献 · 每日扫描与个性化追踪','lang.tip':'切换到英文界面','lang.btn':'EN',
 'scan.nogen.time':'生成时间 —','scan.note':'状态分项标注',
 'view.switcher.aria':'主视图切换','view.overview':'概览','view.overview.title':'概览：信号队列、雷达与锁定详情','view.reading':'阅读','view.reading.title':'阅读：完整标题、结论与证据','view.personal':'个性化','view.personal.title':'个性化：期刊合集、自定义阵地、我的主题与我的书架',
 'search.title':'搜索标题、期刊、PMID 或试验编号','search.ph':'在信号场中检索…','search.aria':'检索窗口内文献',
@@ -846,7 +845,7 @@ zh:{
 'topic.sec.title':'我的主题 · 自定义检索（按需执行 · 烧你自己的 Key）','topic.none':'还没有主题。点「＋ 新建主题」：起名、写 PubMed 检索式、设回看天数与单次上限。','topic.new':'＋ 新建主题','topic.lastrun':'上次运行 {ts} · 抓 {n} · 相关 {m}','topic.never':'未运行过','topic.run':'运行','topic.results':'结果','topic.run.title':'立即运行（查 PubMed＋烧你自己的 AI Key）','topic.view.title':'查看最近一次运行结果（本地存档）','topic.editor.empty':'在上方点「编辑」或「＋ 新建主题」。','topic.edit':'编辑主题','topic.create':'新建主题','f.name':'名称','f.name.ph':'如：食管癌微创','f.query':'PubMed 检索式','f.query.ph':'如: esophagectomy AND minimally invasive（支持 PubMed 语法 [Title/Abstract]、AND、OR）','f.days':'回看天数：','f.cap':'单次上限（5-50 篇）','topic.err':'检索式不能为空：写一条 PubMed 检索式（如 esophagectomy AND minimally invasive）。','unnamed.topic':'未命名主题','confirm.topic':'删除该主题？（最近一次运行结果一并清除；不影响官方雷达内容）',
 'run.aria':'我的主题检索结果','stop.btn':'■ 停止','run.close.aria':'关闭结果面板','run.stats':'抓取 {a} · 相关 {b} · 不相关 {c} · 未判 {d}','phase.pubmed':'检索 PubMed…','phase.fetch':'拉取题录与摘要…','phase.ai':'AI 判读中…','phase.batch':' · 批次 {a}/{b}','phase.done':'完成','phase.stopped':'已停止 · 保留已完成结果','phase.failed':'已中止','phase.archive':'本地存档 · 最近一次运行','archive.at':'存档时间 {ts}','cors.err':'跨域受限：请改用中转地址或自部署转发 Worker，模板见 ','no.results':'没有可显示的结果。','v.related':'相关','v.unrelated':'不相关','v.unjudged':'未判','v.unrun':'未跑','j.unknown':'期刊未知','d.unknown':'日期未知','record.missing':'（题录缺失）','roll.load':'正在同步历史档案…','roll.fail':'历史档案拉取失败，已保留当前数据',
 'err.pubmed.search':'PubMed 检索失败（HTTP {s}）','err.pubmed.fetch':'PubMed 题录拉取失败（HTTP {s}）','err.pubmed.xml':'PubMed 题录 XML 解析失败','err.ai.http':'AI 服务返回 HTTP {s}','err.judge.json':'AI 输出 JSON 解析失败（不含可解析的 JSON 数组）','err.judge.arr':'AI 输出不是数组','err.net.cors':'网络请求失败（常见原因：浏览器跨域受限）','err.net':'网络请求失败','err.stopped':'已停止','err.judge':'判读失败：{m}','err.partial':'部分批次判读失败（已重试 1 次）：{m}','topic.nohit':'该检索式 {d} 天内无命中。',
-'foot.note':'程序生成 · 无人审校 · 期刊与分区按注入字段原样展示 · 摘要仅供检索导读，临床判断请读原文','foot.keys':'/ 检索　← → 切换　ESC 清除',
+'foot.keys':'/ 检索　← → 切换　ESC 清除',
 'cat.all':'全部信号','cat.all.s':'全部','cat.adv':'晚期靶向/免疫','cat.adv.s':'靶向免疫','cat.surg':'微创/无管胸外科','cat.surg.s':'微创外科','cat.peri':'围术期/新辅助','cat.peri.s':'围术期','cat.eso':'食管/纵隔肿瘤','cat.eso.s':'食管纵隔','cat.nod':'肺结节/早筛','cat.nod.s':'结节早筛','cat.ai':'胸外 AI/三维','cat.ai.s':'数字胸外','cat.pulm':'非肿瘤呼吸病','cat.pulm.s':'呼吸肺病',
 'jcat.1':'胸外科与胸部肿瘤','jcat.11':'呼吸与睡眠','jcat.2':'肿瘤临床','jcat.4':'影像、病理与检验','jcat.3':'外科与重症医学','jcat.5':'感染与免疫','jcat.8':'基础·药理与转化','jcat.10':'医学AI与数字医学','jcat.9':'综合医学与多学科','jcat.pending':'待审定','jcat.67':'邻科与公卫',
 'type.rct':'RCT','type.cohort':'队列 / 观察','type.review':'综述 / Meta','type.ai':'AI / 数字','type.pending':'其他设计',
@@ -859,7 +858,7 @@ zh:{
 'err.nlm.search':'NLM 目录检索失败（HTTP {s}）','err.nlm.summary':'NLM 目录详情拉取失败（HTTP {s}）','err.gate':'NCBI 限流：已退避重试 {n} 次仍失败，请稍后再试。','err.ncbi':'NCBI 接口报错：{m}'
 },
 en:{
-'doc.title':'ThorRadar · Rolling Signal Field','brand.name':'ThorRadar','lang.tip':'Switch to Chinese interface','lang.btn':'中',
+'doc.title':'Thoradar · Rolling Signal Field','brand.name':'Thoradar','brand.sub':'Thoracic Medical Literature · Daily Scanning and Personalized Tracking','lang.tip':'Switch to Chinese interface','lang.btn':'中',
 'scan.nogen.time':'Generated —','scan.note':'status breakdown annotated',
 'view.switcher.aria':'Primary views','view.overview':'Overview','view.overview.title':'Overview: signal queue, radar and locked detail','view.reading':'Reading','view.reading.title':'Reading: full titles, findings and evidence','view.personal':'Personalize','view.personal.title':'Personalize: journal collections, custom sectors, my topics and my bookshelf',
 'search.title':'Search titles, journals, PMIDs or trial IDs','search.ph':'Search the signal field…','search.aria':'Search papers in the window',
@@ -902,7 +901,7 @@ en:{
 'topic.sec.title':'My topics · custom searches (on demand · burns your own key)','topic.none':'No topics yet. Click "＋ New topic": name it, write a PubMed query, set the lookback window and per-run cap.','topic.new':'＋ New topic','topic.lastrun':'Last run {ts} · fetched {n} · relevant {m}','topic.never':'Never run','topic.run':'Run','topic.results':'Results','topic.run.title':'Run now (queries PubMed and burns your own AI key)','topic.view.title':'View the last run (local archive)','topic.editor.empty':'Click "Edit" or "＋ New topic" above.','topic.edit':'Edit topic','topic.create':'New topic','f.name':'Name','f.name.ph':'e.g. Minimally invasive esophagectomy','f.query':'PubMed query','f.query.ph':'e.g. esophagectomy AND minimally invasive (PubMed syntax supported: [Title/Abstract], AND, OR)','f.days':'Lookback: ','f.cap':'Per-run cap (5-50 papers)','topic.err':'Query required: write a PubMed query (e.g. esophagectomy AND minimally invasive).','unnamed.topic':'Untitled topic','confirm.topic':'Delete this topic? (Its latest run is removed; official radar content is not affected.)',
 'run.aria':'My topic results','stop.btn':'■ Stop','run.close.aria':'Close the results panel','run.stats':'Fetched {a} · relevant {b} · unrelated {c} · unjudged {d}','phase.pubmed':'Searching PubMed…','phase.fetch':'Fetching records and abstracts…','phase.ai':'AI judging…','phase.batch':' · batch {a}/{b}','phase.done':'Completed','phase.stopped':'Stopped · completed results kept','phase.failed':'Aborted','phase.archive':'Local archive · latest run','archive.at':'Archived {ts}','cors.err':'CORS blocked: use a relay URL or a self-hosted forwarding Worker — template in the ','no.results':'Nothing to show.','v.related':'Relevant','v.unrelated':'Unrelated','v.unjudged':'Unjudged','v.unrun':'Not run','j.unknown':'journal unknown','d.unknown':'date unknown','record.missing':'(record missing)','roll.load':'Syncing history archive…','roll.fail':'Failed to load history — keeping current data',
 'err.pubmed.search':'PubMed search failed (HTTP {s})','err.pubmed.fetch':'PubMed record fetch failed (HTTP {s})','err.pubmed.xml':'PubMed record XML parse failed','err.ai.http':'AI service returned HTTP {s}','err.judge.json':'AI output JSON parse failed (no parseable JSON array)','err.judge.arr':'AI output is not an array','err.net.cors':'Network request failed (often a browser CORS restriction)','err.net':'Network request failed','err.stopped':'Stopped','err.judge':'Judge failed: {m}','err.partial':'Some batches failed judging (retried once): {m}','topic.nohit':'No hits for this query within {d} days.',
-'foot.note':'Auto-generated · not human-reviewed · journals and quartiles shown verbatim from injected fields · abstracts are for retrieval only — read the original paper before clinical decisions','foot.keys':'/ search　← → switch　ESC clear',
+'foot.keys':'/ search　← → switch　ESC clear',
 'cat.all':'All signals','cat.all.s':'All','cat.adv':'Advanced targeted / immunotherapy','cat.adv.s':'Targeted·IO','cat.surg':'Minimally invasive / tubeless surgery','cat.surg.s':'MIS','cat.peri':'Perioperative / neoadjuvant','cat.peri.s':'Periop','cat.eso':'Esophageal / mediastinal tumors','cat.eso.s':'Esoph·Med','cat.nod':'Lung nodules / early detection','cat.nod.s':'Nodules','cat.ai':'Thoracic AI / 3D','cat.ai.s':'AI·3D','cat.pulm':'Non-oncologic pulmonary disease','cat.pulm.s':'Pulmonary',
 'jcat.1':'Thoracic surgery & tumors','jcat.11':'Pulmonology & sleep','jcat.2':'Clinical oncology','jcat.4':'Imaging, pathology & labs','jcat.3':'Surgery & critical care','jcat.5':'Infection & immunity','jcat.8':'Basic · pharmacology · translational','jcat.10':'Medical AI & digital medicine','jcat.9':'General medicine & multidisciplinary','jcat.pending':'Pending','jcat.67':'Adjacent & public health',
 'type.rct':'RCT','type.cohort':'Cohort / observational','type.review':'Review / meta-analysis','type.ai':'AI / digital','type.pending':'Other designs',

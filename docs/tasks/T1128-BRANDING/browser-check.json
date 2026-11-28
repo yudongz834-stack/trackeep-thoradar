@@ -1,0 +1,324 @@
+{
+  "rows": [
+    {
+      "viewport": [
+        1422,
+        800
+      ],
+      "lang": "zh",
+      "pass": true,
+      "checks": {
+        "brand": true,
+        "title": true,
+        "subtitle": true,
+        "noHorizontalOverflow": true,
+        "headerOK": true,
+        "footerRemoved": true,
+        "beianVisible": true,
+        "noPageErrors": true
+      },
+      "measured": {
+        "lang": "zh-CN",
+        "title": "Thoradar · 滚动信号场",
+        "brand": "Thoradar",
+        "subtitle": "胸科医学文献 · 每日扫描与个性化追踪",
+        "docWidth": 1422,
+        "bodyWidth": 1422,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 1422,
+          "bottom": 58,
+          "width": 1422,
+          "height": 58
+        },
+        "headerOK": true,
+        "footer": "/ 检索　← → 切换　ESC 清除\n粤ICP备2026184706号-1",
+        "beian": true,
+        "oldFooterNode": false
+      },
+      "errors": []
+    },
+    {
+      "viewport": [
+        1422,
+        800
+      ],
+      "lang": "en",
+      "pass": true,
+      "checks": {
+        "brand": true,
+        "title": true,
+        "subtitle": true,
+        "noHorizontalOverflow": true,
+        "headerOK": true,
+        "footerRemoved": true,
+        "beianVisible": true,
+        "noPageErrors": true
+      },
+      "measured": {
+        "lang": "en",
+        "title": "Thoradar · Rolling Signal Field",
+        "brand": "Thoradar",
+        "subtitle": "Thoracic Medical Literature · Daily Scanning and Personalized Tracking",
+        "docWidth": 1422,
+        "bodyWidth": 1422,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 1422,
+          "bottom": 58,
+          "width": 1422,
+          "height": 58
+        },
+        "headerOK": true,
+        "footer": "/ search　← → switch　ESC clear\n粤ICP备2026184706号-1",
+        "beian": true,
+        "oldFooterNode": false
+      },
+      "errors": []
+    },
+    {
+      "viewport": [
+        2134,
+        1073
+      ],
+      "lang": "zh",
+      "pass": true,
+      "checks": {
+        "brand": true,
+        "title": true,
+        "subtitle": true,
+        "noHorizontalOverflow": true,
+        "headerOK": true,
+        "footerRemoved": true,
+        "beianVisible": true,
+        "noPageErrors": true
+      },
+      "measured": {
+        "lang": "zh-CN",
+        "title": "Thoradar · 滚动信号场",
+        "brand": "Thoradar",
+        "subtitle": "胸科医学文献 · 每日扫描与个性化追踪",
+        "docWidth": 2134,
+        "bodyWidth": 2134,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 2134,
+          "bottom": 58,
+          "width": 2134,
+          "height": 58
+        },
+        "headerOK": true,
+        "footer": "/ 检索　← → 切换　ESC 清除\n粤ICP备2026184706号-1",
+        "beian": true,
+        "oldFooterNode": false
+      },
+      "errors": []
+    },
+    {
+      "viewport": [
+        2134,
+        1073
+      ],
+      "lang": "en",
+      "pass": true,
+      "checks": {
+        "brand": true,
+        "title": true,
+        "subtitle": true,
+        "noHorizontalOverflow": true,
+        "headerOK": true,
+        "footerRemoved": true,
+        "beianVisible": true,
+        "noPageErrors": true
+      },
+      "measured": {
+        "lang": "en",
+        "title": "Thoradar · Rolling Signal Field",
+        "brand": "Thoradar",
+        "subtitle": "Thoracic Medical Literature · Daily Scanning and Personalized Tracking",
+        "docWidth": 2134,
+        "bodyWidth": 2134,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 2134,
+          "bottom": 58,
+          "width": 2134,
+          "height": 58
+        },
+        "headerOK": true,
+        "footer": "/ search　← → switch　ESC clear\n粤ICP备2026184706号-1",
+        "beian": true,
+        "oldFooterNode": false
+      },
+      "errors": []
+    },
+    {
+      "viewport": [
+        901,
+        1000
+      ],
+      "lang": "zh",
+      "pass": true,
+      "checks": {
+        "brand": true,
+        "title": true,
+        "subtitle": true,
+        "noHorizontalOverflow": true,
+        "headerOK": true,
+        "footerRemoved": true,
+        "beianVisible": true,
+        "noPageErrors": true
+      },
+      "measured": {
+        "lang": "zh-CN",
+        "title": "Thoradar · 滚动信号场",
+        "brand": "Thoradar",
+        "subtitle": "胸科医学文献 · 每日扫描与个性化追踪",
+        "docWidth": 901,
+        "bodyWidth": 901,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 901,
+          "bottom": 58,
+          "width": 901,
+          "height": 58
+        },
+        "headerOK": true,
+        "footer": "/ 检索　← → 切换　ESC 清除\n粤ICP备2026184706号-1",
+        "beian": true,
+        "oldFooterNode": false
+      },
+      "errors": []
+    },
+    {
+      "viewport": [
+        901,
+        1000
+      ],
+      "lang": "en",
+      "pass": true,
+      "checks": {
+        "brand": true,
+        "title": true,
+        "subtitle": true,
+        "noHorizontalOverflow": true,
+        "headerOK": true,
+        "footerRemoved": true,
+        "beianVisible": true,
+        "noPageErrors": true
+      },
+      "measured": {
+        "lang": "en",
+        "title": "Thoradar · Rolling Signal Field",
+        "brand": "Thoradar",
+        "subtitle": "Thoracic Medical Literature · Daily Scanning and Personalized Tracking",
+        "docWidth": 901,
+        "bodyWidth": 901,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 901,
+          "bottom": 58,
+          "width": 901,
+          "height": 58
+        },
+        "headerOK": true,
+        "footer": "/ search　← → switch　ESC clear\n粤ICP备2026184706号-1",
+        "beian": true,
+        "oldFooterNode": false
+      },
+      "errors": []
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "lang": "zh",
+      "pass": true,
+      "checks": {
+        "brand": true,
+        "title": true,
+        "subtitle": true,
+        "noHorizontalOverflow": true,
+        "headerOK": true,
+        "footerRemoved": true,
+        "beianVisible": true,
+        "noPageErrors": true
+      },
+      "measured": {
+        "lang": "zh-CN",
+        "title": "Thoradar · 滚动信号场",
+        "brand": "Thoradar",
+        "subtitle": "胸科医学文献 · 每日扫描与个性化追踪",
+        "docWidth": 390,
+        "bodyWidth": 390,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 390,
+          "bottom": 155,
+          "width": 390,
+          "height": 155
+        },
+        "headerOK": true,
+        "footer": "粤ICP备2026184706号-1",
+        "beian": true,
+        "oldFooterNode": false
+      },
+      "errors": []
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "lang": "en",
+      "pass": true,
+      "checks": {
+        "brand": true,
+        "title": true,
+        "subtitle": true,
+        "noHorizontalOverflow": true,
+        "headerOK": true,
+        "footerRemoved": true,
+        "beianVisible": true,
+        "noPageErrors": true
+      },
+      "measured": {
+        "lang": "en",
+        "title": "Thoradar · Rolling Signal Field",
+        "brand": "Thoradar",
+        "subtitle": "Thoracic Medical Literature · Daily Scanning and Personalized Tracking",
+        "docWidth": 390,
+        "bodyWidth": 390,
+        "header": {
+          "x": 0,
+          "y": 0,
+          "right": 390,
+          "bottom": 155,
+          "width": 390,
+          "height": 155
+        },
+        "headerOK": true,
+        "footer": "粤ICP备2026184706号-1",
+        "beian": true,
+        "oldFooterNode": false
+      },
+      "errors": []
+    }
+  ],
+  "cleanup": {
+    "residual": 0,
+    "profileRemoved": true
+  },
+  "summary": {
+    "passed": 8,
+    "failed": 0
+  }
+}

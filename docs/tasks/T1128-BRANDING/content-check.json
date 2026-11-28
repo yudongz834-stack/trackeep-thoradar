@@ -1,0 +1,56 @@
+{
+  "checks": [
+    {
+      "name": "old mixed-case brand removed",
+      "pass": true
+    },
+    {
+      "name": "old decorative subtitle removed",
+      "pass": true
+    },
+    {
+      "name": "old Chinese footer removed",
+      "pass": true
+    },
+    {
+      "name": "old English footer removed",
+      "pass": true
+    },
+    {
+      "name": "footer translation key removed",
+      "pass": true
+    },
+    {
+      "name": "Chinese brand subtitle exact",
+      "pass": true
+    },
+    {
+      "name": "English brand subtitle exact",
+      "pass": true
+    },
+    {
+      "name": "Chinese document title exact",
+      "pass": true
+    },
+    {
+      "name": "English document title exact",
+      "pass": true
+    },
+    {
+      "name": "brand subtitle is translated",
+      "pass": true
+    },
+    {
+      "name": "metadata uses the selected brand",
+      "pass": true
+    },
+    {
+      "name": "official SITE_DATA unchanged",
+      "pass": true
+    }
+  ],
+  "summary": {
+    "passed": 12,
+    "failed": 0
+  }
+}
