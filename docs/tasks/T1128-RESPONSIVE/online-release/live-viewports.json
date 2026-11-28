@@ -1,0 +1,187 @@
+{
+  "headSha": "c3c49d4c4dcd25d2a9efc2ac809f356a3e2659c8",
+  "startedAt": "2026-11-28T15:02:00.762Z",
+  "rows": [
+    {
+      "viewport": [
+        1422,
+        800
+      ],
+      "expectedDial": 477.7,
+      "errors": [],
+      "ready": "true",
+      "date": "2026-11-28",
+      "papers": 43,
+      "docWidth": 1407,
+      "bodyWidth": 1407,
+      "grid": "270px 687px 390px",
+      "dial": {
+        "x": 404.640625,
+        "y": 170.09375,
+        "width": 477.703125,
+        "height": 477.703125,
+        "right": 882.34375,
+        "bottom": 647.796875
+      },
+      "stage": {
+        "x": 308,
+        "y": 170.09375,
+        "width": 671,
+        "height": 477.703125,
+        "right": 979,
+        "bottom": 647.796875
+      },
+      "labelsOutside": 0,
+      "points": 36,
+      "excerptFont": "12px",
+      "checks": {
+        "ready": true,
+        "viewport": true,
+        "noHorizontalOverflow": true,
+        "expectedDial": true,
+        "labelsInside": true,
+        "pointsPresent": true,
+        "textNotShrunk": true
+      },
+      "pass": true
+    },
+    {
+      "viewport": [
+        2134,
+        1073
+      ],
+      "expectedDial": 620,
+      "errors": [],
+      "ready": "true",
+      "date": "2026-11-28",
+      "papers": 43,
+      "docWidth": 2134,
+      "bodyWidth": 2134,
+      "grid": "320.094px 1159.91px 460px",
+      "dial": {
+        "x": 687.046875,
+        "y": 229.4375,
+        "width": 620,
+        "height": 620,
+        "right": 1307.046875,
+        "bottom": 849.4375
+      },
+      "stage": {
+        "x": 425.09375,
+        "y": 170.09375,
+        "width": 1143.90625,
+        "height": 738.703125,
+        "right": 1569,
+        "bottom": 908.796875
+      },
+      "labelsOutside": 0,
+      "points": 36,
+      "excerptFont": "12px",
+      "checks": {
+        "ready": true,
+        "viewport": true,
+        "noHorizontalOverflow": true,
+        "expectedDial": true,
+        "labelsInside": true,
+        "pointsPresent": true,
+        "textNotShrunk": true
+      },
+      "pass": true
+    },
+    {
+      "viewport": [
+        901,
+        1000
+      ],
+      "expectedDial": 284,
+      "errors": [],
+      "ready": "true",
+      "date": "2026-11-28",
+      "papers": 43,
+      "docWidth": 901,
+      "bodyWidth": 901,
+      "grid": "240px 300px 315px",
+      "dial": {
+        "x": 271,
+        "y": 347.4375,
+        "width": 284,
+        "height": 284,
+        "right": 555,
+        "bottom": 631.4375
+      },
+      "stage": {
+        "x": 271,
+        "y": 170.09375,
+        "width": 284,
+        "height": 638.703125,
+        "right": 555,
+        "bottom": 808.796875
+      },
+      "labelsOutside": 0,
+      "points": 36,
+      "excerptFont": "12px",
+      "checks": {
+        "ready": true,
+        "viewport": true,
+        "noHorizontalOverflow": true,
+        "expectedDial": true,
+        "labelsInside": true,
+        "pointsPresent": true,
+        "textNotShrunk": true
+      },
+      "pass": true
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "expectedDial": 370,
+      "errors": [],
+      "ready": "true",
+      "date": "2026-11-28",
+      "papers": 43,
+      "docWidth": 390,
+      "bodyWidth": 390,
+      "grid": "370px",
+      "dial": {
+        "x": 10,
+        "y": 279.84375,
+        "width": 370,
+        "height": 370,
+        "right": 380,
+        "bottom": 649.84375
+      },
+      "stage": {
+        "x": 10,
+        "y": 279.84375,
+        "width": 370,
+        "height": 370,
+        "right": 380,
+        "bottom": 649.84375
+      },
+      "labelsOutside": 0,
+      "points": 36,
+      "excerptFont": "12.5px",
+      "checks": {
+        "ready": true,
+        "viewport": true,
+        "noHorizontalOverflow": true,
+        "expectedDial": true,
+        "labelsInside": true,
+        "pointsPresent": true,
+        "textNotShrunk": true
+      },
+      "pass": true
+    }
+  ],
+  "cleanup": {
+    "residual": 0,
+    "profileRemoved": true
+  },
+  "summary": {
+    "passed": 4,
+    "failed": 0
+  },
+  "endedAt": "2026-11-28T15:02:32.665Z"
+}

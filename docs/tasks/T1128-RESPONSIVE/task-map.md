@@ -7,3 +7,4 @@
 | Sol R1 隔离施工 | completed | codex-gpt / gpt-6.2-sol；主控后台任务 b15rhym81；退出 0、送达在，收卷章节闸为假警报 | `brief-sol-r1.md`、`sol-r1-report.md` |
 | 主控独立验收 | passed | 10/10 视口、UX 46/46、主控改坏判红且正本恢复、关键截图目检 | `acceptance-contract.md`、`main-r1-acceptance-report.md`、`main-evidence/` |
 | 主树整合 | completed-local-candidate | 主控；不 push/deploy | 主树与隔离候选 `index.html` SHA-256 均为 `f33c55df01ddbbf9a6dc004f7b6539d76aad7918b09e63360cba7846627d4104`，主树 source-check 通过 |
+| PI 发布＋主控线上验收 | completed | PI 推送 `c3c49d4`、run `46156893720`；主控公网 10/10、行为 9/9、线上布局 4/4 | `online-release/ACCEPTANCE.md`；CDN 刷新 `33911709559` |

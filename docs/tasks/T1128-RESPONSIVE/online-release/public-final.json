@@ -1,0 +1,146 @@
+{
+  "runId": 46156893720,
+  "headSha": "c3c49d4c4dcd25d2a9efc2ac809f356a3e2659c8",
+  "checkedAt": "2026-11-28T15:00:44.089Z",
+  "expected": {
+    "index.html": "Urkv8Ixj5WPB4NVyESmg4g==",
+    "sw.js": "nrgKbeazqBXvILkgAlssIg==",
+    "sw-retire.js": "xviHOEexQQLp0q41sv2uuA=="
+  },
+  "rows": [
+    {
+      "url": "https://thoradar.online/",
+      "status": 200,
+      "location": null,
+      "md5": "Urkv8Ixj5WPB4NVyESmg4g==",
+      "mime": "text/html",
+      "cacheControl": "public, max-age=60, s-maxage=3600",
+      "attempts": 1,
+      "check": {
+        "name": "main /",
+        "pass": true
+      }
+    },
+    {
+      "url": "https://thoradar.online/index.html",
+      "status": 200,
+      "location": null,
+      "md5": "Urkv8Ixj5WPB4NVyESmg4g==",
+      "mime": "text/html",
+      "cacheControl": "public, max-age=60, s-maxage=3600",
+      "attempts": 1,
+      "check": {
+        "name": "main /index.html",
+        "pass": true
+      }
+    },
+    {
+      "url": "https://thoradar.online/sw.js",
+      "status": 200,
+      "location": null,
+      "md5": "nrgKbeazqBXvILkgAlssIg==",
+      "mime": "application/javascript",
+      "cacheControl": "no-store",
+      "attempts": 1,
+      "check": {
+        "name": "main /sw.js",
+        "pass": true
+      }
+    },
+    {
+      "url": "https://thoradar.online/sw-retire.js",
+      "status": 200,
+      "location": null,
+      "md5": "xviHOEexQQLp0q41sv2uuA==",
+      "mime": "application/javascript",
+      "cacheControl": "no-store",
+      "attempts": 1,
+      "check": {
+        "name": "main /sw-retire.js",
+        "pass": true
+      }
+    },
+    {
+      "url": "https://www.thoradar.online/",
+      "status": 301,
+      "location": "https://thoradar.online/",
+      "md5": null,
+      "mime": "text/html",
+      "cacheControl": null,
+      "attempts": 2,
+      "check": {
+        "name": "www redirect /",
+        "pass": true
+      }
+    },
+    {
+      "url": "https://www.thoradar.online/index.html",
+      "status": 301,
+      "location": "https://thoradar.online/index.html",
+      "md5": null,
+      "mime": "text/html",
+      "cacheControl": null,
+      "attempts": 1,
+      "check": {
+        "name": "www redirect /index.html",
+        "pass": true
+      }
+    },
+    {
+      "url": "https://www.thoradar.online/?from=www",
+      "status": 301,
+      "location": "https://thoradar.online/?from=www",
+      "md5": null,
+      "mime": "text/html",
+      "cacheControl": null,
+      "attempts": 1,
+      "check": {
+        "name": "www redirect /?from=www",
+        "pass": true
+      }
+    },
+    {
+      "url": "https://www.thoradar.online/some/path?x=1",
+      "status": 301,
+      "location": "https://thoradar.online/some/path?x=1",
+      "md5": null,
+      "mime": "text/html",
+      "cacheControl": null,
+      "attempts": 1,
+      "check": {
+        "name": "www redirect /some/path?x=1",
+        "pass": true
+      }
+    },
+    {
+      "url": "https://www.thoradar.online/sw.js",
+      "status": 200,
+      "location": null,
+      "md5": "xviHOEexQQLp0q41sv2uuA==",
+      "mime": "application/javascript",
+      "cacheControl": "no-store",
+      "attempts": 1,
+      "check": {
+        "name": "www retired worker /sw.js",
+        "pass": true
+      }
+    },
+    {
+      "url": "https://www.thoradar.online/sw-retire.js",
+      "status": 200,
+      "location": null,
+      "md5": "xviHOEexQQLp0q41sv2uuA==",
+      "mime": "application/javascript",
+      "cacheControl": "no-store",
+      "attempts": 1,
+      "check": {
+        "name": "www retired worker /sw-retire.js",
+        "pass": true
+      }
+    }
+  ],
+  "summary": {
+    "passed": 10,
+    "failed": 0
+  }
+}
