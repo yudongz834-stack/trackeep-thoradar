@@ -107,6 +107,7 @@ const simulations = {};
 const shellRuns = {};
 const domains = ['thoradar.online', 'www.thoradar.online'];
 const urls = domains.flatMap(domain => ['/', '/index.html', '/sw.js', '/sw-retire.js'].map(path => `https://${domain}${path}`));
+const refreshUrls = urls.filter(url => new URL(url).hostname === 'thoradar.online');
 const workerMeta = 'Content-Type:application/javascript#Cache-Control:no-store';
 const origin = 'oss://thoradar-online/';
 const publishComplete = 'Publish verified on both domains';
@@ -192,7 +193,7 @@ try {
   ].join('\n'));
 
   for (const retire of [false, true]) {
-    await test(`${retire ? 'retire' : 'normal'} uploads workers then index, refreshes eight URLs and verifies mapped bytes`, async () => {
+    await test(`${retire ? 'retire' : 'normal'} uploads workers then index, refreshes four owned CDN URLs and verifies eight URLs`, async () => {
       const run = await simulate('healthy', retire);
       success(run);
       assert.deepEqual(run.uploads, [
@@ -210,7 +211,7 @@ try {
         [`${host}:443:thoradar-online.cn-shenzhen.taihangtop.cn:443`, `https://${host}/`]));
       const actions = run.calls.filter(call => call.tool === 'curl' || call.tool === 'aliyun');
       assert.deepEqual(actions.map(call => call.tool), ['curl', 'curl', 'aliyun', ...urls.map(() => 'curl')]);
-      assert.deepEqual(run.refreshes, [['cdn', 'RefreshObjectCaches', '--region', 'cn-shenzhen', '--ObjectType', 'File', '--ObjectPath', urls.join('\n')]]);
+      assert.deepEqual(run.refreshes, [['cdn', 'RefreshObjectCaches', '--region', 'cn-shenzhen', '--ObjectType', 'File', '--ObjectPath', refreshUrls.join('\n')]]);
       assert.match(run.stdout, /CDN RefreshTaskId="123456"/);
       assert.deepEqual(run.heads, urls);
       assert.ok(actions.slice(3).every(call => call.args.includes('Accept-Encoding: identity')));

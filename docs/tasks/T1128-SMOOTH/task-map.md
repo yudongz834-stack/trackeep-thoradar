@@ -18,6 +18,6 @@ C2 当前发布基底：`origin/main=28131f314f92a05227fd5923607d717c426da2c5`�
 | ⑤.9 对外发布 | superseded-by-c2 | C2 续作另立⑥–⑧ | ⑤ | 0 | C1 未执行任何发布动作 |
 | ⑥ Sol S5/S6 发布接线、CI 验证闸与退役模式 | completed-local-candidate | C2「继续做」 | ⑤ | 0 | S5/S6 已整合最新 43 篇候选；主控 `release-candidate-check/`：发布模拟 18/18、S3 9/9、S1 9/9、S2 24/24、UX 46/46；日报复演 26 步均符合预期，坏 JSON/非法日期/越权写入/旧基线判红；三件产品哈希保持合同值；不碰线上 |
 | ⑦ Astra V4 发布候选独立复核＋B1 修复 | completed-with-repair | C2「继续做」 | ⑥ | 0 | `astra-v4/report.md`：发布与负对照通过，发现合法 2 篇日报被 UX 阻断；主控只修 `tests/ux/ux_probe.mjs`，按「一决策一审、修复不再送审」不复开外审。`release-candidate-check/b1-fix/`：原 2 篇样本 46/46、43 篇 46/46；故意藏掉 1 篇时 F9a 判红；发布模拟 18/18；三件产品哈希未变 |
-| ⑧ PI 亲手发布＋主控线上验收 | waiting-pi-hands | 待 PI 当次亲手 | ⑦ | 0 | push、deploy、CDN 刷新与退役演练只能由 PI 执行；完成后实测双域首访/复访/更新/离线/退出；真机/iOS 不能用桌面模拟冒充 |
+| ⑧ PI 亲手发布＋主控线上验收 | in-progress-cdn-repair | PI 已亲手 push/deploy；后续重发仍唯 PI | ⑦ | 0 | 托管 runner 全闸与真实 OSS 上传已通过；run `46129122449` 实证 `www` 不属本 CDN 账号导致整批刷新失败。改为主域 4 地址刷新、双域 8 地址 MD5 验真，www 陈旧仍红；待 PI 重发后主控实测双域首访/复访/更新/离线/退出；真机/iOS 与完整退役不冒称已验 |
 
 规则：并行写默认禁止；Sol 只在隔离工作树施工，Neon/Astra 只读复验；任务地图只由派单方回填。退回或重派必须保留原因。

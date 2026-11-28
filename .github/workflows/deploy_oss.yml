@@ -159,7 +159,9 @@ jobs:
           for h in "${domains[@]}"; do
             for path in "${paths[@]}"; do urls+=("https://$h$path"); done
           done
-          refresh_paths=$(printf '%s\n' "${urls[@]}")
+          # 实测本账号 CDN 只登记 thoradar.online；www 不属本账号，混入会整批 InvalidDomain.NotFound。
+          # 只刷新可管理域，www 仍必须在下方独立通过同一 MD5 验证，内容陈旧即发布失败。
+          refresh_paths=$(printf 'https://thoradar.online%s\n' "${paths[@]}")
           refresh_id=''
           for attempt in 1 2; do
             echo "CDN RefreshObjectCaches attempt $attempt"

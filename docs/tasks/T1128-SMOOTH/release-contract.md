@@ -9,7 +9,7 @@
 2. 不改 `SITE_DATA/PAPERS/mergePapers/inWindow`，不新增 90 天缓存，不改其它对象现有缓存策略。
 3. `/sw.js` 与 `/sw-retire.js` 必须 `200`、JavaScript MIME、禁止缓存；首页保持 `max-age=60, s-maxage=3600` 并最后上传。
 4. 正常模式 `/sw.js` 内容等于 `sw.js`；退役模式 `/sw.js` 内容等于 `sw-retire.js`，正常部署可恢复。不能只上传退役件就宣称全网退役。
-5. 双域根路径、index、两件 worker 均精准刷新；失败或无 `RefreshTaskId` 必须判红。发布后 Content-MD5 必须等于本地对应文件，worker 还须检查 MIME 与 no-store。
+5. 本账号 CDN 只登记 `thoradar.online`：仅向主域 4 个地址提交刷新，失败或无 `RefreshTaskId` 必须判红；不得把不属本账号的 `www` 混入请求。双域根路径、index、两件 worker 共 8 个地址发布后仍须逐一核对 Content-MD5，`www` 内容陈旧同样判红；worker 还须检查 MIME 与 no-store。
 6. CI 必须先跑发布静态检查、源码不变量、S1/S2/S3 与 UX，再允许部署；不拿已知 R08 失真测试充数。
 7. 任何真实凭证不得打印、传输到测试或提交；静态/模拟测试只用假命令和假应答。
 
