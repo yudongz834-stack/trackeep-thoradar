@@ -1,0 +1,13 @@
+=== 终验补跑（偶发失败复测） 2026-11-28 20:48:59 ===
+### https://www.thoradar.online/index.html
+HTTP/1.1 301 Moved Permanently
+Location: https://thoradar.online/index.html
+curl_exit=0
+### https://thoradar.online/ (HEAD)
+HTTP/1.1 200 OK
+Content-Type: text/html
+Cache-Control: public, max-age=60, s-maxage=3600
+curl_exit=0
+### https://thoradar.online/sw.js (body)
+body_curl_exit=0
+body_md5: 9eb80a6de6b3a815ef20b920025b2c22 nrgKbeazqBXvILkgAlssIg== 5846

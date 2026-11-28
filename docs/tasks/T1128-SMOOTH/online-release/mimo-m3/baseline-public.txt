@@ -1,0 +1,301 @@
+=== T1128-SMOOTH-M3 公开基线（改前） 2026-11-28 19:55:31 ===
+--- https://thoradar.online/
+HTTP/1.1 200 OK
+Server: Tengine
+Content-Type: text/html
+Content-Length: 557847
+Connection: keep-alive
+Vary: Accept-Encoding
+Date: Sat, 28 Nov 2026 11:55:34 GMT
+x-oss-request-id: 6B0AC136846AE13431ACDF6C
+x-oss-cdn-auth: success
+Accept-Ranges: bytes
+x-oss-object-type: Normal
+x-oss-storage-class: Standard
+Cache-Control: public, max-age=60, s-maxage=3600
+Vary: Accept-Encoding
+ETag: "F349A0827CBA4634573FD530E33825C5"
+Last-Modified: Sat, 28 Nov 2026 09:25:50 GMT
+x-oss-hash-crc64ecma: 8443768018591467746
+Content-MD5: 80mggny6RjRXP9Uw4zglxQ==
+x-oss-server-time: 21
+Via: ens-cache17.l2cn7858[305,307,200-0,H], ens-cache12.l2cn7858[309,0], kunlun6.cn9518[424,424,200-0,M], kunlun8.cn9518[428,0]
+Age: 0
+Ali-Swift-Global-Savetime: 1795866934
+X-Cache: MISS TCP_MISS dirn:11:248900630
+X-Swift-SaveTime: Sat, 28 Nov 2026 11:55:34 GMT
+X-Swift-CacheTime: 3600
+Timing-Allow-Origin: *
+EagleId: 76b7f66017958669343418904e
+
+curl_exit=0
+--- https://thoradar.online/index.html
+HTTP/1.1 200 OK
+Server: Tengine
+Content-Type: text/html
+Content-Length: 557847
+Connection: keep-alive
+Vary: Accept-Encoding
+Date: Sat, 28 Nov 2026 11:05:52 GMT
+Vary: Accept-Encoding
+x-oss-request-id: 6B0AB59051C5F932335B3F7A
+x-oss-cdn-auth: success
+Accept-Ranges: bytes
+ETag: "F349A0827CBA4634573FD530E33825C5"
+Last-Modified: Sat, 28 Nov 2026 09:25:50 GMT
+x-oss-object-type: Normal
+x-oss-hash-crc64ecma: 8443768018591467746
+x-oss-storage-class: Standard
+Cache-Control: public, max-age=60, s-maxage=3600
+Content-MD5: 80mggny6RjRXP9Uw4zglxQ==
+x-oss-server-time: 6
+Via: cache48.l2cn3059[0,1,200-0,H], cache5.l2cn3059[2,0], kunlun5.cn9614[48,47,200-0,M], kunlun8.cn9614[52,0]
+Age: 2983
+Ali-Swift-Global-Savetime: 1795863952
+X-Cache: MISS TCP_MISS dirn:-2:-2
+X-Swift-SaveTime: Sat, 28 Nov 2026 11:55:35 GMT
+X-Swift-CacheTime: 617
+Timing-Allow-Origin: *
+EagleId: b7c0a71c17958669355324315e
+
+curl_exit=0
+--- https://thoradar.online/sw.js
+HTTP/1.1 200 OK
+Server: Tengine
+Content-Type: application/javascript
+Content-Length: 5846
+Connection: keep-alive
+Vary: Accept-Encoding
+Date: Sat, 28 Nov 2026 11:55:36 GMT
+Vary: Accept-Encoding
+x-oss-request-id: 6B0AC138A72E413233117AD1
+x-oss-cdn-auth: success
+Accept-Ranges: bytes
+ETag: "9EB80A6DE6B3A815EF20B920025B2C22"
+Last-Modified: Sat, 28 Nov 2026 09:25:49 GMT
+x-oss-object-type: Normal
+x-oss-hash-crc64ecma: 4701598279066352265
+x-oss-storage-class: Standard
+Cache-Control: no-store
+Content-MD5: nrgKbeazqBXvILkgAlssIg==
+x-oss-server-time: 25
+Via: ens-cache57.l2cn7858[107,106,200-0,M], ens-cache22.l2cn7858[108,0], kunlun7.cn9614[151,151,200-0,M], kunlun7.cn9614[155,0]
+Ali-Swift-Global-Savetime: 1795866936
+X-Cache: MISS TCP_MISS dirn:-2:-2
+X-Swift-SaveTime: Sat, 28 Nov 2026 11:55:36 GMT
+X-Swift-CacheTime: 0
+Timing-Allow-Origin: *
+EagleId: b7c0a71b17958669365443441e
+
+curl_exit=0
+--- https://thoradar.online/sw-retire.js
+HTTP/1.1 200 OK
+Server: Tengine
+Content-Type: application/javascript
+Content-Length: 832
+Connection: keep-alive
+Date: Sat, 28 Nov 2026 11:55:38 GMT
+x-oss-request-id: 6B0AC13A754D173934F1B3A8
+x-oss-cdn-auth: success
+Accept-Ranges: bytes
+ETag: "C6F8873847B14102E9D2AE35B2FDAEB8"
+Last-Modified: Sat, 28 Nov 2026 09:25:48 GMT
+x-oss-object-type: Normal
+x-oss-hash-crc64ecma: 16135459081636351240
+x-oss-storage-class: Standard
+Cache-Control: no-store
+Content-MD5: xviHOEexQQLp0q41sv2uuA==
+x-oss-server-time: 20
+Via: ens-cache28.l2cn7859[306,305,200-0,M], ens-cache15.l2cn7859[307,0], kunlun6.cn6953[551,550,200-0,M], kunlun4.cn6953[554,0]
+Ali-Swift-Global-Savetime: 1795866938
+X-Cache: MISS TCP_MISS dirn:-2:-2
+X-Swift-SaveTime: Sat, 28 Nov 2026 11:55:38 GMT
+X-Swift-CacheTime: 0
+Timing-Allow-Origin: *
+EagleId: 75a3379817958669376194172e
+
+curl_exit=0
+--- https://www.thoradar.online/
+HTTP/1.1 200 OK
+Server: Tengine
+Content-Type: text/html
+Content-Length: 557847
+Connection: keep-alive
+Vary: Accept-Encoding
+Date: Sat, 28 Nov 2026 11:55:39 GMT
+Vary: Accept-Encoding
+x-oss-request-id: 6B0AC13B1344D13734711508
+x-oss-cdn-auth: success
+Accept-Ranges: bytes
+ETag: "F349A0827CBA4634573FD530E33825C5"
+Last-Modified: Sat, 28 Nov 2026 09:25:50 GMT
+x-oss-object-type: Normal
+x-oss-hash-crc64ecma: 8443768018591467746
+x-oss-storage-class: Standard
+Cache-Control: public, max-age=60, s-maxage=3600
+Content-MD5: 80mggny6RjRXP9Uw4zglxQ==
+x-oss-server-time: 8
+Via: cache22.l2nu16-1[186,185,200-0,M], cache24.l2nu16-1[188,0], cache18.cn1321[357,356,200-0,M], cache12.cn1321[360,0]
+Ali-Swift-Global-Savetime: 1795866939
+X-Cache: MISS TCP_MISS dirn:-2:-2
+X-Swift-SaveTime: Sat, 28 Nov 2026 11:55:39 GMT
+X-Swift-CacheTime: 3600
+Timing-Allow-Origin: *
+EagleId: 74b2842017958669392485481e
+
+curl_exit=0
+--- https://www.thoradar.online/index.html
+HTTP/1.1 200 OK
+Server: Tengine
+Content-Type: text/html
+Content-Length: 557847
+Connection: keep-alive
+Vary: Accept-Encoding
+Date: Sat, 28 Nov 2026 11:55:40 GMT
+Vary: Accept-Encoding
+x-oss-request-id: 6B0AC13C22DB57383244AB71
+x-oss-cdn-auth: success
+Accept-Ranges: bytes
+ETag: "F349A0827CBA4634573FD530E33825C5"
+Last-Modified: Sat, 28 Nov 2026 09:25:50 GMT
+x-oss-object-type: Normal
+x-oss-hash-crc64ecma: 8443768018591467746
+x-oss-storage-class: Standard
+Cache-Control: public, max-age=60, s-maxage=3600
+Content-MD5: 80mggny6RjRXP9Uw4zglxQ==
+x-oss-server-time: 5
+Via: cache31.l2nu16-1[195,195,200-0,M], cache36.l2nu16-1[196,0], ens-cache8.cn7512[353,352,200-0,M], ens-cache6.cn7512[358,0]
+Ali-Swift-Global-Savetime: 1795866940
+X-Cache: MISS TCP_MISS dirn:-2:-2
+X-Swift-SaveTime: Sat, 28 Nov 2026 11:55:40 GMT
+X-Swift-CacheTime: 3600
+Timing-Allow-Origin: *
+EagleId: d365c51a17958669405953472e
+
+curl_exit=0
+--- https://www.thoradar.online/sw.js
+HTTP/1.1 200 OK
+Server: Tengine
+Content-Type: application/javascript
+Content-Length: 5846
+Connection: keep-alive
+Vary: Accept-Encoding
+Date: Sat, 28 Nov 2026 11:55:43 GMT
+Vary: Accept-Encoding
+x-oss-request-id: 6B0AC13F68CDBA39377D5E16
+x-oss-cdn-auth: success
+Accept-Ranges: bytes
+ETag: "9EB80A6DE6B3A815EF20B920025B2C22"
+Last-Modified: Sat, 28 Nov 2026 09:25:49 GMT
+x-oss-object-type: Normal
+x-oss-hash-crc64ecma: 4701598279066352265
+x-oss-storage-class: Standard
+Cache-Control: no-store
+Content-MD5: nrgKbeazqBXvILkgAlssIg==
+x-oss-server-time: 4
+Via: cache15.l2cn1813[227,227,200-0,M], cache38.l2cn1813[229,0], kunlun10.cn8137[1267,1266,200-0,M], kunlun10.cn8137[1270,0]
+Ali-Swift-Global-Savetime: 1795866943
+X-Cache: MISS TCP_MISS dirn:-2:-2
+X-Swift-SaveTime: Sat, 28 Nov 2026 11:55:43 GMT
+X-Swift-CacheTime: 0
+Timing-Allow-Origin: *
+EagleId: dcb5a79e17958669419025546e
+
+curl_exit=0
+--- https://www.thoradar.online/sw-retire.js
+HTTP/1.1 200 OK
+Server: Tengine
+Content-Type: application/javascript
+Content-Length: 832
+Connection: keep-alive
+Date: Sat, 28 Nov 2026 11:55:45 GMT
+x-oss-request-id: 6B0AC141A55499333658F82E
+x-oss-cdn-auth: success
+Accept-Ranges: bytes
+ETag: "C6F8873847B14102E9D2AE35B2FDAEB8"
+Last-Modified: Sat, 28 Nov 2026 09:25:48 GMT
+x-oss-object-type: Normal
+x-oss-hash-crc64ecma: 16135459081636351240
+x-oss-storage-class: Standard
+Cache-Control: no-store
+Content-MD5: xviHOEexQQLp0q41sv2uuA==
+x-oss-server-time: 16
+Via: ens-cache35.l2cn9136[337,337,200-0,M], ens-cache8.l2cn9136[339,0], kunlun6.cn5137[1248,1247,200-0,M], kunlun10.cn5137[1251,0]
+Ali-Swift-Global-Savetime: 1795866945
+X-Cache: MISS TCP_MISS dirn:-2:-2
+X-Swift-SaveTime: Sat, 28 Nov 2026 11:55:45 GMT
+X-Swift-CacheTime: 0
+Timing-Allow-Origin: *
+EagleId: 3b504c8b17958669440104977e
+
+curl_exit=0
+--- https://www.thoradar.online/?sw=0
+HTTP/1.1 200 OK
+Server: Tengine
+Content-Type: text/html
+Content-Length: 557847
+Connection: keep-alive
+Vary: Accept-Encoding
+Date: Sat, 28 Nov 2026 11:06:38 GMT
+Vary: Accept-Encoding
+x-oss-request-id: 6B0AB5BEB630023231CAA621
+x-oss-cdn-auth: success
+Accept-Ranges: bytes
+ETag: "F349A0827CBA4634573FD530E33825C5"
+Last-Modified: Sat, 28 Nov 2026 09:25:50 GMT
+x-oss-object-type: Normal
+x-oss-hash-crc64ecma: 8443768018591467746
+x-oss-storage-class: Standard
+Cache-Control: public, max-age=60, s-maxage=3600
+Content-MD5: 80mggny6RjRXP9Uw4zglxQ==
+x-oss-server-time: 2
+Via: ens-cache12.l2cn7857[114,114,200-0,M], ens-cache69.l2cn7857[117,0], kunlun9.cn8137[0,1,200-0,H], kunlun6.cn8137[5,0]
+X-Ali-Tproxy-Consistent-Hash-Hot: 1
+Age: 2948
+Ali-Swift-Global-Savetime: 1795863998
+X-Cache: HIT TCP_HIT dirn:9:337843527
+X-Swift-SaveTime: Sat, 28 Nov 2026 11:06:38 GMT
+X-Swift-CacheTime: 3600
+Timing-Allow-Origin: *
+EagleId: dcb5a79a17958669461676012e
+
+curl_exit=0
+--- https://www.thoradar.online/some/path?x=1
+HTTP/1.1 404 Not Found
+Server: Tengine
+Content-Type: text/html
+Content-Length: 557847
+Connection: keep-alive
+Vary: Accept-Encoding
+Date: Sat, 28 Nov 2026 11:55:47 GMT
+Vary: Accept-Encoding
+x-oss-request-id: 6B0AC143754D17303751D1A8
+x-oss-cdn-auth: success
+Accept-Ranges: bytes
+ETag: "F349A0827CBA4634573FD530E33825C5"
+Last-Modified: Sat, 28 Nov 2026 09:25:50 GMT
+x-oss-object-type: Normal
+x-oss-hash-crc64ecma: 8443768018591467746
+x-oss-storage-class: Standard
+Cache-Control: public, max-age=60, s-maxage=3600
+Content-MD5: 80mggny6RjRXP9Uw4zglxQ==
+x-oss-server-time: 11
+Via: cache21.l2cn3059[182,182,404-1280,M], cache56.l2cn3059[186,0], kunlun8.cn8137[297,297,404-1280,M], kunlun8.cn8137[299,0]
+Ali-Swift-Global-Savetime: 1795866947
+X-Cache: MISS TCP_MISS dirn:-2:-2
+X-Swift-Error: orig response 4XX error
+X-Swift-SaveTime: Sat, 28 Nov 2026 11:55:47 GMT
+X-Swift-CacheTime: 3600
+Timing-Allow-Origin: *
+EagleId: dcb5a79c17958669468907596e
+
+curl_exit=0
+=== 正文 MD5（改前） ===
+https://thoradar.online/ -> f349a0827cba4634573fd530e33825c5 80mggny6RjRXP9Uw4zglxQ== 557847
+https://thoradar.online/index.html -> f349a0827cba4634573fd530e33825c5 80mggny6RjRXP9Uw4zglxQ== 557847
+https://thoradar.online/sw.js -> 9eb80a6de6b3a815ef20b920025b2c22 nrgKbeazqBXvILkgAlssIg== 5846
+https://thoradar.online/sw-retire.js -> c6f8873847b14102e9d2ae35b2fdaeb8 xviHOEexQQLp0q41sv2uuA== 832
+https://www.thoradar.online/ -> f349a0827cba4634573fd530e33825c5 80mggny6RjRXP9Uw4zglxQ== 557847
+https://www.thoradar.online/index.html -> f349a0827cba4634573fd530e33825c5 80mggny6RjRXP9Uw4zglxQ== 557847
+https://www.thoradar.online/sw.js -> 9eb80a6de6b3a815ef20b920025b2c22 nrgKbeazqBXvILkgAlssIg== 5846
+https://www.thoradar.online/sw-retire.js -> c6f8873847b14102e9d2ae35b2fdaeb8 xviHOEexQQLp0q41sv2uuA== 832

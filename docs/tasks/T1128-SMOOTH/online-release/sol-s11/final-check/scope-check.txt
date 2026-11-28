@@ -1,0 +1,19 @@
+> git diff --check .github/workflows/deploy_oss.yml tests/smooth/verify-deploy.mjs tests/smooth/deploy-mock.mjs
+exit=0
+> git diff --name-only .github/workflows/deploy_oss.yml tests/smooth/verify-deploy.mjs tests/smooth/deploy-mock.mjs
+.github/workflows/deploy_oss.yml
+tests/smooth/verify-deploy.mjs
+exit=0
+> git diff --exit-code HEAD index.html sw.js sw-retire.js
+exit=0
+> git -C D:/trackeep/trackeep-product/trackeep-thoradar diff --exit-code HEAD index.html sw.js sw-retire.js
+exit=0
+> git -C D:/trackeep/trackeep-product/trackeep-thoradar apply --check D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s11-worktree\docs\tasks\T1128-SMOOTH\online-release\sol-s11\dual-domain.patch
+exit=0
+git hash-object -- .github/workflows/deploy_oss.yml [main]=8177e6fffc77718bc8ef1b9e9ed19a81740af7a3; git rev-parse :.github/workflows/deploy_oss.yml [isolated]=8177e6fffc77718bc8ef1b9e9ed19a81740af7a3
+git hash-object -- tests/smooth/verify-deploy.mjs [main]=582db8c4751c938ac27c8197ef783e45f000222c; git rev-parse :tests/smooth/verify-deploy.mjs [isolated]=582db8c4751c938ac27c8197ef783e45f000222c
+git hash-object -- tests/smooth/deploy-mock.mjs [main]=fc2d136cf8e17b35dfab6939936bddae74a171b8; git rev-parse :tests/smooth/deploy-mock.mjs [isolated]=fc2d136cf8e17b35dfab6939936bddae74a171b8
+> git -C D:/trackeep/trackeep-product/trackeep-thoradar hash-object docs/tasks/T1128-SMOOTH/task-map.md
+0fed834852a3fdfdfe588b26faf1c1e9a1562d0f
+exit=0
+node=⑧ line=21 status=in-progress-browser-repair

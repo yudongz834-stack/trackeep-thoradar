@@ -1,0 +1,1 @@
+command=node tests/smooth/verify-deploy.mjs D:\trackeep\trackeep-product\trackeep-thoradar\docs\tasks\T1128-SMOOTH\online-release\sol-s13/deploy.json cwd=D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s13-worktree exit=0

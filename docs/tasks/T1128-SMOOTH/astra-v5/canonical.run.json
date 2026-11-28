@@ -1,0 +1,15 @@
+{
+  "cwd": "D:\\claude-tmp\\T1128-SMOOTH-A5-98c362c8b2ee4782bd031502825f96fd\\snapshot",
+  "command": [
+    "node",
+    "tests/smooth/verify-deploy.mjs",
+    "D:\\trackeep\\trackeep-product\\trackeep-thoradar\\docs\\tasks\\T1128-SMOOTH\\astra-v5\\canonical.json"
+  ],
+  "started": "2026-11-28T20:17:02.812201+08:00",
+  "ended": "2026-11-28T20:20:24.533139+08:00",
+  "exit": 0,
+  "summary": {
+    "passed": 27,
+    "failed": 0
+  }
+}

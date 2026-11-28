@@ -1,0 +1,16 @@
+{
+  "cwd": "D:\\claude-tmp\\T1128-SMOOTH-A5-98c362c8b2ee4782bd031502825f96fd\\snapshot",
+  "command": [
+    "node",
+    "tests/smooth/verify-deploy.mjs",
+    "D:\\trackeep\\trackeep-product\\trackeep-thoradar\\docs\\tasks\\T1128-SMOOTH\\astra-v5\\allow-302.json",
+    "D:\\claude-tmp\\T1128-SMOOTH-A5-98c362c8b2ee4782bd031502825f96fd\\allow-302.yml"
+  ],
+  "started": "2026-11-28T20:17:02.930440+08:00",
+  "ended": "2026-11-28T20:20:21.586113+08:00",
+  "exit": 1,
+  "summary": {
+    "passed": 26,
+    "failed": 1
+  }
+}

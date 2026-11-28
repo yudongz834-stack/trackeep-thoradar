@@ -1,0 +1,22 @@
+{
+  "profile": "D:/claude-tmp/thoradar-www-legacy-J28T4e",
+  "startedAt": "2026-11-28T12:58:41.749Z",
+  "checks": [
+    {
+      "name": "legacy migration harness completed",
+      "pass": false,
+      "detail": {
+        "error": "Error: DevTools WebSocket 连不上",
+        "network": []
+      }
+    }
+  ],
+  "network": [],
+  "errors": [],
+  "harnessError": "Error: DevTools WebSocket 连不上",
+  "summary": {
+    "passed": 0,
+    "failed": 1
+  },
+  "endedAt": "2026-11-28T12:58:41.771Z"
+}

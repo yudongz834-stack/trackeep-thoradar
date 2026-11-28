@@ -1,0 +1,255 @@
+name: Deploy to Aliyun OSS
+
+# 迁移役（2026-11-19 起）：每日流水线跑完 → 网站同步到阿里云深圳 OSS（备案接入）
+# 手动可触发（workflow_dispatch）＝首次部署/补发；workflow_run 挂在日报管线尾部自动跟发
+on:
+  workflow_dispatch:
+    inputs:
+      retire:
+        description: 'Publish the retirement worker at /sw.js'
+        type: boolean
+        default: false
+  workflow_run:
+    workflows: ["ThorRadar Daily Pipeline"]
+    types: [completed]
+
+permissions:
+  contents: read
+
+jobs:
+  smooth-verify:
+    # 日报管线成功才跟发；手动触发不受限
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: windows-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout release revision with history
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Check deployment workflow and simulate publishing
+        run: node tests/smooth/verify-deploy.mjs "$env:RUNNER_TEMP/smooth-deploy.json"
+
+      - name: Verify source invariants
+        run: node tests/smooth/verify-source.mjs "$env:RUNNER_TEMP/smooth-source.json" --ci
+
+      - name: Verify S1
+        run: node tests/smooth/verify-s1.mjs "$env:RUNNER_TEMP/smooth-s1.json"
+
+      - name: Verify S2
+        run: node tests/smooth/verify-s2.mjs "$env:RUNNER_TEMP/smooth-s2.json"
+
+      - name: Verify S3
+        run: node tests/smooth/verify-s3.mjs "$env:RUNNER_TEMP/smooth-s3.json"
+
+      - name: Prepare UX baseline from the first parent
+        run: node tests/smooth/prepare-ci-ux-baseline.mjs "$env:GITHUB_SHA" "$env:RUNNER_TEMP/smooth-ux-baseline.html"
+
+      - name: Verify UX
+        run: |
+          $env:XREV_SCRATCH = Join-Path $env:RUNNER_TEMP 'smooth-ux'
+          node tests/ux/ux_probe.mjs --target index.html --base-html "$env:RUNNER_TEMP/smooth-ux-baseline.html" --label smooth-ci
+
+  deploy-oss:
+    needs: smooth-verify
+    runs-on: ubuntu-latest
+    concurrency:
+      group: thoradar-oss
+      cancel-in-progress: false
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+
+      - name: Install OSS and CDN tools
+        shell: bash
+        run: |
+          set -euo pipefail
+          # ossutil 走 GitHub 官方发行版 v1.7.18 zip（v1.7.19 无 linux 资产·alicdn 域名美国 runner 不通）
+          cd "$RUNNER_TEMP"
+          curl -fsSL https://github.com/aliyun/ossutil/releases/download/v1.7.18/ossutil-v1.7.18-linux-amd64.zip -o ossutil.zip
+          unzip -q ossutil.zip
+          mv ossutil-v1.7.18-linux-amd64/ossutil ./ossutil
+          chmod +x ossutil
+          file ossutil | grep -q ELF || { echo 'ossutil download is not an ELF binary'; exit 9; }
+          ./ossutil --version
+
+          mkdir -p aliyun
+          curl -fsSL https://github.com/aliyun/aliyun-cli/releases/download/v3.5.4/aliyun-cli-linux-3.5.4-amd64.tgz -o aliyun/cli.tgz
+          echo 'e1eefcbbe9d772d61f770d4af8595e7297e081a0348b096765d2c41e581c3e72  aliyun/cli.tgz' | sha256sum -c -
+          tar -xzf aliyun/cli.tgz -C aliyun
+          chmod +x aliyun/aliyun
+
+      - name: Publish and verify site
+        shell: bash
+        env:
+          OSS_KEY_ID: ${{ secrets.OSS_KEY_ID }}
+          OSS_KEY_SECRET: ${{ secrets.OSS_KEY_SECRET }}
+          ALIBABA_CLOUD_ACCESS_KEY_ID: ${{ secrets.OSS_KEY_ID }}
+          ALIBABA_CLOUD_ACCESS_KEY_SECRET: ${{ secrets.OSS_KEY_SECRET }}
+          SMOOTH_RETIRE: ${{ inputs.retire && 'true' || 'false' }}
+        run: |
+          set -euo pipefail
+          ossutil="$RUNNER_TEMP/ossutil"
+          aliyun="$RUNNER_TEMP/aliyun/aliyun"
+          "$ossutil" config -e oss-cn-shenzhen.aliyuncs.com -i "$OSS_KEY_ID" -k "$OSS_KEY_SECRET" -L CH >/dev/null 2>&1 || {
+            echo 'OSS configuration failed' >&2
+            exit 1
+          }
+          # 开桶（幂等：已存在则忽略）
+          "$ossutil" mb oss://thoradar-online --acl public-read 2>/dev/null || echo "跳过桶创建，继续检查现有桶"
+          # 静态站默认页：v1.7.18 website put 只认 XML 配置文件（--index-page 是幻影旗标，
+          # 2>/dev/null || true 曾吞错致根路径 403——2026-11-20 控制台补设＋此处改 XML 正方）
+          cat > website.xml <<'XML'
+          <?xml version="1.0" encoding="UTF-8"?>
+          <WebsiteConfiguration>
+            <IndexDocument><Suffix>index.html</Suffix></IndexDocument>
+            <ErrorDocument><Key>index.html</Key></ErrorDocument>
+          </WebsiteConfiguration>
+          XML
+          "$ossutil" website --method put oss://thoradar-online website.xml
+          # 站面文件（首页/图标/搜索登记/订阅件）——ossutil 单命令单源，逐件上传
+          # sitemap lastmod 部署时现打当日戳（Hydrogen 11-20 审出死日期 2026-11-08 滞留）
+          sed "s|<lastmod>[^<]*</lastmod>|<lastmod>$(date -u +%Y-%m-%d)</lastmod>|" sitemap.xml > "$RUNNER_TEMP/sitemap.xml"
+          mv "$RUNNER_TEMP/sitemap.xml" sitemap.xml
+          for f in favicon.ico robots.txt sitemap.xml; do
+            "$ossutil" cp -rf --update "$f" oss://thoradar-online/
+          done
+          "$ossutil" cp -rf --update --meta Cache-Control:no-cache feed.xml oss://thoradar-online/
+          "$ossutil" cp -rf --update --meta "Cache-Control:public, max-age=60, s-maxage=300" data/radar_latest.json oss://thoradar-online/data/
+          "$ossutil" cp -rf --update --meta Cache-Control:no-cache api/ oss://thoradar-online/api/
+          "$ossutil" cp -rf --update thoradar-skill/ oss://thoradar-online/thoradar-skill/
+
+          active_worker=sw.js
+          if [[ "$SMOOTH_RETIRE" == true ]]; then active_worker=sw-retire.js; fi
+          worker_meta='Content-Type:application/javascript#Cache-Control:no-store'
+          # 始终覆盖 worker，确保正常与退役可双向切换；首页沿用现有缓存头并最后写入。
+          "$ossutil" cp -f --meta "$worker_meta" sw-retire.js oss://thoradar-online/sw-retire.js
+          "$ossutil" cp -f --meta "$worker_meta" "$active_worker" oss://thoradar-online/sw.js
+          "$ossutil" cp -f --meta 'Cache-Control:public, max-age=60, s-maxage=3600' index.html oss://thoradar-online/index.html
+
+          # 开门＝桶级公共读（控制台定版，对象继承 ACL）——逐件 setacl 按 6.2/Hydrogen 双席审读裁撤
+          # （v1.7.18 无 setacl 命令·对象继承桶权限已实测 200）
+          echo '=== OSS uploads recorded'
+          "$ossutil" ls oss://thoradar-online/ | tail -2
+          # 两个域名都直连源站验证 SNI 与根路径 200；公网 CDN 响应在刷新提交后单独验证。
+          echo "=== HTTPS 预检（SNI=域名 → CNAME 目标）"
+          domains=(thoradar.online www.thoradar.online)
+          paths=(/ /index.html /sw.js /sw-retire.js)
+          for h in "${domains[@]}"; do
+            code=$(curl -sS -o /dev/null -w '%{http_code}' --connect-timeout 15 \
+              --max-time 30 \
+              --connect-to "$h:443:thoradar-online.cn-shenzhen.taihangtop.cn:443" \
+              "https://$h/")
+            if [ "$code" != "200" ]; then echo "✗ $h 根路径 HTTPS $code（期望 200）" >&2; exit 1; fi
+            echo "$h 根路径 HTTPS 200 ✅"
+          done
+
+          # 只刷新正式域 thoradar.online。www 的永久跳转和退役 worker 例外由 CDN 配置提供。
+          refresh_paths=$(printf 'https://thoradar.online%s\n' "${paths[@]}")
+          refresh_id=''
+          for attempt in 1 2; do
+            echo "CDN RefreshObjectCaches attempt $attempt"
+            if refresh_id=$(
+              "$aliyun" cdn RefreshObjectCaches --region cn-shenzhen --ObjectType File --ObjectPath "$refresh_paths" |
+                python3 -c 'import json, sys; value = json.load(sys.stdin).get("RefreshTaskId");
+          if type(value) not in (str, int) or not value or not str(value).strip(): sys.exit(1)
+          print(json.dumps(value))'
+            ); then
+              echo "CDN RefreshTaskId=$refresh_id"
+              break
+            fi
+            if [[ "$attempt" == 2 ]]; then
+              echo 'CDN refresh failed or returned no RefreshTaskId' >&2
+              exit 1
+            fi
+            sleep 5
+          done
+
+          check_object_headers() {
+            awk -v expected="$1" -v worker="$2" '
+              { sub(/\r$/, "") }
+              /^HTTP\// { status=$2; md5=""; mime=""; cache=""; next }
+              tolower($0) ~ /^content-md5:/ { md5=$0; sub(/^[^:]+:[ \t]*/, "", md5); sub(/[ \t]+$/, "", md5) }
+              tolower($0) ~ /^content-type:/ { mime=tolower($0); sub(/^[^:]+:[ \t]*/, "", mime); sub(/([ \t]*;.*|[ \t]+)$/, "", mime) }
+              tolower($0) ~ /^cache-control:/ { line=tolower($0); sub(/^[^:]+:[ \t]*/, "", line); cache=cache "," line }
+              END {
+                printf "HTTP=%s Content-MD5=%s expected=%s MIME=%s Cache-Control=%s", status, md5, expected, mime, cache
+                if (status != 200) exit 1
+                if (worker && (mime !~ /^(application|text)\/(javascript|ecmascript)$/ || cache !~ /,[ \t]*no-store[ \t]*(,|$)/)) exit 1
+              }
+            '
+          }
+
+          check_redirect_headers() {
+            awk -v expected="$1" '
+              { sub(/\r$/, "") }
+              /^HTTP\// { status=$2; location=""; locations=0; next }
+              tolower($0) ~ /^location:/ {
+                locations++
+                location=$0; sub(/^[^:]+:[ \t]*/, "", location); sub(/[ \t]+$/, "", location)
+              }
+              END {
+                printf "HTTP=%s Location=%s", status, location
+                if (status != 301 && status != 308) exit 1
+                if (locations != 1 || location != expected) exit 1
+              }
+            '
+          }
+
+          verify_public() {
+            local url="$1" headers result attempt
+            shift
+            for attempt in {1..12}; do
+              # 读取首个公网响应，不跟随跳转。-q 禁止 curl 配置文件覆盖命令行为。
+              if headers=$(curl -q -sS -I -H 'Accept-Encoding: identity' --connect-timeout 5 --max-time 10 "$url"); then
+                if result=$("$@" <<< "$headers"); then
+                  echo "Verified $url $result"
+                  return 0
+                fi
+              else
+                result='HEAD request failed'
+              fi
+              echo "Waiting for $url ($attempt/12) $result"
+              # CDN 刷新从提交到生效约需 5–6 分钟。两次短等后拉长间隔，末次至少在 370 秒后。
+              if (( attempt <= 2 )); then
+                sleep 5
+              elif (( attempt < 12 )); then
+                sleep 40
+              fi
+            done
+            echo "Verification failed for $url" >&2
+            return 1
+          }
+
+          verify_object() {
+            local url="$1" source="$2" worker="$3" expected
+            expected=$(openssl dgst -md5 -binary "$source" | openssl base64 -A)
+            verify_public "$url" check_object_headers "$expected" "$worker"
+          }
+
+          for path in "${paths[@]}"; do
+            url="https://thoradar.online$path"
+            case "$path" in
+              /sw.js) verify_object "$url" "$active_worker" 1 ;;
+              /sw-retire.js) verify_object "$url" sw-retire.js 1 ;;
+              *) verify_object "$url" index.html 0 ;;
+            esac
+          done
+
+          for path in / /index.html '/?from=www'; do
+            verify_public "https://www.thoradar.online$path" check_redirect_headers "https://thoradar.online$path"
+          done
+          # 保留旧 www 客户端的退役入口，两件 worker 在两种发布模式都返回退役文件。
+          verify_object 'https://www.thoradar.online/sw.js' sw-retire.js 1
+          verify_object 'https://www.thoradar.online/sw-retire.js' sw-retire.js 1
+          echo 'Publish verified on both domains'

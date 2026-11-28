@@ -1,0 +1,11 @@
+--- .github/workflows/deploy_oss.yml
++++ www-allow-302.yml
+@@ -201,7 +201,7 @@
+               }
+               END {
+                 printf "HTTP=%s Location=%s", status, location
+-                if (status != 301 && status != 308) exit 1
++                if (status != 301 && status != 302 && status != 308) exit 1
+                 if (locations != 1 || location != expected) exit 1
+               }
+             '

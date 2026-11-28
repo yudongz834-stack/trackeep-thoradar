@@ -1,0 +1,4 @@
+warning: in the working copy of 'docs/tasks/T1128-SMOOTH/RELEASE-REPORT.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/tasks/T1128-SMOOTH/task-map.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/tasks/T1128-SMOOTH/RELEASE-REPORT.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/tasks/T1128-SMOOTH/task-map.md', LF will be replaced by CRLF the next time Git touches it

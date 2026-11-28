@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
-import { spawnSync } from 'node:child_process';
+import { execFileSync, spawnSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { chmod, copyFile, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { tmpdir } from 'node:os';
@@ -102,12 +103,20 @@ for (const key of ['PATH', 'SystemRoot', 'COMSPEC', 'PATHEXT', 'TEMP', 'TMP', 'T
   if (process.env[key] !== undefined) localEnv[key] = process.env[key];
 }
 const bashPath = path => windows ? path.replaceAll('\\', '/') : path;
+const git = (...args) => execFileSync('git', args, { cwd: root, env: localEnv, windowsHide: true });
+const gitDir = bashPath(git('rev-parse', '--absolute-git-dir').toString().trim());
+const md5 = bytes => createHash('md5').update(bytes).digest('base64');
+const sources = ['index.html', 'sw.js', 'sw-retire.js'];
+const blobs = Object.fromEntries(sources.map(source => [source, git('cat-file', 'blob', `HEAD:${source}`)]));
+const blobMd5 = Object.fromEntries(sources.map(source => [source, md5(blobs[source])]));
 const scratch = await mkdtemp(join(tmpdir(), 'thoradar-s5-deploy-'));
 const simulations = {};
 const shellRuns = {};
 const domains = ['thoradar.online', 'www.thoradar.online'];
-const urls = domains.flatMap(domain => ['/', '/index.html', '/sw.js', '/sw-retire.js'].map(path => `https://${domain}${path}`));
-const refreshUrls = urls.filter(url => new URL(url).hostname === 'thoradar.online');
+const refreshUrls = ['/', '/index.html', '/sw.js', '/sw-retire.js'].map(path => `https://thoradar.online${path}`);
+const wwwRedirects = ['/', '/index.html', '/?from=www'].map(path => `https://www.thoradar.online${path}`);
+const wwwWorkers = ['https://www.thoradar.online/sw.js', 'https://www.thoradar.online/sw-retire.js'];
+const urls = [...refreshUrls, ...wwwRedirects, ...wwwWorkers];
 const workerMeta = 'Content-Type:application/javascript#Cache-Control:no-store';
 const origin = 'oss://thoradar-online/';
 const publishComplete = 'Publish verified on both domains';
@@ -126,18 +135,19 @@ async function mockCommand(path, tool) {
   await chmod(path, 0o755);
 }
 
-async function simulate(scenario, retire = false) {
+async function simulate(scenario, retire = false, checkout = scratch) {
   const label = retire ? `${scenario}-retire` : scenario;
   const trace = join(scratch, `trace-${label}.jsonl`);
   await writeFile(trace, '');
   const env = { ...localEnv, MSYS2_ARG_CONV_EXCL: '*', RUNNER_TEMP: bashPath(scratch),
+    GIT_DIR: scenario === 'git-blob-unavailable' ? bashPath(join(scratch, 'missing-git-dir')) : gitDir,
     OSS_KEY_ID: 'mock-id', OSS_KEY_SECRET: 'mock-secret',
     ALIBABA_CLOUD_ACCESS_KEY_ID: 'mock-id', ALIBABA_CLOUD_ACCESS_KEY_SECRET: 'mock-secret',
     SMOOTH_RETIRE: String(retire), SMOOTH_MOCK_SCENARIO: scenario,
     SMOOTH_MOCK_NODE: bashPath(process.execPath), SMOOTH_MOCK_SCRIPT: fileURLToPath(new URL('./deploy-mock.mjs', import.meta.url)),
-    SMOOTH_MOCK_TRACE: trace };
+    SMOOTH_MOCK_TRACE: trace, SMOOTH_MOCK_BLOB_MD5: JSON.stringify(blobMd5) };
   const script = join(scratch, 'publish.sh');
-  const run = bashRun([bashPath(script)], { env });
+  const run = bashRun([bashPath(script)], { cwd: checkout, env });
   const calls = (await readFile(trace, 'utf8')).trim().split('\n').filter(Boolean).map(line => JSON.parse(line));
   simulations[label] = { ...run, calls };
   return { ...run, calls, uploads: calls.filter(call => call.tool === 'ossutil' && call.args[0] === 'cp').map(call => call.args),
@@ -156,6 +166,13 @@ function failure(run, message) {
   assert.ok(!run.stdout.includes(publishComplete));
 }
 
+function rejectsPublicResponse(run, url) {
+  failure(run, /^Verification failed for /m);
+  assert.ok(run.stderr.includes(`Verification failed for ${url}\n`), run.stderr);
+  assert.equal(run.heads.filter(head => head === url).length, 12);
+  assert.ok(!run.stdout.includes(`Verified ${url} `));
+}
+
 try {
   let deployScript;
   await test('Bash syntax for tool installation and production publish', () => {
@@ -172,7 +189,7 @@ try {
   await mkdir(bin);
   await mkdir(aliyun);
   await Promise.all([
-    ...['index.html', 'sw.js', 'sw-retire.js', 'sitemap.xml'].map(file => copyFile(join(root, file), join(scratch, file))),
+    ...[...sources, 'sitemap.xml'].map(file => copyFile(join(root, file), join(scratch, file))),
     mockCommand(join(scratch, 'ossutil'), 'ossutil'), mockCommand(join(aliyun, 'aliyun'), 'aliyun'),
     mockCommand(join(bin, 'curl'), 'curl'), mockCommand(join(bin, 'sleep'), 'sleep')
   ]);
@@ -193,7 +210,7 @@ try {
   ].join('\n'));
 
   for (const retire of [false, true]) {
-    await test(`${retire ? 'retire' : 'normal'} uploads workers then index, refreshes four owned CDN URLs and verifies eight URLs`, async () => {
+    await test(`${retire ? 'retire' : 'normal'} uploads workers then index, refreshes only four main URLs and verifies both domains`, async () => {
       const run = await simulate('healthy', retire);
       success(run);
       assert.deepEqual(run.uploads, [
@@ -214,9 +231,38 @@ try {
       assert.deepEqual(run.refreshes, [['cdn', 'RefreshObjectCaches', '--region', 'cn-shenzhen', '--ObjectType', 'File', '--ObjectPath', refreshUrls.join('\n')]]);
       assert.match(run.stdout, /CDN RefreshTaskId="123456"/);
       assert.deepEqual(run.heads, urls);
-      assert.ok(actions.slice(3).every(call => call.args.includes('Accept-Encoding: identity')));
+      for (const call of actions.slice(3)) {
+        assert.ok(call.args.includes('Accept-Encoding: identity'));
+        assert.ok(!call.args.some(arg => ['-L', '--location', '--location-trusted'].includes(arg)));
+      }
+      for (const [url, status] of wwwRedirects.map((url, index) => [url, index === 1 ? 308 : 301])) {
+        assert.ok(run.stdout.includes(`Verified ${url} HTTP=${status} Location=${url.replace('www.', '')}\n`));
+      }
     });
   }
+
+  await test('CRLF checkout still verifies against the Git blobs', async () => {
+    const checkout = join(scratch, 'crlf-checkout');
+    await mkdir(checkout);
+    for (const source of sources) {
+      const crlf = Buffer.from(blobs[source].toString('latin1').replace(/(?<!\r)\n/g, '\r\n'), 'latin1');
+      assert.notEqual(md5(crlf), blobMd5[source], `${source} fixture must differ from its Git blob`);
+      await writeFile(join(checkout, source), crlf);
+    }
+    await copyFile(join(root, 'sitemap.xml'), join(checkout, 'sitemap.xml'));
+    const run = await simulate('crlf-checkout', false, checkout);
+    success(run);
+    for (const [index, source] of ['index.html', ...sources].entries()) {
+      const digest = blobMd5[source];
+      assert.ok(run.stdout.includes(`Verified ${refreshUrls[index]} HTTP=200 Content-MD5=${digest} expected=${digest} `));
+    }
+  });
+
+  await test('unreadable Git blob fails before public object verification', async () => {
+    const run = await simulate('git-blob-unavailable');
+    failure(run, /Unable to compute Content-MD5 from HEAD:index\.html/);
+    assert.deepEqual(run.heads, []);
+  });
 
   for (const scenario of ['refresh-retry', 'id-retry', 'refresh-error', 'missing-task-id']) {
     await test(`CDN ${scenario} uses at most one retry and requires a task ID`, async () => {
@@ -234,21 +280,55 @@ try {
     });
   }
 
-  await test('stale CDN content is polled again before publishing succeeds', async () => {
-    const run = await simulate('stale-then-current', true);
+  await test('stale www worker is polled before the retirement worker verifies', async () => {
+    const run = await simulate('stale-then-current');
     success(run);
-    const workerUrl = 'https://www.thoradar.online/sw.js';
-    assert.equal(run.heads.filter(url => url === workerUrl).length, 2);
-    assert.ok(run.stdout.includes(`Waiting for ${workerUrl} (1/12)`));
+    assert.equal(run.heads.filter(url => url === wwwWorkers[0]).length, 2);
+    assert.ok(run.stdout.includes(`Waiting for ${wwwWorkers[0]} (1/12)`));
+    assert.deepEqual([...new Set(run.heads)], urls);
   });
 
-  for (const scenario of ['wrong-md5', 'wrong-mime', 'worker-cacheable', 'worker-404', 'head-error']) {
+  await test('main-domain CDN can take six minutes with two 5s sleeps followed by nine 40s sleeps', async () => {
+    const run = await simulate('stale-during-propagation', true);
+    success(run);
+    const workerUrl = refreshUrls[2];
+    assert.equal(run.heads.filter(url => url === workerUrl).length, 12);
+    assert.ok(run.stdout.includes(`Waiting for ${workerUrl} (1/12)`));
+    assert.deepEqual(run.calls.filter(call => call.tool === 'sleep').map(call => call.args),
+      [['5'], ['5'], ...Array.from({ length: 9 }, () => ['40'])]);
+    assert.deepEqual([...new Set(run.heads)], urls);
+  });
+
+  for (const [scenario, url] of [
+    ['www-root-200', wwwRedirects[0]],
+    ['www-index-200', wwwRedirects[1]],
+    ['www-redirect-302', wwwRedirects[0]],
+    ['www-redirect-wrong-location', wwwRedirects[0]],
+    ['www-redirect-lost-query', wwwRedirects[2]],
+    ['www-redirect-wrong-host', wwwRedirects[2]]
+  ]) {
+    await test(`post-publish verification rejects ${scenario}`, async () => {
+      rejectsPublicResponse(await simulate(scenario), url);
+    });
+  }
+
+  for (const [scenario, url] of [
+    ['homepage-octet-stream-root', refreshUrls[0]],
+    ['homepage-octet-stream-index', refreshUrls[1]]
+  ]) {
+    await test(`post-publish verification rejects ${scenario} with the correct blob MD5`, async () => {
+      const run = await simulate(scenario);
+      rejectsPublicResponse(run, url);
+      const digest = blobMd5['index.html'];
+      assert.ok(run.stdout.includes(`Waiting for ${url} (12/12) HTTP=200 Content-MD5=${digest} expected=${digest} MIME=application/octet-stream `));
+    });
+  }
+
+  for (const scenario of ['wrong-md5', 'wrong-mime', 'worker-cacheable', 'worker-404', 'head-error',
+    'www-active-worker', 'www-worker-html', 'www-worker-redirect']) {
     await test(`post-publish verification rejects ${scenario}`, async () => {
       const run = await simulate(scenario, scenario === 'wrong-md5');
-      const url = scenario === 'worker-cacheable' ? 'https://www.thoradar.online/sw-retire.js' : 'https://www.thoradar.online/sw.js';
-      failure(run, /Verification failed for https:\/\/www\.thoradar\.online\/sw/);
-      assert.equal(run.heads.filter(head => head === url).length, 12);
-      assert.ok(!run.stdout.includes(`Verified ${url} `));
+      rejectsPublicResponse(run, scenario === 'worker-cacheable' ? wwwWorkers[1] : wwwWorkers[0]);
     });
   }
 

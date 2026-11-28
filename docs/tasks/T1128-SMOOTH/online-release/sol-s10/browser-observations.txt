@@ -1,0 +1,51 @@
+T1128-SMOOTH-S10
+PowerShell 命令与脱敏原始输出。UID 和所属账号 ID 在本地及页内做等值比较，输出仅保留布尔值与计数。
+
+$p='D:/claude-tmp/sol-s10-ram.mjs'
+
+> node $p identity
+{"run":"46130068894","watchHasRun":true,"forbiddenRAM":true,"refreshAction":true,"subuser":true,"implicitDeny":true,"principalCount":1,"ownerMatches":true,"sourcePolicyExact":true,"identityJoinReady":true}
+
+> node $p policy-source
+{"challenge":false,"exactPolicy":true,"paneCount":1,"sourceOptionCount":1,"sourceSelected":false,"currentVersion":true,"loading":0,"sourceViewOpened":true}
+> node $p policy-verify
+{"challenge":false,"exactPolicy":true,"paneCount":1,"sourceOptionCount":1,"sourceSelected":true,"currentVersion":true,"loading":0,"editors":[{"tag":"DIV","kind":"monaco-editor","length":213},{"tag":"DIV","kind":"view-lines","length":192},{"tag":"TEXTAREA","length":0}],"sourceCandidateCount":1,"parseableDocumentCount":1,"jsonParse":true,"versionAndKeysExact":true,"oneStatement":true,"statementKeysExact":true,"noDuplicateKeys":true,"effectExact":true,"actionExact":true,"resourceExact":true,"exactScope":true,"sanitizedPolicy":{"Version":"1","Statement":[{"Effect":"Allow","Action":"cdn:RefreshObjectCaches","Resource":"acs:cdn:*:<CDN_OWNER_ACCOUNT_ID>:domain/thoradar.online"}]}}
+
+> node $p users-open
+{"challenge":false,"userNavLinks":1,"loading":0,"userListOpened":true}
+> node 'D:/claude-tmp/sol-s10-log-structure.mjs'
+{"occurrences":2,"logKeyNames":["AuthPrincipalDisplayName","AuthPrincipalOwnerId","AuthPrincipalType","NoPermissionType","PolicyType"],"shapes":[{"numericUid":true,"bareIdentifier":true,"startsWithQuote":false,"endsWithQuote":false,"masked":false,"hasColon":false,"hasComma":false,"followedByAnotherField":true,"followedByBracket":false}]}
+> node $p uid-candidate
+{"challenge":false,"loading":0,"userRows":1,"nextDisabled":true,"previousDisabled":true,"uidSearch":true,"detailLinks":1,"exactUIDLinkCount":1,"detailQueryKeys":["userId"]}
+> node $p uid-detail
+{"challenge":false,"loading":0,"explicitUIDLabels":1,"exactLabeledUID":true,"exactUIDInRoute":true,"tabs":[{"label":null,"selected":"true"},{"label":null,"selected":"false"},{"label":null,"selected":"false"},{"label":"权限管理","selected":"false"},{"label":null,"selected":"false"},{"label":null,"selected":"false"}],"controls":["用户","用户组","权限策略","基本信息"],"uidLabelRows":[{"tag":"DIV","parent":"DIV","siblingTag":"DIV"}],"permissionTabCount":1,"activePermissions":false,"tables":[{"headings":[null,null,null,null,"操作"],"rows":1}],"addControlLabels":[],"mainDialogs":1}
+
+> node $p direct-before
+{"challenge":false,"exactUID":true,"expectedTabs":true,"tableCount":1,"headings":[null,"权限策略","备注","资源范围","授权时间","操作"],"directRows":1,"targetRows":0,"targetNameRows":0,"targetScope":[],"hasNext":false,"hasPrevious":false,"emptyFilters":true,"loading":0,"grantControls":1,"seenPolicyLinks":[1],"baselineSaved":true}
+> node $p grant-review
+{"challenge":false,"exactUID":true,"drawerCount":1,"loading":0,"scopeChoices":2,"scopes":1,"accountSelected":true,"inlinePrincipalPickers":0,"typePickerCount":1,"selectOptions":[{"kind":"custom","textLength":5,"controlsPolicyType":true,"nearbySearch":true},{"kind":"page_size","textLength":2,"controlsPolicyType":false,"nearbySearch":false}],"typeOptions":0,"typeSelected":true,"policySearchCount":1,"exactPolicySearch":true,"policyRows":1,"exactTargetRows":1,"rowTypes":[{"custom":true,"system":false,"linkCustom":false,"rowCheckboxes":1,"rowChecked":1}],"selectedBoxes":1,"submitEnabled":true,"subjectLabelShown":false,"selectedIndicators":[],"readyToSubmit":true}
+> node $p grant-submit T1128-SMOOTH-S10
+{"challenge":false,"exactUID":true,"drawerCount":1,"loading":0,"scopeChoices":2,"scopes":1,"accountSelected":true,"inlinePrincipalPickers":0,"typePickerCount":1,"selectOptions":[{"kind":"custom","textLength":5,"controlsPolicyType":true,"nearbySearch":true},{"kind":"page_size","textLength":2,"controlsPolicyType":false,"nearbySearch":false}],"typeOptions":0,"typeSelected":true,"policySearchCount":1,"exactPolicySearch":true,"policyRows":1,"exactTargetRows":1,"rowTypes":[{"custom":true,"system":false,"linkCustom":false,"rowCheckboxes":1,"rowChecked":1}],"selectedBoxes":1,"submitEnabled":true,"subjectLabelShown":false,"selectedIndicators":[],"readyToSubmit":true,"submittedOnce":true}
+
+> node $p users-reopen
+{"challenge":false,"userNavLinks":2,"userListDestinations":1,"loading":0,"userListReopened":true}
+> node $p uid-candidate
+{"challenge":false,"loading":0,"userRows":1,"nextDisabled":true,"previousDisabled":true,"uidSearch":false,"detailLinks":1,"exactUIDLinkCount":1,"detailQueryKeys":["userId"]}
+> node $p uid-open
+{"challenge":false,"loading":0,"userRows":1,"nextDisabled":true,"previousDisabled":true,"uidSearch":false,"detailLinks":1,"exactUIDLinkCount":1,"detailQueryKeys":["userId"],"openedSoleCandidateReadOnly":true}
+> node $p permissions-open
+{"challenge":false,"loading":0,"explicitUIDLabels":1,"exactLabeledUID":true,"exactUIDInRoute":true,"tabs":[{"label":null,"selected":"true"},{"label":null,"selected":"false"},{"label":null,"selected":"false"},{"label":"权限管理","selected":"false"},{"label":null,"selected":"false"},{"label":null,"selected":"false"}],"controls":["用户","用户组","权限策略","基本信息"],"uidLabelRows":[{"tag":"DIV","parent":"DIV","siblingTag":"DIV"}],"permissionTabCount":1,"activePermissions":false,"tables":[{"headings":[null,null,null,null,"操作"],"rows":1}],"addControlLabels":[],"mainDialogs":1,"permissionsOpened":true}
+> node $p direct-after
+{"challenge":false,"exactUID":true,"expectedTabs":true,"tableCount":1,"headings":[null,"权限策略","备注","资源范围","授权时间","操作"],"directRows":2,"targetRows":1,"targetNameRows":1,"targetScope":["account"],"hasNext":false,"hasPrevious":false,"emptyFilters":true,"loading":0,"grantControls":1,"seenPolicyLinks":[1,1],"existingRowsUnchanged":true,"onlyTargetAdded":true}
+
+> node $p policy-reopen
+{"challenge":false,"customPolicyLinks":1,"loading":0,"policyDetailReopened":true}
+> node $p policy-source
+{"challenge":false,"exactPolicy":true,"paneCount":1,"sourceOptionCount":1,"sourceSelected":false,"currentVersion":true,"loading":0,"sourceViewOpened":true}
+> node $p policy-verify
+{"challenge":false,"exactPolicy":true,"paneCount":1,"sourceOptionCount":1,"sourceSelected":true,"currentVersion":true,"loading":0,"editors":[{"tag":"DIV","kind":"monaco-editor","length":213},{"tag":"DIV","kind":"view-lines","length":192},{"tag":"TEXTAREA","length":0}],"sourceCandidateCount":1,"parseableDocumentCount":1,"jsonParse":true,"versionAndKeysExact":true,"oneStatement":true,"statementKeysExact":true,"noDuplicateKeys":true,"effectExact":true,"actionExact":true,"resourceExact":true,"exactScope":true,"sanitizedPolicy":{"Version":"1","Statement":[{"Effect":"Allow","Action":"cdn:RefreshObjectCaches","Resource":"acs:cdn:*:<CDN_OWNER_ACCOUNT_ID>:domain/thoradar.online"}]}}
+
+> node $p close-task-tab
+{"challenge":false,"exactPolicy":true,"sourceViewActive":true,"loading":0,"closeAttempted":true,"proxySuccess":true,"followUpStatus":200,"followUpTargetMissing":false}
+> node 'D:/claude-tmp/sol-s10-close-check.mjs'
+{"infoStatus":200,"infoError":false,"infoUrlPresent":false,"targetListStatus":200,"targetListRecognized":true,"recognizableTabIds":5,"targetPresent":false}

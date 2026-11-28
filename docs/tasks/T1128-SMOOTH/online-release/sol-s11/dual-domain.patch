@@ -1,0 +1,46 @@
+diff --git a/.github/workflows/deploy_oss.yml b/.github/workflows/deploy_oss.yml
+index 8177e6f..b554898 100644
+--- a/.github/workflows/deploy_oss.yml
++++ b/.github/workflows/deploy_oss.yml
+@@ -159,9 +159,8 @@ jobs:
+           for h in "${domains[@]}"; do
+             for path in "${paths[@]}"; do urls+=("https://$h$path"); done
+           done
+-          # 实测本账号 CDN 只登记 thoradar.online；www 不属本账号，混入会整批 InvalidDomain.NotFound。
+-          # 只刷新可管理域，www 仍必须在下方独立通过同一 MD5 验证，内容陈旧即发布失败。
+-          refresh_paths=$(printf 'https://thoradar.online%s\n' "${paths[@]}")
++          # 双域已纳入同一 CDN 账号，刷新与下方验真使用同一组八个 URL。
++          refresh_paths=$(printf '%s\n' "${urls[@]}")
+           refresh_id=''
+           for attempt in 1 2; do
+             echo "CDN RefreshObjectCaches attempt $attempt"
+diff --git a/tests/smooth/verify-deploy.mjs b/tests/smooth/verify-deploy.mjs
+index 582db8c..bfdb346 100644
+--- a/tests/smooth/verify-deploy.mjs
++++ b/tests/smooth/verify-deploy.mjs
+@@ -107,7 +107,6 @@ const simulations = {};
+ const shellRuns = {};
+ const domains = ['thoradar.online', 'www.thoradar.online'];
+ const urls = domains.flatMap(domain => ['/', '/index.html', '/sw.js', '/sw-retire.js'].map(path => `https://${domain}${path}`));
+-const refreshUrls = urls.filter(url => new URL(url).hostname === 'thoradar.online');
+ const workerMeta = 'Content-Type:application/javascript#Cache-Control:no-store';
+ const origin = 'oss://thoradar-online/';
+ const publishComplete = 'Publish verified on both domains';
+@@ -193,7 +192,7 @@ try {
+   ].join('\n'));
+ 
+   for (const retire of [false, true]) {
+-    await test(`${retire ? 'retire' : 'normal'} uploads workers then index, refreshes four owned CDN URLs and verifies eight URLs`, async () => {
++    await test(`${retire ? 'retire' : 'normal'} uploads workers then index, refreshes eight owned CDN URLs and verifies eight URLs`, async () => {
+       const run = await simulate('healthy', retire);
+       success(run);
+       assert.deepEqual(run.uploads, [
+@@ -211,7 +210,7 @@ try {
+         [`${host}:443:thoradar-online.cn-shenzhen.taihangtop.cn:443`, `https://${host}/`]));
+       const actions = run.calls.filter(call => call.tool === 'curl' || call.tool === 'aliyun');
+       assert.deepEqual(actions.map(call => call.tool), ['curl', 'curl', 'aliyun', ...urls.map(() => 'curl')]);
+-      assert.deepEqual(run.refreshes, [['cdn', 'RefreshObjectCaches', '--region', 'cn-shenzhen', '--ObjectType', 'File', '--ObjectPath', refreshUrls.join('\n')]]);
++      assert.deepEqual(run.refreshes, [['cdn', 'RefreshObjectCaches', '--region', 'cn-shenzhen', '--ObjectType', 'File', '--ObjectPath', urls.join('\n')]]);
+       assert.match(run.stdout, /CDN RefreshTaskId="123456"/);
+       assert.deepEqual(run.heads, urls);
+       assert.ok(actions.slice(3).every(call => call.args.includes('Accept-Encoding: identity')));

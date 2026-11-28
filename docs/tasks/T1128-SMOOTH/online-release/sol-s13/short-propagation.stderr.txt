@@ -1,0 +1,5 @@
+FAIL main-domain CDN can take six minutes with two 5s sleeps followed by nine 40s sleeps: Verification failed for https://thoradar.online/sw.js
+
+
+1 !== 0
+

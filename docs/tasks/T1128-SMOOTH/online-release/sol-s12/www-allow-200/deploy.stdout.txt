@@ -1,0 +1,26 @@
+PASS Windows Node 24 gate runs the real checks in order before the same revision deploys
+PASS manual retire is a boolean defaulting to false and CLI aliases reuse the OSS secrets
+PASS the Aliyun CLI download pins v3.5.4 and checks SHA-256 before extraction
+PASS Bash syntax for tool installation and production publish
+PASS normal uploads workers then index, refreshes only four main URLs and verifies both domains
+PASS retire uploads workers then index, refreshes only four main URLs and verifies both domains
+PASS CDN refresh-retry uses at most one retry and requires a task ID
+PASS CDN id-retry uses at most one retry and requires a task ID
+PASS CDN refresh-error uses at most one retry and requires a task ID
+PASS CDN missing-task-id uses at most one retry and requires a task ID
+PASS stale www worker is polled before the retirement worker verifies
+PASS main-domain CDN can take six minutes with two 5s sleeps followed by nine 40s sleeps
+PASS post-publish verification rejects www-redirect-302
+PASS post-publish verification rejects www-redirect-wrong-location
+PASS post-publish verification rejects www-redirect-lost-query
+PASS post-publish verification rejects wrong-md5
+PASS post-publish verification rejects wrong-mime
+PASS post-publish verification rejects worker-cacheable
+PASS post-publish verification rejects worker-404
+PASS post-publish verification rejects head-error
+PASS post-publish verification rejects www-active-worker
+PASS post-publish verification rejects www-worker-html
+PASS post-publish verification rejects www-worker-redirect
+PASS HTTPS origin preflight rejects 304 and blocks CDN refresh
+PASS failed worker upload blocks index upload and CDN refresh
+SUMMARY {"passed":25,"failed":2}

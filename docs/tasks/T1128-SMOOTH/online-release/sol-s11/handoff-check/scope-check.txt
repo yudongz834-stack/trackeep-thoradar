@@ -1,0 +1,16 @@
+git diff --check -- .github/workflows/deploy_oss.yml tests/smooth/verify-deploy.mjs tests/smooth/deploy-mock.mjs
+exit=0
+git diff --name-only -- .github/workflows/deploy_oss.yml tests/smooth/verify-deploy.mjs tests/smooth/deploy-mock.mjs
+.github/workflows/deploy_oss.yml
+tests/smooth/verify-deploy.mjs
+exit=0
+git diff --exit-code HEAD -- index.html sw.js sw-retire.js
+exit=0
+git -C D:/trackeep/trackeep-product/trackeep-thoradar diff --exit-code HEAD -- index.html sw.js sw-retire.js
+exit=0
+git -C D:/trackeep/trackeep-product/trackeep-thoradar apply --check -- D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s11-worktree\docs\tasks\T1128-SMOOTH\online-release\sol-s11\dual-domain.patch
+exit=0
+git -C D:/trackeep/trackeep-product/trackeep-thoradar hash-object -- docs/tasks/T1128-SMOOTH/task-map.md
+0fed834852a3fdfdfe588b26faf1c1e9a1562d0f
+exit=0
+21:| ⑧ PI 亲手发布＋Sol/Mimo 控制台修复＋主控线上验收 | in-progress-browser-repair 

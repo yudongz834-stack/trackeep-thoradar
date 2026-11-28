@@ -1,0 +1,91 @@
+== T1128-SMOOTH-M2 baseline 2026-11-28T18:22:51+08:00 ==
+---- https://www.thoradar.online/
+exit=35
+curl: (35) schannel: next InitializeSecurityContext failed: SEC_E_ILLEGAL_MESSAGE (0x80090326) - This error usually occurs when a fatal SSL/TLS alert is received (e.g. handshake failed). More detail may be available in the Windows System event log.
+---- https://www.thoradar.online/index.html
+exit=35
+curl: (35) schannel: next InitializeSecurityContext failed: SEC_E_ILLEGAL_MESSAGE (0x80090326) - This error usually occurs when a fatal SSL/TLS alert is received (e.g. handshake failed). More detail may be available in the Windows System event log.
+---- https://www.thoradar.online/sw.js
+exit=35
+curl: (35) schannel: next InitializeSecurityContext failed: SEC_E_ILLEGAL_MESSAGE (0x80090326) - This error usually occurs when a fatal SSL/TLS alert is received (e.g. handshake failed). More detail may be available in the Windows System event log.
+---- https://www.thoradar.online/sw-retire.js
+exit=35
+curl: (35) schannel: next InitializeSecurityContext failed: SEC_E_ILLEGAL_MESSAGE (0x80090326) - This error usually occurs when a fatal SSL/TLS alert is received (e.g. handshake failed). More detail may be available in the Windows System event log.
+---- https://thoradar.online/
+exit=0
+HTTP/1.1 200 OK
+Server: Tengine
+Content-Type: text/html
+Content-Length: 557847
+Connection: keep-alive
+Vary: Accept-Encoding
+Date: Sat, 28 Nov 2026 10:12:48 GMT
+Vary: Accept-Encoding
+x-oss-request-id: 6B0AA92051C5F9353456F44F
+x-oss-cdn-auth: success
+Accept-Ranges: bytes
+ETag: "F349A0827CBA4634573FD530E33825C5"
+Last-Modified: Sat, 28 Nov 2026 09:25:50 GMT
+x-oss-object-type: Normal
+x-oss-hash-crc64ecma: 8443768018591467746
+x-oss-storage-class: Standard
+Cache-Control: public, max-age=60, s-maxage=3600
+Content-MD5: 80mggny6RjRXP9Uw4zglxQ==
+x-oss-server-time: 21
+Via: ens-cache17.l2cn7858[0,0,200-0,H], ens-cache36.l2cn7858[0,0], kunlun7.cn6953[641,640,200-0,M], kunlun8.cn6953[643,0]
+---- https://thoradar.online/index.html
+exit=28
+curl: (28) Connection timed out after 25002 milliseconds
+---- https://thoradar.online/sw.js
+exit=0
+HTTP/1.1 200 OK
+Server: Tengine
+Content-Type: application/javascript
+Content-Length: 5846
+Connection: keep-alive
+Vary: Accept-Encoding
+Date: Sat, 28 Nov 2026 10:23:23 GMT
+Vary: Accept-Encoding
+x-oss-request-id: 6B0AAB9B6EABC83434CECE4D
+x-oss-cdn-auth: success
+Accept-Ranges: bytes
+ETag: "9EB80A6DE6B3A815EF20B920025B2C22"
+Last-Modified: Sat, 28 Nov 2026 09:25:49 GMT
+x-oss-object-type: Normal
+x-oss-hash-crc64ecma: 4701598279066352265
+x-oss-storage-class: Standard
+Cache-Control: no-store
+Content-MD5: nrgKbeazqBXvILkgAlssIg==
+x-oss-server-time: 15
+Via: ens-cache57.l2cn7858[471,471,200-0,M], ens-cache24.l2cn7858[473,0], kunlun9.cn5256[1254,1254,200-0,M], kunlun9.cn5256[1258,0]
+---- https://thoradar.online/sw-retire.js
+exit=0
+HTTP/1.1 200 OK
+Server: Tengine
+Content-Type: application/javascript
+Content-Length: 832
+Connection: keep-alive
+Date: Sat, 28 Nov 2026 10:23:25 GMT
+x-oss-request-id: 6B0AAB9D1A4B2334390E00F9
+x-oss-cdn-auth: success
+Accept-Ranges: bytes
+ETag: "C6F8873847B14102E9D2AE35B2FDAEB8"
+Last-Modified: Sat, 28 Nov 2026 09:25:48 GMT
+x-oss-object-type: Normal
+x-oss-hash-crc64ecma: 16135459081636351240
+x-oss-storage-class: Standard
+Cache-Control: no-store
+Content-MD5: xviHOEexQQLp0q41sv2uuA==
+x-oss-server-time: 34
+Via: ens-cache28.l2cn7859[281,280,200-0,M], ens-cache36.l2cn7859[282,0], kunlun2.cn9801[410,410,200-0,M], kunlun1.cn9801[413,0]
+Ali-Swift-Global-Savetime: 1795861405
+X-Cache: MISS TCP_MISS dirn:-2:-2
+== DoH dns.alidns.com ==
+-- www.thoradar.online CNAME
+{"Status":0,"TC":false,"RD":true,"RA":true,"AD":false,"CD":false,"Question":{"name":"www.thoradar.online.","type":5},"Answer":[{"name":"www.thoradar.online.","TTL":600,"type":5,"data":"thoradar.online.w.kunlunaq.com."}]}
+-- thoradar.online CNAME
+{"Status":0,"TC":false,"RD":true,"RA":true,"AD":false,"CD":false,"Question":{"name":"thoradar.online.","type":5},"Answer":[{"name":"thoradar.online.","TTL":33,"type":5,"data":"thoradar.online.w.kunlunaq.com."}]}
+== retry apex index.html x3 2026-11-28T18:23:44+08:00 ==
+try1 exit=0 http=200
+try2 exit=0 http=200
+try3 exit=0 http=200

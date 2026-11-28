@@ -1,0 +1,40 @@
+FAIL normal uploads workers then index, refreshes four owned CDN URLs and verifies eight URLs: Expected values to be strictly deep-equal:
++ actual - expected
+... Skipped lines
+
+  [
+    [
+      'cdn',
+      'RefreshObjectCaches',
+      '--region',
+...
+        'https://thoradar.online/sw.js\n' +
++       'https://thoradar.online/sw-retire.js\n' +
++       'https://www.thoradar.online/\n' +
++       'https://www.thoradar.online/index.html\n' +
++       'https://www.thoradar.online/sw.js\n' +
++       'https://www.thoradar.online/sw-retire.js'
+-       'https://thoradar.online/sw-retire.js'
+    ]
+  ]
+
+FAIL retire uploads workers then index, refreshes four owned CDN URLs and verifies eight URLs: Expected values to be strictly deep-equal:
++ actual - expected
+... Skipped lines
+
+  [
+    [
+      'cdn',
+      'RefreshObjectCaches',
+      '--region',
+...
+        'https://thoradar.online/sw.js\n' +
++       'https://thoradar.online/sw-retire.js\n' +
++       'https://www.thoradar.online/\n' +
++       'https://www.thoradar.online/index.html\n' +
++       'https://www.thoradar.online/sw.js\n' +
++       'https://www.thoradar.online/sw-retire.js'
+-       'https://thoradar.online/sw-retire.js'
+    ]
+  ]
+

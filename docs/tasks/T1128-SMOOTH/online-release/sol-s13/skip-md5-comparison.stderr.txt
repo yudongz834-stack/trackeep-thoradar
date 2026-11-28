@@ -1,0 +1,10 @@
+FAIL stale www worker is polled before the retirement worker verifies: Expected values to be strictly equal:
+
+1 !== 2
+
+FAIL main-domain CDN can take six minutes with two 5s sleeps followed by nine 40s sleeps: Expected values to be strictly equal:
+
+1 !== 12
+
+FAIL post-publish verification rejects wrong-md5: deployment exited 0
+FAIL post-publish verification rejects www-active-worker: deployment exited 0

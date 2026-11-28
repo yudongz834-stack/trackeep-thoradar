@@ -1,0 +1,9 @@
+S12 tests preserved: 27
+S13 added:
+  post-publish verification rejects www-redirect-wrong-host
+  post-publish verification rejects homepage-octet-stream-index with the correct blob MD5
+  unreadable Git blob fails before public object verification
+  CRLF checkout still verifies against the Git blobs
+  post-publish verification rejects homepage-octet-stream-root with the correct blob MD5
+S12 simulations with identical exit status and full mock call trace: 23
+S13 total simulations: 28

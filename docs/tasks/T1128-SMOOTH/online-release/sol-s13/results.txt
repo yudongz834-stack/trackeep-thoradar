@@ -1,0 +1,263 @@
+command=node tests/smooth/verify-deploy.mjs D:\trackeep\trackeep-product\trackeep-thoradar\docs\tasks\T1128-SMOOTH\online-release\sol-s13/deploy.json cwd=D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s13-worktree exit=0
+Canonical 32/32
+SUMMARY {"passed":32,"failed":0}
+source --ci SUMMARY {"passed":5,"failed":0}
+skip-host suite exit=1, publish exit=0
+A5 focused replay: python docs/tasks/T1128-SMOOTH/online-release/sol-s13/replay.py .git/t1128-s13-worktree focused
+Git HEAD af3f2775855bb99aeb5c3262cb2738a889b60d70
+index.html Git blob 80mggny6RjRXP9Uw4zglxQ== CRLF checkout OoYTQN1+/i5YpdPcDG8kEg==
+sw.js Git blob nrgKbeazqBXvILkgAlssIg== CRLF checkout PtS2flhNDSuEGKZMQnTBgA==
+sw-retire.js Git blob xviHOEexQQLp0q41sv2uuA== CRLF checkout MSJ4HyjS+aYOiDEIzH80tA==
+A5 working-expectation_git-response / exit=1
+Waiting for https://thoradar.online/ (12/12) HTTP=200 Content-MD5=80mggny6RjRXP9Uw4zglxQ== expected=OoYTQN1+/i5YpdPcDG8kEg== MIME=text/html Cache-Control=
+Verification failed for https://thoradar.online/
+S13 working-expectation_git-response / exit=0
+Verified https://thoradar.online/ HTTP=200 Content-MD5=80mggny6RjRXP9Uw4zglxQ== expected=80mggny6RjRXP9Uw4zglxQ== MIME=text/html Cache-Control=
+A5 working-expectation_git-response /index.html exit=1
+Waiting for https://thoradar.online/index.html (12/12) HTTP=200 Content-MD5=80mggny6RjRXP9Uw4zglxQ== expected=OoYTQN1+/i5YpdPcDG8kEg== MIME=text/html Cache-Control=
+Verification failed for https://thoradar.online/index.html
+S13 working-expectation_git-response /index.html exit=0
+Verified https://thoradar.online/index.html HTTP=200 Content-MD5=80mggny6RjRXP9Uw4zglxQ== expected=80mggny6RjRXP9Uw4zglxQ== MIME=text/html Cache-Control=
+A5 working-expectation_working-response / exit=0
+Verified https://thoradar.online/ HTTP=200 Content-MD5=OoYTQN1+/i5YpdPcDG8kEg== expected=OoYTQN1+/i5YpdPcDG8kEg== MIME=text/html Cache-Control=
+S13 working-expectation_working-response / exit=1
+Waiting for https://thoradar.online/ (12/12) HTTP=200 Content-MD5=OoYTQN1+/i5YpdPcDG8kEg== expected=80mggny6RjRXP9Uw4zglxQ== MIME=text/html Cache-Control=
+Verification failed for https://thoradar.online/
+A5 working-expectation_working-response /index.html exit=0
+Verified https://thoradar.online/index.html HTTP=200 Content-MD5=OoYTQN1+/i5YpdPcDG8kEg== expected=OoYTQN1+/i5YpdPcDG8kEg== MIME=text/html Cache-Control=
+S13 working-expectation_working-response /index.html exit=1
+Waiting for https://thoradar.online/index.html (12/12) HTTP=200 Content-MD5=OoYTQN1+/i5YpdPcDG8kEg== expected=80mggny6RjRXP9Uw4zglxQ== MIME=text/html Cache-Control=
+Verification failed for https://thoradar.online/index.html
+A5 canonical_wrong-host-only exit=1
+Waiting for https://www.thoradar.online/?from=www (12/12) HTTP=308 Location=https://other.invalid/?from=www
+Verification failed for https://www.thoradar.online/?from=www
+S13 canonical_wrong-host-only exit=1
+Waiting for https://www.thoradar.online/?from=www (12/12) HTTP=308 Location=https://other.invalid/?from=www
+Verification failed for https://www.thoradar.online/?from=www
+A5 canonical_correct-host exit=0
+Verified https://www.thoradar.online/?from=www HTTP=308 Location=https://thoradar.online/?from=www
+S13 canonical_correct-host exit=0
+Verified https://www.thoradar.online/?from=www HTTP=308 Location=https://thoradar.online/?from=www
+A5 canonical_homepage-octet-stream / exit=0
+Verified https://thoradar.online/ HTTP=200 Content-MD5=80mggny6RjRXP9Uw4zglxQ== expected=80mggny6RjRXP9Uw4zglxQ== MIME=application/octet-stream Cache-Control=
+S13 canonical_homepage-octet-stream / exit=1
+Waiting for https://thoradar.online/ (12/12) HTTP=200 Content-MD5=80mggny6RjRXP9Uw4zglxQ== expected=80mggny6RjRXP9Uw4zglxQ== MIME=application/octet-stream Cache-Control=
+Verification failed for https://thoradar.online/
+A5 canonical_homepage-octet-stream /index.html exit=0
+Verified https://thoradar.online/index.html HTTP=200 Content-MD5=80mggny6RjRXP9Uw4zglxQ== expected=80mggny6RjRXP9Uw4zglxQ== MIME=application/octet-stream Cache-Control=
+S13 canonical_homepage-octet-stream /index.html exit=1
+Waiting for https://thoradar.online/index.html (12/12) HTTP=200 Content-MD5=80mggny6RjRXP9Uw4zglxQ== expected=80mggny6RjRXP9Uw4zglxQ== MIME=application/octet-stream Cache-Control=
+Verification failed for https://thoradar.online/index.html
+A5 www/sw.js html-mime exit=1
+Waiting for https://www.thoradar.online/sw.js (12/12) HTTP=200 Content-MD5=xviHOEexQQLp0q41sv2uuA== expected=xviHOEexQQLp0q41sv2uuA== MIME=text/html Cache-Control=,no-store
+Verification failed for https://www.thoradar.online/sw.js
+S13 www/sw.js html-mime exit=1
+Waiting for https://www.thoradar.online/sw.js (12/12) HTTP=200 Content-MD5=xviHOEexQQLp0q41sv2uuA== expected=xviHOEexQQLp0q41sv2uuA== MIME=text/html Cache-Control=,no-store
+Verification failed for https://www.thoradar.online/sw.js
+A5 www/sw-retire.js html-mime exit=1
+Waiting for https://www.thoradar.online/sw-retire.js (12/12) HTTP=200 Content-MD5=xviHOEexQQLp0q41sv2uuA== expected=xviHOEexQQLp0q41sv2uuA== MIME=text/html Cache-Control=,no-store
+Verification failed for https://www.thoradar.online/sw-retire.js
+S13 www/sw-retire.js html-mime exit=1
+Waiting for https://www.thoradar.online/sw-retire.js (12/12) HTTP=200 Content-MD5=xviHOEexQQLp0q41sv2uuA== expected=xviHOEexQQLp0q41sv2uuA== MIME=text/html Cache-Control=,no-store
+Verification failed for https://www.thoradar.online/sw-retire.js
+
+git-blob-unavailable exit=1
+fatal: not a git repository: 'D:/claude-tmp/thoradar-s5-deploy-pqCQqW/missing-git-dir'
+Unable to compute Content-MD5 from HEAD:index.html
+wrong-md5-retire exit=1
+Verification failed for https://www.thoradar.online/sw.js
+Waiting for https://www.thoradar.online/sw.js (12/12) HTTP=200 Content-MD5=3tvOZPT7xwwSP0Ha5IXs2w== expected=xviHOEexQQLp0q41sv2uuA== MIME=application/javascript Cache-Control=,max-age=0, no-store
+www-active-worker exit=1
+Verification failed for https://www.thoradar.online/sw.js
+Waiting for https://www.thoradar.online/sw.js (12/12) HTTP=200 Content-MD5=nrgKbeazqBXvILkgAlssIg== expected=xviHOEexQQLp0q41sv2uuA== MIME=application/javascript Cache-Control=,max-age=0, no-store
+www-redirect-302 exit=1
+Verification failed for https://www.thoradar.online/
+Waiting for https://www.thoradar.online/ (12/12) HTTP=302 Location=https://thoradar.online/
+www-redirect-wrong-location exit=1
+Verification failed for https://www.thoradar.online/
+Waiting for https://www.thoradar.online/ (12/12) HTTP=301 Location=https://thoradar.online/index.html
+www-redirect-lost-query exit=1
+Verification failed for https://www.thoradar.online/?from=www
+Waiting for https://www.thoradar.online/?from=www (12/12) HTTP=301 Location=https://thoradar.online/
+stale-during-propagation-retire exit=0
+sw.js HEAD 12 sleep calls [5, 5, 40, 40, 40, 40, 40, 40, 40, 40, 40] total 370 seconds
+
+working-tree-md5 suite exit=1 SUMMARY {"passed":8,"failed":24}
+node tests/smooth/verify-deploy.mjs D:\claude-tmp\thoradar-s13-working-tree-md5-m_2tvtcl\deploy.json D:\claude-tmp\thoradar-s13-working-tree-md5-m_2tvtcl\deploy.yml
+crlf-checkout publish exit=1
+FAIL normal uploads workers then index, refreshes only four main URLs and verifies both domains: Verification failed for https://thoradar.online/
+
+
+1 !== 0
+
+FAIL retire uploads workers then index, refreshes only four main URLs and verifies both domains: Verification failed for https://thoradar.online/
+
+
+1 !== 0
+
+FAIL CRLF checkout still verifies against the Git blobs: Verification failed for https://thoradar.online/
+
+
+1 !== 0
+
+FAIL unreadable Git blob fails before public object verification: The input did not match the regular expression /Unable to compute Content-MD5 from HEAD:index\.html/. Input:
+
+'Verification failed for https://thoradar.online/\n'
+
+FAIL CDN refresh-retry uses at most one retry and requires a task ID: Expected values to be strictly equal:
+
+12 !== 1
+
+FAIL CDN id-retry uses at most one retry and requires a task ID: Expected values to be strictly equal:
+
+12 !== 1
+
+FAIL stale www worker is polled before the retirement worker verifies: Verification failed for https://thoradar.online/
+
+
+1 !== 0
+
+FAIL main-domain CDN can take six minutes with two 5s sleeps followed by nine 40s sleeps: Verification failed for https://thoradar.online/
+
+
+1 !== 0
+
+FAIL post-publish verification rejects www-root-200: Verification failed for https://thoradar.online/
+
+FAIL post-publish verification rejects www-index-200: Verification failed for https://thoradar.online/
+
+FAIL post-publish verification rejects www-redirect-302: Verification failed for https://thoradar.online/
+
+FAIL post-publish verification rejects www-redirect-wrong-location: Verification failed for https://thoradar.online/
+
+FAIL post-publish verification rejects www-redirect-lost-query: Verification failed for https://thoradar.online/
+
+FAIL post-publish verification rejects www-redirect-wrong-host: Verification failed for https://thoradar.online/
+
+FAIL post-publish verification rejects homepage-octet-stream-root with the correct blob MD5: The expression evaluated to a falsy value:
+
+  assert.ok(run.stdout.includes(`Waiting for ${url} (12/12) HTTP=200 Content-MD5=${digest} expected=${digest} MIME=application/octet-stream `))
+
+FAIL post-publish verification rejects homepage-octet-stream-index with the correct blob MD5: Verification failed for https://thoradar.online/
+
+FAIL post-publish verification rejects wrong-md5: Verification failed for https://thoradar.online/
+
+FAIL post-publish verification rejects wrong-mime: Verification failed for https://thoradar.online/
+
+FAIL post-publish verification rejects worker-cacheable: Verification failed for https://thoradar.online/
+
+FAIL post-publish verification rejects worker-404: Verification failed for https://thoradar.online/
+
+FAIL post-publish verification rejects head-error: Verification failed for https://thoradar.online/
+
+FAIL post-publish verification rejects www-active-worker: Verification failed for https://thoradar.online/
+
+FAIL post-publish verification rejects www-worker-html: Verification failed for https://thoradar.online/
+
+FAIL post-publish verification rejects www-worker-redirect: Verification failed for https://thoradar.online/
+skip-host suite exit=1 SUMMARY {"passed":31,"failed":1}
+node tests/smooth/verify-deploy.mjs D:\claude-tmp\thoradar-s13-skip-host-5e09fdzn\deploy.json D:\claude-tmp\thoradar-s13-skip-host-5e09fdzn\deploy.yml
+www-redirect-wrong-host publish exit=0
+FAIL post-publish verification rejects www-redirect-wrong-host: deployment exited 0
+ignore-homepage-mime suite exit=1 SUMMARY {"passed":30,"failed":2}
+node tests/smooth/verify-deploy.mjs D:\claude-tmp\thoradar-s13-ignore-homepage-mime-2_j5o_z7\deploy.json D:\claude-tmp\thoradar-s13-ignore-homepage-mime-2_j5o_z7\deploy.yml
+homepage-octet-stream-root publish exit=0
+homepage-octet-stream-index publish exit=0
+FAIL post-publish verification rejects homepage-octet-stream-root with the correct blob MD5: deployment exited 0
+FAIL post-publish verification rejects homepage-octet-stream-index with the correct blob MD5: deployment exited 0
+www-refresh suite exit=1 SUMMARY {"passed":30,"failed":2}
+node tests/smooth/verify-deploy.mjs D:\claude-tmp\thoradar-s13-www-refresh-f94kci9s\deploy.json D:\claude-tmp\thoradar-s13-www-refresh-f94kci9s\deploy.yml
+healthy publish exit=0
+healthy-retire publish exit=0
+FAIL normal uploads workers then index, refreshes only four main URLs and verifies both domains: Expected values to be strictly deep-equal:
++ actual - expected
+... Skipped lines
+
+  [
+    [
+      'cdn',
+      'RefreshObjectCaches',
+      '--region',
+...
+        'https://thoradar.online/sw.js\n' +
++       'https://thoradar.online/sw-retire.js\n' +
++       'https://www.thoradar.online/\n' +
++       'https://www.thoradar.online/index.html\n' +
++       'https://www.thoradar.online/sw.js\n' +
++       'https://www.thoradar.online/sw-retire.js'
+-       'https://thoradar.online/sw-retire.js'
+    ]
+  ]
+
+FAIL retire uploads workers then index, refreshes only four main URLs and verifies both domains: Expected values to be strictly deep-equal:
++ actual - expected
+... Skipped lines
+
+  [
+    [
+      'cdn',
+      'RefreshObjectCaches',
+      '--region',
+...
+        'https://thoradar.online/sw.js\n' +
++       'https://thoradar.online/sw-retire.js\n' +
++       'https://www.thoradar.online/\n' +
++       'https://www.thoradar.online/index.html\n' +
++       'https://www.thoradar.online/sw.js\n' +
++       'https://www.thoradar.online/sw-retire.js'
+-       'https://thoradar.online/sw-retire.js'
+    ]
+  ]
+www-allow-302 suite exit=1 SUMMARY {"passed":31,"failed":1}
+node tests/smooth/verify-deploy.mjs D:\claude-tmp\thoradar-s13-www-allow-302-ifz_cvhe\deploy.json D:\claude-tmp\thoradar-s13-www-allow-302-ifz_cvhe\deploy.yml
+www-redirect-302 publish exit=0
+FAIL post-publish verification rejects www-redirect-302: deployment exited 0
+www-active-worker suite exit=1 SUMMARY {"passed":25,"failed":7}
+node tests/smooth/verify-deploy.mjs D:\claude-tmp\thoradar-s13-www-active-worker-1vhokr9o\deploy.json D:\claude-tmp\thoradar-s13-www-active-worker-1vhokr9o\deploy.yml
+www-active-worker publish exit=0
+FAIL normal uploads workers then index, refreshes only four main URLs and verifies both domains: Verification failed for https://www.thoradar.online/sw.js
+
+
+1 !== 0
+
+FAIL CRLF checkout still verifies against the Git blobs: Verification failed for https://www.thoradar.online/sw.js
+
+
+1 !== 0
+
+FAIL CDN refresh-retry uses at most one retry and requires a task ID: Expected values to be strictly equal:
+
+12 !== 1
+
+FAIL CDN id-retry uses at most one retry and requires a task ID: Expected values to be strictly equal:
+
+12 !== 1
+
+FAIL stale www worker is polled before the retirement worker verifies: Verification failed for https://www.thoradar.online/sw.js
+
+
+1 !== 0
+
+FAIL post-publish verification rejects worker-cacheable: Verification failed for https://www.thoradar.online/sw.js
+
+FAIL post-publish verification rejects www-active-worker: deployment exited 0
+skip-md5-comparison suite exit=1 SUMMARY {"passed":28,"failed":4}
+node tests/smooth/verify-deploy.mjs D:\claude-tmp\thoradar-s13-skip-md5-comparison-beiyh9ip\deploy.json D:\claude-tmp\thoradar-s13-skip-md5-comparison-beiyh9ip\deploy.yml
+wrong-md5-retire publish exit=0
+FAIL stale www worker is polled before the retirement worker verifies: Expected values to be strictly equal:
+
+1 !== 2
+
+FAIL main-domain CDN can take six minutes with two 5s sleeps followed by nine 40s sleeps: Expected values to be strictly equal:
+
+1 !== 12
+
+FAIL post-publish verification rejects wrong-md5: deployment exited 0
+FAIL post-publish verification rejects www-active-worker: deployment exited 0
+short-propagation suite exit=1 SUMMARY {"passed":31,"failed":1}
+node tests/smooth/verify-deploy.mjs D:\claude-tmp\thoradar-s13-short-propagation-0mk_3sv4\deploy.json D:\claude-tmp\thoradar-s13-short-propagation-0mk_3sv4\deploy.yml
+stale-during-propagation-retire publish exit=1
+FAIL main-domain CDN can take six minutes with two 5s sleeps followed by nine 40s sleeps: Verification failed for https://thoradar.online/sw.js
+
+
+1 !== 0

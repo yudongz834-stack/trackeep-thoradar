@@ -1,0 +1,15 @@
+=== worker 例外公开验证（回源改写生效后） 2026-11-28 20:24:05 ===
+--- https://www.thoradar.online/sw.js
+HTTP/1.1 200 OK
+Content-Type: application/javascript
+Cache-Control: no-store
+Content-MD5: xviHOEexQQLp0q41sv2uuA==
+curl_exit=0
+body_md5=c6f8873847b14102e9d2ae35b2fdaeb8 xviHOEexQQLp0q41sv2uuA== 832
+--- https://www.thoradar.online/sw-retire.js
+HTTP/1.1 200 OK
+Content-Type: application/javascript
+Cache-Control: no-store
+Content-MD5: xviHOEexQQLp0q41sv2uuA==
+curl_exit=0
+body_md5=c6f8873847b14102e9d2ae35b2fdaeb8 xviHOEexQQLp0q41sv2uuA== 832

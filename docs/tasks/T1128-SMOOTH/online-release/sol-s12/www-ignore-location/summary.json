@@ -1,0 +1,35 @@
+{
+  "name": "www-ignore-location",
+  "before": "if (locations != 1 || location != expected) exit 1",
+  "after": "if (locations != 1) exit 1",
+  "command": "node tests/smooth/verify-deploy.mjs docs/tasks/T1128-SMOOTH/online-release/sol-s12/www-ignore-location/deploy.json docs/tasks/T1128-SMOOTH/online-release/sol-s12/www-ignore-location/deploy.yml",
+  "exitCode": 1,
+  "summary": {
+    "passed": 25,
+    "failed": 2
+  },
+  "failed": [
+    {
+      "name": "post-publish verification rejects www-redirect-wrong-location",
+      "pass": false,
+      "error": "deployment exited 0"
+    },
+    {
+      "name": "post-publish verification rejects www-redirect-lost-query",
+      "pass": false,
+      "error": "deployment exited 0"
+    }
+  ],
+  "expectedFailures": [
+    "www-redirect-wrong-location",
+    "www-redirect-lost-query"
+  ],
+  "scenarioExitCodes": {
+    "www-redirect-wrong-location": 0,
+    "www-redirect-lost-query": 0
+  },
+  "expectedScenarioExitCodes": {
+    "www-redirect-wrong-location": 0,
+    "www-redirect-lost-query": 0
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "www-allow-200",
+  "before": "if (status != 301 && status != 308) exit 1",
+  "after": "if (status == 200) exit 0\n                if (status != 301 && status != 308) exit 1",
+  "command": "node tests/smooth/verify-deploy.mjs docs/tasks/T1128-SMOOTH/online-release/sol-s12/www-allow-200/deploy.json docs/tasks/T1128-SMOOTH/online-release/sol-s12/www-allow-200/deploy.yml",
+  "exitCode": 1,
+  "summary": {
+    "passed": 25,
+    "failed": 2
+  },
+  "failed": [
+    {
+      "name": "post-publish verification rejects www-root-200",
+      "pass": false,
+      "error": "deployment exited 0"
+    },
+    {
+      "name": "post-publish verification rejects www-index-200",
+      "pass": false,
+      "error": "deployment exited 0"
+    }
+  ],
+  "expectedFailures": [
+    "www-root-200",
+    "www-index-200"
+  ],
+  "scenarioExitCodes": {
+    "www-root-200": 0,
+    "www-index-200": 0
+  },
+  "expectedScenarioExitCodes": {
+    "www-root-200": 0,
+    "www-index-200": 0
+  }
+}

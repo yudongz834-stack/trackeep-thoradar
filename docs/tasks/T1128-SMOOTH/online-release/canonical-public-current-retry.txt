@@ -1,0 +1,16 @@
+curl: (28) Connection timed out after 10015 milliseconds
+exit=28
+
+=== attempt 2 ===
+HTTP/1.1 301 Moved Permanently
+Server: Tengine
+Date: Sat, 28 Nov 2026 12:56:55 GMT
+Content-Type: text/html
+Content-Length: 262
+Connection: keep-alive
+Location: https://thoradar.online/?from=www
+Via: kunlun6.cn9529[,0]
+Timing-Allow-Origin: *
+EagleId: db934d1a17958706158202192e
+
+exit=0

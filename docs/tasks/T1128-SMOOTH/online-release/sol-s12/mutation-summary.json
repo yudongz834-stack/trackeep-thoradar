@@ -1,0 +1,265 @@
+{
+  "canonical": {
+    "passed": 27,
+    "failed": 0
+  },
+  "baselineS7": {
+    "passed": 10,
+    "failed": 17
+  },
+  "mutations": [
+    {
+      "name": "www-refresh",
+      "before": "refresh_paths=$(printf 'https://thoradar.online%s\\n' \"${paths[@]}\")",
+      "after": "refresh_paths=$(printf 'https://thoradar.online%s\\n' \"${paths[@]}\"; printf 'https://www.thoradar.online%s\\n' \"${paths[@]}\")",
+      "command": "node tests/smooth/verify-deploy.mjs docs/tasks/T1128-SMOOTH/online-release/sol-s12/www-refresh/deploy.json docs/tasks/T1128-SMOOTH/online-release/sol-s12/www-refresh/deploy.yml",
+      "exitCode": 1,
+      "summary": {
+        "passed": 25,
+        "failed": 2
+      },
+      "failed": [
+        {
+          "name": "normal uploads workers then index, refreshes only four main URLs and verifies both domains",
+          "pass": false,
+          "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n... Skipped lines\n\n  [\n    [\n      'cdn',\n      'RefreshObjectCaches',\n      '--region',\n...\n        'https://thoradar.online/sw.js\\n' +\n+       'https://thoradar.online/sw-retire.js\\n' +\n+       'https://www.thoradar.online/\\n' +\n+       'https://www.thoradar.online/index.html\\n' +\n+       'https://www.thoradar.online/sw.js\\n' +\n+       'https://www.thoradar.online/sw-retire.js'\n-       'https://thoradar.online/sw-retire.js'\n    ]\n  ]\n"
+        },
+        {
+          "name": "retire uploads workers then index, refreshes only four main URLs and verifies both domains",
+          "pass": false,
+          "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n... Skipped lines\n\n  [\n    [\n      'cdn',\n      'RefreshObjectCaches',\n      '--region',\n...\n        'https://thoradar.online/sw.js\\n' +\n+       'https://thoradar.online/sw-retire.js\\n' +\n+       'https://www.thoradar.online/\\n' +\n+       'https://www.thoradar.online/index.html\\n' +\n+       'https://www.thoradar.online/sw.js\\n' +\n+       'https://www.thoradar.online/sw-retire.js'\n-       'https://thoradar.online/sw-retire.js'\n    ]\n  ]\n"
+        }
+      ],
+      "expectedFailures": [
+        "normal uploads workers then index, refreshes only four main URLs and verifies both domains",
+        "retire uploads workers then index, refreshes only four main URLs and verifies both domains"
+      ],
+      "scenarioExitCodes": {
+        "healthy": 0,
+        "healthy-retire": 0
+      },
+      "expectedScenarioExitCodes": {
+        "healthy": 0,
+        "healthy-retire": 0
+      }
+    },
+    {
+      "name": "www-allow-200",
+      "before": "if (status != 301 && status != 308) exit 1",
+      "after": "if (status == 200) exit 0\n                if (status != 301 && status != 308) exit 1",
+      "command": "node tests/smooth/verify-deploy.mjs docs/tasks/T1128-SMOOTH/online-release/sol-s12/www-allow-200/deploy.json docs/tasks/T1128-SMOOTH/online-release/sol-s12/www-allow-200/deploy.yml",
+      "exitCode": 1,
+      "summary": {
+        "passed": 25,
+        "failed": 2
+      },
+      "failed": [
+        {
+          "name": "post-publish verification rejects www-root-200",
+          "pass": false,
+          "error": "deployment exited 0"
+        },
+        {
+          "name": "post-publish verification rejects www-index-200",
+          "pass": false,
+          "error": "deployment exited 0"
+        }
+      ],
+      "expectedFailures": [
+        "www-root-200",
+        "www-index-200"
+      ],
+      "scenarioExitCodes": {
+        "www-root-200": 0,
+        "www-index-200": 0
+      },
+      "expectedScenarioExitCodes": {
+        "www-root-200": 0,
+        "www-index-200": 0
+      }
+    },
+    {
+      "name": "www-allow-302",
+      "before": "if (status != 301 && status != 308) exit 1",
+      "after": "if (status != 301 && status != 302 && status != 308) exit 1",
+      "command": "node tests/smooth/verify-deploy.mjs docs/tasks/T1128-SMOOTH/online-release/sol-s12/www-allow-302/deploy.json docs/tasks/T1128-SMOOTH/online-release/sol-s12/www-allow-302/deploy.yml",
+      "exitCode": 1,
+      "summary": {
+        "passed": 26,
+        "failed": 1
+      },
+      "failed": [
+        {
+          "name": "post-publish verification rejects www-redirect-302",
+          "pass": false,
+          "error": "deployment exited 0"
+        }
+      ],
+      "expectedFailures": [
+        "www-redirect-302"
+      ],
+      "scenarioExitCodes": {
+        "www-redirect-302": 0
+      },
+      "expectedScenarioExitCodes": {
+        "www-redirect-302": 0
+      }
+    },
+    {
+      "name": "www-ignore-location",
+      "before": "if (locations != 1 || location != expected) exit 1",
+      "after": "if (locations != 1) exit 1",
+      "command": "node tests/smooth/verify-deploy.mjs docs/tasks/T1128-SMOOTH/online-release/sol-s12/www-ignore-location/deploy.json docs/tasks/T1128-SMOOTH/online-release/sol-s12/www-ignore-location/deploy.yml",
+      "exitCode": 1,
+      "summary": {
+        "passed": 25,
+        "failed": 2
+      },
+      "failed": [
+        {
+          "name": "post-publish verification rejects www-redirect-wrong-location",
+          "pass": false,
+          "error": "deployment exited 0"
+        },
+        {
+          "name": "post-publish verification rejects www-redirect-lost-query",
+          "pass": false,
+          "error": "deployment exited 0"
+        }
+      ],
+      "expectedFailures": [
+        "www-redirect-wrong-location",
+        "www-redirect-lost-query"
+      ],
+      "scenarioExitCodes": {
+        "www-redirect-wrong-location": 0,
+        "www-redirect-lost-query": 0
+      },
+      "expectedScenarioExitCodes": {
+        "www-redirect-wrong-location": 0,
+        "www-redirect-lost-query": 0
+      }
+    },
+    {
+      "name": "www-use-active-worker",
+      "before": "verify_object 'https://www.thoradar.online/sw.js' sw-retire.js 1",
+      "after": "verify_object 'https://www.thoradar.online/sw.js' \"$active_worker\" 1",
+      "command": "node tests/smooth/verify-deploy.mjs docs/tasks/T1128-SMOOTH/online-release/sol-s12/www-use-active-worker/deploy.json docs/tasks/T1128-SMOOTH/online-release/sol-s12/www-use-active-worker/deploy.yml",
+      "exitCode": 1,
+      "summary": {
+        "passed": 21,
+        "failed": 6
+      },
+      "failed": [
+        {
+          "name": "normal uploads workers then index, refreshes only four main URLs and verifies both domains",
+          "pass": false,
+          "error": "Verification failed for https://www.thoradar.online/sw.js\n\n\n1 !== 0\n"
+        },
+        {
+          "name": "CDN refresh-retry uses at most one retry and requires a task ID",
+          "pass": false,
+          "error": "Expected values to be strictly equal:\n\n12 !== 1\n"
+        },
+        {
+          "name": "CDN id-retry uses at most one retry and requires a task ID",
+          "pass": false,
+          "error": "Expected values to be strictly equal:\n\n12 !== 1\n"
+        },
+        {
+          "name": "stale www worker is polled before the retirement worker verifies",
+          "pass": false,
+          "error": "Verification failed for https://www.thoradar.online/sw.js\n\n\n1 !== 0\n"
+        },
+        {
+          "name": "post-publish verification rejects worker-cacheable",
+          "pass": false,
+          "error": "Verification failed for https://www.thoradar.online/sw.js\n"
+        },
+        {
+          "name": "post-publish verification rejects www-active-worker",
+          "pass": false,
+          "error": "deployment exited 0"
+        }
+      ],
+      "expectedFailures": [
+        "www-active-worker"
+      ],
+      "scenarioExitCodes": {
+        "www-active-worker": 0
+      },
+      "expectedScenarioExitCodes": {
+        "www-active-worker": 0
+      }
+    },
+    {
+      "name": "remove-md5-guard",
+      "before": "if (status != 200 || md5 != expected) exit 1",
+      "after": "if (status != 200) exit 1",
+      "command": "node tests/smooth/verify-deploy.mjs docs/tasks/T1128-SMOOTH/online-release/sol-s12/remove-md5-guard/deploy.json docs/tasks/T1128-SMOOTH/online-release/sol-s12/remove-md5-guard/deploy.yml",
+      "exitCode": 1,
+      "summary": {
+        "passed": 23,
+        "failed": 4
+      },
+      "failed": [
+        {
+          "name": "stale www worker is polled before the retirement worker verifies",
+          "pass": false,
+          "error": "Expected values to be strictly equal:\n\n1 !== 2\n"
+        },
+        {
+          "name": "main-domain CDN can take six minutes with two 5s sleeps followed by nine 40s sleeps",
+          "pass": false,
+          "error": "Expected values to be strictly equal:\n\n1 !== 12\n"
+        },
+        {
+          "name": "post-publish verification rejects wrong-md5",
+          "pass": false,
+          "error": "deployment exited 0"
+        },
+        {
+          "name": "post-publish verification rejects www-active-worker",
+          "pass": false,
+          "error": "deployment exited 0"
+        }
+      ],
+      "expectedFailures": [
+        "wrong-md5"
+      ],
+      "scenarioExitCodes": {
+        "wrong-md5-retire": 0
+      },
+      "expectedScenarioExitCodes": {
+        "wrong-md5-retire": 0
+      }
+    },
+    {
+      "name": "short-wait",
+      "before": "sleep 40",
+      "after": "sleep 5",
+      "command": "node tests/smooth/verify-deploy.mjs docs/tasks/T1128-SMOOTH/online-release/sol-s12/short-wait/deploy.json docs/tasks/T1128-SMOOTH/online-release/sol-s12/short-wait/deploy.yml",
+      "exitCode": 1,
+      "summary": {
+        "passed": 26,
+        "failed": 1
+      },
+      "failed": [
+        {
+          "name": "main-domain CDN can take six minutes with two 5s sleeps followed by nine 40s sleeps",
+          "pass": false,
+          "error": "Verification failed for https://thoradar.online/sw.js\n\n\n1 !== 0\n"
+        }
+      ],
+      "expectedFailures": [
+        "main-domain CDN can take six minutes with two 5s sleeps followed by nine 40s sleeps"
+      ],
+      "scenarioExitCodes": {
+        "stale-during-propagation-retire": 1
+      },
+      "expectedScenarioExitCodes": {
+        "stale-during-propagation-retire": 1
+      }
+    }
+  ]
+}

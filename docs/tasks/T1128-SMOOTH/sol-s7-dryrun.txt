@@ -1,0 +1,14 @@
+── 预检（--dry-run）T1128-SMOOTH-S7 · codex-gpt ──
+[PASS] 参数：-l/-w/-b/-t 齐全，brief/workdir 在盘
+[PASS] 在册：codex-gpt 在册且现役
+[PASS] 组合账：在账
+[PASS] 模型档：-m/-e 合法或未点名
+[PASS] 钳位头：未给 -h，走内置缺省头（红线钳位已含）
+[PASS] 入轨：轨道位置/R级/判级理由/签发 四字段在场
+[PASS] 地形：R1 豁免或「地形」在场
+[PASS] 启动器存在性：/d/npm-global/codex 在盘（service 席＝invocation 真身）
+[PASS] 型号预检：codex 席无渠道情报（manifest 无 env，型号走 codex 自家配置）——本闸只覆盖 cc-* 六席渠道
+[PASS] 产物闸：--expect 为绝对路径形（D:/trackeep/trackeep-product/trackeep-thoradar-sol-cdn/docs/tasks/T1128-SMOOTH/sol-s7-report.md；存在性/非空在真发单进程退出后验）
+[WARN] 单实对账：「无」单且装载记录缺失——按无卡放行（建议装配席把 LOADED_DOMAIN_CARDS= 行粘进任务书）
+[PASS] 能力卡校验：过（check-manifest 四件全过）
+── 结论：可发 ──

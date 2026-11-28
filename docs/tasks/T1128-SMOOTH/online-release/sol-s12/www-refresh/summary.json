@@ -1,0 +1,35 @@
+{
+  "name": "www-refresh",
+  "before": "refresh_paths=$(printf 'https://thoradar.online%s\\n' \"${paths[@]}\")",
+  "after": "refresh_paths=$(printf 'https://thoradar.online%s\\n' \"${paths[@]}\"; printf 'https://www.thoradar.online%s\\n' \"${paths[@]}\")",
+  "command": "node tests/smooth/verify-deploy.mjs docs/tasks/T1128-SMOOTH/online-release/sol-s12/www-refresh/deploy.json docs/tasks/T1128-SMOOTH/online-release/sol-s12/www-refresh/deploy.yml",
+  "exitCode": 1,
+  "summary": {
+    "passed": 25,
+    "failed": 2
+  },
+  "failed": [
+    {
+      "name": "normal uploads workers then index, refreshes only four main URLs and verifies both domains",
+      "pass": false,
+      "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n... Skipped lines\n\n  [\n    [\n      'cdn',\n      'RefreshObjectCaches',\n      '--region',\n...\n        'https://thoradar.online/sw.js\\n' +\n+       'https://thoradar.online/sw-retire.js\\n' +\n+       'https://www.thoradar.online/\\n' +\n+       'https://www.thoradar.online/index.html\\n' +\n+       'https://www.thoradar.online/sw.js\\n' +\n+       'https://www.thoradar.online/sw-retire.js'\n-       'https://thoradar.online/sw-retire.js'\n    ]\n  ]\n"
+    },
+    {
+      "name": "retire uploads workers then index, refreshes only four main URLs and verifies both domains",
+      "pass": false,
+      "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n... Skipped lines\n\n  [\n    [\n      'cdn',\n      'RefreshObjectCaches',\n      '--region',\n...\n        'https://thoradar.online/sw.js\\n' +\n+       'https://thoradar.online/sw-retire.js\\n' +\n+       'https://www.thoradar.online/\\n' +\n+       'https://www.thoradar.online/index.html\\n' +\n+       'https://www.thoradar.online/sw.js\\n' +\n+       'https://www.thoradar.online/sw-retire.js'\n-       'https://thoradar.online/sw-retire.js'\n    ]\n  ]\n"
+    }
+  ],
+  "expectedFailures": [
+    "normal uploads workers then index, refreshes only four main URLs and verifies both domains",
+    "retire uploads workers then index, refreshes only four main URLs and verifies both domains"
+  ],
+  "scenarioExitCodes": {
+    "healthy": 0,
+    "healthy-retire": 0
+  },
+  "expectedScenarioExitCodes": {
+    "healthy": 0,
+    "healthy-retire": 0
+  }
+}

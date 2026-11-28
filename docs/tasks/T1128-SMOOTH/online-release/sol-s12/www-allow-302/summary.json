@@ -1,0 +1,27 @@
+{
+  "name": "www-allow-302",
+  "before": "if (status != 301 && status != 308) exit 1",
+  "after": "if (status != 301 && status != 302 && status != 308) exit 1",
+  "command": "node tests/smooth/verify-deploy.mjs docs/tasks/T1128-SMOOTH/online-release/sol-s12/www-allow-302/deploy.json docs/tasks/T1128-SMOOTH/online-release/sol-s12/www-allow-302/deploy.yml",
+  "exitCode": 1,
+  "summary": {
+    "passed": 26,
+    "failed": 1
+  },
+  "failed": [
+    {
+      "name": "post-publish verification rejects www-redirect-302",
+      "pass": false,
+      "error": "deployment exited 0"
+    }
+  ],
+  "expectedFailures": [
+    "www-redirect-302"
+  ],
+  "scenarioExitCodes": {
+    "www-redirect-302": 0
+  },
+  "expectedScenarioExitCodes": {
+    "www-redirect-302": 0
+  }
+}

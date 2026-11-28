@@ -1,0 +1,1 @@
+FAIL post-publish verification rejects www-redirect-wrong-host: deployment exited 0

@@ -1,0 +1,66 @@
+smooth-verify	Check deployment workflow and simulate publishing	﻿2026-11-28T08:41:11.0260802Z ##[group]Run node tests/smooth/verify-deploy.mjs "$env:RUNNER_TEMP/smooth-deploy.json"
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:11.0261373Z ^[[36;1mnode tests/smooth/verify-deploy.mjs "$env:RUNNER_TEMP/smooth-deploy.json"^[[0m
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:11.0843992Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:11.0844308Z ##[endgroup]
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:11.4143117Z PASS Windows Node 24 gate runs the real checks in order before the same revision deploys
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:11.4143765Z PASS manual retire is a boolean defaulting to false and CLI aliases reuse the OSS secrets
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:11.4144273Z PASS the Aliyun CLI download pins v3.5.4 and checks SHA-256 before extraction
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:11.6423690Z PASS Bash syntax for tool installation and production publish
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:14.4584806Z FAIL normal uploads workers then index, refreshes eight URLs and verifies mapped bytes: curl: (23) client returned ERROR on write of 11751 bytes
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:14.4585555Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:14.4585574Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:14.4585775Z 23 !== 0
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:14.4585912Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:16.6571752Z FAIL retire uploads workers then index, refreshes eight URLs and verifies mapped bytes: curl: (23) client returned ERROR on write of 3559 bytes
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:16.6572521Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:16.6572688Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:16.6572808Z 23 !== 0
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:16.6572918Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:18.8711714Z FAIL CDN refresh-retry uses at most one retry and requires a task ID: Expected values to be strictly equal:
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:18.8712284Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:18.8712396Z 0 !== 2
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:18.8712496Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:21.0973882Z FAIL CDN id-retry uses at most one retry and requires a task ID: Expected values to be strictly equal:
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:21.0974477Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:21.0974561Z 0 !== 2
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:21.0974652Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:23.2909744Z FAIL CDN refresh-error uses at most one retry and requires a task ID: Expected values to be strictly equal:
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:23.2910304Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:23.2910690Z 0 !== 2
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:23.2910810Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:25.4896728Z FAIL CDN missing-task-id uses at most one retry and requires a task ID: Expected values to be strictly equal:
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:25.4897181Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:25.4897249Z 0 !== 2
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:25.4897344Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:27.6859373Z FAIL stale CDN content is polled again before publishing succeeds: curl: (23) client returned ERROR on write of 3559 bytes
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:27.6860025Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:27.6860032Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:27.6860106Z 23 !== 0
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:27.6860203Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:29.9002545Z FAIL post-publish verification rejects wrong-md5: The input did not match the regular expression /Verification failed for https:\/\/www\.thoradar\.online\/sw/. Input:
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:29.9003099Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:29.9003283Z 'curl: (23) client returned ERROR on write of 7656 bytes\r\n'
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:29.9003482Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:32.1636158Z FAIL post-publish verification rejects wrong-mime: The input did not match the regular expression /Verification failed for https:\/\/www\.thoradar\.online\/sw/. Input:
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:32.1637037Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:32.1637308Z 'curl: (23) client returned ERROR on write of 3559 bytes\r\n'
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:32.1637616Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:34.3490003Z FAIL post-publish verification rejects worker-cacheable: The input did not match the regular expression /Verification failed for https:\/\/www\.thoradar\.online\/sw/. Input:
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:34.3490901Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:34.3491452Z 'curl: (23) client returned ERROR on write of 7655 bytes\r\n'
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:34.3491764Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:36.6766571Z FAIL post-publish verification rejects worker-404: The input did not match the regular expression /Verification failed for https:\/\/www\.thoradar\.online\/sw/. Input:
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:36.6767505Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:36.6767805Z 'curl: (23) client returned ERROR on write of 11752 bytes\r\n'
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:36.6768138Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:39.0817717Z FAIL post-publish verification rejects head-error: The input did not match the regular expression /Verification failed for https:\/\/www\.thoradar\.online\/sw/. Input:
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:39.0821214Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:39.0821530Z 'curl: (23) client returned ERROR on write of 7655 bytes\r\n'
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:39.0821790Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:41.2682639Z FAIL HTTPS origin preflight rejects 304 and blocks CDN refresh: The input did not match the regular expression /www\.thoradar\.online 根路径 HTTPS 304/. Input:
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:41.2683164Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:41.2683364Z 'curl: (23) client returned ERROR on write of 15848 bytes\r\n'
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:41.2683552Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:42.3595732Z PASS failed worker upload blocks index upload and CDN refresh
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:42.3713025Z SUMMARY {"passed":5,"failed":13}
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:41:42.4595514Z ##[error]Process completed with exit code 1.

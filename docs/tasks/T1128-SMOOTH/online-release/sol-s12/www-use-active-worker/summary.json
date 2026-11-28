@@ -1,0 +1,52 @@
+{
+  "name": "www-use-active-worker",
+  "before": "verify_object 'https://www.thoradar.online/sw.js' sw-retire.js 1",
+  "after": "verify_object 'https://www.thoradar.online/sw.js' \"$active_worker\" 1",
+  "command": "node tests/smooth/verify-deploy.mjs docs/tasks/T1128-SMOOTH/online-release/sol-s12/www-use-active-worker/deploy.json docs/tasks/T1128-SMOOTH/online-release/sol-s12/www-use-active-worker/deploy.yml",
+  "exitCode": 1,
+  "summary": {
+    "passed": 21,
+    "failed": 6
+  },
+  "failed": [
+    {
+      "name": "normal uploads workers then index, refreshes only four main URLs and verifies both domains",
+      "pass": false,
+      "error": "Verification failed for https://www.thoradar.online/sw.js\n\n\n1 !== 0\n"
+    },
+    {
+      "name": "CDN refresh-retry uses at most one retry and requires a task ID",
+      "pass": false,
+      "error": "Expected values to be strictly equal:\n\n12 !== 1\n"
+    },
+    {
+      "name": "CDN id-retry uses at most one retry and requires a task ID",
+      "pass": false,
+      "error": "Expected values to be strictly equal:\n\n12 !== 1\n"
+    },
+    {
+      "name": "stale www worker is polled before the retirement worker verifies",
+      "pass": false,
+      "error": "Verification failed for https://www.thoradar.online/sw.js\n\n\n1 !== 0\n"
+    },
+    {
+      "name": "post-publish verification rejects worker-cacheable",
+      "pass": false,
+      "error": "Verification failed for https://www.thoradar.online/sw.js\n"
+    },
+    {
+      "name": "post-publish verification rejects www-active-worker",
+      "pass": false,
+      "error": "deployment exited 0"
+    }
+  ],
+  "expectedFailures": [
+    "www-active-worker"
+  ],
+  "scenarioExitCodes": {
+    "www-active-worker": 0
+  },
+  "expectedScenarioExitCodes": {
+    "www-active-worker": 0
+  }
+}

@@ -1,0 +1,73 @@
+=== T1128-SMOOTH-M3 终验 2026-11-28 20:46:25 ===
+
+--- [www 跳转面] ---
+### https://www.thoradar.online/
+HTTP/1.1 301 Moved Permanently
+Location: https://thoradar.online/
+curl_exit=0
+### https://www.thoradar.online/index.html
+curl: (28) Connection timed out after 25007 milliseconds
+curl_exit=1
+### https://www.thoradar.online/?sw=0
+HTTP/1.1 301 Moved Permanently
+Location: https://thoradar.online/?sw=0
+curl_exit=0
+### https://www.thoradar.online/some/path?x=1
+HTTP/1.1 301 Moved Permanently
+Location: https://thoradar.online/some/path?x=1
+curl_exit=0
+
+--- [www worker 例外面] ---
+### https://www.thoradar.online/sw.js
+HTTP/1.1 200 OK
+Content-Type: application/javascript
+Cache-Control: no-store
+Content-MD5: xviHOEexQQLp0q41sv2uuA==
+curl_exit=0
+body_curl_exit=0
+body_md5: c6f8873847b14102e9d2ae35b2fdaeb8 xviHOEexQQLp0q41sv2uuA== 832
+### https://www.thoradar.online/sw-retire.js
+HTTP/1.1 200 OK
+Content-Type: application/javascript
+Cache-Control: no-store
+Content-MD5: xviHOEexQQLp0q41sv2uuA==
+curl_exit=0
+body_curl_exit=0
+body_md5: c6f8873847b14102e9d2ae35b2fdaeb8 xviHOEexQQLp0q41sv2uuA== 832
+### https://www.thoradar.online/sw.js?x=1
+HTTP/1.1 200 OK
+Content-Type: application/javascript
+Cache-Control: no-store
+Content-MD5: xviHOEexQQLp0q41sv2uuA==
+curl_exit=0
+body_curl_exit=0
+body_md5: c6f8873847b14102e9d2ae35b2fdaeb8 xviHOEexQQLp0q41sv2uuA== 832
+
+--- [主域四地址] ---
+### https://thoradar.online/
+curl: (35) schannel: failed to receive handshake, SSL/TLS connection failed
+curl_exit=1
+body_curl_exit=0
+body_md5: f349a0827cba4634573fd530e33825c5 80mggny6RjRXP9Uw4zglxQ== 557847
+### https://thoradar.online/index.html
+HTTP/1.1 200 OK
+Content-Type: text/html
+Cache-Control: public, max-age=60, s-maxage=3600
+curl_exit=0
+body_curl_exit=0
+body_md5: f349a0827cba4634573fd530e33825c5 80mggny6RjRXP9Uw4zglxQ== 557847
+### https://thoradar.online/sw.js
+HTTP/1.1 200 OK
+Content-Type: application/javascript
+Cache-Control: no-store
+curl_exit=0
+curl: (28) Connection timed out after 25002 milliseconds
+body_curl_exit=28
+body_md5: f349a0827cba4634573fd530e33825c5 80mggny6RjRXP9Uw4zglxQ== 557847
+### https://thoradar.online/sw-retire.js
+HTTP/1.1 200 OK
+Content-Type: application/javascript
+Cache-Control: no-store
+curl_exit=0
+body_curl_exit=0
+body_md5: c6f8873847b14102e9d2ae35b2fdaeb8 xviHOEexQQLp0q41sv2uuA== 832

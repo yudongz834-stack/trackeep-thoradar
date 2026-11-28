@@ -1,0 +1,21 @@
+FAIL normal uploads workers then index, refreshes only four main URLs and verifies both domains: Verification failed for https://www.thoradar.online/sw.js
+
+
+1 !== 0
+
+FAIL CDN refresh-retry uses at most one retry and requires a task ID: Expected values to be strictly equal:
+
+12 !== 1
+
+FAIL CDN id-retry uses at most one retry and requires a task ID: Expected values to be strictly equal:
+
+12 !== 1
+
+FAIL stale www worker is polled before the retirement worker verifies: Verification failed for https://www.thoradar.online/sw.js
+
+
+1 !== 0
+
+FAIL post-publish verification rejects worker-cacheable: Verification failed for https://www.thoradar.online/sw.js
+
+FAIL post-publish verification rejects www-active-worker: deployment exited 0

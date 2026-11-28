@@ -7,9 +7,12 @@
 ## 不变量
 1. 发布接线不得改缓存程序：worker `e882e9e2...394f`、退役版 `5ae38f2b...6199` 保持不变。Sol S5 的输入首页为 C1 哈希 `33c50bef...1def`；最终发布首页必须采用上述最新日报与缓存改动合并版 `27ba018a...c706`，不得回退到旧 40 篇。
 2. 不改 `SITE_DATA/PAPERS/mergePapers/inWindow`，不新增 90 天缓存，不改其它对象现有缓存策略。
-3. `/sw.js` 与 `/sw-retire.js` 必须 `200`、JavaScript MIME、禁止缓存；首页保持 `max-age=60, s-maxage=3600` 并最后上传。
-4. 正常模式 `/sw.js` 内容等于 `sw.js`；退役模式 `/sw.js` 内容等于 `sw-retire.js`，正常部署可恢复。不能只上传退役件就宣称全网退役。
-5. 本账号 CDN 只登记 `thoradar.online`：仅向主域 4 个地址提交刷新，失败或无 `RefreshTaskId` 必须判红；不得把不属本账号的 `www` 混入请求。双域根路径、index、两件 worker 共 8 个地址发布后仍须逐一核对 Content-MD5，`www` 内容陈旧同样判红；worker 还须检查 MIME 与 no-store。
+3. OSS 首页保持 `max-age=60, s-maxage=3600` 并最后上传。两域的 `/sw.js` 与 `/sw-retire.js` 公网响应均须 `200`、JavaScript MIME、`Cache-Control: no-store`，直接验证响应，禁止跟随跳转。
+4. `thoradar.online` 为唯一正式域（PI 2026-11-28 G18 签发）。主域根路径、`/index.html` 和两件 worker 发布后均须返回 `200`，以 `Content-MD5` 对照发布提交 `HEAD:<path>` 的原始 Git blob 字节。读取 blob 或计算摘要失败即判红。主域根路径与 `/index.html` 的响应 MIME 必须为 `text/html`。主域 `/sw.js` 在正常模式对应 `sw.js`，退役模式对应 `sw-retire.js`，正常部署可恢复。主域 `/sw-retire.js` 始终对应 `sw-retire.js`。
+5. CDN 仅刷新 `https://thoradar.online` 的 `/`、`/index.html`、`/sw.js`、`/sw-retire.js`。刷新失败或无 `RefreshTaskId` 判红。公网验真最多 12 次，先等两次 5 秒，再每次等 40 秒，第 12 次累计等待 370 秒。
+   - `www.thoradar.online` 的 `/`、`/index.html` 和 `/?from=www` 必须返回 `301` 或 `308`，`Location` 必须精确指向 `https://thoradar.online` 的同路径、同查询。跳转按状态和 `Location` 验收。
+   - `www` 的 `/sw.js` 与 `/sw-retire.js` 在正常、退役两种发布模式中均须匹配发布提交 `HEAD:sw-retire.js` 的 `Content-MD5`，用于旧客户端退出旧缓存。发布时无需刷新 `www`，两条 worker 例外与普通路径永久跳转由 M3 的 CDN 配置提供。
+   - 双域源站预检仅检查 SNI 与根路径 `200`。`Publish verified on both domains` 表示主域四个对象与 `www` 三个跳转、两个退役入口均通过公网验真。
 6. CI 必须先跑发布静态检查、源码不变量、S1/S2/S3 与 UX，再允许部署；不拿已知 R08 失真测试充数。
 7. 任何真实凭证不得打印、传输到测试或提交；静态/模拟测试只用假命令和假应答。
 

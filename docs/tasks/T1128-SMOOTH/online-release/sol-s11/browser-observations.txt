@@ -1,0 +1,10 @@
+> node --input-type=module - new
+{"op":"new","newDedicatedTab":true,"insideRAM":false,"possibleChallenge":false}
+Exit code: 0
+> node --input-type=module - layout
+{"op":"layout","challenge":true}
+Exit code: 3
+
+> Get-Content -Raw -Encoding utf8 -LiteralPath D:/claude-tmp/thoradar-cdn-refresh-only.json | ConvertFrom-Json (output filtered and account redacted)
+{"version":"1","statements":1,"effect":"Allow","actions":["cdn:RefreshObjectCaches"],"resources":["acs:cdn:*:<CDN_OWNER_ACCOUNT_ID>:domain/thoradar.online"]}
+Exit code: 0

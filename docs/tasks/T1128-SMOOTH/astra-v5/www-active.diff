@@ -1,0 +1,10 @@
+--- .github/workflows/deploy_oss.yml
++++ www-active.yml
+@@ -250,6 +250,6 @@
+             verify_public "https://www.thoradar.online$path" check_redirect_headers "https://thoradar.online$path"
+           done
+           # 保留旧 www 客户端的退役入口，两件 worker 在两种发布模式都返回退役文件。
+-          verify_object 'https://www.thoradar.online/sw.js' sw-retire.js 1
++          verify_object 'https://www.thoradar.online/sw.js' "$active_worker" 1
+           verify_object 'https://www.thoradar.online/sw-retire.js' sw-retire.js 1
+           echo 'Publish verified on both domains'

@@ -1,0 +1,2 @@
+FAIL post-publish verification rejects www-root-200: deployment exited 0
+FAIL post-publish verification rejects www-index-200: deployment exited 0

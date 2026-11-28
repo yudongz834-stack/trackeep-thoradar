@@ -1,0 +1,11 @@
+--- .github/workflows/deploy_oss.yml
++++ www-refresh.yml
+@@ -155,7 +155,7 @@
+           done
+ 
+           # 只刷新正式域 thoradar.online。www 的永久跳转和退役 worker 例外由 CDN 配置提供。
+-          refresh_paths=$(printf 'https://thoradar.online%s\n' "${paths[@]}")
++          refresh_paths=$(printf 'https://thoradar.online%s\n' "${paths[@]}"; printf 'https://www.thoradar.online%s\n' "${paths[@]}")
+           refresh_id=''
+           for attempt in 1 2; do
+             echo "CDN RefreshObjectCaches attempt $attempt"

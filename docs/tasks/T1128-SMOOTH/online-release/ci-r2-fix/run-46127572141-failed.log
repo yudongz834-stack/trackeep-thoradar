@@ -1,0 +1,36 @@
+smooth-verify	Check deployment workflow and simulate publishing	﻿2026-11-28T08:49:28.3617304Z ##[group]Run node tests/smooth/verify-deploy.mjs "$env:RUNNER_TEMP/smooth-deploy.json"
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:49:28.3618055Z ^[[36;1mnode tests/smooth/verify-deploy.mjs "$env:RUNNER_TEMP/smooth-deploy.json"^[[0m
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:49:28.4290324Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:49:28.4290803Z ##[endgroup]
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:49:28.8542209Z PASS Windows Node 24 gate runs the real checks in order before the same revision deploys
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:49:28.8543520Z PASS manual retire is a boolean defaulting to false and CLI aliases reuse the OSS secrets
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:49:28.8544675Z PASS the Aliyun CLI download pins v3.5.4 and checks SHA-256 before extraction
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:49:29.1189819Z PASS Bash syntax for tool installation and production publish
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:49:34.0741235Z PASS normal uploads workers then index, refreshes eight URLs and verifies mapped bytes
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:49:37.6345994Z PASS retire uploads workers then index, refreshes eight URLs and verifies mapped bytes
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:49:46.3899643Z FAIL CDN refresh-retry uses at most one retry and requires a task ID: Expected values to be strictly equal:
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:49:46.3900517Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:49:46.3901033Z 0 !== 1
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:49:46.3901156Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:49:55.1864139Z FAIL CDN id-retry uses at most one retry and requires a task ID: Expected values to be strictly equal:
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:49:55.1864654Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:49:55.1864751Z 0 !== 1
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:49:55.1864870Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:50:02.4209700Z FAIL CDN refresh-error uses at most one retry and requires a task ID: Expected values to be strictly equal:
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:50:02.4210577Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:50:02.4210745Z 0 !== 1
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:50:02.4210912Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:50:09.5094311Z FAIL CDN missing-task-id uses at most one retry and requires a task ID: Expected values to be strictly equal:
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:50:09.5095015Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:50:09.5095177Z 0 !== 1
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:50:09.5095285Z 
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:50:18.2686906Z PASS stale CDN content is polled again before publishing succeeds
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:51:18.2724576Z FAIL post-publish verification rejects wrong-md5: spawnSync C:\Program Files\Git\bin\bash.exe ETIMEDOUT
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:52:18.2841067Z FAIL post-publish verification rejects wrong-mime: spawnSync C:\Program Files\Git\bin\bash.exe ETIMEDOUT
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:53:18.2976313Z FAIL post-publish verification rejects worker-cacheable: spawnSync C:\Program Files\Git\bin\bash.exe ETIMEDOUT
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:54:18.3149215Z FAIL post-publish verification rejects worker-404: spawnSync C:\Program Files\Git\bin\bash.exe ETIMEDOUT
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:55:18.1019501Z PASS post-publish verification rejects head-error
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:55:19.9422463Z PASS HTTPS origin preflight rejects 304 and blocks CDN refresh
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:55:21.3285819Z PASS failed worker upload blocks index upload and CDN refresh
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:55:21.3363020Z SUMMARY {"passed":10,"failed":8}
+smooth-verify	Check deployment workflow and simulate publishing	2026-11-28T08:55:21.4489693Z ##[error]Process completed with exit code 1.

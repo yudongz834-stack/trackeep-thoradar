@@ -1,0 +1,5 @@
+FAIL stale CDN content is polled again, including a six-minute propagation delay: Expected values to be strictly equal:
+
+1 !== 2
+
+FAIL post-publish verification rejects wrong-md5: deployment exited 0

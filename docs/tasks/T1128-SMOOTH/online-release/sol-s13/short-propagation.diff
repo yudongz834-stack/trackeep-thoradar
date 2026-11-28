@@ -1,0 +1,11 @@
+--- .github/workflows/deploy_oss.yml
++++ short-propagation.yml
+@@ -225,7 +225,7 @@
+               if (( attempt <= 2 )); then
+                 sleep 5
+               elif (( attempt < 12 )); then
+-                sleep 40
++                sleep 5
+               fi
+             done
+             echo "Verification failed for $url" >&2

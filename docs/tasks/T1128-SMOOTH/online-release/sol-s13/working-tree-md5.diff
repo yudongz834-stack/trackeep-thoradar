@@ -1,0 +1,11 @@
+--- .github/workflows/deploy_oss.yml
++++ working-tree-md5.yml
+@@ -234,7 +234,7 @@
+ 
+           verify_object() {
+             local url="$1" source="$2" worker="$3" expected
+-            if ! expected=$(git cat-file blob "HEAD:$source" | openssl dgst -md5 -binary | openssl base64 -A); then
++            if ! expected=$(openssl dgst -md5 -binary "$source" | openssl base64 -A); then
+               echo "Unable to compute Content-MD5 from HEAD:$source" >&2
+               return 1
+             fi

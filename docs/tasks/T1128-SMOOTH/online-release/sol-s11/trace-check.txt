@@ -1,0 +1,9 @@
+> $code | node --input-type=module - docs/tasks/T1128-SMOOTH/online-release/sol-s11
+{"scenario":"healthy","refreshRequests":1,"request":["https://thoradar.online/","https://thoradar.online/index.html","https://thoradar.online/sw.js","https://thoradar.online/sw-retire.js","https://www.thoradar.online/","https://www.thoradar.online/index.html","https://www.thoradar.online/sw.js","https://www.thoradar.online/sw-retire.js"],"orderedVerificationMatches":true}
+{"scenario":"healthy-retire","refreshRequests":1,"request":["https://thoradar.online/","https://thoradar.online/index.html","https://thoradar.online/sw.js","https://thoradar.online/sw-retire.js","https://www.thoradar.online/","https://www.thoradar.online/index.html","https://www.thoradar.online/sw.js","https://www.thoradar.online/sw-retire.js"],"orderedVerificationMatches":true}
+{"scenario":"stale-during-propagation-retire","waits":[5,5,40,40,40,40,40,40,40,40,40],"seconds":370}
+{"scenario":"wrong-md5-retire","workflowExit":1,"stderr":"Verification failed for https://www.thoradar.online/sw.js","mutatedWorkflowExit":0}
+{"label":"deploy","summary":{"passed":18,"failed":0},"failures":[]}
+{"label":"apex-only","summary":{"passed":16,"failed":2},"failures":["normal uploads workers then index, refreshes eight owned CDN URLs and verifies eight URLs","retire uploads workers then index, refreshes eight owned CDN URLs and verifies eight URLs"]}
+{"label":"without-md5-gate","summary":{"passed":16,"failed":2},"failures":["stale CDN content is polled again, including a six-minute propagation delay","post-publish verification rejects wrong-md5"]}
+Exit code: 0

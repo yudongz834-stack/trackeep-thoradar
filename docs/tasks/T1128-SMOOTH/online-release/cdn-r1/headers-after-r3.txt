@@ -1,0 +1,8 @@
+{"url":"https://thoradar.online/","status":200,"md5":"80mggny6RjRXP9Uw4zglxQ==","expected":"OoYTQN1+/i5YpdPcDG8kEg==","match":false,"type":"text/html","cache":"public, max-age=60, s-maxage=3600"}
+{"url":"https://thoradar.online/index.html","error":"TypeError: fetch failed"}
+{"url":"https://thoradar.online/sw.js","status":200,"md5":"nrgKbeazqBXvILkgAlssIg==","expected":"nrgKbeazqBXvILkgAlssIg==","match":true,"type":"application/javascript","cache":"no-store"}
+{"url":"https://thoradar.online/sw-retire.js","error":"TypeError: fetch failed"}
+{"url":"https://www.thoradar.online/","error":"TypeError: fetch failed"}
+{"url":"https://www.thoradar.online/index.html","error":"TypeError: fetch failed"}
+{"url":"https://www.thoradar.online/sw.js","error":"TypeError: fetch failed"}
+{"url":"https://www.thoradar.online/sw-retire.js","error":"TypeError: fetch failed"}

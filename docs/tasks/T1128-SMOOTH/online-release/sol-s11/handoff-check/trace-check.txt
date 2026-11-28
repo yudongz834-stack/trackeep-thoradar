@@ -1,0 +1,6 @@
+{"scenario":"healthy","refreshRequests":1,"urls":["https://thoradar.online/","https://thoradar.online/index.html","https://thoradar.online/sw.js","https://thoradar.online/sw-retire.js","https://www.thoradar.online/","https://www.thoradar.online/index.html","https://www.thoradar.online/sw.js","https://www.thoradar.online/sw-retire.js"],"verificationOrderEqual":true}
+{"scenario":"healthy-retire","refreshRequests":1,"urls":["https://thoradar.online/","https://thoradar.online/index.html","https://thoradar.online/sw.js","https://thoradar.online/sw-retire.js","https://www.thoradar.online/","https://www.thoradar.online/index.html","https://www.thoradar.online/sw.js","https://www.thoradar.online/sw-retire.js"],"verificationOrderEqual":true}
+{"scenario":"stale-during-propagation-retire","waits":[5,5,40,40,40,40,40,40,40,40,40],"seconds":370}
+{"scenario":"apex-only","summary":{"passed":16,"failed":2},"failures":["normal uploads workers then index, refreshes eight owned CDN URLs and verifies eight URLs","retire uploads workers then index, refreshes eight owned CDN URLs and verifies eight URLs"]}
+{"scenario":"without-md5-gate","summary":{"passed":16,"failed":2},"originalWrongMd5Exit":1,"mutatedWrongMd5Exit":0,"failure":"post-publish verification rejects wrong-md5"}
+exit=0

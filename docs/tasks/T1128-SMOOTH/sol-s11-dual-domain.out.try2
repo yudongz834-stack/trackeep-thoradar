@@ -1,0 +1,2380 @@
+OpenAI Codex v0.172.0
+--------
+workdir: D:\trackeep\trackeep-product\trackeep-thoradar
+model: gpt-6.2-sol
+provider: openai
+approval: never
+sandbox: danger-full-access
+reasoning effort: xhigh
+reasoning summaries: concise
+session id: 01a221e7-d038-7ff2-81bf-208c916234ff
+--------
+user
+【委任状 T1128-SMOOTH-S11】你是 Trackeep 施工工程师，2 级（派遣方＝Orchestrator 1 级；PI＝0 级）。
+工作区 D:/trackeep/trackeep-product/trackeep-thoradar，写码只限此处。
+身份：你的席位（launcher）＝codex-gpt，正式名四元组以人册主力表为准——壳自报的品牌不是你的身份，不得照壳自称。
+本单点名档位＝gpt-6.2-sol；据将要执行的 codex-gpt.cmd 解析，你的真身＝gpt-6.2-sol。
+禁启外部 AI 代理进程；禁改 `ANTHROPIC_*` 等端点环境变量（席位端点由 launcher 焊死，会话内改＝偷换身份）、禁本进程内切模型、禁经第三方壳中转；登录态与凭证零碰触（唯 PI）；跨家对抗审／互查任意家皆可；可再派（组队自主权）——每派一个子席，向上回登记一行（任务号·四元组·一句话目标·工作区·写域），并把本钳位逐字传进子席委任状；派遣方可按单收紧为「本单禁再派」。
+你跑在 harness 里（cc/codex/agy）——再派机制与档映射以名册成员表为准（cc 席＝Agent 工具）；改码／施工一律在隔离副本（git worktree／独立靶场），不直接改工作树。
+清理进程只许按 PID 精确杀，永久禁止 taskkill /F /IM 与 Stop-Process -Name，杀完逐 PID 复查并贴原始输出。
+禁 git push。不打印任何 token 值。
+🔴 配置家 D:\claude 是活的生产数据，只读；旧主家已退役，勿再引用。
+变异恢复用 cp 备份文件，不用 git checkout（工作树可能有未提交成果）。
+纪律：不贴命令与原始输出的结论一律不采信；自报不作数，证据作数；禁伪修复。
+绿灯不是证据——判断测试守没守住，唯一办法是删掉被守的代码看它红不红。
+复现不了的写「未复现」，不许把推测写成事实。
+交付报告开头三行：干了什么（人话）／PI 怎么亲手验（一个物理动作：打开哪、点什么、看到什么算对）／还剩什么坑（空案写完整句，如『没坑，已逐条核』；禁写单字『无』）。
+
+【送达闸】你的【最终输出】里必须包含这一行原文（不是过程中说一次就算——
+-p 模式只把最终回答交给 Orchestrator，过程中的话Orchestrator 看不到）：
+DELIVERY-T1128-SMOOTH-S11
+并在它下一行用一句话复述你这次做的事。做不到这条，Orchestrator 会判任务书未送达并整单重发。
+
+【任务书全文】以下为正文，直接照做，不必再去读盘：
+DELIVERY-T1128-SMOOTH-S11
+键字段：目标目录=D:/trackeep/trackeep-product/trackeep-thoradar；任务号=T1128-SMOOTH-S11；交付=同一最小刷新权限精确覆盖双域、工作流恢复双域八地址刷新、发布模拟与负对照。
+轨道位置：胸科雷达顺畅改造·⑧ 双域最终发布接线。
+R级：R3（RAM 现有策略精确扩一个 www 资源＋本地发布工作流修改；不 push/deploy/真实刷新）。
+判级理由：M2 已把 www 纳入同一 CDN 账号并验证公开八地址；若脚本只刷新主域，以后 www 日报会陈旧。直接恢复双域刷新又会被当前仅主域的 RAM 资源拒绝，两处必须同批闭环。
+签发：沿用 PI G14/G15/G16 的连续代操作授权与既定要求「www 若迁入同一可管理账号，应恢复双域自动刷新并更新测试，避免未来日报 www 陈旧」。仅限同一刷新动作和两个精确域名，不扩大为其它权限或发布授权。
+地形：本地只写 `.github/workflows/deploy_oss.yml`、`tests/smooth/verify-deploy.mjs`、必要的 `tests/smooth/deploy-mock.mjs`、`docs/tasks/T1128-SMOOTH/sol-s11*` 与 `online-release/sol-s11/`。不得改三件产品、官方数据、其它测试或任务地图。浏览器只新建自己的 RAM 标签，不碰 PI 原有/Mimo 标签，结束关闭；遇安全挑战保留。
+领域卡：无
+经验卡：无卡。
+Run 版本键：岗位卡=builder-jobspec 现役正本；model=gpt-6.2-sol；基底工作树已有 S7 至少 370 秒等待补丁；S10 最小策略与唯一 SubUser 证据=`sol-s10-browser-report.md`；M2 双域接入=`mimo-m2-browser-report.md`。
+
+## 已确认事实
+1. `www.thoradar.online` 已在当前账号 CDN，专用 CNAME 已生效，HTTPS/回源与主域对齐。M2 和主控独立抽测均显示 www 首页 200 且 MD5 与 Git blob 一致；不是其它账号。
+2. 现有自定义策略 `ThoradarCDNRefreshOnly` 只有 Action `cdn:RefreshObjectCaches`、Resource 主域。S10 已将它授予唯一实际发布 SubUser。
+3. 当前本地工作流只刷新主域四地址，双域八地址验真；S7 等待已改前两次 5 秒、随后 40 秒，至少 370 秒，当前 18/18。
+
+## A. RAM 精确续作
+1. 新建 RAM 标签，打开现有 `ThoradarCDNRefreshOnly`，不得再创建第二个策略或新用户。读取 `D:/claude-tmp/thoradar-cdn-refresh-only.json` 获得同一主账号 ARN 形式；报告不得展开账号 ID。
+2. 修改当前策略，使 JSON 仍只有一个 Statement、Effect=Allow、Action 数组仅 `cdn:RefreshObjectCaches`，Resource 数组恰好两项：`acs:cdn:*:<CDN_OWNER_ACCOUNT_ID>:domain/thoradar.online` 和 `acs:cdn:*:<CDN_OWNER_ACCOUNT_ID>:domain/www.thoradar.online`。不得加入 `*` 资源、其它动作或其它域名。
+3. 若控制台生成新版本，确认新版本已成为当前/默认生效版本；只编辑不算生效。保存修改前正文到临时目录供回退，不入库、不打印账号 ID。
+4. 重新打开策略详情，完整回读 JSON.parse 并机械全等校验两资源；再打开 S10 同一唯一 SubUser 权限列表，确认仍只绑定该自定义策略，原权限行不变，无新增其它策略。
+5. 遇安全验证/短信/扫码立即停止云操作并保留标签，不重复提交；即使云侧被阻断，也继续完成下面本地修复，报告分开写云侧与本地终态。不得执行真实 CDN 刷新或发布。
+
+## B. 本地双域发布修复
+1. 将刷新 URL 集合改为现有 `urls` 的双域八地址，不再过滤主域；上传顺序、正常/退役 worker 映射、双域八地址验真、MIME/no-store 和至少 370 秒等待保持不变。更新过时的「www 不属本账号」注释。
+2. `verify-deploy.mjs` 正常和退役场景必须断言一次刷新请求包含**恰好双域八地址且顺序与 urls 相同**，名称同步改为 eight owned CDN URLs。不得放松双域验真。
+3. mock 按新现实允许双域刷新；不得删除失败场景、把错误改成成功或为赶绿调整预期。若无必要不改 mock。
+4. 跑 `node tests/smooth/verify-deploy.mjs docs/tasks/T1128-SMOOTH/online-release/sol-s11/deploy.json`，需 18/18。保留 stdout/stderr。
+5. 制作临时工作流变异，把刷新恢复成只主域四地址，用更新后的测试运行，正常+退役断言必须红；不得把变异覆盖正本。另保留至少一个既有错误场景证明仍能判红。记录变异命令、退出码和汇总。
+6. `git diff --check` 针对本次代码；确认 `index.html`、`sw.js`、`sw-retire.js` 无 diff。不得 commit/push/deploy。
+
+## 交付
+报告含三行头、结论、地图影响、验证状态、改动清单、遗留风险、地图终态；分开列 RAM 云端状态（完成/挑战阻断）与本地状态（18/18＋负对照）。若 RAM 未完成，不得写双域发布可放行。尾部复述 `DELIVERY-T1128-SMOOTH-S11`。
+
+hook: SessionStart
+hook: SessionStart
+hook: SessionStart Completed
+hook: SessionStart Completed
+hook: UserPromptSubmit
+hook: UserPromptSubmit Completed
+**Assessing task environment and constraints**
+**Reviewing file and git constraints**
+codex
+我会先读法库和浏览器操作技能，核对当前工作树的 S7 基线，再在隔离副本里完成双域刷新修复。RAM 生效状态和本地模拟结果会分别核验。
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "Get-Content -LiteralPath 'D:\\trackeep\\trackeep-console\\trackeep-rulebook\\rules\\entries\\safety-redlines.md' -Raw" in D:\trackeep\trackeep-product\trackeep-thoradar
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "Get-Content -LiteralPath 'D:\\trackeep\\trackeep-console\\trackeep-rulebook\\rules\\README.md' -Raw" in D:\trackeep\trackeep-product\trackeep-thoradar
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "git status --short --branch
+git worktree list
+git rev-parse --show-toplevel
+rg --files -g AGENTS.md -g '*s10*' -g '*m2*' docs .github tests
+Get-Command codex-gpt.cmd,pwsh -ErrorAction SilentlyContinue | Select-Object Name,Source" in D:\trackeep\trackeep-product\trackeep-thoradar
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "Get-Content -LiteralPath 'C:\\Users\\yudon\\.codex\\plugins\\cache\\openai-bundled\\computer-use\\26.1120.50957\\skills\\computer-use\\SKILL.md' -Raw" in D:\trackeep\trackeep-product\trackeep-thoradar
+ succeeded in 708ms:
+---
+id: safety-redlines
+名称: 安全红线（钥匙纪律·个人信息纪律）
+适用: 一切任务全程；跨模型／agent 调用前必扫
+别名: [钥匙, 密钥, token, API key, API 泄露, 个人信息, 身份信息, 隐私, PII]
+type: rule
+strength: required
+scope: global
+status: active
+version: 6.1
+domain: safety
+load: always
+enforced_by: [rb:redline-probe, file:D:\claude\hooks\trackeep-redline-guard.sh]
+---
+
+# 安全红线（钥匙纪律·个人信息纪律）
+
+## 红线
+
+**钥匙纪律——API 密钥不泄露**：
+
+- **存放**：只保存在 Windows 用户环境变量中，不写入任何文件。
+- **使用**：按需注入，不打印、不外传。
+- **派发前**：跨 `agent` 调用先清除敏感环境变量（子进程会继承密钥）——外派经 `dispatch.sh` 自动清除（见 `dispatch-protocol`）；内部派发无自动检查，发起方自行清除后再派。
+
+**个人信息纪律**：
+
+- **写入**：提示词、日志、报告删无关身份信息；必须指人时用接收方认不出本人的代号。
+- **存放**：配置与 AI 会话原件放服务读不到处；对外服务只给指定公开文件、关闭目录浏览（已知直链仍可读，公开面不放敏感件）。
+- **外发**：截图、会话摘录外发前同样去身份；确需实名的报告只在 PI 当次批准的对外定稿上署名。
+
+判据：接收方凭内容加已有背景，能否直接联系、定位或认出具体的人。
+
+其余安全红线不在本页：`.claude` 只读与禁 `adb` 由 `trackeep-redline-guard` 自动拦截；登录态与凭证零碰触由 `charter-template` 固定条款随派遣携带，接单方遵守。
+
+
+
+hook: PostToolUse
+ succeeded in 810ms:
+# Trackeep-Rulebook
+
+**Trackeep 全系统的法律与信息中转站**，以 AI 为第一读者：agent 可换、派遣系统可换，谱恒在。**本页即全部入口，空是故意的**——不给 agent 预装框架，规则按需来取，保持满血思维。
+
+1. **接到任务先问管家**——`entries/employment-law.md`（取法协议正本）。
+2. **想了解系统**——一屏地图＝`entries/handbook.md` §3；目录契约与生效裁决＝`CONTRACT.md`。
+
+
+hook: PostToolUse
+ succeeded in 750ms:
+---
+name: computer-use
+description: Control Windows apps from ChatGPT
+---
+
+# Computer Use
+
+Use this skill to automate the UI of Microsoft Windows apps. It uses SendInput, UI Automation, and Windows.Graphics.Capture screenshots that work even when windows are occluded.
+
+If this plugin is available, read this entire `SKILL.md` once before Windows automation work, before saying Computer Use is unavailable, and before falling back to other Windows automation.
+
+Start with the directions in the Initialize section below. Read these bundled Markdown files relative to this `SKILL.md` when you need information about the specific topic they cover:
+
+- `../../docs/guidance.md`: core runtime behavior, target-window workflow, screenshot handling, and recovery guidance. You MUST read this before controlling Windows apps.
+- `../../docs/api.md`: full `sky` API reference. Read this when you need method signatures or object shapes.
+- `../../docs/confirmations.md`: you MUST read this before deciding whether a Windows UI action needs confirmation
+
+## Initialize
+
+The bundled `cua_node` `@oai/sky` package is the core entry point for Computer Use. Import it directly by package name from the JavaScript session. Do not spawn `codex-computer-use.exe`, search for the helper executable, or build a custom helper protocol client.
+
+Run this once per fresh `node_repl` JavaScript session:
+
+```js
+if (!globalThis.sky) {
+  const { sky } = await import("@oai/sky");
+  globalThis.sky = sky;
+}
+```
+
+
+hook: PostToolUse
+hook: PostToolUse
+ succeeded in 1160ms:
+## T1128-SMOOTH-RELEASE...origin/main
+ M .github/workflows/deploy_oss.yml
+ M docs/tasks/T1128-SMOOTH/RELEASE-REPORT.md
+ M docs/tasks/T1128-SMOOTH/task-map.md
+ M tests/smooth/deploy-mock.mjs
+ M tests/smooth/verify-deploy.mjs
+?? docs/tasks/T1128-SMOOTH/brief-mimo-m1-browser.md
+?? docs/tasks/T1128-SMOOTH/brief-mimo-m2-browser.md
+?? docs/tasks/T1128-SMOOTH/brief-sol-s10-browser.md
+?? docs/tasks/T1128-SMOOTH/brief-sol-s11-dual-domain.md
+?? docs/tasks/T1128-SMOOTH/brief-sol-s7.md
+?? docs/tasks/T1128-SMOOTH/brief-sol-s8-browser.md
+?? docs/tasks/T1128-SMOOTH/brief-sol-s9-browser.md
+?? docs/tasks/T1128-SMOOTH/mimo-m1-browser-report.md
+?? docs/tasks/T1128-SMOOTH/mimo-m1-browser.out
+?? docs/tasks/T1128-SMOOTH/mimo-m2-browser-report.md
+?? docs/tasks/T1128-SMOOTH/mimo-m2-browser.out
+?? docs/tasks/T1128-SMOOTH/online-release/
+?? docs/tasks/T1128-SMOOTH/sol-s10-browser-report.md
+?? docs/tasks/T1128-SMOOTH/sol-s10-browser.out
+?? docs/tasks/T1128-SMOOTH/sol-s11-dual-domain.out
+?? docs/tasks/T1128-SMOOTH/sol-s11-dual-domain.out.try1
+?? docs/tasks/T1128-SMOOTH/sol-s7-dryrun.txt
+?? docs/tasks/T1128-SMOOTH/sol-s7-report.md
+?? docs/tasks/T1128-SMOOTH/sol-s7.out
+?? docs/tasks/T1128-SMOOTH/sol-s7.patch
+?? docs/tasks/T1128-SMOOTH/sol-s8-browser-report.md
+?? docs/tasks/T1128-SMOOTH/sol-s8-browser.out
+?? docs/tasks/T1128-SMOOTH/sol-s9-browser-report.md
+?? docs/tasks/T1128-SMOOTH/sol-s9-browser.out
+D:/trackeep/trackeep-product/trackeep-thoradar                                 af3f277 [T1128-SMOOTH-RELEASE]
+D:/trackeep/trackeep-product/trackeep-thoradar/.git/t1128-s11-worktree         af3f277 (detached HEAD)
+D:/trackeep/trackeep-product/trackeep-thoradar-astra-v4                        28131f3 (detached HEAD)
+D:/trackeep/trackeep-product/trackeep-thoradar-neon-v1                         73dd34e (detached HEAD)
+D:/trackeep/trackeep-product/trackeep-thoradar-smooth-T1128                    73dd34e (detached HEAD)
+D:/trackeep/trackeep-product/trackeep-thoradar-smooth-T1128/.t1128-s6-worktree 73dd34e (detached HEAD)
+D:/trackeep/trackeep-product/trackeep-thoradar-sol-cdn                         af3f277 (detached HEAD)
+D:/trackeep/trackeep-product/trackeep-thoradar-wt/T1122-int                    5217e86 [feat/t1122-int]
+D:/trackeep/trackeep-product/trackeep-thoradar-wt/T1122-pool                   b54883b [feat/t1122-pool]
+D:/trackeep/trackeep-product/trackeep-thoradar-wt/T1122-shelf                  b54883b [feat/t1122-shelf]
+D:/trackeep/trackeep-product/trackeep-thoradar-wt/T1125-aicls                  06d08e8 [feat/t1125-aicls]
+D:/trackeep/trackeep-product/trackeep-thoradar-wt/T1125-poolup                 05a748f [feat/t1125-poolup]
+D:/trackeep/trackeep-product/trackeep-thoradar-wt/T1127-ux                     73dd34e [feat/t1127-ux]
+D:/trackeep/trackeep-product/trackeep-thoradar
+docs\tasks\T1128-SMOOTH\sol-s10-browser.out
+docs\tasks\T1128-SMOOTH\brief-sol-s10-browser.md
+docs\tasks\T1128-SMOOTH\sol-s10-browser-report.md
+docs\tasks\T1128-SMOOTH\brief-mimo-m2-browser.md
+docs\tasks\T1128-SMOOTH\mimo-m2-browser.out
+docs\tasks\T1128-SMOOTH\mimo-m2-browser-report.md
+docs\tasks\T1128-SMOOTH\online-release\mimo-m2\baseline-m2.txt
+
+Name          Source
+----          ------
+codex-gpt.cmd D:\npm-global\codex-gpt.cmd
+pwsh.exe      C:\Program Files\PowerShell\7\pwsh.exe
+
+
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "git -C .git/t1128-s11-worktree status --short --branch
+Get-ChildItem -LiteralPath '.git/t1128-s11-worktree/docs/tasks/T1128-SMOOTH' -Filter '*s11*'
+rg -n 'urls|refresh|owned|wait' .github/workflows/deploy_oss.yml tests/smooth/verify-deploy.mjs tests/smooth/deploy-mock.mjs
+rg -n 'gpt-6\\.2-sol|--model' D:/npm-global/codex-gpt.cmd --only-matching
+Get-ChildItem -LiteralPath 'docs/tasks/T1128-SMOOTH/online-release' -Name" in D:\trackeep\trackeep-product\trackeep-thoradar
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$rbRoot='"'D:\\trackeep\\trackeep-console\\trackeep-rulebook\\rules'
+Get-Content -LiteralPath \""'$rbRoot'"\\CONTRACT.md\",\""'$rbRoot'"\\entries\\employment-law.md\" -Raw
+rg --files "'$rbRoot | rg '"'builder-jobspec|roster|personnel|名册'" in D:\trackeep\trackeep-product\trackeep-thoradar
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$reports=@('"'docs/tasks/T1128-SMOOTH/sol-s10-browser-report.md','docs/tasks/T1128-SMOOTH/mimo-m2-browser-report.md'); foreach("'$report in $reports){ (Get-Content -LiteralPath $report) -replace '"'(?<"'!'"\\d)\\d{10,}(?"'!'"\\d)','[ACCOUNT_REDACTED]' -replace '(?i)([a-z0-9._%+-]+)@([a-z0-9.-]+\\.[a-z]{2,})','[IDENTITY_REDACTED]' }
+Get-Item -LiteralPath 'D:\\claude-tmp\\thoradar-cdn-refresh-only.json' | Select-Object Name,Length" in D:\trackeep\trackeep-product\trackeep-thoradar
+ succeeded in 846ms:
+## HEAD (no branch)
+MM .github/workflows/deploy_oss.yml
+M  tests/smooth/deploy-mock.mjs
+MM tests/smooth/verify-deploy.mjs
+?? docs/tasks/T1128-SMOOTH/online-release/
+?? docs/tasks/T1128-SMOOTH/sol-s11-report.md
+
+    目录:D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s11-worktree\docs\tasks\T1128-SMOOTH
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a---          2026/11/28    19:25           4527 sol-s11-report.md
+tests/smooth/deploy-mock.mjs:17:    if (scenario === 'refresh-error' || (scenario === 'refresh-retry' && first)) process.exit(1);
+tests/smooth/deploy-mock.mjs:39:    const waited = prior.filter(entry => entry.tool === 'sleep').reduce((seconds, entry) => seconds + Number(entry.args[0]), 0);
+tests/smooth/deploy-mock.mjs:41:      (scenario === 'stale-during-propagation' && waited < 360));
+tests/smooth/verify-deploy.mjs:14:const yaml = (await readFile(workflow, 'utf8')).replace(/\r\n/g, '\n');
+tests/smooth/verify-deploy.mjs:22:    await run();
+tests/smooth/verify-deploy.mjs:56:await test('Windows Node 24 gate runs the real checks in order before the same revision deploys', () => {
+tests/smooth/verify-deploy.mjs:83:await test('manual retire is a boolean defaulting to false and CLI aliases reuse the OSS secrets', () => {
+tests/smooth/verify-deploy.mjs:90:await test('the Aliyun CLI download pins v3.5.4 and checks SHA-256 before extraction', () => {
+tests/smooth/verify-deploy.mjs:105:const scratch = await mkdtemp(join(tmpdir(), 'thoradar-s5-deploy-'));
+tests/smooth/verify-deploy.mjs:109:const urls = domains.flatMap(domain => ['/', '/index.html', '/sw.js', '/sw-retire.js'].map(path => `https://${domain}${path}`));
+tests/smooth/verify-deploy.mjs:110:const refreshUrls = urls.filter(url => new URL(url).hostname === 'thoradar.online');
+tests/smooth/verify-deploy.mjs:125:  await writeFile(path, command);
+tests/smooth/verify-deploy.mjs:126:  await chmod(path, 0o755);
+tests/smooth/verify-deploy.mjs:132:  await writeFile(trace, '');
+tests/smooth/verify-deploy.mjs:141:  const calls = (await readFile(trace, 'utf8')).trim().split('\n').filter(Boolean).map(line => JSON.parse(line));
+tests/smooth/verify-deploy.mjs:144:    refreshes: calls.filter(call => call.tool === 'aliyun').map(call => call.args),
+tests/smooth/verify-deploy.mjs:161:  await test('Bash syntax for tool installation and production publish', () => {
+tests/smooth/verify-deploy.mjs:172:  await mkdir(bin);
+tests/smooth/verify-deploy.mjs:173:  await mkdir(aliyun);
+tests/smooth/verify-deploy.mjs:174:  await Promise.all([
+tests/smooth/verify-deploy.mjs:182:    await writeFile(python, '#!/usr/bin/env bash\nexec python "$@"\n');
+tests/smooth/verify-deploy.mjs:183:    await chmod(python, 0o755);
+tests/smooth/verify-deploy.mjs:185:  await writeFile(join(scratch, 'publish.sh'), [
+tests/smooth/verify-deploy.mjs:196:    await test(`${retire ? 'retire' : 'normal'} uploads workers then index, refreshes four owned CDN URLs and verifies eight URLs`, async () => {
+tests/smooth/verify-deploy.mjs:197:      const run = await simulate('healthy', retire);
+tests/smooth/verify-deploy.mjs:213:      assert.deepEqual(actions.map(call => call.tool), ['curl', 'curl', 'aliyun', ...urls.map(() => 'curl')]);
+tests/smooth/verify-deploy.mjs:214:      assert.deepEqual(run.refreshes, [['cdn', 'RefreshObjectCaches', '--region', 'cn-shenzhen', '--ObjectType', 'File', '--ObjectPath', refreshUrls.join('\n')]]);
+tests/smooth/verify-deploy.mjs:216:      assert.deepEqual(run.heads, urls);
+tests/smooth/verify-deploy.mjs:221:  for (const scenario of ['refresh-retry', 'id-retry', 'refresh-error', 'missing-task-id']) {
+tests/smooth/verify-deploy.mjs:222:    await test(`CDN ${scenario} uses at most one retry and requires a task ID`, async () => {
+tests/smooth/verify-deploy.mjs:223:      const run = await simulate(scenario);
+tests/smooth/verify-deploy.mjs:224:      assert.equal(run.refreshes.length, 2);
+tests/smooth/verify-deploy.mjs:225:      assert.deepEqual(run.refreshes[0], run.refreshes[1]);
+tests/smooth/verify-deploy.mjs:229:        assert.deepEqual(run.heads, urls);
+tests/smooth/verify-deploy.mjs:231:        failure(run, /CDN refresh failed or returned no RefreshTaskId/);
+tests/smooth/verify-deploy.mjs:237:  await test('stale CDN content is polled again, including a six-minute propagation delay', async () => {
+tests/smooth/verify-deploy.mjs:240:      const run = await simulate(scenario, true);
+tests/smooth/verify-deploy.mjs:244:      assert.deepEqual([...new Set(run.heads)], urls);
+tests/smooth/verify-deploy.mjs:249:    await test(`post-publish verification rejects ${scenario}`, async () => {
+tests/smooth/verify-deploy.mjs:250:      const run = await simulate(scenario, scenario === 'wrong-md5');
+tests/smooth/verify-deploy.mjs:258:  await test('HTTPS origin preflight rejects 304 and blocks CDN refresh', async () => {
+tests/smooth/verify-deploy.mjs:259:    const run = await simulate('preflight-304');
+tests/smooth/verify-deploy.mjs:261:    assert.deepEqual(run.refreshes, []);
+tests/smooth/verify-deploy.mjs:265:  await test('failed worker upload blocks index upload and CDN refresh', async () => {
+tests/smooth/verify-deploy.mjs:266:    const run = await simulate('upload-error');
+tests/smooth/verify-deploy.mjs:270:    assert.deepEqual(run.refreshes, []);
+tests/smooth/verify-deploy.mjs:275:  await rm(scratch, { recursive: true, maxRetries: 3, retryDelay: 100 });
+tests/smooth/verify-deploy.mjs:279:await writeFile(output, JSON.stringify({ workflow, shellRuns, tests, simulations, summary }, null, 2) + '\n', { flag: 'wx' });
+.github/workflows/deploy_oss.yml:158:          urls=()
+.github/workflows/deploy_oss.yml:160:            for path in "${paths[@]}"; do urls+=("https://$h$path"); done
+.github/workflows/deploy_oss.yml:164:          refresh_paths=$(printf 'https://thoradar.online%s\n' "${paths[@]}")
+.github/workflows/deploy_oss.yml:165:          refresh_id=''
+.github/workflows/deploy_oss.yml:168:            if refresh_id=$(
+.github/workflows/deploy_oss.yml:169:              "$aliyun" cdn RefreshObjectCaches --region cn-shenzhen --ObjectType File --ObjectPath "$refresh_paths" |
+.github/workflows/deploy_oss.yml:174:              echo "CDN RefreshTaskId=$refresh_id"
+.github/workflows/deploy_oss.yml:178:              echo 'CDN refresh failed or returned no RefreshTaskId' >&2
+.github/workflows/deploy_oss.yml:219:          for url in "${urls[@]}"; do
+cdn-r1
+cdn-r2
+ci-r1-fix
+ci-r2-fix
+mimo-m1
+mimo-m2
+sol-s10
+sol-s8
+sol-s9
+online-verify-current-v2.json
+online-verify-current-v3.json
+online-verify-current-v4.json
+online-verify-current-v4.stdout.txt
+online-verify-current.json
+online-verify-current.mjs
+sol-s7-main-deploy.json
+sol-s7-main-deploy.stderr.txt
+sol-s7-main-deploy.stdout.txt
+
+
+ succeeded in 703ms:
+# 文件契约 v2（CONTRACT）—— Trackeep-Rulebook 元规则
+
+**地位**：唯一根级元法，高于一切条目；agent 取法即视为已加载。
+**定位**：存「该怎样工作」，把适用规则准确交给各端。不办任务。
+**入库判据**：会改变 Agent 做事、判断、协作或用工具的方式→入库；只是「知道了什么」→不入；只是「发生了什么」→台账与 git。
+
+## 一、存储
+
+正式条目平铺 `entries/`，一文一职责，文件名＝id（改 id＝废旧立新），归类靠字段；临时条目必带 `expires`（缺省＝永久）。字段机器语义正本＝`tools/SPEC.md`；正文体裁与行标记记法＝`doc-discipline`。
+
+## 二、字段
+
+宪法级硬规闭集：`domain`＝`safety`｜`agent-collaboration`｜`software`｜`research`｜`data`｜`writing`｜`ops`｜`meta`（同义不另立）（与引擎 `$DomainSet` E28 对锁，此行机器咬合）；`enforced_by` active 必填（`[]`＝查过无执法，死绑定拦）；pack 恒 `advisory`——容器不得把成员提级（硬闸）；正文 `[闸]` 标记必实测在岗（假闸＝假绿，比假裁更坏）。
+
+| 取值词汇（裁决与装配用） | 枚举 |
+|---|---|
+| `type` | `rule`｜`guide`｜`template`｜`pointer`｜`skill`｜`pack`（各型行为＝SPEC） |
+| `strength` | `required` 必守｜`default` PI 当次指令可覆盖｜`advisory` 参考（只约束 `rule`） |
+| `load` | `always`｜`on-match`｜`on-demand`（**always⟺required**，走五.2） |
+| `status`／`scope` | 见三 |
+
+type 判据：每型须有一处**实质**机器行为差异（影响装配／加载／授权／验证／失败处置），否则并掉；纯展示与排序差异不算；新增 type 唯 PI。改闸与原子写实现＝高风险边界走五.2 逐次过 PI。
+
+## 三、生效与裁决（唯一决策算法）
+
+1. **加载**：本 CONTRACT 恒定生效。
+2. **过滤生效候选**（顺序机械执行）：存在 → `active`（deprecated 永不执行）→ 未过期 → `targets` 含本端 → `scope` 匹配 → `适用` 相关。**draft 例外**：同一事项无 active 条目时可参考执行，强度封顶 `default`（其 required 不触发强制并入），产出标注「依据 draft」。
+3. **裁决**：safety 域 `required` 恒胜 → `required`＞`default`＞`advisory` → 同强度窄 scope 胜宽（task＞project＞global）→ 仍平或触及需 PI 授权：停步报 PI，未决期间只做只读与可逆动作。
+4. **三态动作**：无适用条目＝遵上位约束正常完成并报告；取法设施故障＝走入口条目降级条款；同级冲突未决＝停步报 PI。
+5. **库外上位恒在**：PI 当次指令 ＞ 安全红线 ＞ 本库任何条目。
+
+## 四、依赖健康（requires）
+
+**宪法级保证**：`required`＋`active` 条目无条件并入一切 pack。其余依赖健康闸＝`tools/SPEC.md` pack/compose 闸链；条目作独立检索／装配入口仍按三.2 过滤。
+
+## 五、治理
+
+1. **晋升与废止唯 PI 有权**（draft→active、→deprecated）；AI 只能提名附证据（实践 ≥3 次有据，或 PI 直接拍板）。**「实质修改」判定**：条目正文经**归一化**后仍有字节差异＝实质修改，自动降回 draft（此项不属 PI 独占）；恢复 active 唯 PI 晋升（晋升即豁免授权）。**豁免仅闭集、纯机读、零语义判断**（归一化与豁免细则＝`tools/SPEC.md`）；**不接受任何声明式豁免**——自称「只改错字」不作数（可伪装、不可机验）。**`deprecated` 条目的正文变化不得触发降级**（降回 draft ＝复活待审的法），状态仍为 `deprecated`；重新生效唯 PI 晋升。
+2. `required` 条目的新增／修改／废止＝高风险边界，逐次显式过 PI。
+3. 废止＝`deprecated`＋`superseded_by`（如有）＋正文瘦成 3 行（三要素＝`tools/SPEC.md` W23）；frontmatter 保留供索引。**例外·经 PI 明令冻结留档者**：正文可整体保留不瘦身，但 body 首行须置**退役横幅**（横幅三要素＝`tools/SPEC.md` E33）。**deprecated 长正文无横幅＝违约**——它会被读成现行法（闸级判据＝`doc-discipline` §三「读不歪」）。
+4. **安全底线**：safety 域 `required` 条目须在**每个已接入端的纲领文件**（adapters 卡 `bootstrap-file`）以**强指针**常驻于开局即加载区域，指名条目 id 与可解析路径。**有效性须实测不靠声明**：`rb.ps1 redline-probe` 四查（判定面＝`tools/SPEC.md` P3），任一不成立即**视同真空**、停步报 PI。替换必须原子，**新指针探测通过后旧件方可撤**——一换一撤不留真空；适用一切投影形态。**端侧宣称须与实测一致**：冲突以实测为准、措辞即刻更正。
+5. 体检点名（W 级）：`required`＋`draft` 滞留、expires 过期、domain 孤词、pointer 断链。
+
+## 六、目录契约
+
+`CONTRACT.md`＝宪法｜`entries/`＝全部正式条目｜`registries/`＝名册、模板与登记件（名册只记用工判断；技术接线真相源留各系统以 id 关联，绝不两处抄同一事实）｜`adapters/`＝各端投影／接入卡｜`tools/`＝引擎与门禁｜`evidence/`＝战役证据架（守则与台账＝`evidence/INDEX.md`）｜`testdata/`＝门禁脏样本（`tools/test-rb.ps1` 消费，勿手清）｜`.project/`＝引擎机读契约（INV 不变量等 yaml，门禁断言真相源）｜`build/`＝生成物（不入 git、非真相源）。历史封存不设目录——退役即删、版本回滚归 git，git 即沿革（零墓碑）。
+
+**目录层闸**：顶层目录必须落在上述登记集内；`evidence/` 外 `.bak` 残留零容忍（证据架内原始档案例外）；腐烂刑期＝deprecated 滞留逾 30 天、draft 滞留逾 90 天、expires 逾期逾 7 天——到期点名，处置归 PI。机器码与判定＝`tools/SPEC.md` lint 表。根级件（`AGENTS.md`｜`CHANGELOG.md`｜`CONTRACT.md`｜`INDEX.md`｜`README.md`）闭集，与引擎 `$RootFileSet` E36 对锁——不是条目、不受「实体进库→entries/」约束，是库本体（INDEX 由引擎生成，不手改）。
+
+（2026-11-28 订正 registries 范围句·依 PI 当日「todo 全部做完」令·主控执行）
+
+## 七、负面清单（本库不做）
+
+云端多用户／复杂权限系统／自动改规则正文／可执行物（hook／脚本／二进制）入库／不经一换一撤强迁 skill（skill 正文入库合法，逐件一换一撤）。
+
+**窄豁免（R1）**：本机 `127.0.0.1` 单用户纯文本编辑面不属上列禁项——PI 窄写口直改＝主权；Agent 仅 `/propose` 提案、无直写权；安全面＝默认关闭＋基线 hash＋一次性 nonce＋仅绑 127.0.0.1＋拒 null/缺失 Origin＋精确 Host＋原子写；治理照走五.1／五.2＋git 留痕；「自动改规则正文」禁令不废——引擎不得自行改 `entries/`，唯 PI 窄写口为唯一例外（INV6）。
+
+---
+id: employment-law
+名称: 用工法（谁负责·怎么下单·怎么算做成）
+适用: 定岗组队、派活下单、验收收口全流程——分工怎么定、任务怎么派、事怎么算做完；三章各管一段，附录放格式件与登记表指针
+别名: [用工法, employment law, 用人法, 派工法, 谁负责, 怎么下单, 怎么算做成, agent-org, track, Track, dispatch-protocol, charter-template, ask-protocol, experience-pull, agent-trackeep-roster, 岗位与编制, 轨道, 派遣一页, 委任状模板, 取法协议, 经验拉取, 岗册×三端, 组织宪章, 三表, 部门制, 岗位表, 命名, 称谓, 命名规范, 编制, 组队, agent team, 阵型, 岗位制, 领域岗, 岗位库, 领域包, domain package, 复核官, org-growth, 成长预案, 扩建预案, 能力表, 换代认证, 立域门, 停用编制, 总协议, 协作总协议, 轨道协议, 守轨, keep, 委派, 任务分发, 子代理, 协作与派遣, 派遣, 参谋, dispatch-ops, 派法, 派遣命令, 派遣操作, 操作规程, 委任状, charter, 钳位, subagent 委任状, internal charter, 问管家, 取法, ask, ask_status, ask-ai, 六码, 六 verdict, 降级模式, 管家, 经验卡投递, 开工必读, experience pull, 沉淀回流]
+type: rule
+strength: required
+scope: global
+status: active
+version: 1.10
+domain: agent-collaboration
+load: always
+requires: [safety-redlines, work-pact, principles, doc-discipline, software-production-law]
+enforced_by: [lint:E20, lint:E21, lint:E23, rb:guard-tally#doorbell, file:D:\trackeep\trackeep-scripts\agent-launchers\dispatch.sh#gate, human:各席自照·派席方对表]
+coverage: 行为条全覆盖
+---
+
+# 用工法
+
+**新人从这里开始**：先读「总则」认清主律五问；**第一章 谁负责**（分工与组织）——谁能授权、谁施工、谁验收；**第二章 怎么下单**（派活与授权）——派第一单沿第二章开头的发单路线走，每步一个详读落点；**第三章 怎么算做成**（证据与收口）——事怎么算做完、怎么收口。规矩只在本书出现一次；附录只放格式件与登记表指针。
+
+## 总则
+
+**主律：循源守界，分席验实，依验结案。**（正本＝`work-pact`）
+
+**五常数（源、界、席、证、终）**：钉义与判别五问正本＝`work-pact`；本书两处补充——**分席**＝服从该案的干审分离要求；报告写明「未验」不使对象自动通过。**立新规矩先过五常数**。
+
+**安全红线永不压进公式**：正本＝`safety-redlines`；38 条显式保留清单见本书「禁区」。具体数字、签字人和例外仍是各条文参数，不从主律推算。
+
+---
+
+## 第一章 谁负责
+
+这一章管分工：谁下命令、谁干活、谁检查，岗位、编制和领域怎么定，立域怎么走。
+
+### 一、指挥链唯一
+
+链路唯一：`PI → Orchestrator（主控调度席）→ 被派方`，不设中间层。不可逆或红线相邻动作（生产部署、真机 `adb`（安卓调试桥）、红线区亲改、终审复算）亲办不下派，亲办≠豁免（仍先过授权与禁区）；封印（定版锁定）唯 PI。
+
+### 二、岗位与编制
+
+**岗位**是单个被派方的工种合同；**编制**是多席（独立执行单元）搭班预设。派席公式＝`岗位 × 领域卡 × 能力表`。两条原则：
+
+1. **组织的是知识不是权力**：领域与岗位两轴正交；派席时在委任状（席位授权与约束单）固定为指定版本键。
+2. **认岗位不绑模型**：岗位卡零型号名，型号事实取自机器登记（`manifest`）；写审分离按独立 `session`（会话上下文）判（判据见第三章「干审分开四件套」）。
+
+### 三、岗位卡十字段
+
+岗位卡必须包含以下固定字段：
+
+| 字段 | 约束 |
+|---|---|
+| `inputs` | 上岗输入清单 |
+| `outputs` | 交付物与回报格式 |
+| `obligations` | 必履职责 |
+| `forbidden` | 禁止事项（**越界作废**） |
+| `tool_permissions` | 工具绑定入口：各岗工具权限正文见《岗位册》对应章；机读工具面随壳与登记走，本书不双写 |
+| `evidence_required` | 证据与复核要求 |
+| `stop_conditions` | 立即停手条件 |
+| `escalation` | 上报路径 |
+| `conflict_of_interest` | 通用两条正本见本章 §八「利益冲突两条」 |
+| `budget` | 超限有机器痕迹，`token`（用量计数）计入一役一记 |
+
+其余岗位硬规：
+
+- `capabilities_required` 只收**底线四格**口径（在役可召唤／独立会话／能跑工具／上下文够）；受控词表＝**能力卡字段清单本身**（引字段不引自由词，引用清单外的名字＝机器拒）；特长归写单选型，不写进岗位卡。
+- **执行岗与制衡岗（复核、审计）永不合并**。
+- **全体席位共同三条**（正本居此，岗册只登记不复述）：①靶场（独立沙箱作业区）只建在 `TEMP`（系统临时工作目录）、禁入 git 库——仅限沙箱作业区，委任状明许的隔离工作区不受此限；②可写范围白名单外越界即交付作废（白名单由委任状给出）；③做一条保存一条——仅限有落盘授权的任务，零写权席位不带（细则正本见第二章「委任状：外派格式与内生简版」）。
+
+### 四、领域卡与装载
+
+这节管规矩随单到人。
+
+- **装载**：命中领域的活，写单时从书架（`registries/bookshelf.json`）挑领域卡排进任务书「领域卡」栏，把卡内义务条目装进任务书；一席可戴多张，所戴义务从开工起全部生效；未命中领域则裸派遣并记录。
+- **照办与照查**：承岗席逐条照做，`verifier` 逐条核对义务表，漏一条验收不过。义务装进任务书即机器痕迹（工具注入，或人工前置并标「人工装载」）；同 `harness`（代理运行壳）投递带指针，跨模型全文嵌入并带版本戳。
+- **卡是法条**：领域卡只载职责（必须／禁止），不载权限；卡与卡冲突按安全从严（越界作废与安全红线恒优先）；修改领域卡＝修改法律，须 PI 批准并附改动清单，不存在「维护即生效」；正文一真相源加指针，不复述他处正本。
+
+### 五、组队与配席
+
+这节管派几个人、怎么派。
+
+- **能单不组队**：单人可交付的活派一席；需互盲配两席；需独立裁决另设尾审；达到 **≥3 会话** 或 **≥3 任务书** 才动编制卡。组队先报代价，≥4 席或高档编制须 PI 批准。
+- **按序装配**：任务定性 → 领域卡（按单·0 到多张）→ 编制 → 验收档求交 → 选人。约束冲突时：安全红线 ＞ 岗位或领域硬约束 ＞ 编制 ＞ 验收档 ＞ 实绩（以验收记录为准）。R0/R1 主控自动撮合；R2 以上给候选方案，PI 拍板。
+- **缺人不硬凑**：无人取台账次优；仍无则报 PI 三选一（降档／裸派遣＋记录／不派），最多重试 2 次；禁止静默降编。
+- **口令六步**：「派 `<编制名>`」＝取法 → 解析编制卡 → 逐席选人 → 空跑检查（全席有人、委任状五要素齐、可写范围互斥、取法闭包、验收档可配——缺一不派半队）→ 生成委任状 → 并行派发逐席验送达；全席确认前不算开工。
+- **协作协议**：同岗多席互不通气（恒盲）；席位交接用磁盘文件并带最小交接头，不用口头。
+
+### 六、席位资格与命名纪律
+
+命名两条红线：引用只许自上而下（档案不得依赖型号名）；每层只在一处登记（同一语义两处登记必漂移）。
+
+- **任务号**：`T{MMDD}-{SLUG}-{席位码}{轮次}`；席位码注册制（`S`/`F`/`X`/`V`/`L`/`A`/`D`，新码先登记）；战役文件只带任务号，不带厂商名。
+- **正式名（四元组）**：`harness · model · type · effort`；记录、账本、委任状一律使用；撞名复述确认后再派；`mode` 不入四元组；`type` 写人话短形，精确 id 只留在 `manifest`。
+- **`session` 是第二核心身份**：同一四元组两次派遣视为两个 agent；写审分离的「不同人」按 `session` 判（判据见第三章「干审分开四件套」）。
+- **禁改集**：`wire` 枚举、`launcher` 三段公式、已铸任务号与 `UUID`，永不改、永不复用。
+- **禁用「公司」「部门」**：运行时与规则文本同禁。
+- **按名取人**（在册表见附录二）：主控从枢纽按名派遣（`subagent_type: <名>`），按登记岗位名取 `trackeep-` 前缀实体（两端同名）。端差异列：`仅 Claude 端`／`仅 Codex 端`／无标记＝双端，Antigravity 端铺席后增注 `三端` 或 `仅 Antigravity 端`；文件缺失即报断链，切换证明＝岗册表行经扫描器核验。`doclaw` 三档仅 Claude 端。监察按阶段触发（阈值取其岗位卡）；Claude 端文档审查席由 PI 调用触发。
+
+### 七、立域与成长
+
+- **准入**：新领域首役或裸派遣累积时，四项齐备才提议（PI 可直指）：至少 2 个异质任务实证、可复用资产、`owner` 与消费者、预写退役条件。查重在先：现有卡、委任状加段、规则模块能否覆盖，是否一次性任务。
+- **流程**：提议 → 查重 → 八原则审 → `doc-auditor` 五查 → PI 批 → 转在役。草稿标「待验证」，役毕转正或作废；三役未转正强制复审。
+- **事件复审**：`observer` 阶段回顾或事件触发时核验。同编制连败 2 次即复审；同岗缺人至少 2 次即提补员或立岗；复审决定改卡、停用或退役。
+- 未启用预案四类（能力表、换代认证、治理增长、停用编制）存档于历史设计，触发后按立域流程提案。领域卡模板与退役复审细则见 `registries/领域卡模板.md`。
+- **立法与进度纪律**：**立法冻结**——法条只在真事故后修，日常零修法单（没有事故单，就没有修法单）；**进度尺**——每日收口报「交付了什么真结果」，不报「法改了几行」。
+
+### 八、利益冲突两条
+
+通用两条（正本居此，岗位卡只登记不复述）：**不复核自己写的内容；不选自己的 `Verifier`。**
+
+---
+
+## 第二章 怎么下单
+
+这一章管派活（取法、判级、选席、填单、送达、开工）：发单、再派、组队、续线程、收卷或提交时，沿下面动线单向流从上往下走。
+
+### 一、发单路线（取法 → 判级签发 → 拆解选席 → 填单确认送达 → 开工 → 验收收卷）
+
+1. **取法**：先问管家取有效正本（详读本章 §九「取法协议」）。
+2. **判级签发**：R 级判级＋装载扫描，签字门落「签发」字段（详读本章 §二「判级与授权门」）。
+3. **拆解选席**：拆到叶子落任务地图、勾选契约、按名取人组队（详读本章 §三「地图门与地形」；选人与装配见第一章 §五「组队与配席」）。
+4. **填单确认送达**：写单＝装配（岗位卡×领域卡们×型号三样全排进任务书；型号自选时写理由）；写委任状（恒定钳位逐字复制，见附录一与本章 §八）；登记占位避撞（先占位再启动派发）；启动派发（点档位用档位名，点型号用型号名）；验送达（要求对方复述任务目标：**复述对＝送达；复述不出＝整单重发；没回话＝先查死活（本章 §十一），查无再重发**）。
+5. **开工**：先读经验卡（本章 §十），动手前过契约确认门（本章 §三 节末）。
+6. **验收收卷**：交收卷回执（规范形见第三章 §四「收卷与回报」）；沉淀见第三章 §五「复盘与经验回流」。
+
+**两个可见时点（进场确认 ≠ 最终回报）**：
+
+- **进场确认**（时点＝进场首次回复）：第一句先输出任务书顶部注入的送达暗号（机器码；自编暗号只作对人暗语，不得替代），然后复述一句你这一单要做什么。派单方验送达：复述不出即整单重发；**没回话不等于没送到**，不得混判（判据见本章 §十一）。
+- **最终回报**（时点＝任务最终输出）：交付报告开头三行＋送达暗号；暗号必须出现在最终输出（机器检索，缺即作废），细则见第三章 §四。
+- 只回最终文本的通道：进场确认合并进最终输出首句照抄（暗号＋复述两行作信封，置开头三行之前；**信封不算呈报正文，呈报首行仍是①行**——见第三章 §四），派单方在采用产物前完成验送达。
+
+（派发器四项机器保证——档位互拒、洗环境、暗号送达检查闸、写账本——见 `registries/端侧操作手册.md`；内生席不承接。）
+
+### 二、判级与授权门（R 级取最高）
+
+**步 0 形状判定与入口分档**：完成 R 级预判与执行形状预判；**步 0 即扫两轴**（硬触发表＋三问），两轴结果记入判级理由。**预判即终判**——轻入口（`R0`/`R1` 且单 agent）无第二道判级：五问审判＋签字门，契约用轻量简版，允许批次签发；全套入口（`R2`+／多席／探索型）在入口四步第 3 步正式判级，对步 0 预判确认或重算，取最高，四步全走。**探索型任务一律走全套入口。何时重算**：同条款版本＋同适用条件可复用，判级理由、适用事实或硬触发命中任一变化即重算。
+
+**入口四步**：①五问审判（要什么、为什么、怎么做、风险、验收怎么算）；②八原则审（正本见 `principles`）；③ R 级判级＋装载扫描（见本节与第一章 §四）；④签字门（复述意图 → PI 回复「发」→ 落任务书「签发」字段，授权原话＋日期留机器可查痕；**`R3` 或不可逆大改道**：门前须附独立席隔离上下文盲审的**最强**正反两栏（禁稻草人）＋一个关键问题并入裁决）。
+
+**勾选契约**：分型清单每项列「类型＋R 级预判」，PI 逐项打勾。勾＝目标＋授权，未勾＝非目标留档；**无勾不开工**；追加项走追加勾选，不许静默扩项。按类型动作：修复类勾了即开工；方案类走两轮勾；决策类由 PI 拍板不派工；研究类派调研席。
+
+**验收契约九字段**：目标与非目标、成功判据（附证伪方法）、失败判据、验证方法（验收环境清单——多机验一处＝假绿）、证据要求（**证据＝机器产物或结构化 verdict，裸声明不是证据**）、关键依赖、预算（超限即重审）、不可逆与回滚、需请示的变更。轻量简版 4 项：目标、成功判据（附证伪方法）、R 级＋判级理由、回滚。**契约成熟度**：探索型可先标「初版」，段③首轮启动升「定稿」（差异摘要入一役一记）；定稿后修改走第三章「返工与终态」的验收基准变更门。执行型直接定稿。
+
+**任务书纪律**：**自足**——禁止写「来找我」，写错的事实会被 100% 执行。**不可逆不许猜**——删数据、改权限、对外发布、花钱必须标「待 PI 裁决」停手，沉默替 PI 拍板＝越权。**判据先红后绿**——验收命令必须亲手跑过再进书；修复类修复前理应 FAIL，动手前就 PASS＝假绿，必须标红写明「修完才对得上」。
+
+**R 级判级（硬触发优先＋三问抬升，取最高）**——硬触发表先查，命中即取**下限等级**（不看命中数）：
+
+| 硬触发情形 | 下限等级 |
+|---|---|
+| 患者数据／诊疗相关 | `R3` |
+| 真实金融交易／资金操作 | `R3` |
+| 生产系统发布／密钥／账号 | `R3` |
+| 不可恢复删除或迁移 | `R3` |
+| 对外发布分发 | `≥R2` |
+| 共享状态／主分支／schema／权限 | `≥R2` |
+
+- **共享状态范围**：库内 `active` 法条正文、`schema` 正本、端侧生产卡、`bootstrap`（启动引导）块、派发门禁。可逆性只区分 `R0` 与 `R1`，**不下拉任何硬触发命中项**（「git 可逆」不是降级理由）。
+- **生产系统发布豁免**：自建单用户内部系统（`terminal-console`／App 等）的部署只豁免「生产发布」一格，其余硬触发逐项照查（涉患者数据仍为 `R3`）；部署仍须 PI 明令，「装」字令即终审。
+- **三问抬升（只抬不降）**：基线 `R1`，每命中一项升一级，上限 `R3`：① 有不可逆动作吗？② 碰真实数据、隐私或凭证吗？③ 对外发布多用户吗？**`R0` 须同时满足**：三问全不命中、纯实验、只读可重建（纯实验写自己的临时文件＝`R1`）。
+- **从严条款**：义务表安全权重高于当前判级时取较高者；答不上来按命中算；各来源取**较高者**；判级理由写入任务书（无命中也要写，**并标明哪几项是「猜的」**——补证本单沿用已签等级，拟降级留新事实重签再放行）。
+- **R3 之上的外部签字权**：涉及伦理审查（IRB）、法务或平台合规时签字权在体系外；轨道义务是**识别并停在门前**，PI 签字不替代外部审批。
+- **R 级义务**（按级累积适用；R2+ 复核判据见第三章「干审分开四件套」）：`R0` 只读可重建；`R1` 局部可逆（留 `diff`／`rollback`）；`R2` 共享状态（须独立复核）；`R3` PI 签字。
+- **R3 签字程序（间隔式二次确认）**：签前信息包 → 确认知悉 → **≥30 分钟**二次确认（治理默认值，PI 可调、可豁免；自确认知悉同版信息包起计）→ 签，无回应保持待签。两次确认须指向同一动作、影响范围与回滚条件；范围或关键风险改变则换包重确认；紧急豁免只豁等待，留 PI 原话、理由及时间。
+- **额度门（发单前第二道闸）**：目标席位余量须 **≥ 预估用量 ×2** 才准发；点名席位不足时报缺口走既定三档处置，不擅自换人。额度读数与巡检流程正本＝`trackeep-scripts` 额度巡检流程；订阅额度单列，不与按量混算。
+- **`Run` 版本固定（发单固定；第三章只凭同一份键验）**：六键——岗位卡版本→岗位卡；领域卡版本→领域卡；能力证据→能力表；`model`→模型；轨道护栏版本→轨道；验收基准→基线。键值以已验产物为准（空表或 `n/a` 不算已验）；控制面更新不追溯，`PASS` 须可溯版本；规则改版标过渡期，旧任务按旧规完成或显式迁移。
+- **装载表**（判级后装载；**本行为本章强制映射，另按在役领域卡判据补装**；归属单选、装载多选，冲突按安全从严）：
+
+| 轴 | 命中判据 | 装什么 |
+|---|---|---|
+| 产出物类型（横切） | 产出含软件／代码 | `software-production-law` |
+| 业务内容（纵切） | 科研写作 | `data-safety`＋`output-delivery` |
+| 业务内容（纵切） | 金融分析 | `data-safety`＋`software-production-law`（验证篇）＋`output-delivery` |
+
+表注：三行为强制映射；表外业务查在役领域卡（书架 `bookshelf.json`）补装，未命中裸派并记录（见第一章 §四）；新法或新领域卡走立域门（第一章 §七）。
+
+### 三、地图门与地形
+
+- **任务地图**：把任务拆到叶子（一轮可交付），产出**任务地图**，**唯一真相源为 `task-map` 保存到文件**，其余皆投影。节点以**轨道位置为行键**（步名只供人读），含：状态、授权态（勾选契约引用＋「已准／待准」一词）、依赖、役中违例计数（初值 0）、结果指针（报完必填，直达回执证据）。**图的写权在派单方**——执行席交结果、派单方回填；长单多席共用一张贯穿全程的图。退回或重派须回填原因（重派保留上一次退因）；收卷时把拆解叶子逐一对上，防整行删除后「剩下的都完了」仍为真。**并行写默认禁止**（只读侦查可并行）。派席撮合决策权正本见第一章 §五。**按类型分流**：按任务类型走 `handbook` 场景表路由。
+- **首部四字段（机器强制）**：正本与闸文见本章 §六「任务书四字段」。
+- **地形行（机器强制）**：`R级≠R1` 或任务有写入（含局部可逆写入）时，可写范围单须另加一行「地形」；`dispatch.sh` 地形门缺「地形」字样拒发（**不受 `OFFTRACK` 豁免**）；纯只读任务免；回执「地图影响」节规范形见第三章 §四，缺节收卷闸标红入账。
+- **契约确认门（红，R2+ 或歧义）**：动手前回显目标、非目标、完成标准、停止条件，与契约比对后放行；R0/R1 清晰任务跳过（此处为动手前确认；最终验收见第三章）。
+
+### 四、首步放行与退回（错判限幅）
+
+- **一例试产**：发单圈定可独立作废的一小步——**单例及其下游影响均能独立作废**才算一小步；不能圈住下游或含不可逆效果的，按不可逆规则在授权入口先验。批量留在派单方；错判最坏只赔该步。
+- **放行权在验收人**：首个裁决要支配后续工作前，验收人核对原问痕＋所采条款＋适用事实，确认后放行该范围（同条款版本＋同适用条件可复用，任一变化重验）；**验收人不点头，后续不得开工**。缺据退回补核；已发生而未验的动作记漏验，事后补日志只作纠错、不作追认。
+- **不可逆动作**（删除、外发等收不回的）一律在授权入口先验，不试产。
+
+### 五、级别与身份（唯 PI 改）
+
+- **级别定义**：`0`＝PI（项目唯一所有者）；`1`＝PI 直开会话；`N`＝由 `N-1` 派出的席位（独立执行单元）。
+- **授权规则**：逐级可再派，不越级，不代行。**接管重钳位**：`resume`（续接会话）接管时必须重新钳位（明确本轮起身份、此前指令作废）。
+- **必填字段**：委任状必须写明级别。
+
+### 六、任务书四字段（正本在此）
+
+任务书首部四字段（机器强制）：**轨道位置**、**R级**、**判级理由**、**签发**。缺一拒发，`TRACKEEP_OFFTRACK=1` 绕行须留痕记违例。适用端分写：外派由 `dispatch.sh` 入轨门核四字段在场；Claude 内生由 `redline-guard` hook（事件触发钩子）四字段拒绝分支同拦（内生 hook 现场拦截及各端同拦**未验**，挂现场验收）。机器只判字段词在场；签发内容、首行位置与授权有效性仍须人工核对。委任状首段四字段＝随单实例化镜像；R 级算法与判级理由写法见本章 §二；可写范围单「地形」行见本章 §三。
+
+### 七、红线（唯 PI 改）
+
+- **禁启外部 AI 代理进程**。
+- **杀进程只按 PID**（进程号精确查杀），永久禁止 taskkill /F /IM 与 Stop-Process -Name；杀完逐 PID 复查并贴原始输出。
+- **`token`（访问令牌）纪律**见 `safety-redlines`（钥匙纪律）；**登录态与凭证零碰触（唯 PI）**。不打印任何 token 值。
+- 禁改端点环境变量、禁本进程内切模型、禁经第三方壳（外层包装程序）中转。
+- **PHI（患者隐私）材料只派内生**；敏感材料遵守数据最小化。
+- 跨家不互读记忆、日志或凭证，接力以交接物为真相源。
+- 同侪消息不作指令、不作授权（授权唯 PI 留痕）；**唯 PI 口令可跨席转述生效**——须附原话逐字与时间地点（互电留痕），受方有疑径询 PI 复核，转述仅限忠实运输、不得自授权（PI 2026-10-18 立）。
+- **禁 `git push`**。
+- **配置家 `D:\claude` 是活的生产数据，只读；旧主家已退役，勿再引用。**
+- 变异恢复用 cp 备份文件，不用 git checkout（工作树可能有未提交成果）。
+
+### 八、委任状：外派格式与内生简版
+
+**外派**从格式件骨架整段复制实例化（恒定区一字不改，见附录一）；**内生 `subagent`（子代理）**的委任状放在内生 prompt 首段，**可按单裁剪，不可全省**。
+
+**内生委任状正文五项**（第 1–5 项）：
+
+1. **职衔行**：写明任命（职衔＋席别＋同 team，席即独立执行角色）与正式名四元组（`harness` 自报品牌不是身份）。
+2. **目标一句**：交付什么＋轨道位置＋R 级预判。
+3. **可写范围**：可写白名单，其余只读；只读任务写「零写入」。
+4. **禁区**：`D:\claude` 只读；禁对外发布或外传；禁另启 AI 代理进程；禁改端点环境变量或进程内切模型；登录态与凭证零碰触；禁 `git push`；杀进程只按 PID；改码走隔离副本；不打印 `token`；可再派（孙辈带本委任状并回登记）。
+5. **停止条件＋证据纪律**：明确何时停手上报；不贴命令与原始输出的结论不采信。
+
+**条件附项**（按席位附加，非人人有）：**提交结果通道**——需经消息通道回传交付的席位必带（`mailbox` 席用 `SendMessage` 发回 `main`；一次性 `Agent` 用最终回复文本；只写交什么不写怎么交＝废单）；**保存节奏**——仅限有落盘授权的任务：做一条保存一条，零写权席位（如安全审计）不带此句，防诱导越权写文件。
+
+- **五要素落位**：岗位、钳位三层、归属四样（轨道段、工作区、写域、交付落点）、级别、`Run` 版本键（正本见本章 §二）必须齐备。委任状填任务号、职衔、同队、目标、四字段、四元组及兄弟席；四元组取第一章 §六 命名节与名册，禁照 harness 自称。席位钳位按名册与红线核对后填（红线两条＝钥匙纪律、个人信息纪律；外发、对外发布须 PI 当次明令＝`output-delivery`，勿另立收紧）；任务钳位按单。
+- **再派**：恒定区再派条款正本＝`registries/charter-template.md` §2 现版恒定区（不在此复写）。外派逐字投递并逐子席下传（每派一个子席向上回登记一行）；内生＝正文第 4 项「可再派（孙辈带本委任状并回登记）」（回登记一行五字段：任务号·四元组·一句话目标·工作区·写域；`cc` 席走 `Agent` 工具）；「跨家对抗审／互查任意家皆可」为许可上限，**跨家仍不互读记忆、日志或凭证**（正本见本章 §七）。派遣方可按单收紧为「本单禁再派」。
+- **锚点检查**：外派件必须恰含一次锚 `钳位v<现版>@charter-template`（现版见格式件复制区标头）；无锚或旧锚视为漂移件拒收。内生件走五项版，无此锚。
+- **对锁（政策与投递镜像）**：本章 §七 定政策，`charter-template` §2 定外派投递文本，模板改即投递改；重叠禁令冲突按政策修镜像，**镜像若放宽 PI 禁令，停发报 PI**。内生五项版不入此对锁；逐短语比对等校验实现见 `registries/端侧操作手册.md`。
+- **重叠派遣红线**：同一任务不得重叠派单占同一写域；避撞按登记占位，可写范围以看板为准（对应条款见本章 §十一「判死活与避撞」）。
+- **证据纪律**（随单恒带）：正本见第三章 §一「证据与冻结真值」；开头三行去向见第三章 §四「收卷与回报」。
+- **首句与取法通道**：正本＝`charter-template` §2 复制区两行（送达句与取法通道行·各在标注处；外派逐字投递）；内生取同两句写进 prompt 首段。**取不到法不编造，停手报派遣方**（现场查法问本机管家，见本章 §九）。
+
+### 九、取法协议（问管家·六码·降级）
+
+1. **问管家**（取法唯一法）：MCP（模型上下文协议）工具 `ask`／`ask_status`（rb-mcp），或 CLI（命令行）同源 `pwsh -ExecutionPolicy Bypass -File tools/rb.ps1 ask-ai "<你的问题>"`——两嘴同一管家，任选。**取法必经 MCP 工具 `ask`／`rb.ps1 ask-ai`，禁裸 curl、禁接管道**——短超时拿到空串会误判管家死了；改此句与护栏台账（`evidence/guard-anchors.json`）同笔提交。应急（不算方法）：管家不在才 `tools/rb.ps1 ask <任务关键词>` 自查，标 `[降级模式]`，三底线见 5。直读（不算调取）：`tools/rb.ps1 list`／终端控制台规则库页。
+2. **MCP 回执六 verdict**（状态判读码）：`0`＝取到法→读条目全文＋`requires` 一并读后采信（候选发现器不是裁决器）；`2`＝用法错→改调用；`3`＝真死→**唯一可降级码**，按第 5 条走；`4`＝没答→查原请求状态，不许标降级；`5`＝不是法→退回任务方；`6`＝过载→退避重试勿加压，到约定界限仍无结果停手上报。
+3. **CLI 退出码即判据**：`0`＝成功→按 0 处理；`1`＝用法错→改调用；`2`＝内部错→交派遣方处理；`3`＝缺 `token`（访问令牌）→交派遣方补凭证，**不授权降级**；`4`＝外呼失败→有限重试或转 MCP 取明确状态。**单凭 CLI 非零码一律不授权降级**；空结果、未知码一律停在取法门。两码表＝两副嘴一套判读（语义同源：取到／用法错／真死／没答／过载），按本嘴的表判读，**不得拿 A 表读 B 嘴**。管家大脑＝`rb.ps1 ask-ai` 唯一实现（禁复制两份）：CLI 直拨，MCP 与图形界面经控制台中转同一实现。
+4. **依赖与冲突**：依赖断链→停步报 PI（项目唯一决策人）；依赖环→按已读去重；多条目冲突按 `CONTRACT.md`（规则库总契约）「三、生效与裁决」裁决；装配条目及依赖闭包＝`rb.ps1 pack <id>`。
+5. **降级三底线**（仅 MCP `3` 判死可用）：安全红线（不可逾越的底线）仍生效；只做只读与可逆动作；完工时如实报告「本次未取法」。
+
+### 十、开工先读经验卡（经验拉取）
+
+任何 `agent` 在在册工程夹（含子目录与其 `git` 工作树）内开工或续聊，以及派遣方生成委任状或任务书时，执行以下三步，**三步缺一不算读过**：
+
+1. **开工拉取**：定位所属在册工程（`.trackeep-workbench` 工程身份证；定位步骤见 `registries/端侧操作手册.md`：嵌套工程取最近的在册工程；位于 git 工作树时按主仓找）。找不到则不属于在册工程、不适用本条，**不编造**。
+2. **读卡**：经验卡唯一正本为同级 `.trackeep\experience.md`；读取其末尾最新一张卡（≤10 行）。无该文件时如实记录「无卡」。
+3. **首答复述**：首次回答用一句话复述最新卡首行并含卡 id；**不复述视为没读**。
+
+派遣方义务：生成任务书时，前置经验卡指针（正本路径 `#卡id`＋最新卡首行）；本单命中旧卡适用条件时另附旧卡指针（最新卡仍照前置）。外派席以任务书前置为准，但**仍须执行第 3 步首答复述**。
+
+边界：**卡只读**——开工时不改、不删、不追加经验卡；新经验沉淀走 Console（控制台）流程：起草 → PI 过目 → 保存（触发与门槛见下段）。经验卡是教训不是规则，与规则库冲突时**以本库为准**，不得改动安全红线；家目录不是工程，与 agent 私记 `memory`（跨会话记忆）无关。
+
+**沉淀触发（三问门槛）**：任何一层发现新事实（役记录、复盘或私记皆可为源）→ 主控问三句：同工程下一席遇到什么条件？要改哪个动作？依据在哪？三句答得出且现有卡未覆盖 → 在役记录挂 Console 草案指针；PI 过目后回填卡 ID，舍弃则写一句理由。下次同工程派单前核看未决项。**沉淀由发现事实触发，不由抄卡触发；不设数量指标**。退役卡保留原 ID 可寻址并留替代卡指针，历史任务书仍可复查。
+
+### 十一、送达、续线程与真身核验
+
+（本节供 Claude Code 端实际发单、收单与续线程时参考，不外扩其他端；授权、例外与红线以发单路线及委任状为准。各端字段与操作参数见 `registries/端侧操作手册.md`。）
+
+- **内生与外派**：内生走原生 `Agent` 口，计发起席额度并继承登录态；外派走登记的独立席位与其订阅。交付只写到委任状批准的可写范围。再派按本章 §八 与各端原生机制；额度敏感席位重活优先订阅席，型号以现役登记为准。
+- **续线程与账目**：线程 id 从回执 `session_id` 当场上板，续线程首句必带委任状；`brief`（任务简报）一次派足，保留必要验证；账目按调用的 `message.id` 去重求和。
+- **判死活（判断进程存活）与避撞**：回执与文件分开查；进程仍在不能证明完工，回执缺失不能证明进程已死。先核目标文件与送达，再按 dispatcher 当前约定判状态。窗口表只供观察，缺行不能判没开窗。避撞按登记占位，可写范围以看板为准。
+- **真身核验**：期望型号只从将要执行的那个 `.cmd` 提取；零行、多行或解析失败均拒派。以回执 `modelUsage` 核验真身，不符即作废（dispatcher `exit 8`；`cursor` 用 `stream-json` 首帧 `system/init` 的 `model`，缺字段即作废）。**无回执、缺字段、型号混杂且不能归属本次工作、回执错单——一律「未核真，产物暂缓采用」**，各端异常分支同此处置；事后拒收只拦产物采用，已花预算与已发生副作用仍计入本次影响。
+- **探活判据**：必须用实际开销探针才可判恢复；小请求返回 `200` 无法证明正常派单能避开 `529`。可派性读 `manifest` 的 `verified` 和 `invocation`；探针规范（同席位、型号、传输与代表性负载，留证）见 `registries/端侧操作手册.md`，连续过载或验证过期则撤回「可派」。
+
+### 十二、传输与映射账
+
+传输、编码、重试与生成器操作细则见 `registries/端侧操作手册.md`（操作参数三源＝dispatcher `--print-argv`／各端 launcher／`manifest`）；取法走本章 §九，禁绕协议直连。本章留三条正本：
+
+- **三形命名**：**显示名**用于菜单，省略窗口章；**派遣名**用于 CC launcher 配置，可带 `[1m]`——1M 窗口与章必须成对，以回执 `contextWindow` 核验，CC 下发时剥章；**渠道真名**取 `models.json` 的 `real`，预检、总线等绕过 CC 直连渠道的调用用裸名。型号名不混入能力档，档位走独立旗标或字段。
+- **真源与禁派**：口令到席位至型号只读 `manifest`／`models.json`。禁派只据数据政策或实测能力缺失，撤销后不得凭旧文复活。
+- **禁用清单**：禁用 Python `requests`／`httpx`、PowerShell `Invoke-RestMethod`、手写长 `heredoc` JSON、PowerShell 默认编码写 JSON；沿用 dispatcher 的传输和编码方式。第三方 CLI 即使只探帮助，也要用隔离检查确认配置未被写入。
+
+### 十三、催办与失败判
+
+达到预计时长 **×1.5** 主控看盘并催办（首句带委任状）；**失败由主控人工判定**，超时只触发催办，不作终局裁断。发单时记下预计时长；催办后约下次查盘点，持续无回执按此处置。
+
+---
+
+## 第三章 怎么算做成
+
+### 〇、五段链与回退环
+
+```text
+形状判定 → ① 入口对齐 → ② 拆解分流 → ③ 执行 ⇄ ④ 验收 → ⑤ 复盘
+（步骤非段）                        （微修单小环）
+   └ 需求/契约本身错 ←──────────────────┘（唯一回①路径，须重签契约）
+```
+
+段①②的判级、签字门、勾选契约、任务书与地图动作前置在第二章 §一–§三（发单路线第 2–3 步）。执行段的委任状、钳位、靶场、洗环境、验送达、续线程首句等全套纪律见第二章。验收失败走微修单小环（见本章「返工与终态」）。
+
+### 一、证据与冻结真值
+
+**验收的是环境最终状态，不是施工报告。**
+
+- **入口检查**：定稿＋版本键齐（键在发单固定，见第二章 §二；此处只凭同一份键验）。
+- **状态变更权（红）**：状态只按机器结果或独立 `verifier` 结构化 `verdict`（判定结论）两类证据落定，宣称必须附**可达**证据指针（`lint`（规则格式自动检查）E20/E21 强制），无指针视为未验收。异议走 `DISPUTED`／`WAIVED`／`RETEST_REQUIRED` 留痕，不得口头翻 PASS。
+- **防作弊验收（红）**：基线不可退、对照真值校验冻结、亲手重跑 **≥1 条**命令做校验值比对；`baseline` 变更后既往 PASS 自动失效；施工者无权改 `acceptance tests`、基线、CI、复核配置；机器证据记来源（谁产、何环境、校验值）。
+- **证据纪律**：不贴命令与原始输出的结论一律不采信；自报不作数，证据作数；禁伪修复。**绿灯不是证据——判断测试守没守住，唯一办法是删掉被守的代码看它红不红。** 复现不了的写「未复现」，不许把推测写成事实。静默事故部件必须配反向验证（无声失败的风险面一律加反向观察；事故处只留短指针）。
+- **实测调研**：自己能查的不问，数字带来源。**法与情报分家**：「不许」＝法必溯源；「建议」＝情报。**富规格优先**：测试／schema 当规格。
+
+### 二、干审分开四件套
+
+**写审分离＋独立性四件套（硬）**：定义规格不等于对照真值校验；满足独立上下文、独立重建环境、独立权限、对照真值校验用 `oracle`（标准答案源）不可被施工方修改。独立性来自 `session` 与上下文，与 model 异同无关；施工者无权挑选复核方。**写审分离对 Orchestrator（主控调度席）同样成立。**
+
+**R2+ 必设复核席**：`R2` 共享状态须独立复核（前置等级见第二章 §二「R 级义务」），复核判据即本四件套。
+
+监督封顶：`Orchestrator 留痕 → observer 抽查 → PI 终审`，到此封顶，不设第二层。
+
+### 三、返工与终态
+
+- **偏离处置**：契约内可消化时，按保守序（风险更低 ＞ 更易回滚 ＞ 记两案待裁）选保守项、记录 `Deviations`（偏离记录）后继续；触及成功判据或范围时走微修单。
+- **三道止损**：① 连败 **3 次** → 换法或停手上报；② 改完更差 → 回滚并如实报告；③ 满预算即停。
+- R2+ 任务跨 `compact` 后重读验收契约原文再继续；关键裁决留痕入一役一记。
+- **回退环（微修单）**：验收失败时，开微修单（含范围、修法、验证、完工判据）在执行⇄验收小环内迭代，不重走入口、不重签。仅当根因是需求或契约本身错时，回入口重签（地图标「退回」＋原因）；修订轮次入一役一记。
+- **规格错与干错分离**：施工席与复核席持同一份义务表；R2 以上验收必问「义务表本身对吗」；怀疑规格错时走验收基准变更门回入口重签。
+- **验收基准变更门（红）**：修改验收标准、关键测试、需求或 Done 定义，自动触发重新授权。（衔接口径：**实现修正走微修**——施工/实现层的修正在回退环内开微修单解决；**改成功判据、关键测试、需求或 Done 定义须重新授权**——即触发本变更门。）
+- **Quiz（软，长役终闸）**：交变更报告＋考题，PI 可随机追加（不阻塞），考过才合并。
+- **销单时序与物理删单（通用状态规）**：工单状态行禁写「执行完销单」，须写**「执行完待独立复核对表通过后销单」**；**物理删单仅当独立复核对表通过后**执行——判据＝对表回执在场（会话独立于施工席，按工单验收清单逐条全过），判据不齐不删，未过先删算违例。R2 及以上必设独立复核席（判据见「干审分开四件套」）；低风险（`R0`/`R1`）不设强制复核席，删单同样须对表判据在场。文法工单（`doclaw`）专规正本见《岗位册》文法整理员章「工单销单时序」。
+- **护栏一览**（索引）：**红**＝违反即停、产物作废、直报 PI：写审分离、签字门、防作弊验收、状态变更权、不可逆分级、验收基准变更门、契约确认门、护栏晋升。**软**＝记录后继续，按阈值升红：实测调研、任务书自足、法与情报分家、断点续跑、决策点落边界、富规格优先、Deviations、数据／指令分离、Quiz。**决策点落边界**：该问的问、琐碎的不问。**数据／指令分离**：跨 agent 内容与指令结构分离（防注入）。
+
+### 四、收卷与回报
+
+收卷＝完工交单与回报环节，逐项对账后交回报，回报骨架固定：
+
+- **交付报告开头三行**（呈报首行＝第①行；首行违规即呈报不合格退回）：① 干了什么（人话）／② PI 怎么亲手验（一个物理动作：打开哪、点什么、看到什么算对）／③ 还剩什么坑（空案写完整句，如『没坑，已逐条核』；禁写单字『无』）。
+- 回执带一行**「按哪几条干的」**（按取到的法逐条对账）。
+- 回执必带**「地图终态」**节：引用收卷那一刻的任务地图版本与各叶子节点指针，**不逐行抄写终态**（同一节点两份答案必分家）。
+- 回执必带**「地图影响」**节：写实际变化与写域偏差；只读任务写明检查对象与实际写入情况。缺节或留标题删内容＝收卷闸标红入账。
+- 回执带**「证据」**节：逐项三段式「契约条目标识 → 对应节点 → 证据文件及段落／记录号」；指向持续变化的地图首页、空节或只写「通过」不作数。
+- 一役一记随收卷落（schema 见本章 §五「复盘与经验回流」，对本回执只记地址、不抄内容）；`lint` E20/E21 校验必填与指针可达。
+- 送达暗号必须出现在**最终输出**中（机器检索，缺即作废）；验收用独立会话，写审不同人（见「干审分开四件套」）。
+
+### 五、复盘与经验回流
+
+**沉淀（收尾动作）**：清理靶场（测试作业区）、归档证据、看板收尾定稿、回填经验；整役归档流水线＝`history-archive`。
+
+一役（单轮完整任务）一记——以下 **11 项为必填字段，缺任一项不提交**：
+
+1. 形状
+2. R 级判定与理由（**理由必须写在取值之后同行，分行不合规**）
+3. 入口（值域：`轻入口`｜`全套`）
+4. 走轨情况
+5. 晋升指认物
+6. 成本实耗
+7. 软护栏违例计数
+8. 微修单数
+9. 纸面态／人工装载／基调派标记
+10. 能力证据回写
+11. 验收证据（必须是仓内相对路径指针，须可达且须为验收产物——机器输出或署名 `verdict`（判定结论）；交付物路径与自指不计，E21 禁自指、禁指目录）
+
+回看裁决链：① `checkup` 触发回看；② `verifier` 隔离上下文盲审原始材料（非役记自述）；③ 给出三值裁决（维持原判／判级理由存疑／建议改判），每条附自证指针；④ PI 做三态分诊（准／不准／缓）。**改判率**是全体系唯一外部真值锚；**样本 <30 份时只下判例结论，禁止做比率趋势分析**。
+
+单事件源与经验写入：
+
+- 验收收尾时通过一次事件集中写入：编制卡计数、岗位经验节、`observer` 台账、`formation-log`，不分散写入。
+- **经验写入规则**：在验收收尾时写入（承岗 Agent 自报不作数）；只写任务模式、禁写 Agent 评价；须脱敏；准入判据为「下任读到会改变动作吗」。
+- 原始层保存到文件至 `evidence/positions/<岗位id>/`（`append-only`（只追加不改写），禁止收原始 session log）。
+
+经验毕业：
+
+- 岗位经验节**最多 8 条**，满则淘汰最旧项或证伪项（在趋满或 `observer` 阶段回顾时检查）；同一经验在 **2 次独立任务**中再现即毕业，移出经验节并迁入 SOP（标准操作规程）或禁区。
+
+复盘与护栏晋升：一役一记照本节，`lint` E20/E21 校验必填与指针可达。四率：可达率、冲突率、执行率、逃逸率。**护栏晋升（红）**：逃逸关闭前必答「下一次什么机制拦住它」，答案落 6 类资产之一（验收判据、回归测试、`lint`、指令领域卡、权限变更门、监控）；产物必须带可指认资产标识（`commit`、测试名、探针路径、条目 id），**指认物为空不准关闭**；红级逃逸须重演验证新机制真拦得住。**复盘双问**：「什么逃逸了」「什么救了我们但不在剧本里」——两答同样走晋升。护栏退役实行双产（新增＋废弃）；低频红护栏靠演习补测——没响不等于有效。**软护栏升红**：同役违例 **≥3 次** 或 10 役累计 **≥5 次** → `observer` 提案、PI 裁。
+
+### 六、事故处置
+
+- 静默事故部件的反向验证正本见本章 §一「证据与冻结真值」证据纪律条（此处短指针）。
+- **红线事故直接进入终态**：不经重派循环，直入终态并报 PI；失败由主控人工判定并归因，可归因重派（判败细则见本章 §八）。
+- **红级逃逸**关闭条件与重演见本章 §五 护栏晋升。
+- **出事路径**：席位停手 → 主控 → PI；主控永远无权放宽红线。
+
+### 七、纸面态与裁撤令
+
+- **纸面态纪律（红线不空衔）**：机器件未落地前按软护栏计数方式执行（违例记录＋阈值升红照走），一役一记标「纸面态」；落地经 PI 验收后激活「违反即停」。**禁止以「红」名行「自觉」实**。
+- **自动化落地清单**：装载工具（`tools/load.ps1`）、软护栏计数器＋`验收证据:`（`guard-tally`＋E20/E21）、能力表（触发＝接新模型）、指针探针（E18/E20/E21）、护栏演习、证据面收编（触发＝检索困难 ≥2 次或单次 >10 分钟）、入轨门（`dispatch.sh`＋`redline-guard` hook）、勾选契约门、契约确认门结构校验（触发＝人工比对漏检 1 次）、契约成熟度定稿校验（触发＝「永远初版」规避 1 次）。能机器判定的必须机器强制，不能的交独立 `verifier` 裁决。
+- **裁撤令保留**：墓碑——验收状态机已裁撤，不得复活（PI 拍板）。
+
+### 八、失联与接班
+
+- **判失联与复判时点**：回执与文件分开查（承「判死活与避撞」：进程仍在不能证明完工，回执缺失不能证明进程已死）；达到预计时长 **×1.5** 由主控看盘催办，超时只触发催办、不作终局裁断（承「催办与失败判」）；到复判点即取证，凭进程、文件、回执三面取证，**足以判败才判败**——沉默不作失败证据；判败或留痕续等均须记下有上限的下一复判时点与到限接手人，不无限顺延；断电、崩盘、会话重启同判，重启不重置时钟。
+- **接班与写域**：主控从交接物和看板恢复原起算点、催办记录及待验项；**旧席确认停写或已隔离其写域后，才释放并给新席独占登记**。证据不足时保留占位，记下有上限的下一复判时点和到限接手人。判败后按再派条款原岗重派或退单（仅适用于未触红线的失联；红线事故直走 §六 事故处置），归因写入一役一记。主控本身失联时，由 PI 指定接班主控承接时钟与占位。
+- **接收人与终态**：失联、中止、预算耗尽三路的接收人＝主控（汇总呈 PI）；主控在停工或复判时记录本次派遣的证据、原因和处置。失联证实记 failed 并标失联；中止决定生效且未验过记 failed 并标中止；耗尽先停工重审，获续权则按新授权继续，决定中止则按中止结；**只有成功验收有据才可记 done**。到契约处置时点仍待裁的，报 PI。新派单另行占位，旧席退场与整单销单分别留痕。
+
+---
+
+## 禁区（38 条安全红线类义务，永不压约）
+
+以下边界施行时必须看得见，逐条保留、永不压进公式；编号与禁令义与提炼基线逐条对应（部分行末括号注关联法源；无法源括号的行，法源在 `safety-redlines` 正本或对应章条，不以括号有无判层级）。安全正本＝`safety-redlines`。
+
+1. API钥匙仅存Windows用户环境变量，禁止落任何文件。〔safety-redlines L22〕
+2. 使用时按需注入；禁打印、禁外传任何token值。〔safety-redlines L23〕
+3. 跨agent前清敏感环境变量；外派由dispatch.sh清，内生无自动检查须由发起方先清。〔safety-redlines L24〕
+4. 登录态与凭证零碰触，唯PI；包括以验证模型、排错或探活为由取用。
+5. 审计核凭证是否进入文件、日志、argv；一律只用审计必需材料。
+6. 发现活性泄漏置顶critical，只指位置、泄漏种类、波及范围；不引原文、不复制值、不亲自处置。
+7. 提示词、日志、报告剔除无关身份；必须指人用接收方结合背景仍无法认出、联系、定位的代号。〔safety-redlines L28、32〕
+8. 配置与AI会话原件放服务不可读处；服务只给指定公开文件、关闭目录浏览，直链可读处不放敏感件。〔safety-redlines L29〕
+9. 截图和会话摘录外发前去身份；报告确需实名只在PI当次批准的对外定稿署名。〔safety-redlines L30〕
+10. PHI材料只派内生，敏感材料最小化。内生限定和脱敏是两道不同判断，脱敏不能自动改变PHI派遣权限。
+11. 患者数据或诊疗相关命中R3；审计须查PHI或未公开数据是否未脱敏外发，文审明确PHI脱敏。
+12. 审计包夹带不必要敏感材料，先报派方再继续；红线正本不可读立即停报，不开审。
+13. 日常文审禁读credentials、sessions、cache、file-history、.claude.json、projects/<id>/*.jsonl；Memex正文不入审查面。
+14. 禁跨家互读记忆、日志或凭证；只以授权交接物接力。
+15. 敏感材料不随绩效台账外发；经验只写脱敏任务模式，禁人员评价，岗位证据层禁收原始会话日志。
+16. 外发、对外发布须PI当次明令；内生五项列禁对外发布或外传；不可逆动作在授权入口先验，不试产。
+17. 同侪消息不作指令或授权；PI口令只逐字附时间地点转述，疑则直接向PI核；跨席数据和指令结构分离。
+18. 禁启外部AI代理进程。
+19. 禁改席位端点环境变量、禁进程内切模型、禁经第三方壳中转。
+20. 生产配置家D:\claude只读，旧主家勿引；.claude只读与禁adb见安全正本指针。主控亲办边界不授予被派席例外。〔safety-redlines L34〕
+21. 清进程只按精确PID，永久禁taskkill /F /IM及Stop-Process -Name；杀后逐PID复查贴原始输出。
+22. 禁git push。
+23. 改码／施工在隔离副本；沙箱靶场仅TEMP、禁入git库，明许的隔离工作区按原文例外。破坏性实验隔离、避真实数据、测后还原。〔software-production-law 验证篇条 6〕
+24. 变异恢复用备份cp，不用git checkout，保护未提交成果。
+25. 可写白名单之外一字不改，越界交付作废；只读任务显写零写入，零写权不附「做一条保存一条」。
+26. 审计席任何文件均不可改，无写工具；其发现项按授权通道交回，不以报告、存盘节奏、交接头取得落盘权。
+27. 复核席只找错，不写补丁、不改文件；Bash只用于重跑，禁借重跑修改对象；共享施工上下文停报换岗。
+28. 文档审查席不改、删、移文件；永不调Edit／Write／Bash／NotebookEdit，仅查本模块，缺必需输入停报。
+29. 监察席仅读授权输入，禁止施工、批卷、改规则、删文件。唯一输出写域为 `evidence/observe/` 内的评分卡和阶段报告；不得由管理者代填。
+30. 文法整理的语义复核档、机械档无写工具，执行档仅在授权域可写；不得覆写红线正文、造成红线真空、碰锁点锚或自行迁真源。
+31. 施工席不得选择自己的复核席或修改验收测试、基线、CI、复核配置；复核的oracle须不受施工方修改。
+32. 审计须独立双席起步，均不共享施工上下文；复核与施工分席，监察不得共享被评对象任何环节的上下文。
+33. 有再派权者也须逐席回登记并下传钳位，派方可进一步收紧。（过渡注：第 33 条经 PI 2026-11-27 令删禁令半句，与提炼基线自此有意分叉。）
+34. 法库降级仍守红线，只读与可逆动作；经验卡只读，不能改安全红线。
+35. 对患者、真实交易／资金、生产发布／密钥／账号、不可恢复删除迁移的R3硬下限以及对外分发、共享状态等≥R2硬下限从严；自建单用户内部部署例外仍需PI明令。
+36. 伦理审查、法务和平台审批到门前即停，体系内PI的签字不能代签；R3二签间隔获豁免也不豁免外部审批。
+37. 外派恒定钳位逐字投递、现版锚恰一次；放宽PI禁令的镜像停发报PI。零写权、内生五项和逐子席传递条件须一起读。
+38. 警告或红线要迁移须先安家再动，锁点字节不得动；任何收口都不能凭简化公式消除现役警告。
+
+---
+
+## 附录
+
+### 附录一：委任状格式件指针
+
+外派委任状的**格式件**（骨架模板＋两锚行＋复制区，机器按标记取文）落点为 `registries/charter-template.md`（已迁定）；两锚行「―― 恒定钳位（钳位v14@charter-template，复制区起）――」「―― 恒定钳位（复制区止）――」及复制区内四哨句（禁启外部 AI 代理进程／taskkill /F /IM／不打印任何 token 值／禁 git push）**逐字保形**，机器按标记取文照旧。格式件只留格式与复制区；委任状的**规则正文**（五要素落位、正文五项、四字段呈现、锚点检查、对锁轴、保存节奏、失配处置）正本＝第二章 §八「委任状：外派格式与内生简版」。
+
+### 附录二：登记表指针
+
+| 要什么 | 去哪找 |
+|---|---|
+| 花名册（各岗位三端实体、端差异、按名取人的表体） | `registries/roster.md`（表行形原样保） |
+| 在役编制卡 | `registries/formations.md` |
+| 型号名册（有谁、档位、命名） | `registries/agents.md` |
+| 领域卡清单 | `registries/bookshelf.json`「领域卡」架 |
+| 岗位卡实体 | 职责正文见《岗位册》六章（施工席／复核席／安全审计席／监察席／文档审查席／文档整理员） |
+
+D:\trackeep\trackeep-console\trackeep-rulebook\rules\registries\roster.md
+D:\trackeep\trackeep-console\trackeep-rulebook\rules\entries\hook-gate-roster.md
+
+hook: PostToolUse
+hook: PostToolUse
+ succeeded in 868ms:
+**干了什么**　回读了 RAM 自定义策略 `ThoradarCDNRefreshOnly` 的当前版本，只为失败日志精确匹配的发布子用户新增了一条账号级授权，并完成了两项回读。\
+**PI 怎么亲手验**　在发布子用户的 RAM「权限管理 → 个人权限」里点开账号级 `ThoradarCDNRefreshOnly`，策略内容只显示对 `thoradar.online` 的缓存刷新权限即对。\
+**还剩什么坑**　真实发布链路仍待独立验证，本单验收覆盖 RAM 授权。
+
+## 结论
+
+**A 双回读完成。** 指定 RAM 标签完成全部核验后已关闭。控制台未出现新的安全验证。
+
+## 验证状态
+
+| 验收项 | 脱敏回读 |
+| --- | --- |
+| 策略正文 | 授权前后分别打开策略详情的「策略内容 → 源代码」。两次均从当前版本读取完整 JSON，`JSON.parse` 通过，字段集合一致。版本为 `1`，唯一语句为 `Allow`，唯一动作是 `cdn:RefreshObjectCaches`，唯一资源是 `acs:cdn:*:<CDN_OWNER_ACCOUNT_ID>:domain/thoradar.online`。 |
+| 发布主体 | 从失败 run `[ACCOUNT_REDACTED]` 的 `Forbidden.RAM` 材料提取出唯一的 `SubUser` UID。所属账号与策略源文件一致。RAM 用户列表只有一个精确匹配的详情链接，打开后，页面的用户 UID 字段与详情路由的 `userId` 均与日志精确相等。阿里云将此错误字段对 RAM 用户定义为 UID。 [阿里云 RAM 鉴权失败字段说明](https://www.alibabacloud.com/help/zh/ram/support/how-to-troubleshoot-an-access-denied-error) |
+| 授权提交 | 从该用户详情打开新增授权。保留账号级别，筛选自定义策略，精确选中 `ThoradarCDNRefreshOnly` 一条，点击确认一次。 |
+| 用户权限回读 | 从用户列表重新打开同一 UID 的用户，再进入「权限管理 → 个人权限」。无筛选、无其他页。总数由 1 变为 2，既有行比对一致，唯一新增行的策略类型为 Custom，资源范围为账号级。 |
+| 标签关闭 | 关闭指令成功。延迟复查浏览器目标列表，指定标签已消失。 |
+
+[操作命令与脱敏原始输出](online-release/sol-s10/browser-observations.txt)
+
+## 改动清单
+
+- 云端新增一条直接授权，将现有自定义策略 `ThoradarCDNRefreshOnly` 绑定到精确匹配的发布子用户。
+- 本地交付本报告及 `online-release/sol-s10/browser-observations.txt`。
+
+## 地图影响与终态
+
+第⑧项的 RAM 最小权限子项达到 **A 双回读完成**。现有任务地图记录为 `in-progress-browser-repair`，派遣方可据本报告回填 RAM 子项实证。
+
+## 遗留风险
+
+真实发布 run 是否会通过 CDN 刷新步骤，仍待另行验证。
+
+DELIVERY-T1128-SMOOTH-S10
+我回读了最小策略正文，仅为精确匹配的发布子用户授权一次，并在重新打开的用户权限列表和策略详情中完成双回读。
+# T1128-SMOOTH-M2 · www.thoradar.online CDN/www 接入（真实发布）
+
+- **干了什么（人话）**：在 PI 日常 Chrome 自建后台标签里，把 `www.thoradar.online` 加进了当前账号的 CDN（图片小文件、回源 OSS 与主域同源），复用已有证书 `cert-6ycr7` 开好 HTTPS＋HTTP→HTTPS＋HTTP/2，用主域「复制配置」补齐缓存与过滤参数，再把 DNS 里主机名恰好 `www` 的那一条 CNAME 从主域 CNAME 改成 www 专用 CNAME；公网 `www` 四 URL 已 TLS＋200＋MD5 与主域逐一对上，主域未退化。
+- **PI 怎么亲手验**：浏览器地址栏进 `https://www.thoradar.online/`，看到胸科雷达页面正常打开（证书锁形为 DigiCert、签发给 thoradar.online/www.thoradar.online）就算对；再开 `docs/tasks/T1128-SMOOTH/online-release/mimo-m2/07-domain-list-final.png`，看到域名列表两行（www 与主域）都是「正常运行｜HTTPS 已开启」也算对。
+- **还剩什么坑**：证书 `cert-6ycr7` 2027-02-17 到期（续期机制属另一单）；公网抽测 HTTP 版本为 1.1（两域一致，HTTP/2 控制台已开但本机 curl 未协商 h2，未实测 ALPN——标「未验」）；`www` 是否在其它阿里账号还有残留配置跨账号不可见（未验）。
+
+## 结论（三态归类）
+
+**A 态：双域公开回读通过。** `www` 四 URL TLS 成功＋HTTP 200＋MD5 与主域对应对象一致＋worker JavaScript MIME 与 `no-store` 正确，主域四 URL 未退化，HTTP→HTTPS 两域同为 301。控制台侧 www「已配置／正常运行／HTTPS 已开启」，仅作为辅助证据，不单独当验收。
+
+## 控制台变更事实（每步回读，2026-11-28 本单实做）
+
+访问路径：PI 日常 Chrome（CDP 直连 `DevToolsActivePort`）自建后台标签，用毕已关（只关自建，Sol RAM 标签与 PI 原有标签全程未动）。
+
+| 步骤 | 动作 | 提交前回读／提交后落库证据 |
+|---|---|---|
+| ① 新增加速域名 | `www.thoradar.online`｜加速区域 仅中国内地（与主域一致）｜业务类型 图片小文件｜源站 OSS `thoradar-online.oss-cn-shenzhen.aliyuncs.com`（主/权重 10/端口 80，与主域逐格一致） | 添加成功页＋域名列表出现第 2 行；无「域名已存在／其他账号／备案不通过／需购买／需私钥」任何停止条件 |
+| ② HTTPS | 证书来源=数字证书管理服务，复用已有 `cert-6ycr7`（匹配域名 `thoradar.online,www.thoradar.online`，DigiCert，到期 2027-02-17）；未申请/购买/上传证书，未触碰私钥 | 强刷 HTTPS 页回读：HTTPS证书 已开启＋证书名 cert-6ycr7（推荐配置页曾显示「已开启」但没落库，以详情页回读为准补做） |
+| ③ 协议/可选项 | 协议重定向=HTTP -> HTTPS；HTTP/2=开；OCSP Stapling=关；HSTS=关；TLSv1.0–1.3 全开；QUIC=关（未动） | 逐项强刷回读，与主域同页对照一致；QUIC 页单查开关为关 |
+| ④ 复制配置（主域→www） | 先 6 项批量复制报错 `[https] is not supported`（InvalidArgName.ValueNotSupported，整批未落、无部分生效）；改为只复制「缓存过期时间＋过滤参数」两项成功 | www 缓存规则回读=`/ 目录 1个月 优先遵循源站=开启 权重99`，与主域同格；性能优化页「忽略参数」两域同显（保留指定参数/是/保留回源参数=是） |
+| ⑤ 回源 | 未改（新域按 OSS 源站自动生成默认回源HOST=源站域名 `thoradar-online.oss-cn-shenzhen.aliyuncs.com`，与主域显式配置同值） | www 回源配置页回读与主域逐项一致；指定源站回源HOST 两边均空 |
+| ⑥ Gzip | 手动开启（第一批复制失败被减掉的项）；中途一次误点开「HTML优化」，当即关回 | 强刷性能优化页：HTML/CSS/JS/图像处理=关、Gzip=开、Brotli=关，与主域开关表逐位相同 |
+| ⑦ DNS | 只改主机名恰好 `www` 的一条 CNAME（见下方回滚栏）；`@`、两条 TXT、NS/MX 等 4 条记录里其余 3 条零变动 | 变更确认框明细=「修改记录 1 条：www CNAME …改为…」；改后记录表回读＋更新时间 2026-11-28 19:03:58 |
+
+- 无任何购买／套餐／资源包／DCDN／证书采购操作；HTTPS 请求数按既有后付费计费口径自然计量（白名单第 3 条已预告），未改计费方式。
+- 未执行 CDN 刷新、未触发 GitHub Actions、未演练退役、未改主域任何配置、未新增/删除其它域名。
+- 报告与截图已隐去账号 ID、用户名、主体、联系方式；两条 TXT 记录值不在本报告复制。
+
+## 公开验证（带退出码与响应头，2026-11-28 18:59 生效后 19:04–19:10 实跑）
+
+`curl -sS -I --max-time 25`（Windows schannel）＋正文 `md5sum`：
+
+| URL | TLS exit | http | Content-Type | Cache-Control | body MD5 | 与主域一致 |
+|---|---|---|---|---|---|---|
+| `https://www.thoradar.online/` | 0 | 200 | text/html | public, max-age=60, s-maxage=3600 | f349a082…25c5 | YES |
+| `https://www.thoradar.online/index.html` | 0 | 200 | text/html | public, max-age=60, s-maxage=3600 | f349a082…25c5 | YES |
+| `https://www.thoradar.online/sw.js` | 0 | 200 | application/javascript | **no-store** | 9eb80a6d…2c22 | YES |
+| `https://www.thoradar.online/sw-retire.js` | 0 | 200 | application/javascript | **no-store** | c6f88738…aeb8 | YES |
+| `https://thoradar.online/`（4 URL） | 0×4 | 200×4 | 同上对应 | 同上对应 | 同上 4 值 | 基准，未退化 |
+
+- HTTP→HTTPS：`http://www.thoradar.online/` → 301 `Location: https://www.thoradar.online/`；主域同款 301（exit 0）。
+- 完整响应头另存 `online-release/mimo-m2/apex-www-sw-headers.txt`（两域 sw.js 均带 `Cache-Control: no-store`＋`Content-MD5` 一致）；全程日志 `baseline-m2.txt`／`verify-public.txt`／`final-verify.txt`。
+- 公共 DNS（DoH dns.alidns.com）：`www.thoradar.online` CNAME → `www.thoradar.online.w.kunlunaq.com.`（TTL 600，新值已生效）；`thoradar.online` → `thoradar.online.w.kunlunaq.com.`（未动）。
+- 基线对照（改前 18:23）：www 四 URL 全 TLS 失败 exit=35；主域四 URL 200（`index.html` 首跑 1 次 exit=28 超时，3/3 复跑全 200，判偶发未复现）。
+
+## 地图影响 / 地图终态
+
+- **地图影响**：无。不改产品、工作流、测试、任务地图，未 commit/push/deploy。
+- **地图终态**：`docs/tasks/T1128-SMOOTH/task-map.md`、`RELEASE-REPORT.md` 等工作树既有改动系开工前已存在，本单未审未动；本单新增件仅本报告与 `online-release/mimo-m2/` 证据目录。
+
+## 验证状态
+
+- **已验**：新增域名表单逐项（区域/类型/源站）、HTTPS 证书名与到期（详情页强刷回读）、协议重定向/HTTP2/OCSP/HTLS/QUIC 逐开关、缓存规则与忽略参数两域对照、回源 HOST 两域对照、DNS 四条记录改前改后全量回读（仅 www 一条变化）、公网 8 组 URL 的 TLS/状态码/响应头/MD5、HTTP→HTTPS 301、DoH 新 CNAME、截图 7 张落盘。
+- **未验（明标）**：公网 ALPN/HTTP2 实际协商（本机 curl 两域均回 1.1，无差异但未见 h2）；`www` 在其它阿里账号是否有残留配置（跨账号不可见）；证书 2027-02-17 到期的续期机制（另一单）；HTTPS 请求数计费出账首日数额（按后付费口径待账单体现）。
+
+## 改动清单
+
+- 生产配置：CDN 新增 1 个加速域名 `www.thoradar.online`（含 HTTPS/重定向/HTTP2/缓存/过滤参数/Gzip 如上表）；DNS 修改 1 条记录（www CNAME）。主域、其它域名、其它 DNS 记录、工作流、测试零改动。
+- 文件：新增 `docs/tasks/T1128-SMOOTH/mimo-m2-browser-report.md`、`online-release/mimo-m2/`（截图 7 张＋`baseline-m2.txt`／`verify-public.txt`／`final-verify.txt`／`apex-www-sw-headers.txt`）；临时驱动 `D:/claude-tmp/mimo-m2-cdp.mjs`（含可信点击/键入扩展，会话后按惯例留置，不入库）。
+- 浏览器：自建后台标签 2 个（施工 1 个、QUIC 复查 1 个），用毕均已关。
+
+## 回滚所需旧值（回滚动作用）
+
+| 项 | 旧值（改前） | 新值（现值） |
+|---|---|---|
+| DNS 记录 | 主机记录 `www`｜类型 CNAME｜线路 默认｜记录值 **`thoradar.online.w.kunlunaq.com`**｜TTL **10 分钟（600 秒）**｜权重 1｜启用 | 记录值 **`www.thoradar.online.w.kunlunaq.com`**（TTL/类型/权重/状态未动） |
+
+- DNS 回滚＝把上表记录值改回旧值即可（改前截图 `05-dns-records-before.png`、改后 `06-dns-records-after.png`）。
+- 若需整体回退 www：CDN 域名列表停用/删除本单新建的 `www.thoradar.online` 即可（白名单允许范围）；主域任何配置本单未动，无需回滚。
+
+## 遗留风险
+
+1. 证书 `cert-6ycr7` 到期 2027-02-17，两域共用；续期机制未查（另一单）。
+2. www 接入后按实际流量/HTTPS 请求数产生与主域同类的后付费用量费用（白名单第 3 条预告口径）；未买资源包抵扣（白名单禁止）。
+3. 若其它阿里账号还留有 `www` 旧配置，跨账号归属冲突仍不可见（M1 遗留同款，未复现为故障）。
+4. 复制配置对含 https 属性的项批量报错 `[https] is not supported`（阿里控制台缺陷/限制），本单以手动对齐绕过；后续批量复制同类项会再踩（已留证）。
+
+---
+
+DELIVERY-T1128-SMOOTH-M2
+本单把 `www.thoradar.online` 接入当前账号 CDN 并复用 `cert-6ycr7` 开好 HTTPS/HTTP2/HTTP→HTTPS、用主域复制配置对齐缓存与过滤参数、精准把 www 一条 CNAME 改到 `www.thoradar.online.w.kunlunaq.com`，公网 www 四 URL TLS+200+MD5/MIME/no-store 与主域逐一对上且主域未退化，DNS 旧值已留档可回滚。
+
+Name                           Length
+----                           ------
+thoradar-cdn-refresh-only.json    229
+
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$rbRoot='"'D:\\trackeep\\trackeep-console\\trackeep-rulebook\\rules'
+rg --files "'$rbRoot | rg '"'builder-jobspec|roster|名册|岗位册|主力'
+rg -n '降级|派发禁区|取法协议|R3|认证' \""'$rbRoot'"\\entries\\employment-law.md\" | Select-Object -First 30
+pwsh -NoProfile -File \""'$rbRoot'"\\tools\\rb.ps1\" ask '发布工作流 CDN RAM 最小刷新权限 施工 证据'" in D:\trackeep\trackeep-product\trackeep-thoradar
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "git -C .git/t1128-s11-worktree status --porcelain=v1
+Get-ChildItem -LiteralPath '.git/t1128-s11-worktree/docs/tasks/T1128-SMOOTH/online-release/sol-s11' -ErrorAction SilentlyContinue -Name
+"'$report='"'.git/t1128-s11-worktree/docs/tasks/T1128-SMOOTH/sol-s11-report.md'
+if(Test-Path -LiteralPath "'$report){(Get-Content -LiteralPath $report) -replace '"'(?<"'!'"\\d)\\d{10,}(?"'!'"\\d)','[ID_REDACTED]' -replace '(?i)([a-z0-9._%+-]+)@([a-z0-9.-]+\\.[a-z]{2,})','[IDENTITY_REDACTED]'}
+git -C .git/t1128-s11-worktree diff --stat
+Get-ChildItem -Force -Name AGENTS.md" in D:\trackeep\trackeep-product\trackeep-thoradar
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$base='"'docs/tasks/T1128-SMOOTH/online-release/sol-s10/browser-observations.txt'; if(Test-Path -LiteralPath "'$base){ (Get-Content -LiteralPath $base | Select-String -Pattern '"'https://|policy|权限|before|after' | Select-Object -First 35).Line -replace '(?<"'!'"\\d)\\d{10,}(?"'!'"\\d)','[ID_REDACTED]' -replace '(?i)([a-z0-9._%+-]+)@([a-z0-9.-]+\\.[a-z]{2,})','[IDENTITY_REDACTED]' -replace '([?&](?:token|accessToken|sign|signature)=)["'^ &"'"'']+','"'$1[REDACTED]'"' }" in D:\trackeep\trackeep-product\trackeep-thoradar
+ succeeded in 913ms:
+{"run":"[ID_REDACTED]","watchHasRun":true,"forbiddenRAM":true,"refreshAction":true,"subuser":true,"implicitDeny":true,"principalCount":1,"ownerMatches":true,"sourcePolicyExact":true,"identityJoinReady":true}
+> node $p policy-source
+{"challenge":false,"exactPolicy":true,"paneCount":1,"sourceOptionCount":1,"sourceSelected":false,"currentVersion":true,"loading":0,"sourceViewOpened":true}
+> node $p policy-verify
+{"challenge":false,"exactPolicy":true,"paneCount":1,"sourceOptionCount":1,"sourceSelected":true,"currentVersion":true,"loading":0,"editors":[{"tag":"DIV","kind":"monaco-editor","length":213},{"tag":"DIV","kind":"view-lines","length":192},{"tag":"TEXTAREA","length":0}],"sourceCandidateCount":1,"parseableDocumentCount":1,"jsonParse":true,"versionAndKeysExact":true,"oneStatement":true,"statementKeysExact":true,"noDuplicateKeys":true,"effectExact":true,"actionExact":true,"resourceExact":true,"exactScope":true,"sanitizedPolicy":{"Version":"1","Statement":[{"Effect":"Allow","Action":"cdn:RefreshObjectCaches","Resource":"acs:cdn:*:<CDN_OWNER_ACCOUNT_ID>:domain/thoradar.online"}]}}
+{"occurrences":2,"logKeyNames":["AuthPrincipalDisplayName","AuthPrincipalOwnerId","AuthPrincipalType","NoPermissionType","PolicyType"],"shapes":[{"numericUid":true,"bareIdentifier":true,"startsWithQuote":false,"endsWithQuote":false,"masked":false,"hasColon":false,"hasComma":false,"followedByAnotherField":true,"followedByBracket":false}]}
+{"challenge":false,"loading":0,"explicitUIDLabels":1,"exactLabeledUID":true,"exactUIDInRoute":true,"tabs":[{"label":null,"selected":"true"},{"label":null,"selected":"false"},{"label":null,"selected":"false"},{"label":"权限管理","selected":"false"},{"label":null,"selected":"false"},{"label":null,"selected":"false"}],"controls":["用户","用户组","权限策略","基本信息"],"uidLabelRows":[{"tag":"DIV","parent":"DIV","siblingTag":"DIV"}],"permissionTabCount":1,"activePermissions":false,"tables":[{"headings":[null,null,null,null,"操作"],"rows":1}],"addControlLabels":[],"mainDialogs":1}
+> node $p direct-before
+{"challenge":false,"exactUID":true,"expectedTabs":true,"tableCount":1,"headings":[null,"权限策略","备注","资源范围","授权时间","操作"],"directRows":1,"targetRows":0,"targetNameRows":0,"targetScope":[],"hasNext":false,"hasPrevious":false,"emptyFilters":true,"loading":0,"grantControls":1,"seenPolicyLinks":[1],"baselineSaved":true}
+{"challenge":false,"exactUID":true,"drawerCount":1,"loading":0,"scopeChoices":2,"scopes":1,"accountSelected":true,"inlinePrincipalPickers":0,"typePickerCount":1,"selectOptions":[{"kind":"custom","textLength":5,"controlsPolicyType":true,"nearbySearch":true},{"kind":"page_size","textLength":2,"controlsPolicyType":false,"nearbySearch":false}],"typeOptions":0,"typeSelected":true,"policySearchCount":1,"exactPolicySearch":true,"policyRows":1,"exactTargetRows":1,"rowTypes":[{"custom":true,"system":false,"linkCustom":false,"rowCheckboxes":1,"rowChecked":1}],"selectedBoxes":1,"submitEnabled":true,"subjectLabelShown":false,"selectedIndicators":[],"readyToSubmit":true}
+{"challenge":false,"exactUID":true,"drawerCount":1,"loading":0,"scopeChoices":2,"scopes":1,"accountSelected":true,"inlinePrincipalPickers":0,"typePickerCount":1,"selectOptions":[{"kind":"custom","textLength":5,"controlsPolicyType":true,"nearbySearch":true},{"kind":"page_size","textLength":2,"controlsPolicyType":false,"nearbySearch":false}],"typeOptions":0,"typeSelected":true,"policySearchCount":1,"exactPolicySearch":true,"policyRows":1,"exactTargetRows":1,"rowTypes":[{"custom":true,"system":false,"linkCustom":false,"rowCheckboxes":1,"rowChecked":1}],"selectedBoxes":1,"submitEnabled":true,"subjectLabelShown":false,"selectedIndicators":[],"readyToSubmit":true,"submittedOnce":true}
+{"challenge":false,"loading":0,"explicitUIDLabels":1,"exactLabeledUID":true,"exactUIDInRoute":true,"tabs":[{"label":null,"selected":"true"},{"label":null,"selected":"false"},{"label":null,"selected":"false"},{"label":"权限管理","selected":"false"},{"label":null,"selected":"false"},{"label":null,"selected":"false"}],"controls":["用户","用户组","权限策略","基本信息"],"uidLabelRows":[{"tag":"DIV","parent":"DIV","siblingTag":"DIV"}],"permissionTabCount":1,"activePermissions":false,"tables":[{"headings":[null,null,null,null,"操作"],"rows":1}],"addControlLabels":[],"mainDialogs":1,"permissionsOpened":true}
+> node $p direct-after
+{"challenge":false,"exactUID":true,"expectedTabs":true,"tableCount":1,"headings":[null,"权限策略","备注","资源范围","授权时间","操作"],"directRows":2,"targetRows":1,"targetNameRows":1,"targetScope":["account"],"hasNext":false,"hasPrevious":false,"emptyFilters":true,"loading":0,"grantControls":1,"seenPolicyLinks":[1,1],"existingRowsUnchanged":true,"onlyTargetAdded":true}
+> node $p policy-reopen
+{"challenge":false,"customPolicyLinks":1,"loading":0,"policyDetailReopened":true}
+> node $p policy-source
+{"challenge":false,"exactPolicy":true,"paneCount":1,"sourceOptionCount":1,"sourceSelected":false,"currentVersion":true,"loading":0,"sourceViewOpened":true}
+> node $p policy-verify
+{"challenge":false,"exactPolicy":true,"paneCount":1,"sourceOptionCount":1,"sourceSelected":true,"currentVersion":true,"loading":0,"editors":[{"tag":"DIV","kind":"monaco-editor","length":213},{"tag":"DIV","kind":"view-lines","length":192},{"tag":"TEXTAREA","length":0}],"sourceCandidateCount":1,"parseableDocumentCount":1,"jsonParse":true,"versionAndKeysExact":true,"oneStatement":true,"statementKeysExact":true,"noDuplicateKeys":true,"effectExact":true,"actionExact":true,"resourceExact":true,"exactScope":true,"sanitizedPolicy":{"Version":"1","Statement":[{"Effect":"Allow","Action":"cdn:RefreshObjectCaches","Resource":"acs:cdn:*:<CDN_OWNER_ACCOUNT_ID>:domain/thoradar.online"}]}}
+{"challenge":false,"exactPolicy":true,"sourceViewActive":true,"loading":0,"closeAttempted":true,"proxySuccess":true,"followUpStatus":200,"followUpTargetMissing":false}
+
+ exited 1 in 1061ms:
+MM .github/workflows/deploy_oss.yml
+M  tests/smooth/deploy-mock.mjs
+MM tests/smooth/verify-deploy.mjs
+?? docs/tasks/T1128-SMOOTH/online-release/
+?? docs/tasks/T1128-SMOOTH/sol-s11-report.md
+apex-only.json
+apex-only.stderr.txt
+apex-only.stdout.txt
+browser-observations.txt
+deploy.json
+deploy.stderr.txt
+deploy.stdout.txt
+dual-domain.patch
+local-verification.md
+scope-check.txt
+trace-check.txt
+without-md5-gate.json
+without-md5-gate.stderr.txt
+without-md5-gate.stdout.txt
+干了什么｜在隔离工作树里恢复双域八地址刷新，跑通 18 项发布模拟和两组负对照。RAM 控制台出现安全验证，现有策略尚未修改。\
+PI 怎么亲手验｜打开本单证据目录的 `deploy.stdout.txt`，看到 `normal` 和 `retire` 两行 `PASS` 都写着 `refreshes eight owned CDN URLs`，且末行显示 18 项通过、0 项失败，即对。\
+还剩什么坑｜RAM 标签已保留待 PI 处理安全验证。完成策略默认版本和发布子用户权限的回读前，双域发布暂缓放行。
+
+# T1128-SMOOTH-S11 施工回执
+
+按委任状 A、B 和法库安全红线执行。隔离工作树使用 `af3f2775855bb99aeb5c3262cb2738a889b60d70`，以主工作树当前三份发布文件的原样副本作为补丁基线。
+
+## 结论
+
+- **RAM 云端 · 安全验证阻断。** 新建专用 RAM 标签后，首次页内读取返回 `{"op":"layout","challenge":true}`，退出码 3。标签保留。尚未进入编辑、读取现行版本正文或提交修改，因此无需回滚本单云端动作。策略默认版本和同一发布子用户的权限列表待回读。本地模板已脱敏核对，策略目标仍为一个 `Allow`、`Action: ["cdn:RefreshObjectCaches"]` 和同一账号下 `domain/thoradar.online`、`domain/www.thoradar.online` 两项精确资源。S10 记录的权限列表有两行，续作应比对发布子用户的两条现有权限行是否保持一致。
+- **本地施工 · 18/18，负对照符合预期。** 正常和退役各提交一次刷新，`ObjectPath` 精确包含主域四项、`www` 四项，顺序与双域验真完全一致。测试记录显示第 12 次验真前累计模拟等待 370 秒。
+
+## 验证状态
+
+| 契约 | 节点 | 命令与原始输出 |
+| --- | --- | --- |
+| A.1–A.5 策略与发布子用户 | ⑧ RAM | [控制台观测](online-release/sol-s11/browser-observations.txt)，新建标签、首次读取和本地模板脱敏输出 |
+| B.1–B.4 八地址刷新、验真和模拟 | ⑧ 发布接线 | [执行说明](online-release/sol-s11/local-verification.md)、[stdout](online-release/sol-s11/deploy.stdout.txt)、[stderr](online-release/sol-s11/deploy.stderr.txt)、[模拟 JSON](online-release/sol-s11/deploy.json)、[调用轨迹核验](online-release/sol-s11/trace-check.txt) |
+| B.5 主域四地址负对照 | ⑧ 发布接线 | 退出码 1，16 项通过、2 项失败。正常和退役均在刷新参数全等断言处报告缺少四条 `www` URL。[stdout](online-release/sol-s11/apex-only.stdout.txt)、[stderr](online-release/sol-s11/apex-only.stderr.txt) |
+| B.5 既有错误场景 | ⑧ 发布接线 | 正本的 `wrong-md5` 模拟发布进程退出 1。临时去掉 MD5 检查后，此发布进程退出 0，测试套件退出 1，并报告 `wrong-md5` 与陈旧内容轮询断言失败。[stdout](online-release/sol-s11/without-md5-gate.stdout.txt)、[stderr](online-release/sol-s11/without-md5-gate.stderr.txt)、[调用轨迹核验](online-release/sol-s11/trace-check.txt) |
+| B.6 改动范围 | ⑧ 发布接线 | `git diff --check` 退出 0，主工作树和隔离工作树的三个产品文件均与 HEAD 无 diff，增量补丁在主工作树 `git apply --check` 退出 0。[Git 输出](online-release/sol-s11/scope-check.txt) |
+
+## 改动清单
+
+- `.github/workflows/deploy_oss.yml` 使用既有 `urls` 生成同一组八地址的 `ObjectPath`，并更新 CDN 账号归属注释。
+- `tests/smooth/verify-deploy.mjs` 对正常和退役场景断言整条刷新请求的地址和顺序。已有 mock 支持两域，复用原实现。
+- [增量补丁](online-release/sol-s11/dual-domain.patch) 只含上述两份代码的 S11 差异。本报告与证据均留在隔离工作树。
+
+## 地图影响
+
+⑧ 的本地发布接线已有回填证据，RAM 续作卡在安全验证。主工作树原有代码和任务地图由派遣方接收本单后处理。
+
+## 地图终态
+
+主工作树任务地图第 21 行是本单对应的⑧节点。收卷时的地图 Git blob 为 `ce6b6cbb46e39183fc350a6c935e78a021ed815f`，第⑧项为 `in-progress-browser-repair`。[任务地图](../../../../../docs/tasks/T1128-SMOOTH/task-map.md)
+
+## 遗留风险
+
+真实发布和 CDN 刷新留待授权后的发布流程。本单本地证据仅覆盖模拟，当前出货闸仍取决于 RAM 安全验证以及 A.1–A.4 的实测。R3 独立复核回执由派遣方归口。
+
+DELIVERY-T1128-SMOOTH-S11
+我恢复了工作流的双域八地址刷新并完成模拟和负对照，RAM 安全验证阻断了策略变更和回读。
+ .github/workflows/deploy_oss.yml | 5 ++---
+ tests/smooth/verify-deploy.mjs   | 5 ++---
+ 2 files changed, 4 insertions(+), 6 deletions(-)
+Get-ChildItem: 
+Line |
+   7 |  Get-ChildItem -Force -Name AGENTS.md
+     |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | 找不到路径“D:\trackeep\trackeep-product\trackeep-thoradar\AGENTS.md”，因为该路径不存在。
+
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+ succeeded in 2525ms:
+D:\trackeep\trackeep-console\trackeep-rulebook\rules\entries\hook-gate-roster.md
+D:\trackeep\trackeep-console\trackeep-rulebook\rules\registries\roster.md
+5:别名: [用工法, employment law, 用人法, 派工法, 谁负责, 怎么下单, 怎么算做成, agent-org, track, Track, dispatch-protocol, charter-template, ask-protocol, experience-pull, agent-trackeep-roster, 岗位与编制, 轨道, 派遣一页, 委任状模板, 取法协议, 经验拉取, 岗册×三端, 组织宪章, 三表, 部门制, 岗位表, 命名, 称谓, 命名规范, 编制, 组队, agent team, 阵型, 岗位制, 领域岗, 岗位库, 领域包, domain package, 复核官, org-growth, 成长预案, 扩建预案, 能力表, 换代认证, 立域门, 停用编制, 总协议, 协作总协议, 轨道协议, 守轨, keep, 委派, 任务分发, 子代理, 协作与派遣, 派遣, 参谋, dispatch-ops, 派法, 派遣命令, 派遣操作, 操作规程, 委任状, charter, 钳位, subagent 委任状, internal charter, 问管家, 取法, ask, ask_status, ask-ai, 六码, 六 verdict, 降级模式, 管家, 经验卡投递, 开工必读, experience pull, 沉淀回流]
+104:- 未启用预案四类（能力表、换代认证、治理增长、停用编制）存档于历史设计，触发后按立域流程提案。领域卡模板与退役复审细则见 `registries/领域卡模板.md`。
+119:1. **取法**：先问管家取有效正本（详读本章 §九「取法协议」）。
+138:**入口四步**：①五问审判（要什么、为什么、怎么做、风险、验收怎么算）；②八原则审（正本见 `principles`）；③ R 级判级＋装载扫描（见本节与第一章 §四）；④签字门（复述意图 → PI 回复「发」→ 落任务书「签发」字段，授权原话＋日期留机器可查痕；**`R3` 或不可逆大改道**：门前须附独立席隔离上下文盲审的**最强**正反两栏（禁稻草人）＋一个关键问题并入裁决）。
+150:| 患者数据／诊疗相关 | `R3` |
+151:| 真实金融交易／资金操作 | `R3` |
+152:| 生产系统发布／密钥／账号 | `R3` |
+153:| 不可恢复删除或迁移 | `R3` |
+157:- **共享状态范围**：库内 `active` 法条正文、`schema` 正本、端侧生产卡、`bootstrap`（启动引导）块、派发门禁。可逆性只区分 `R0` 与 `R1`，**不下拉任何硬触发命中项**（「git 可逆」不是降级理由）。
+158:- **生产系统发布豁免**：自建单用户内部系统（`terminal-console`／App 等）的部署只豁免「生产发布」一格，其余硬触发逐项照查（涉患者数据仍为 `R3`）；部署仍须 PI 明令，「装」字令即终审。
+159:- **三问抬升（只抬不降）**：基线 `R1`，每命中一项升一级，上限 `R3`：① 有不可逆动作吗？② 碰真实数据、隐私或凭证吗？③ 对外发布多用户吗？**`R0` 须同时满足**：三问全不命中、纯实验、只读可重建（纯实验写自己的临时文件＝`R1`）。
+160:- **从严条款**：义务表安全权重高于当前判级时取较高者；答不上来按命中算；各来源取**较高者**；判级理由写入任务书（无命中也要写，**并标明哪几项是「猜的」**——补证本单沿用已签等级，拟降级留新事实重签再放行）。
+161:- **R3 之上的外部签字权**：涉及伦理审查（IRB）、法务或平台合规时签字权在体系外；轨道义务是**识别并停在门前**，PI 签字不替代外部审批。
+162:- **R 级义务**（按级累积适用；R2+ 复核判据见第三章「干审分开四件套」）：`R0` 只读可重建；`R1` 局部可逆（留 `diff`／`rollback`）；`R2` 共享状态（须独立复核）；`R3` PI 签字。
+163:- **R3 签字程序（间隔式二次确认）**：签前信息包 → 确认知悉 → **≥30 分钟**二次确认（治理默认值，PI 可调、可豁免；自确认知悉同版信息包起计）→ 签，无回应保持待签。两次确认须指向同一动作、影响范围与回滚条件；范围或关键风险改变则换包重确认；紧急豁免只豁等待，留 PI 原话、理由及时间。
+234:### 九、取法协议（问管家·六码·降级）
+236:1. **问管家**（取法唯一法）：MCP（模型上下文协议）工具 `ask`／`ask_status`（rb-mcp），或 CLI（命令行）同源 `pwsh -ExecutionPolicy Bypass -File tools/rb.ps1 ask-ai "<你的问题>"`——两嘴同一管家，任选。**取法必经 MCP 工具 `ask`／`rb.ps1 ask-ai`，禁裸 curl、禁接管道**——短超时拿到空串会误判管家死了；改此句与护栏台账（`evidence/guard-anchors.json`）同笔提交。应急（不算方法）：管家不在才 `tools/rb.ps1 ask <任务关键词>` 自查，标 `[降级模式]`，三底线见 5。直读（不算调取）：`tools/rb.ps1 list`／终端控制台规则库页。
+237:2. **MCP 回执六 verdict**（状态判读码）：`0`＝取到法→读条目全文＋`requires` 一并读后采信（候选发现器不是裁决器）；`2`＝用法错→改调用；`3`＝真死→**唯一可降级码**，按第 5 条走；`4`＝没答→查原请求状态，不许标降级；`5`＝不是法→退回任务方；`6`＝过载→退避重试勿加压，到约定界限仍无结果停手上报。
+238:3. **CLI 退出码即判据**：`0`＝成功→按 0 处理；`1`＝用法错→改调用；`2`＝内部错→交派遣方处理；`3`＝缺 `token`（访问令牌）→交派遣方补凭证，**不授权降级**；`4`＝外呼失败→有限重试或转 MCP 取明确状态。**单凭 CLI 非零码一律不授权降级**；空结果、未知码一律停在取法门。两码表＝两副嘴一套判读（语义同源：取到／用法错／真死／没答／过载），按本嘴的表判读，**不得拿 A 表读 B 嘴**。管家大脑＝`rb.ps1 ask-ai` 唯一实现（禁复制两份）：CLI 直拨，MCP 与图形界面经控制台中转同一实现。
+240:5. **降级三底线**（仅 MCP `3` 判死可用）：安全红线（不可逾越的底线）仍生效；只做只读与可逆动作；完工时如实报告「本次未取法」。
+401:11. 患者数据或诊疗相关命中R3；审计须查PHI或未公开数据是否未脱敏外发，文审明确PHI脱敏。
+424:34. 法库降级仍守红线，只读与可逆动作；经验卡只读，不能改安全红线。
+425:35. 对患者、真实交易／资金、生产发布／密钥／账号、不可恢复删除迁移的R3硬下限以及对外分发、共享状态等≥R2硬下限从严；自建单用户内部部署例外仍需PI明令。
+426:36. 伦理审查、法务和平台审批到门前即停，体系内PI的签字不能代签；R3二签间隔获豁免也不豁免外部审批。
+[降级模式] 常驻管家不可用时的字面检索（语义选法请用：rb.ps1 ask-ai "<任务描述>"）
+无命中：疑似漏检——关键词与库内用语不匹配。建议换同义词/更短关键词重试（如「派遣」↔「派活」「协作」），或 rb.ps1 list 浏览全库。
+
+hook: PostToolUse
+hook: PostToolUse Completed
+**Verifying previous attempt and artifacts**
+**Assessing AI conflict and environment setup**
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$rbRoot='"'D:\\trackeep\\trackeep-console\\trackeep-rulebook\\rules'
+rg -n 'codex-gpt|gpt-6\\.2-sol|builder-jobspec|施工工程师' \""'$rbRoot'"\\registries\" \""'$rbRoot'"\\entries\" -g '*.md' -g '*.json' | Select-Object -First 28
+Get-Date -Format o
+node --version
+git -C .git/t1128-s11-worktree diff -- .github/workflows/deploy_oss.yml tests/smooth/verify-deploy.mjs tests/smooth/deploy-mock.mjs
+git -C .git/t1128-s11-worktree diff --cached --stat" in D:\trackeep\trackeep-product\trackeep-thoradar
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$s11='"'.git/t1128-s11-worktree/docs/tasks/T1128-SMOOTH/online-release/sol-s11'
+Get-Content -LiteralPath \""'$s11'"\\local-verification.md\",\""'$s11'"\\trace-check.txt\",\""'$s11'"\\scope-check.txt\",\""'$s11'"\\deploy.stdout.txt\" -Raw
+Get-Content -LiteralPath \""'$s11'"\\browser-observations.txt\" | ForEach-Object { "'$_ -replace '"'(?<"'!'"\\d)\\d{10,}(?"'!'"\\d)','[ID_REDACTED]' -replace '(?i)([a-z0-9._%+-]+)@([a-z0-9.-]+\\.[a-z]{2,})','[IDENTITY_REDACTED]' -replace '([?&](?:token|accessToken|sign|signature)=)["'^ &"'"'']+','"'$1[REDACTED]'"' }" in D:\trackeep\trackeep-product\trackeep-thoradar
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$s11main='"'docs/tasks/T1128-SMOOTH'; Get-ChildItem -LiteralPath "'$s11main -Filter '"'sol-s11*' | Select-Object Name,Length,LastWriteTime
+rg -n 'challenge|安全验证|exit|DELIVERY|worktree' \""'$s11main/sol-s11-dual-domain.out" "$s11main/sol-s11-dual-domain.out.try1" -m 6 -o
+rg --files --hidden .git/t1128-s11-worktree -g AGENTS.md -g '"'"'!node_modules'"'" in D:\trackeep\trackeep-product\trackeep-thoradar
+ succeeded in 831ms:
+D:\trackeep\trackeep-console\trackeep-rulebook\rules\entries\jobspecs.md:5:别名: [岗位卡册, jobspecs, jobspec-book, 六卡合册, builder-jobspec, verifier-jobspec, security-auditor-jobspec, observer-jobspec, doc-auditor-jobspec, doclaw-jobspec, 岗位卡, 施工席, 复核席, 安全审计席, 监察席, 文档审查席, 文档规则法律整理员, builder, 施工, 执行层, 建造, verifier, 复核, 验收, 写审分离, security-auditor, 安全审计, 安全专审, 审计席, observer, 监察, 体系评估, 第四角色, doc-auditor, 文档审查, 文档五查, 文档关, checkup, doclaw, 文档整理, 法条整理, 刀法, 刀法七则, 整理役, rulebook-keeper]
+D:\trackeep\trackeep-console\trackeep-rulebook\rules\registries\roster.md:13:| `builder` | 施工席（岗位卡＝`builder-jobspec`） | `trackeep-builder` |  |
+D:\trackeep\trackeep-console\trackeep-rulebook\rules\registries\能力卡.md:7:- model_id: gpt-6.2-sol
+D:\trackeep\trackeep-console\trackeep-rulebook\rules\registries\能力卡.md:11:备注：榜名 gpt-6.2-sol（manifest 标牌已更「GPT-6.2 Sol」·2026-11-27）
+2026-11-28T19:27:27.7330852+08:00
+v24.14.0
+diff --git a/.github/workflows/deploy_oss.yml b/.github/workflows/deploy_oss.yml
+index 8177e6f..b554898 100644
+--- a/.github/workflows/deploy_oss.yml
++++ b/.github/workflows/deploy_oss.yml
+@@ -159,9 +159,8 @@ jobs:
+           for h in "${domains[@]}"; do
+             for path in "${paths[@]}"; do urls+=("https://$h$path"); done
+           done
+-          # 实测本账号 CDN 只登记 thoradar.online；www 不属本账号，混入会整批 InvalidDomain.NotFound。
+-          # 只刷新可管理域，www 仍必须在下方独立通过同一 MD5 验证，内容陈旧即发布失败。
+-          refresh_paths=$(printf 'https://thoradar.online%s\n' "${paths[@]}")
++          # 双域已纳入同一 CDN 账号，刷新与下方验真使用同一组八个 URL。
++          refresh_paths=$(printf '%s\n' "${urls[@]}")
+           refresh_id=''
+           for attempt in 1 2; do
+             echo "CDN RefreshObjectCaches attempt $attempt"
+diff --git a/tests/smooth/verify-deploy.mjs b/tests/smooth/verify-deploy.mjs
+index 582db8c..bfdb346 100644
+--- a/tests/smooth/verify-deploy.mjs
++++ b/tests/smooth/verify-deploy.mjs
+@@ -107,7 +107,6 @@ const simulations = {};
+ const shellRuns = {};
+ const domains = ['thoradar.online', 'www.thoradar.online'];
+ const urls = domains.flatMap(domain => ['/', '/index.html', '/sw.js', '/sw-retire.js'].map(path => `https://${domain}${path}`));
+-const refreshUrls = urls.filter(url => new URL(url).hostname === 'thoradar.online');
+ const workerMeta = 'Content-Type:application/javascript#Cache-Control:no-store';
+ const origin = 'oss://thoradar-online/';
+ const publishComplete = 'Publish verified on both domains';
+@@ -193,7 +192,7 @@ try {
+   ].join('\n'));
+ 
+   for (const retire of [false, true]) {
+-    await test(`${retire ? 'retire' : 'normal'} uploads workers then index, refreshes four owned CDN URLs and verifies eight URLs`, async () => {
++    await test(`${retire ? 'retire' : 'normal'} uploads workers then index, refreshes eight owned CDN URLs and verifies eight URLs`, async () => {
+       const run = await simulate('healthy', retire);
+       success(run);
+       assert.deepEqual(run.uploads, [
+@@ -211,7 +210,7 @@ try {
+         [`${host}:443:thoradar-online.cn-shenzhen.taihangtop.cn:443`, `https://${host}/`]));
+       const actions = run.calls.filter(call => call.tool === 'curl' || call.tool === 'aliyun');
+       assert.deepEqual(actions.map(call => call.tool), ['curl', 'curl', 'aliyun', ...urls.map(() => 'curl')]);
+-      assert.deepEqual(run.refreshes, [['cdn', 'RefreshObjectCaches', '--region', 'cn-shenzhen', '--ObjectType', 'File', '--ObjectPath', refreshUrls.join('\n')]]);
++      assert.deepEqual(run.refreshes, [['cdn', 'RefreshObjectCaches', '--region', 'cn-shenzhen', '--ObjectType', 'File', '--ObjectPath', urls.join('\n')]]);
+       assert.match(run.stdout, /CDN RefreshTaskId="123456"/);
+       assert.deepEqual(run.heads, urls);
+       assert.ok(actions.slice(3).every(call => call.args.includes('Accept-Encoding: identity')));
+ .github/workflows/deploy_oss.yml |  7 ++++++-
+ tests/smooth/deploy-mock.mjs     |  4 +++-
+ tests/smooth/verify-deploy.mjs   | 13 ++++++++-----
+ 3 files changed, 17 insertions(+), 7 deletions(-)
+
+hook: PostToolUse
+ succeeded in 713ms:
+# 发布模拟执行记录
+
+从隔离工作树根目录运行，覆盖同一份 S7 基线。三个进程各写独立 stdout、stderr 和 JSON。
+
+| 运行 | 退出码 | 原始汇总 |
+| --- | ---: | --- |
+| 正本 | 0 | `SUMMARY {"passed":18,"failed":0}` |
+| 主域四地址变异 | 1 | `SUMMARY {"passed":16,"failed":2}` |
+| 移除 MD5 检查变异 | 1 | `SUMMARY {"passed":16,"failed":2}` |
+
+## 正本命令
+
+```powershell
+$dir = 'docs/tasks/T1128-SMOOTH/online-release/sol-s11'
+node tests/smooth/verify-deploy.mjs "$dir/deploy.json" 1> "$dir/deploy.stdout.txt" 2> "$dir/deploy.stderr.txt"
+$LASTEXITCODE
+```
+
+## 变异命令
+
+两次分别替换下列单行并写入系统临时目录，将临时 YAML 作为测试脚本的第二个参数。每次从同一正本重新读入 YAML。输出 JSON 中的 `workflow` 记录当次临时文件路径。
+
+| `$name` | `$good` | `$bad` |
+| --- | --- | --- |
+| `apex-only` | `refresh_paths=$(printf '%s\n' "${urls[@]}")` | `refresh_paths=$(printf 'https://thoradar.online%s\n' "${paths[@]}")` |
+| `without-md5-gate` | `if (status != 200 \|\| md5 != expected) exit 1` | `if (status != 200) exit 1` |
+
+```powershell
+$current = [IO.File]::ReadAllText((Resolve-Path -LiteralPath '.github/workflows/deploy_oss.yml').Path)
+if (([regex]::Matches($current, [regex]::Escape($good))).Count -ne 1) { throw 'Matched line must be unique' }
+$mutation = Join-Path ([IO.Path]::GetTempPath()) ('thoradar-sol-s11-' + $name + '-' + [guid]::NewGuid().ToString('N') + '.yml')
+[IO.File]::WriteAllText($mutation, $current.Replace($good, $bad), [Text.UTF8Encoding]::new($false))
+try {
+    node tests/smooth/verify-deploy.mjs "$dir/$name.json" $mutation 1> "$dir/$name.stdout.txt" 2> "$dir/$name.stderr.txt"
+    $LASTEXITCODE
+} finally {
+    Remove-Item -LiteralPath $mutation
+}
+```
+
+原始输出保存在 [正本 stdout](deploy.stdout.txt)、[正本 stderr](deploy.stderr.txt)、[主域变异 stdout](apex-only.stdout.txt)、[主域变异 stderr](apex-only.stderr.txt)、[MD5 变异 stdout](without-md5-gate.stdout.txt) 和 [MD5 变异 stderr](without-md5-gate.stderr.txt)。再次执行请使用新的输出目录，测试脚本使用独占创建保护已有 JSON。
+
+> $code | node --input-type=module - docs/tasks/T1128-SMOOTH/online-release/sol-s11
+{"scenario":"healthy","refreshRequests":1,"request":["https://thoradar.online/","https://thoradar.online/index.html","https://thoradar.online/sw.js","https://thoradar.online/sw-retire.js","https://www.thoradar.online/","https://www.thoradar.online/index.html","https://www.thoradar.online/sw.js","https://www.thoradar.online/sw-retire.js"],"orderedVerificationMatches":true}
+{"scenario":"healthy-retire","refreshRequests":1,"request":["https://thoradar.online/","https://thoradar.online/index.html","https://thoradar.online/sw.js","https://thoradar.online/sw-retire.js","https://www.thoradar.online/","https://www.thoradar.online/index.html","https://www.thoradar.online/sw.js","https://www.thoradar.online/sw-retire.js"],"orderedVerificationMatches":true}
+{"scenario":"stale-during-propagation-retire","waits":[5,5,40,40,40,40,40,40,40,40,40],"seconds":370}
+{"scenario":"wrong-md5-retire","workflowExit":1,"stderr":"Verification failed for https://www.thoradar.online/sw.js","mutatedWorkflowExit":0}
+{"label":"deploy","summary":{"passed":18,"failed":0},"failures":[]}
+{"label":"apex-only","summary":{"passed":16,"failed":2},"failures":["normal uploads workers then index, refreshes eight owned CDN URLs and verifies eight URLs","retire uploads workers then index, refreshes eight owned CDN URLs and verifies eight URLs"]}
+{"label":"without-md5-gate","summary":{"passed":16,"failed":2},"failures":["stale CDN content is polled again, including a six-minute propagation delay","post-publish verification rejects wrong-md5"]}
+Exit code: 0
+
+> git -C [D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s11-worktree] diff --check -- .github/workflows/deploy_oss.yml tests/smooth/verify-deploy.mjs tests/smooth/deploy-mock.mjs
+Exit code: 0
+> git -C [D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s11-worktree] diff --exit-code HEAD -- index.html sw.js sw-retire.js
+Exit code: 0
+> git -C [D:\trackeep\trackeep-product\trackeep-thoradar] diff --exit-code HEAD -- index.html sw.js sw-retire.js
+Exit code: 0
+> git -C [D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s11-worktree] diff --exit-code -- tests/smooth/deploy-mock.mjs
+Exit code: 0
+> git -C [D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s11-worktree] diff --stat -- .github/workflows/deploy_oss.yml tests/smooth/verify-deploy.mjs tests/smooth/deploy-mock.mjs
+ .github/workflows/deploy_oss.yml | 5 ++---
+ tests/smooth/verify-deploy.mjs   | 5 ++---
+ 2 files changed, 4 insertions(+), 6 deletions(-)
+Exit code: 0
+> git -C [D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s11-worktree] diff --output=D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s11-worktree\docs\tasks\T1128-SMOOTH\online-release\sol-s11\dual-domain.patch -- .github/workflows/deploy_oss.yml tests/smooth/verify-deploy.mjs
+Exit code: 0
+> git -C [D:\trackeep\trackeep-product\trackeep-thoradar] apply --check D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s11-worktree\docs\tasks\T1128-SMOOTH\online-release\sol-s11\dual-domain.patch
+Exit code: 0
+> git -C [D:\trackeep\trackeep-product\trackeep-thoradar] hash-object -- docs/tasks/T1128-SMOOTH/task-map.md
+ce6b6cbb46e39183fc350a6c935e78a021ed815f
+Exit code: 0
+> git -C [D:\trackeep\trackeep-product\trackeep-thoradar] status --short -- docs/tasks/T1128-SMOOTH/task-map.md
+ M docs/tasks/T1128-SMOOTH/task-map.md
+Exit code: 0
+
+PASS Windows Node 24 gate runs the real checks in order before the same revision deploys
+PASS manual retire is a boolean defaulting to false and CLI aliases reuse the OSS secrets
+PASS the Aliyun CLI download pins v3.5.4 and checks SHA-256 before extraction
+PASS Bash syntax for tool installation and production publish
+PASS normal uploads workers then index, refreshes eight owned CDN URLs and verifies eight URLs
+PASS retire uploads workers then index, refreshes eight owned CDN URLs and verifies eight URLs
+PASS CDN refresh-retry uses at most one retry and requires a task ID
+PASS CDN id-retry uses at most one retry and requires a task ID
+PASS CDN refresh-error uses at most one retry and requires a task ID
+PASS CDN missing-task-id uses at most one retry and requires a task ID
+PASS stale CDN content is polled again, including a six-minute propagation delay
+PASS post-publish verification rejects wrong-md5
+PASS post-publish verification rejects wrong-mime
+PASS post-publish verification rejects worker-cacheable
+PASS post-publish verification rejects worker-404
+PASS post-publish verification rejects head-error
+PASS HTTPS origin preflight rejects 304 and blocks CDN refresh
+PASS failed worker upload blocks index upload and CDN refresh
+SUMMARY {"passed":18,"failed":0}
+
+> node --input-type=module - new
+{"op":"new","newDedicatedTab":true,"insideRAM":false,"possibleChallenge":false}
+Exit code: 0
+> node --input-type=module - layout
+{"op":"layout","challenge":true}
+Exit code: 3
+
+> Get-Content -Raw -Encoding utf8 -LiteralPath D:/claude-tmp/thoradar-cdn-refresh-only.json | ConvertFrom-Json (output filtered and account redacted)
+{"version":"1","statements":1,"effect":"Allow","actions":["cdn:RefreshObjectCaches"],"resources":["acs:cdn:*:<CDN_OWNER_ACCOUNT_ID>:domain/thoradar.online"]}
+Exit code: 0
+
+hook: PostToolUse
+ exited 1 in 873ms:
+
+docs/tasks/T1128-SMOOTH/sol-s11-dual-domain.out.try1:18:worktree
+docs/tasks/T1128-SMOOTH/sol-s11-dual-domain.out.try1:30:DELIVERY
+docs/tasks/T1128-SMOOTH/sol-s11-dual-domain.out.try1:34:DELIVERY
+docs/tasks/T1128-SMOOTH/sol-s11-dual-domain.out.try1:55:安全验证
+docs/tasks/T1128-SMOOTH/sol-s11-dual-domain.out.try1:66:DELIVERY
+docs/tasks/T1128-SMOOTH/sol-s11-dual-domain.out.try1:81:worktree
+docs/tasks/T1128-SMOOTH/sol-s11-dual-domain.out:18:worktree
+docs/tasks/T1128-SMOOTH/sol-s11-dual-domain.out:30:DELIVERY
+docs/tasks/T1128-SMOOTH/sol-s11-dual-domain.out:34:DELIVERY
+docs/tasks/T1128-SMOOTH/sol-s11-dual-domain.out:55:安全验证
+docs/tasks/T1128-SMOOTH/sol-s11-dual-domain.out:66:DELIVERY
+docs/tasks/T1128-SMOOTH/sol-s11-dual-domain.out:92:worktree
+Name                         Length LastWriteTime
+----                         ------ -------------
+sol-s11-dual-domain.out           0 2026/11/28 19:26:08
+sol-s11-dual-domain.out.try1 302675 2026/11/28 19:26:06
+
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+**Handling session retry and verification**
+**Verifying challenge and inventory status**
+codex
+同一任务的隔离副本已留有 S11 补丁和原始日志。RAM 首次读取返回了安全验证，我会按停手条件保留该标签，继续复跑本地正本和两组负对照。
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "Get-Content -LiteralPath '.git/t1128-s11-worktree/tests/smooth/verify-deploy.mjs' | Select-Object -First 190
+Get-Content -LiteralPath '.git/t1128-s11-worktree/tests/smooth/deploy-mock.mjs' -TotalCount 110" in D:\trackeep\trackeep-product\trackeep-thoradar
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$repo=(Get-Location).Path
+$worktree=Join-Path $repo '"'.git/t1128-s11-worktree'
+"'$paths=@('"'.github/workflows/deploy_oss.yml','tests/smooth/verify-deploy.mjs','tests/smooth/deploy-mock.mjs')
+foreach("'$file in $paths){ $mainHash=git hash-object -- $file; $baseHash=git -C $worktree rev-parse ":$file"; [pscustomobject]@{File=$file; Main=$mainHash; IsolatedBaseline=$baseHash; Match=$mainHash -ceq $baseHash} | ConvertTo-Json -Compress }
+rg -n '"'in-progress-browser-repair|⑧' docs/tasks/T1128-SMOOTH/task-map.md
+"'$ErrorActionPreference='"'Stop'
+Get-Item -LiteralPath '.git/t1128-s11-worktree/docs/tasks/T1128-SMOOTH/online-release/sol-s11/deploy.stderr.txt','.git/t1128-s11-worktree/docs/tasks/T1128-SMOOTH/online-release/sol-s11/deploy.json' | Select-Object Name,Length" in D:\trackeep\trackeep-product\trackeep-thoradar
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$rbRoot='"'D:\\trackeep\\trackeep-console\\trackeep-rulebook\\rules'
+Get-Content -LiteralPath \""'$rbRoot'"\\registries\\roster.md\" -TotalCount 120
+rg -n '"'^##|只读|不再派|靶场'"' \""'$rbRoot'"\\entries\\jobspecs.md\" | Select-Object -First 36
+rg -n -o -- 'gpt-6\\.2-sol|--model|(?i)model_reasoning_effort' 'D:/npm-global/codex-gpt.cmd'
+rg --files D:/trackeep/trackeep-scripts -g '*manifest*.json' -g '*roster*.md' -g '*member*.md' -g '*人册*'" in D:\trackeep\trackeep-product\trackeep-thoradar
+ succeeded in 800ms:
+import assert from 'node:assert/strict';
+import { spawnSync } from 'node:child_process';
+import { chmod, copyFile, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const [output, candidate] = process.argv.slice(2);
+if (!output) throw new Error('Usage: node tests/smooth/verify-deploy.mjs <result.json> [workflow.yml]');
+
+const root = fileURLToPath(new URL('../../', import.meta.url));
+const workflow = resolve(candidate || join(root, '.github/workflows/deploy_oss.yml'));
+const yaml = (await readFile(workflow, 'utf8')).replace(/\r\n/g, '\n');
+const windows = process.platform === 'win32';
+const gitBash = join(process.env.ProgramFiles || 'C:/Program Files', 'Git/bin/bash.exe');
+const bash = windows && existsSync(gitBash) ? gitBash : 'bash';
+const tests = [];
+
+async function test(name, run) {
+  try {
+    await run();
+    tests.push({ name, pass: true });
+    console.log(`PASS ${name}`);
+  } catch (error) {
+    tests.push({ name, pass: false, error: error.message });
+    console.error(`FAIL ${name}: ${error.message}`);
+  }
+}
+
+// Extract the two Bash blocks as GitHub Actions passes them to its shell.
+function section(start, end) {
+  const from = yaml.indexOf(start);
+  if (from < 0) return '';
+  const to = end ? yaml.indexOf(end, from + start.length) : -1;
+  return yaml.slice(from, to < 0 ? undefined : to);
+}
+
+function shellBlock(step) {
+  const lines = step.split('\n');
+  const start = lines.indexOf('        run: |');
+  assert.notEqual(start, -1, 'missing Bash run block');
+  const body = [];
+  for (const line of lines.slice(start + 1)) {
+    if (line && !line.startsWith('          ')) break;
+    body.push(line.slice(10));
+  }
+  return body.join('\n') + '\n';
+}
+
+const verifyJob = section('\n  smooth-verify:\n', '\n  deploy-oss:\n');
+const deployJob = section('\n  deploy-oss:\n');
+const installStep = section('\n      - name: Install OSS and CDN tools\n', '\n      - name: Publish and verify site\n');
+const deployStep = section('\n      - name: Publish and verify site\n');
+
+await test('Windows Node 24 gate runs the real checks in order before the same revision deploys', () => {
+  assert.match(verifyJob, /\n    if: github\.event_name == 'workflow_dispatch' \|\| github\.event\.workflow_run\.conclusion == 'success'\n/);
+  assert.match(verifyJob, /\n    runs-on: windows-latest\n/);
+  assert.match(verifyJob, /\n          fetch-depth: 0\n/);
+  assert.match(verifyJob, /actions\/setup-node@v4\n        with:\n          node-version: '24'/);
+  assert.match(deployJob, /\n    needs: smooth-verify\n/);
+  assert.doesNotMatch(deployJob, /\n    if:/);
+  for (const job of [verifyJob, deployJob]) {
+    assert.match(job, /uses: actions\/checkout@v4\n        with:\n          ref: \$\{\{ github\.sha \}\}/);
+    assert.doesNotMatch(job, /continue-on-error:|always\(\)|success\(\)\s*\|\|/);
+  }
+  let previous = -1;
+  const commands = [
+    ...['deploy', 'source', 's1', 's2', 's3'].map(suffix =>
+      `run: node tests/smooth/verify-${suffix}.mjs "$env:RUNNER_TEMP/smooth-${suffix}.json"${suffix === 'source' ? ' --ci' : ''}`),
+    'run: node tests/smooth/prepare-ci-ux-baseline.mjs "$env:GITHUB_SHA" "$env:RUNNER_TEMP/smooth-ux-baseline.html"',
+    'node tests/ux/ux_probe.mjs --target index.html --base-html "$env:RUNNER_TEMP/smooth-ux-baseline.html" --label smooth-ci'
+  ];
+  for (const command of commands) {
+    const current = verifyJob.indexOf(command + '\n');
+    assert.ok(current > previous, `missing or out of order: ${command}`);
+    previous = current;
+  }
+  assert.match(verifyJob, /\$env:XREV_SCRATCH = Join-Path \$env:RUNNER_TEMP 'smooth-ux'/);
+  assert.doesNotMatch(verifyJob, /run-regressions|tests\/(aicls|poolup)\/|secrets\./);
+});
+
+await test('manual retire is a boolean defaulting to false and CLI aliases reuse the OSS secrets', () => {
+  assert.match(yaml, /\n  workflow_dispatch:\n    inputs:\n      retire:\n        description: [^\n]+\n        type: boolean\n        default: false\n/);
+  assert.match(deployStep, /\n          SMOOTH_RETIRE: \$\{\{ inputs\.retire && 'true' \|\| 'false' \}\}\n/);
+  assert.match(deployStep, /\n          ALIBABA_CLOUD_ACCESS_KEY_ID: \$\{\{ secrets\.OSS_KEY_ID \}\}\n/);
+  assert.match(deployStep, /\n          ALIBABA_CLOUD_ACCESS_KEY_SECRET: \$\{\{ secrets\.OSS_KEY_SECRET \}\}\n/);
+});
+
+await test('the Aliyun CLI download pins v3.5.4 and checks SHA-256 before extraction', () => {
+  const download = 'https://github.com/aliyun/aliyun-cli/releases/download/v3.5.4/aliyun-cli-linux-3.5.4-amd64.tgz';
+  const checksum = "echo 'e1eefcbbe9d772d61f770d4af8595e7297e081a0348b096765d2c41e581c3e72  aliyun/cli.tgz' | sha256sum -c -";
+  assert.match(installStep, /\n          set -euo pipefail\n/);
+  assert.ok(installStep.includes(download));
+  assert.ok(installStep.indexOf(checksum) > installStep.indexOf(download));
+  assert.ok(installStep.indexOf('tar -xzf aliyun/cli.tgz') > installStep.indexOf(checksum));
+  assert.doesNotMatch(installStep, /secrets\./);
+});
+
+const localEnv = {};
+for (const key of ['PATH', 'SystemRoot', 'COMSPEC', 'PATHEXT', 'TEMP', 'TMP', 'TMPDIR']) {
+  if (process.env[key] !== undefined) localEnv[key] = process.env[key];
+}
+const bashPath = path => windows ? path.replaceAll('\\', '/') : path;
+const scratch = await mkdtemp(join(tmpdir(), 'thoradar-s5-deploy-'));
+const simulations = {};
+const shellRuns = {};
+const domains = ['thoradar.online', 'www.thoradar.online'];
+const urls = domains.flatMap(domain => ['/', '/index.html', '/sw.js', '/sw-retire.js'].map(path => `https://${domain}${path}`));
+const workerMeta = 'Content-Type:application/javascript#Cache-Control:no-store';
+const origin = 'oss://thoradar-online/';
+const publishComplete = 'Publish verified on both domains';
+
+function bashRun(args, options = {}) {
+  const run = spawnSync(bash, ['--noprofile', '--norc', ...args], {
+    cwd: scratch, env: localEnv, encoding: 'utf8', windowsHide: true, timeout: 60000, ...options
+  });
+  if (run.error) throw run.error;
+  return { status: run.status, stdout: run.stdout, stderr: run.stderr };
+}
+
+async function mockCommand(path, tool) {
+  const command = `#!/usr/bin/env bash\nexec "$SMOOTH_MOCK_NODE" "$SMOOTH_MOCK_SCRIPT" ${tool} "$@"\n`;
+  await writeFile(path, command);
+  await chmod(path, 0o755);
+}
+
+async function simulate(scenario, retire = false) {
+  const label = retire ? `${scenario}-retire` : scenario;
+  const trace = join(scratch, `trace-${label}.jsonl`);
+  await writeFile(trace, '');
+  const env = { ...localEnv, MSYS2_ARG_CONV_EXCL: '*', RUNNER_TEMP: bashPath(scratch),
+    OSS_KEY_ID: 'mock-id', OSS_KEY_SECRET: 'mock-secret',
+    ALIBABA_CLOUD_ACCESS_KEY_ID: 'mock-id', ALIBABA_CLOUD_ACCESS_KEY_SECRET: 'mock-secret',
+    SMOOTH_RETIRE: String(retire), SMOOTH_MOCK_SCENARIO: scenario,
+    SMOOTH_MOCK_NODE: bashPath(process.execPath), SMOOTH_MOCK_SCRIPT: fileURLToPath(new URL('./deploy-mock.mjs', import.meta.url)),
+    SMOOTH_MOCK_TRACE: trace };
+  const script = join(scratch, 'publish.sh');
+  const run = bashRun([bashPath(script)], { env });
+  const calls = (await readFile(trace, 'utf8')).trim().split('\n').filter(Boolean).map(line => JSON.parse(line));
+  simulations[label] = { ...run, calls };
+  return { ...run, calls, uploads: calls.filter(call => call.tool === 'ossutil' && call.args[0] === 'cp').map(call => call.args),
+    refreshes: calls.filter(call => call.tool === 'aliyun').map(call => call.args),
+    heads: calls.filter(call => call.tool === 'curl' && call.args.includes('-I')).map(call => call.args.at(-1)) };
+}
+
+function success(run) {
+  assert.equal(run.status, 0, run.stderr);
+  assert.ok(run.stdout.includes(publishComplete));
+}
+
+function failure(run, message) {
+  assert.notEqual(run.status, 0, 'deployment exited 0');
+  assert.match(run.stderr, message);
+  assert.ok(!run.stdout.includes(publishComplete));
+}
+
+try {
+  let deployScript;
+  await test('Bash syntax for tool installation and production publish', () => {
+    deployScript = shellBlock(deployStep);
+    for (const [name, input] of [['install', shellBlock(installStep)], ['publish', deployScript]]) {
+      const run = bashRun(['-n'], { input });
+      shellRuns[name] = run;
+      assert.equal(run.status, 0, run.stderr);
+    }
+  });
+  assert.ok(deployScript, 'cannot simulate an absent publish step');
+  const bin = join(scratch, 'bin');
+  const aliyun = join(scratch, 'aliyun');
+  await mkdir(bin);
+  await mkdir(aliyun);
+  await Promise.all([
+    ...['index.html', 'sw.js', 'sw-retire.js', 'sitemap.xml'].map(file => copyFile(join(root, file), join(scratch, file))),
+    mockCommand(join(scratch, 'ossutil'), 'ossutil'), mockCommand(join(aliyun, 'aliyun'), 'aliyun'),
+    mockCommand(join(bin, 'curl'), 'curl'), mockCommand(join(bin, 'sleep'), 'sleep')
+  ]);
+  // Git Bash uses a Unix PATH. Use the host's Python for the real JSON parser on Windows.
+  if (windows) {
+    const python = join(bin, 'python3');
+    await writeFile(python, '#!/usr/bin/env bash\nexec python "$@"\n');
+    await chmod(python, 0o755);
+  }
+  await writeFile(join(scratch, 'publish.sh'), [
+    'set -e', 'mock_bin="$RUNNER_TEMP/bin"',
+    'if [[ "$OSTYPE" == msys* ]]; then mock_bin=$(cygpath -u "$mock_bin"); fi',
+    'export PATH="$mock_bin:$PATH"',
+    '# Hosted Windows may prefer system executables over no-extension PATH mocks.',
+    'curl() { "$mock_bin/curl" "$@"; }',
+    'sleep() { "$mock_bin/sleep" "$@"; }',
+import { createHash } from 'node:crypto';
+import { appendFileSync, readFileSync } from 'node:fs';
+
+const [tool, ...args] = process.argv.slice(2);
+const { SMOOTH_MOCK_TRACE: trace, SMOOTH_MOCK_SCENARIO: scenario, SMOOTH_RETIRE: retire } = process.env;
+const prior = readFileSync(trace, 'utf8').trim().split('\n').filter(Boolean).map(line => JSON.parse(line));
+appendFileSync(trace, JSON.stringify({ tool, args }) + '\n');
+
+switch (tool) {
+  case 'ossutil': {
+    if (!['config', 'mb', 'website', 'cp', 'ls'].includes(args[0])) throw new Error('Unexpected ossutil command');
+    if (scenario === 'upload-error' && args.at(-1) === 'oss://thoradar-online/sw.js') process.exit(1);
+    break;
+  }
+  case 'aliyun': {
+    const first = !prior.some(entry => entry.tool === 'aliyun');
+    if (scenario === 'refresh-error' || (scenario === 'refresh-retry' && first)) process.exit(1);
+    const missing = scenario === 'missing-task-id' || (scenario === 'id-retry' && first);
+    console.log(JSON.stringify(missing ? { RequestId: 'fixture-request' } : { RefreshTaskId: '123456' }));
+    break;
+  }
+  case 'curl': {
+    const url = new URL(args.at(-1));
+    if (url.protocol !== 'https:' || !['thoradar.online', 'www.thoradar.online'].includes(url.host)) {
+      throw new Error('Unexpected mock curl target');
+    }
+    if (args.includes('--connect-to')) {
+      process.stdout.write(scenario === 'preflight-304' && url.hostname.startsWith('www.') ? '304' : '200');
+      break;
+    }
+    if (!args.includes('-I')) throw new Error('Expected a HEAD request');
+    const sources = { '/': 'index.html', '/index.html': 'index.html',
+      '/sw.js': retire === 'true' ? 'sw-retire.js' : 'sw.js', '/sw-retire.js': 'sw-retire.js' };
+    const source = sources[url.pathname];
+    if (!source) throw new Error('Unexpected mock object');
+    const primary = url.href === 'https://www.thoradar.online/sw.js';
+    const first = !prior.some(entry => entry.tool === 'curl' && entry.args.includes('-I') && entry.args.at(-1) === url.href);
+    if (primary && scenario === 'head-error') process.exit(28);
+    const waited = prior.filter(entry => entry.tool === 'sleep').reduce((seconds, entry) => seconds + Number(entry.args[0]), 0);
+    const stale = primary && (scenario === 'wrong-md5' || (scenario === 'stale-then-current' && first) ||
+      (scenario === 'stale-during-propagation' && waited < 360));
+    const body = stale ? 'stale CDN entry' : readFileSync(source);
+    const status = primary && scenario === 'worker-404' ? '404 Not Found' : '200 OK';
+    const mime = source.endsWith('.js') && !(primary && scenario === 'wrong-mime')
+      ? 'Application/JavaScript ; charset=utf-8' : 'text/html; charset=utf-8';
+    const retireUrl = url.href === 'https://www.thoradar.online/sw-retire.js';
+    const cache = source.endsWith('.js') && !(retireUrl && scenario === 'worker-cacheable')
+      ? 'max-age=0, No-Store' : 'public, max-age=60, s-maxage=3600';
+    const md5 = createHash('md5').update(body).digest('base64');
+    process.stdout.write([
+      'HTTP/1.1 200 Connection established', 'Content-MD5: proxy', '', `HTTP/2 ${status}`,
+      `cOnTenT-mD5: ${md5}  `, `content-type: ${mime}`, `Cache-Control: ${cache}`, '', ''
+    ].join('\r\n'));
+    break;
+  }
+  case 'sleep': break;
+  default: throw new Error(`Unexpected mock command ${tool}`);
+}
+
+hook: PostToolUse
+ succeeded in 989ms:
+{"File":".github/workflows/deploy_oss.yml","Main":"8177e6fffc77718bc8ef1b9e9ed19a81740af7a3","IsolatedBaseline":"8177e6fffc77718bc8ef1b9e9ed19a81740af7a3","Match":true}
+{"File":"tests/smooth/verify-deploy.mjs","Main":"582db8c4751c938ac27c8197ef783e45f000222c","IsolatedBaseline":"582db8c4751c938ac27c8197ef783e45f000222c","Match":true}
+{"File":"tests/smooth/deploy-mock.mjs","Main":"fc2d136cf8e17b35dfab6939936bddae74a171b8","IsolatedBaseline":"fc2d136cf8e17b35dfab6939936bddae74a171b8","Match":true}
+18:| ⑤.9 对外发布 | superseded-by-c2 | C2 续作另立⑥–⑧ | ⑤ | 0 | C1 未执行任何发布动作 |
+21:| ⑧ PI 亲手发布＋Sol/Mimo 控制台修复＋主控线上验收 | in-progress-browser-repair | PI 已亲手 push/deploy；按 G14/G15 授权 Sol 操作 RAM、Mimo 操作 CDN/www；重发、CDN 刷新和退役仍唯 PI | ⑦ | 0 | 托管 runner 全闸与真实 OSS 上传通过；`www` 不属本账号导致整批刷新失败，主域随后证实缺 `cdn:RefreshObjectCaches`。Sol S7 `sol-s7-report.md` 另查实 `www` 公网 TLS 握手失败；主域 4 地址刷新、双域 8 地址验真不变，传播等待增至至少 370 秒，主仓 18/18。Sol S8 提交最小策略后遇安全验证，创建与授权未冒称完成；主控新开列表页无验证；S9 查重零条后仅提交一次，随后再次安全验证；PI 已亲手完成，主控回读到策略详情路由且无挑战。S10 RAM 子项已完成双回读：最小 Action/Resource、唯一发布 SubUser、账号级仅新增目标策略，用户权限 1→2 且原行不变；真实刷新待重发。Mimo M1 已回读当前账号仅主域、www 搜索零条、现有证书覆盖 www，主控逐图复核；www 四 URL 仍 TLS 失败。M2 已完成 www 同账号 CDN 接入、复用证书和 www 专用 CNAME，公开双域八 URL 全过且主域未退化。S11 正把同一刷新权限精确补到 www、恢复双域八地址刷新并跑负对照。主控当前线上双域浏览器验收已 18/18，证据 `online-release/online-verify-current-v4.json`；前三轮探针红证据保留，主域一次预热超时未复现不冒称根治。之后由 PI 纳入最终补丁并重发 |
+
+Name              Length
+----              ------
+deploy.stderr.txt      0
+deploy.json       164827
+
+
+ succeeded in 831ms:
+岗位合同＝`jobspecs` 各章；本表＝登记面
+
+## 实体位置与端域约定
+
+- **实体存放位置**：Claude 端为 `D:/claude/agents/<名>.md`；Codex 端为 `~/.codex/agents/<名>.toml`（`TOML`（结构化配置文件））；Antigravity 端（别名 `agy`）为 `~/.gemini/antigravity-cli/agents/`——**席位实体尚未铺设（在册 0）**，铺席时按端域约定增注。
+- **使用方式**：本册为枢纽检索位。`Orchestrator`（主控任务调度席）按名派遣（`subagent_type: <名>`）。
+- **端域约定（登记扫描机读）**：下表「端差异」列标 `仅 Claude 端` 表示该岗只铺 Claude 端实体，标 `仅 Codex 端` 表示只铺 Codex 端实体，**无标记表示双端（Claude＋Codex）**（文件缺失即报断链）；Antigravity 端铺席后该列增注 `三端` 或 `仅 Antigravity 端`。
+
+## 岗位一览
+
+| 岗 | 职责一句 | 名（两端同名） | 端差异 |
+|---|---|---|---|
+| `builder` | 施工席（岗位卡＝`builder-jobspec`） | `trackeep-builder` |  |
+| `verifier` | 复核席（岗位卡＝`verifier-jobspec`） | `trackeep-verifier` |  |
+| `security-auditor` | 安全审计席（岗位卡＝`security-auditor-jobspec`） | `trackeep-security-auditor` |  |
+| `observer` | 第四角色：独立评估体系；阶段回顾触发（30 天／8 份／红线变更）见 observer-jobspec | `trackeep-observer` |  |
+| `doc-auditor` | 文档审查席（岗位卡＝`doc-auditor-jobspec`） | `trackeep-doc-auditor` | Claude 端由 PI（项目唯一决策人）调用触发 |
+| `doclaw-pro` | 文档规则法律整理员·执行档（岗位卡＝`doclaw-jobspec`） | `trackeep-doclaw-pro` | 仅 Claude 端 |
+| `doclaw-judge` | 文档规则法律整理员·语义复核档（岗位卡＝`doclaw-jobspec`） | `trackeep-doclaw-judge` | 仅 Claude 端 |
+| `doclaw-lite` | 文档规则法律整理员·机械档（机器复核；岗位卡＝`doclaw-jobspec`） | `trackeep-doclaw-lite` | 仅 Claude 端 |
+21:## 通用注记
+34:## inputs
+43:## outputs
+48:## obligations
+54:## forbidden
+61:## tool_permissions
+68:## evidence_required
+74:## stop_conditions
+83:## escalation
+87:## conflict_of_interest
+91:## budget
+103:## inputs
+111:## outputs
+118:## obligations
+124:## forbidden
+130:## tool_permissions
+136:## evidence_required
+141:## stop_conditions
+145:## escalation
+149:## conflict_of_interest
+154:## budget
+161:这页是安全审计席（独立执行角色，`security-auditor`）的工种合同；派只读专审席检查凭证泄漏、患者隐私暴露、红线（不可逾越的底线）遵从、权限面与外发面时查这页。
+164:> 本岗只读不改，数据最小化先行；Orchestrator（主控调度席）派驻纪律为**独立双席起步**。
+166:## inputs
+174:## outputs
+178:## obligations
+190:## forbidden
+192:- **只读**：不改任何文件。
+195:## tool_permissions
+197:工具绑定入口（本岗）＝本节。只限只读工具、无写工具，与「不改任何文件」一致。
+199:## evidence_required
+204:## stop_conditions
+208:## escalation
+213:## conflict_of_interest
+219:## budget
+228:## inputs
+D:/trackeep/trackeep-scripts\agent-launchers\manifest.json
+D:/trackeep/trackeep-scripts\agent-launchers\manifest-ledger.json
+D:/trackeep/trackeep-scripts\runs\20261016-T1015-RCHK-EFFMAP-S1\mut-manifest.json
+D:/trackeep/trackeep-scripts\tools\hooks\bom-gates\b2-src\manifest.json
+D:/trackeep/trackeep-scripts\evidence\T1127-CLI-UPDATE\manifest-candidate.json
+D:/trackeep/trackeep-scripts\evidence\T1127-CLI-UPDATE\manifest-before.json
+D:/trackeep/trackeep-scripts\evidence\T1119-CLI-UPDATE\manifest-candidate.json
+D:/trackeep/trackeep-scripts\evidence\T1119-CLI-UPDATE\manifest-before.json
+D:/trackeep/trackeep-scripts\evidence\T1119-CLI-UPDATE\independent\agy-official-manifest-request.json
+D:/trackeep/trackeep-scripts\evidence\T1119-T7-CCGLM\manifest-candidate.json
+D:/trackeep/trackeep-scripts\evidence\T1119-T7-CCGLM\manifest-before.json
+D:/trackeep/trackeep-scripts\evidence\T1119-T7-CCGLM\independent\manifest-difference.json
+D:/trackeep/trackeep-scripts\evidence\T1026-STARTUP\builder-v2\tests\delivery-manifest.json
+D:/trackeep/trackeep-scripts\evidence\T1026-STARTUP\builder-v3\tests\delivery-manifest.json
+D:/trackeep/trackeep-scripts\evidence\T1117-PROJHOME\workbenches-pre-manifest.json
+D:/trackeep/trackeep-scripts\evidence\T1117-PROJHOME\pre-manifest.json
+D:/trackeep/trackeep-scripts\evidence\T1026-STARTUP\review-v3\candidate\tests\delivery-manifest.json
+D:/trackeep/trackeep-scripts\evidence\T1026-STARTUP\review-v1\candidate\tests\delivery-manifest.json
+D:/trackeep/trackeep-scripts\evidence\T1026-STARTUP\review-v2\candidate\tests\delivery-manifest.json
+
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+**Orchestrating parallel reruns**
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$rerun='"'docs/tasks/T1128-SMOOTH/online-release/sol-s11/rerun'; New-Item -ItemType Directory -Path "'$rerun -ErrorAction Stop | Select-Object -ExpandProperty FullName' in D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s11-worktree
+ succeeded in 552ms:
+D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s11-worktree\docs\tasks\T1128-SMOOTH\online-release\sol-s11\rerun
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$dir = '"'docs/tasks/T1128-SMOOTH/online-release/sol-s11/rerun'
+"'$name='"'without-md5-gate'
+"'$good='"'if (status "'!= 200 || md5 != expected) exit 1'"'
+"'$bad='"'if (status "'!= 200) exit 1'"'
+"'$current=[IO.File]::ReadAllText((Resolve-Path -LiteralPath '"'.github/workflows/deploy_oss.yml').Path)
+if(([regex]::Matches("'$current,[regex]::Escape($good))).Count -ne 1){throw '"'Expected exactly one workflow line'}
+"'$mutation=Join-Path ([IO.Path]::GetTempPath()) ('"'thoradar-sol-s11-rerun-'+"'$name+'"'-'+[guid]::NewGuid().ToString('N')+'.yml')
+[IO.File]::WriteAllText("'$mutation,$current.Replace($good,$bad),[Text.UTF8Encoding]::new($false))
+try {
+  node tests/smooth/verify-deploy.mjs "$dir/$name.json" $mutation 1> "$dir/$name.stdout.txt" 2> "$dir/$name.stderr.txt"
+  $code=$LASTEXITCODE
+  Get-Content -LiteralPath "$dir/$name.stdout.txt" | Select-String '"'SUMMARY'
+  Get-Content -LiteralPath \""'$dir/$name.stderr.txt" | Select-String '"'FAIL|deployment exited'
+  Write-Output \"exit="'$code"
+} finally { Remove-Item -LiteralPath $mutation }
+exit $code' in D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s11-worktree
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$dir = '"'docs/tasks/T1128-SMOOTH/online-release/sol-s11/rerun'
+node tests/smooth/verify-deploy.mjs \""'$dir/deploy.json" 1> "$dir/deploy.stdout.txt" 2> "$dir/deploy.stderr.txt"
+$code=$LASTEXITCODE
+Get-Content -LiteralPath "$dir/deploy.stdout.txt" | Select-String '"'eight owned CDN URLs|SUMMARY'
+Get-Content -LiteralPath \""'$dir/deploy.stderr.txt"
+Write-Output "exit=$code"
+exit $code' in D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s11-worktree
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$dir = '"'docs/tasks/T1128-SMOOTH/online-release/sol-s11/rerun'
+"'$name='"'apex-only'
+"'$good='"'refresh_paths="'$(printf '"''%s\\n'' \""'${urls[@]}")'"'
+"'$bad='"'refresh_paths="'$(printf '"''https://thoradar.online%s\\n'' \""'${paths[@]}")'"'
+"'$current=[IO.File]::ReadAllText((Resolve-Path -LiteralPath '"'.github/workflows/deploy_oss.yml').Path)
+if(([regex]::Matches("'$current,[regex]::Escape($good))).Count -ne 1){throw '"'Expected exactly one workflow line'}
+"'$mutation=Join-Path ([IO.Path]::GetTempPath()) ('"'thoradar-sol-s11-rerun-'+"'$name+'"'-'+[guid]::NewGuid().ToString('N')+'.yml')
+[IO.File]::WriteAllText("'$mutation,$current.Replace($good,$bad),[Text.UTF8Encoding]::new($false))
+try {
+  node tests/smooth/verify-deploy.mjs "$dir/$name.json" $mutation 1> "$dir/$name.stdout.txt" 2> "$dir/$name.stderr.txt"
+  $code=$LASTEXITCODE
+  Get-Content -LiteralPath "$dir/$name.stdout.txt" | Select-String '"'SUMMARY'
+  Get-Content -LiteralPath \""'$dir/$name.stderr.txt" | Select-String '"'FAIL|www.thoradar.online'
+  Write-Output \"exit="'$code"
+} finally { Remove-Item -LiteralPath $mutation }
+exit $code' in D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s11-worktree
+**Verifying isolated report generation**
+**Assessing task validation and identity checks**
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$repo=(Get-Location).Path
+$worktree=Join-Path $repo '"'.git/t1128-s11-worktree'
+"'$patch=Join-Path $worktree '"'docs/tasks/T1128-SMOOTH/online-release/sol-s11/dual-domain.patch'
+"'$targets=@('"'.github/workflows/deploy_oss.yml','tests/smooth/verify-deploy.mjs','tests/smooth/deploy-mock.mjs')
+Write-Output '> git diff --check -- <3 deploy files> [isolated]'
+git -C "'$worktree diff --check -- @targets
+Write-Output "exit=$LASTEXITCODE"
+foreach($targetRepo in @($repo,$worktree)){
+ Write-Output "> git diff --exit-code HEAD -- index.html sw.js sw-retire.js [$targetRepo]"
+ git -C $targetRepo diff --exit-code HEAD -- index.html sw.js sw-retire.js
+ Write-Output "exit=$LASTEXITCODE"
+}
+Write-Output '"'> git apply --check <dual-domain.patch> [main]'
+git apply --check "'$patch
+Write-Output "exit=$LASTEXITCODE"
+Write-Output '"'> git diff --name-only [isolated, relative to input baseline]'
+git -C "'$worktree diff --name-only
+Write-Output "exit=$LASTEXITCODE"
+Write-Output '"'> git hash-object docs/tasks/T1128-SMOOTH/task-map.md [main]'
+git hash-object -- docs/tasks/T1128-SMOOTH/task-map.md
+Write-Output \"exit="'$LASTEXITCODE"' in D:\trackeep\trackeep-product\trackeep-thoradar
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$rbRoot='"'D:\\trackeep\\trackeep-console\\trackeep-rulebook\\rules'
+Get-Content -LiteralPath \""'$rbRoot'"\\entries\\jobspecs.md\" | Select-Object -Skip 27 -First 66
+rg -n '主力表|人册' \""'$rbRoot'"\\registries\" \""'$rbRoot'"\\entries\\employment-law.md\" | Select-Object -First 14
+rg -n -o 'codex-gpt|gpt-6\\.2-sol|reasoning_effort|agent-launchers' D:/npm-global/codex-gpt.cmd D:/trackeep/trackeep-scripts/agent-launchers/manifest.json | Select-Object -First 18
+"'$manifest=Get-Content -LiteralPath '"'D:/trackeep/trackeep-scripts/agent-launchers/manifest.json' -Raw | ConvertFrom-Json
+"'$manifest.PSObject.Properties.Name' in D:\trackeep\trackeep-product\trackeep-thoradar
+ succeeded in 1092ms:
+
+# 第一章 施工席
+
+
+这页是施工席（`builder`）的工种合同；派施工席按 `brief`（任务简报）执行改码、开发或编译修错，以及承岗席自照或派席方对表时查这页。
+
+## inputs
+
+承岗前需齐备以下输入：
+
+- 委任状
+- `brief`（任务简报）
+- 领域卡义务表全文（如命中领域）
+- 验收契约相关节
+
+## outputs
+
+- 把 `brief` 指定的交付物保存至委任状可写范围。
+- 交付回报须写三行：干了什么／PI 怎么亲手验／还剩什么坑；验收契约未全过时写明哪条没过。
+
+## obligations
+
+- **只做 `brief` 清单内的活**；做一条落一条，确保中断后可回收。
+- 命中领域时，逐条执行已装载的领域义务条目。
+- 遇到歧义立即停下来，在回报中问清；不自作主张，不闷停。
+
+## forbidden
+
+- **再派纪律**：再派只走 `Task` 工具档映射。
+- **禁改对照真值校验面**：`acceptance tests`（验收测试）、基线、CI 定义、复核配置一律不可碰（防作弊验收红线（绝对禁止的底线））。
+- **禁越界**：`Scope`（任务范围）外一字不动，越界直接判**交付作废**。
+- **禁写型号名**：型号名写进本卡即违例（型号只活在壳与能力表）。
+
+## tool_permissions
+
+工具绑定入口（本岗）＝本节。
+
+- 可写范围以委任状白名单为准。
+- 临时文件一律建在 `$env:TEMP`，用完清理干净，**禁止建在任何 git 版本库内**。
+
+## evidence_required
+
+- 要求的测试和门禁必须实际跑过，并附原始输出。
+- 引用自己修改文件的行号，必须在末次保存到文件后复核。
+- 静默截断（漏做不说）直接判**交付作废**。
+
+## stop_conditions
+
+触发以下任一条件时**立即停手**：
+
+- 歧义未决
+- 触及红线
+- 出现可写范围外需求
+- 出现对照真值校验面变更需求
+
+## escalation
+
+停手后，在交付回报首行写明卡点与所需裁决，交回派遣方，**不越级**。
+
+## conflict_of_interest
+
+通用两条见《用工法》第一章。
+
+## budget
+
+按委任状预算档求值执行；超限处置见本册「通用注记」预算通用条。
+D:/npm-global/codex-gpt.cmd:2:codex-gpt
+D:/npm-global/codex-gpt.cmd:4:agent-launchers
+D:/trackeep/trackeep-scripts/agent-launchers/manifest.json:101:agent-launchers
+D:/trackeep/trackeep-scripts/agent-launchers/manifest.json:121:gpt-6.2-sol
+D:/trackeep/trackeep-scripts/agent-launchers/manifest.json:123:gpt-6.2-sol
+D:/trackeep/trackeep-scripts/agent-launchers/manifest.json:124:gpt-6.2-sol
+D:/trackeep/trackeep-scripts/agent-launchers/manifest.json:203:codex-gpt
+D:/trackeep/trackeep-scripts/agent-launchers/manifest.json:274:gpt-6.2-sol
+schema_version
+launcher_dir
+sanctioned_user_env
+common_env
+agents
+model_registry
+engines
+
+ succeeded in 1400ms:
+> git diff --check -- <3 deploy files> [isolated]
+exit=0
+> git diff --exit-code HEAD -- index.html sw.js sw-retire.js [D:\trackeep\trackeep-product\trackeep-thoradar]
+exit=0
+> git diff --exit-code HEAD -- index.html sw.js sw-retire.js [D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s11-worktree]
+exit=0
+> git apply --check <dual-domain.patch> [main]
+exit=0
+> git diff --name-only [isolated, relative to input baseline]
+.github/workflows/deploy_oss.yml
+tests/smooth/verify-deploy.mjs
+exit=0
+> git hash-object docs/tasks/T1128-SMOOTH/task-map.md [main]
+0fed834852a3fdfdfe588b26faf1c1e9a1562d0f
+exit=0
+
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+**Managing concurrent map changes**
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$manifest=Get-Content -LiteralPath '"'D:/trackeep/trackeep-scripts/agent-launchers/manifest.json' -Raw | ConvertFrom-Json
+"'$agents=$manifest.agents
+if($agents -is [array]){
+  $agents | Where-Object {$_.launcher -ceq '"'codex-gpt' -or "'$_.name -ceq '"'codex-gpt' -or "'$_.id -ceq '"'codex-gpt' -or "'$_.wire -ceq '"'codex-gpt'} | Select-Object id,launcher,name,harness,model,model_id,type,effort,default_effort,wire | ConvertTo-Json -Compress
+} else {
+  "'$agents.PSObject.Properties | Where-Object {$_.Name -ceq '"'codex-gpt' -or "'$_.Value.launcher -ceq '"'codex-gpt'} | ForEach-Object {"'$_.Value | Select-Object id,launcher,name,harness,model,model_id,type,effort,default_effort,wire | ConvertTo-Json -Compress}
+}
+rg -n '"'"'^'"\\| ⑧' docs/tasks/T1128-SMOOTH/task-map.md
+Get-Item -LiteralPath 'docs/tasks/T1128-SMOOTH/task-map.md' | Select-Object LastWriteTime
+git -C .git/t1128-s11-worktree diff --numstat" in D:\trackeep\trackeep-product\trackeep-thoradar
+ succeeded in 896ms:
+21:| ⑧ PI 亲手发布＋Sol/Mimo 控制台修复＋主控线上验收 | in-progress-browser-repair | PI 已亲手 push/deploy；按 G14/G15 授权 Sol 操作 RAM、Mimo 操作 CDN/www；重发、CDN 刷新和退役仍唯 PI | ⑦ | 0 | 托管 runner 全闸与真实 OSS 上传通过；`www` 不属本账号导致整批刷新失败，主域随后证实缺 `cdn:RefreshObjectCaches`。Sol S7 `sol-s7-report.md` 另查实 `www` 公网 TLS 握手失败；主域 4 地址刷新、双域 8 地址验真不变，传播等待增至至少 370 秒，主仓 18/18。Sol S8 提交最小策略后遇安全验证，创建与授权未冒称完成；主控新开列表页无验证；S9 查重零条后仅提交一次，随后再次安全验证；PI 已亲手完成，主控回读到策略详情路由且无挑战。S10 RAM 子项已完成双回读：最小 Action/Resource、唯一发布 SubUser、账号级仅新增目标策略，用户权限 1→2 且原行不变；真实刷新待重发。Mimo M1 已回读当前账号仅主域、www 搜索零条、现有证书覆盖 www，主控逐图复核；www 四 URL 仍 TLS 失败。M2 已完成 www 同账号 CDN 接入、复用证书和 www 专用 CNAME，公开双域八 URL 全过且主域未退化。S11 正把同一刷新权限精确补到 www、恢复双域八地址刷新并跑负对照。主控当前线上双域浏览器验收已 18/18，证据 `online-release/online-verify-current-v4.json`；前三轮探针红证据保留，主域一次预热超时未复现不冒称根治。之后由 PI 纳入最终补丁并重发 |
+
+2	3	.github/workflows/deploy_oss.yml
+2	3	tests/smooth/verify-deploy.mjs
+LastWriteTime
+-------------
+2026/11/28 19:26:57
+
+
+hook: PostToolUse
+hook: PostToolUse Completed
+**Finalizing response formatting**
+**Preparing detailed report and verification**
+**Reviewing command output filtering**
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$dir='"'.git/t1128-s11-worktree/docs/tasks/T1128-SMOOTH/online-release/sol-s11/rerun'
+Get-ChildItem -LiteralPath "'$dir | Select-Object Name,Length,LastWriteTime
+rg -n '"'refresh_paths=|eight owned CDN URLs|head_hash|40|for attempt in' .git/t1128-s11-worktree/.github/workflows/deploy_oss.yml .git/t1128-s11-worktree/tests/smooth/verify-deploy.mjs" in D:\trackeep\trackeep-product\trackeep-thoradar
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$manifest=Get-Content -LiteralPath '"'D:/trackeep/trackeep-scripts/agent-launchers/manifest.json' -Raw | ConvertFrom-Json
+"'$manifest.agents | ForEach-Object {
+ if(($_ | ConvertTo-Json -Depth 16 -Compress) -match '"'\"codex-gpt\"'){
+  "'$_.PSObject.Properties.Name
+  $_ | Select-Object tag,id,harness,model,model_id,type,effort,default_effort,wire,launcher,status | ConvertTo-Json -Compress
+ }
+}
+rg --files D:/trackeep/trackeep-console/trackeep-rulebook D:/trackeep/trackeep-scripts/agent-launchers | rg '"'人册|主力|roster|personnel|member'
+rg -n -o 'codex-gpt|gpt-6\\.2-sol|reasoning_effort|launcher' D:/npm-global/codex-gpt.cmd" in D:\trackeep\trackeep-product\trackeep-thoradar
+ succeeded in 1246ms:
+
+.git/t1128-s11-worktree/.github/workflows/deploy_oss.yml:111:          # 2>/dev/null || true 曾吞错致根路径 403——2026-11-20 控制台补设＋此处改 XML 正方）
+.git/t1128-s11-worktree/.github/workflows/deploy_oss.yml:163:          refresh_paths=$(printf '%s\n' "${urls[@]}")
+.git/t1128-s11-worktree/.github/workflows/deploy_oss.yml:165:          for attempt in 1 2; do
+.git/t1128-s11-worktree/.github/workflows/deploy_oss.yml:186:            for attempt in {1..12}; do
+.git/t1128-s11-worktree/.github/workflows/deploy_oss.yml:211:                sleep 40
+.git/t1128-s11-worktree/tests/smooth/verify-deploy.mjs:195:    await test(`${retire ? 'retire' : 'normal'} uploads workers then index, refreshes eight owned CDN URLs and verifies eight URLs`, async () => {
+.git/t1128-s11-worktree/tests/smooth/verify-deploy.mjs:247:  for (const scenario of ['wrong-md5', 'wrong-mime', 'worker-cacheable', 'worker-404', 'head-error']) {
+Name                        Length LastWriteTime
+----                        ------ -------------
+apex-only.stderr.txt             0 2026/11/28 19:28:21
+apex-only.stdout.txt             0 2026/11/28 19:28:21
+deploy.stderr.txt                0 2026/11/28 19:28:21
+deploy.stdout.txt                0 2026/11/28 19:28:21
+without-md5-gate.stderr.txt      0 2026/11/28 19:28:21
+without-md5-gate.stdout.txt      0 2026/11/28 19:28:21
+
+
+hook: PostToolUse
+ succeeded in 1352ms:
+label
+version
+harness
+kind
+model
+mode
+exe
+args
+invocation
+concurrency_cap
+timeout_light
+timeout_heavy
+config_dir
+can_be_lead
+effort_options
+effort_default
+verified
+env
+{"tag":null,"id":null,"harness":"codex","model":"gpt","model_id":null,"type":null,"effort":null,"default_effort":null,"wire":null,"launcher":null,"status":null}
+2:codex-gpt
+2:launcher
+4:launcher
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+**Analyzing process output and report updates**
+**Reviewing command rerun and output integrity**
+**Verifying test logs**
+**Verifying model resolution and patching**
+ exited 1 in 97378ms:
+
+SUMMARY {"passed":16,"failed":2}
+FAIL stale CDN content is polled again, including a six-minute propagation delay: Expected values to be strictly equal:
+FAIL post-publish verification rejects wrong-md5: deployment exited 0
+exit=1
+
+**Summarizing verification steps**
+**Adding scrub verification**
+codex
+三份发布文件的隔离基线与主工作树逐文件哈希一致。增量补丁只涉及工作流和发布测试，`git apply --check` 已通过，三个产品文件在两棵工作树中都通过了无差异检查。三组模拟仍在运行。
+ succeeded in 112360ms:
+
+PASS normal uploads workers then index, refreshes eight owned CDN URLs and verifies eight URLs
+PASS retire uploads workers then index, refreshes eight owned CDN URLs and verifies eight URLs
+SUMMARY {"passed":18,"failed":0}
+exit=0
+
+ exited 1 in 112942ms:
+
+SUMMARY {"passed":16,"failed":2}
+FAIL normal uploads workers then index, refreshes eight owned CDN URLs and verifies eight URLs: Expected values to be s
+trictly deep-equal:
+-       'https://www.thoradar.online/\n' +
+-       'https://www.thoradar.online/index.html\n' +
+-       'https://www.thoradar.online/sw.js\n' +
+-       'https://www.thoradar.online/sw-retire.js'
+FAIL retire uploads workers then index, refreshes eight owned CDN URLs and verifies eight URLs: Expected values to be s
+trictly deep-equal:
+-       'https://www.thoradar.online/\n' +
+-       'https://www.thoradar.online/index.html\n' +
+-       'https://www.thoradar.online/sw.js\n' +
+-       'https://www.thoradar.online/sw-retire.js'
+exit=1
+
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$repo=(Get-Location).Path
+$wt=Join-Path $repo '"'.git/t1128-s11-worktree'
+"'$evidence=Join-Path $wt '"'docs/tasks/T1128-SMOOTH/online-release/sol-s11'
+"'$policy=Get-Content -LiteralPath '"'D:/claude-tmp/thoradar-cdn-refresh-only.json' -Raw | ConvertFrom-Json -ErrorAction Stop
+"'$resource=@($policy.Statement[0].Resource)[0]
+$match=[regex]::Match($resource,'"'"'^acs:cdn:'"\\*:(?<owner>[0-9]+):domain/thoradar\\.online"'$'"')
+if(-not "'$match.Success -or @($policy.Statement).Count -ne 1 -or @($policy.Statement[0].Action)[0] -cne '"'cdn:RefreshObjectCaches'){throw 'Unexpected source policy shape'}
+"'$owner=$match.Groups['"'owner'].Value
+"'$files=@((Join-Path $wt '"'docs/tasks/T1128-SMOOTH/sol-s11-report.md'))
+"'$files += @(Get-ChildItem -LiteralPath $evidence -Recurse -File | Where-Object {$_.Extension -in '"'.md','.txt','.json','.patch'} | Select-Object -ExpandProperty FullName)
+"'$leakCount=@($files | Where-Object {[IO.File]::ReadAllText($_).Contains($owner)}).Count
+[pscustomobject]@{sourceResourceShape='"'acs:cdn:*:<CDN_OWNER_ACCOUNT_ID>:domain/thoradar.online';accountIDOccurrencesInEvidence="'$leakCount} | ConvertTo-Json -Compress
+if($leakCount -ne 0){exit 1}
+Write-Output '"'> git diff --check -- .github/workflows/deploy_oss.yml tests/smooth/verify-deploy.mjs tests/smooth/deploy-mock.mjs'
+git -C "'$wt diff --check -- .github/workflows/deploy_oss.yml tests/smooth/verify-deploy.mjs tests/smooth/deploy-mock.mjs
+exit $LASTEXITCODE' in D:\trackeep\trackeep-product\trackeep-thoradar
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$rbRoot='"'D:\\trackeep\\trackeep-console\\trackeep-rulebook\\rules'
+rg -n -o '人册|主力表|四元组' \""'$rbRoot/entries/handbook.md" "$rbRoot/registries/能力卡.md"
+$rawLog='"'docs/tasks/T1128-SMOOTH/sol-s11-dual-domain.out.try1'
+rg -n -o -m 4 '\"op\":\"layout\",\"challenge\":true|DELIVERY-T1128-SMOOTH-S11|gpt-6\\.2-sol|codex · gpt-6\\.2-sol · ["'^·]{1,15} · [a-z]+'"' "'$rawLog
+Get-Date -Format o' in D:\trackeep\trackeep-product\trackeep-thoradar
+ succeeded in 669ms:
+4:gpt-6.2-sol
+16:gpt-6.2-sol
+16:gpt-6.2-sol
+30:DELIVERY-T1128-SMOOTH-S11
+34:DELIVERY-T1128-SMOOTH-S11
+2026-11-28T19:30:21.3631990+08:00
+
+ succeeded in 960ms:
+{"sourceResourceShape":"acs:cdn:*:<CDN_OWNER_ACCOUNT_ID>:domain/thoradar.online","accountIDOccurrencesInEvidence":0}
+> git diff --check -- .github/workflows/deploy_oss.yml tests/smooth/verify-deploy.mjs tests/smooth/deploy-mock.mjs
+
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+**Analyzing parallel process timing**
+**Managing command execution limits**
+hook: PreToolUse
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse
+hook: PreToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command 'Get-ChildItem -LiteralPath $env:TEMP -Directory -Filter '"'thoradar-s5-deploy-*' | Sort-Object LastWriteTime -Descending | Select-Object -First 3 | ForEach-Object {
+"'$latest = Get-ChildItem -LiteralPath $_.FullName -File -Filter '"'trace-*.jsonl' | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+[pscustomobject]@{Scratch="'$_.Name; LatestTrace=$latest.Name; Bytes=$latest.Length; Time=$latest.LastWriteTime} | ConvertTo-Json -Compress
+}' in D:\trackeep\trackeep-product\trackeep-thoradar
+ succeeded in 598ms:
+hook: PostToolUse
+hook: PostToolUse Completed
+**Preparing final verification artifacts**
+hook: PreToolUse
+hook: PreToolUse Completed
+apply patch
+patch: completed
+D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s11-worktree\docs\tasks\T1128-SMOOTH\sol-s11-report.md
+diff --git a/.git/t1128-s11-worktree/docs/tasks/T1128-SMOOTH/sol-s11-report.md b/.git/t1128-s11-worktree/docs/tasks/T1128-SMOOTH/sol-s11-report.md
+index 2f892df97c983db5f94a114412af0174b83ef543..c98ebf06d6d244233e715d7a79e29ef8244478a5
+--- a/.git/t1128-s11-worktree/docs/tasks/T1128-SMOOTH/sol-s11-report.md
++++ b/.git/t1128-s11-worktree/docs/tasks/T1128-SMOOTH/sol-s11-report.md
+@@ -1,5 +1,5 @@
+-干了什么｜在隔离工作树里恢复双域八地址刷新，跑通 18 项发布模拟和两组负对照。RAM 控制台出现安全验证，现有策略尚未修改。\
+-PI 怎么亲手验｜打开本单证据目录的 `deploy.stdout.txt`，看到 `normal` 和 `retire` 两行 `PASS` 都写着 `refreshes eight owned CDN URLs`，且末行显示 18 项通过、0 项失败，即对。\
++干了什么｜在隔离工作树里恢复双域八地址刷新，复跑 18 项发布模拟和两组负对照。RAM 控制台出现安全验证，现有策略尚未修改。\
++PI 怎么亲手验｜打开本单证据目录的 `rerun/deploy.stdout.txt`，看到 `normal` 和 `retire` 两行 `PASS` 都写着 `refreshes eight owned CDN URLs`，且末行显示 18 项通过、0 项失败，即对。\
+ 还剩什么坑｜RAM 标签已保留待 PI 处理安全验证。完成策略默认版本和发布子用户权限的回读前，双域发布暂缓放行。
+ 
+ # T1128-SMOOTH-S11 施工回执
+@@ -8,7 +8,7 @@
+ 
+ ## 结论
+ 
+-- **RAM 云端 · 安全验证阻断。** 新建专用 RAM 标签后，首次页内读取返回 `{"op":"layout","challenge":true}`，退出码 3。标签保留。尚未进入编辑、读取现行版本正文或提交修改，因此无需回滚本单云端动作。策略默认版本和同一发布子用户的权限列表待回读。本地模板已脱敏核对，策略目标仍为一个 `Allow`、`Action: ["cdn:RefreshObjectCaches"]` 和同一账号下 `domain/thoradar.online`、`domain/www.thoradar.online` 两项精确资源。S10 记录的权限列表有两行，续作应比对发布子用户的两条现有权限行是否保持一致。
++- **RAM 云端 · 安全验证阻断。** 本单前次执行新建专用 RAM 标签，首次页内读取返回 `{"op":"layout","challenge":true}`，退出码 3，随后保留标签。本次复跑限于本地。策略编辑、默认版本和同一发布子用户的权限列表回读均待完成。本地模板已脱敏核对，策略目标仍为一个 `Allow`、`Action: ["cdn:RefreshObjectCaches"]` 和同一账号下 `domain/thoradar.online`、`domain/www.thoradar.online` 两项精确资源。S10 记录的两条现有权限行是续作的回读基线。
+ - **本地施工 · 18/18，负对照符合预期。** 正常和退役各提交一次刷新，`ObjectPath` 精确包含主域四项、`www` 四项，顺序与双域验真完全一致。测试记录显示第 12 次验真前累计模拟等待 370 秒。
+ 
+ ## 验证状态
+@@ -20,6 +20,7 @@
+ | B.5 主域四地址负对照 | ⑧ 发布接线 | 退出码 1，16 项通过、2 项失败。正常和退役均在刷新参数全等断言处报告缺少四条 `www` URL。[stdout](online-release/sol-s11/apex-only.stdout.txt)、[stderr](online-release/sol-s11/apex-only.stderr.txt) |
+ | B.5 既有错误场景 | ⑧ 发布接线 | 正本的 `wrong-md5` 模拟发布进程退出 1。临时去掉 MD5 检查后，此发布进程退出 0，测试套件退出 1，并报告 `wrong-md5` 与陈旧内容轮询断言失败。[stdout](online-release/sol-s11/without-md5-gate.stdout.txt)、[stderr](online-release/sol-s11/without-md5-gate.stderr.txt)、[调用轨迹核验](online-release/sol-s11/trace-check.txt) |
+ | B.6 改动范围 | ⑧ 发布接线 | `git diff --check` 退出 0，主工作树和隔离工作树的三个产品文件均与 HEAD 无 diff，增量补丁在主工作树 `git apply --check` 退出 0。[Git 输出](online-release/sol-s11/scope-check.txt) |
++| 本地复跑 | ⑧ 发布接线 | 正本退出 0，18/18。主域四地址和移除 MD5 检查两组变异各退出 1，均为 16/18。[正本](online-release/sol-s11/rerun/deploy.stdout.txt)、[主域变异](online-release/sol-s11/rerun/apex-only.stderr.txt)、[MD5 变异](online-release/sol-s11/rerun/without-md5-gate.stderr.txt)、[调用轨迹及范围复核](online-release/sol-s11/rerun/checks.txt) |
+ 
+ ## 改动清单
+ 
+@@ -33,7 +34,7 @@
+ 
+ ## 地图终态
+ 
+-主工作树任务地图第 21 行是本单对应的⑧节点。收卷时的地图 Git blob 为 `ce6b6cbb46e39183fc350a6c935e78a021ed815f`，第⑧项为 `in-progress-browser-repair`。[任务地图](../../../../../docs/tasks/T1128-SMOOTH/task-map.md)
++主工作树任务地图第 21 行是本单对应的⑧节点，复跑时仍为 `in-progress-browser-repair`。地图文件由主工作树维护。[任务地图](../../../../../docs/tasks/T1128-SMOOTH/task-map.md)
+ 
+ ## 遗留风险
+ 
+
+hook: PostToolUse
+hook: PostToolUse Completed
+**Creating precise evidence capture commands**
+**Documenting rerun commands**
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$ErrorActionPreference='"'Stop'
+"'$repo=(Get-Location).Path
+$wt=Join-Path $repo '"'.git/t1128-s11-worktree'
+"'$evidence=Join-Path $wt '"'docs/tasks/T1128-SMOOTH/online-release/sol-s11'
+"'$rerun=Join-Path $evidence '"'rerun'
+& {
+  Write-Output '> node --input-type=module - <rerun directory>'
+  @'
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+const read = name => JSON.parse(readFileSync(join(process.argv[2], name + '.json'), 'utf8'));
+const normal = read('deploy');
+const apex = read('apex-only');
+const md5 = read('without-md5-gate');
+const urls = ['thoradar.online', 'www.thoradar.online'].flatMap(domain =>
+  ['/', '/index.html', '/sw.js', '/sw-retire.js'].map(path => 'https://' + domain + path));
+assert.deepEqual(normal.summary, { passed: 18, failed: 0 });
+for (const scenario of ['healthy', 'healthy-retire']) {
+  const calls = normal.simulations[scenario].calls;
+  const refresh = calls.filter(call => call.tool === 'aliyun');
+  const heads = calls.filter(call => call.tool === 'curl' && call.args.includes('-I'));
+  assert.equal(refresh.length, 1);
+  assert.deepEqual(refresh[0].args.slice(0, -1), ['cdn', 'RefreshObjectCaches', '--region', 'cn-shenzhen', '--ObjectType', 'File', '--ObjectPath']);
+  assert.deepEqual(refresh[0].args.at(-1).split('\\n'), urls);
+  assert.deepEqual(heads.map(call => call.args.at(-1)), urls);
+  console.log(JSON.stringify({ scenario, refreshRequests: refresh.length, urls, verificationOrderEqual: true }));
+}
+const waits = normal.simulations['stale-during-propagation-retire'].calls
+  .filter(call => call.tool === 'sleep').map(call => Number(call.args[0]));
+assert.deepEqual(waits, [5, 5, ...Array(9).fill(40)]);
+console.log(JSON.stringify({ scenario: 'stale-during-propagation-retire', waits, seconds: waits.reduce((a, b) => a + b, 0) }));
+const apexFailures = apex.tests.filter(test => "'!test.pass);
+assert.deepEqual(apex.summary, { passed: 16, failed: 2 });
+assert.deepEqual(apexFailures.map(test => test.name.split('"' ')[0]), ['normal', 'retire']);
+assert.ok(apexFailures.every(test => urls.slice(4).every(url => test.error.includes(url))));
+console.log(JSON.stringify({ label: 'apex-only', summary: apex.summary, failures: apexFailures.map(test => test.name), eachMissesFourWwwUrls: true }));
+assert.deepEqual(md5.summary, { passed: 16, failed: 2 });
+assert.equal(normal.simulations['wrong-md5-retire'].status, 1);
+assert.equal(md5.simulations['wrong-md5-retire'].status, 0);
+assert.ok(md5.tests.some(test => "'!test.pass && test.name === '"'post-publish verification rejects wrong-md5'));
+console.log(JSON.stringify({ label: 'without-md5-gate', summary: md5.summary, wrongMd5OriginalWorkflowExit: 1, wrongMd5MutatedWorkflowExit: 0, failures: md5.tests.filter(test => "'!test.pass).map(test => test.name) }));
+'"'@ | node --input-type=module - "'$rerun
+  Write-Output "exit=$LASTEXITCODE"
+  if($LASTEXITCODE -ne 0){throw '"'Rerun trace check failed'}
+  "'$targets=@('"'.github/workflows/deploy_oss.yml','tests/smooth/verify-deploy.mjs','tests/smooth/deploy-mock.mjs')
+  foreach("'$file in $targets){
+    Write-Output "> git hash-object -- $file [main], git rev-parse :$file [isolated baseline]"
+    $main=git hash-object -- $file
+    $baseline=git -C $wt rev-parse ":$file"
+    [pscustomobject]@{file=$file;main=$main;isolatedBaseline=$baseline;equal=$main -ceq $baseline} | ConvertTo-Json -Compress
+    if($main -cne $baseline){throw '"'Isolated input drift'}
+  }
+  Write-Output '> git diff --check -- .github/workflows/deploy_oss.yml tests/smooth/verify-deploy.mjs tests/smooth/deploy-mock.mjs [isolated]'
+  git -C "'$wt diff --check -- @targets
+  Write-Output "exit=$LASTEXITCODE"
+  if($LASTEXITCODE -ne 0){throw '"'Whitespace check failed'}
+  foreach("'$where in @($repo,$wt)){
+    Write-Output "> git -C $where diff --exit-code HEAD -- index.html sw.js sw-retire.js"
+    git -C $where diff --exit-code HEAD -- index.html sw.js sw-retire.js
+    Write-Output "exit=$LASTEXITCODE"
+    if($LASTEXITCODE -ne 0){throw '"'Product diff detected'}
+  }
+  Write-Output '> git diff --name-only [isolated]'
+  "'$changed=@(git -C $wt diff --name-only)
+  $changed
+  if(($changed -join '"'|') -cne '.github/workflows/deploy_oss.yml|tests/smooth/verify-deploy.mjs'){throw 'Unexpected incremental changed paths'}
+  "'$patch=Join-Path $evidence '"'dual-domain.patch'
+  Write-Output \"> git apply --check "'$patch [main]"
+  git apply --check $patch
+  Write-Output "exit=$LASTEXITCODE"
+  if($LASTEXITCODE -ne 0){throw '"'Incremental patch check failed'}
+  Write-Output '> git hash-object -- docs/tasks/T1128-SMOOTH/task-map.md [main]'
+  git hash-object -- docs/tasks/T1128-SMOOTH/task-map.md
+  Write-Output \"exit="'$LASTEXITCODE"
+  $mapRow=Get-Content -LiteralPath '"'docs/tasks/T1128-SMOOTH/task-map.md' | Where-Object {"'$_ -match '"'"'^'"\\| ⑧'}
+  if("'$mapRow -notmatch '"'in-progress-browser-repair'){throw 'Unexpected map status'}
+  Write-Output 'node=⑧ status=in-progress-browser-repair'
+} | Tee-Object -LiteralPath (Join-Path "'$rerun '"'checks.txt')" in D:\trackeep\trackeep-product\trackeep-thoradar
+ succeeded in 995ms:
+> node --input-type=module - <rerun directory>
+{"scenario":"healthy","refreshRequests":1,"urls":["https://thoradar.online/","https://thoradar.online/index.html","https://thoradar.online/sw.js","https://thoradar.online/sw-retire.js","https://www.thoradar.online/","https://www.thoradar.online/index.html","https://www.thoradar.online/sw.js","https://www.thoradar.online/sw-retire.js"],"verificationOrderEqual":true}
+{"scenario":"healthy-retire","refreshRequests":1,"urls":["https://thoradar.online/","https://thoradar.online/index.html","https://thoradar.online/sw.js","https://thoradar.online/sw-retire.js","https://www.thoradar.online/","https://www.thoradar.online/index.html","https://www.thoradar.online/sw.js","https://www.thoradar.online/sw-retire.js"],"verificationOrderEqual":true}
+{"scenario":"stale-during-propagation-retire","waits":[5,5,40,40,40,40,40,40,40,40,40],"seconds":370}
+{"label":"apex-only","summary":{"passed":16,"failed":2},"failures":["normal uploads workers then index, refreshes eight owned CDN URLs and verifies eight URLs","retire uploads workers then index, refreshes eight owned CDN URLs and verifies eight URLs"],"eachMissesFourWwwUrls":true}
+{"label":"without-md5-gate","summary":{"passed":16,"failed":2},"wrongMd5OriginalWorkflowExit":1,"wrongMd5MutatedWorkflowExit":0,"failures":["stale CDN content is polled again, including a six-minute propagation delay","post-publish verification rejects wrong-md5"]}
+exit=0
+> git hash-object -- .github/workflows/deploy_oss.yml [main], git rev-parse :.github/workflows/deploy_oss.yml [isolated baseline]
+{"file":".github/workflows/deploy_oss.yml","main":"8177e6fffc77718bc8ef1b9e9ed19a81740af7a3","isolatedBaseline":"8177e6fffc77718bc8ef1b9e9ed19a81740af7a3","equal":true}
+> git hash-object -- tests/smooth/verify-deploy.mjs [main], git rev-parse :tests/smooth/verify-deploy.mjs [isolated baseline]
+{"file":"tests/smooth/verify-deploy.mjs","main":"582db8c4751c938ac27c8197ef783e45f000222c","isolatedBaseline":"582db8c4751c938ac27c8197ef783e45f000222c","equal":true}
+> git hash-object -- tests/smooth/deploy-mock.mjs [main], git rev-parse :tests/smooth/deploy-mock.mjs [isolated baseline]
+{"file":"tests/smooth/deploy-mock.mjs","main":"fc2d136cf8e17b35dfab6939936bddae74a171b8","isolatedBaseline":"fc2d136cf8e17b35dfab6939936bddae74a171b8","equal":true}
+> git diff --check -- .github/workflows/deploy_oss.yml tests/smooth/verify-deploy.mjs tests/smooth/deploy-mock.mjs [isolated]
+exit=0
+> git -C D:\trackeep\trackeep-product\trackeep-thoradar diff --exit-code HEAD -- index.html sw.js sw-retire.js
+exit=0
+> git -C D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s11-worktree diff --exit-code HEAD -- index.html sw.js sw-retire.js
+exit=0
+> git diff --name-only [isolated]
+.github/workflows/deploy_oss.yml
+tests/smooth/verify-deploy.mjs
+> git apply --check D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s11-worktree\docs\tasks\T1128-SMOOTH\online-release\sol-s11\dual-domain.patch [main]
+exit=0
+> git hash-object -- docs/tasks/T1128-SMOOTH/task-map.md [main]
+0fed834852a3fdfdfe588b26faf1c1e9a1562d0f
+exit=0
+node=⑧ status=in-progress-browser-repair
+
+hook: PostToolUse
+hook: PostToolUse Completed
+**Preparing verification report**
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$dir='"'.git/t1128-s11-worktree/docs/tasks/T1128-SMOOTH/online-release/sol-s11/rerun'
+rg -n '"'^SUMMARY|''^FAIL'"' "'$dir -g '"'*.stdout.txt' -g '*.stderr.txt'
+Get-ChildItem -LiteralPath "'$dir -File | Select-Object Name,Length
+git -C .git/t1128-s11-worktree diff --shortstat' in D:\trackeep\trackeep-product\trackeep-thoradar
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$wt='"'.git/t1128-s11-worktree'
+"'$report=Join-Path $wt '"'docs/tasks/T1128-SMOOTH/sol-s11-report.md'
+"'$source=Get-Content -LiteralPath $report -Raw
+$parent=Split-Path -Parent $report
+$links=[regex]::Matches($source,'"'\\]\\((?<path>["'^()]+)'"\\)')
+"'$missing=@($links | Where-Object { -not (Test-Path -LiteralPath (Join-Path $parent $_.Groups['"'path'].Value)) })
+[pscustomobject]@{reportLinks="'$links.Count;missingLinks=$missing.Count;deliveryLineCount=([regex]::Matches($source,'"'(?m)"'^DELIVERY-T1128-SMOOTH-S11'"\\r?"'$'"')).Count} | ConvertTo-Json -Compress
+if("'$missing.Count -ne 0){exit 1}
+git -C $wt diff --check
+exit $LASTEXITCODE' in D:\trackeep\trackeep-product\trackeep-thoradar
+ succeeded in 783ms:
+.git/t1128-s11-worktree/docs/tasks/T1128-SMOOTH/online-release/sol-s11/rerun\without-md5-gate.stdout.txt:17:SUMMARY {"passed":16,"failed":2}
+.git/t1128-s11-worktree/docs/tasks/T1128-SMOOTH/online-release/sol-s11/rerun\without-md5-gate.stderr.txt:1:FAIL stale CDN content is polled again, including a six-minute propagation delay: Expected values to be strictly equal:
+.git/t1128-s11-worktree/docs/tasks/T1128-SMOOTH/online-release/sol-s11/rerun\without-md5-gate.stderr.txt:5:FAIL post-publish verification rejects wrong-md5: deployment exited 0
+.git/t1128-s11-worktree/docs/tasks/T1128-SMOOTH/online-release/sol-s11/rerun\deploy.stdout.txt:19:SUMMARY {"passed":18,"failed":0}
+.git/t1128-s11-worktree/docs/tasks/T1128-SMOOTH/online-release/sol-s11/rerun\apex-only.stdout.txt:17:SUMMARY {"passed":16,"failed":2}
+.git/t1128-s11-worktree/docs/tasks/T1128-SMOOTH/online-release/sol-s11/rerun\apex-only.stderr.txt:1:FAIL normal uploads workers then index, refreshes eight owned CDN URLs and verifies eight URLs: Expected values to be strictly deep-equal:
+.git/t1128-s11-worktree/docs/tasks/T1128-SMOOTH/online-release/sol-s11/rerun\apex-only.stderr.txt:21:FAIL retire uploads workers then index, refreshes eight owned CDN URLs and verifies eight URLs: Expected values to be strictly deep-equal:
+
+ 2 files changed, 4 insertions(+), 6 deletions(-)
+Name                        Length
+----                        ------
+apex-only.json              163396
+apex-only.stderr.txt          1240
+apex-only.stdout.txt          1086
+checks.txt                    3171
+deploy.json                 164827
+deploy.stderr.txt                0
+deploy.stdout.txt             1276
+without-md5-gate.json       142150
+without-md5-gate.stderr.txt    205
+without-md5-gate.stdout.txt   1146
+
+
+ succeeded in 819ms:
+{"reportLinks":18,"missingLinks":0,"deliveryLineCount":1}
+
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+**Finalizing concise report summary**
+codex
+干了什么｜在隔离工作树恢复双域八地址刷新，复跑发布模拟 18/18，两组负对照均按预期失败。  
+PI 怎么亲手验｜打开复跑日志，看到 `normal` 和 `retire` 两行均显示 `PASS` 和 `refreshes eight owned CDN URLs`，末行显示 18 项通过、0 项失败，即对。[复跑日志](D:/trackeep/trackeep-product/trackeep-thoradar/.git/t1128-s11-worktree/docs/tasks/T1128-SMOOTH/online-release/sol-s11/rerun/deploy.stdout.txt)  
+还剩什么坑｜RAM 安全验证阻断策略修改，专用标签已保留。策略生效版本和发布子用户权限仍待回读，**双域发布暂缓放行**。
+
+**RAM 云端**　首次读页返回 `{"op":"layout","challenge":true}`，退出码 `3`。本次沿用停手状态，现有 `ThoradarCDNRefreshOnly` 未修改，回退备份与两项回读均待完成。[控制台原始输出](D:/trackeep/trackeep-product/trackeep-thoradar/.git/t1128-s11-worktree/docs/tasks/T1128-SMOOTH/online-release/sol-s11/browser-observations.txt)
+
+**本地施工**　工作流与测试复用同一组八地址。正常和退役各发一次模拟刷新请求，地址与随后验真的顺序逐项一致。既有 mock 支持双域，传播等待实测为 370 秒。[增量补丁](D:/trackeep/trackeep-product/trackeep-thoradar/.git/t1128-s11-worktree/docs/tasks/T1128-SMOOTH/online-release/sol-s11/dual-domain.patch)
+
+| 验证 | 退出码 | 原始汇总 |
+| --- | ---: | --- |
+| 发布模拟正本 | 0 | `SUMMARY {"passed":18,"failed":0}` |
+| 临时恢复主域四地址 | 1 | `SUMMARY {"passed":16,"failed":2}`，正常和退役均缺四条 `www` 地址 |
+| 临时移除 MD5 检查 | 1 | `SUMMARY {"passed":16,"failed":2}`，`wrong-md5` 被测试捕获 |
+
+正本运行 `node tests/smooth/verify-deploy.mjs docs/tasks/T1128-SMOOTH/online-release/sol-s11/deploy.json`。两组变异通过第二参数传入临时 YAML，正本保持原样。[命令及 stdout/stderr](D:/trackeep/trackeep-product/trackeep-thoradar/.git/t1128-s11-worktree/docs/tasks/T1128-SMOOTH/online-release/sol-s11/local-verification.md)
+
+`git diff --check`、`git apply --check` 和三个产品文件的无差异检查均退出 `0`。地图⑧仍为 `in-progress-browser-repair`，可回填本地验证结果。未提交、推送、部署或执行真实 CDN 刷新。[范围与调用轨迹](D:/trackeep/trackeep-product/trackeep-thoradar/.git/t1128-s11-worktree/docs/tasks/T1128-SMOOTH/online-release/sol-s11/rerun/checks.txt) · [完整施工回执](D:/trackeep/trackeep-product/trackeep-thoradar/.git/t1128-s11-worktree/docs/tasks/T1128-SMOOTH/sol-s11-report.md)
+
+DELIVERY-T1128-SMOOTH-S11
+我在隔离工作树恢复了双域八地址刷新并复跑发布模拟与负对照，RAM 策略续作停在安全验证。
+hook: Stop
+hook: Stop Completed
+tokens used
+87,893
+干了什么｜在隔离工作树恢复双域八地址刷新，复跑发布模拟 18/18，两组负对照均按预期失败。  
+PI 怎么亲手验｜打开复跑日志，看到 `normal` 和 `retire` 两行均显示 `PASS` 和 `refreshes eight owned CDN URLs`，末行显示 18 项通过、0 项失败，即对。[复跑日志](D:/trackeep/trackeep-product/trackeep-thoradar/.git/t1128-s11-worktree/docs/tasks/T1128-SMOOTH/online-release/sol-s11/rerun/deploy.stdout.txt)  
+还剩什么坑｜RAM 安全验证阻断策略修改，专用标签已保留。策略生效版本和发布子用户权限仍待回读，**双域发布暂缓放行**。
+
+**RAM 云端**　首次读页返回 `{"op":"layout","challenge":true}`，退出码 `3`。本次沿用停手状态，现有 `ThoradarCDNRefreshOnly` 未修改，回退备份与两项回读均待完成。[控制台原始输出](D:/trackeep/trackeep-product/trackeep-thoradar/.git/t1128-s11-worktree/docs/tasks/T1128-SMOOTH/online-release/sol-s11/browser-observations.txt)
+
+**本地施工**　工作流与测试复用同一组八地址。正常和退役各发一次模拟刷新请求，地址与随后验真的顺序逐项一致。既有 mock 支持双域，传播等待实测为 370 秒。[增量补丁](D:/trackeep/trackeep-product/trackeep-thoradar/.git/t1128-s11-worktree/docs/tasks/T1128-SMOOTH/online-release/sol-s11/dual-domain.patch)
+
+| 验证 | 退出码 | 原始汇总 |
+| --- | ---: | --- |
+| 发布模拟正本 | 0 | `SUMMARY {"passed":18,"failed":0}` |
+| 临时恢复主域四地址 | 1 | `SUMMARY {"passed":16,"failed":2}`，正常和退役均缺四条 `www` 地址 |
+| 临时移除 MD5 检查 | 1 | `SUMMARY {"passed":16,"failed":2}`，`wrong-md5` 被测试捕获 |
+
+正本运行 `node tests/smooth/verify-deploy.mjs docs/tasks/T1128-SMOOTH/online-release/sol-s11/deploy.json`。两组变异通过第二参数传入临时 YAML，正本保持原样。[命令及 stdout/stderr](D:/trackeep/trackeep-product/trackeep-thoradar/.git/t1128-s11-worktree/docs/tasks/T1128-SMOOTH/online-release/sol-s11/local-verification.md)
+
+`git diff --check`、`git apply --check` 和三个产品文件的无差异检查均退出 `0`。地图⑧仍为 `in-progress-browser-repair`，可回填本地验证结果。未提交、推送、部署或执行真实 CDN 刷新。[范围与调用轨迹](D:/trackeep/trackeep-product/trackeep-thoradar/.git/t1128-s11-worktree/docs/tasks/T1128-SMOOTH/online-release/sol-s11/rerun/checks.txt) · [完整施工回执](D:/trackeep/trackeep-product/trackeep-thoradar/.git/t1128-s11-worktree/docs/tasks/T1128-SMOOTH/sol-s11-report.md)
+
+DELIVERY-T1128-SMOOTH-S11
+我在隔离工作树恢复了双域八地址刷新并复跑发布模拟与负对照，RAM 策略续作停在安全验证。

@@ -1,0 +1,353 @@
+{
+  "command": [
+    "node",
+    "tests/smooth/verify-deploy.mjs",
+    "D:\\claude-tmp\\thoradar-s13-short-propagation-0mk_3sv4\\deploy.json",
+    "D:\\claude-tmp\\thoradar-s13-short-propagation-0mk_3sv4\\deploy.yml"
+  ],
+  "cwd": "D:\\trackeep\\trackeep-product\\trackeep-thoradar\\.git\\t1128-s13-worktree",
+  "status": 1,
+  "summary": {
+    "passed": 31,
+    "failed": 1
+  },
+  "failed": [
+    {
+      "name": "main-domain CDN can take six minutes with two 5s sleeps followed by nine 40s sleeps",
+      "pass": false,
+      "error": "Verification failed for https://thoradar.online/sw.js\n\n\n1 !== 0\n"
+    }
+  ],
+  "scenarios": {
+    "stale-during-propagation-retire": {
+      "status": 1,
+      "stdout": "=== OSS uploads recorded\n=== HTTPS \u9884\u68c0\uff08SNI=\u57df\u540d \u2192 CNAME \u76ee\u6807\uff09\nthoradar.online \u6839\u8def\u5f84 HTTPS 200 \u2705\nwww.thoradar.online \u6839\u8def\u5f84 HTTPS 200 \u2705\nCDN RefreshObjectCaches attempt 1\nCDN RefreshTaskId=\"123456\"\nVerified https://thoradar.online/ HTTP=200 Content-MD5=80mggny6RjRXP9Uw4zglxQ== expected=80mggny6RjRXP9Uw4zglxQ== MIME=text/html Cache-Control=,public, max-age=60, s-maxage=3600\nVerified https://thoradar.online/index.html HTTP=200 Content-MD5=80mggny6RjRXP9Uw4zglxQ== expected=80mggny6RjRXP9Uw4zglxQ== MIME=text/html Cache-Control=,public, max-age=60, s-maxage=3600\nWaiting for https://thoradar.online/sw.js (1/12) HTTP=200 Content-MD5=3tvOZPT7xwwSP0Ha5IXs2w== expected=xviHOEexQQLp0q41sv2uuA== MIME=application/javascript Cache-Control=,max-age=0, no-store\nWaiting for https://thoradar.online/sw.js (2/12) HTTP=200 Content-MD5=3tvOZPT7xwwSP0Ha5IXs2w== expected=xviHOEexQQLp0q41sv2uuA== MIME=application/javascript Cache-Control=,max-age=0, no-store\nWaiting for https://thoradar.online/sw.js (3/12) HTTP=200 Content-MD5=3tvOZPT7xwwSP0Ha5IXs2w== expected=xviHOEexQQLp0q41sv2uuA== MIME=application/javascript Cache-Control=,max-age=0, no-store\nWaiting for https://thoradar.online/sw.js (4/12) HTTP=200 Content-MD5=3tvOZPT7xwwSP0Ha5IXs2w== expected=xviHOEexQQLp0q41sv2uuA== MIME=application/javascript Cache-Control=,max-age=0, no-store\nWaiting for https://thoradar.online/sw.js (5/12) HTTP=200 Content-MD5=3tvOZPT7xwwSP0Ha5IXs2w== expected=xviHOEexQQLp0q41sv2uuA== MIME=application/javascript Cache-Control=,max-age=0, no-store\nWaiting for https://thoradar.online/sw.js (6/12) HTTP=200 Content-MD5=3tvOZPT7xwwSP0Ha5IXs2w== expected=xviHOEexQQLp0q41sv2uuA== MIME=application/javascript Cache-Control=,max-age=0, no-store\nWaiting for https://thoradar.online/sw.js (7/12) HTTP=200 Content-MD5=3tvOZPT7xwwSP0Ha5IXs2w== expected=xviHOEexQQLp0q41sv2uuA== MIME=application/javascript Cache-Control=,max-age=0, no-store\nWaiting for https://thoradar.online/sw.js (8/12) HTTP=200 Content-MD5=3tvOZPT7xwwSP0Ha5IXs2w== expected=xviHOEexQQLp0q41sv2uuA== MIME=application/javascript Cache-Control=,max-age=0, no-store\nWaiting for https://thoradar.online/sw.js (9/12) HTTP=200 Content-MD5=3tvOZPT7xwwSP0Ha5IXs2w== expected=xviHOEexQQLp0q41sv2uuA== MIME=application/javascript Cache-Control=,max-age=0, no-store\nWaiting for https://thoradar.online/sw.js (10/12) HTTP=200 Content-MD5=3tvOZPT7xwwSP0Ha5IXs2w== expected=xviHOEexQQLp0q41sv2uuA== MIME=application/javascript Cache-Control=,max-age=0, no-store\nWaiting for https://thoradar.online/sw.js (11/12) HTTP=200 Content-MD5=3tvOZPT7xwwSP0Ha5IXs2w== expected=xviHOEexQQLp0q41sv2uuA== MIME=application/javascript Cache-Control=,max-age=0, no-store\nWaiting for https://thoradar.online/sw.js (12/12) HTTP=200 Content-MD5=3tvOZPT7xwwSP0Ha5IXs2w== expected=xviHOEexQQLp0q41sv2uuA== MIME=application/javascript Cache-Control=,max-age=0, no-store\n",
+      "stderr": "Verification failed for https://thoradar.online/sw.js\n",
+      "calls": [
+        {
+          "tool": "curl",
+          "args": [
+            "-sS",
+            "-o",
+            "/dev/null",
+            "-w",
+            "%{http_code}",
+            "--connect-timeout",
+            "15",
+            "--max-time",
+            "30",
+            "--connect-to",
+            "thoradar.online:443:thoradar-online.cn-shenzhen.taihangtop.cn:443",
+            "https://thoradar.online/"
+          ]
+        },
+        {
+          "tool": "curl",
+          "args": [
+            "-sS",
+            "-o",
+            "/dev/null",
+            "-w",
+            "%{http_code}",
+            "--connect-timeout",
+            "15",
+            "--max-time",
+            "30",
+            "--connect-to",
+            "www.thoradar.online:443:thoradar-online.cn-shenzhen.taihangtop.cn:443",
+            "https://www.thoradar.online/"
+          ]
+        },
+        {
+          "tool": "aliyun",
+          "args": [
+            "cdn",
+            "RefreshObjectCaches",
+            "--region",
+            "cn-shenzhen",
+            "--ObjectType",
+            "File",
+            "--ObjectPath",
+            "https://thoradar.online/\nhttps://thoradar.online/index.html\nhttps://thoradar.online/sw.js\nhttps://thoradar.online/sw-retire.js"
+          ]
+        },
+        {
+          "tool": "curl",
+          "args": [
+            "-q",
+            "-sS",
+            "-I",
+            "-H",
+            "Accept-Encoding: identity",
+            "--connect-timeout",
+            "5",
+            "--max-time",
+            "10",
+            "https://thoradar.online/"
+          ]
+        },
+        {
+          "tool": "curl",
+          "args": [
+            "-q",
+            "-sS",
+            "-I",
+            "-H",
+            "Accept-Encoding: identity",
+            "--connect-timeout",
+            "5",
+            "--max-time",
+            "10",
+            "https://thoradar.online/index.html"
+          ]
+        },
+        {
+          "tool": "curl",
+          "args": [
+            "-q",
+            "-sS",
+            "-I",
+            "-H",
+            "Accept-Encoding: identity",
+            "--connect-timeout",
+            "5",
+            "--max-time",
+            "10",
+            "https://thoradar.online/sw.js"
+          ]
+        },
+        {
+          "tool": "sleep",
+          "args": [
+            "5"
+          ]
+        },
+        {
+          "tool": "curl",
+          "args": [
+            "-q",
+            "-sS",
+            "-I",
+            "-H",
+            "Accept-Encoding: identity",
+            "--connect-timeout",
+            "5",
+            "--max-time",
+            "10",
+            "https://thoradar.online/sw.js"
+          ]
+        },
+        {
+          "tool": "sleep",
+          "args": [
+            "5"
+          ]
+        },
+        {
+          "tool": "curl",
+          "args": [
+            "-q",
+            "-sS",
+            "-I",
+            "-H",
+            "Accept-Encoding: identity",
+            "--connect-timeout",
+            "5",
+            "--max-time",
+            "10",
+            "https://thoradar.online/sw.js"
+          ]
+        },
+        {
+          "tool": "sleep",
+          "args": [
+            "5"
+          ]
+        },
+        {
+          "tool": "curl",
+          "args": [
+            "-q",
+            "-sS",
+            "-I",
+            "-H",
+            "Accept-Encoding: identity",
+            "--connect-timeout",
+            "5",
+            "--max-time",
+            "10",
+            "https://thoradar.online/sw.js"
+          ]
+        },
+        {
+          "tool": "sleep",
+          "args": [
+            "5"
+          ]
+        },
+        {
+          "tool": "curl",
+          "args": [
+            "-q",
+            "-sS",
+            "-I",
+            "-H",
+            "Accept-Encoding: identity",
+            "--connect-timeout",
+            "5",
+            "--max-time",
+            "10",
+            "https://thoradar.online/sw.js"
+          ]
+        },
+        {
+          "tool": "sleep",
+          "args": [
+            "5"
+          ]
+        },
+        {
+          "tool": "curl",
+          "args": [
+            "-q",
+            "-sS",
+            "-I",
+            "-H",
+            "Accept-Encoding: identity",
+            "--connect-timeout",
+            "5",
+            "--max-time",
+            "10",
+            "https://thoradar.online/sw.js"
+          ]
+        },
+        {
+          "tool": "sleep",
+          "args": [
+            "5"
+          ]
+        },
+        {
+          "tool": "curl",
+          "args": [
+            "-q",
+            "-sS",
+            "-I",
+            "-H",
+            "Accept-Encoding: identity",
+            "--connect-timeout",
+            "5",
+            "--max-time",
+            "10",
+            "https://thoradar.online/sw.js"
+          ]
+        },
+        {
+          "tool": "sleep",
+          "args": [
+            "5"
+          ]
+        },
+        {
+          "tool": "curl",
+          "args": [
+            "-q",
+            "-sS",
+            "-I",
+            "-H",
+            "Accept-Encoding: identity",
+            "--connect-timeout",
+            "5",
+            "--max-time",
+            "10",
+            "https://thoradar.online/sw.js"
+          ]
+        },
+        {
+          "tool": "sleep",
+          "args": [
+            "5"
+          ]
+        },
+        {
+          "tool": "curl",
+          "args": [
+            "-q",
+            "-sS",
+            "-I",
+            "-H",
+            "Accept-Encoding: identity",
+            "--connect-timeout",
+            "5",
+            "--max-time",
+            "10",
+            "https://thoradar.online/sw.js"
+          ]
+        },
+        {
+          "tool": "sleep",
+          "args": [
+            "5"
+          ]
+        },
+        {
+          "tool": "curl",
+          "args": [
+            "-q",
+            "-sS",
+            "-I",
+            "-H",
+            "Accept-Encoding: identity",
+            "--connect-timeout",
+            "5",
+            "--max-time",
+            "10",
+            "https://thoradar.online/sw.js"
+          ]
+        },
+        {
+          "tool": "sleep",
+          "args": [
+            "5"
+          ]
+        },
+        {
+          "tool": "curl",
+          "args": [
+            "-q",
+            "-sS",
+            "-I",
+            "-H",
+            "Accept-Encoding: identity",
+            "--connect-timeout",
+            "5",
+            "--max-time",
+            "10",
+            "https://thoradar.online/sw.js"
+          ]
+        },
+        {
+          "tool": "sleep",
+          "args": [
+            "5"
+          ]
+        },
+        {
+          "tool": "curl",
+          "args": [
+            "-q",
+            "-sS",
+            "-I",
+            "-H",
+            "Accept-Encoding: identity",
+            "--connect-timeout",
+            "5",
+            "--max-time",
+            "10",
+            "https://thoradar.online/sw.js"
+          ]
+        }
+      ]
+    }
+  }
+}

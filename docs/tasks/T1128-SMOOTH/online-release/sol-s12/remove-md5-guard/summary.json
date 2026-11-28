@@ -1,0 +1,42 @@
+{
+  "name": "remove-md5-guard",
+  "before": "if (status != 200 || md5 != expected) exit 1",
+  "after": "if (status != 200) exit 1",
+  "command": "node tests/smooth/verify-deploy.mjs docs/tasks/T1128-SMOOTH/online-release/sol-s12/remove-md5-guard/deploy.json docs/tasks/T1128-SMOOTH/online-release/sol-s12/remove-md5-guard/deploy.yml",
+  "exitCode": 1,
+  "summary": {
+    "passed": 23,
+    "failed": 4
+  },
+  "failed": [
+    {
+      "name": "stale www worker is polled before the retirement worker verifies",
+      "pass": false,
+      "error": "Expected values to be strictly equal:\n\n1 !== 2\n"
+    },
+    {
+      "name": "main-domain CDN can take six minutes with two 5s sleeps followed by nine 40s sleeps",
+      "pass": false,
+      "error": "Expected values to be strictly equal:\n\n1 !== 12\n"
+    },
+    {
+      "name": "post-publish verification rejects wrong-md5",
+      "pass": false,
+      "error": "deployment exited 0"
+    },
+    {
+      "name": "post-publish verification rejects www-active-worker",
+      "pass": false,
+      "error": "deployment exited 0"
+    }
+  ],
+  "expectedFailures": [
+    "wrong-md5"
+  ],
+  "scenarioExitCodes": {
+    "wrong-md5-retire": 0
+  },
+  "expectedScenarioExitCodes": {
+    "wrong-md5-retire": 0
+  }
+}

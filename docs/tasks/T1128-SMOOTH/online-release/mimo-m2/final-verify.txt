@@ -1,0 +1,92 @@
+== FINAL verify 2026-11-28T19:08:34+08:00 ==
+---- https://www.thoradar.online/
+exit=0
+HTTP/1.1 200 OK
+Content-Type: text/html
+ETag: "F349A0827CBA4634573FD530E33825C5"
+Cache-Control: public, max-age=60, s-maxage=3600
+Via: ens-cache12.l2cn7857[0,0,200-0,H], ens-cache63.l2cn7857[6,0], kunlun9.cn8683[106,106,200-0,M], kunlun7.cn8683[110,0]
+X-Cache: MISS TCP_MISS dirn:-2:-2
+body_md5=f349a0827cba4634573fd530e33825c5 md5_exit=0
+---- https://www.thoradar.online/index.html
+exit=0
+HTTP/1.1 200 OK
+Content-Type: text/html
+ETag: "F349A0827CBA4634573FD530E33825C5"
+Cache-Control: public, max-age=60, s-maxage=3600
+Via: ens-cache11.l2cn9136[0,0,200-0,H], ens-cache9.l2cn9136[1,0], kunlun1.cn8683[114,114,200-0,M], kunlun6.cn8683[118,0]
+X-Cache: MISS TCP_MISS dirn:-2:-2
+body_md5=f349a0827cba4634573fd530e33825c5 md5_exit=0
+---- https://www.thoradar.online/sw.js
+exit=0
+HTTP/1.1 200 OK
+Content-Type: application/javascript
+ETag: "9EB80A6DE6B3A815EF20B920025B2C22"
+Cache-Control: no-store
+Via: cache15.l2cn1813[62,61,200-0,M], cache46.l2cn1813[63,0], kunlun10.cn8137[191,191,200-0,M], kunlun10.cn8137[194,0]
+X-Cache: MISS TCP_MISS dirn:-2:-2
+body_md5=9eb80a6de6b3a815ef20b920025b2c22 md5_exit=0
+---- https://www.thoradar.online/sw-retire.js
+exit=0
+HTTP/1.1 200 OK
+Content-Type: application/javascript
+ETag: "C6F8873847B14102E9D2AE35B2FDAEB8"
+Cache-Control: no-store
+Via: ens-cache35.l2cn9136[823,823,200-0,M], ens-cache34.l2cn9136[824,0], kunlun3.cn9406[1282,1282,200-0,M], kunlun6.cn9406[1286,0]
+X-Cache: MISS TCP_MISS dirn:-2:-2
+body_md5=c6f8873847b14102e9d2ae35b2fdaeb8 md5_exit=0
+---- https://thoradar.online/
+exit=0
+HTTP/1.1 200 OK
+Content-Type: text/html
+ETag: "F349A0827CBA4634573FD530E33825C5"
+Cache-Control: public, max-age=60, s-maxage=3600
+Via: ens-cache17.l2cn7858[0,0,200-0,H], ens-cache23.l2cn7858[0,0], kunlun8.cn6753[9,8,200-0,M], kunlun5.cn6753[11,0]
+X-Cache: MISS TCP_MISS dirn:12:878578141
+body_md5=f349a0827cba4634573fd530e33825c5 md5_exit=0
+---- https://thoradar.online/index.html
+exit=0
+HTTP/1.1 200 OK
+Content-Type: text/html
+ETag: "F349A0827CBA4634573FD530E33825C5"
+Cache-Control: public, max-age=60, s-maxage=3600
+Via: cache48.l2cn3059[0,0,200-0,H], cache32.l2cn3059[2,0], kunlun10.cn7971[106,106,200-0,M], kunlun10.cn7971[108,0]
+X-Cache: MISS TCP_MISS dirn:10:363575366
+body_md5=f349a0827cba4634573fd530e33825c5 md5_exit=0
+---- https://thoradar.online/sw.js
+exit=0
+HTTP/1.1 200 OK
+Content-Type: application/javascript
+ETag: "9EB80A6DE6B3A815EF20B920025B2C22"
+Cache-Control: no-store
+Via: ens-cache57.l2cn7858[87,86,200-0,M], ens-cache69.l2cn7858[88,0], kunlun2.cn7971[140,140,200-0,M], kunlun7.cn7971[143,0]
+X-Cache: MISS TCP_MISS dirn:-2:-2
+body_md5=9eb80a6de6b3a815ef20b920025b2c22 md5_exit=0
+---- https://thoradar.online/sw-retire.js
+exit=0
+HTTP/1.1 200 OK
+Content-Type: application/javascript
+ETag: "C6F8873847B14102E9D2AE35B2FDAEB8"
+Cache-Control: no-store
+Via: ens-cache28.l2cn7859[81,81,200-0,M], ens-cache1.l2cn7859[82,0], kunlun2.cn7971[135,134,200-0,M], kunlun8.cn7971[137,0]
+X-Cache: MISS TCP_MISS dirn:-2:-2
+body_md5=c6f8873847b14102e9d2ae35b2fdaeb8 md5_exit=0
+---- http redirect www
+HTTP/1.1 301 Moved Permanently
+Location: https://www.thoradar.online/
+exit=0
+---- http redirect apex
+HTTP/1.1 301 Moved Permanently
+Location: https://thoradar.online/
+exit=0
+== redirect location + http_version 2026-11-28T19:09:54+08:00 ==
+-- www.thoradar.online http→https
+HTTP/1.1 301 Moved Permanently
+Location: https://www.thoradar.online/
+-- www.thoradar.online https version
+http_version=1.1 exit_ok
+-- thoradar.online http→https
+HTTP/1.1 301 Moved Permanently
+Location: https://thoradar.online/
+-- thoradar.online https version
+http_version=1.1 exit_ok

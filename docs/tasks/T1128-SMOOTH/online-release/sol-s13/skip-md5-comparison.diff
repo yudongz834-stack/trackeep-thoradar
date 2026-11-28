@@ -1,0 +1,11 @@
+--- .github/workflows/deploy_oss.yml
++++ skip-md5-comparison.yml
+@@ -184,7 +184,7 @@
+               tolower($0) ~ /^cache-control:/ { line=tolower($0); sub(/^[^:]+:[ \t]*/, "", line); cache=cache "," line }
+               END {
+                 printf "HTTP=%s Content-MD5=%s expected=%s MIME=%s Cache-Control=%s", status, md5, expected, mime, cache
+-                if (status != 200 || md5 != expected) exit 1
++                if (status != 200) exit 1
+                 if (worker && (mime !~ /^(application|text)\/(javascript|ecmascript)$/ || cache !~ /,[ \t]*no-store[ \t]*(,|$)/)) exit 1
+                 if (!worker && mime != "text/html") exit 1
+               }

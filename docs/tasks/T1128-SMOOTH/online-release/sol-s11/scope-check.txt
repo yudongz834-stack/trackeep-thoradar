@@ -1,0 +1,23 @@
+> git -C [D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s11-worktree] diff --check -- .github/workflows/deploy_oss.yml tests/smooth/verify-deploy.mjs tests/smooth/deploy-mock.mjs
+Exit code: 0
+> git -C [D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s11-worktree] diff --exit-code HEAD -- index.html sw.js sw-retire.js
+Exit code: 0
+> git -C [D:\trackeep\trackeep-product\trackeep-thoradar] diff --exit-code HEAD -- index.html sw.js sw-retire.js
+Exit code: 0
+> git -C [D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s11-worktree] diff --exit-code -- tests/smooth/deploy-mock.mjs
+Exit code: 0
+> git -C [D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s11-worktree] diff --stat -- .github/workflows/deploy_oss.yml tests/smooth/verify-deploy.mjs tests/smooth/deploy-mock.mjs
+ .github/workflows/deploy_oss.yml | 5 ++---
+ tests/smooth/verify-deploy.mjs   | 5 ++---
+ 2 files changed, 4 insertions(+), 6 deletions(-)
+Exit code: 0
+> git -C [D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s11-worktree] diff --output=D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s11-worktree\docs\tasks\T1128-SMOOTH\online-release\sol-s11\dual-domain.patch -- .github/workflows/deploy_oss.yml tests/smooth/verify-deploy.mjs
+Exit code: 0
+> git -C [D:\trackeep\trackeep-product\trackeep-thoradar] apply --check D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s11-worktree\docs\tasks\T1128-SMOOTH\online-release\sol-s11\dual-domain.patch
+Exit code: 0
+> git -C [D:\trackeep\trackeep-product\trackeep-thoradar] hash-object -- docs/tasks/T1128-SMOOTH/task-map.md
+ce6b6cbb46e39183fc350a6c935e78a021ed815f
+Exit code: 0
+> git -C [D:\trackeep\trackeep-product\trackeep-thoradar] status --short -- docs/tasks/T1128-SMOOTH/task-map.md
+ M docs/tasks/T1128-SMOOTH/task-map.md
+Exit code: 0

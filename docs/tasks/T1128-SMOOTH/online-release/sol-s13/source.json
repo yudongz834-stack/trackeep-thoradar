@@ -1,0 +1,72 @@
+{
+  "timestamp": "2026-11-28T12:33:01.979Z",
+  "runs": 1,
+  "seed": null,
+  "mode": "ci",
+  "baseline": "73dd34e65fce6661d74e595afc03df68e7d3f44f",
+  "scopeBaseline": "af3f2775855bb99aeb5c3262cb2738a889b60d70",
+  "checks": [
+    {
+      "name": "official-data",
+      "pass": true,
+      "briefingDate": "2026-11-28",
+      "paperCount": 43,
+      "candidateSha256": "1b624d90aeaa7aee5684457c2781db377f2e4be0e3e8ed9fff96f3bee4c47653"
+    },
+    {
+      "name": "official-paper-initialization",
+      "pass": true,
+      "baselineSha256": "f253bf84f3e0101f9b8f699f60167cfeaedd1a14716b5000ca4d83ec0a93ad17",
+      "candidateSha256": "f253bf84f3e0101f9b8f699f60167cfeaedd1a14716b5000ca4d83ec0a93ad17"
+    },
+    {
+      "name": "official-window-and-merge",
+      "pass": true,
+      "baselineSha256": "6aba436d17874eac447eb7e35be557de612ca9a7985f97ad262ad9e75e08c795",
+      "candidateSha256": "6aba436d17874eac447eb7e35be557de612ca9a7985f97ad262ad9e75e08c795"
+    },
+    {
+      "name": "write-scope",
+      "pass": true,
+      "tracked": [
+        ".github/workflows/deploy_oss.yml",
+        "docs/tasks/T1128-SMOOTH/release-contract.md",
+        "tests/smooth/deploy-mock.mjs",
+        "tests/smooth/verify-deploy.mjs"
+      ],
+      "untracked": [],
+      "outOfScope": []
+    },
+    {
+      "name": "node-syntax-and-git-diff-check",
+      "pass": true,
+      "syntax": [
+        "sw.js",
+        "sw-retire.js",
+        "tests/smooth/verify-s1.mjs",
+        "tests/smooth/verify-s2.mjs",
+        "tests/smooth/run-regressions.mjs",
+        "tests/smooth/verify-source.mjs",
+        "tests/smooth/official-data.mjs",
+        "tests/smooth/prepare-ci-ux-baseline.mjs",
+        "tests/ux/ux_probe.mjs"
+      ]
+    }
+  ],
+  "files": {
+    "index.html": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706",
+    "sw.js": "dfd100c733ac89b9149358262970c8ab6f68ceff23de83180b253c3c2d779f76",
+    "sw-retire.js": "8f243e72a4d2c85a51194968a0869c6652943e14f0da99af44c14e8a04c1f3c9",
+    "tests/smooth/verify-s1.mjs": "619488c94f723f2335ef9a69c070338e6bcb0b35ec3f103ef6d17150722713fa",
+    "tests/smooth/verify-s2.mjs": "ce9b6990bcb3ce7a60549898dd65d2dce9c9f1f82eb73c238d879c93de63f8fc",
+    "tests/smooth/run-regressions.mjs": "5127c097ab939d906dba9d6271478e6db0e505affff60417b222c2d79160d536",
+    "tests/smooth/verify-source.mjs": "55ba9ada1ca5a6a6150bd0c8f18e4fd7a639e1fbdf5f440a5a7e6a62a38f36e2",
+    "tests/smooth/official-data.mjs": "1bc1216590ed066fb0fccc799bfd2d784343fb138d1bac2cf0b2932d37ef646b",
+    "tests/smooth/prepare-ci-ux-baseline.mjs": "b9bc856bfdeb28675b7ff4c13ab704bdb95caaff84014226bc740be80ff7e958",
+    "tests/ux/ux_probe.mjs": "43bd203756e279f176e4a3247ea4d9480683e229146747f0cb10018e9f8fce73"
+  },
+  "summary": {
+    "passed": 5,
+    "failed": 0
+  }
+}

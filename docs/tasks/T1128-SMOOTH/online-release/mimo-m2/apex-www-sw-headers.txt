@@ -1,0 +1,84 @@
+== apex sw.js full HEAD + GET headers 2026-11-28T19:07:17+08:00 ==
+HTTP/1.1 200 OK
+Server: Tengine
+Content-Type: application/javascript
+Content-Length: 5846
+Connection: keep-alive
+Vary: Accept-Encoding
+Date: Sat, 28 Nov 2026 11:07:34 GMT
+Vary: Accept-Encoding
+x-oss-request-id: 6B0AB5F6ABB8F838354109A0
+x-oss-cdn-auth: success
+Accept-Ranges: bytes
+ETag: "9EB80A6DE6B3A815EF20B920025B2C22"
+Last-Modified: Sat, 28 Nov 2026 09:25:49 GMT
+x-oss-object-type: Normal
+x-oss-hash-crc64ecma: 4701598279066352265
+x-oss-storage-class: Standard
+Cache-Control: no-store
+Content-MD5: nrgKbeazqBXvILkgAlssIg==
+x-oss-server-time: 38
+Via: cache29.l2et135-6[163,163,200-0,M], cache10.l2et135-6[165,0], cache7.cn8985[261,262,200-0,M], cache21.cn8985[284,0]
+Ali-Swift-Global-Savetime: 1795864054
+X-Cache: MISS TCP_MISS dirn:-2:-2
+X-Swift-SaveTime: Sat, 28 Nov 2026 11:07:34 GMT
+X-Swift-CacheTime: 0
+Timing-Allow-Origin: *
+EagleId: b6306c1a17958640545813660e
+
+-- GET -D
+HTTP/1.1 200 OK
+Server: Tengine
+Content-Type: application/javascript
+Content-Length: 5846
+Connection: keep-alive
+Vary: Accept-Encoding
+Date: Sat, 28 Nov 2026 11:07:51 GMT
+Vary: Accept-Encoding
+x-oss-request-id: 6B0AB607BCDA613737EFCFD3
+x-oss-cdn-auth: success
+Accept-Ranges: bytes
+ETag: "9EB80A6DE6B3A815EF20B920025B2C22"
+Last-Modified: Sat, 28 Nov 2026 09:25:49 GMT
+x-oss-object-type: Normal
+x-oss-hash-crc64ecma: 4701598279066352265
+x-oss-storage-class: Standard
+Cache-Control: no-store
+Content-MD5: nrgKbeazqBXvILkgAlssIg==
+x-oss-server-time: 9
+Via: ens-cache57.l2cn7858[89,89,200-0,M], ens-cache57.l2cn7858[90,0], kunlun7.cn9041[280,280,200-0,M], kunlun10.cn9041[284,0]
+Ali-Swift-Global-Savetime: 1795864071
+X-Cache: MISS TCP_MISS dirn:-2:-2
+X-Swift-SaveTime: Sat, 28 Nov 2026 11:07:52 GMT
+X-Swift-CacheTime: 0
+Timing-Allow-Origin: *
+EagleId: 7171640f17958640717118035e
+
+== www sw.js GET -D
+HTTP/1.1 200 OK
+Server: Tengine
+Content-Type: application/javascript
+Content-Length: 5846
+Connection: keep-alive
+Vary: Accept-Encoding
+Date: Sat, 28 Nov 2026 11:08:09 GMT
+Vary: Accept-Encoding
+x-oss-request-id: 6B0AB61981477F39302A254C
+x-oss-cdn-auth: success
+Accept-Ranges: bytes
+ETag: "9EB80A6DE6B3A815EF20B920025B2C22"
+Last-Modified: Sat, 28 Nov 2026 09:25:49 GMT
+x-oss-object-type: Normal
+x-oss-hash-crc64ecma: 4701598279066352265
+x-oss-storage-class: Standard
+Cache-Control: no-store
+Content-MD5: nrgKbeazqBXvILkgAlssIg==
+x-oss-server-time: 20
+Via: cache15.l2cn1813[54,53,200-0,M], cache8.l2cn1813[54,0], kunlun7.cn8683[565,564,200-0,M], kunlun10.cn8683[574,0]
+Ali-Swift-Global-Savetime: 1795864089
+X-Cache: MISS TCP_MISS dirn:-2:-2
+X-Swift-SaveTime: Sat, 28 Nov 2026 11:08:09 GMT
+X-Swift-CacheTime: 0
+Timing-Allow-Origin: *
+EagleId: df6ff49e17958640887307441e
+

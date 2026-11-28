@@ -1,0 +1,219 @@
+{
+  "startedAt": "2026-11-28T11:14:27.032Z",
+  "environment": {
+    "os": "Windows 11 Pro",
+    "release": "10.0.26300",
+    "arch": "x64",
+    "node": "v24.14.0",
+    "chrome": {
+      "protocolVersion": "1.3",
+      "product": "Chrome/158.0.8127.88",
+      "revision": "@0cefb18236a23db1ebb6b2bc040fbbaf8cbe759e",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/158.0.0.0 Safari/537.36",
+      "jsVersion": "15.8.62.31"
+    }
+  },
+  "runs": 1,
+  "seed": null,
+  "headers": [
+    {
+      "url": "https://thoradar.online/",
+      "status": 200,
+      "md5": "80mggny6RjRXP9Uw4zglxQ==",
+      "expectedMd5": "80mggny6RjRXP9Uw4zglxQ==",
+      "mime": "text/html",
+      "cacheControl": "public, max-age=60, s-maxage=3600"
+    },
+    {
+      "url": "https://thoradar.online/index.html",
+      "status": 200,
+      "md5": "80mggny6RjRXP9Uw4zglxQ==",
+      "expectedMd5": "80mggny6RjRXP9Uw4zglxQ==",
+      "mime": "text/html",
+      "cacheControl": "public, max-age=60, s-maxage=3600"
+    },
+    {
+      "url": "https://thoradar.online/sw.js",
+      "status": 200,
+      "md5": "nrgKbeazqBXvILkgAlssIg==",
+      "expectedMd5": "nrgKbeazqBXvILkgAlssIg==",
+      "mime": "application/javascript",
+      "cacheControl": "no-store"
+    },
+    {
+      "url": "https://thoradar.online/sw-retire.js",
+      "status": 200,
+      "md5": "xviHOEexQQLp0q41sv2uuA==",
+      "expectedMd5": "xviHOEexQQLp0q41sv2uuA==",
+      "mime": "application/javascript",
+      "cacheControl": "no-store"
+    },
+    {
+      "url": "https://www.thoradar.online/",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://www.thoradar.online/index.html",
+      "status": 200,
+      "md5": "80mggny6RjRXP9Uw4zglxQ==",
+      "expectedMd5": "80mggny6RjRXP9Uw4zglxQ==",
+      "mime": "text/html",
+      "cacheControl": "public, max-age=60, s-maxage=3600"
+    },
+    {
+      "url": "https://www.thoradar.online/sw.js",
+      "status": 200,
+      "md5": "nrgKbeazqBXvILkgAlssIg==",
+      "expectedMd5": "nrgKbeazqBXvILkgAlssIg==",
+      "mime": "application/javascript",
+      "cacheControl": "no-store"
+    },
+    {
+      "url": "https://www.thoradar.online/sw-retire.js",
+      "status": 200,
+      "md5": "xviHOEexQQLp0q41sv2uuA==",
+      "expectedMd5": "xviHOEexQQLp0q41sv2uuA==",
+      "mime": "application/javascript",
+      "cacheControl": "no-store"
+    }
+  ],
+  "sites": [
+    {
+      "domain": "thoradar.online",
+      "network": [],
+      "errors": [],
+      "checks": [],
+      "harnessError": "Error: Navigation https://thoradar.online/index.html: net::ERR_NAME_NOT_RESOLVED"
+    },
+    {
+      "domain": "www.thoradar.online",
+      "network": [],
+      "errors": [],
+      "checks": [],
+      "harnessError": "Error: Navigation https://www.thoradar.online/index.html: net::ERR_NAME_NOT_RESOLVED"
+    }
+  ],
+  "checks": [
+    {
+      "name": "header https://thoradar.online/",
+      "pass": true,
+      "detail": {
+        "url": "https://thoradar.online/",
+        "status": 200,
+        "md5": "80mggny6RjRXP9Uw4zglxQ==",
+        "expectedMd5": "80mggny6RjRXP9Uw4zglxQ==",
+        "mime": "text/html",
+        "cacheControl": "public, max-age=60, s-maxage=3600"
+      }
+    },
+    {
+      "name": "header https://thoradar.online/index.html",
+      "pass": true,
+      "detail": {
+        "url": "https://thoradar.online/index.html",
+        "status": 200,
+        "md5": "80mggny6RjRXP9Uw4zglxQ==",
+        "expectedMd5": "80mggny6RjRXP9Uw4zglxQ==",
+        "mime": "text/html",
+        "cacheControl": "public, max-age=60, s-maxage=3600"
+      }
+    },
+    {
+      "name": "header https://thoradar.online/sw.js",
+      "pass": true,
+      "detail": {
+        "url": "https://thoradar.online/sw.js",
+        "status": 200,
+        "md5": "nrgKbeazqBXvILkgAlssIg==",
+        "expectedMd5": "nrgKbeazqBXvILkgAlssIg==",
+        "mime": "application/javascript",
+        "cacheControl": "no-store"
+      }
+    },
+    {
+      "name": "header https://thoradar.online/sw-retire.js",
+      "pass": true,
+      "detail": {
+        "url": "https://thoradar.online/sw-retire.js",
+        "status": 200,
+        "md5": "xviHOEexQQLp0q41sv2uuA==",
+        "expectedMd5": "xviHOEexQQLp0q41sv2uuA==",
+        "mime": "application/javascript",
+        "cacheControl": "no-store"
+      }
+    },
+    {
+      "name": "header https://www.thoradar.online/",
+      "pass": false,
+      "detail": {
+        "error": "TypeError: fetch failed"
+      }
+    },
+    {
+      "name": "header https://www.thoradar.online/index.html",
+      "pass": true,
+      "detail": {
+        "url": "https://www.thoradar.online/index.html",
+        "status": 200,
+        "md5": "80mggny6RjRXP9Uw4zglxQ==",
+        "expectedMd5": "80mggny6RjRXP9Uw4zglxQ==",
+        "mime": "text/html",
+        "cacheControl": "public, max-age=60, s-maxage=3600"
+      }
+    },
+    {
+      "name": "header https://www.thoradar.online/sw.js",
+      "pass": true,
+      "detail": {
+        "url": "https://www.thoradar.online/sw.js",
+        "status": 200,
+        "md5": "nrgKbeazqBXvILkgAlssIg==",
+        "expectedMd5": "nrgKbeazqBXvILkgAlssIg==",
+        "mime": "application/javascript",
+        "cacheControl": "no-store"
+      }
+    },
+    {
+      "name": "header https://www.thoradar.online/sw-retire.js",
+      "pass": true,
+      "detail": {
+        "url": "https://www.thoradar.online/sw-retire.js",
+        "status": 200,
+        "md5": "xviHOEexQQLp0q41sv2uuA==",
+        "expectedMd5": "xviHOEexQQLp0q41sv2uuA==",
+        "mime": "application/javascript",
+        "cacheControl": "no-store"
+      }
+    },
+    {
+      "name": "thoradar.online browser harness completed",
+      "pass": false,
+      "detail": {
+        "error": "Error: Navigation https://thoradar.online/index.html: net::ERR_NAME_NOT_RESOLVED"
+      }
+    },
+    {
+      "name": "www.thoradar.online browser harness completed",
+      "pass": false,
+      "detail": {
+        "error": "Error: Navigation https://www.thoradar.online/index.html: net::ERR_NAME_NOT_RESOLVED"
+      }
+    }
+  ],
+  "cleanup": {
+    "browser": {
+      "pid": 51028,
+      "exit": {
+        "code": 0,
+        "signal": null
+      },
+      "forced": false
+    },
+    "profileRemoved": true
+  },
+  "endedAt": "2026-11-28T11:14:48.778Z",
+  "summary": {
+    "passed": 7,
+    "failed": 3
+  }
+}

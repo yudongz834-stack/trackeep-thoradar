@@ -1,0 +1,104 @@
+> git rev-parse HEAD [cwd=D:\trackeep\trackeep-product\trackeep-thoradar]
+af3f2775855bb99aeb5c3262cb2738a889b60d70
+exit=0
+> git rev-parse HEAD [cwd=D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s13-worktree]
+af3f2775855bb99aeb5c3262cb2738a889b60d70
+exit=0
+> git diff --check [cwd=D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s13-worktree]
+exit=0
+> git diff --check HEAD [cwd=D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s13-worktree]
+exit=0
+> git diff --name-only HEAD [cwd=D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s13-worktree]
+.github/workflows/deploy_oss.yml
+docs/tasks/T1128-SMOOTH/release-contract.md
+tests/smooth/deploy-mock.mjs
+tests/smooth/verify-deploy.mjs
+exit=0
+> git diff HEAD --exit-code -- index.html sw.js sw-retire.js [cwd=D:\trackeep\trackeep-product\trackeep-thoradar]
+exit=0
+> git ls-files --eol -- index.html sw.js sw-retire.js [cwd=D:\trackeep\trackeep-product\trackeep-thoradar]
+i/lf    w/crlf  attr/                 	index.html
+i/lf    w/lf    attr/                 	sw-retire.js
+i/lf    w/lf    attr/                 	sw.js
+exit=0
+> git hash-object --path=index.html index.html [cwd=D:\trackeep\trackeep-product\trackeep-thoradar]
+7ee203a5111a144e8c5ad3c7db2baea00b03b61c
+exit=0
+> git rev-parse HEAD:index.html [cwd=D:\trackeep\trackeep-product\trackeep-thoradar]
+7ee203a5111a144e8c5ad3c7db2baea00b03b61c
+exit=0
+> git hash-object --path=sw.js sw.js [cwd=D:\trackeep\trackeep-product\trackeep-thoradar]
+4c353fa7be02102d1d738e8a9bfe726e0d2e97f2
+exit=0
+> git rev-parse HEAD:sw.js [cwd=D:\trackeep\trackeep-product\trackeep-thoradar]
+4c353fa7be02102d1d738e8a9bfe726e0d2e97f2
+exit=0
+> git hash-object --path=sw-retire.js sw-retire.js [cwd=D:\trackeep\trackeep-product\trackeep-thoradar]
+197fa34b3778cbac10ded12353861e3b71e5503a
+exit=0
+> git rev-parse HEAD:sw-retire.js [cwd=D:\trackeep\trackeep-product\trackeep-thoradar]
+197fa34b3778cbac10ded12353861e3b71e5503a
+exit=0
+> git diff HEAD --exit-code -- index.html sw.js sw-retire.js [cwd=D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s13-worktree]
+exit=0
+> git ls-files --eol -- index.html sw.js sw-retire.js [cwd=D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s13-worktree]
+i/lf    w/crlf  attr/                 	index.html
+i/lf    w/crlf  attr/                 	sw-retire.js
+i/lf    w/crlf  attr/                 	sw.js
+exit=0
+> git hash-object --path=index.html index.html [cwd=D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s13-worktree]
+7ee203a5111a144e8c5ad3c7db2baea00b03b61c
+exit=0
+> git rev-parse HEAD:index.html [cwd=D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s13-worktree]
+7ee203a5111a144e8c5ad3c7db2baea00b03b61c
+exit=0
+> git hash-object --path=sw.js sw.js [cwd=D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s13-worktree]
+4c353fa7be02102d1d738e8a9bfe726e0d2e97f2
+exit=0
+> git rev-parse HEAD:sw.js [cwd=D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s13-worktree]
+4c353fa7be02102d1d738e8a9bfe726e0d2e97f2
+exit=0
+> git hash-object --path=sw-retire.js sw-retire.js [cwd=D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s13-worktree]
+197fa34b3778cbac10ded12353861e3b71e5503a
+exit=0
+> git rev-parse HEAD:sw-retire.js [cwd=D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s13-worktree]
+197fa34b3778cbac10ded12353861e3b71e5503a
+exit=0
+> git hash-object --path=.github/workflows/deploy_oss.yml .github/workflows/deploy_oss.yml [cwd=D:\trackeep\trackeep-product\trackeep-thoradar]
+c7e9c904c2f3cc63cde2f5a1a1e4df4c2bc9c114
+exit=0
+> git rev-parse :.github/workflows/deploy_oss.yml [cwd=D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s13-worktree]
+c7e9c904c2f3cc63cde2f5a1a1e4df4c2bc9c114
+exit=0
+> git hash-object --path=docs/tasks/T1128-SMOOTH/release-contract.md docs/tasks/T1128-SMOOTH/release-contract.md [cwd=D:\trackeep\trackeep-product\trackeep-thoradar]
+3143c3c06e1e6a84289ee6ba57649bda4b6697e8
+exit=0
+> git rev-parse :docs/tasks/T1128-SMOOTH/release-contract.md [cwd=D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s13-worktree]
+3143c3c06e1e6a84289ee6ba57649bda4b6697e8
+exit=0
+> git hash-object --path=tests/smooth/deploy-mock.mjs tests/smooth/deploy-mock.mjs [cwd=D:\trackeep\trackeep-product\trackeep-thoradar]
+6b183563058b0b586e14096da9ca8df2474a4e02
+exit=0
+> git rev-parse :tests/smooth/deploy-mock.mjs [cwd=D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s13-worktree]
+6b183563058b0b586e14096da9ca8df2474a4e02
+exit=0
+> git hash-object --path=tests/smooth/verify-deploy.mjs tests/smooth/verify-deploy.mjs [cwd=D:\trackeep\trackeep-product\trackeep-thoradar]
+2e284d74c1f91bd7353e0f267e84ccbc0961852e
+exit=0
+> git rev-parse :tests/smooth/verify-deploy.mjs [cwd=D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s13-worktree]
+2e284d74c1f91bd7353e0f267e84ccbc0961852e
+exit=0
+> git diff --binary --output=D:\trackeep\trackeep-product\trackeep-thoradar\docs\tasks\T1128-SMOOTH\online-release\sol-s13\canonical.patch -- .github/workflows/deploy_oss.yml docs/tasks/T1128-SMOOTH/release-contract.md tests/smooth/deploy-mock.mjs tests/smooth/verify-deploy.mjs [cwd=D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s13-worktree]
+exit=0
+> git apply --stat D:\trackeep\trackeep-product\trackeep-thoradar\docs\tasks\T1128-SMOOTH\online-release\sol-s13\canonical.patch [cwd=D:\trackeep\trackeep-product\trackeep-thoradar]
+ .github/workflows/deploy_oss.yml            |    6 ++-
+ docs/tasks/T1128-SMOOTH/release-contract.md |    6 +--
+ tests/smooth/deploy-mock.mjs                |   18 ++++++---
+ tests/smooth/verify-deploy.mjs              |   56 ++++++++++++++++++++++++---
+ 4 files changed, 70 insertions(+), 16 deletions(-)
+exit=0
+> git apply --check --whitespace=error D:\trackeep\trackeep-product\trackeep-thoradar\docs\tasks\T1128-SMOOTH\online-release\sol-s13\canonical.patch [cwd=D:\trackeep\trackeep-product\trackeep-thoradar]
+exit=0
+sha256 astra-v5/focused.json 56fc3c8a853bba3a2adc4ec5a9e01294122510f0b756be2ab55ac5782d110f9d
+sha256 astra-v5/skip-host.diff 9a4bb4616f581228081b70126525bed85a1223ef472867fc103f5b0529ba6253
+sha256 online-release/main-s12-deploy.json dffb1d0140142ce570f20b5a2248c9de9044b9ae712f78a61f8523923323b8d5

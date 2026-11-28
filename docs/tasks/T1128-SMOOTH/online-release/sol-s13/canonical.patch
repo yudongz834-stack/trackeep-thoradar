@@ -1,0 +1,208 @@
+diff --git a/.github/workflows/deploy_oss.yml b/.github/workflows/deploy_oss.yml
+index c7e9c90..3c62745 100644
+--- a/.github/workflows/deploy_oss.yml
++++ b/.github/workflows/deploy_oss.yml
+@@ -186,6 +186,7 @@ jobs:
+                 printf "HTTP=%s Content-MD5=%s expected=%s MIME=%s Cache-Control=%s", status, md5, expected, mime, cache
+                 if (status != 200 || md5 != expected) exit 1
+                 if (worker && (mime !~ /^(application|text)\/(javascript|ecmascript)$/ || cache !~ /,[ \t]*no-store[ \t]*(,|$)/)) exit 1
++                if (!worker && mime != "text/html") exit 1
+               }
+             '
+           }
+@@ -233,7 +234,10 @@ jobs:
+ 
+           verify_object() {
+             local url="$1" source="$2" worker="$3" expected
+-            expected=$(openssl dgst -md5 -binary "$source" | openssl base64 -A)
++            if ! expected=$(git cat-file blob "HEAD:$source" | openssl dgst -md5 -binary | openssl base64 -A); then
++              echo "Unable to compute Content-MD5 from HEAD:$source" >&2
++              return 1
++            fi
+             verify_public "$url" check_object_headers "$expected" "$worker"
+           }
+ 
+diff --git a/docs/tasks/T1128-SMOOTH/release-contract.md b/docs/tasks/T1128-SMOOTH/release-contract.md
+index 3143c3c..3ae5739 100644
+--- a/docs/tasks/T1128-SMOOTH/release-contract.md
++++ b/docs/tasks/T1128-SMOOTH/release-contract.md
+@@ -8,10 +8,10 @@
+ 1. 发布接线不得改缓存程序：worker `e882e9e2...394f`、退役版 `5ae38f2b...6199` 保持不变。Sol S5 的输入首页为 C1 哈希 `33c50bef...1def`；最终发布首页必须采用上述最新日报与缓存改动合并版 `27ba018a...c706`，不得回退到旧 40 篇。
+ 2. 不改 `SITE_DATA/PAPERS/mergePapers/inWindow`，不新增 90 天缓存，不改其它对象现有缓存策略。
+ 3. OSS 首页保持 `max-age=60, s-maxage=3600` 并最后上传。两域的 `/sw.js` 与 `/sw-retire.js` 公网响应均须 `200`、JavaScript MIME、`Cache-Control: no-store`，直接验证响应，禁止跟随跳转。
+-4. `thoradar.online` 为唯一正式域（PI 2026-11-28 G18 签发）。主域根路径、`/index.html` 和两件 worker 发布后均须返回 `200`，并以 `Content-MD5` 对照本次发布的 Git 文件。主域 `/sw.js` 在正常模式对应 `sw.js`，退役模式对应 `sw-retire.js`，正常部署可恢复。主域 `/sw-retire.js` 始终对应 `sw-retire.js`。
++4. `thoradar.online` 为唯一正式域（PI 2026-11-28 G18 签发）。主域根路径、`/index.html` 和两件 worker 发布后均须返回 `200`，以 `Content-MD5` 对照发布提交 `HEAD:<path>` 的原始 Git blob 字节。读取 blob 或计算摘要失败即判红。主域根路径与 `/index.html` 的响应 MIME 必须为 `text/html`。主域 `/sw.js` 在正常模式对应 `sw.js`，退役模式对应 `sw-retire.js`，正常部署可恢复。主域 `/sw-retire.js` 始终对应 `sw-retire.js`。
+ 5. CDN 仅刷新 `https://thoradar.online` 的 `/`、`/index.html`、`/sw.js`、`/sw-retire.js`。刷新失败或无 `RefreshTaskId` 判红。公网验真最多 12 次，先等两次 5 秒，再每次等 40 秒，第 12 次累计等待 370 秒。
+-   - `www.thoradar.online` 的 `/`、`/index.html` 和 `/?from=www` 必须返回 `301` 或 `308`，`Location` 必须精确指向 `https://thoradar.online` 的同路径、同查询。
+-   - `www` 的 `/sw.js` 与 `/sw-retire.js` 在正常、退役两种发布模式中均须匹配 `sw-retire.js` 的 `Content-MD5`，用于旧客户端退出旧缓存。发布时无需刷新 `www`，两条 worker 例外与普通路径永久跳转由 M3 的 CDN 配置提供。
++   - `www.thoradar.online` 的 `/`、`/index.html` 和 `/?from=www` 必须返回 `301` 或 `308`，`Location` 必须精确指向 `https://thoradar.online` 的同路径、同查询。跳转按状态和 `Location` 验收。
++   - `www` 的 `/sw.js` 与 `/sw-retire.js` 在正常、退役两种发布模式中均须匹配发布提交 `HEAD:sw-retire.js` 的 `Content-MD5`，用于旧客户端退出旧缓存。发布时无需刷新 `www`，两条 worker 例外与普通路径永久跳转由 M3 的 CDN 配置提供。
+    - 双域源站预检仅检查 SNI 与根路径 `200`。`Publish verified on both domains` 表示主域四个对象与 `www` 三个跳转、两个退役入口均通过公网验真。
+ 6. CI 必须先跑发布静态检查、源码不变量、S1/S2/S3 与 UX，再允许部署；不拿已知 R08 失真测试充数。
+ 7. 任何真实凭证不得打印、传输到测试或提交；静态/模拟测试只用假命令和假应答。
+diff --git a/tests/smooth/deploy-mock.mjs b/tests/smooth/deploy-mock.mjs
+index 6b18356..62f78a1 100644
+--- a/tests/smooth/deploy-mock.mjs
++++ b/tests/smooth/deploy-mock.mjs
+@@ -2,7 +2,8 @@ import { createHash } from 'node:crypto';
+ import { appendFileSync, readFileSync } from 'node:fs';
+ 
+ const [tool, ...args] = process.argv.slice(2);
+-const { SMOOTH_MOCK_TRACE: trace, SMOOTH_MOCK_SCENARIO: scenario, SMOOTH_RETIRE: retire } = process.env;
++const { SMOOTH_MOCK_TRACE: trace, SMOOTH_MOCK_SCENARIO: scenario, SMOOTH_RETIRE: retire,
++  SMOOTH_MOCK_BLOB_MD5: blobMd5 } = process.env;
+ const prior = readFileSync(trace, 'utf8').trim().split('\n').filter(Boolean).map(line => JSON.parse(line));
+ appendFileSync(trace, JSON.stringify({ tool, args }) + '\n');
+ 
+@@ -36,12 +37,14 @@ switch (tool) {
+     const servesWwwIndex = (scenario === 'www-root-200' && url.pathname === '/') ||
+       (scenario === 'www-index-200' && url.pathname === '/index.html');
+     if ((isWww && !wwwWorker && !wwwRetire && !servesWwwIndex) || (wwwWorker && scenario === 'www-worker-redirect')) {
++      const wrongHost = scenario === 'www-redirect-wrong-host' && url.search === '?from=www';
+       const status = scenario === 'www-redirect-302' ? '302 Found' :
+-        url.pathname === '/index.html' ? '308 Permanent Redirect' : '301 Moved Permanently';
++        url.pathname === '/index.html' || wrongHost ? '308 Permanent Redirect' : '301 Moved Permanently';
++      const host = wrongHost ? 'other.invalid' : 'thoradar.online';
+       const targetPath = scenario === 'www-redirect-wrong-location' ? '/index.html' : url.pathname;
+       const query = scenario === 'www-redirect-lost-query' ? '' : url.search;
+       process.stdout.write([...proxyHeaders, `HTTP/2 ${status}`,
+-        `lOcAtIoN: https://thoradar.online${targetPath}${query}  `, '', ''].join('\r\n'));
++        `lOcAtIoN: https://${host}${targetPath}${query}  `, 'Content-Type: application/octet-stream', '', ''].join('\r\n'));
+       break;
+     }
+     const wwwWorkerSource = scenario === 'www-active-worker' ? 'sw.js' :
+@@ -56,13 +59,16 @@ switch (tool) {
+     const waited = prior.filter(entry => entry.tool === 'sleep').reduce((seconds, entry) => seconds + Number(entry.args[0]), 0);
+     const stale = (wwwWorker && (scenario === 'wrong-md5' || (scenario === 'stale-then-current' && first))) ||
+       (!isWww && url.pathname === '/sw.js' && scenario === 'stale-during-propagation' && waited < 360);
+-    const body = stale ? 'stale CDN entry' : readFileSync(source);
+     const status = wwwWorker && scenario === 'worker-404' ? '404 Not Found' : '200 OK';
+-    const mime = source.endsWith('.js') && !(wwwWorker && scenario === 'wrong-mime')
++    const homepageOctetStream = !isWww && (
++      (scenario === 'homepage-octet-stream-root' && url.pathname === '/') ||
++      (scenario === 'homepage-octet-stream-index' && url.pathname === '/index.html'));
++    let mime = source.endsWith('.js') && !(wwwWorker && scenario === 'wrong-mime')
+       ? 'Application/JavaScript ; charset=utf-8' : 'text/html; charset=utf-8';
++    if (homepageOctetStream) mime = 'application/octet-stream';
+     const cache = source.endsWith('.js') && !(wwwRetire && scenario === 'worker-cacheable')
+       ? 'max-age=0, No-Store' : 'public, max-age=60, s-maxage=3600';
+-    const md5 = createHash('md5').update(body).digest('base64');
++    const md5 = stale ? createHash('md5').update('stale CDN entry').digest('base64') : JSON.parse(blobMd5)[source];
+     process.stdout.write([
+       ...proxyHeaders, `HTTP/2 ${status}`,
+       `cOnTenT-mD5: ${md5}  `, `content-type: ${mime}`, `Cache-Control: ${cache}`, '', ''
+diff --git a/tests/smooth/verify-deploy.mjs b/tests/smooth/verify-deploy.mjs
+index 2e284d7..e76ea6c 100644
+--- a/tests/smooth/verify-deploy.mjs
++++ b/tests/smooth/verify-deploy.mjs
+@@ -1,5 +1,6 @@
+ import assert from 'node:assert/strict';
+-import { spawnSync } from 'node:child_process';
++import { execFileSync, spawnSync } from 'node:child_process';
++import { createHash } from 'node:crypto';
+ import { chmod, copyFile, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+ import { existsSync } from 'node:fs';
+ import { tmpdir } from 'node:os';
+@@ -102,6 +103,12 @@ for (const key of ['PATH', 'SystemRoot', 'COMSPEC', 'PATHEXT', 'TEMP', 'TMP', 'T
+   if (process.env[key] !== undefined) localEnv[key] = process.env[key];
+ }
+ const bashPath = path => windows ? path.replaceAll('\\', '/') : path;
++const git = (...args) => execFileSync('git', args, { cwd: root, env: localEnv, windowsHide: true });
++const gitDir = bashPath(git('rev-parse', '--absolute-git-dir').toString().trim());
++const md5 = bytes => createHash('md5').update(bytes).digest('base64');
++const sources = ['index.html', 'sw.js', 'sw-retire.js'];
++const blobs = Object.fromEntries(sources.map(source => [source, git('cat-file', 'blob', `HEAD:${source}`)]));
++const blobMd5 = Object.fromEntries(sources.map(source => [source, md5(blobs[source])]));
+ const scratch = await mkdtemp(join(tmpdir(), 'thoradar-s5-deploy-'));
+ const simulations = {};
+ const shellRuns = {};
+@@ -128,18 +135,19 @@ async function mockCommand(path, tool) {
+   await chmod(path, 0o755);
+ }
+ 
+-async function simulate(scenario, retire = false) {
++async function simulate(scenario, retire = false, checkout = scratch) {
+   const label = retire ? `${scenario}-retire` : scenario;
+   const trace = join(scratch, `trace-${label}.jsonl`);
+   await writeFile(trace, '');
+   const env = { ...localEnv, MSYS2_ARG_CONV_EXCL: '*', RUNNER_TEMP: bashPath(scratch),
++    GIT_DIR: scenario === 'git-blob-unavailable' ? bashPath(join(scratch, 'missing-git-dir')) : gitDir,
+     OSS_KEY_ID: 'mock-id', OSS_KEY_SECRET: 'mock-secret',
+     ALIBABA_CLOUD_ACCESS_KEY_ID: 'mock-id', ALIBABA_CLOUD_ACCESS_KEY_SECRET: 'mock-secret',
+     SMOOTH_RETIRE: String(retire), SMOOTH_MOCK_SCENARIO: scenario,
+     SMOOTH_MOCK_NODE: bashPath(process.execPath), SMOOTH_MOCK_SCRIPT: fileURLToPath(new URL('./deploy-mock.mjs', import.meta.url)),
+-    SMOOTH_MOCK_TRACE: trace };
++    SMOOTH_MOCK_TRACE: trace, SMOOTH_MOCK_BLOB_MD5: JSON.stringify(blobMd5) };
+   const script = join(scratch, 'publish.sh');
+-  const run = bashRun([bashPath(script)], { env });
++  const run = bashRun([bashPath(script)], { cwd: checkout, env });
+   const calls = (await readFile(trace, 'utf8')).trim().split('\n').filter(Boolean).map(line => JSON.parse(line));
+   simulations[label] = { ...run, calls };
+   return { ...run, calls, uploads: calls.filter(call => call.tool === 'ossutil' && call.args[0] === 'cp').map(call => call.args),
+@@ -181,7 +189,7 @@ try {
+   await mkdir(bin);
+   await mkdir(aliyun);
+   await Promise.all([
+-    ...['index.html', 'sw.js', 'sw-retire.js', 'sitemap.xml'].map(file => copyFile(join(root, file), join(scratch, file))),
++    ...[...sources, 'sitemap.xml'].map(file => copyFile(join(root, file), join(scratch, file))),
+     mockCommand(join(scratch, 'ossutil'), 'ossutil'), mockCommand(join(aliyun, 'aliyun'), 'aliyun'),
+     mockCommand(join(bin, 'curl'), 'curl'), mockCommand(join(bin, 'sleep'), 'sleep')
+   ]);
+@@ -233,6 +241,29 @@ try {
+     });
+   }
+ 
++  await test('CRLF checkout still verifies against the Git blobs', async () => {
++    const checkout = join(scratch, 'crlf-checkout');
++    await mkdir(checkout);
++    for (const source of sources) {
++      const crlf = Buffer.from(blobs[source].toString('latin1').replace(/(?<!\r)\n/g, '\r\n'), 'latin1');
++      assert.notEqual(md5(crlf), blobMd5[source], `${source} fixture must differ from its Git blob`);
++      await writeFile(join(checkout, source), crlf);
++    }
++    await copyFile(join(root, 'sitemap.xml'), join(checkout, 'sitemap.xml'));
++    const run = await simulate('crlf-checkout', false, checkout);
++    success(run);
++    for (const [index, source] of ['index.html', ...sources].entries()) {
++      const digest = blobMd5[source];
++      assert.ok(run.stdout.includes(`Verified ${refreshUrls[index]} HTTP=200 Content-MD5=${digest} expected=${digest} `));
++    }
++  });
++
++  await test('unreadable Git blob fails before public object verification', async () => {
++    const run = await simulate('git-blob-unavailable');
++    failure(run, /Unable to compute Content-MD5 from HEAD:index\.html/);
++    assert.deepEqual(run.heads, []);
++  });
++
+   for (const scenario of ['refresh-retry', 'id-retry', 'refresh-error', 'missing-task-id']) {
+     await test(`CDN ${scenario} uses at most one retry and requires a task ID`, async () => {
+       const run = await simulate(scenario);
+@@ -273,13 +304,26 @@ try {
+     ['www-index-200', wwwRedirects[1]],
+     ['www-redirect-302', wwwRedirects[0]],
+     ['www-redirect-wrong-location', wwwRedirects[0]],
+-    ['www-redirect-lost-query', wwwRedirects[2]]
++    ['www-redirect-lost-query', wwwRedirects[2]],
++    ['www-redirect-wrong-host', wwwRedirects[2]]
+   ]) {
+     await test(`post-publish verification rejects ${scenario}`, async () => {
+       rejectsPublicResponse(await simulate(scenario), url);
+     });
+   }
+ 
++  for (const [scenario, url] of [
++    ['homepage-octet-stream-root', refreshUrls[0]],
++    ['homepage-octet-stream-index', refreshUrls[1]]
++  ]) {
++    await test(`post-publish verification rejects ${scenario} with the correct blob MD5`, async () => {
++      const run = await simulate(scenario);
++      rejectsPublicResponse(run, url);
++      const digest = blobMd5['index.html'];
++      assert.ok(run.stdout.includes(`Waiting for ${url} (12/12) HTTP=200 Content-MD5=${digest} expected=${digest} MIME=application/octet-stream `));
++    });
++  }
++
+   for (const scenario of ['wrong-md5', 'wrong-mime', 'worker-cacheable', 'worker-404', 'head-error',
+     'www-active-worker', 'www-worker-html', 'www-worker-redirect']) {
+     await test(`post-publish verification rejects ${scenario}`, async () => {

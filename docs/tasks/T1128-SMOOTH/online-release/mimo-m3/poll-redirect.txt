@@ -1,0 +1,3 @@
+[20:44:07] poll1 root=curl: (28) Connection timed out after 25009 milliseconds Location: https://thoradar.online/ | idxq=Location: https://thoradar.online/index.html?sw=0 | sw=HTTP/1.1 200 OK
+[20:45:20] poll2 root=HTTP/1.1 301 Moved Permanently Location: https://thoradar.online/ | idxq=Location: https://thoradar.online/index.html?sw=0 | sw=HTTP/1.1 200 OK
+REDIRECT-LIVE

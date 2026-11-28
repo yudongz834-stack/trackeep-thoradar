@@ -1,0 +1,138 @@
+A5 本地核验回执
+Git blob    HEAD:index.html  80mggny6RjRXP9Uw4zglxQ==
+工作树字节  index.html       OoYTQN1+/i5YpdPcDG8kEg==
+Verified https://thoradar.online/ HTTP=200 Content-MD5=OoYTQN1+/i5YpdPcDG8kEg== expected=OoYTQN1+/i5YpdPcDG8kEg== MIME=text/html Cache-Control=,public, max-age=60, s-maxage=3600
+
+[canonical]
+cwd=D:\claude-tmp\T1128-SMOOTH-A5-98c362c8b2ee4782bd031502825f96fd\snapshot
+> node tests/smooth/verify-deploy.mjs D:\trackeep\trackeep-product\trackeep-thoradar\docs\tasks\T1128-SMOOTH\astra-v5\canonical.json
+SUMMARY {"passed":27,"failed":0}
+exit=0
+
+[allow-302]
+cwd=D:\claude-tmp\T1128-SMOOTH-A5-98c362c8b2ee4782bd031502825f96fd\snapshot
+> node tests/smooth/verify-deploy.mjs D:\trackeep\trackeep-product\trackeep-thoradar\docs\tasks\T1128-SMOOTH\astra-v5\allow-302.json D:\claude-tmp\T1128-SMOOTH-A5-98c362c8b2ee4782bd031502825f96fd\allow-302.yml
+SUMMARY {"passed":26,"failed":1}
+exit=1
+FAIL post-publish verification rejects www-redirect-302: deployment exited 0
+
+[www-active]
+cwd=D:\claude-tmp\T1128-SMOOTH-A5-98c362c8b2ee4782bd031502825f96fd\snapshot
+> node tests/smooth/verify-deploy.mjs D:\trackeep\trackeep-product\trackeep-thoradar\docs\tasks\T1128-SMOOTH\astra-v5\www-active.json D:\claude-tmp\T1128-SMOOTH-A5-98c362c8b2ee4782bd031502825f96fd\www-active.yml
+SUMMARY {"passed":21,"failed":6}
+exit=1
+FAIL normal uploads workers then index, refreshes only four main URLs and verifies both domains: Verification failed for https://www.thoradar.online/sw.js
+FAIL CDN refresh-retry uses at most one retry and requires a task ID: Expected values to be strictly equal:
+FAIL CDN id-retry uses at most one retry and requires a task ID: Expected values to be strictly equal:
+FAIL stale www worker is polled before the retirement worker verifies: Verification failed for https://www.thoradar.online/sw.js
+FAIL post-publish verification rejects worker-cacheable: Verification failed for https://www.thoradar.online/sw.js
+FAIL post-publish verification rejects www-active-worker: deployment exited 0
+
+[skip-host]
+cwd=D:\claude-tmp\T1128-SMOOTH-A5-98c362c8b2ee4782bd031502825f96fd\snapshot
+> node tests/smooth/verify-deploy.mjs D:\trackeep\trackeep-product\trackeep-thoradar\docs\tasks\T1128-SMOOTH\astra-v5\skip-host.json D:\claude-tmp\T1128-SMOOTH-A5-98c362c8b2ee4782bd031502825f96fd\skip-host.yml
+SUMMARY {"passed":27,"failed":0}
+exit=0
+
+[source]
+cwd=D:\trackeep\trackeep-product\trackeep-thoradar
+> node tests/smooth/verify-source.mjs D:\trackeep\trackeep-product\trackeep-thoradar\docs\tasks\T1128-SMOOTH\astra-v5\source.json --ci
+SUMMARY {"passed":5,"failed":0}
+exit=0
+
+A5 vs main-s12-deploy.json: tests, shellRuns and all 23 simulation records (stdout, stderr, status, calls) match.
+[canonical] www-redirect-302 scenario_exit=1
+Waiting for https://www.thoradar.online/ (1/12) HTTP=302 Location=https://thoradar.online/
+Verification failed for https://www.thoradar.online/
+[allow-302] www-redirect-302 scenario_exit=0
+Verified https://www.thoradar.online/ HTTP=302 Location=https://thoradar.online/
+
+[canonical] www-active-worker scenario_exit=1
+Waiting for https://www.thoradar.online/sw.js (1/12) HTTP=200 Content-MD5=nrgKbeazqBXvILkgAlssIg== expected=xviHOEexQQLp0q41sv2uuA== MIME=application/javascript Cache-Control=,max-age=0, no-store
+Verification failed for https://www.thoradar.online/sw.js
+[www-active] www-active-worker scenario_exit=0
+Verified https://www.thoradar.online/sw.js HTTP=200 Content-MD5=nrgKbeazqBXvILkgAlssIg== expected=nrgKbeazqBXvILkgAlssIg== MIME=application/javascript Cache-Control=,max-age=0, no-store
+
+
+[healthy]
+ossutil cp -f --meta Content-Type:application/javascript#Cache-Control:no-store sw-retire.js oss://thoradar-online/sw-retire.js
+ossutil cp -f --meta Content-Type:application/javascript#Cache-Control:no-store sw.js oss://thoradar-online/sw.js
+ossutil cp -f --meta "Cache-Control:public, max-age=60, s-maxage=3600" index.html oss://thoradar-online/index.html
+aliyun cdn RefreshObjectCaches --region cn-shenzhen --ObjectType File --ObjectPath https://thoradar.online/
+https://thoradar.online/index.html
+https://thoradar.online/sw.js
+https://thoradar.online/sw-retire.js
+Verified https://thoradar.online/ HTTP=200 Content-MD5=OoYTQN1+/i5YpdPcDG8kEg== expected=OoYTQN1+/i5YpdPcDG8kEg== MIME=text/html Cache-Control=,public, max-age=60, s-maxage=3600
+Verified https://thoradar.online/index.html HTTP=200 Content-MD5=OoYTQN1+/i5YpdPcDG8kEg== expected=OoYTQN1+/i5YpdPcDG8kEg== MIME=text/html Cache-Control=,public, max-age=60, s-maxage=3600
+Verified https://thoradar.online/sw.js HTTP=200 Content-MD5=nrgKbeazqBXvILkgAlssIg== expected=nrgKbeazqBXvILkgAlssIg== MIME=application/javascript Cache-Control=,max-age=0, no-store
+Verified https://thoradar.online/sw-retire.js HTTP=200 Content-MD5=xviHOEexQQLp0q41sv2uuA== expected=xviHOEexQQLp0q41sv2uuA== MIME=application/javascript Cache-Control=,max-age=0, no-store
+Verified https://www.thoradar.online/ HTTP=301 Location=https://thoradar.online/
+Verified https://www.thoradar.online/index.html HTTP=308 Location=https://thoradar.online/index.html
+Verified https://www.thoradar.online/?from=www HTTP=301 Location=https://thoradar.online/?from=www
+Verified https://www.thoradar.online/sw.js HTTP=200 Content-MD5=xviHOEexQQLp0q41sv2uuA== expected=xviHOEexQQLp0q41sv2uuA== MIME=application/javascript Cache-Control=,max-age=0, no-store
+Verified https://www.thoradar.online/sw-retire.js HTTP=200 Content-MD5=xviHOEexQQLp0q41sv2uuA== expected=xviHOEexQQLp0q41sv2uuA== MIME=application/javascript Cache-Control=,max-age=0, no-store
+Publish verified on both domains
+
+[healthy-retire]
+ossutil cp -f --meta Content-Type:application/javascript#Cache-Control:no-store sw-retire.js oss://thoradar-online/sw-retire.js
+ossutil cp -f --meta Content-Type:application/javascript#Cache-Control:no-store sw-retire.js oss://thoradar-online/sw.js
+ossutil cp -f --meta "Cache-Control:public, max-age=60, s-maxage=3600" index.html oss://thoradar-online/index.html
+aliyun cdn RefreshObjectCaches --region cn-shenzhen --ObjectType File --ObjectPath https://thoradar.online/
+https://thoradar.online/index.html
+https://thoradar.online/sw.js
+https://thoradar.online/sw-retire.js
+Verified https://thoradar.online/ HTTP=200 Content-MD5=OoYTQN1+/i5YpdPcDG8kEg== expected=OoYTQN1+/i5YpdPcDG8kEg== MIME=text/html Cache-Control=,public, max-age=60, s-maxage=3600
+Verified https://thoradar.online/index.html HTTP=200 Content-MD5=OoYTQN1+/i5YpdPcDG8kEg== expected=OoYTQN1+/i5YpdPcDG8kEg== MIME=text/html Cache-Control=,public, max-age=60, s-maxage=3600
+Verified https://thoradar.online/sw.js HTTP=200 Content-MD5=xviHOEexQQLp0q41sv2uuA== expected=xviHOEexQQLp0q41sv2uuA== MIME=application/javascript Cache-Control=,max-age=0, no-store
+Verified https://thoradar.online/sw-retire.js HTTP=200 Content-MD5=xviHOEexQQLp0q41sv2uuA== expected=xviHOEexQQLp0q41sv2uuA== MIME=application/javascript Cache-Control=,max-age=0, no-store
+Verified https://www.thoradar.online/ HTTP=301 Location=https://thoradar.online/
+Verified https://www.thoradar.online/index.html HTTP=308 Location=https://thoradar.online/index.html
+Verified https://www.thoradar.online/?from=www HTTP=301 Location=https://thoradar.online/?from=www
+Verified https://www.thoradar.online/sw.js HTTP=200 Content-MD5=xviHOEexQQLp0q41sv2uuA== expected=xviHOEexQQLp0q41sv2uuA== MIME=application/javascript Cache-Control=,max-age=0, no-store
+Verified https://www.thoradar.online/sw-retire.js HTTP=200 Content-MD5=xviHOEexQQLp0q41sv2uuA== expected=xviHOEexQQLp0q41sv2uuA== MIME=application/javascript Cache-Control=,max-age=0, no-store
+Publish verified on both domains
+
+[stale-during-propagation-retire]
+sleep seconds: [5, 5, 40, 40, 40, 40, 40, 40, 40, 40, 40], sum=370, main /sw.js HEAD count=12
+
+[upload-error]
+last upload=["cp", "-f", "--meta", "Content-Type:application/javascript#Cache-Control:no-store", "sw.js", "oss://thoradar-online/sw.js"]
+index uploads=0; CDN refreshes=0; exit=1
+
+[fixture responses passed to original Bash functions; synthetic curl/sleep]
+working-expectation_git-response / exit=1 | Waiting for https://thoradar.online/ (1/12) HTTP=200 Content-MD5=80mggny6RjRXP9Uw4zglxQ== expected=OoYTQN1+/i5YpdPcDG8kEg== MIME=text/html Cache-Control=
+working-expectation_working-response / exit=0 | Verified https://thoradar.online/ HTTP=200 Content-MD5=OoYTQN1+/i5YpdPcDG8kEg== expected=OoYTQN1+/i5YpdPcDG8kEg== MIME=text/html Cache-Control=
+git-bytes_git-response / exit=0 | Verified https://thoradar.online/ HTTP=200 Content-MD5=80mggny6RjRXP9Uw4zglxQ== expected=80mggny6RjRXP9Uw4zglxQ== MIME=text/html Cache-Control=
+git-bytes_working-response / exit=1 | Waiting for https://thoradar.online/ (1/12) HTTP=200 Content-MD5=OoYTQN1+/i5YpdPcDG8kEg== expected=80mggny6RjRXP9Uw4zglxQ== MIME=text/html Cache-Control=
+working-expectation_git-response /index.html exit=1 | Waiting for https://thoradar.online/index.html (1/12) HTTP=200 Content-MD5=80mggny6RjRXP9Uw4zglxQ== expected=OoYTQN1+/i5YpdPcDG8kEg== MIME=text/html Cache-Control=
+working-expectation_working-response /index.html exit=0 | Verified https://thoradar.online/index.html HTTP=200 Content-MD5=OoYTQN1+/i5YpdPcDG8kEg== expected=OoYTQN1+/i5YpdPcDG8kEg== MIME=text/html Cache-Control=
+git-bytes_git-response /index.html exit=0 | Verified https://thoradar.online/index.html HTTP=200 Content-MD5=80mggny6RjRXP9Uw4zglxQ== expected=80mggny6RjRXP9Uw4zglxQ== MIME=text/html Cache-Control=
+git-bytes_working-response /index.html exit=1 | Waiting for https://thoradar.online/index.html (1/12) HTTP=200 Content-MD5=OoYTQN1+/i5YpdPcDG8kEg== expected=80mggny6RjRXP9Uw4zglxQ== MIME=text/html Cache-Control=
+canonical_wrong-host-only exit=1 | Waiting for https://www.thoradar.online/?from=www (1/12) HTTP=308 Location=https://other.invalid/?from=www
+skip-host_wrong-host-only exit=0 | Verified https://www.thoradar.online/?from=www HTTP=308 Location=https://other.invalid/?from=www
+canonical_correct-host exit=0 | Verified https://www.thoradar.online/?from=www HTTP=308 Location=https://thoradar.online/?from=www
+canonical_homepage-octet-stream / exit=0 | Verified https://thoradar.online/ HTTP=200 Content-MD5=80mggny6RjRXP9Uw4zglxQ== expected=80mggny6RjRXP9Uw4zglxQ== MIME=application/octet-stream Cache-Control=
+canonical_homepage-octet-stream /index.html exit=0 | Verified https://thoradar.online/index.html HTTP=200 Content-MD5=80mggny6RjRXP9Uw4zglxQ== expected=80mggny6RjRXP9Uw4zglxQ== MIME=application/octet-stream Cache-Control=
+www/sw.js retirement exit=0 | Verified https://www.thoradar.online/sw.js HTTP=200 Content-MD5=xviHOEexQQLp0q41sv2uuA== expected=xviHOEexQQLp0q41sv2uuA== MIME=application/javascript Cache-Control=,no-store
+www/sw.js normal exit=1 | Waiting for https://www.thoradar.online/sw.js (1/12) HTTP=200 Content-MD5=nrgKbeazqBXvILkgAlssIg== expected=xviHOEexQQLp0q41sv2uuA== MIME=application/javascript Cache-Control=,no-store
+www/sw.js html-mime exit=1 | Waiting for https://www.thoradar.online/sw.js (1/12) HTTP=200 Content-MD5=xviHOEexQQLp0q41sv2uuA== expected=xviHOEexQQLp0q41sv2uuA== MIME=text/html Cache-Control=,no-store
+www/sw.js cacheable exit=1 | Waiting for https://www.thoradar.online/sw.js (1/12) HTTP=200 Content-MD5=xviHOEexQQLp0q41sv2uuA== expected=xviHOEexQQLp0q41sv2uuA== MIME=application/javascript Cache-Control=,max-age=3600
+www/sw.js redirect exit=1 | Waiting for https://www.thoradar.online/sw.js (1/12) HTTP=308 Content-MD5= expected=xviHOEexQQLp0q41sv2uuA== MIME= Cache-Control=
+www/sw-retire.js retirement exit=0 | Verified https://www.thoradar.online/sw-retire.js HTTP=200 Content-MD5=xviHOEexQQLp0q41sv2uuA== expected=xviHOEexQQLp0q41sv2uuA== MIME=application/javascript Cache-Control=,no-store
+www/sw-retire.js normal exit=1 | Waiting for https://www.thoradar.online/sw-retire.js (1/12) HTTP=200 Content-MD5=nrgKbeazqBXvILkgAlssIg== expected=xviHOEexQQLp0q41sv2uuA== MIME=application/javascript Cache-Control=,no-store
+www/sw-retire.js html-mime exit=1 | Waiting for https://www.thoradar.online/sw-retire.js (1/12) HTTP=200 Content-MD5=xviHOEexQQLp0q41sv2uuA== expected=xviHOEexQQLp0q41sv2uuA== MIME=text/html Cache-Control=,no-store
+www/sw-retire.js cacheable exit=1 | Waiting for https://www.thoradar.online/sw-retire.js (1/12) HTTP=200 Content-MD5=xviHOEexQQLp0q41sv2uuA== expected=xviHOEexQQLp0q41sv2uuA== MIME=application/javascript Cache-Control=,max-age=3600
+www/sw-retire.js redirect exit=1 | Waiting for https://www.thoradar.online/sw-retire.js (1/12) HTTP=308 Content-MD5= expected=xviHOEexQQLp0q41sv2uuA== MIME= Cache-Control=
+
+[integrity after all runs]
+34a29a98530e16073ab83ad1aa966d76fce867accd5f192101ccf1fa738a6529 .github\workflows\deploy_oss.yml
+bb8b096061868177ee2b7562f589b79fa04e5bec45b2086f4057ba97aab70b2e tests\smooth\deploy-mock.mjs
+4b247251a2d657ff98aa2a6b089f56c8f38287b9a361b62d9dcadfff23788d9a tests\smooth\verify-deploy.mjs
+d111f89b5e6be916dd3f1954e3575d8fee9c1f26661e7a15de0f8434505baac9 docs\tasks\T1128-SMOOTH\release-contract.md
+e882e9e2eef0bf36781b8b03ecec23eb81221fa8b33272cdc9de3e368f76394f sw.js
+5ae38f2ba965f4e1b1d340da2ba5fadd8b58af82a1e271a02ddff97ab5686199 sw-retire.js
+27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706 index.html
+34543aeff5cd9cb2533553bf005ddbe64a363b7a163c84fac0e1493239b3b7c9 sitemap.xml
+> pwsh -NoProfile -Command "Test-Path -LiteralPath 'docs/tasks/T1128-SMOOTH/mimo-m3-canonical-report.md'"
+False
+2026-11-28T20:23:52+08:00

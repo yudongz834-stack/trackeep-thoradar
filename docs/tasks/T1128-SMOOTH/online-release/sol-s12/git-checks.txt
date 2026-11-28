@@ -1,0 +1,53 @@
+PS > git -C D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s12-worktree diff --binary --output=docs/tasks/T1128-SMOOTH/sol-s12-canonical.patch -- .github/workflows/deploy_oss.yml tests/smooth/verify-deploy.mjs tests/smooth/deploy-mock.mjs docs/tasks/T1128-SMOOTH/release-contract.md
+warning: in the working copy of 'docs/tasks/T1128-SMOOTH/release-contract.md', LF will be replaced by CRLF the next time Git touches it
+exit=0
+PS > git -C D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s12-worktree diff --check
+warning: in the working copy of 'docs/tasks/T1128-SMOOTH/release-contract.md', LF will be replaced by CRLF the next time Git touches it
+exit=0
+PS > git diff --check
+warning: in the working copy of 'docs/tasks/T1128-SMOOTH/RELEASE-REPORT.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/tasks/T1128-SMOOTH/task-map.md', LF will be replaced by CRLF the next time Git touches it
+exit=0
+PS > git apply --check --whitespace=error D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s12-worktree\docs\tasks\T1128-SMOOTH\sol-s12-canonical.patch
+exit=0
+PS > git apply --stat D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s12-worktree\docs\tasks\T1128-SMOOTH\sol-s12-canonical.patch
+ .github/workflows/deploy_oss.yml            |   85 ++++++++++++++++++---------
+ docs/tasks/T1128-SMOOTH/release-contract.md |    9 ++-
+ tests/smooth/deploy-mock.mjs                |   36 ++++++++---
+ tests/smooth/verify-deploy.mjs              |   69 ++++++++++++++++------
+ 4 files changed, 140 insertions(+), 59 deletions(-)
+exit=0
+PS > git diff HEAD --exit-code -- index.html sw.js sw-retire.js
+exit=0
+PS > git -C D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s12-worktree diff HEAD --exit-code -- index.html sw.js sw-retire.js
+exit=0
+PS > Get-FileHash -Algorithm SHA256 index.html, sw.js, sw-retire.js (both worktrees)
+index.html main=27BA018A9A3B4936EC734820AF8CB505262BD55F41AE382047615F0A58D7C706 isolated=27BA018A9A3B4936EC734820AF8CB505262BD55F41AE382047615F0A58D7C706
+sw.js main=E882E9E2EEF0BF36781B8B03ECEC23EB81221FA8B33272CDC9DE3E368F76394F isolated=DFD100C733AC89B9149358262970C8AB6F68CEFF23DE83180B253C3C2D779F76
+Initial raw SHA-256 comparison stopped at sw.js. Investigated checkout line endings and compared normalized Git blobs below.
+PS > git ls-files --eol -- index.html sw.js sw-retire.js
+i/lf    w/crlf  attr/                 	index.html
+i/lf    w/lf    attr/                 	sw-retire.js
+i/lf    w/lf    attr/                 	sw.js
+exit=0
+PS > git -C D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s12-worktree ls-files --eol -- index.html sw.js sw-retire.js
+i/lf    w/crlf  attr/                 	index.html
+i/lf    w/crlf  attr/                 	sw-retire.js
+i/lf    w/crlf  attr/                 	sw.js
+exit=0
+PS > git hash-object --path=index.html index.html (both worktrees); git rev-parse HEAD:index.html
+index.html main=7ee203a5111a144e8c5ad3c7db2baea00b03b61c isolated=7ee203a5111a144e8c5ad3c7db2baea00b03b61c HEAD=7ee203a5111a144e8c5ad3c7db2baea00b03b61c
+PS > git hash-object --path=sw.js sw.js (both worktrees); git rev-parse HEAD:sw.js
+sw.js main=4c353fa7be02102d1d738e8a9bfe726e0d2e97f2 isolated=4c353fa7be02102d1d738e8a9bfe726e0d2e97f2 HEAD=4c353fa7be02102d1d738e8a9bfe726e0d2e97f2
+PS > git hash-object --path=sw-retire.js sw-retire.js (both worktrees); git rev-parse HEAD:sw-retire.js
+sw-retire.js main=197fa34b3778cbac10ded12353861e3b71e5503a isolated=197fa34b3778cbac10ded12353861e3b71e5503a HEAD=197fa34b3778cbac10ded12353861e3b71e5503a
+PS > git -C D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s12-worktree diff --name-only
+warning: in the working copy of 'docs/tasks/T1128-SMOOTH/release-contract.md', LF will be replaced by CRLF the next time Git touches it
+.github/workflows/deploy_oss.yml
+docs/tasks/T1128-SMOOTH/release-contract.md
+tests/smooth/deploy-mock.mjs
+tests/smooth/verify-deploy.mjs
+exit=0
+PS > git -C D:\trackeep\trackeep-product\trackeep-thoradar\.git\t1128-s12-worktree rev-parse HEAD
+af3f2775855bb99aeb5c3262cb2738a889b60d70
+exit=0

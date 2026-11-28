@@ -1,0 +1,50 @@
+FAIL normal uploads workers then index, refreshes only four main URLs and verifies both domains: Verification failed for https://www.thoradar.online/
+
+
+1 !== 0
+
+FAIL retire uploads workers then index, refreshes only four main URLs and verifies both domains: Verification failed for https://www.thoradar.online/
+
+
+1 !== 0
+
+FAIL CDN refresh-retry uses at most one retry and requires a task ID: Expected values to be strictly equal:
+
+12 !== 1
+
+FAIL CDN id-retry uses at most one retry and requires a task ID: Expected values to be strictly equal:
+
+12 !== 1
+
+FAIL stale www worker is polled before the retirement worker verifies: Verification failed for https://www.thoradar.online/
+
+
+1 !== 0
+
+FAIL main-domain CDN can take six minutes with two 5s sleeps followed by nine 40s sleeps: Verification failed for https://www.thoradar.online/
+
+
+1 !== 0
+
+FAIL post-publish verification rejects www-root-200: Verification failed for https://www.thoradar.online/index.html
+
+FAIL post-publish verification rejects www-index-200: Verification failed for https://www.thoradar.online/
+
+FAIL post-publish verification rejects www-redirect-lost-query: Verification failed for https://www.thoradar.online/
+
+FAIL post-publish verification rejects wrong-md5: Verification failed for https://www.thoradar.online/
+
+FAIL post-publish verification rejects wrong-mime: Verification failed for https://www.thoradar.online/
+
+FAIL post-publish verification rejects worker-cacheable: Verification failed for https://www.thoradar.online/
+
+FAIL post-publish verification rejects worker-404: Verification failed for https://www.thoradar.online/
+
+FAIL post-publish verification rejects head-error: Verification failed for https://www.thoradar.online/
+
+FAIL post-publish verification rejects www-active-worker: Verification failed for https://www.thoradar.online/
+
+FAIL post-publish verification rejects www-worker-html: Verification failed for https://www.thoradar.online/
+
+FAIL post-publish verification rejects www-worker-redirect: Verification failed for https://www.thoradar.online/
+

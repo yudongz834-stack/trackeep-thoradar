@@ -1,0 +1,1 @@
+FAIL post-publish verification rejects www-redirect-302: deployment exited 0

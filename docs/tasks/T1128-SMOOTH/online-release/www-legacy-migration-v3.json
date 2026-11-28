@@ -1,0 +1,167 @@
+{
+  "profile": "D:/claude-tmp/thoradar-www-legacy-J28T4e",
+  "startedAt": "2026-11-28T13:00:27.829Z",
+  "checks": [
+    {
+      "name": "legacy visit really starts from the old www cache",
+      "pass": true,
+      "detail": {
+        "first": {
+          "nav": {
+            "frameId": "148046690719665FEB0ED5F5969881F0",
+            "loaderId": "59F8DB9107E28D4974F7CF18EE8BB8D1",
+            "isDownload": false
+          },
+          "page": {
+            "url": "https://www.thoradar.online/index.html",
+            "date": "2026-11-28",
+            "papers": 43,
+            "controller": true
+          },
+          "responses": [
+            {
+              "type": "Document",
+              "loaderId": "59F8DB9107E28D4974F7CF18EE8BB8D1",
+              "url": "https://www.thoradar.online/index.html",
+              "status": 200,
+              "fromServiceWorker": true,
+              "source": "cache-storage"
+            }
+          ]
+        },
+        "legacyResponse": {
+          "type": "Document",
+          "loaderId": "59F8DB9107E28D4974F7CF18EE8BB8D1",
+          "url": "https://www.thoradar.online/index.html",
+          "status": 200,
+          "fromServiceWorker": true,
+          "source": "cache-storage"
+        }
+      }
+    },
+    {
+      "name": "www retirement unregisters workers and clears shell but preserves personal storage",
+      "pass": true,
+      "detail": {
+        "url": "https://www.thoradar.online/index.html",
+        "banner": "数据 2026-11-28 · 本地副本已停用",
+        "registrations": 0,
+        "states": [],
+        "names": [],
+        "shell": [],
+        "sentinel": "keep"
+      }
+    },
+    {
+      "name": "next legacy visit follows the permanent redirect to canonical with query preserved",
+      "pass": false,
+      "detail": {
+        "nav": {
+          "frameId": "148046690719665FEB0ED5F5969881F0",
+          "loaderId": "AEE9E6CE3EA35448CA26DF1AB57D77B6",
+          "isDownload": false
+        },
+        "page": {
+          "url": "https://thoradar.online/index.html?from=legacy",
+          "date": "2026-11-28",
+          "papers": 43,
+          "controller": false
+        },
+        "responses": [
+          {
+            "type": "Document",
+            "loaderId": "AEE9E6CE3EA35448CA26DF1AB57D77B6",
+            "url": "https://thoradar.online/index.html?from=legacy",
+            "status": 200,
+            "fromServiceWorker": false,
+            "source": null
+          }
+        ]
+      }
+    },
+    {
+      "name": "migration has no uncaught page errors",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "network": [
+    {
+      "type": "Document",
+      "loaderId": "59F8DB9107E28D4974F7CF18EE8BB8D1",
+      "url": "https://www.thoradar.online/index.html",
+      "status": 200,
+      "fromServiceWorker": true,
+      "source": "cache-storage"
+    },
+    {
+      "type": "Document",
+      "loaderId": "AEE9E6CE3EA35448CA26DF1AB57D77B6",
+      "url": "https://thoradar.online/index.html?from=legacy",
+      "status": 200,
+      "fromServiceWorker": false,
+      "source": null
+    }
+  ],
+  "errors": [],
+  "first": {
+    "nav": {
+      "frameId": "148046690719665FEB0ED5F5969881F0",
+      "loaderId": "59F8DB9107E28D4974F7CF18EE8BB8D1",
+      "isDownload": false
+    },
+    "page": {
+      "url": "https://www.thoradar.online/index.html",
+      "date": "2026-11-28",
+      "papers": 43,
+      "controller": true
+    },
+    "responses": [
+      {
+        "type": "Document",
+        "loaderId": "59F8DB9107E28D4974F7CF18EE8BB8D1",
+        "url": "https://www.thoradar.online/index.html",
+        "status": 200,
+        "fromServiceWorker": true,
+        "source": "cache-storage"
+      }
+    ]
+  },
+  "retired": {
+    "url": "https://www.thoradar.online/index.html",
+    "banner": "数据 2026-11-28 · 本地副本已停用",
+    "registrations": 0,
+    "states": [],
+    "names": [],
+    "shell": [],
+    "sentinel": "keep"
+  },
+  "second": {
+    "nav": {
+      "frameId": "148046690719665FEB0ED5F5969881F0",
+      "loaderId": "AEE9E6CE3EA35448CA26DF1AB57D77B6",
+      "isDownload": false
+    },
+    "page": {
+      "url": "https://thoradar.online/index.html?from=legacy",
+      "date": "2026-11-28",
+      "papers": 43,
+      "controller": false
+    },
+    "responses": [
+      {
+        "type": "Document",
+        "loaderId": "AEE9E6CE3EA35448CA26DF1AB57D77B6",
+        "url": "https://thoradar.online/index.html?from=legacy",
+        "status": 200,
+        "fromServiceWorker": false,
+        "source": null
+      }
+    ]
+  },
+  "summary": {
+    "passed": 3,
+    "failed": 1
+  },
+  "endedAt": "2026-11-28T13:00:40.368Z"
+}

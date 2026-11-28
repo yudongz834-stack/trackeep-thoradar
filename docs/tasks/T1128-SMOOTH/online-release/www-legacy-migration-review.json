@@ -1,0 +1,39 @@
+{
+  "verdict": "PASS",
+  "originalSummary": {
+    "passed": 3,
+    "failed": 1
+  },
+  "note": "The original fourth assertion failed only because Network.responseReceived does not include redirectResponse from Network.requestWillBeSent. The original red result is preserved. Final canonical URL/data and independent public 301 evidence jointly satisfy the contract.",
+  "checks": [
+    {
+      "name": "old www client starts from cache-storage",
+      "pass": true,
+      "evidence": "www-legacy-migration-v3.json checks[0]"
+    },
+    {
+      "name": "retirement clears worker/shell and preserves personal storage",
+      "pass": true,
+      "evidence": "www-legacy-migration-v3.json checks[1]"
+    },
+    {
+      "name": "old client reaches canonical with query and current data; independent HEAD proves 301",
+      "pass": true,
+      "evidence": "www-legacy-migration-v3.json second.page + canonical-public-current-retry.txt"
+    },
+    {
+      "name": "no uncaught browser errors",
+      "pass": true,
+      "evidence": "www-legacy-migration-v3.json errors"
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0
+  },
+  "sources": [
+    "www-legacy-migration-v3.json",
+    "canonical-public-current-retry.txt",
+    "canonical-public-current.json"
+  ]
+}

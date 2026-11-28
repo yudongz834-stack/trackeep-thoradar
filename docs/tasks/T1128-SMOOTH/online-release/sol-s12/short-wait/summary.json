@@ -1,0 +1,27 @@
+{
+  "name": "short-wait",
+  "before": "sleep 40",
+  "after": "sleep 5",
+  "command": "node tests/smooth/verify-deploy.mjs docs/tasks/T1128-SMOOTH/online-release/sol-s12/short-wait/deploy.json docs/tasks/T1128-SMOOTH/online-release/sol-s12/short-wait/deploy.yml",
+  "exitCode": 1,
+  "summary": {
+    "passed": 26,
+    "failed": 1
+  },
+  "failed": [
+    {
+      "name": "main-domain CDN can take six minutes with two 5s sleeps followed by nine 40s sleeps",
+      "pass": false,
+      "error": "Verification failed for https://thoradar.online/sw.js\n\n\n1 !== 0\n"
+    }
+  ],
+  "expectedFailures": [
+    "main-domain CDN can take six minutes with two 5s sleeps followed by nine 40s sleeps"
+  ],
+  "scenarioExitCodes": {
+    "stale-during-propagation-retire": 1
+  },
+  "expectedScenarioExitCodes": {
+    "stale-during-propagation-retire": 1
+  }
+}

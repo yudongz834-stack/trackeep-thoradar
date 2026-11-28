@@ -1,0 +1,58 @@
+diff --git a/.github/workflows/deploy_oss.yml b/.github/workflows/deploy_oss.yml
+index bd63e1c..8177e6f 100644
+--- a/.github/workflows/deploy_oss.yml
++++ b/.github/workflows/deploy_oss.yml
+@@ -205,7 +205,12 @@ jobs:
+                 result='HEAD request failed'
+               fi
+               echo "Waiting for $url ($attempt/12) $result"
+-              if [[ "$attempt" != 12 ]]; then sleep 5; fi
++              # CDN 刷新从提交到生效约需 5–6 分钟。两次短等后拉长间隔，末次至少在 370 秒后。
++              if (( attempt <= 2 )); then
++                sleep 5
++              elif (( attempt < 12 )); then
++                sleep 40
++              fi
+             done
+             echo "Verification failed for $url" >&2
+             return 1
+diff --git a/tests/smooth/deploy-mock.mjs b/tests/smooth/deploy-mock.mjs
+index bae40e7..fc2d136 100644
+--- a/tests/smooth/deploy-mock.mjs
++++ b/tests/smooth/deploy-mock.mjs
+@@ -36,7 +36,9 @@ switch (tool) {
+     const primary = url.href === 'https://www.thoradar.online/sw.js';
+     const first = !prior.some(entry => entry.tool === 'curl' && entry.args.includes('-I') && entry.args.at(-1) === url.href);
+     if (primary && scenario === 'head-error') process.exit(28);
+-    const stale = primary && (scenario === 'wrong-md5' || (scenario === 'stale-then-current' && first));
++    const waited = prior.filter(entry => entry.tool === 'sleep').reduce((seconds, entry) => seconds + Number(entry.args[0]), 0);
++    const stale = primary && (scenario === 'wrong-md5' || (scenario === 'stale-then-current' && first) ||
++      (scenario === 'stale-during-propagation' && waited < 360));
+     const body = stale ? 'stale CDN entry' : readFileSync(source);
+     const status = primary && scenario === 'worker-404' ? '404 Not Found' : '200 OK';
+     const mime = source.endsWith('.js') && !(primary && scenario === 'wrong-mime')
+diff --git a/tests/smooth/verify-deploy.mjs b/tests/smooth/verify-deploy.mjs
+index 985a347..582db8c 100644
+--- a/tests/smooth/verify-deploy.mjs
++++ b/tests/smooth/verify-deploy.mjs
+@@ -234,12 +234,15 @@ try {
+     });
+   }
+ 
+-  await test('stale CDN content is polled again before publishing succeeds', async () => {
+-    const run = await simulate('stale-then-current', true);
+-    success(run);
++  await test('stale CDN content is polled again, including a six-minute propagation delay', async () => {
+     const workerUrl = 'https://www.thoradar.online/sw.js';
+-    assert.equal(run.heads.filter(url => url === workerUrl).length, 2);
+-    assert.ok(run.stdout.includes(`Waiting for ${workerUrl} (1/12)`));
++    for (const [scenario, attempts] of [['stale-then-current', 2], ['stale-during-propagation', 12]]) {
++      const run = await simulate(scenario, true);
++      success(run);
++      assert.equal(run.heads.filter(url => url === workerUrl).length, attempts);
++      assert.ok(run.stdout.includes(`Waiting for ${workerUrl} (1/12)`));
++      assert.deepEqual([...new Set(run.heads)], urls);
++    }
+   });
+ 
+   for (const scenario of ['wrong-md5', 'wrong-mime', 'worker-cacheable', 'worker-404', 'head-error']) {

@@ -1,0 +1,132 @@
+== verify round 2026-11-28T19:04:53+08:00 ==
+-- DoH www CNAME
+{"Status":0,"TC":false,"RD":true,"RA":true,"AD":false,"CD":false,"Question":{"name":"www.thoradar.online.","type":5},"Answer":[{"name":"www.thoradar.online.","TTL":600,"type":5,"data":"www.thoradar.online.w.kunlunaq.com."}]}
+-- system resolve
+Server:  UnKnown
+Address:  198.18.0.2
+
+Name:    www.thoradar.online
+Address:  198.18.0.202
+
+-- https://www.thoradar.online/
+exit=0
+HTTP/1.1 200 OK
+Server: Tengine
+Content-Type: text/html
+Content-Length: 557847
+Connection: keep-alive
+Vary: Accept-Encoding
+Date: Sat, 28 Nov 2026 11:04:55 GMT
+Vary: Accept-Encoding
+x-oss-request-id: 6B0AB557DDD87E37329D22D8
+x-oss-cdn-auth: success
+Accept-Ranges: bytes
+ETag: "F349A0827CBA4634573FD530E33825C5"
+-- https://www.thoradar.online/index.html
+exit=0
+HTTP/1.1 200 OK
+Server: Tengine
+Content-Type: text/html
+Content-Length: 557847
+Connection: keep-alive
+Vary: Accept-Encoding
+Date: Sat, 28 Nov 2026 11:04:57 GMT
+Vary: Accept-Encoding
+x-oss-request-id: 6B0AB559A5549937307D0207
+x-oss-cdn-auth: success
+Accept-Ranges: bytes
+ETag: "F349A0827CBA4634573FD530E33825C5"
+-- https://www.thoradar.online/sw.js
+exit=0
+HTTP/1.1 200 OK
+Server: Tengine
+Content-Type: application/javascript
+Content-Length: 5846
+Connection: keep-alive
+Vary: Accept-Encoding
+Date: Sat, 28 Nov 2026 11:04:59 GMT
+Vary: Accept-Encoding
+x-oss-request-id: 6B0AB55BA5549935325D0907
+x-oss-cdn-auth: success
+Accept-Ranges: bytes
+ETag: "9EB80A6DE6B3A815EF20B920025B2C22"
+-- https://www.thoradar.online/sw-retire.js
+exit=0
+HTTP/1.1 200 OK
+Server: Tengine
+Content-Type: application/javascript
+Content-Length: 832
+Connection: keep-alive
+Date: Sat, 28 Nov 2026 11:05:01 GMT
+x-oss-request-id: 6B0AB55D0CC4D23239C6DFF6
+x-oss-cdn-auth: success
+Accept-Ranges: bytes
+ETag: "C6F8873847B14102E9D2AE35B2FDAEB8"
+Last-Modified: Sat, 28 Nov 2026 09:25:48 GMT
+x-oss-object-type: Normal
+== apex headers 2026-11-28T19:05:49+08:00 ==
+-- apex /
+HTTP/1.1 200 OK
+Server: Tengine
+Content-Type: text/html
+Content-Length: 557847
+Connection: keep-alive
+Vary: Accept-Encoding
+Date: Sat, 28 Nov 2026 11:05:51 GMT
+Vary: Accept-Encoding
+x-oss-request-id: 6B0AB58F68CDBA38334054EF
+x-oss-cdn-auth: success
+Accept-Ranges: bytes
+ETag: "F349A0827CBA4634573FD530E33825C5"
+Last-Modified: Sat, 28 Nov 2026 09:25:50 GMT
+x-oss-object-type: Normal
+-- apex /index.html
+HTTP/1.1 200 OK
+Server: Tengine
+Content-Type: text/html
+Content-Length: 557847
+Connection: keep-alive
+Vary: Accept-Encoding
+Date: Sat, 28 Nov 2026 11:05:52 GMT
+Vary: Accept-Encoding
+x-oss-request-id: 6B0AB59051C5F932335B3F7A
+x-oss-cdn-auth: success
+Accept-Ranges: bytes
+ETag: "F349A0827CBA4634573FD530E33825C5"
+Last-Modified: Sat, 28 Nov 2026 09:25:50 GMT
+x-oss-object-type: Normal
+-- apex /sw.js
+HTTP/1.1 200 OK
+Server: Tengine
+Content-Type: application/javascript
+Content-Length: 5846
+Connection: keep-alive
+Vary: Accept-Encoding
+Date: Sat, 28 Nov 2026 11:05:53 GMT
+Vary: Accept-Encoding
+x-oss-request-id: 6B0AB59168CDBA3635835CEF
+x-oss-cdn-auth: success
+Accept-Ranges: bytes
+ETag: "9EB80A6DE6B3A815EF20B920025B2C22"
+Last-Modified: Sat, 28 Nov 2026 09:25:49 GMT
+x-oss-object-type: Normal
+-- apex /sw-retire.js
+HTTP/1.1 200 OK
+Server: Tengine
+Content-Type: application/javascript
+Content-Length: 832
+Connection: keep-alive
+Date: Sat, 28 Nov 2026 11:05:56 GMT
+x-oss-request-id: 6B0AB59422CC2D3832125B73
+x-oss-cdn-auth: success
+Accept-Ranges: bytes
+ETag: "C6F8873847B14102E9D2AE35B2FDAEB8"
+Last-Modified: Sat, 28 Nov 2026 09:25:48 GMT
+x-oss-object-type: Normal
+x-oss-hash-crc64ecma: 16135459081636351240
+x-oss-storage-class: Standard
+== MD5 compare ==
+/index.html www=f349a0827cba4634573fd530e33825c5 apex=f349a0827cba4634573fd530e33825c5 match=YES
+/sw.js www=9eb80a6de6b3a815ef20b920025b2c22 apex=9eb80a6de6b3a815ef20b920025b2c22 match=YES
+/sw-retire.js www=c6f8873847b14102e9d2ae35b2fdaeb8 apex=c6f8873847b14102e9d2ae35b2fdaeb8 match=YES
+/ www=f349a0827cba4634573fd530e33825c5 apex=f349a0827cba4634573fd530e33825c5 match=YES

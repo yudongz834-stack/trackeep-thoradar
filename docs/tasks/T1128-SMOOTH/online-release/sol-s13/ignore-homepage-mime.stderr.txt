@@ -1,0 +1,2 @@
+FAIL post-publish verification rejects homepage-octet-stream-root with the correct blob MD5: deployment exited 0
+FAIL post-publish verification rejects homepage-octet-stream-index with the correct blob MD5: deployment exited 0

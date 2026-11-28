@@ -1,0 +1,45 @@
+T1128-SMOOTH-S9 | 2026-11-28 Asia/Shanghai
+下列为本轮实际命令与脱敏原始输出。创建命令仅作历史留证。
+
+[发布失败材料与策略列表]
+node 'D:/claude-tmp/sol-s9-ram.mjs' identity
+{"run":46130068894,"watchHasRun":true,"forbiddenRAM":true,"refreshAction":true,"subuser":true,"implicitDeny":true,"principalCount":1,"ownerMatches":true,"identityJoinReady":true}
+
+node 'D:/claude-tmp/sol-s9-ram.mjs' policy-search
+{"ready":"complete","challenge":false,"searchFields":1,"searchButtons":1,"inputExact":true}
+
+node 'D:/claude-tmp/sol-s9-ram.mjs' policy-search-submit
+{"ready":"complete","challenge":false,"inputExact":true,"searchButtons":1,"clicked":true}
+
+node 'D:/claude-tmp/sol-s9-ram.mjs' policy-search-read
+{"ready":"complete","challenge":false,"searchFields":1,"queryExact":true,"exactNamedRows":0,"exactNamedLinks":0,"tableRows":1,"emptyMarkers":2,"total":[],"loading":0,"clicked":false}
+
+node 'D:/claude-tmp/sol-s9-ram.mjs' policy-create-open
+{"ready":"complete","challenge":false,"searchFields":1,"queryExact":true,"exactNamedRows":0,"exactNamedLinks":0,"tableRows":0,"emptyMarkers":2,"total":[],"loading":0,"clicked":true}
+
+搜索后的首次采样仍计入空态占位行。打开创建表单时再读，主表为 0 条，空态存在。
+
+[脚本编辑与完整内容回读]
+node 'D:/claude-tmp/sol-s9-ram.mjs' create-focus
+{"ready":"complete","challenge":false,"clicked":true,"focused":true,"visible":false,"activeInEditor":true}
+
+node 'D:/claude-tmp/sol-s9-ram.mjs' create-fill
+{"ready":"complete","challenge":false,"source":"Monaco Ctrl+A/Copy editor event","scriptMode":true,"editorInputs":1,"pasteInvoked":true,"selectHandled":true,"copyCaptured":true,"copyLength":143,"sourceLength":228,"sourceSubstring":false,"renderedLines":0,"parsed":true,"scopeExact":false,"sourceTextEquivalent":false,"enabledConfirm":0,"clicked":false}
+
+node 'D:/claude-tmp/sol-s9-ram.mjs' create-copy
+{"ready":"complete","challenge":false,"source":"Monaco Ctrl+A/Copy editor event","scriptMode":true,"editorInputs":1,"pasteInvoked":false,"selectHandled":true,"copyCaptured":true,"copyLength":228,"sourceLength":228,"sourceSubstring":true,"renderedLines":0,"parsed":true,"scopeExact":true,"sourceTextEquivalent":true,"enabledConfirm":1,"clicked":false}
+
+node 'D:/claude-tmp/sol-s9-ram.mjs' create-stage
+{"ready":"complete","challenge":false,"source":"Monaco Ctrl+A/Copy editor event","scriptMode":true,"editorInputs":1,"pasteInvoked":false,"selectHandled":true,"copyCaptured":true,"copyLength":228,"sourceLength":228,"sourceSubstring":true,"renderedLines":0,"parsed":true,"scopeExact":true,"sourceTextEquivalent":true,"enabledConfirm":1,"clicked":true}
+
+[命名、唯一提交、实际停点]
+node 'D:/claude-tmp/sol-s9-ram.mjs' create-name
+{"ready":"complete","challenge":false,"boxes":1,"dialog":true,"nameMatches":true,"modalEnabledConfirm":0,"canSubmit":false,"clicked":false}
+
+node 'D:/claude-tmp/sol-s9-ram.mjs' create-submit
+{"ready":"complete","challenge":false,"boxes":1,"dialog":true,"nameMatches":true,"modalEnabledConfirm":1,"canSubmit":true,"clicked":true}
+
+node 'D:/claude-tmp/sol-s9-ram.mjs' after-create
+{"error":"security_challenge"}
+
+上面一条是针对指定 RAM 标签的最后一次浏览器调用。指定标签保留。单次提交标记保存在临时目录。

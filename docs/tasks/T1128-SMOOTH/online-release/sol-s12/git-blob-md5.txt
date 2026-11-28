@@ -1,0 +1,5 @@
+PS > node -e 'const {execFileSync}=require("node:child_process"); const {createHash}=require("node:crypto"); for(const file of ["index.html","sw.js","sw-retire.js"]){const body=execFileSync("git",["cat-file","blob","HEAD:"+file]); console.log(file+" "+createHash("md5").update(body).digest("base64"));}'
+index.html 80mggny6RjRXP9Uw4zglxQ==
+sw.js nrgKbeazqBXvILkgAlssIg==
+sw-retire.js xviHOEexQQLp0q41sv2uuA==
+exit=0
