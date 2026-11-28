@@ -1,0 +1,61 @@
+[
+  {
+    "exitCode": 0,
+    "command": [
+      "node",
+      "tests/smooth/verify-deploy.mjs",
+      "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\.t1128-s6-worktree\\docs\\tasks\\T1128-SMOOTH\\sol-s6/deploy.json"
+    ],
+    "name": "deploy"
+  },
+  {
+    "exitCode": 0,
+    "command": [
+      "node",
+      "tests/smooth/verify-source.mjs",
+      "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\.t1128-s6-worktree\\docs\\tasks\\T1128-SMOOTH\\sol-s6/source-local.json"
+    ],
+    "name": "source-local"
+  },
+  {
+    "exitCode": 0,
+    "command": [
+      "node",
+      "tests/smooth/verify-s1.mjs",
+      "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\.t1128-s6-worktree\\docs\\tasks\\T1128-SMOOTH\\sol-s6/s1.json"
+    ],
+    "name": "s1"
+  },
+  {
+    "exitCode": 0,
+    "command": [
+      "node",
+      "tests/smooth/verify-s2.mjs",
+      "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\.t1128-s6-worktree\\docs\\tasks\\T1128-SMOOTH\\sol-s6/s2.json"
+    ],
+    "name": "s2"
+  },
+  {
+    "exitCode": 0,
+    "command": [
+      "node",
+      "tests/smooth/verify-s3.mjs",
+      "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\.t1128-s6-worktree\\docs\\tasks\\T1128-SMOOTH\\sol-s6/s3.json"
+    ],
+    "name": "s3"
+  },
+  {
+    "exitCode": 0,
+    "command": [
+      "node",
+      "tests/ux/ux_probe.mjs",
+      "--target",
+      "index.html",
+      "--base",
+      "73dd34e",
+      "--label",
+      "s6-local"
+    ],
+    "name": "ux-local"
+  }
+]

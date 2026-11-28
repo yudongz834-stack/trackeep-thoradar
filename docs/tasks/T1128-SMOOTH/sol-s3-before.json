@@ -1,0 +1,784 @@
+{
+  "command": [
+    "node",
+    "tests/smooth/verify-s3.mjs",
+    "docs/tasks/T1128-SMOOTH/sol-s3-before.json"
+  ],
+  "startedAt": "2026-11-28T03:50:43.349Z",
+  "runs": 1,
+  "seed": null,
+  "baseline": "73dd34e65fce6661d74e595afc03df68e7d3f44f",
+  "environment": {
+    "os": "Windows 11 Pro",
+    "release": "10.0.26300",
+    "arch": "x64",
+    "node": "v24.14.0",
+    "chrome": {
+      "protocolVersion": "1.3",
+      "product": "Chrome/158.0.8127.88",
+      "revision": "@0cefb18236a23db1ebb6b2bc040fbbaf8cbe759e",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/158.0.0.0 Safari/537.36",
+      "jsVersion": "15.8.62.31"
+    }
+  },
+  "sha256": {
+    "index.html": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def",
+    "sw.js": "f8a4e2bc4d5d81964475580c012e825281f409a171782640ad5cbc68a07bca24",
+    "tests/smooth/verify-s3.mjs": "3065a44a4db7c7225ab95b9bc1104106ac746dedd8a7e64f72f7a23bdd08f1dc"
+  },
+  "fixtures": {
+    "healthy": {
+      "bytes": 539012,
+      "sha256": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"
+    },
+    "neon-empty-markers-stub": {
+      "bytes": 156,
+      "sha256": "11e2ff0add51cd0cf4f21b39010925b11df3fe7c0d388906c0c56468a3a16b74"
+    },
+    "missing-site-data-between-markers": {
+      "bytes": 191,
+      "sha256": "ee2fa9e8e7544a3264ba1b4f048645e89eab74427fd90b71cfe6d00355bed41c"
+    },
+    "invalid-json": {
+      "bytes": 175,
+      "sha256": "a2b05c202460c7ff9c7827de2df6964a6dee3b9df28ef0da04cc04e1a0461890"
+    },
+    "wrong-briefing-date-type": {
+      "bytes": 170,
+      "sha256": "1c093d2d421f563859063e2f75533d3343a1f8cdcac14f61b49d598334e7518e"
+    },
+    "wrong-papers-type": {
+      "bytes": 174,
+      "sha256": "37819c5d931a352dfb018c179bf861bc383c027baf0ff08f3a8dcb2adf8ad3b1"
+    },
+    "valid-zero-papers": {
+      "bytes": 374679,
+      "sha256": "37e4fcaf391cc4930b509b53e4fe95f7d0b5ce56fa52ae0e37b710aa52bd7a0a"
+    }
+  },
+  "checks": [
+    {
+      "name": "neon-empty-markers-stub",
+      "pass": false,
+      "detail": {
+        "before": {
+          "bytes": 539012,
+          "sha256": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"
+        },
+        "first": {
+          "case": "neon-empty-markers-stub",
+          "loaderId": "BB8B0C2FE5ACDE172296755F7CCA7E69",
+          "url": "http://127.0.0.1:56444/index.html",
+          "status": 200,
+          "fromServiceWorker": true,
+          "source": "cache-storage"
+        },
+        "firstPage": {
+          "date": "2026-11-27",
+          "papers": 40,
+          "banner": "数据 2026-11-27 · 有新版，下次打开生效"
+        },
+        "status": "updated",
+        "after": {
+          "bytes": 156,
+          "sha256": "11e2ff0add51cd0cf4f21b39010925b11df3fe7c0d388906c0c56468a3a16b74"
+        },
+        "expected": {
+          "bytes": 539012,
+          "sha256": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"
+        },
+        "requests": [
+          {
+            "name": "neon-empty-markers-stub",
+            "url": "/index.html",
+            "method": "GET",
+            "status": 200,
+            "mime": "text/html; charset=utf-8",
+            "pragma": "no-cache",
+            "at": "2026-11-28T03:50:46.086Z",
+            "bytes": 156,
+            "sha256": "11e2ff0add51cd0cf4f21b39010925b11df3fe7c0d388906c0c56468a3a16b74",
+            "finished": true
+          }
+        ],
+        "next": {
+          "case": "neon-empty-markers-stub",
+          "loaderId": "85DD6A65114E78398A5CFC9DA256F7CD",
+          "url": "http://127.0.0.1:56444/?sw=1",
+          "status": 200,
+          "fromServiceWorker": true,
+          "source": "cache-storage"
+        },
+        "nextPage": {
+          "date": null,
+          "papers": null,
+          "banner": null
+        }
+      }
+    },
+    {
+      "name": "missing-site-data-between-markers",
+      "pass": false,
+      "detail": {
+        "before": {
+          "bytes": 539012,
+          "sha256": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"
+        },
+        "first": {
+          "case": "missing-site-data-between-markers",
+          "loaderId": "7E24B3C4D4CFD9786A07364CEF28CBD8",
+          "url": "http://127.0.0.1:56444/index.html",
+          "status": 200,
+          "fromServiceWorker": true,
+          "source": "cache-storage"
+        },
+        "firstPage": {
+          "date": "2026-11-27",
+          "papers": 40,
+          "banner": "数据 2026-11-27 · 有新版，下次打开生效"
+        },
+        "status": "updated",
+        "after": {
+          "bytes": 191,
+          "sha256": "ee2fa9e8e7544a3264ba1b4f048645e89eab74427fd90b71cfe6d00355bed41c"
+        },
+        "expected": {
+          "bytes": 539012,
+          "sha256": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"
+        },
+        "requests": [
+          {
+            "name": "missing-site-data-between-markers",
+            "url": "/index.html",
+            "method": "GET",
+            "status": 200,
+            "mime": "text/html; charset=utf-8",
+            "pragma": "no-cache",
+            "at": "2026-11-28T03:50:47.224Z",
+            "bytes": 191,
+            "sha256": "ee2fa9e8e7544a3264ba1b4f048645e89eab74427fd90b71cfe6d00355bed41c",
+            "finished": true
+          }
+        ],
+        "next": {
+          "case": "missing-site-data-between-markers",
+          "loaderId": "7DF65FDB8679611020B1E3203402B37D",
+          "url": "http://127.0.0.1:56444/?sw=1",
+          "status": 200,
+          "fromServiceWorker": true,
+          "source": "cache-storage"
+        },
+        "nextPage": {
+          "date": "2026-11-28",
+          "papers": 0,
+          "banner": null
+        }
+      }
+    },
+    {
+      "name": "invalid-json",
+      "pass": false,
+      "detail": {
+        "before": {
+          "bytes": 539012,
+          "sha256": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"
+        },
+        "first": {
+          "case": "invalid-json",
+          "loaderId": "179E2D37AEF447CB742A9A833FCFF95F",
+          "url": "http://127.0.0.1:56444/index.html",
+          "status": 200,
+          "fromServiceWorker": true,
+          "source": "cache-storage"
+        },
+        "firstPage": {
+          "date": "2026-11-27",
+          "papers": 40,
+          "banner": "数据 2026-11-27 · 有新版，下次打开生效"
+        },
+        "status": "updated",
+        "after": {
+          "bytes": 175,
+          "sha256": "a2b05c202460c7ff9c7827de2df6964a6dee3b9df28ef0da04cc04e1a0461890"
+        },
+        "expected": {
+          "bytes": 539012,
+          "sha256": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"
+        },
+        "requests": [
+          {
+            "name": "invalid-json",
+            "url": "/index.html",
+            "method": "GET",
+            "status": 200,
+            "mime": "text/html; charset=utf-8",
+            "pragma": "no-cache",
+            "at": "2026-11-28T03:50:48.189Z",
+            "bytes": 175,
+            "sha256": "a2b05c202460c7ff9c7827de2df6964a6dee3b9df28ef0da04cc04e1a0461890",
+            "finished": true
+          }
+        ],
+        "next": {
+          "case": "invalid-json",
+          "loaderId": "296FF4901B586CE9AA52C8E86D2F5151",
+          "url": "http://127.0.0.1:56444/?sw=1",
+          "status": 200,
+          "fromServiceWorker": true,
+          "source": "cache-storage"
+        },
+        "nextPage": {
+          "date": "2026-11-28",
+          "papers": 0,
+          "banner": null
+        }
+      }
+    },
+    {
+      "name": "wrong-briefing-date-type",
+      "pass": false,
+      "detail": {
+        "before": {
+          "bytes": 539012,
+          "sha256": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"
+        },
+        "first": {
+          "case": "wrong-briefing-date-type",
+          "loaderId": "F2A9F4016C5B7D2537B2991ECF7F9435",
+          "url": "http://127.0.0.1:56444/index.html",
+          "status": 200,
+          "fromServiceWorker": true,
+          "source": "cache-storage"
+        },
+        "firstPage": {
+          "date": "2026-11-27",
+          "papers": 40,
+          "banner": "数据 2026-11-27 · 有新版，下次打开生效"
+        },
+        "status": "updated",
+        "after": {
+          "bytes": 170,
+          "sha256": "1c093d2d421f563859063e2f75533d3343a1f8cdcac14f61b49d598334e7518e"
+        },
+        "expected": {
+          "bytes": 539012,
+          "sha256": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"
+        },
+        "requests": [
+          {
+            "name": "wrong-briefing-date-type",
+            "url": "/index.html",
+            "method": "GET",
+            "status": 200,
+            "mime": "text/html; charset=utf-8",
+            "pragma": "no-cache",
+            "at": "2026-11-28T03:50:49.098Z",
+            "bytes": 170,
+            "sha256": "1c093d2d421f563859063e2f75533d3343a1f8cdcac14f61b49d598334e7518e",
+            "finished": true
+          }
+        ],
+        "next": {
+          "case": "wrong-briefing-date-type",
+          "loaderId": "D39CA524879C4BD057130C3866250CFC",
+          "url": "http://127.0.0.1:56444/?sw=1",
+          "status": 200,
+          "fromServiceWorker": true,
+          "source": "cache-storage"
+        },
+        "nextPage": {
+          "date": 20261128,
+          "papers": 0,
+          "banner": null
+        }
+      }
+    },
+    {
+      "name": "wrong-papers-type",
+      "pass": false,
+      "detail": {
+        "before": {
+          "bytes": 539012,
+          "sha256": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"
+        },
+        "first": {
+          "case": "wrong-papers-type",
+          "loaderId": "D1980332C8968A63128AAA4A8DC1866C",
+          "url": "http://127.0.0.1:56444/index.html",
+          "status": 200,
+          "fromServiceWorker": true,
+          "source": "cache-storage"
+        },
+        "firstPage": {
+          "date": "2026-11-27",
+          "papers": 40,
+          "banner": "数据 2026-11-27 · 有新版，下次打开生效"
+        },
+        "status": "updated",
+        "after": {
+          "bytes": 174,
+          "sha256": "37819c5d931a352dfb018c179bf861bc383c027baf0ff08f3a8dcb2adf8ad3b1"
+        },
+        "expected": {
+          "bytes": 539012,
+          "sha256": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"
+        },
+        "requests": [
+          {
+            "name": "wrong-papers-type",
+            "url": "/index.html",
+            "method": "GET",
+            "status": 200,
+            "mime": "text/html; charset=utf-8",
+            "pragma": "no-cache",
+            "at": "2026-11-28T03:50:49.954Z",
+            "bytes": 174,
+            "sha256": "37819c5d931a352dfb018c179bf861bc383c027baf0ff08f3a8dcb2adf8ad3b1",
+            "finished": true
+          }
+        ],
+        "next": {
+          "case": "wrong-papers-type",
+          "loaderId": "3AE9CE1617873E5A3DFAA417C324BCD7",
+          "url": "http://127.0.0.1:56444/?sw=1",
+          "status": 200,
+          "fromServiceWorker": true,
+          "source": "cache-storage"
+        },
+        "nextPage": {
+          "date": "2026-11-28",
+          "banner": null
+        }
+      }
+    },
+    {
+      "name": "valid-zero-papers",
+      "pass": true,
+      "detail": {
+        "before": {
+          "bytes": 539012,
+          "sha256": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"
+        },
+        "first": {
+          "case": "valid-zero-papers",
+          "loaderId": "A17669A5711F5014DFCA585D65E99296",
+          "url": "http://127.0.0.1:56444/index.html",
+          "status": 200,
+          "fromServiceWorker": true,
+          "source": "cache-storage"
+        },
+        "firstPage": {
+          "date": "2026-11-27",
+          "papers": 40,
+          "banner": "数据 2026-11-27 · 有新版，下次打开生效"
+        },
+        "status": "updated",
+        "after": {
+          "bytes": 374679,
+          "sha256": "37e4fcaf391cc4930b509b53e4fe95f7d0b5ce56fa52ae0e37b710aa52bd7a0a"
+        },
+        "expected": {
+          "bytes": 374679,
+          "sha256": "37e4fcaf391cc4930b509b53e4fe95f7d0b5ce56fa52ae0e37b710aa52bd7a0a"
+        },
+        "requests": [
+          {
+            "name": "valid-zero-papers",
+            "url": "/index.html",
+            "method": "GET",
+            "status": 200,
+            "mime": "text/html; charset=utf-8",
+            "pragma": "no-cache",
+            "at": "2026-11-28T03:50:50.792Z",
+            "bytes": 374679,
+            "sha256": "37e4fcaf391cc4930b509b53e4fe95f7d0b5ce56fa52ae0e37b710aa52bd7a0a",
+            "finished": true
+          }
+        ],
+        "next": {
+          "case": "valid-zero-papers",
+          "loaderId": "CA14DDB1C1AE5C98982DC78DFA91AC81",
+          "url": "http://127.0.0.1:56444/?sw=1",
+          "status": 200,
+          "fromServiceWorker": true,
+          "source": "cache-storage"
+        },
+        "nextPage": {
+          "date": "2026-11-28",
+          "papers": 0,
+          "banner": "数据 2026-11-28 · 本地副本 · 已核对，与服务器一致"
+        }
+      }
+    }
+  ],
+  "requests": [
+    {
+      "name": "healthy",
+      "url": "/index.html",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T03:50:46.038Z",
+      "bytes": 539012,
+      "sha256": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def",
+      "finished": true
+    },
+    {
+      "name": "neon-empty-markers-stub",
+      "url": "/index.html",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T03:50:46.086Z",
+      "bytes": 156,
+      "sha256": "11e2ff0add51cd0cf4f21b39010925b11df3fe7c0d388906c0c56468a3a16b74",
+      "finished": true
+    },
+    {
+      "name": "neon-empty-markers-stub",
+      "url": "/?sw=1",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T03:50:46.659Z",
+      "bytes": 156,
+      "sha256": "11e2ff0add51cd0cf4f21b39010925b11df3fe7c0d388906c0c56468a3a16b74",
+      "finished": true
+    },
+    {
+      "name": "healthy",
+      "url": "/index.html",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T03:50:47.197Z",
+      "bytes": 539012,
+      "sha256": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def",
+      "finished": true
+    },
+    {
+      "name": "missing-site-data-between-markers",
+      "url": "/index.html",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T03:50:47.224Z",
+      "bytes": 191,
+      "sha256": "ee2fa9e8e7544a3264ba1b4f048645e89eab74427fd90b71cfe6d00355bed41c",
+      "finished": true
+    },
+    {
+      "name": "missing-site-data-between-markers",
+      "url": "/?sw=1",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T03:50:47.862Z",
+      "bytes": 191,
+      "sha256": "ee2fa9e8e7544a3264ba1b4f048645e89eab74427fd90b71cfe6d00355bed41c",
+      "finished": true
+    },
+    {
+      "name": "healthy",
+      "url": "/index.html",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T03:50:48.149Z",
+      "bytes": 539012,
+      "sha256": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def",
+      "finished": true
+    },
+    {
+      "name": "invalid-json",
+      "url": "/index.html",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T03:50:48.189Z",
+      "bytes": 175,
+      "sha256": "a2b05c202460c7ff9c7827de2df6964a6dee3b9df28ef0da04cc04e1a0461890",
+      "finished": true
+    },
+    {
+      "name": "invalid-json",
+      "url": "/?sw=1",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T03:50:48.826Z",
+      "bytes": 175,
+      "sha256": "a2b05c202460c7ff9c7827de2df6964a6dee3b9df28ef0da04cc04e1a0461890",
+      "finished": true
+    },
+    {
+      "name": "healthy",
+      "url": "/index.html",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T03:50:49.054Z",
+      "bytes": 539012,
+      "sha256": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def",
+      "finished": true
+    },
+    {
+      "name": "wrong-briefing-date-type",
+      "url": "/index.html",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T03:50:49.098Z",
+      "bytes": 170,
+      "sha256": "1c093d2d421f563859063e2f75533d3343a1f8cdcac14f61b49d598334e7518e",
+      "finished": true
+    },
+    {
+      "name": "wrong-briefing-date-type",
+      "url": "/?sw=1",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T03:50:49.723Z",
+      "bytes": 170,
+      "sha256": "1c093d2d421f563859063e2f75533d3343a1f8cdcac14f61b49d598334e7518e",
+      "finished": true
+    },
+    {
+      "name": "healthy",
+      "url": "/index.html",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T03:50:49.923Z",
+      "bytes": 539012,
+      "sha256": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def",
+      "finished": true
+    },
+    {
+      "name": "wrong-papers-type",
+      "url": "/index.html",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T03:50:49.954Z",
+      "bytes": 174,
+      "sha256": "37819c5d931a352dfb018c179bf861bc383c027baf0ff08f3a8dcb2adf8ad3b1",
+      "finished": true
+    },
+    {
+      "name": "wrong-papers-type",
+      "url": "/?sw=1",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T03:50:50.561Z",
+      "bytes": 174,
+      "sha256": "37819c5d931a352dfb018c179bf861bc383c027baf0ff08f3a8dcb2adf8ad3b1",
+      "finished": true
+    },
+    {
+      "name": "healthy",
+      "url": "/index.html",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T03:50:50.765Z",
+      "bytes": 539012,
+      "sha256": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def",
+      "finished": true
+    },
+    {
+      "name": "valid-zero-papers",
+      "url": "/index.html",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T03:50:50.792Z",
+      "bytes": 374679,
+      "sha256": "37e4fcaf391cc4930b509b53e4fe95f7d0b5ce56fa52ae0e37b710aa52bd7a0a",
+      "finished": true
+    },
+    {
+      "name": "valid-zero-papers",
+      "url": "/?sw=1",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T03:50:51.372Z",
+      "bytes": 374679,
+      "sha256": "37e4fcaf391cc4930b509b53e4fe95f7d0b5ce56fa52ae0e37b710aa52bd7a0a",
+      "finished": true
+    }
+  ],
+  "documents": [
+    {
+      "case": "neon-empty-markers-stub",
+      "loaderId": "BEA369DC5BC663E43D964349A4D7394E",
+      "url": "http://127.0.0.1:56444/driver",
+      "status": 200,
+      "fromServiceWorker": false,
+      "source": null
+    },
+    {
+      "case": "neon-empty-markers-stub",
+      "loaderId": "BB8B0C2FE5ACDE172296755F7CCA7E69",
+      "url": "http://127.0.0.1:56444/index.html",
+      "status": 200,
+      "fromServiceWorker": true,
+      "source": "cache-storage"
+    },
+    {
+      "case": "neon-empty-markers-stub",
+      "loaderId": "85DD6A65114E78398A5CFC9DA256F7CD",
+      "url": "http://127.0.0.1:56444/?sw=1",
+      "status": 200,
+      "fromServiceWorker": true,
+      "source": "cache-storage"
+    },
+    {
+      "case": "missing-site-data-between-markers",
+      "loaderId": "1FDAE2644C4179064C101F84982DB2B0",
+      "url": "http://127.0.0.1:56444/driver",
+      "status": 200,
+      "fromServiceWorker": false,
+      "source": null
+    },
+    {
+      "case": "missing-site-data-between-markers",
+      "loaderId": "7E24B3C4D4CFD9786A07364CEF28CBD8",
+      "url": "http://127.0.0.1:56444/index.html",
+      "status": 200,
+      "fromServiceWorker": true,
+      "source": "cache-storage"
+    },
+    {
+      "case": "missing-site-data-between-markers",
+      "loaderId": "7DF65FDB8679611020B1E3203402B37D",
+      "url": "http://127.0.0.1:56444/?sw=1",
+      "status": 200,
+      "fromServiceWorker": true,
+      "source": "cache-storage"
+    },
+    {
+      "case": "invalid-json",
+      "loaderId": "5D6D63B3B61A40302C7C15ABF159D38E",
+      "url": "http://127.0.0.1:56444/driver",
+      "status": 200,
+      "fromServiceWorker": false,
+      "source": null
+    },
+    {
+      "case": "invalid-json",
+      "loaderId": "179E2D37AEF447CB742A9A833FCFF95F",
+      "url": "http://127.0.0.1:56444/index.html",
+      "status": 200,
+      "fromServiceWorker": true,
+      "source": "cache-storage"
+    },
+    {
+      "case": "invalid-json",
+      "loaderId": "296FF4901B586CE9AA52C8E86D2F5151",
+      "url": "http://127.0.0.1:56444/?sw=1",
+      "status": 200,
+      "fromServiceWorker": true,
+      "source": "cache-storage"
+    },
+    {
+      "case": "wrong-briefing-date-type",
+      "loaderId": "6C02E703A3A02668E2C72ABDF144EC7B",
+      "url": "http://127.0.0.1:56444/driver",
+      "status": 200,
+      "fromServiceWorker": false,
+      "source": null
+    },
+    {
+      "case": "wrong-briefing-date-type",
+      "loaderId": "F2A9F4016C5B7D2537B2991ECF7F9435",
+      "url": "http://127.0.0.1:56444/index.html",
+      "status": 200,
+      "fromServiceWorker": true,
+      "source": "cache-storage"
+    },
+    {
+      "case": "wrong-briefing-date-type",
+      "loaderId": "D39CA524879C4BD057130C3866250CFC",
+      "url": "http://127.0.0.1:56444/?sw=1",
+      "status": 200,
+      "fromServiceWorker": true,
+      "source": "cache-storage"
+    },
+    {
+      "case": "wrong-papers-type",
+      "loaderId": "AD7F743D0E450F74178F77112E69C674",
+      "url": "http://127.0.0.1:56444/driver",
+      "status": 200,
+      "fromServiceWorker": false,
+      "source": null
+    },
+    {
+      "case": "wrong-papers-type",
+      "loaderId": "D1980332C8968A63128AAA4A8DC1866C",
+      "url": "http://127.0.0.1:56444/index.html",
+      "status": 200,
+      "fromServiceWorker": true,
+      "source": "cache-storage"
+    },
+    {
+      "case": "wrong-papers-type",
+      "loaderId": "3AE9CE1617873E5A3DFAA417C324BCD7",
+      "url": "http://127.0.0.1:56444/?sw=1",
+      "status": 200,
+      "fromServiceWorker": true,
+      "source": "cache-storage"
+    },
+    {
+      "case": "valid-zero-papers",
+      "loaderId": "ADA7360C2349BC0A3D06B0AC045BE202",
+      "url": "http://127.0.0.1:56444/driver",
+      "status": 200,
+      "fromServiceWorker": false,
+      "source": null
+    },
+    {
+      "case": "valid-zero-papers",
+      "loaderId": "A17669A5711F5014DFCA585D65E99296",
+      "url": "http://127.0.0.1:56444/index.html",
+      "status": 200,
+      "fromServiceWorker": true,
+      "source": "cache-storage"
+    },
+    {
+      "case": "valid-zero-papers",
+      "loaderId": "CA14DDB1C1AE5C98982DC78DFA91AC81",
+      "url": "http://127.0.0.1:56444/?sw=1",
+      "status": 200,
+      "fromServiceWorker": true,
+      "source": "cache-storage"
+    }
+  ],
+  "remainingProfileProcesses": 0,
+  "endedAt": "2026-11-28T03:51:00.883Z",
+  "summary": {
+    "passed": 1,
+    "failed": 5
+  }
+}

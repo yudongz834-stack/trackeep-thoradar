@@ -1,0 +1,20 @@
+PASS adversarial-reversed-markers preserved=true nextDate=2026-11-27 nextPoints=37 banner="数据 2026-11-27 · 本地副本 · 暂未核实更新"
+PASS adversarial-json-mime-valid-html preserved=true nextDate=2026-11-27 nextPoints=37 banner="数据 2026-11-27 · 本地副本 · 暂未核实更新"
+PASS adversarial-status-503-valid-html preserved=true nextDate=2026-11-27 nextPoints=37 banner="数据 2026-11-27 · 本地副本 · 暂未核实更新"
+PASS adversarial-empty-markers-stub preserved=true nextDate=2026-11-27 nextPoints=37 banner="数据 2026-11-27 · 本地副本 · 暂未核实更新"
+PASS adversarial-missing-site-data preserved=true nextDate=2026-11-27 nextPoints=37 banner="数据 2026-11-27 · 本地副本 · 暂未核实更新"
+PASS adversarial-bad-json-site-data preserved=true nextDate=2026-11-27 nextPoints=37 banner="数据 2026-11-27 · 本地副本 · 暂未核实更新"
+PASS adversarial-wrong-date-type preserved=true nextDate=2026-11-27 nextPoints=37 banner="数据 2026-11-27 · 本地副本 · 暂未核实更新"
+PASS adversarial-wrong-papers-type preserved=true nextDate=2026-11-27 nextPoints=37 banner="数据 2026-11-27 · 本地副本 · 暂未核实更新"
+PASS adversarial-null-site-data preserved=true nextDate=2026-11-27 nextPoints=37 banner="数据 2026-11-27 · 本地副本 · 暂未核实更新"
+PASS valid-zero-papers-accepted hashMatch=true nextDate=2026-11-28 nextPapers=0 banner="数据 2026-11-27 · 有新版，下次打开生效"
+PROBE empty-briefing-date preserved=false bytes=374669 banner="数据 2026-11-27 · 有新版，下次打开生效"
+PROBE comment-wrapped-site-data-stub preserved=false bytes=184 banner="数据 2026-11-27 · 有新版，下次打开生效"
+PASS whitelist-and-bypass
+SURVIVED neg-mut-marker-order-naive input=reversed-markers banner="数据 2026-11-27 · 本地副本 · 暂未核实更新" hashChanged=false
+RED-CAUGHT neg-mut-marker-order-orderless input=reversed-markers banner="数据 2026-11-27 · 有新版，下次打开生效" hashChanged=true
+RED-CAUGHT neg-mut-mime input=json-mime-valid-html banner="数据 2026-11-27 · 有新版，下次打开生效" hashChanged=true
+RED-CAUGHT neg-mut-status-503 input=status-503-valid-html banner="数据 2026-11-27 · 有新版，下次打开生效" hashChanged=true
+RED-CAUGHT neg-mut-s3-site-data-guard input=empty-markers-stub banner="数据 2026-11-27 · 有新版，下次打开生效" hashChanged=true nextDate=null nextPoints=0
+PASS production-domain-gate
+NEON_V2_DONE {"checksPassed":12,"checksFailed":0,"negCaughtRed":4,"negTotal":5,"extraProbes":2}

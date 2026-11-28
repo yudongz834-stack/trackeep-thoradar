@@ -1,0 +1,12 @@
+{
+  "command": [
+    "node",
+    "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\tests\\smooth\\verify-s3.mjs",
+    "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\docs\\tasks\\T1128-SMOOTH\\sol-s3-recheck\\no-data-validation.json",
+    "D:\\claude-tmp\\thoradar-sol-s3-e7d4d6c2-3dc4-4467-9132-f4f64145ea9e.js"
+  ],
+  "candidateSha256": "900061dd45ad04e9f9c4391e5d2756f8b080a4bc4144ede9b913b6deabb5aa8b",
+  "mutatedSha256": "0bee8f9201700624a076cb9b35d9250954130b63a464eec095c6f283e85ab14f",
+  "deleted": "  const block = html.slice(dataStart, end).trim();\n  const declaration = /^const\\s+SITE_DATA\\s*=\\s*(\\{[\\s\\S]*\\})\\s*;?$/.exec(block);\n  if (!declaration) return null;\n  try {\n    const data = JSON.parse(declaration[1]);\n    if (typeof data.briefing_date !== 'string' || !Array.isArray(data.papers)) return null;\n  } catch (_) {\n    return null;\n  }\n",
+  "exitCode": 1
+}

@@ -1,0 +1,2910 @@
+OpenAI Codex v0.172.0
+--------
+workdir: D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+model: gpt-6.2-sol
+provider: openai
+approval: never
+sandbox: danger-full-access
+reasoning effort: xhigh
+reasoning summaries: concise
+session id: 01a22074-1e31-7ec0-ab86-92b78c3f2ea4
+--------
+user
+【委任状 T1128-SMOOTH-S4】你是 Trackeep 施工工程师，2 级（派遣方＝Orchestrator 1 级；PI＝0 级）。
+工作区 D:/trackeep/trackeep-product/trackeep-thoradar-smooth-T1128，写码只限此处。
+身份：你的席位（launcher）＝codex-gpt，正式名四元组以人册主力表为准——壳自报的品牌不是你的身份，不得照壳自称。
+本单点名档位＝gpt-6.2-sol；据将要执行的 codex-gpt.cmd 解析，你的真身＝gpt-6.2-sol。
+禁启外部 AI 代理进程；禁改 `ANTHROPIC_*` 等端点环境变量（席位端点由 launcher 焊死，会话内改＝偷换身份）、禁本进程内切模型、禁经第三方壳中转；登录态与凭证零碰触（唯 PI）；跨家对抗审／互查任意家皆可；可再派（组队自主权）——每派一个子席，向上回登记一行（任务号·四元组·一句话目标·工作区·写域），并把本钳位逐字传进子席委任状；派遣方可按单收紧为「本单禁再派」。
+你跑在 harness 里（cc/codex/agy）——再派机制与档映射以名册成员表为准（cc 席＝Agent 工具）；改码／施工一律在隔离副本（git worktree／独立靶场），不直接改工作树。
+清理进程只许按 PID 精确杀，永久禁止 taskkill /F /IM 与 Stop-Process -Name，杀完逐 PID 复查并贴原始输出。
+禁 git push。不打印任何 token 值。
+🔴 配置家 D:\claude 是活的生产数据，只读；旧主家已退役，勿再引用。
+变异恢复用 cp 备份文件，不用 git checkout（工作树可能有未提交成果）。
+纪律：不贴命令与原始输出的结论一律不采信；自报不作数，证据作数；禁伪修复。
+绿灯不是证据——判断测试守没守住，唯一办法是删掉被守的代码看它红不红。
+复现不了的写「未复现」，不许把推测写成事实。
+交付报告开头三行：干了什么（人话）／PI 怎么亲手验（一个物理动作：打开哪、点什么、看到什么算对）／还剩什么坑（空案写完整句，如『没坑，已逐条核』；禁写单字『无』）。
+
+【送达闸】你的【最终输出】里必须包含这一行原文（不是过程中说一次就算——
+-p 模式只把最终回答交给 Orchestrator，过程中的话Orchestrator 看不到）：
+DELIVERY-T1128-SMOOTH-S4
+并在它下一行用一句话复述你这次做的事。做不到这条，Orchestrator 会判任务书未送达并整单重发。
+
+【任务书全文】以下为正文，直接照做，不必再去读盘：
+DELIVERY-T1128-SMOOTH-S4
+键字段：目标目录=D:/trackeep/trackeep-product/trackeep-thoradar-smooth-T1128；任务号=T1128-SMOOTH-S4；交付=两个边界毒页修复与复验证据。
+轨道位置：胸科雷达顺畅改造·③.4 Sol S4 边界发现项返修。
+R级：R2
+判级理由：Service Worker 缓存写入校验仍有同类污染路径；仅本机返修，不发布。
+签发：PI 原话「算了，现在直接执行吧，不重启了」（2026-11-28）及「加快速度」「快点，做快一点啦！」；只修 Neon V2 两个实测探针，不扩需求。
+地形：仅 `sw.js` 的 SITE_DATA 上下文/日期校验与 `tests/smooth/` 测试证据；邻接健康 Cache Storage。
+领域卡：无
+经验卡：无卡。
+Run 版本键：岗位卡=builder-jobspec 现役正本；基线=S3 sw `900061dd45ad04e9f9c4391e5d2756f8b080a4bc4144ede9b913b6deabb5aa8b`。
+
+## 只修两个已复现输入
+独立脚本：`D:/trackeep/trackeep-product/trackeep-thoradar-neon-v1/tests/neon-v2-verify.mjs`；当前输出：`docs/tasks/T1128-SMOOTH/neon-v2/neon-v2-verify.stdout.txt` 第 11–12 行均为 `preserved=false`。
+1. `empty-briefing-date`：合法 JSON 但日期为空字符串。要求 `briefing_date` 是 `YYYY-MM-DD` 且为真实有效日期，空串和非法日期拒缓存；合法零篇仍允许。
+2. `comment-wrapped-site-data-stub`：整个数据声明放在 `<!-- ... -->` 注释里。校验声明必须位于真实 `<script>` 上下文且不在 HTML 注释中；拒绝注释包装。不得误拒正式 `index.html` 当前结构。
+
+写域仅 `D:/trackeep/trackeep-product/trackeep-thoradar-smooth-T1128/sw.js`、`tests/smooth/`、`docs/tasks/T1128-SMOOTH/`。其它只读，禁改 Neon 文件、旧回归、CI、任务地图。
+
+## 验证
+- 把这两个样本加入施工测试；修复前复现红，修复后缓存原字节不变且下次仍显示健康 40 篇；至少一项删对应校验的负对照变红。
+- 复跑 S3 六项、S1 九项、S2 二十四项、UX 46 项，保存原始输出和候选哈希。合法零篇必须继续接受。
+- 主控会把同一 S3 候选交给 Neon 用 V2 独立脚本复跑，要求两个 PROBE 也变为 preserved=true。
+- 不做其它改动，不 push/deploy/CDN。优先 5 分钟内交付；若不能，保存当前证据并标未收口。
+
+交付 `sol-s4-report.md` 与证据，报告三行头、地图影响、遗留风险、证据、地图终态齐全。最终尾部复述 `DELIVERY-T1128-SMOOTH-S4`。
+
+hook: SessionStart
+hook: SessionStart
+hook: SessionStart Completed
+hook: SessionStart Completed
+hook: UserPromptSubmit
+hook: UserPromptSubmit Completed
+codex
+我会用隔离工作树复现两个毒页样本，修 `sw.js` 的缓存校验，再跑指定回归和负对照。我会按委任状引用的 Builder 岗位卡留存证据。
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "git status --short --branch; git worktree list; git log -5 --oneline; rg --files --hidden -g AGENTS.md -g '"'!git'"' -g '"'!node_modules'"' -g '*smooth*' -g '*verify*' -g 'package.json'; Get-FileHash -Algorithm SHA256 sw.js" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "Get-Content -LiteralPath 'D:/trackeep/trackeep-console/trackeep-rulebook/rules/README.md' -Encoding utf8; Get-Content -LiteralPath 'D:/trackeep/trackeep-console/trackeep-rulebook/rules/entries/safety-redlines.md' -Encoding utf8; Get-Content -LiteralPath 'D:/trackeep/trackeep-console/trackeep-rulebook/rules/entries/builder-jobspec.md' -Encoding utf8" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+ exited 1 in 1080ms:
+# Trackeep-Rulebook
+
+**Trackeep 全系统的法律与信息中转站**，以 AI 为第一读者：agent 可换、派遣系统可换，谱恒在。**本页即全部入口，空是故意的**——不给 agent 预装框架，规则按需来取，保持满血思维。
+
+1. **接到任务先问管家**——`entries/employment-law.md`（取法协议正本）。
+2. **想了解系统**——一屏地图＝`entries/handbook.md` §3；目录契约与生效裁决＝`CONTRACT.md`。
+---
+id: safety-redlines
+名称: 安全红线（钥匙纪律·个人信息纪律）
+适用: 一切任务全程；跨模型／agent 调用前必扫
+别名: [钥匙, 密钥, token, API key, API 泄露, 个人信息, 身份信息, 隐私, PII]
+type: rule
+strength: required
+scope: global
+status: active
+version: 6.1
+domain: safety
+load: always
+enforced_by: [rb:redline-probe, file:D:\claude\hooks\trackeep-redline-guard.sh]
+---
+
+# 安全红线（钥匙纪律·个人信息纪律）
+
+## 红线
+
+**钥匙纪律——API 密钥不泄露**：
+
+- **存放**：只保存在 Windows 用户环境变量中，不写入任何文件。
+- **使用**：按需注入，不打印、不外传。
+- **派发前**：跨 `agent` 调用先清除敏感环境变量（子进程会继承密钥）——外派经 `dispatch.sh` 自动清除（见 `dispatch-protocol`）；内部派发无自动检查，发起方自行清除后再派。
+
+**个人信息纪律**：
+
+- **写入**：提示词、日志、报告删无关身份信息；必须指人时用接收方认不出本人的代号。
+- **存放**：配置与 AI 会话原件放服务读不到处；对外服务只给指定公开文件、关闭目录浏览（已知直链仍可读，公开面不放敏感件）。
+- **外发**：截图、会话摘录外发前同样去身份；确需实名的报告只在 PI 当次批准的对外定稿上署名。
+
+判据：接收方凭内容加已有背景，能否直接联系、定位或认出具体的人。
+
+其余安全红线不在本页：`.claude` 只读与禁 `adb` 由 `trackeep-redline-guard` 自动拦截；登录态与凭证零碰触由 `charter-template` 固定条款随派遣携带，接单方遵守。
+
+Get-Content: 
+Line |
+   2 |  … oding utf8; Get-Content -LiteralPath 'D:/trackeep/trackeep-console/tr …
+     |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | 找不到路径“D:/trackeep/trackeep-console/trackeep-rulebook/rules/entries/builder-jobspec.md”，因为该路径不存在。
+
+hook: PostToolUse
+ succeeded in 1846ms:
+## HEAD (no branch)
+ M index.html
+?? docs/tasks/
+?? sw-retire.js
+?? sw.js
+?? tests/smooth/
+D:/trackeep/trackeep-product/trackeep-thoradar                 73dd34e [main]
+D:/trackeep/trackeep-product/trackeep-thoradar-neon-v1         73dd34e (detached HEAD)
+D:/trackeep/trackeep-product/trackeep-thoradar-smooth-T1128    73dd34e (detached HEAD)
+D:/trackeep/trackeep-product/trackeep-thoradar-wt/T1122-int    5217e86 [feat/t1122-int]
+D:/trackeep/trackeep-product/trackeep-thoradar-wt/T1122-pool   b54883b [feat/t1122-pool]
+D:/trackeep/trackeep-product/trackeep-thoradar-wt/T1122-shelf  b54883b [feat/t1122-shelf]
+D:/trackeep/trackeep-product/trackeep-thoradar-wt/T1125-aicls  06d08e8 [feat/t1125-aicls]
+D:/trackeep/trackeep-product/trackeep-thoradar-wt/T1125-poolup 05a748f [feat/t1125-poolup]
+D:/trackeep/trackeep-product/trackeep-thoradar-wt/T1127-ux     73dd34e [feat/t1127-ux]
+73dd34e T1127-UX2 整体比例调优：概览左栏280/窄桌面240、雷达盘420、主TAB高30，点径与阅读/手机结构不变；F11守三视口，UX46/46＋单A适用项全绿＋池外11/11＋旧集成16/16
+e3fcab9 T1127-UX 雷达标记缩小：桌面5-9px/手机75%、热区防抢点、低分淡化、0篇不占标签且综述形状保留；UX42/42＋变异3只全杀＋官方数据与筛选差分全绿
+287c1bc Merge remote-tracking branch 'origin/main' into feat/t1127-ux
+0ee8b9e T1127-UX 返修收口：双视图筛选默认收起且分视图记忆、密度钮归阅读、手机零横溢/顶栏不压主区、雷达随舞台缩放、页脚零空带、英文文案补齐、阅读可展开全部；UX探针38/38＋变异5只全杀＋单A19/19＋单B11/11＋旧考卷16/16
+f105017 T1127-UX 界面原地瘦身：筛选区双视图可折叠（阅读默认收／概览可收·队列1-2条→9条）＋雷达cap380＋说明书墙收悬停＋刊源图例折叠＋管线漏斗撤下＋详情卡摘要与原文按钮提前（元数据折叠·IF/Q1提前）＋双提示框改轻行＋矮屏页脚裁切修复——主控施工（mock两轮PI亲验）·待独立复核
+tests\smooth\verify-source.mjs
+tests\smooth\verify-s3.mjs
+tests\smooth\verify-s2.mjs
+tests\smooth\verify-s1.mjs
+design\nlm-verify-delta.csv
+
+Algorithm       Hash                                                                   Path
+---------       ----                                                                   ----
+SHA256          900061DD45AD04E9F9C4391E5D2756F8B080A4BC4144EDE9B913B6DEABB5AA8B       D:\trackeep\trackeep-product\tr…
+
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command 'Get-Content sw.js; Get-Content tests/smooth/verify-s3.mjs; Get-ChildItem tests/smooth -Name; rg --files tests docs/tasks/T1128-SMOOTH' in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "rg -l 'id: builder-jobspec' 'D:/trackeep/trackeep-console/trackeep-rulebook'; Get-Content -LiteralPath 'D:/trackeep/trackeep-product/trackeep-thoradar-neon-v1/tests/neon-v2-verify.mjs'; Get-ChildItem Env:TEMP; node --version" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+ succeeded in 807ms:
+const CACHE_PREFIX = 'thoradar-shell-';
+const CACHE_NAME = `${CACHE_PREFIX}v1`;
+const SHELL_URL = new URL('/index.html', self.location.origin).href;
+const DATA_START = '/*__THORADAR_DATA_START__*/';
+const DATA_END = '/*__THORADAR_DATA_END__*/';
+const statuses = new Map();
+let refreshTail = Promise.resolve();
+
+async function fetchShell(url) {
+  const response = await fetch(url, {
+    cache: 'no-store', redirect: 'error', signal: AbortSignal.timeout(8000)
+  });
+  const mime = response.headers.get('Content-Type')?.split(';', 1)[0].trim().toLowerCase();
+  if (response.status !== 200 || response.type !== 'basic' || mime !== 'text/html') return null;
+
+  const html = await response.clone().text();
+  const start = html.indexOf(DATA_START);
+  const dataStart = start + DATA_START.length;
+  const end = html.indexOf(DATA_END, dataStart);
+  if (start === -1 || end === -1 ||
+      !html.trimEnd().toLowerCase().endsWith('</html>')) return null;
+
+  const block = html.slice(dataStart, end).trim();
+  const declaration = /^const\s+SITE_DATA\s*=\s*(\{[\s\S]*\})\s*;?$/.exec(block);
+  if (!declaration) return null;
+  try {
+    const data = JSON.parse(declaration[1]);
+    if (typeof data.briefing_date !== 'string' || !Array.isArray(data.papers)) return null;
+  } catch (_) {
+    return null;
+  }
+  return { response, html };
+}
+
+async function checkForUpdate(cache, url, displayed) {
+  try {
+    const fresh = await fetchShell(url);
+    if (!fresh) return 'unavailable';
+    const stored = await cache.match(SHELL_URL);
+    if (!stored || await stored.text() !== fresh.html) await cache.put(SHELL_URL, fresh.response);
+    return displayed && await displayed.text() !== fresh.html ? 'updated' : 'current';
+  } catch (_) {
+    return 'unavailable';
+  }
+}
+
+function remember(clientId, status) {
+  if (!clientId) return;
+  statuses.delete(clientId);
+  statuses.set(clientId, status);
+  if (statuses.size > 64) statuses.delete(statuses.keys().next().value);
+}
+
+function sendStatus(client, status) {
+  client?.postMessage({ type: 'thoradar-shell-state', status });
+}
+
+self.addEventListener('message', event => {
+  if (event.data?.type !== 'thoradar-shell-status' || event.source?.type !== 'window') return;
+  sendStatus(event.source, statuses.get(event.source.id) || 'unavailable');
+});
+
+self.addEventListener('install', event => {
+  event.waitUntil((async () => {
+    const cache = await caches.open(CACHE_NAME);
+    await checkForUpdate(cache, SHELL_URL);
+  })().catch(() => {}));
+});
+
+self.addEventListener('activate', event => {
+  event.waitUntil((async () => {
+    const names = await caches.keys();
+    await Promise.all(names.filter(name => name.startsWith(CACHE_PREFIX) && name !== CACHE_NAME)
+      .map(name => caches.delete(name)));
+  })().catch(() => {}));
+});
+
+self.addEventListener('fetch', event => {
+  const request = event.request;
+  if (request.method !== 'GET' || request.mode !== 'navigate') return;
+  const url = new URL(request.url);
+  if (url.origin !== self.location.origin || (url.pathname !== '/' && url.pathname !== '/index.html')) return;
+  // A single test opt-in is cacheable. Other query variants retain native navigation.
+  if (url.search && !(url.searchParams.size === 1 && url.searchParams.get('sw') === '1')) return;
+
+  const clientId = event.resultingClientId || event.clientId;
+  const lookup = (async () => {
+    const cache = await caches.open(CACHE_NAME);
+    const page = await cache.match(SHELL_URL);
+    return { cache, page, displayed: page?.clone() };
+  })().catch(() => null);
+
+  event.respondWith(lookup.then(entry => {
+    remember(clientId, entry?.page ? 'checking' : entry ? 'network' : 'fallback');
+    if (entry?.page) return entry.page;
+    return fetch(request);
+  }));
+
+  // Keep writes ordered when multiple tabs ask for a check. Cache hits never wait for this queue.
+  const refresh = refreshTail.then(async () => {
+    const entry = await lookup;
+    if (!entry) return;
+    let status = await checkForUpdate(entry.cache, request.url, entry.displayed);
+    if (!clientId) return;
+    if (!entry.displayed) {
+      if (status !== 'unavailable') return;
+      status = 'fallback';
+    }
+    remember(clientId, status);
+    sendStatus(await self.clients.get(clientId), status);
+  });
+  refreshTail = refresh.catch(() => {});
+  event.waitUntil(refreshTail);
+});
+import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { createServer } from 'node:http';
+import { arch, release, tmpdir, version } from 'node:os';
+import { basename, dirname, join, resolve } from 'node:path';
+import { ROOT, connect, freePort, gitRead, launch, sha256, sleep } from '../aicls/lib.mjs';
+
+const [output, workerPath = join(ROOT, 'sw.js')] = process.argv.slice(2);
+if (!output) throw new Error('Usage: node tests/smooth/verify-s3.mjs <result.json> [worker.js]');
+const worker = await readFile(workerPath);
+const healthy = await readFile(join(ROOT, 'index.html'), 'utf8');
+const neon = '<!doctype html><html><head><title>Stub</title></head><body><!-- /*__THORADAR_DATA_START__*//*__THORADAR_DATA_END__*/ --><p>Corrupted shell</p></body></html>';
+const neonHash = '11e2ff0add51cd0cf4f21b39010925b11df3fe7c0d388906c0c56468a3a16b74';
+if (Buffer.byteLength(neon) !== 156 || sha256(neon) !== neonHash) throw new Error('Neon fixture bytes differ');
+
+const start = '/*__THORADAR_DATA_START__*/';
+const end = '/*__THORADAR_DATA_END__*/';
+const dataBlock = /const SITE_DATA = (\{[^\r\n]+\});\s*\/\*__THORADAR_DATA_END__\*\//.exec(healthy);
+if (!dataBlock) throw new Error('Healthy fixture has no official SITE_DATA');
+const data = JSON.parse(dataBlock[1]);
+const zeroData = { ...data, briefing_date: '2026-11-28', papers: [] };
+const zero = healthy.replace(dataBlock[1], () => JSON.stringify(zeroData));
+if (zero === healthy || data.papers.length === 0) throw new Error('Expected distinct populated and zero-paper editions');
+const shell = (block, after = '') => `<!doctype html><html><body><script>${start}\n${block}\n${end}\n${after}</script></body></html>`;
+const cases = [
+  ['neon-empty-markers-stub', neon],
+  ['missing-site-data-between-markers', shell('const OTHER = {};', 'const SITE_DATA = {"briefing_date":"2026-11-28","papers":[]};')],
+  ['invalid-json', shell('const SITE_DATA = {"briefing_date":"2026-11-28","papers":[],};')],
+  ['wrong-briefing-date-type', shell('const SITE_DATA = {"briefing_date":20261128,"papers":[]};')],
+  ['wrong-papers-type', shell('const SITE_DATA = {"briefing_date":"2026-11-28","papers":{}};')],
+  ['valid-zero-papers', zero]
+];
+const describe = body => ({ bytes: Buffer.byteLength(body), sha256: sha256(body) });
+const result = {
+  command: ['node', 'tests/smooth/verify-s3.mjs', ...process.argv.slice(2)], startedAt: new Date().toISOString(),
+  runs: 1, seed: null, baseline: gitRead(['rev-parse', 'HEAD']).trim(),
+  environment: { os: version(), release: release(), arch: arch(), node: process.version },
+  sha256: { 'index.html': sha256(healthy), 'sw.js': sha256(worker),
+    'tests/smooth/verify-s3.mjs': sha256(await readFile(new URL(import.meta.url))) },
+  fixtures: Object.fromEntries([['healthy', healthy], ...cases].map(([name, body]) => [name, describe(body)])),
+  checks: [], requests: [], documents: []
+};
+const mime = 'text/html; charset=utf-8';
+let upstream = ['healthy', healthy];
+const server = createServer((req, res) => {
+  const { pathname } = new URL(req.url, 'http://127.0.0.1');
+  const cacheControl = { 'Cache-Control': 'no-store' };
+  if (pathname === '/driver') {
+    res.writeHead(200, { ...cacheControl, 'Content-Type': mime });
+    return res.end('<!doctype html><title>S3 test driver</title>');
+  }
+  if (pathname === '/sw.js') {
+    res.writeHead(200, { ...cacheControl, 'Content-Type': 'text/javascript' });
+    return res.end(worker);
+  }
+  if (pathname !== '/index.html' && pathname !== '/') {
+    res.writeHead(404, cacheControl);
+    return res.end();
+  }
+  const [name, body] = upstream;
+  const request = { name, url: req.url, method: req.method, status: 200, mime,
+    pragma: req.headers.pragma ?? null, at: new Date().toISOString(), ...result.fixtures[name] };
+  result.requests.push(request);
+  res.once('finish', () => { request.finished = true; });
+  res.writeHead(200, { ...cacheControl, 'Content-Type': mime });
+  res.end(body);
+});
+
+async function until(label, read) {
+  const deadline = Date.now() + 10_000;
+  do {
+    const value = await read();
+    if (value) return value;
+    await sleep(40);
+  } while (Date.now() < deadline);
+  throw new Error('Timed out: ' + label);
+}
+
+function record(name, pass, detail) {
+  result.checks.push({ name, pass, detail });
+  console.log(`${pass ? 'PASS' : 'FAIL'} ${name} ${JSON.stringify(detail)}`);
+}
+
+const temp = resolve(tmpdir());
+const prefix = 'thoradar-sol-s3-chrome-';
+let profile, browser, cdp;
+try {
+  console.log('RUN ' + JSON.stringify(result));
+  await new Promise((done, fail) => {
+    server.once('error', fail);
+    server.listen(0, '127.0.0.1', done);
+  });
+  const origin = `http://127.0.0.1:${server.address().port}`;
+  profile = await mkdtemp(join(temp, prefix));
+  browser = await launch({ chrome: 'C:/Program Files/Google/Chrome/Application/chrome.exe',
+    profile, port: await freePort() });
+  cdp = await connect(browser.ver.webSocketDebuggerUrl);
+  result.environment.chrome = await cdp.send('Browser.getVersion');
+  console.log('BROWSER ' + JSON.stringify(result.environment.chrome));
+  const sessions = new Map();
+  cdp.on('Network.responseReceived', ({ type, loaderId, response }, session) => {
+    if (type === 'Document' && sessions.has(session)) {
+      result.documents.push({ case: sessions.get(session), loaderId, url: response.url,
+        status: response.status, fromServiceWorker: response.fromServiceWorker,
+        source: response.serviceWorkerResponseSource ?? null });
+    }
+  });
+
+  for (const fixture of cases) {
+    const [name] = fixture;
+    const { browserContextId } = await cdp.send('Target.createBrowserContext');
+    let sessionId;
+    try {
+      const { targetId } = await cdp.send('Target.createTarget', { url: 'about:blank', browserContextId });
+      ({ sessionId } = await cdp.send('Target.attachToTarget', { targetId, flatten: true }));
+      sessions.set(sessionId, name);
+      const send = (method, params) => cdp.send(method, params, sessionId);
+      await send('Page.enable');
+      await send('Network.enable');
+      await send('Page.addScriptToEvaluateOnNewDocument', { source: `
+        navigator.serviceWorker?.addEventListener('message', event => {
+          if (event.data?.type === 'thoradar-shell-state') window.s3Status = event.data.status;
+        });` });
+      async function evaluate(fn) {
+        const { result: value, exceptionDetails } = await send('Runtime.evaluate', {
+          expression: `(${fn})()`, awaitPromise: true, returnByValue: true
+        });
+        if (exceptionDetails) throw new Error(exceptionDetails.exception?.description ?? exceptionDetails.text);
+        return value.value;
+      }
+      async function navigate(path) {
+        const url = origin + path;
+        const { loaderId, errorText } = await send('Page.navigate', { url });
+        if (errorText) throw new Error(errorText);
+        const document = await until('document ' + path, () => result.documents.find(row => row.loaderId === loaderId));
+        await until('page loaded ' + path, () => evaluate(() =>
+          document.readyState === 'complete' && location.href).then(actual => actual === url).catch(() => false));
+        return document;
+      }
+      const cacheState = () => evaluate(async () => {
+        const cache = await caches.open('thoradar-shell-v1');
+        const response = await cache.match('/index.html');
+        const bytes = await response.arrayBuffer();
+        const digest = new Uint8Array(await crypto.subtle.digest('SHA-256', bytes));
+        return { bytes: bytes.byteLength, sha256: Array.from(digest, value => value.toString(16).padStart(2, '0')).join('') };
+      });
+      const pageState = () => evaluate(() => ({ date: typeof SITE_DATA === 'undefined' ? null : SITE_DATA.briefing_date,
+        papers: typeof SITE_DATA === 'undefined' ? null : SITE_DATA.papers.length,
+        banner: document.getElementById('shell-status')?.textContent ?? null }));
+
+      upstream = ['healthy', healthy];
+      await navigate('/driver');
+      await evaluate(async () => { await navigator.serviceWorker.register('/sw.js'); await navigator.serviceWorker.ready; });
+      const before = await cacheState();
+      const offset = result.requests.length;
+      upstream = fixture;
+      const first = await navigate('/index.html');
+      const status = await until('worker completed refresh', () => evaluate(() =>
+        ['current', 'updated', 'unavailable'].includes(window.s3Status) && window.s3Status));
+      const after = await cacheState();
+      const firstPage = await pageState();
+      const requests = result.requests.slice(offset);
+      const accepted = name === 'valid-zero-papers';
+      const expected = result.fixtures[accepted ? name : 'healthy'];
+      const next = await navigate('/?sw=1');
+      const nextPage = await pageState();
+      record(name, before.sha256 === result.fixtures.healthy.sha256 && first.source === 'cache-storage' &&
+        firstPage.date === data.briefing_date && requests.some(request => request.name === name &&
+          request.finished && request.pragma === 'no-cache') && status === (accepted ? 'updated' : 'unavailable') &&
+        after.sha256 === expected.sha256 && after.bytes === expected.bytes && next.source === 'cache-storage' &&
+        nextPage.date === (accepted ? zeroData.briefing_date : data.briefing_date) &&
+        nextPage.papers === (accepted ? 0 : data.papers.length),
+      { before, first, firstPage, status, after, expected, requests, next, nextPage });
+    } catch (error) {
+      console.error(error.stack);
+      record(name, false, { error: error.message });
+    } finally {
+      sessions.delete(sessionId);
+      await cdp.send('Target.disposeBrowserContext', { browserContextId });
+    }
+  }
+} catch (error) {
+  console.error(error.stack);
+  record('harness', false, { error: error.message });
+} finally {
+  try { await cdp?.send('Browser.close'); }
+  catch (error) { console.error('Browser.close: ' + error.message); }
+  cdp?.close();
+  if (browser) result.remainingProfileProcesses = await browser.stop();
+  if (server.listening) await new Promise(done => {
+    server.close(done);
+    server.closeAllConnections();
+  });
+  if (profile && dirname(resolve(profile)) === temp && basename(profile).startsWith(prefix)) {
+    await rm(profile, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
+  }
+  result.endedAt = new Date().toISOString();
+  result.summary = { passed: result.checks.filter(check => check.pass).length,
+    failed: result.checks.filter(check => !check.pass).length };
+  await writeFile(output, JSON.stringify(result, null, 2) + '\n', { flag: 'wx' });
+  console.log('SUMMARY ' + JSON.stringify(result.summary));
+  if (result.summary.failed || result.remainingProfileProcesses) process.exitCode = 1;
+}
+run-regressions.mjs
+verify-s1.mjs
+verify-s2.mjs
+verify-s3.mjs
+verify-source.mjs
+tests\ux\ux_probe.mjs
+tests\test_taxonomy_v4.py
+tests\test_subscribe_build.py
+tests\test_semantic_anchor_expansion.py
+tests\test_semantic_anchors.py
+tests\test_rate_gate.py
+tests\test_push_notify.py
+tests\test_pin_guard.py
+tests\test_journal_health.py
+tests\test_inject_guard.py
+tests\test_gate_files.py
+tests\test_curation.py
+tests\smooth\verify-source.mjs
+tests\smooth\verify-s3.mjs
+tests\smooth\verify-s2.mjs
+tests\smooth\verify-s1.mjs
+tests\smooth\run-regressions.mjs
+tests\poolup\poolup_shots.mjs
+tests\poolup\poolup_regress.mjs
+tests\poolup\poolup_probe.mjs
+tests\poolup\poolup_mutants.mjs
+tests\poolup\lib.mjs
+tests\aicls\lib.mjs
+tests\aicls\aicls_shots.mjs
+tests\aicls\aicls_regress.mjs
+tests\aicls\aicls_probe.mjs
+tests\aicls\aicls_mutants.mjs
+docs/tasks/T1128-SMOOTH\sol-s2-core-draft.json
+docs/tasks/T1128-SMOOTH\sol-s2-core-02.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s2-core-02.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s2-core-02.json
+docs/tasks/T1128-SMOOTH\sol-s2-core-01.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s2-core-01.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s2-core-01.json
+docs/tasks/T1128-SMOOTH\sol-s1-source-check.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s1-report.md
+docs/tasks/T1128-SMOOTH\sol-s1-negative-truncated.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s1-negative-truncated.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s1-negative-truncated.json
+docs/tasks/T1128-SMOOTH\sol-s1-negative-local-return.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s1-negative-local-return.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s1-negative-local-return.json
+docs/tasks/T1128-SMOOTH\sol-s1-candidate-03.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s1-candidate-03.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s1-candidate-03.json
+docs/tasks/T1128-SMOOTH\sol-s1-candidate-02.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s1-candidate-02.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s1-candidate-02.json
+docs/tasks/T1128-SMOOTH\sol-s1-candidate-01.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s1-candidate-01.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s1-candidate-01.json
+docs/tasks/T1128-SMOOTH\run-sol-s2.ps1
+docs/tasks/T1128-SMOOTH\run-sol-s1.ps1
+docs/tasks/T1128-SMOOTH\main-s3-rerun.stdout.txt
+docs/tasks/T1128-SMOOTH\main-s3-rerun.stderr.txt
+docs/tasks/T1128-SMOOTH\main-s3-rerun.json
+docs/tasks/T1128-SMOOTH\main-s1-rerun.stdout.txt
+docs/tasks/T1128-SMOOTH\main-s1-rerun.stderr.txt
+docs/tasks/T1128-SMOOTH\main-s1-rerun.json
+docs/tasks/T1128-SMOOTH\sol-s2-mutation-retire.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s2-mutation-retire.json
+docs/tasks/T1128-SMOOTH\sol-s2-mutation-local-return.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s2-mutation-local-return.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s2-mutation-local-return.json
+docs/tasks/T1128-SMOOTH\sol-s2-matrix-pilot3.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s2-matrix-pilot3.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s2-matrix-pilot3.json
+docs/tasks/T1128-SMOOTH\sol-s2-matrix-pilot2.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s2-matrix-pilot2.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s2-matrix-pilot2.json
+docs/tasks/T1128-SMOOTH\sol-s2-matrix-draft.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s2-matrix-draft.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s2-matrix-draft.json
+docs/tasks/T1128-SMOOTH\sol-s2-matrix-02.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s2-matrix-02.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s2-matrix-02.json
+docs/tasks/T1128-SMOOTH\sol-s2-matrix-01.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s2-matrix-01.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s2-matrix-01.json
+docs/tasks/T1128-SMOOTH\sol-s3-worker.diff.txt
+docs/tasks/T1128-SMOOTH\sol-s3-worker.diff.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-source.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s3-source.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-source.json
+docs/tasks/T1128-SMOOTH\sol-s3-s2.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s3-s2.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-s2.json
+docs/tasks/T1128-SMOOTH\sol-s3-s2-no-retire-cleanup.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s3-s2-no-retire-cleanup.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-s2-no-retire-cleanup.json
+docs/tasks/T1128-SMOOTH\sol-s3-s1.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s3-s1.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-s1.json
+docs/tasks/T1128-SMOOTH\sol-s3-s1-no-local-return.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s3-s1-no-local-return.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-s1-no-local-return.json
+docs/tasks/T1128-SMOOTH\sol-s3-s1-allow-truncated.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s3-s1-allow-truncated.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-s1-allow-truncated.json
+docs/tasks/T1128-SMOOTH\sol-s3-report.md
+docs/tasks/T1128-SMOOTH\sol-s3-regressions.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s3-regressions.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s2-legacy-evidence\ux.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s2-legacy-evidence\ux.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s2-legacy-evidence\ux.json
+docs/tasks/T1128-SMOOTH\sol-s3-regressions\ux.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s3-regressions\ux.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-regressions\ux.json
+docs/tasks/T1128-SMOOTH\sol-s2-legacy-evidence\aicls.json
+docs/tasks/T1128-SMOOTH\sol-s2-core-pilot2.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s2-legacy-evidence\ux-measurements\f8-diff.json
+docs/tasks/T1128-SMOOTH\sol-s2-core-pilot2.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s2-legacy-evidence\ux-measurements\f7-narrow.json
+docs/tasks/T1128-SMOOTH\sol-s2-core-pilot2.json
+docs/tasks/T1128-SMOOTH\sol-s2-legacy-evidence\ux-measurements\f6-lang.json
+docs/tasks/T1128-SMOOTH\sol-s2-core-final-02.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s2-legacy-evidence\ux-measurements\f5-detail.json
+docs/tasks/T1128-SMOOTH\sol-s2-core-final-02.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s2-legacy-evidence\ux-measurements\f4-fonts.json
+docs/tasks/T1128-SMOOTH\sol-s2-core-final-02.json
+docs/tasks/T1128-SMOOTH\sol-s2-legacy-evidence\ux-measurements\f3-rows.json
+docs/tasks/T1128-SMOOTH\sol-s2-core-final-01.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s2-legacy-evidence\ux-measurements\f11-layout.json
+docs/tasks/T1128-SMOOTH\sol-s2-legacy-evidence\ux-measurements\f10-radar.json
+docs/tasks/T1128-SMOOTH\sol-s2-legacy-evidence\ux-measurements\f1-steps.json
+docs/tasks/T1128-SMOOTH\sol-s2-legacy-evidence\poolup.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s2-core-final-01.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s2-legacy-evidence\poolup.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s2-legacy-evidence\poolup.json
+docs/tasks/T1128-SMOOTH\sol-s2-legacy-evidence\aicls.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s2-core-final-01.json
+docs/tasks/T1128-SMOOTH\sol-s2-legacy-evidence\aicls.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s2-core-draft.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s2-core-draft.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-final-regressions.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s2-negative-truncated.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s2-negative-truncated.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s2-negative-truncated.json
+docs/tasks/T1128-SMOOTH\sol-s2-negative-truncated-final.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s2-negative-truncated-final.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s2-negative-truncated-final.json
+docs/tasks/T1128-SMOOTH\sol-s2-negative-retire-final.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s2-negative-retire-final.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s2-negative-retire-final.json
+docs/tasks/T1128-SMOOTH\sol-s2-negative-local-return.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s2-negative-local-return.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s2-negative-local-return.json
+docs/tasks/T1128-SMOOTH\sol-s2-negative-local-return-final.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s2-negative-local-return-final.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s2-negative-local-return-final.json
+docs/tasks/T1128-SMOOTH\sol-s3-negative.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s2-mutation-truncated.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s3-negative.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s2-mutation-truncated.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-negative-control.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s3-final-s1.json
+docs/tasks/T1128-SMOOTH\sol-s3-negative-control.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-final-s2.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s3-final-regressions.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s3-regressions\aicls.json
+docs/tasks/T1128-SMOOTH\sol-s3-after.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s3-regressions\poolup.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-regressions\poolup.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s2-mutation-retire.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s3-regressions\aicls.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s3-final-after.json
+docs/tasks/T1128-SMOOTH\sol-s3-before.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s3-before.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-before.json
+docs/tasks/T1128-SMOOTH\sol-s3-final-after.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s2-source.json
+docs/tasks/T1128-SMOOTH\sol-s3-final-after.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s2-report.md
+docs/tasks/T1128-SMOOTH\sol-s3-final-before.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-final-before.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s2-source.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s2-source.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-after.json
+docs/tasks/T1128-SMOOTH\sol-s3-after.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-final-s1.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-final-s1.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s2-mutation-truncated.json
+docs/tasks/T1128-SMOOTH\sol-s3-regressions\poolup.json
+docs/tasks/T1128-SMOOTH\sol-s3-regressions\aicls.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-final-s2.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-regressions\ux-measurements\f8-diff.json
+docs/tasks/T1128-SMOOTH\sol-s3-regressions\ux-measurements\f7-narrow.json
+docs/tasks/T1128-SMOOTH\sol-s3-regressions\ux-measurements\f6-lang.json
+docs/tasks/T1128-SMOOTH\sol-s3-regressions\ux-measurements\f5-detail.json
+docs/tasks/T1128-SMOOTH\sol-s3-regressions\ux-measurements\f4-fonts.json
+docs/tasks/T1128-SMOOTH\sol-s3-regressions\ux-measurements\f3-rows.json
+docs/tasks/T1128-SMOOTH\sol-s3-regressions\ux-measurements\f11-layout.json
+docs/tasks/T1128-SMOOTH\sol-s3-regressions\ux-measurements\f10-radar.json
+docs/tasks/T1128-SMOOTH\sol-s3-regressions\ux-measurements\f1-steps.json
+docs/tasks/T1128-SMOOTH\sol-s2-regressions-final\ux.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s2-regressions-final\ux.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s2-regressions-final\ux.json
+docs/tasks/T1128-SMOOTH\sol-s3-final-regressions\ux.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s3-final-regressions\ux.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-final-regressions\poolup.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s3-final-regressions\poolup.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-final-regressions\aicls.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s3-final-regressions\aicls.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s2-regressions-final\aicls.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s2-regressions-final\aicls.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s2-regressions-final\aicls.json
+docs/tasks/T1128-SMOOTH\sol-s2-regressions-final\poolup.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s2-regressions-final\poolup.json
+docs/tasks/T1128-SMOOTH\sol-s2-regressions-final\poolup.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s2-regressions\aicls.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s2-regressions\aicls.json
+docs/tasks/T1128-SMOOTH\sol-s2-regressions\aicls.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s2-regressions\poolup.json
+docs/tasks/T1128-SMOOTH\sol-s2-regressions\poolup.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s2-regressions\ux.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s2-regressions\ux.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s2-regressions\ux.json
+docs/tasks/T1128-SMOOTH\sol-s3-recheck-regressions\ux.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck-regressions\ux.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck-regressions\ux.json
+docs/tasks/T1128-SMOOTH\sol-s2-regressions-final\ux-measurements\f8-diff.json
+docs/tasks/T1128-SMOOTH\sol-s2-regressions-final\ux-measurements\f7-narrow.json
+docs/tasks/T1128-SMOOTH\sol-s2-regressions-final\ux-measurements\f6-lang.json
+docs/tasks/T1128-SMOOTH\sol-s2-regressions-final\ux-measurements\f5-detail.json
+docs/tasks/T1128-SMOOTH\sol-s2-regressions-final\ux-measurements\f4-fonts.json
+docs/tasks/T1128-SMOOTH\sol-s2-regressions-final\ux-measurements\f3-rows.json
+docs/tasks/T1128-SMOOTH\sol-s2-regressions-final\ux-measurements\f11-layout.json
+docs/tasks/T1128-SMOOTH\sol-s2-regressions-final\ux-measurements\f10-radar.json
+docs/tasks/T1128-SMOOTH\sol-s2-regressions-final\ux-measurements\f1-steps.json
+docs/tasks/T1128-SMOOTH\sol-s2-regressions\poolup.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\after.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\after.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\after.json
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\before.json
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\before.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck-regressions\aicls.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck-regressions\aicls.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck-regressions\aicls.json
+docs/tasks/T1128-SMOOTH\sol-s3-recheck-regressions\poolup.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck-regressions\poolup.json
+docs/tasks/T1128-SMOOTH\sol-s3-recheck-regressions\poolup.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\before.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s2-regressions\ux-measurements\f8-diff.json
+docs/tasks/T1128-SMOOTH\sol-s2-regressions\ux-measurements\f7-narrow.json
+docs/tasks/T1128-SMOOTH\sol-s2-regressions\ux-measurements\f6-lang.json
+docs/tasks/T1128-SMOOTH\sol-s2-regressions\ux-measurements\f5-detail.json
+docs/tasks/T1128-SMOOTH\sol-s2-regressions\ux-measurements\f4-fonts.json
+docs/tasks/T1128-SMOOTH\sol-s2-regressions\ux-measurements\f3-rows.json
+docs/tasks/T1128-SMOOTH\sol-s2-regressions\ux-measurements\f11-layout.json
+docs/tasks/T1128-SMOOTH\sol-s2-regressions\ux-measurements\f10-radar.json
+docs/tasks/T1128-SMOOTH\sol-s2-regressions\ux-measurements\f1-steps.json
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\legacy.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\legacy.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\legacy.exit.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\mutation-runner.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\mutation-runner.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\no-data-validation.json
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\no-data-validation.run.json
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\worker.diff.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\worker.diff.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\worker.diff.exit.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\special-exits.json
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\source.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\source.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\source.json
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\source.exit.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\s2.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\s2.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\s2.json
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\s2.exit.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\s2-no-retire-cleanup.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\s2-no-retire-cleanup.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\s2-no-retire-cleanup.json
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\s2-no-retire-cleanup.exit.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\s1.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\s1.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\s1.json
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\s1.exit.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\s1-no-local-return.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\s1-no-local-return.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\s1-no-local-return.json
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\s1-no-local-return.exit.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\s1-allow-truncated.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\s1-allow-truncated.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\s1-allow-truncated.json
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\s1-allow-truncated.exit.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\run-no-data-validation.ps1
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\no-data-validation.stdout.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck\no-data-validation.stderr.txt
+docs/tasks/T1128-SMOOTH\sol-s3-recheck-regressions\ux-measurements\f8-diff.json
+docs/tasks/T1128-SMOOTH\sol-s3-recheck-regressions\ux-measurements\f7-narrow.json
+docs/tasks/T1128-SMOOTH\sol-s3-recheck-regressions\ux-measurements\f6-lang.json
+docs/tasks/T1128-SMOOTH\sol-s3-recheck-regressions\ux-measurements\f5-detail.json
+docs/tasks/T1128-SMOOTH\sol-s3-recheck-regressions\ux-measurements\f4-fonts.json
+docs/tasks/T1128-SMOOTH\sol-s3-recheck-regressions\ux-measurements\f3-rows.json
+docs/tasks/T1128-SMOOTH\sol-s3-recheck-regressions\ux-measurements\f11-layout.json
+docs/tasks/T1128-SMOOTH\sol-s3-recheck-regressions\ux-measurements\f10-radar.json
+docs/tasks/T1128-SMOOTH\sol-s3-recheck-regressions\ux-measurements\f1-steps.json
+
+hook: PostToolUse
+ succeeded in 1017ms:
+import { spawn } from 'node:child_process';
+import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { createServer } from 'node:http';
+import { arch, release, tmpdir, version } from 'node:os';
+import { basename, dirname, join, resolve } from 'node:path';
+import { ROOT, chromeArgs, connect, gitRead, sha256, sleep } from './aicls/lib.mjs';
+
+const outJson = process.argv[2];
+if (!outJson) throw new Error('Usage: node tests/neon-v2-verify.mjs <output.json>');
+
+const html = await readFile(join(ROOT, 'index.html'), 'utf8');
+const workerSrc = (await readFile(join(ROOT, 'sw.js'), 'utf8')).replaceAll('\r\n', '\n');
+const retireSrc = await readFile(join(ROOT, 'sw-retire.js'), 'utf8');
+
+function replaceOnce(source, anchor, value) {
+  const pos = source.indexOf(anchor);
+  if (pos < 0 || source.indexOf(anchor, pos + anchor.length) !== -1) throw new Error('Anchor mismatch: ' + anchor);
+  return source.slice(0, pos) + value + source.slice(pos + anchor.length);
+}
+
+const header = /const SITE_DATA = \{"generated_at":"(\d{4}-\d\d-\d\d)([^"]*)","briefing_date":"(\d{4}-\d\d-\d\d)"/.exec(html);
+if (!header) throw new Error('SITE_DATA anchor missing');
+const d1 = header[3];
+const day2 = new Date(d1 + 'T00:00:00Z');
+day2.setUTCDate(day2.getUTCDate() + 1);
+const d2 = day2.toISOString().slice(0, 10);
+const v2Html = replaceOnce(html, header[0], `const SITE_DATA = {"generated_at":"${d2}${header[2]}","briefing_date":"${d2}"`);
+
+const DATA_START = '/*__THORADAR_DATA_START__*/';
+const DATA_END = '/*__THORADAR_DATA_END__*/';
+const sIdx = v2Html.indexOf(DATA_START);
+const eIdx = v2Html.indexOf(DATA_END, sIdx + DATA_START.length);
+
+// V1 4 adversarial payloads
+const reversedHtml = v2Html.slice(0, sIdx) + DATA_END + v2Html.slice(sIdx + DATA_START.length, eIdx) + DATA_START + v2Html.slice(eIdx + DATA_END.length);
+const emptyMarkersHtml = `<!doctype html><html><head><title>Stub</title></head><body><!-- ${DATA_START}${DATA_END} --><p>Corrupted shell</p></body></html>`;
+
+// S3 + V2 extra payloads
+const dataBlockRe = /const SITE_DATA = (\{[^\r\n]+\});\s*\/\*__THORADAR_DATA_END__\*\//.exec(html);
+if (!dataBlockRe) throw new Error('SITE_DATA JSON block missing');
+const parsedV1 = JSON.parse(dataBlockRe[1]);
+const zeroPapersHtml = html.replace(dataBlockRe[1], () => JSON.stringify({ ...parsedV1, briefing_date: d2, papers: [] }));
+const emptyDateHtml = html.replace(dataBlockRe[1], () => JSON.stringify({ ...parsedV1, briefing_date: '', papers: [] }));
+const stubWith = (inner, after = '') => `<!doctype html><html><body><script>${DATA_START}\n${inner}\n${DATA_END}\n${after}</script></body></html>`;
+const missingSiteDataHtml = stubWith('const OTHER = {};', `const SITE_DATA = {"briefing_date":"${d2}","papers":[]};`);
+const badJsonHtml = stubWith(`const SITE_DATA = {"briefing_date":"${d2}","papers":[],};`);
+const wrongDateTypeHtml = stubWith('const SITE_DATA = {"briefing_date":20261128,"papers":[]};');
+const wrongPapersTypeHtml = stubWith(`const SITE_DATA = {"briefing_date":"${d2}","papers":{}};`);
+const nullSiteDataHtml = stubWith('const SITE_DATA = null;');
+const commentWrappedSiteDataHtml = `<!doctype html><html><body><!-- ${DATA_START} const SITE_DATA = {"briefing_date":"${d2}","papers":[]}; ${DATA_END} --><p>Comment stub</p></body></html>`;
+
+const v1Hash = sha256(html);
+const zeroHash = sha256(zeroPapersHtml);
+
+const result = {
+  source: 'Neon V2 independent adversarial verification + 4 in-memory negative controls against S3 candidate index.html and sw.js',
+  startedAt: new Date().toISOString(),
+  baselineCommit: gitRead(['rev-parse', 'HEAD']).trim(),
+  environment: { os: version(), release: release(), arch: arch(), node: process.version },
+  runs: 1,
+  seed: null,
+  sha256: {
+    'index.html': v1Hash,
+    'sw.js': sha256(await readFile(join(ROOT, 'sw.js'))),
+    'sw-retire.js': sha256(retireSrc),
+    'empty-markers-stub': sha256(emptyMarkersHtml),
+    'valid-zero-papers': zeroHash
+  },
+  checks: [],
+  extraProbes: [],
+  negativeControls: [],
+  requests: [],
+  errors: []
+};
+
+let currentMode = 'v1';
+let currentWorkerMode = 'normal';
+
+const s3GuardBlock = [
+  '  const block = html.slice(dataStart, end).trim();',
+  '  const declaration = /^const\\s+SITE_DATA\\s*=\\s*(\\{[\\s\\S]*\\})\\s*;?$/.exec(block);',
+  '  if (!declaration) return null;',
+  '  try {',
+  '    const data = JSON.parse(declaration[1]);',
+  '    if (typeof data.briefing_date !== \'string\' || !Array.isArray(data.papers)) return null;',
+  '  } catch (_) {',
+  '    return null;',
+  '  }'
+].join('\n');
+
+const workerVariants = {
+  normal: workerSrc,
+  'mut-marker-order-naive': replaceOnce(workerSrc, 'const end = html.indexOf(DATA_END, dataStart);', 'const end = html.indexOf(DATA_END);'),
+  'mut-marker-order-orderless': replaceOnce(
+    replaceOnce(workerSrc, 'const end = html.indexOf(DATA_END, dataStart);', 'const end = html.indexOf(DATA_END);'),
+    'const block = html.slice(dataStart, end).trim();',
+    'const block = (start < end ? html.slice(dataStart, end) : html.slice(end + DATA_END.length, start)).trim();'
+  ),
+  'mut-mime': replaceOnce(workerSrc, " || mime !== 'text/html'", ''),
+  'mut-status-503': replaceOnce(workerSrc, 'response.status !== 200', 'response.status < 200'),
+  'mut-s3-site-data-guard': replaceOnce(workerSrc, s3GuardBlock, '  // mutated: S3 SITE_DATA guard removed')
+};
+
+const site = createServer((req, res) => {
+  const { pathname } = new URL(req.url, 'http://127.0.0.1');
+  const row = { mode: currentMode, workerMode: currentWorkerMode, method: req.method, url: req.url, ts: Date.now() };
+  result.requests.push(row);
+  if (pathname === '/sw.js') {
+    row.status = 200;
+    res.writeHead(200, { 'Content-Type': 'text/javascript', 'Cache-Control': 'no-store' });
+    res.end(workerVariants[currentWorkerMode]);
+    return;
+  }
+  if (pathname === '/api/ai-probe' && req.method === 'POST') {
+    row.status = 200;
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end('{"ok":true}');
+    return;
+  }
+  if (pathname === '/data/radar_latest.json') {
+    row.status = 200;
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end('{"papers":[]}');
+    return;
+  }
+  if (pathname === '/' || pathname === '/index.html') {
+    const map = {
+      v1: { status: 200, mime: 'text/html; charset=utf-8', body: html },
+      'reversed-markers': { status: 200, mime: 'text/html; charset=utf-8', body: reversedHtml },
+      'json-mime-valid-html': { status: 200, mime: 'application/json', body: v2Html },
+      'status-503-valid-html': { status: 503, mime: 'text/html; charset=utf-8', body: v2Html },
+      'empty-markers-stub': { status: 200, mime: 'text/html; charset=utf-8', body: emptyMarkersHtml },
+      'missing-site-data': { status: 200, mime: 'text/html; charset=utf-8', body: missingSiteDataHtml },
+      'bad-json-site-data': { status: 200, mime: 'text/html; charset=utf-8', body: badJsonHtml },
+      'wrong-date-type': { status: 200, mime: 'text/html; charset=utf-8', body: wrongDateTypeHtml },
+      'wrong-papers-type': { status: 200, mime: 'text/html; charset=utf-8', body: wrongPapersTypeHtml },
+      'null-site-data': { status: 200, mime: 'text/html; charset=utf-8', body: nullSiteDataHtml },
+      'valid-zero-papers': { status: 200, mime: 'text/html; charset=utf-8', body: zeroPapersHtml },
+      'empty-briefing-date': { status: 200, mime: 'text/html; charset=utf-8', body: emptyDateHtml },
+      'comment-wrapped-site-data-stub': { status: 200, mime: 'text/html; charset=utf-8', body: commentWrappedSiteDataHtml }
+    };
+    const cfg = map[currentMode];
+    row.status = cfg.status;
+    row.mime = cfg.mime;
+    res.writeHead(cfg.status, { 'Content-Type': cfg.mime, 'Cache-Control': 'no-store' });
+    res.end(cfg.body);
+    return;
+  }
+  row.status = 404;
+  res.writeHead(404, { 'Content-Type': 'text/plain' });
+  res.end('not found');
+});
+
+async function until(label, fn, timeout = 10000) {
+  const end = Date.now() + timeout;
+  while (Date.now() < end) {
+    const v = await fn();
+    if (v) return v;
+    await sleep(30);
+  }
+  throw new Error('Timed out: ' + label);
+}
+
+let browser, browserExit, profile, cdp, origin;
+const temp = resolve(tmpdir());
+const prefix = 'thoradar-neon-v2-';
+
+async function runInContext(label, workerMode, fn) {
+  currentWorkerMode = workerMode;
+  currentMode = 'v1';
+  const { browserContextId } = await cdp.send('Target.createBrowserContext');
+  const docs = [];
+  const netReqs = [];
+  let session;
+  const onResp = ({ type, loaderId, response }, sid) => {
+    if (sid !== session || !response.url.startsWith(origin + '/')) return;
+    netReqs.push({ type, loaderId, url: response.url, status: response.status, fromServiceWorker: response.fromServiceWorker, source: response.serviceWorkerResponseSource ?? null });
+    if (type === 'Document') docs.push({ loaderId, url: response.url, status: response.status, fromServiceWorker: response.fromServiceWorker, source: response.serviceWorkerResponseSource ?? null });
+  };
+  cdp.on('Network.responseReceived', onResp);
+  try {
+    const { targetId } = await cdp.send('Target.createTarget', { url: 'about:blank', browserContextId });
+    ({ sessionId: session } = await cdp.send('Target.attachToTarget', { targetId, flatten: true }));
+    const send = (m, a = {}) => cdp.send(m, a, session);
+    for (const d of ['Page', 'Runtime', 'Network', 'ServiceWorker']) await send(d + '.enable');
+    const ev = async (f, ...args) => {
+      const { result: r, exceptionDetails } = await send('Runtime.evaluate', {
+        expression: `(${f})(${args.map(x => JSON.stringify(x)).join(',')})`, awaitPromise: true, returnByValue: true
+      });
+      if (exceptionDetails) throw new Error(exceptionDetails.exception?.description ?? exceptionDetails.text);
+      return r.value;
+    };
+    const nav = async (path, waitReady = true) => {
+      const url = origin + path;
+      const { loaderId, errorText } = await send('Page.navigate', { url });
+      if (errorText) throw new Error(errorText);
+      const doc = await until('doc ' + path, () => docs.find(d => d.loaderId === loaderId && d.url === url));
+      await until('loaded ' + path, async () => {
+        try {
+          return await ev((u, wr) => location.href === u && document.readyState === 'complete' && (!wr || document.body.dataset.protoReady === 'true'), url, waitReady);
+        } catch (_) { return false; }
+      });
+      return doc;
+    };
+    const storage = () => ev(async () => {
+      const regs = await navigator.serviceWorker.getRegistrations();
+      const names = await caches.keys();
+      const shell = names.find(n => n.startsWith('thoradar-shell-'));
+      const cache = shell && await caches.open(shell);
+      const resp = cache && await cache.match('/index.html');
+      const buf = resp && await resp.arrayBuffer();
+      const hash = buf ? Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', buf)), b => b.toString(16).padStart(2, '0')).join('') : null;
+      return { registrations: regs.length, active: regs[0]?.active?.state ?? null, names, hash, bytes: buf?.byteLength ?? null };
+    });
+    const snap = () => ev(() => ({
+      date: typeof SITE_DATA !== 'undefined' ? SITE_DATA.briefing_date : null,
+      papersLen: typeof SITE_DATA !== 'undefined' && Array.isArray(SITE_DATA.papers) ? SITE_DATA.papers.length : null,
+      points: document.querySelectorAll('#blips .blip').length,
+      banner: document.getElementById('shell-status')?.textContent ?? null
+    }));
+    const warm = async () => {
+      await nav('/index.html?sw=1');
+      await until('warmed', async () => {
+        const st = await storage();
+        return st.active === 'activated' && st.hash === v1Hash && st;
+      });
+    };
+    return await fn({ nav, storage, snap, warm, ev, netReqs });
+  } finally {
+    await cdp.send('Target.disposeBrowserContext', { browserContextId }).catch(() => {});
+  }
+}
+
+try {
+  await new Promise((ok, fail) => { site.once('error', fail); site.listen(0, '127.0.0.1', ok); });
+  origin = `http://127.0.0.1:${site.address().port}`;
+  profile = await mkdtemp(join(temp, prefix));
+  browser = spawn('C:/Program Files/Google/Chrome/Application/chrome.exe', [...chromeArgs(0, profile), '--no-proxy-server'], { stdio: ['ignore', 'ignore', 'ignore'], windowsHide: true });
+  browserExit = new Promise(done => { browser.once('exit', (code, signal) => done({ code, signal })); browser.once('error', e => done({ error: e.message })); });
+  const port = await until('DevToolsActivePort', async () => {
+    const t = await readFile(join(profile, 'DevToolsActivePort'), 'utf8').catch(() => '');
+    return t.includes('/devtools/browser/') && t.trim().split(/\r?\n/)[0];
+  }, 15000);
+  const ver = await fetch(`http://127.0.0.1:${port}/json/version`).then(r => r.json());
+  cdp = await connect(ver.webSocketDebuggerUrl);
+  result.environment.chrome = await cdp.send('Browser.getVersion');
+
+  // 1. All 4 V1 + 5 S3/extra invalid payloads MUST be rejected AND next navigation MUST remain healthy
+  const rejectModes = [
+    'reversed-markers',
+    'json-mime-valid-html',
+    'status-503-valid-html',
+    'empty-markers-stub',
+    'missing-site-data',
+    'bad-json-site-data',
+    'wrong-date-type',
+    'wrong-papers-type',
+    'null-site-data'
+  ];
+  await runInContext('adversarial-reject', 'normal', async ctx => {
+    await ctx.warm();
+    for (const mode of rejectModes) {
+      currentMode = mode;
+      const reqStart = result.requests.length;
+      const doc = await ctx.nav('/index.html');
+      const finalBanner = await until('banner settled ' + mode, async () => {
+        const s = await ctx.snap();
+        return (s.banner?.includes('暂未核实更新') || s.banner?.includes('有新版') || s.banner?.includes('与服务器一致')) && s;
+      });
+      const st = await ctx.storage();
+      const upstream = result.requests.slice(reqStart).filter(r => r.mode === mode);
+      const preserved = st.hash === v1Hash;
+      const honestBanner = finalBanner.banner?.includes('暂未核实更新') && finalBanner.date === d1 && finalBanner.points > 0;
+      // Always verify next navigation still renders healthy v1 (no date:null / points:0)
+      const nextDoc = await ctx.nav('/index.html');
+      const nextSnap = await ctx.snap();
+      const nextHealthy = nextDoc.source === 'cache-storage' && nextSnap.date === d1 && nextSnap.points > 0 && nextSnap.banner !== null;
+      const pass = doc.source === 'cache-storage' && preserved && honestBanner && upstream.length > 0 && nextHealthy;
+      const entry = { name: `adversarial-${mode}`, pass, doc, finalBanner, storage: st, expectedHash: v1Hash, upstream, nextNavCheck: { doc: nextDoc, snap: nextSnap } };
+      result.checks.push(entry);
+      console.log(`${pass ? 'PASS' : 'FAIL'} adversarial-${mode} preserved=${preserved} nextDate=${nextSnap.date} nextPoints=${nextSnap.points} banner=${JSON.stringify(finalBanner.banner)}`);
+    }
+  });
+
+  // 2. Valid zero-papers MUST be accepted and rendered on next navigation
+  await runInContext('valid-zero-papers', 'normal', async ctx => {
+    await ctx.warm();
+    currentMode = 'valid-zero-papers';
+    const doc = await ctx.nav('/index.html');
+    const finalBanner = await until('banner zero', async () => {
+      const s = await ctx.snap();
+      return (s.banner?.includes('有新版') || s.banner?.includes('暂未核实更新') || s.banner?.includes('与服务器一致')) && s;
+    });
+    const st = await ctx.storage();
+    const nextDoc = await ctx.nav('/index.html');
+    const nextSnap = await ctx.snap();
+    const pass = doc.source === 'cache-storage' && finalBanner.banner?.includes('有新版') &&
+      st.hash === zeroHash && nextDoc.source === 'cache-storage' &&
+      nextSnap.date === d2 && nextSnap.papersLen === 0 && nextSnap.points === 0;
+    result.checks.push({ name: 'valid-zero-papers-accepted', pass, doc, finalBanner, storage: st, expectedHash: zeroHash, nextDoc, nextSnap });
+    console.log(`${pass ? 'PASS' : 'FAIL'} valid-zero-papers-accepted hashMatch=${st.hash === zeroHash} nextDate=${nextSnap.date} nextPapers=${nextSnap.papersLen} banner=${JSON.stringify(finalBanner.banner)}`);
+  });
+
+  // 3. Extra adversarial probes (informational edge-case observations)
+  for (const mode of ['empty-briefing-date', 'comment-wrapped-site-data-stub']) {
+    await runInContext(`probe-${mode}`, 'normal', async ctx => {
+      await ctx.warm();
+      currentMode = mode;
+      await ctx.nav('/index.html');
+      const finalBanner = await until('probe banner ' + mode, async () => {
+        const s = await ctx.snap();
+        return (s.banner?.includes('有新版') || s.banner?.includes('暂未核实更新') || s.banner?.includes('与服务器一致')) && s;
+      });
+      const st = await ctx.storage();
+      const preserved = st.hash === v1Hash;
+      let nextSnap = null;
+      if (!preserved) {
+        const nextDoc = await ctx.nav('/index.html', false);
+        nextSnap = { doc: nextDoc, snap: await ctx.snap() };
+      }
+      result.extraProbes.push({ mode, preserved, banner: finalBanner.banner, cachedHash: st.hash, cachedBytes: st.bytes, nextSnap });
+      console.log(`PROBE ${mode} preserved=${preserved} bytes=${st.bytes} banner=${JSON.stringify(finalBanner.banner)}`);
+    });
+  }
+
+  // 4. Navigation whitelist & bypass checks
+  await runInContext('bypass-checks', 'normal', async ctx => {
+    await ctx.warm();
+    const q1 = await ctx.nav('/?foo=bar');
+    const q2 = await ctx.nav('/index.html?sw=1&extra=1');
+    const subRes = await ctx.ev(async () => {
+      const [r1, r2, r3] = await Promise.all([
+        fetch('/index.html'),
+        fetch('/data/radar_latest.json'),
+        fetch('/api/ai-probe', { method: 'POST', body: '{}' })
+      ]);
+      return { htmlOk: r1.ok, dataOk: r2.ok, postOk: r3.ok };
+    });
+    const recent = ctx.netReqs.slice(-6);
+    const nonNavHtml = recent.find(r => r.type !== 'Document' && r.url.endsWith('/index.html'));
+    const dataReq = recent.find(r => r.url.endsWith('/data/radar_latest.json'));
+    const postReq = recent.find(r => r.url.endsWith('/api/ai-probe'));
+    const pass = !q1.fromServiceWorker && !q2.fromServiceWorker && !nonNavHtml?.fromServiceWorker && !dataReq?.fromServiceWorker && !postReq?.fromServiceWorker && subRes.htmlOk && subRes.dataOk && subRes.postOk;
+    result.checks.push({ name: 'whitelist-and-bypass', pass, q1, q2, nonNavHtml, dataReq, postReq, subRes });
+    console.log(`${pass ? 'PASS' : 'FAIL'} whitelist-and-bypass`);
+  });
+
+  // 5. Five Independent In-Memory Negative Controls (naive vs orderless marker-order + mime + 503 + S3 SITE_DATA guard)
+  const negPairs = [
+    ['mut-marker-order-naive', 'reversed-markers'],
+    ['mut-marker-order-orderless', 'reversed-markers'],
+    ['mut-mime', 'json-mime-valid-html'],
+    ['mut-status-503', 'status-503-valid-html'],
+    ['mut-s3-site-data-guard', 'empty-markers-stub']
+  ];
+  for (const [mutName, mode] of negPairs) {
+    await runInContext(`neg-${mutName}`, mutName, async ctx => {
+      await ctx.warm();
+      currentMode = mode;
+      await ctx.nav('/index.html');
+      const finalBanner = await until('neg banner ' + mutName, async () => {
+        const s = await ctx.snap();
+        return (s.banner?.includes('暂未核实更新') || s.banner?.includes('有新版') || s.banner?.includes('与服务器一致')) && s;
+      });
+      const st = await ctx.storage();
+      let nextSnap = null;
+      if (mutName === 'mut-s3-site-data-guard') {
+        await ctx.nav('/index.html', false);
+        nextSnap = await ctx.snap();
+      }
+      const mutatedBrokeProtection = st.hash !== v1Hash && finalBanner.banner?.includes('有新版');
+      result.negativeControls.push({ mutation: mutName, input: mode, caughtRed: mutatedBrokeProtection, finalBanner, cachedHashAfter: st.hash, originalV1Hash: v1Hash, nextSnap });
+      console.log(`${mutatedBrokeProtection ? 'RED-CAUGHT' : 'SURVIVED'} neg-${mutName} input=${mode} banner=${JSON.stringify(finalBanner.banner)} hashChanged=${st.hash !== v1Hash}${nextSnap ? ` nextDate=${nextSnap.date} nextPoints=${nextSnap.points}` : ''}`);
+    });
+  }
+
+  // 6. Static production host gate check
+  const prodGateTest = (href) => {
+    const { hostname, protocol } = new URL(href);
+    return protocol === 'https:' && (hostname === 'thoradar.online' || hostname.endsWith('.thoradar.online'));
+  };
+  const gateCases = [
+    ['https://thoradar.online/', true],
+    ['https://www.thoradar.online/', true],
+    ['http://thoradar.online/', false],
+    ['https://evil-thoradar.online/', false],
+    ['https://thoradar.online.evil.com/', false],
+    ['http://127.0.0.1:8080/', false]
+  ].map(([u, expect]) => ({ url: u, expect, actual: prodGateTest(u), pass: prodGateTest(u) === expect }));
+  const gatePass = gateCases.every(c => c.pass);
+  result.checks.push({ name: 'production-domain-gate', pass: gatePass, cases: gateCases });
+  console.log(`${gatePass ? 'PASS' : 'FAIL'} production-domain-gate`);
+
+} finally {
+  try { if (cdp) await cdp.send('Browser.close'); } catch (_) {}
+  cdp?.close();
+  if (browser) {
+    let exit = await Promise.race([browserExit, sleep(4000).then(() => null)]);
+    if (!exit && browser.pid) { browser.kill(); exit = await Promise.race([browserExit, sleep(3000).then(() => null)]); }
+    result.cleanup = { pid: browser.pid, exit };
+  }
+  if (site.listening) await new Promise(done => { site.close(done); site.closeAllConnections(); });
+  if (profile && dirname(resolve(profile)) === temp && basename(profile).startsWith(prefix)) {
+    await rm(profile, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
+    result.cleanup.profileRemoved = true;
+  }
+  result.endedAt = new Date().toISOString();
+  await mkdir(dirname(resolve(outJson)), { recursive: true });
+  await writeFile(outJson, JSON.stringify(result, null, 2) + '\n');
+  console.log('NEON_V2_DONE ' + JSON.stringify({
+    checksPassed: result.checks.filter(c => c.pass).length,
+    checksFailed: result.checks.filter(c => !c.pass).length,
+    negCaughtRed: result.negativeControls.filter(n => n.caughtRed).length,
+    negTotal: result.negativeControls.length,
+    extraProbes: result.extraProbes.length
+  }));
+}
+
+Name                           Value
+----                           -----
+TEMP                           D:\claude-tmp
+v24.14.0
+
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "rg --files 'D:/trackeep/trackeep-console/trackeep-rulebook' --hidden -g '"'!**/.git/**'"' | rg 'builder|employment-law|CONTRACT'; Get-Content -LiteralPath 'D:/trackeep/trackeep-product/trackeep-thoradar-neon-v1/tests/neon-v2-verify.mjs' -TotalCount 100; rg -n 'process.argv|"'^const ROOT|export.*ROOT|remainingProfile|stop:'"' tests/smooth tests/ux/ux_probe.mjs tests/aicls/lib.mjs" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "Get-Content docs/tasks/T1128-SMOOTH/sol-s3-report.md -TotalCount 110; Get-Content tests/smooth/run-regressions.mjs -TotalCount 130; rg -n 'THORADAR_DATA_(START|END)|<script|</script|<"'!--|<template|<noscript'"' index.html --max-columns 130" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+ succeeded in 812ms:
+import { spawn } from 'node:child_process';
+import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { createServer } from 'node:http';
+import { arch, release, tmpdir, version } from 'node:os';
+import { basename, dirname, join, resolve } from 'node:path';
+import { ROOT, chromeArgs, connect, gitRead, sha256, sleep } from './aicls/lib.mjs';
+
+const outJson = process.argv[2];
+if (!outJson) throw new Error('Usage: node tests/neon-v2-verify.mjs <output.json>');
+
+const html = await readFile(join(ROOT, 'index.html'), 'utf8');
+const workerSrc = (await readFile(join(ROOT, 'sw.js'), 'utf8')).replaceAll('\r\n', '\n');
+const retireSrc = await readFile(join(ROOT, 'sw-retire.js'), 'utf8');
+
+function replaceOnce(source, anchor, value) {
+  const pos = source.indexOf(anchor);
+  if (pos < 0 || source.indexOf(anchor, pos + anchor.length) !== -1) throw new Error('Anchor mismatch: ' + anchor);
+  return source.slice(0, pos) + value + source.slice(pos + anchor.length);
+}
+
+const header = /const SITE_DATA = \{"generated_at":"(\d{4}-\d\d-\d\d)([^"]*)","briefing_date":"(\d{4}-\d\d-\d\d)"/.exec(html);
+if (!header) throw new Error('SITE_DATA anchor missing');
+const d1 = header[3];
+const day2 = new Date(d1 + 'T00:00:00Z');
+day2.setUTCDate(day2.getUTCDate() + 1);
+const d2 = day2.toISOString().slice(0, 10);
+const v2Html = replaceOnce(html, header[0], `const SITE_DATA = {"generated_at":"${d2}${header[2]}","briefing_date":"${d2}"`);
+
+const DATA_START = '/*__THORADAR_DATA_START__*/';
+const DATA_END = '/*__THORADAR_DATA_END__*/';
+const sIdx = v2Html.indexOf(DATA_START);
+const eIdx = v2Html.indexOf(DATA_END, sIdx + DATA_START.length);
+
+// V1 4 adversarial payloads
+const reversedHtml = v2Html.slice(0, sIdx) + DATA_END + v2Html.slice(sIdx + DATA_START.length, eIdx) + DATA_START + v2Html.slice(eIdx + DATA_END.length);
+const emptyMarkersHtml = `<!doctype html><html><head><title>Stub</title></head><body><!-- ${DATA_START}${DATA_END} --><p>Corrupted shell</p></body></html>`;
+
+// S3 + V2 extra payloads
+const dataBlockRe = /const SITE_DATA = (\{[^\r\n]+\});\s*\/\*__THORADAR_DATA_END__\*\//.exec(html);
+if (!dataBlockRe) throw new Error('SITE_DATA JSON block missing');
+const parsedV1 = JSON.parse(dataBlockRe[1]);
+const zeroPapersHtml = html.replace(dataBlockRe[1], () => JSON.stringify({ ...parsedV1, briefing_date: d2, papers: [] }));
+const emptyDateHtml = html.replace(dataBlockRe[1], () => JSON.stringify({ ...parsedV1, briefing_date: '', papers: [] }));
+const stubWith = (inner, after = '') => `<!doctype html><html><body><script>${DATA_START}\n${inner}\n${DATA_END}\n${after}</script></body></html>`;
+const missingSiteDataHtml = stubWith('const OTHER = {};', `const SITE_DATA = {"briefing_date":"${d2}","papers":[]};`);
+const badJsonHtml = stubWith(`const SITE_DATA = {"briefing_date":"${d2}","papers":[],};`);
+const wrongDateTypeHtml = stubWith('const SITE_DATA = {"briefing_date":20261128,"papers":[]};');
+const wrongPapersTypeHtml = stubWith(`const SITE_DATA = {"briefing_date":"${d2}","papers":{}};`);
+const nullSiteDataHtml = stubWith('const SITE_DATA = null;');
+const commentWrappedSiteDataHtml = `<!doctype html><html><body><!-- ${DATA_START} const SITE_DATA = {"briefing_date":"${d2}","papers":[]}; ${DATA_END} --><p>Comment stub</p></body></html>`;
+
+const v1Hash = sha256(html);
+const zeroHash = sha256(zeroPapersHtml);
+
+const result = {
+  source: 'Neon V2 independent adversarial verification + 4 in-memory negative controls against S3 candidate index.html and sw.js',
+  startedAt: new Date().toISOString(),
+  baselineCommit: gitRead(['rev-parse', 'HEAD']).trim(),
+  environment: { os: version(), release: release(), arch: arch(), node: process.version },
+  runs: 1,
+  seed: null,
+  sha256: {
+    'index.html': v1Hash,
+    'sw.js': sha256(await readFile(join(ROOT, 'sw.js'))),
+    'sw-retire.js': sha256(retireSrc),
+    'empty-markers-stub': sha256(emptyMarkersHtml),
+    'valid-zero-papers': zeroHash
+  },
+  checks: [],
+  extraProbes: [],
+  negativeControls: [],
+  requests: [],
+  errors: []
+};
+
+let currentMode = 'v1';
+let currentWorkerMode = 'normal';
+
+const s3GuardBlock = [
+  '  const block = html.slice(dataStart, end).trim();',
+  '  const declaration = /^const\\s+SITE_DATA\\s*=\\s*(\\{[\\s\\S]*\\})\\s*;?$/.exec(block);',
+  '  if (!declaration) return null;',
+  '  try {',
+  '    const data = JSON.parse(declaration[1]);',
+  '    if (typeof data.briefing_date !== \'string\' || !Array.isArray(data.papers)) return null;',
+  '  } catch (_) {',
+  '    return null;',
+  '  }'
+].join('\n');
+
+const workerVariants = {
+  normal: workerSrc,
+  'mut-marker-order-naive': replaceOnce(workerSrc, 'const end = html.indexOf(DATA_END, dataStart);', 'const end = html.indexOf(DATA_END);'),
+  'mut-marker-order-orderless': replaceOnce(
+    replaceOnce(workerSrc, 'const end = html.indexOf(DATA_END, dataStart);', 'const end = html.indexOf(DATA_END);'),
+    'const block = html.slice(dataStart, end).trim();',
+    'const block = (start < end ? html.slice(dataStart, end) : html.slice(end + DATA_END.length, start)).trim();'
+  ),
+  'mut-mime': replaceOnce(workerSrc, " || mime !== 'text/html'", ''),
+  'mut-status-503': replaceOnce(workerSrc, 'response.status !== 200', 'response.status < 200'),
+tests/aicls/lib.mjs:18:export const ROOT=normalize(join(HERE,'..','..'));           // 仓根
+tests/aicls/lib.mjs:23:export const gitRead=(args,cwd=ROOT)=>execFileSync('git',['-c','core.quotepath=false',...args],{cwd,maxBuffer:64*1024*1024}).toString('utf8');
+tests/smooth\run-regressions.mjs:9:const name = process.argv[2] || 'sol-s2-regressions';
+tests/smooth\verify-s1.mjs:8:const [output, mutation = 'none'] = process.argv.slice(2);
+tests/smooth\verify-s3.mjs:7:const [output, workerPath = join(ROOT, 'sw.js')] = process.argv.slice(2);
+tests/smooth\verify-s3.mjs:34:  command: ['node', 'tests/smooth/verify-s3.mjs', ...process.argv.slice(2)], startedAt: new Date().toISOString(),
+tests/smooth\verify-s3.mjs:188:  if (browser) result.remainingProfileProcesses = await browser.stop();
+tests/smooth\verify-s3.mjs:201:  if (result.summary.failed || result.remainingProfileProcesses) process.exitCode = 1;
+tests/smooth\verify-s2.mjs:8:const [output, mutation = 'none'] = process.argv.slice(2);
+tests/smooth\verify-source.mjs:6:const output = process.argv[2];
+tests/ux/ux_probe.mjs:11:const argv=process.argv.slice(2);
+
+hook: PostToolUse
+ succeeded in 803ms:
+**干了什么**　修复了胸科雷达首页缓存写入校验。156 B 的空标记损坏页和另外四个坏样本均被拒绝，合法零篇版在下次打开时正常显示。  
+**PI 怎么亲手验**　点击专项原始输出，看到 `PASS neon-empty-markers-stub` 一行的 `before` 和 `after` 都是 `539012` 字节且 SHA-256 相同，就验到了健康副本被保留。[专项原始输出](sol-s3-recheck/after.stdout.txt)  
+**还剩什么坑**　AICLS 和 POOLUP 的 R08 仍因基线与候选均搜到零篇而无法判定。S3 施工自测完毕，待独立复核和主控整合。
+
+## 地图影响
+
+T1128-SMOOTH-S3 对应胸科雷达顺畅改造 ③.4 的 R2 返修。指定隔离工作树里已有 S3 候选和首轮证据，本轮核对基线后，使用同一版专项脚本复跑旧版、新版和删减版，并补齐正式回执。岗位卡为 `builder-jobspec`，轨道版本为 `T1128-SMOOTH v1`，委任席位为 `codex-gpt`，点名档位为 `gpt-6.2-sol`。
+
+`sw.js` 的 `fetchShell` 在现有 HTTP 200、`basic`、HTML MIME、标记顺序及 `</html>` 收尾检查后，提取两个标记之间的 `const SITE_DATA = …` 声明，用 `JSON.parse` 验证 JSON 对象并检查 `briefing_date` 是字符串、`papers` 是数组。安装预取与后台核新共用该函数。相对 S2 的生产代码差异限于这一处。[worker 差异](sol-s3-recheck/worker.diff.txt) [源文件检查](sol-s3-recheck/source.json)
+
+Neon 的 156 B 样本与独立证据中的 SHA-256 完全一致。旧版在收到 HTTP 200、`text/html` 响应后将 539,012 B 的健康副本换成了这 156 B，下次从 Cache Storage 读到损坏壳。候选版对五个异常输入均报告 `unavailable`，健康副本的长度和 SHA-256 在刷新前后完全一致，下次打开仍从 Cache Storage 显示 `2026-11-27` 的 40 篇。零篇用例更新为 `2026-11-28`，下次打开从 Cache Storage 读出 `papers.length === 0`。缺块用例在结束标记外放置了一个合法声明，验证了声明必须位于标记之间。[Neon 独立样本](/D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v1/neon-v1-verify.json:141) [基线 JSON](sol-s3-recheck/before.json) [候选 JSON](sol-s3-recheck/after.json)
+
+## 遗留风险
+
+- AICLS 和 POOLUP 各有一项 R08 原样失败。两套脚本都挑中 `Mortality`，基线和候选均报告 `list: 0, noQuery: 1`，因此这项检索差分仍未验证。[AICLS 原始输出](sol-s3-recheck-regressions/aicls.stdout.txt) [POOLUP 原始输出](sol-s3-recheck-regressions/poolup.stdout.txt)
+- 验证环境为本机 Chrome 和回环测试服务。线上、CDN 和真机未验。独立复核由主控另行验收。
+
+## 证据
+
+Windows 11 Pro x64 `10.0.26300`，Node `v24.14.0`，Chrome `158.0.8127.88`，CDP `1.3`，无随机种子。专项正式复跑从北京时间 `2026-11-28 11:58:20` 开始，最后一套既有回归于 `12:00:37` 结束。各套精确 UTC 起止、命令、哈希及逐项结果在 JSON。旧三项负对照通过既有测试设施返回变异响应。S3 负对照只从临时 worker 文件删掉数据块检查，保留原来的 HTTP、MIME、标记与收尾检查。删除代码原文、变异 SHA-256 与实际退出码留在运行记录。[S3 负对照运行记录](sol-s3-recheck/no-data-validation.run.json) [既有回归汇总输出](sol-s3-recheck/legacy.stdout.txt)
+
+```powershell
+$e = 'docs/tasks/T1128-SMOOTH/sol-s3-recheck'
+$baseline = 'D:/trackeep/trackeep-product/trackeep-thoradar-neon-v1/sw.js'
+node tests/smooth/verify-s3.mjs "$e/before.json" $baseline
+node tests/smooth/verify-s3.mjs "$e/after.json"
+pwsh -NoProfile -File "$e/run-no-data-validation.ps1"
+node tests/smooth/verify-s1.mjs "$e/s1.json" none
+node tests/smooth/verify-s2.mjs "$e/s2.json" none
+node tests/smooth/verify-s1.mjs "$e/s1-no-local-return.json" no-local-return
+node tests/smooth/verify-s1.mjs "$e/s1-allow-truncated.json" allow-truncated
+node tests/smooth/verify-s2.mjs "$e/s2-no-retire-cleanup.json" no-retire-cleanup
+node tests/smooth/verify-source.mjs "$e/source.json"
+node tests/smooth/run-regressions.mjs sol-s3-recheck-regressions
+```
+
+| 验证 | 通过 / 失败 | 退出码 | 原始证据 |
+| --- | ---: | ---: | --- |
+| S3 修复前首轮 | 1 / 5 | — | [JSON](sol-s3-before.json) · [stdout](sol-s3-before.stdout.txt) · [stderr](sol-s3-before.stderr.txt) |
+| S3 基线正式复跑 | 1 / 5 | 1 | [JSON](sol-s3-recheck/before.json) · [stdout](sol-s3-recheck/before.stdout.txt) · [stderr](sol-s3-recheck/before.stderr.txt) |
+| S3 候选 | 6 / 0 | 0 | [JSON](sol-s3-recheck/after.json) · [stdout](sol-s3-recheck/after.stdout.txt) · [stderr](sol-s3-recheck/after.stderr.txt) |
+| S3 删新校验 | 1 / 5 | 1 | [JSON](sol-s3-recheck/no-data-validation.json) · [stdout](sol-s3-recheck/no-data-validation.stdout.txt) · [stderr](sol-s3-recheck/no-data-validation.stderr.txt) |
+| S1 核心 | 9 / 0 | 0 | [JSON](sol-s3-recheck/s1.json) · [stdout](sol-s3-recheck/s1.stdout.txt) · [stderr](sol-s3-recheck/s1.stderr.txt) |
+| S2 异常矩阵 | 24 / 0 | 0 | [JSON](sol-s3-recheck/s2.json) · [stdout](sol-s3-recheck/s2.stdout.txt) · [stderr](sol-s3-recheck/s2.stderr.txt) |
+| S1 去掉缓存命中返回 | 3 / 1 | 1 | [JSON](sol-s3-recheck/s1-no-local-return.json) · [stdout](sol-s3-recheck/s1-no-local-return.stdout.txt) · [stderr](sol-s3-recheck/s1-no-local-return.stderr.txt) |
+| S1 放行截断 | 7 / 1 | 1 | [JSON](sol-s3-recheck/s1-allow-truncated.json) · [stdout](sol-s3-recheck/s1-allow-truncated.stdout.txt) · [stderr](sol-s3-recheck/s1-allow-truncated.stderr.txt) |
+| S2 去掉退役清理 | 1 / 1 | 1 | [JSON](sol-s3-recheck/s2-no-retire-cleanup.json) · [stdout](sol-s3-recheck/s2-no-retire-cleanup.stdout.txt) · [stderr](sol-s3-recheck/s2-no-retire-cleanup.stderr.txt) |
+| 源文件检查 | 5 / 0 | 0 | [JSON](sol-s3-recheck/source.json) · [stdout](sol-s3-recheck/source.stdout.txt) · [stderr](sol-s3-recheck/source.stderr.txt) |
+| UX | 46 / 0 | 0 | [JSON](sol-s3-recheck-regressions/ux.json) · [stdout](sol-s3-recheck-regressions/ux.stdout.txt) · [stderr](sol-s3-recheck-regressions/ux.stderr.txt) · [量测 JSON](sol-s3-recheck-regressions/ux-measurements/) |
+| AICLS | 39 / 1 | 1 | [JSON](sol-s3-recheck-regressions/aicls.json) · [stdout](sol-s3-recheck-regressions/aicls.stdout.txt) · [stderr](sol-s3-recheck-regressions/aicls.stderr.txt) |
+| POOLUP | 39 / 1 | 1 | [JSON](sol-s3-recheck-regressions/poolup.json) · [stdout](sol-s3-recheck-regressions/poolup.stdout.txt) · [stderr](sol-s3-recheck-regressions/poolup.stderr.txt) |
+
+| 文件 | SHA-256 |
+| --- | --- |
+| `index.html` | `33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def` |
+| S2 `sw.js` 基线 | `f8a4e2bc4d5d81964475580c012e825281f409a171782640ad5cbc68a07bca24` |
+| S3 `sw.js` 候选 | `900061dd45ad04e9f9c4391e5d2756f8b080a4bc4144ede9b913b6deabb5aa8b` |
+| S3 删校验的临时 worker | `0bee8f9201700624a076cb9b35d9250954130b63a464eec095c6f283e85ab14f` |
+| `sw-retire.js` | `5ae38f2ba965f4e1b1d340da2ba5fadd8b58af82a1e271a02ddff97ab5686199` |
+| `tests/smooth/verify-s3.mjs` | `585a9f3803238cfb18b80a490948f9e661fd6792dae09838c53d38f98a030ac7` |
+| Neon 156 B 样本 | `11e2ff0add51cd0cf4f21b39010925b11df3fe7c0d388906c0c56468a3a16b74` |
+
+## 地图终态
+
+③.4 的 S3 修复与施工证据已交付，建议主控回填待独立复核。地图当前为 ③.4 `rework-in-progress`、④ `completed-with-findings`、⑤ `pending`、⑤.9 `not-authorized`。地图由主控回填。[唯一任务地图](/D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/task-map.md:12)
+
+DELIVERY-T1128-SMOOTH-S3
+已交付空标记损坏页的缓存写入修复，以及专项红绿、删校验负对照和既有回归证据。
+import { execFileSync, spawn } from 'node:child_process';
+import { createWriteStream } from 'node:fs';
+import { cp, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { arch, release, tmpdir, version } from 'node:os';
+import { basename, dirname, join, resolve } from 'node:path';
+import { finished } from 'node:stream/promises';
+import { ROOT, gitRead, sha256 } from '../aicls/lib.mjs';
+
+const name = process.argv[2] || 'sol-s2-regressions';
+if (!/^[a-zA-Z0-9-]+$/.test(name)) throw new Error('Use a single evidence directory name');
+const directory = join(ROOT, 'docs/tasks/T1128-SMOOTH', name);
+await mkdir(directory);
+const temp = resolve(tmpdir());
+const prefix = 'thoradar-sol-s2-regress-';
+const scratch = await mkdtemp(join(temp, prefix));
+const chrome = 'C:/Program Files/Google/Chrome/Application/chrome.exe';
+const chromeVersion = execFileSync('pwsh', ['-NoProfile', '-Command',
+  `(Get-Item -LiteralPath '${chrome}').VersionInfo.ProductVersion`], { encoding: 'utf8' }).trim();
+const metadata = {
+  target: Object.fromEntries(await Promise.all(['index.html', 'sw.js', 'sw-retire.js'].map(async file =>
+    [file, sha256(await readFile(join(ROOT, file)))]))),
+  baseline: gitRead(['rev-parse', '73dd34e']).trim(),
+  environment: { os: version(), release: release(), arch: arch(), node: process.version, chrome: chromeVersion },
+  runs: 1,
+  seed: null
+};
+
+const suites = [
+  ['ux', 'tests/ux/ux_probe.mjs', '--base', 'sol-s2'],
+  ['aicls', 'tests/aicls/aicls_regress.mjs', '--baseline', 'sols2'],
+  ['poolup', 'tests/poolup/poolup_regress.mjs', '--baseline', 'sols2']
+];
+async function run([name, script, baseArg, label]) {
+  const args = [script, '--target', 'index.html', baseArg, '73dd34e', '--label', label];
+  const home = join(scratch, name);
+  const env = { ...process.env, XREV_SCRATCH: home, AICLS_SCRATCH: home };
+  delete env.XREV_ONLY;
+  const stdout = join(directory, name + '.stdout.txt');
+  const stderr = join(directory, name + '.stderr.txt');
+  const stdoutStream = createWriteStream(stdout, { flags: 'wx' });
+  const stderrStream = createWriteStream(stderr, { flags: 'wx' });
+  const startedAt = new Date().toISOString();
+  console.log('RUN node ' + args.join(' '));
+  const child = spawn(process.execPath, args, { cwd: ROOT, env, windowsHide: true });
+  child.stdout.pipe(stdoutStream);
+  child.stderr.pipe(stderrStream);
+  const [{ exitCode, signal }] = await Promise.all([
+    new Promise((done, fail) => {
+      child.once('error', fail);
+      child.once('close', (exitCode, signal) => done({ exitCode, signal }));
+    }),
+    finished(stdoutStream), finished(stderrStream)
+  ]);
+  const log = await readFile(stdout, 'utf8');
+  const endedAt = new Date().toISOString();
+  if (name === 'ux') {
+    await cp(join(home, 'out-' + label), join(directory, 'ux-measurements'), { recursive: true })
+      .catch(error => { if (error.code !== 'ENOENT') throw error; });
+  }
+  const tests = Array.from(log.matchAll(/^(PASS|FAIL|SKIP)\s+(\S+)\s+(.*)$/gm), ([, result, id, title]) =>
+    ({ result, id, title }));
+  const summary = Object.fromEntries(['PASS', 'FAIL', 'SKIP'].map(key =>
+    [key, tests.filter(test => test.result === key).length]));
+  const reportedSummary = log.split(/\r?\n/).find(line => line.includes(' SUMMARY '));
+  const result = { ...metadata, scriptSha256: sha256(await readFile(join(ROOT, script))),
+    command: ['node', ...args], startedAt, endedAt, exitCode, signal, summary, reportedSummary, tests };
+  await writeFile(join(directory, name + '.json'), JSON.stringify(result, null, 2) + '\n');
+  console.log(`${name} exit=${exitCode} ${reportedSummary || JSON.stringify(summary)}`);
+  return exitCode;
+}
+
+const results = await Promise.allSettled(suites.map(run));
+for (const result of results) if (result.status === 'rejected') console.error(result.reason);
+if (dirname(resolve(scratch)) === temp && basename(scratch).startsWith(prefix)) {
+  await rm(scratch, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
+}
+if (results.some(result => result.status === 'rejected' || result.value !== 0)) process.exitCode = 1;
+2:[Omitted long matching line]
+3:[Omitted long matching line]
+4:[Omitted long matching line]
+760:[Omitted long matching line]
+775:<script>
+776:/*__THORADAR_DATA_START__*/
+778:    /*__THORADAR_DATA_END__*/
+3373:</script>
+3374:<script>
+3569:</script>
+3571:<script>
+3660:</script>
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+**Choosing HTML parsing approach**
+**Planning date validation integration**
+**Evaluating date validation strategies**
+**Planning validation and testing approach**
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$e = '"'docs/tasks/T1128-SMOOTH/sol-s4'
+New-Item -ItemType Directory -Path "'$e -ErrorAction Stop | Out-Null
+Copy-Item -LiteralPath '"'sw.js' -Destination \""'$e/s3-baseline.sw.js" -ErrorAction Stop
+@'"'
+const fs = require('node:fs');
+const test = 'tests/smooth/verify-s3.mjs';
+const source = fs.readFileSync(test, 'utf8');
+const anchor = \"  ['valid-zero-papers', zero]\";
+const change = [
+  \"  ['empty-briefing-date', healthy.replace(dataBlock[1], () => JSON.stringify({ ...zeroData, briefing_date: '' }))],\",
+  \"  ['invalid-calendar-date', shell('const SITE_DATA = {\\\"briefing_date\\\":\\\"2026-02-29\\\",\\\"papers\\\":[]} ;')],\",
+  \"  ['comment-wrapped-site-data-stub', "'`<!doctype html><html><body><!-- ${start} const SITE_DATA = {'"\\\"briefing_date\\\":\\\""'${zeroData.briefing_date}'"\\\",\\\"papers\\\":[]}; "'${end} --><p>Comment stub</p></body></html>`],",
+  anchor
+].join('"'\\n');
+if (source.split(anchor).length "'!== 2) throw new Error('"'S3 fixture anchor mismatch');
+fs.writeFileSync(test, source.replace(anchor, change));
+'@ | node -
+if ("'$LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+node tests/smooth/verify-s3.mjs "$e/before.json" "$e/s3-baseline.sw.js" > "$e/before.stdout.txt" 2> "$e/before.stderr.txt"
+$code = $LASTEXITCODE
+Write-Output "node tests/smooth/verify-s3.mjs $e/before.json $e/s3-baseline.sw.js"
+Select-String -Path "$e/before.stdout.txt" -Pattern '"'"'^FAIL |''^SUMMARY'"'
+Write-Output \"exit="'$code"
+exit $code' in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+ exited 1 in 18948ms:
+node tests/smooth/verify-s3.mjs docs/tasks/T1128-SMOOTH/sol-s4/before.json docs/tasks/T1128-SMOOTH/sol-s4/s3-baseline.sw.js
+
+docs\tasks\T1128-SMOOTH\sol-s4\before.stdout.txt:8:FAIL empty-briefing-date {"before":{"bytes":539012,"sha256":"33c50be
+f723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"},"first":{"case":"empty-briefing-date","loaderId":"88EE3BF25
+85328EE6C641F8437ECDC5F","url":"http://127.0.0.1:51284/index.html","status":200,"fromServiceWorker":true,"source":"cach
+e-storage"},"firstPage":{"date":"2026-11-27","papers":40,"banner":"数据 2026-11-27 · 有新版，下次打开生效"},"status":"u
+pdated","after":{"bytes":374669,"sha256":"f13cfb12bdf230aa2788ddea5e6e3c97529fd669576f8e7acb43b0549fbdfbe4"},"expected"
+:{"bytes":539012,"sha256":"33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"},"requests":[{"name":"empt
+y-briefing-date","url":"/index.html","method":"GET","status":200,"mime":"text/html; charset=utf-8","pragma":"no-cache",
+"at":"2026-11-28T04:41:29.948Z","bytes":374669,"sha256":"f13cfb12bdf230aa2788ddea5e6e3c97529fd669576f8e7acb43b0549fbdfb
+e4","finished":true}],"next":{"case":"empty-briefing-date","loaderId":"86FB09644BE55F9B7A95834188EA4B54","url":"http://
+127.0.0.1:51284/?sw=1","status":200,"fromServiceWorker":true,"source":"cache-storage"},"nextPage":{"date":"","papers":0
+,"banner":"数据 2026-11-27 · 本地副本 · 已核对，与服务器一致"}}
+docs\tasks\T1128-SMOOTH\sol-s4\before.stdout.txt:9:FAIL invalid-calendar-date {"before":{"bytes":539012,"sha256":"33c50
+bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"},"first":{"case":"invalid-calendar-date","loaderId":"FD6AE
+7D56FCB7C3C2ADF98D8CFF2D227","url":"http://127.0.0.1:51284/index.html","status":200,"fromServiceWorker":true,"source":"
+cache-storage"},"firstPage":{"date":"2026-11-27","papers":40,"banner":"数据 2026-11-27 · 有新版，下次打开生效"},"status
+":"updated","after":{"bytes":175,"sha256":"c64e053814dfff61c639cf10cac768f2bc6e0311f1e93a2236d24841e0feb73e"},"expected
+":{"bytes":539012,"sha256":"33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"},"requests":[{"name":"inv
+alid-calendar-date","url":"/index.html","method":"GET","status":200,"mime":"text/html; charset=utf-8","pragma":"no-cach
+e","at":"2026-11-28T04:41:30.838Z","bytes":175,"sha256":"c64e053814dfff61c639cf10cac768f2bc6e0311f1e93a2236d24841e0feb7
+3e","finished":true}],"next":{"case":"invalid-calendar-date","loaderId":"546ABBCC51A501F57AC636CDBE6BE11D","url":"http:
+//127.0.0.1:51284/?sw=1","status":200,"fromServiceWorker":true,"source":"cache-storage"},"nextPage":{"date":"2026-02-29
+","papers":0,"banner":null}}
+docs\tasks\T1128-SMOOTH\sol-s4\before.stdout.txt:10:FAIL comment-wrapped-site-data-stub {"before":{"bytes":539012,"sha2
+56":"33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"},"first":{"case":"comment-wrapped-site-data-stub
+","loaderId":"12E37E2FA7B9E0DD7A830A4915B2D422","url":"http://127.0.0.1:51284/index.html","status":200,"fromServiceWork
+er":true,"source":"cache-storage"},"firstPage":{"date":"2026-11-27","papers":40,"banner":"数据 2026-11-27 · 有新版，下
+次打开生效"},"status":"updated","after":{"bytes":184,"sha256":"438c6d30e0336bc1b430df5c5870890928f92258c78606cfdd989076
+ef75bb1e"},"expected":{"bytes":539012,"sha256":"33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"},"req
+uests":[{"name":"comment-wrapped-site-data-stub","url":"/index.html","method":"GET","status":200,"mime":"text/html; cha
+rset=utf-8","pragma":"no-cache","at":"2026-11-28T04:41:31.705Z","bytes":184,"sha256":"438c6d30e0336bc1b430df5c587089092
+8f92258c78606cfdd989076ef75bb1e","finished":true}],"next":{"case":"comment-wrapped-site-data-stub","loaderId":"075FB58D
+28F4CC48612F1747F720BA8E","url":"http://127.0.0.1:51284/?sw=1","status":200,"fromServiceWorker":true,"source":"cache-st
+orage"},"nextPage":{"date":null,"papers":null,"banner":null}}
+docs\tasks\T1128-SMOOTH\sol-s4\before.stdout.txt:13:SUMMARY {"passed":6,"failed":3}
+exit=1
+
+**Refining HTML parsing approach**
+
+I’m considering a focused parsing method that uses regex to tokenize HTML elements while avoiding full HTML spec complexity. I want to handle comments, raw text tags, and templates carefully to skip irrelevant sections and reduce false positives in script detection.
+**Analyzing script tag detection rules**
+**Refining date validation and script parsing**
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "rg -n 'builder-jobspec|本单|任务书' 'D:/trackeep/trackeep-console/trackeep-rulebook/rules/entries/employment-law.md' 'D:/trackeep/trackeep-console/trackeep-rulebook/rules/CONTRACT.md'; rg -n 'builder-jobspec' 'D:/trackeep/trackeep-console/trackeep-rulebook/rules' --glob '*.md' -m 1 | Select-Object -First 14; Get-Content docs/tasks/T1128-SMOOTH/sol-s4/before.stdout.txt -Tail 2; Get-Content tests/ux/ux_probe.mjs -TotalCount 31; git status --short --branch" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "Get-Content 'D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/task-map.md' -TotalCount 26; git ls-files -v -- sw.js index.html tests/smooth; Get-Content 'D:/trackeep/trackeep-product/trackeep-thoradar-neon-v1/tests/aicls/lib.mjs' -TotalCount 26" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+ succeeded in 1111ms:
+D:/trackeep/trackeep-console/trackeep-rulebook/rules/entries/employment-law.md:74:- **装载**：命中领域的活，写单时从书架（`registries/bookshelf.json`）挑领域卡排进任务书「领域卡」栏，把卡内义务条目装进任务书；一席可戴多张，所戴义务从开工起全部生效；未命中领域则裸派遣并记录。
+D:/trackeep/trackeep-console/trackeep-rulebook/rules/entries/employment-law.md:75:- **照办与照查**：承岗席逐条照做，`verifier` 逐条核对义务表，漏一条验收不过。义务装进任务书即机器痕迹（工具注入，或人工前置并标「人工装载」）；同 `harness`（代理运行壳）投递带指针，跨模型全文嵌入并带版本戳。
+D:/trackeep/trackeep-console/trackeep-rulebook/rules/entries/employment-law.md:82:- **能单不组队**：单人可交付的活派一席；需互盲配两席；需独立裁决另设尾审；达到 **≥3 会话** 或 **≥3 任务书** 才动编制卡。组队先报代价，≥4 席或高档编制须 PI 批准。
+D:/trackeep/trackeep-console/trackeep-rulebook/rules/entries/employment-law.md:122:4. **填单确认送达**：写单＝装配（岗位卡×领域卡们×型号三样全排进任务书；型号自选时写理由）；写委任状（恒定钳位逐字复制，见附录一与本章 §八）；登记占位避撞（先占位再启动派发）；启动派发（点档位用档位名，点型号用型号名）；验送达（要求对方复述任务目标：**复述对＝送达；复述不出＝整单重发；没回话＝先查死活（本章 §十一），查无再重发**）。
+D:/trackeep/trackeep-console/trackeep-rulebook/rules/entries/employment-law.md:128:- **进场确认**（时点＝进场首次回复）：第一句先输出任务书顶部注入的送达暗号（机器码；自编暗号只作对人暗语，不得替代），然后复述一句你这一单要做什么。派单方验送达：复述不出即整单重发；**没回话不等于没送到**，不得混判（判据见本章 §十一）。
+D:/trackeep/trackeep-console/trackeep-rulebook/rules/entries/employment-law.md:138:**入口四步**：①五问审判（要什么、为什么、怎么做、风险、验收怎么算）；②八原则审（正本见 `principles`）；③ R 级判级＋装载扫描（见本节与第一章 §四）；④签字门（复述意图 → PI 回复「发」→ 落任务书「签发」字段，授权原话＋日期留机器可查痕；**`R3` 或不可逆大改道**：门前须附独立席隔离上下文盲审的**最强**正反两栏（禁稻草人）＋一个关键问题并入裁决）。
+D:/trackeep/trackeep-console/trackeep-rulebook/rules/entries/employment-law.md:144:**任务书纪律**：**自足**——禁止写「来找我」，写错的事实会被 100% 执行。**不可逆不许猜**——删数据、改权限、对外发布、花钱必须标「待 PI 裁决」停手，沉默替 PI 拍板＝越权。**判据先红后绿**——验收命令必须亲手跑过再进书；修复类修复前理应 FAIL，动手前就 PASS＝假绿，必须标红写明「修完才对得上」。
+D:/trackeep/trackeep-console/trackeep-rulebook/rules/entries/employment-law.md:160:- **从严条款**：义务表安全权重高于当前判级时取较高者；答不上来按命中算；各来源取**较高者**；判级理由写入任务书（无命中也要写，**并标明哪几项是「猜的」**——补证本单沿用已签等级，拟降级留新事实重签再放行）。
+D:/trackeep/trackeep-console/trackeep-rulebook/rules/entries/employment-law.md:179:- **首部四字段（机器强制）**：正本与闸文见本章 §六「任务书四字段」。
+D:/trackeep/trackeep-console/trackeep-rulebook/rules/entries/employment-law.md:195:### 六、任务书四字段（正本在此）
+D:/trackeep/trackeep-console/trackeep-rulebook/rules/entries/employment-law.md:197:任务书首部四字段（机器强制）：**轨道位置**、**R级**、**判级理由**、**签发**。缺一拒发，`TRACKEEP_OFFTRACK=1` 绕行须留痕记违例。适用端分写：外派由 `dispatch.sh` 入轨门核四字段在场；Claude 内生由 `redline-guard` hook（事件触发钩子）四字段拒绝分支同拦（内生 hook 现场拦截及各端同拦**未验**，挂现场验收）。机器只判字段词在场；签发内容、首行位置与授权有效性仍须人工核对。委任状首段四字段＝随单实例化镜像；R 级算法与判级理由写法见本章 §二；可写范围单「地形」行见本章 §三。
+D:/trackeep/trackeep-console/trackeep-rulebook/rules/entries/employment-law.md:227:- **再派**：恒定区再派条款正本＝`registries/charter-template.md` §2 现版恒定区（不在此复写）。外派逐字投递并逐子席下传（每派一个子席向上回登记一行）；内生＝正文第 4 项「可再派（孙辈带本委任状并回登记）」（回登记一行五字段：任务号·四元组·一句话目标·工作区·写域；`cc` 席走 `Agent` 工具）；「跨家对抗审／互查任意家皆可」为许可上限，**跨家仍不互读记忆、日志或凭证**（正本见本章 §七）。派遣方可按单收紧为「本单禁再派」。
+D:/trackeep/trackeep-console/trackeep-rulebook/rules/entries/employment-law.md:244:任何 `agent` 在在册工程夹（含子目录与其 `git` 工作树）内开工或续聊，以及派遣方生成委任状或任务书时，执行以下三步，**三步缺一不算读过**：
+D:/trackeep/trackeep-console/trackeep-rulebook/rules/entries/employment-law.md:250:派遣方义务：生成任务书时，前置经验卡指针（正本路径 `#卡id`＋最新卡首行）；本单命中旧卡适用条件时另附旧卡指针（最新卡仍照前置）。外派席以任务书前置为准，但**仍须执行第 3 步首答复述**。
+D:/trackeep/trackeep-console/trackeep-rulebook/rules/entries/employment-law.md:254:**沉淀触发（三问门槛）**：任何一层发现新事实（役记录、复盘或私记皆可为源）→ 主控问三句：同工程下一席遇到什么条件？要改哪个动作？依据在哪？三句答得出且现有卡未覆盖 → 在役记录挂 Console 草案指针；PI 过目后回填卡 ID，舍弃则写一句理由。下次同工程派单前核看未决项。**沉淀由发现事实触发，不由抄卡触发；不设数量指标**。退役卡保留原 ID 可寻址并留替代卡指针，历史任务书仍可复查。
+D:/trackeep/trackeep-console/trackeep-rulebook/rules/entries/employment-law.md:290:段①②的判级、签字门、勾选契约、任务书与地图动作前置在第二章 §一–§三（发单路线第 2–3 步）。执行段的委任状、钳位、靶场、洗环境、验送达、续线程首句等全套纪律见第二章。验收失败走微修单小环（见本章「返工与终态」）。
+D:/trackeep/trackeep-console/trackeep-rulebook/rules/entries/employment-law.md:320:- **护栏一览**（索引）：**红**＝违反即停、产物作废、直报 PI：写审分离、签字门、防作弊验收、状态变更权、不可逆分级、验收基准变更门、契约确认门、护栏晋升。**软**＝记录后继续，按阈值升红：实测调研、任务书自足、法与情报分家、断点续跑、决策点落边界、富规格优先、Deviations、数据／指令分离、Quiz。**决策点落边界**：该问的问、琐碎的不问。**数据／指令分离**：跨 agent 内容与指令结构分离（防注入）。
+D:/trackeep/trackeep-console/trackeep-rulebook/rules\CHANGELOG.md:119:  - builder-jobspec 1.3 → 1.4
+D:/trackeep/trackeep-console/trackeep-rulebook/rules\registries\roster.md:13:| `builder` | 施工席（岗位卡＝`builder-jobspec`） | `trackeep-builder` |  |
+D:/trackeep/trackeep-console/trackeep-rulebook/rules\entries\jobspecs.md:5:别名: [岗位卡册, jobspecs, jobspec-book, 六卡合册, builder-jobspec, verifier-jobspec, security-auditor-jobspec, observer-jobspec, doc-auditor-jobspec, doclaw-jobspec, 岗位卡, 施工席, 复核席, 安全审计席, 监察席, 文档审查席, 文档规则法律整理员, builder, 施工, 执行层, 建造, verifier, 复核, 验收, 写审分离, security-auditor, 安全审计, 安全专审, 审计席, observer, 监察, 体系评估, 第四角色, doc-auditor, 文档审查, 文档五查, 文档关, checkup, doclaw, 文档整理, 法条整理, 刀法, 刀法七则, 整理役, rulebook-keeper]
+D:/trackeep/trackeep-console/trackeep-rulebook/rules\evidence\observe\T1108-PATPROTO.md:32:- 方向有实物依据：三本任务书明确隔离写域、互盲、真实资源、共享样式只读、禁止网络与假成功、最多两轮及视觉待 PI。取法行覆盖 safety-redlines、track、principles、tool-unification、no-symlink-hijack-tooldir、experience-pull、builder-jobspec、charter-template、software-production-law、verification-law。可确认书内存在边界与验收限制，不能据清单证明每条规则已逐字装载。
+     cleanup | browser pid=74376 exitCode=0 signalCode=null | 带 profile 标记的进程：收尾前=无 | 主进程结束后残留=无 | 逐 PID 结束=无 | 复查仍存活=无
+SUMMARY {"passed":6,"failed":3}
+#!/usr/bin/env node
+// T1127-UX 随仓验收探针：折叠、阅读可达性、矮屏雷达、字号、英文态、窄屏/深色与官方数据面差分。
+// 用法：node tests/ux/ux_probe.mjs [--target index.html] [--base main] [--only F1,F9] [--shots 目录] [--label 名称]
+//   --base 给 F8 官方数据面差分提供基线提交；--page baseline 可把基线当负对照（新功能不存在应红）。
+// 零真 Key／零真 LLM／NCBI 全拦；临时件只落系统临时目录。零依赖，复用 tests/aicls/lib.mjs 的 CDP 客户端。
+import {writeFileSync,mkdirSync,rmSync} from 'node:fs';
+import {join,resolve} from 'node:path';
+import {tmpdir} from 'node:os';
+import {ROOT,sleep,ledger,startServer,connect,Tab,wire,launch,freePort,P,gitRead} from '../aicls/lib.mjs';
+
+const argv=process.argv.slice(2);
+const arg=(k,d)=>{const i=argv.indexOf(k);return i>=0&&argv[i+1]&&!argv[i+1].startsWith('--')?argv[i+1]:d};
+const PAGE=arg('--page','index'),JUDGE=!argv.includes('--no-judge'),LABEL=arg('--label','run');
+const SHOTS=arg('--shots',null);
+const CHROME=arg('--chrome','C:/Program Files/Google/Chrome/Application/chrome.exe');
+const CAND=resolve(arg('--target',process.env.XREV_CAND_HTML||join(ROOT,'index.html')));
+const ONLYSET=arg('--only',process.env.XREV_ONLY||'').split(',').map(s=>s.trim()).filter(Boolean),ONLY=id=>ONLYSET.length===0||ONLYSET.includes(id);
+const BASE_REV=arg('--base','main');
+const SCRATCH_ROOT=resolve(process.env.XREV_SCRATCH||join(tmpdir(),'T1127-ux-probe'));
+const BASE=join(SCRATCH_ROOT,`baseline-${BASE_REV.replace(/[^a-zA-Z0-9._-]/g,'_')}.html`);
+const SCRATCH=join(SCRATCH_ROOT,`ux-harness-${LABEL}`),OUT=join(SCRATCH_ROOT,`out-${LABEL}`);
+const L=ledger(),{check,note}=L;
+const HAN=/[\u4e00-\u9fff]/;
+
+// ---------- 页面侧量测（一段纯读表达式；元素不存在一律回 null，父提交件上也能跑） ----------
+const SNAP=`(()=>{const q=s=>document.querySelector(s);
+ const T=e=>(e.innerText||e.textContent||'').replace(/\\s+/g,' ').trim();
+ const R=s=>{const e=typeof s==='string'?q(s):s;if(!e)return null;const r=e.getBoundingClientRect(),c=getComputedStyle(e);
+   return {x:+r.x.toFixed(1),y:+r.y.toFixed(1),w:+r.width.toFixed(1),h:+r.height.toFixed(1),bottom:+r.bottom.toFixed(1),display:c.display,fs:c.fontSize,lh:c.lineHeight,ov:c.overflow,txt:T(e).slice(0,110)}};
+ const list=q('#queue-list'),lr=list?list.getBoundingClientRect():null;
+ const items=list?[...list.querySelectorAll('.queue-item')]:[];
+## HEAD (no branch)
+ M index.html
+?? docs/tasks/
+?? sw-retire.js
+?? sw.js
+?? tests/smooth/
+
+hook: PostToolUse
+ succeeded in 744ms:
+# T1128-SMOOTH 唯一任务地图
+
+契约 C1（已准）：PI 原话「算了，现在直接执行吧，不重启了」（2026-11-28）；前序组合原话「我想让codex gpt 6.2 sol全程施工，agy gemini 4 neon协助和验证，你做最后检查。先定这个施工组合」。
+当前授权边界：一小时本机施工候选；不 push、不 deploy、不刷新 CDN、不碰线上状态。R2；S2/C2 候选口径。
+开工时刻：2026-11-28 10:41:06（本机 `date`）；硬预算终点 11:41:06。
+
+| 轨道位置 | 状态 | 授权态 | 依赖 | 役中违例计数 | 结果指针 |
+|---|---|---|---|---:|---|
+| ③.1 基线、隔离工作树与任务书 | completed | C1 已准 | 无 | 0 | `brief-sol-s1.md`；HEAD `73dd34e`；工作树 `D:/trackeep/trackeep-product/trackeep-thoradar-smooth-T1128` |
+| ③.2 Sol S1 首例：本地先开、后台更新、下次生效 | completed | C1 已准 | ③.1 | 0 | `sol-s1-report.md`；Sol 三轮 9/9＋两项负对照；主控复跑 `main-s1-rerun.json` 9/9 |
+| ③.3 主控首例放行 | completed | C1 已准 | ③.2 | 0 | 主控 2026-11-28 11:08 放行；亲自复跑 9/9，写域/语法/diff-check 通过 |
+| ③.4 Sol S2/S3/S4 异常、退出、回归与发现项返修 | in-progress-s4 | C1 已准 | ③.3 | 0 | V2 实证 S3 12/12＋S3 6/6＋S1 9/9＋S2 24/24＋UX 46/46，但空日期与注释内伪 `SITE_DATA` 仍覆盖健康缓存；主控按「异常不得污染缓存」合同列为返修项，Sol S4 任务 `b99rzsejq` 在途 |
+| ④ Neon V1 新会话独立复验 | completed-with-findings | C1 已准 | ③.4 | 0 | `neon-v1/report.md`：S1 9/9、S2 24/24、UX 46/46、指定异常与三项负对照通过；F1 空标记毒壳阻断，F2/F3 低危；两套旧回归未独立复跑，R08 失真未验 |
+| ④ Neon V2 新会话独立复验 | completed-with-findings | C1 已准 | S3 | 0 | `neon-v2/report.md`：F1 已关，正式 12/12、4 项核心负对照变红；F4 两探针 `preserved=false`，F2/F3 未修；AICLS/POOLUP 各 39/40，R08 未形成有效检索验证 |
+| ⑤ 主控最终整合检查并写回主工作树 | blocked-on-s4 | C1 已准 | S4＋独立复验 | 0 | 主仓产品文件未整合；派遣路径已指向 `trackeep-tools` 正本，真实派遣恢复；原闸旧自检 61/26（含旧型号期望与 D:/dev 夹具路径）未宣称全绿；待 S4 与 Neon 复验后整合 |
+| ⑤.9 对外发布 | not-authorized | 待 PI 当次亲手 | ⑤ | 0 | 本役不执行 |
+
+规则：并行写默认禁止；Sol 只在隔离工作树施工，Neon 只读复验；任务地图只由派单方回填。退回或重派必须保留原因。
+H index.html
+#!/usr/bin/env node
+// T1125-AICLS 探针共用件（tests/aicls/lib.mjs）——供 aicls_probe.mjs / aicls_mutants.mjs / aicls_regress.mjs / aicls_shots.mjs 四件共用，本身不单独运行
+// 性质：施工方自建探针＝自证手段，不构成验收结论（验收样本与验收权归独立复核席）。
+// 零依赖：Node ≥22（自带 WebSocket/fetch/http）＋本机 Chrome 或 Edge（CDP 驱动、独立 profile）。
+// 零 LLM、零真钥匙：AI 请求一律打到本探针自起的本机假应答服务（页面的 BaseURL 指向它）；NCBI 接口由浏览器网络层拦截应答；
+//   浏览器侧另用 host-resolver-rules 封死外网 DNS。临时件只落系统临时目录、跑完即清；进程清理只按 PID。
+// 钥匙纪律：探针只用写死的假钥匙占位串；输出里只报「带钥匙＝对／错／缺」，任何钥匙值都不进日志。
+import {spawn,execFileSync} from 'node:child_process';
+import {createServer} from 'node:http';
+import {readFileSync,mkdirSync,rmSync,existsSync} from 'node:fs';
+import {dirname,extname,join,normalize,resolve} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {tmpdir} from 'node:os';
+import net from 'node:net';
+import {createHash} from 'node:crypto';
+
+export const HERE=dirname(fileURLToPath(import.meta.url));   // tests/aicls
+export const ROOT=normalize(join(HERE,'..','..'));           // 仓根
+export const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+export const sha256=data=>createHash('sha256').update(data).digest('hex');
+export const norm=s=>String(s).replace(/\r\n/g,'\n');        // 行尾统一成 LF 再比（工作树件是 CRLF，仓内 blob 是 LF）
+export const argOf=(argv,k,d)=>{const i=argv.indexOf(k);return i>=0&&argv[i+1]&&!argv[i+1].startsWith('--')?argv[i+1]:d};
+export const gitRead=(args,cwd=ROOT)=>execFileSync('git',['-c','core.quotepath=false',...args],{cwd,maxBuffer:64*1024*1024}).toString('utf8');
+
+// ---------- 结果账：begin／check／note／end；退出码 0＝全绿、1＝有红 ----------
+export function ledger(){
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+**Refining date validation and context scanning**
+**Handling special doctype and bogus comments**
+codex
+S3 基线已复现两个 Neon 样本覆盖健康缓存。补测的 `2026-02-29` 也被旧版接受。三个样本的原始输出已保存。
+hook: PreToolUse
+hook: PreToolUse Completed
+apply patch
+patch: completed
+D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\sw.js
+diff --git a/sw.js b/sw.js
+index 66db83dff892d7d9e8deddbfb1f5f5ffc48ef460..4c353fa7be02102d1d738e8a9bfe726e0d2e97f2
+--- a/sw.js
++++ b/sw.js
+@@ -6,6 +6,38 @@
+ const statuses = new Map();
+ let refreshTail = Promise.resolve();
+ 
++function inDataScript(html, start, end) {
++  // A worker has no DOM. Skip HTML comments, quoted attributes and raw-text elements.
++  const tags = /<!--[\s\S]*?(?:--!?>|$)|<[!?][^>]*>|<(\/?)([a-z][\w:-]*)(?=[\t\n\f\r />])(?:[^"'<>]|"[^"]*"|'[^']*')*>/gi;
++  let templates = 0;
++  for (let tag; (tag = tags.exec(html)) && tag.index < start;) {
++    const name = tag[2]?.toLowerCase();
++    if (tags.lastIndex > start) return false;
++    if (name === 'template') templates = Math.max(0, templates + (tag[1] ? -1 : 1));
++    if (!name || tag[1]) continue;
++    if (name === 'plaintext') return false;
++    if (!/^(script|style|title|textarea|xmp|iframe|noembed|noframes|noscript)$/.test(name)) continue;
++
++    const close = new RegExp(`</${name}(?=[\\t\\n\\f\\r />])`, 'gi');
++    close.lastIndex = tags.lastIndex;
++    const closing = close.exec(html);
++    if (!closing) return false;
++    if (start < closing.index) {
++      // The generated data block starts the inline script, before any JavaScript or legacy comment.
++      return name === 'script' && templates === 0 && end <= closing.index &&
++        html.slice(tags.lastIndex, start).trim() === '';
++    }
++    tags.lastIndex = closing.index;
++  }
++  return false;
++}
++
++function isBriefingDate(value) {
++  if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value) || value.startsWith('0000')) return false;
++  const time = Date.parse(value);
++  return Number.isFinite(time) && new Date(time).toISOString().slice(0, 10) === value;
++}
++
+ async function fetchShell(url) {
+   const response = await fetch(url, {
+     cache: 'no-store', redirect: 'error', signal: AbortSignal.timeout(8000)
+@@ -19,13 +51,14 @@
+   const end = html.indexOf(DATA_END, dataStart);
+   if (start === -1 || end === -1 ||
+       !html.trimEnd().toLowerCase().endsWith('</html>')) return null;
++  if (!inDataScript(html, start, end + DATA_END.length)) return null;
+ 
+   const block = html.slice(dataStart, end).trim();
+   const declaration = /^const\s+SITE_DATA\s*=\s*(\{[\s\S]*\})\s*;?$/.exec(block);
+   if (!declaration) return null;
+   try {
+     const data = JSON.parse(declaration[1]);
+-    if (typeof data.briefing_date !== 'string' || !Array.isArray(data.papers)) return null;
++    if (!isBriefingDate(data.briefing_date) || !Array.isArray(data.papers)) return null;
+   } catch (_) {
+     return null;
+   }
+
+hook: PostToolUse
+hook: PostToolUse Completed
+**Analyzing scanner regex regressions**
+**Handling Neon strict guard and script adaptation**
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$ErrorActionPreference = '"'Stop'
+"'$e = '"'docs/tasks/T1128-SMOOTH/sol-s4'
+
+node tests/smooth/verify-s3.mjs \""'$e/after.json" > "$e/after.stdout.txt" 2> "$e/after.stderr.txt"
+$code = $LASTEXITCODE
+@{
+  command = '"'node tests/smooth/verify-s3.mjs \""'$e/after.json"'"'
+  exitCode = "'$code
+  candidateSha256 = (Get-FileHash -Algorithm SHA256 sw.js).Hash.ToLowerInvariant()
+} | ConvertTo-Json | Set-Content -Encoding utf8 "$e/after.run.json"
+Select-String -Path "$e/after.stdout.txt" -Pattern '"'"'^SUMMARY| SUMMARY |''^FAIL '"' | ForEach-Object { if ("'$_.Line.Length -gt 180) { $_.Line.Substring(0,180) } else { $_.Line } }
+Write-Output "after exit=$code"
+exit $code' in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$ErrorActionPreference = '"'Stop'
+"'$e = '"'docs/tasks/T1128-SMOOTH/sol-s4'
+"'$env:XREV_SCRATCH = Join-Path $env:TEMP ('"'thoradar-sol-s4-ux-' + [guid]::NewGuid())
+Remove-Item Env:XREV_ONLY -ErrorAction SilentlyContinue
+node tests/ux/ux_probe.mjs --target index.html --base 73dd34e --label sol-s4 > \""'$e/ux.stdout.txt" 2> "$e/ux.stderr.txt"
+$code = $LASTEXITCODE
+@{
+  command = '"'node tests/ux/ux_probe.mjs --target index.html --base 73dd34e --label sol-s4'
+  exitCode = "'$code
+  candidateSha256 = (Get-FileHash -Algorithm SHA256 sw.js).Hash.ToLowerInvariant()
+} | ConvertTo-Json | Set-Content -Encoding utf8 "$e/ux.run.json"
+Select-String -Path "$e/ux.stdout.txt" -Pattern '"'"'^SUMMARY| SUMMARY |''^FAIL '"' | ForEach-Object { if ("'$_.Line.Length -gt 180) { $_.Line.Substring(0,180) } else { $_.Line } }
+Write-Output "ux exit=$code"
+exit $code' in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$ErrorActionPreference = '"'Stop'
+"'$e = '"'docs/tasks/T1128-SMOOTH/sol-s4'
+
+node tests/smooth/verify-s1.mjs \""'$e/s1.json" none > "$e/s1.stdout.txt" 2> "$e/s1.stderr.txt"
+$code = $LASTEXITCODE
+@{
+  command = '"'node tests/smooth/verify-s1.mjs \""'$e/s1.json" none'"'
+  exitCode = "'$code
+  candidateSha256 = (Get-FileHash -Algorithm SHA256 sw.js).Hash.ToLowerInvariant()
+} | ConvertTo-Json | Set-Content -Encoding utf8 "$e/s1.run.json"
+Select-String -Path "$e/s1.stdout.txt" -Pattern '"'"'^SUMMARY| SUMMARY |''^FAIL '"' | ForEach-Object { if ("'$_.Line.Length -gt 180) { $_.Line.Substring(0,180) } else { $_.Line } }
+Write-Output "s1 exit=$code"
+exit $code' in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$ErrorActionPreference = '"'Stop'
+"'$e = '"'docs/tasks/T1128-SMOOTH/sol-s4'
+"'$anchor = '"'  if ("'!inDataScript(html, start, end + DATA_END.length)) return null;'"'
+"'$sw = [IO.File]::ReadAllText((Resolve-Path sw.js).Path)
+if ([regex]::Matches($sw,[regex]::Escape($anchor)).Count -ne 1) { throw '"'Script guard anchor mismatch' }
+[IO.File]::WriteAllText((Join-Path (Resolve-Path "'$e).Path '"'no-script-guard.sw.js'),"'$sw.Replace($anchor,'"''))
+node tests/smooth/verify-s3.mjs \""'$e/no-script-guard.json" "$e/no-script-guard.sw.js" > "$e/no-script-guard.stdout.txt" 2> "$e/no-script-guard.stderr.txt"
+$code = $LASTEXITCODE
+@{
+  command = '"'node tests/smooth/verify-s3.mjs \""'$e/no-script-guard.json" "$e/no-script-guard.sw.js"'"'
+  exitCode = "'$code
+  candidateSha256 = (Get-FileHash -Algorithm SHA256 sw.js).Hash.ToLowerInvariant()
+} | ConvertTo-Json | Set-Content -Encoding utf8 "$e/no-script-guard.run.json"
+Select-String -Path "$e/no-script-guard.stdout.txt" -Pattern '"'"'^SUMMARY| SUMMARY |''^FAIL '"' | ForEach-Object { if ("'$_.Line.Length -gt 180) { $_.Line.Substring(0,180) } else { $_.Line } }
+Write-Output "no-script-guard exit=$code"
+exit $code' in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$ErrorActionPreference = '"'Stop'
+"'$e = '"'docs/tasks/T1128-SMOOTH/sol-s4'
+
+node tests/smooth/verify-s2.mjs \""'$e/s2.json" none > "$e/s2.stdout.txt" 2> "$e/s2.stderr.txt"
+$code = $LASTEXITCODE
+@{
+  command = '"'node tests/smooth/verify-s2.mjs \""'$e/s2.json" none'"'
+  exitCode = "'$code
+  candidateSha256 = (Get-FileHash -Algorithm SHA256 sw.js).Hash.ToLowerInvariant()
+} | ConvertTo-Json | Set-Content -Encoding utf8 "$e/s2.run.json"
+Select-String -Path "$e/s2.stdout.txt" -Pattern '"'"'^SUMMARY| SUMMARY |''^FAIL '"' | ForEach-Object { if ("'$_.Line.Length -gt 180) { $_.Line.Substring(0,180) } else { $_.Line } }
+Write-Output "s2 exit=$code"
+exit $code' in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$ErrorActionPreference = '"'Stop'
+"'$e = '"'docs/tasks/T1128-SMOOTH/sol-s4'
+"'$anchor = '"'"'!isBriefingDate(data.briefing_date)'"'
+"'$old = "typeof data.briefing_date !== '"'string'\"
+"'$sw = [IO.File]::ReadAllText((Resolve-Path sw.js).Path)
+if ([regex]::Matches($sw,[regex]::Escape($anchor)).Count -ne 1) { throw '"'Date guard anchor mismatch' }
+[IO.File]::WriteAllText((Join-Path (Resolve-Path "'$e).Path '"'no-date-guard.sw.js'),"'$sw.Replace($anchor,$old))
+node tests/smooth/verify-s3.mjs "$e/no-date-guard.json" "$e/no-date-guard.sw.js" > "$e/no-date-guard.stdout.txt" 2> "$e/no-date-guard.stderr.txt"
+$code = $LASTEXITCODE
+@{
+  command = '"'node tests/smooth/verify-s3.mjs \""'$e/no-date-guard.json" "$e/no-date-guard.sw.js"'"'
+  exitCode = "'$code
+  candidateSha256 = (Get-FileHash -Algorithm SHA256 sw.js).Hash.ToLowerInvariant()
+} | ConvertTo-Json | Set-Content -Encoding utf8 "$e/no-date-guard.run.json"
+Select-String -Path "$e/no-date-guard.stdout.txt" -Pattern '"'"'^SUMMARY| SUMMARY |''^FAIL '"' | ForEach-Object { if ("'$_.Line.Length -gt 180) { $_.Line.Substring(0,180) } else { $_.Line } }
+Write-Output "no-date-guard exit=$code"
+exit $code' in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+**Analyzing mutation guard behavior**
+**Verifying tab display counts**
+ succeeded in 19128ms:
+SUMMARY {"passed":9,"failed":0,"endedAt":"2026-11-28T04:43:03.587Z"}
+s1 exit=0
+
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "rg -n 'builder-jobspec|"'^##|收工'"' 'D:/trackeep/trackeep-console/trackeep-rulebook/rules/entries/jobspecs.md' | Select-Object -First 18; rg -n 'codex-gpt|gpt-6.2-sol' 'D:/trackeep/trackeep-console/trackeep-rulebook/rules/registries/roster.md'; git diff --no-index --stat docs/tasks/T1128-SMOOTH/sol-s4/s3-baseline.sw.js sw.js; Get-FileHash sw.js,index.html,sw-retire.js,tests/smooth/verify-s3.mjs | Format-List Algorithm,Hash,Path; node --check sw.js" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$n='"'D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v2/neon-v2-verify.stdout.txt'; if (Test-Path "'$n) { Get-Content -LiteralPath $n -TotalCount 15 }; rg -n '"'registerHooks|CHROME|profile' tests/smooth/verify-s1.mjs tests/smooth/verify-s2.mjs | Select-Object -First 22; Get-Command codex-gpt.cmd -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+ succeeded in 815ms:
+PASS adversarial-reversed-markers preserved=true nextDate=2026-11-27 nextPoints=37 banner="数据 2026-11-27 · 本地副本 · 暂未核实更新"
+PASS adversarial-json-mime-valid-html preserved=true nextDate=2026-11-27 nextPoints=37 banner="数据 2026-11-27 · 本地副本 · 暂未核实更新"
+PASS adversarial-status-503-valid-html preserved=true nextDate=2026-11-27 nextPoints=37 banner="数据 2026-11-27 · 本地副本 · 暂未核实更新"
+PASS adversarial-empty-markers-stub preserved=true nextDate=2026-11-27 nextPoints=37 banner="数据 2026-11-27 · 本地副本 · 暂未核实更新"
+PASS adversarial-missing-site-data preserved=true nextDate=2026-11-27 nextPoints=37 banner="数据 2026-11-27 · 本地副本 · 暂未核实更新"
+PASS adversarial-bad-json-site-data preserved=true nextDate=2026-11-27 nextPoints=37 banner="数据 2026-11-27 · 本地副本 · 暂未核实更新"
+PASS adversarial-wrong-date-type preserved=true nextDate=2026-11-27 nextPoints=37 banner="数据 2026-11-27 · 本地副本 · 暂未核实更新"
+PASS adversarial-wrong-papers-type preserved=true nextDate=2026-11-27 nextPoints=37 banner="数据 2026-11-27 · 本地副本 · 暂未核实更新"
+PASS adversarial-null-site-data preserved=true nextDate=2026-11-27 nextPoints=37 banner="数据 2026-11-27 · 本地副本 · 暂未核实更新"
+PASS valid-zero-papers-accepted hashMatch=true nextDate=2026-11-28 nextPapers=0 banner="数据 2026-11-27 · 有新版，下次打开生效"
+PROBE empty-briefing-date preserved=false bytes=374669 banner="数据 2026-11-27 · 有新版，下次打开生效"
+PROBE comment-wrapped-site-data-stub preserved=false bytes=184 banner="数据 2026-11-27 · 有新版，下次打开生效"
+PASS whitelist-and-bypass
+SURVIVED neg-mut-marker-order-naive input=reversed-markers banner="数据 2026-11-27 · 本地副本 · 暂未核实更新" hashChanged=false
+RED-CAUGHT neg-mut-marker-order-orderless input=reversed-markers banner="数据 2026-11-27 · 有新版，下次打开生效" hashChanged=true
+tests/smooth/verify-s1.mjs:131:let profile;
+tests/smooth/verify-s1.mjs:310:  profile = await mkdtemp(join(temp, tempPrefix));
+tests/smooth/verify-s1.mjs:312:  browser = spawn(chrome, [...chromeArgs(0, profile), '--no-proxy-server'], { stdio: ['ignore', 'inherit', 'inherit'] });
+tests/smooth/verify-s1.mjs:318:    const contents = await readFile(join(profile, 'DevToolsActivePort'), 'utf8').catch(() => '');
+tests/smooth/verify-s1.mjs:362:  if (profile && dirname(resolve(profile)) === temp && basename(profile).startsWith(tempPrefix)) {
+tests/smooth/verify-s1.mjs:364:      await rm(profile, { force: true, recursive: true, maxRetries: 5, retryDelay: 100 });
+tests/smooth/verify-s1.mjs:365:      result.cleanup.profileRemoved = true;
+tests/smooth/verify-s1.mjs:368:      check('temporary-profile-removed', false, { error: String(error) });
+tests/smooth/verify-s2.mjs:525:let profile;
+tests/smooth/verify-s2.mjs:535:  profile = await mkdtemp(join(temp, prefix));
+tests/smooth/verify-s2.mjs:537:    [...chromeArgs(0, profile), '--no-proxy-server'], { stdio: ['ignore', 'inherit', 'inherit'], windowsHide: true });
+tests/smooth/verify-s2.mjs:543:    const active = await readFile(join(profile, 'DevToolsActivePort'), 'utf8').catch(() => '');
+tests/smooth/verify-s2.mjs:582:    result.cleanup = { pid: browser.pid, exit, forced, profileRemoved: false };
+tests/smooth/verify-s2.mjs:588:  if (profile && dirname(resolve(profile)) === temp && basename(profile).startsWith(prefix)) {
+tests/smooth/verify-s2.mjs:589:    await rm(profile, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
+tests/smooth/verify-s2.mjs:590:    result.cleanup.profileRemoved = true;
+D:\npm-global\codex-gpt.cmd
+
+hook: PostToolUse
+ succeeded in 1097ms:
+5:别名: [岗位卡册, jobspecs, jobspec-book, 六卡合册, builder-jobspec, verifier-jobspec, security-auditor-jobspec, observer-jobspec, doc-auditor-jobspec, doclaw-jobspec, 岗位卡, 施工席, 复核席, 安全审计席, 监察席, 文档审查席, 文档规则法律整理员, builder, 施工, 执行层, 建造, verifier, 复核, 验收, 写审分离, security-auditor, 安全审计, 安全专审, 审计席, observer, 监察, 体系评估, 第四角色, doc-auditor, 文档审查, 文档五查, 文档关, checkup, doclaw, 文档整理, 法条整理, 刀法, 刀法七则, 整理役, rulebook-keeper]
+21:## 通用注记
+34:## inputs
+43:## outputs
+48:## obligations
+54:## forbidden
+61:## tool_permissions
+68:## evidence_required
+74:## stop_conditions
+83:## escalation
+87:## conflict_of_interest
+91:## budget
+103:## inputs
+111:## outputs
+118:## obligations
+124:## forbidden
+130:## tool_permissions
+136:## evidence_required
+warning: in the working copy of 'docs/tasks/T1128-SMOOTH/sol-s4/s3-baseline.sw.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'sw.js', LF will be replaced by CRLF the next time Git touches it
+ .../T1128-SMOOTH/sol-s4/s3-baseline.sw.js => sw.js | 35 +++++++++++++++++++++-
+ 1 file changed, 34 insertions(+), 1 deletion(-)
+
+Algorithm : SHA256
+Hash      : E882E9E2EEF0BF36781B8B03ECEC23EB81221FA8B33272CDC9DE3E368F76394F
+Path      : D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\sw.js
+
+Algorithm : SHA256
+Hash      : 33C50BEF723B0A3F32B51BC2D5927FF4391BB58EB474996F1A7D9DFF96BC1DEF
+Path      : D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\index.html
+
+Algorithm : SHA256
+Hash      : 5AE38F2BA965F4E1B1D340DA2BA5FADD8B58AF82A1E271A02DDFF97AB5686199
+Path      : D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\sw-retire.js
+
+Algorithm : SHA256
+Hash      : 02CB18422E04E2847245BD79B22E5CC117A3F930E724D5D0192DE63CE9EAC705
+Path      : D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\tests\smooth\verify-s3.mjs
+
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+ succeeded in 27107ms:
+SUMMARY {"passed":9,"failed":0}
+after exit=0
+
+ exited 1 in 27134ms:
+FAIL comment-wrapped-site-data-stub {"before":{"bytes":539012,"sha256":"33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"},"first":{"case":"comment-wrapped-site-dat
+SUMMARY {"passed":8,"failed":1}
+no-script-guard exit=1
+
+ exited 1 in 27076ms:
+FAIL empty-briefing-date {"before":{"bytes":539012,"sha256":"33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"},"first":{"case":"empty-briefing-date","loaderId":"D3
+FAIL invalid-calendar-date {"before":{"bytes":539012,"sha256":"33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"},"first":{"case":"invalid-calendar-date","loaderId"
+SUMMARY {"passed":7,"failed":2}
+no-date-guard exit=1
+
+**Adapting neon adapter with code mutation**
+**Suggesting UI test for visible elements**
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "Get-ChildItem docs/tasks/T1128-SMOOTH/sol-s4 | Select-Object Name,Length; Get-Content docs/tasks/T1128-SMOOTH/sol-s4/after.stdout.txt -Tail 2; Get-Content docs/tasks/T1128-SMOOTH/sol-s4/ux.stdout.txt -Tail 2; rg -l --hidden 'codex-gpt' 'D:/trackeep/trackeep-console/trackeep-rulebook/rules/registries' -g '"'!*.json'"'" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "rg -n 'papers\\.length|totalPapers|共 \\"'$'"\\{|篇"'`|papers.*textContent|render.*Count'"' index.html --max-columns 230 | Select-Object -First 50; Get-Content 'D:/trackeep/trackeep-console/trackeep-rulebook/rules/entries/jobspecs.md' -TotalCount 100" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+ exited 1 in 943ms:
+
+Name                       Length
+----                       ------
+after.json                  35993
+after.run.json                180
+after.stderr.txt                0
+after.stdout.txt            13574
+before.json                 35911
+before.stderr.txt               0
+before.stdout.txt           13416
+no-date-guard.json          35989
+no-date-guard.run.json        215
+no-date-guard.stderr.txt        0
+no-date-guard.stdout.txt    13586
+no-date-guard.sw.js          5849
+no-script-guard.json        35994
+no-script-guard.run.json      219
+no-script-guard.stderr.txt      0
+no-script-guard.stdout.txt  13551
+no-script-guard.sw.js        5777
+s1.json                     20752
+s1.run.json                   182
+s1.stderr.txt                 100
+s1.stdout.txt                9504
+s2.json                     97416
+s2.stderr.txt                   0
+s2.stdout.txt                   0
+s3-baseline.sw.js            4307
+ux.stderr.txt                   0
+ux.stdout.txt                   0
+     cleanup | browser pid=64420 exitCode=null signalCode=SIGTERM | 带 profile 标记的进程：收尾前=64420,14680,35300,10212,77804,59380,63456,49944,39944,50336,24256 | 主进程结束后残留=无 | 逐 PID 结束=无 | 复查仍存活=无
+SUMMARY {"passed":9,"failed":0}
+  [阅读·沉浸] 字号 {"cardTitle":"21px","cardTitleEn":"12px","cardFinding":"14px","cardFindingLabel":"8px","cardMeta":"9px","cardExtra":"11px","cardDomain":"10px","queueSmall":null,"detailExcerpt":"12px","detailTitle":"16px","detailJournalName":"11px","detailJournalMeta":"9px","badge":"9px","metaCellB":"10px","metaCellSmall":"8.5px","paused":"11px","deepStrong":"11px","deepBtn":"10px","actionBtn":"10px","excerptLabelB":"11px","excerptLabelSpan":"8px","honesty":null,"footer":"9px","toggle":"11px","tierChip":"10px","quickBtn":"9.5px","filterLabel":"10px","jlSummary":"11px","foldChip":"8px","designLegend":"9.5px","scopeLabel":"9px","toolbar":"9px","topbarName":"17px","viewBtn":"11px","scoreBox":"28px"}｜详情块序 detail-top > detail-journal > score-track > detail-title > badges > interpretation > detail-actions > meta-fold > detail-nav｜摘要首屏=true 按钮首屏=false
+  [概览] 字号 {"cardTitle":"12px","cardTitleEn":null,"cardFinding":null,"cardFindingLabel":null,"cardMeta":null,"cardExtra":null,"cardDomain":null,"queueSmall":"9px","detailExcerpt":"12px","detailTitle":"16px","detailJournalName":"11px","detailJournalMeta":"9px","badge":"9px","metaCellB":"10px","met
+
+
+ succeeded in 758ms:
+---
+id: jobspecs
+名称: 岗位册
+适用: 六席工种合同合册——施工席／复核席／安全审计席／监察席／文档审查席／文档整理员；派席方对表或承岗席自照时按章查阅
+别名: [岗位卡册, jobspecs, jobspec-book, 六卡合册, builder-jobspec, verifier-jobspec, security-auditor-jobspec, observer-jobspec, doc-auditor-jobspec, doclaw-jobspec, 岗位卡, 施工席, 复核席, 安全审计席, 监察席, 文档审查席, 文档规则法律整理员, builder, 施工, 执行层, 建造, verifier, 复核, 验收, 写审分离, security-auditor, 安全审计, 安全专审, 审计席, observer, 监察, 体系评估, 第四角色, doc-auditor, 文档审查, 文档五查, 文档关, checkup, doclaw, 文档整理, 法条整理, 刀法, 刀法七则, 整理役, rulebook-keeper]
+type: rule
+strength: default
+scope: global
+status: active
+version: 1.7
+domain: agent-collaboration
+load: on-demand
+requires: [employment-law, safety-redlines, doc-discipline, principles]
+enforced_by: [human:承岗席自照·派席方对表]
+---
+
+# 岗位册
+
+派席对表、承岗自照按章查阅。第一章施工席，第二章复核席，第三章安全审计席，第四章监察席，第五章文档审查席，第六章文档整理员。
+
+## 通用注记
+
+六席通用句收本节一份，各章不再复写；通用规则正本见《用工法》第一章。
+
+- 呈报首行规矩见《用工法》第三章收卷（完工交单与回报环节）节，不在此重复登记。
+- 预算通用条：按委任状预算档执行；超限申报，不静默续烧。
+- 壳只绑型号与工具，职责正文唯一真相源＝本册各章；工具绑定入口＝各章「tool_permissions」节（就地写明该岗工具边界，本节不双写）。
+
+# 第一章 施工席
+
+
+这页是施工席（`builder`）的工种合同；派施工席按 `brief`（任务简报）执行改码、开发或编译修错，以及承岗席自照或派席方对表时查这页。
+
+## inputs
+
+承岗前需齐备以下输入：
+
+- 委任状
+- `brief`（任务简报）
+- 领域卡义务表全文（如命中领域）
+- 验收契约相关节
+
+## outputs
+
+- 把 `brief` 指定的交付物保存至委任状可写范围。
+- 交付回报须写三行：干了什么／PI 怎么亲手验／还剩什么坑；验收契约未全过时写明哪条没过。
+
+## obligations
+
+- **只做 `brief` 清单内的活**；做一条落一条，确保中断后可回收。
+- 命中领域时，逐条执行已装载的领域义务条目。
+- 遇到歧义立即停下来，在回报中问清；不自作主张，不闷停。
+
+## forbidden
+
+- **再派纪律**：再派只走 `Task` 工具档映射。
+- **禁改对照真值校验面**：`acceptance tests`（验收测试）、基线、CI 定义、复核配置一律不可碰（防作弊验收红线（绝对禁止的底线））。
+- **禁越界**：`Scope`（任务范围）外一字不动，越界直接判**交付作废**。
+- **禁写型号名**：型号名写进本卡即违例（型号只活在壳与能力表）。
+
+## tool_permissions
+
+工具绑定入口（本岗）＝本节。
+
+- 可写范围以委任状白名单为准。
+- 临时文件一律建在 `$env:TEMP`，用完清理干净，**禁止建在任何 git 版本库内**。
+
+## evidence_required
+
+- 要求的测试和门禁必须实际跑过，并附原始输出。
+- 引用自己修改文件的行号，必须在末次保存到文件后复核。
+- 静默截断（漏做不说）直接判**交付作废**。
+
+## stop_conditions
+
+触发以下任一条件时**立即停手**：
+
+- 歧义未决
+- 触及红线
+- 出现可写范围外需求
+- 出现对照真值校验面变更需求
+
+## escalation
+
+停手后，在交付回报首行写明卡点与所需裁决，交回派遣方，**不越级**。
+
+## conflict_of_interest
+
+通用两条见《用工法》第一章。
+
+## budget
+
+按委任状预算档求值执行；超限处置见本册「通用注记」预算通用条。
+
+# 第二章 复核席
+
+
+这页是复核席（独立执行角色，`verifier`）的工种合同；派独立会话验收交付物、独立重跑检查且只找错不施工时查这页。
+
+> **Note**
+
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+ succeeded in 43808ms:
+SUMMARY {"passed":24,"failed":0}
+s2 exit=0
+
+**Refining adapter and testing setup**
+**Managing evidence and temp files**
+hook: PreToolUse
+hook: PreToolUse Completed
+apply patch
+patch: completed
+D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\docs\tasks\T1128-SMOOTH\sol-s4\replay-neon-v2.mjs
+diff --git a/docs/tasks/T1128-SMOOTH/sol-s4/replay-neon-v2.mjs b/docs/tasks/T1128-SMOOTH/sol-s4/replay-neon-v2.mjs
+new file mode 100644
+index 0000000000000000000000000000000000000000..3d8b6a6846a95b85c29a4ba67b1c1896c903d94e
+--- /dev/null
++++ b/docs/tasks/T1128-SMOOTH/sol-s4/replay-neon-v2.mjs
+@@ -0,0 +1,28 @@
++import { registerHooks } from 'node:module';
++import { resolve } from 'node:path';
++import { fileURLToPath, pathToFileURL } from 'node:url';
++
++const output = process.argv[2];
++if (!output) throw new Error('Usage: node replay-neon-v2.mjs <output.json>');
++const verifier = pathToFileURL(resolve('../trackeep-thoradar-neon-v1/tests/neon-v2-verify.mjs')).href;
++const candidateLib = pathToFileURL(resolve('tests/aicls/lib.mjs')).href;
++const oldAnchor = String.raw`    if (typeof data.briefing_date !== \'string\' || !Array.isArray(data.papers)) return null;`;
++const newAnchor = '    if (!isBriefingDate(data.briefing_date) || !Array.isArray(data.papers)) return null;';
++
++// Read the candidate from this worktree. Update the source-text mutation anchor in memory.
++registerHooks({
++  resolve(specifier, context, nextResolve) {
++    const fromVerifier = context.parentURL === verifier && specifier === './aicls/lib.mjs';
++    return nextResolve(fromVerifier ? candidateLib : specifier, context);
++  },
++  load(url, context, nextLoad) {
++    const loaded = nextLoad(url, context);
++    if (url !== verifier) return loaded;
++    const source = Buffer.from(loaded.source).toString('utf8');
++    if (source.split(oldAnchor).length !== 2) throw new Error('Neon date anchor mismatch');
++    return { ...loaded, source: source.replace(oldAnchor, newAnchor) };
++  }
++});
++
++process.argv = [process.execPath, fileURLToPath(verifier), output];
++await import(verifier);
+diff --git a/sw.js b/sw.js
+index 66db83dff892d7d9e8deddbfb1f5f5ffc48ef460..4c353fa7be02102d1d738e8a9bfe726e0d2e97f2
+--- a/sw.js
++++ b/sw.js
+@@ -6,6 +6,38 @@
+ const statuses = new Map();
+ let refreshTail = Promise.resolve();
+ 
++function inDataScript(html, start, end) {
++  // A worker has no DOM. Skip HTML comments, quoted attributes and raw-text elements.
++  const tags = /<!--[\s\S]*?(?:--!?>|$)|<[!?][^>]*>|<(\/?)([a-z][\w:-]*)(?=[\t\n\f\r />])(?:[^"'<>]|"[^"]*"|'[^']*')*>/gi;
++  let templates = 0;
++  for (let tag; (tag = tags.exec(html)) && tag.index < start;) {
++    const name = tag[2]?.toLowerCase();
++    if (tags.lastIndex > start) return false;
++    if (name === 'template') templates = Math.max(0, templates + (tag[1] ? -1 : 1));
++    if (!name || tag[1]) continue;
++    if (name === 'plaintext') return false;
++    if (!/^(script|style|title|textarea|xmp|iframe|noembed|noframes|noscript)$/.test(name)) continue;
++
++    const close = new RegExp(`</${name}(?=[\\t\\n\\f\\r />])`, 'gi');
++    close.lastIndex = tags.lastIndex;
++    const closing = close.exec(html);
++    if (!closing) return false;
++    if (start < closing.index) {
++      // The generated data block starts the inline script, before any JavaScript or legacy comment.
++      return name === 'script' && templates === 0 && end <= closing.index &&
++        html.slice(tags.lastIndex, start).trim() === '';
++    }
++    tags.lastIndex = closing.index;
++  }
++  return false;
++}
++
++function isBriefingDate(value) {
++  if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value) || value.startsWith('0000')) return false;
++  const time = Date.parse(value);
++  return Number.isFinite(time) && new Date(time).toISOString().slice(0, 10) === value;
++}
++
+ async function fetchShell(url) {
+   const response = await fetch(url, {
+     cache: 'no-store', redirect: 'error', signal: AbortSignal.timeout(8000)
+@@ -19,13 +51,14 @@
+   const end = html.indexOf(DATA_END, dataStart);
+   if (start === -1 || end === -1 ||
+       !html.trimEnd().toLowerCase().endsWith('</html>')) return null;
++  if (!inDataScript(html, start, end + DATA_END.length)) return null;
+ 
+   const block = html.slice(dataStart, end).trim();
+   const declaration = /^const\s+SITE_DATA\s*=\s*(\{[\s\S]*\})\s*;?$/.exec(block);
+   if (!declaration) return null;
+   try {
+     const data = JSON.parse(declaration[1]);
+-    if (typeof data.briefing_date !== 'string' || !Array.isArray(data.papers)) return null;
++    if (!isBriefingDate(data.briefing_date) || !Array.isArray(data.papers)) return null;
+   } catch (_) {
+     return null;
+   }
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$e = '"'docs/tasks/T1128-SMOOTH/sol-s4'
+git -c core.safecrlf=false diff --no-index -- \""'$e/s3-baseline.sw.js" sw.js > "$e/worker.diff.txt" 2> "$e/worker.diff.stderr.txt"
+$diffCode = $LASTEXITCODE
+node --check sw.js
+$syntaxCode = $LASTEXITCODE
+git status --short --branch
+Write-Output "worker diff exit=$diffCode; node --check exit=$syntaxCode"
+rg -n --fixed-strings '"'codex-gpt' 'D:/trackeep/trackeep-console/trackeep-rulebook/rules/registries' -g '*.json' --max-columns 130 | Select-Object -First 10
+rg -n 'SITE_DATA\\.papers|queue-count|paper-count' index.html --max-columns 180 | Select-Object -First 20" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$e = '"'docs/tasks/T1128-SMOOTH/sol-s4'
+node \""'$e/replay-neon-v2.mjs" "$e/neon-v2.json" > "$e/neon-v2.stdout.txt" 2> "$e/neon-v2.stderr.txt"
+$code = $LASTEXITCODE
+Get-Content "$e/neon-v2.stderr.txt"
+Select-String -Path "$e/neon-v2.stdout.txt" -Pattern '"'"'^PROBE|''^SURVIVED|''^NEON_V2_DONE'"'
+Write-Output \"exit="'$code"
+exit $code' in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+ succeeded in 1015ms:
+## HEAD (no branch)
+ M index.html
+?? docs/tasks/
+?? sw-retire.js
+?? sw.js
+?? tests/smooth/
+worker diff exit=1; node --check exit=0
+913:const INJECTED_PAPERS=Array.isArray(SITE_DATA.papers)?SITE_DATA.papers:[];
+
+hook: PostToolUse
+hook: PostToolUse Completed
+**Verifying buffer usage in synchronous load**
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+ succeeded in 17606ms:
+
+docs\tasks\T1128-SMOOTH\sol-s4\neon-v2.stdout.txt:11:PROBE empty-briefing-date preserved=true bytes=539012 banner="数据
+ 2026-11-27 · 本地副本 · 暂未核实更新"
+docs\tasks\T1128-SMOOTH\sol-s4\neon-v2.stdout.txt:12:PROBE comment-wrapped-site-data-stub preserved=true bytes=539012 b
+anner="数据 2026-11-27 · 本地副本 · 暂未核实更新"
+docs\tasks\T1128-SMOOTH\sol-s4\neon-v2.stdout.txt:14:SURVIVED neg-mut-marker-order-naive input=reversed-markers banner=
+"数据 2026-11-27 · 本地副本 · 暂未核实更新" hashChanged=false
+docs\tasks\T1128-SMOOTH\sol-s4\neon-v2.stdout.txt:15:SURVIVED neg-mut-marker-order-orderless input=reversed-markers ban
+ner="数据 2026-11-27 · 本地副本 · 暂未核实更新" hashChanged=false
+docs\tasks\T1128-SMOOTH\sol-s4\neon-v2.stdout.txt:18:SURVIVED neg-mut-s3-site-data-guard input=empty-markers-stub banne
+r="数据 2026-11-27 · 本地副本 · 暂未核实更新" hashChanged=false nextDate=2026-11-27 nextPoints=37
+docs\tasks\T1128-SMOOTH\sol-s4\neon-v2.stdout.txt:20:NEON_V2_DONE {"checksPassed":12,"checksFailed":0,"negCaughtRed":2,
+"negTotal":5,"extraProbes":2}
+exit=0
+
+hook: PostToolUse
+hook: PostToolUse Completed
+**Finalizing source scanner setup**
+codex
+候选已通过专项 9 项、S1 9 项和 S2 24 项。分别撤掉日期校验和脚本上下文校验后，对应用例各自变红。本机重放 Neon V2 的两个探针也都得到 `preserved=true`，UX 回归仍在运行。
+ succeeded in 106854ms:
+==== UX PROBE [sol-s4] SUMMARY 46 PASS / 0 FAIL：F2a ✓  F2b ✓  F2c ✓  F2d ✓  F2e ✓  F2f ✓  F2g ✓  F2h ✓  F3a ✓  F3b ✓  F3b2 ✓  F3c ✓  F3d ✓  F3e ✓  F4a ✓  F4b ✓  F4c ✓  F4d ✓  F4e ✓
+ux exit=0
+
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$r='"'D:/trackeep/trackeep-console/trackeep-rulebook/rules'
+rg --files "'$r | rg '"'roster|member|people|manifest'
+"'$e='"'docs/tasks/T1128-SMOOTH/sol-s4'
+@'
+const fs = require('node:fs');
+const dir = 'docs/tasks/T1128-SMOOTH/sol-s4/';
+const read = name => JSON.parse(fs.readFileSync(dir + name + '.json','utf8'));
+const result = read('after');
+for (const name of ['before', 'after', 'no-date-guard', 'no-script-guard', 's1', 's2', 'neon-v2']) {
+  const run = read(name);
+  console.log(JSON.stringify({name, startedAt: run.startedAt, endedAt: run.endedAt, sha256: run.sha256?.['sw.js'],
+    summary: run.summary, failures: run.checks?.filter(c => "'!c.pass).map(c => c.name), remaining: run.remainingProfileProcesses, cleanup: run.cleanup}));
+}
+for (const check of result.checks.filter(c => ['"'empty-briefing-date','invalid-calendar-date','comment-wrapped-site-data-stub','valid-zero-papers'].includes(c.name))) {
+  const { before, after, status, next, nextPage } = check.detail;
+  console.log(JSON.stringify({name:check.name,before,after,status,source:next.source,nextPage}));
+}
+console.log(JSON.stringify(result.environment));
+'@ | node -
+Get-Content \""'$e/ux.stdout.txt" -Tail 3
+Get-Content "$e/s1.stderr.txt" -Tail 3
+Get-Content "$e/s2.stderr.txt" -Tail 3' in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$launcher=(Get-Command codex-gpt.cmd).Source
+Select-String -LiteralPath $launcher -Pattern '"'gpt-6\\.2-sol' -AllMatches | ForEach-Object { "'$_.Matches.Value }
+git worktree list --porcelain | Select-String -SimpleMatch '"'trackeep-thoradar-smooth-T1128'
+node --check tests/smooth/verify-s3.mjs" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+ succeeded in 941ms:
+D:/trackeep/trackeep-console/trackeep-rulebook/rules\registries\roster.md
+D:/trackeep/trackeep-console/trackeep-rulebook/rules\entries\hook-gate-roster.md
+{"name":"before","startedAt":"2026-11-28T04:41:23.687Z","endedAt":"2026-11-28T04:41:41.514Z","sha256":"900061dd45ad04e9f9c4391e5d2756f8b080a4bc4144ede9b913b6deabb5aa8b","summary":{"passed":6,"failed":3},"failures":["empty-briefing-date","invalid-calendar-date","comment-wrapped-site-data-stub"],"remaining":0}
+{"name":"after","startedAt":"2026-11-28T04:42:48.460Z","endedAt":"2026-11-28T04:43:15.430Z","sha256":"e882e9e2eef0bf36781b8b03ecec23eb81221fa8b33272cdc9de3e368f76394f","summary":{"passed":9,"failed":0},"failures":[],"remaining":0}
+{"name":"no-date-guard","startedAt":"2026-11-28T04:42:49.954Z","endedAt":"2026-11-28T04:43:15.424Z","sha256":"e78a336372a349e3e561293572cbee4a28fc9994259ab18ca37716f052239e2f","summary":{"passed":7,"failed":2},"failures":["empty-briefing-date","invalid-calendar-date"],"remaining":0}
+{"name":"no-script-guard","startedAt":"2026-11-28T04:42:49.535Z","endedAt":"2026-11-28T04:43:15.479Z","sha256":"7976934b55d8d3d865d8752e143242df64a0295f666c8a893b9157a9b9518de9","summary":{"passed":8,"failed":1},"failures":["comment-wrapped-site-data-stub"],"remaining":0}
+{"name":"s1","startedAt":"2026-11-28T04:42:49.208Z","endedAt":"2026-11-28T04:43:03.587Z","sha256":"e882e9e2eef0bf36781b8b03ecec23eb81221fa8b33272cdc9de3e368f76394f","summary":{"passed":9,"failed":0},"failures":[],"cleanup":{"browserPid":7648,"exit":{"code":null,"signal":"SIGTERM"},"forced":true,"profileRemoved":true}}
+{"name":"s2","startedAt":"2026-11-28T04:42:49.957Z","endedAt":"2026-11-28T04:43:27.499Z","sha256":"e882e9e2eef0bf36781b8b03ecec23eb81221fa8b33272cdc9de3e368f76394f","summary":{"passed":24,"failed":0},"failures":[],"cleanup":{"pid":52316,"exit":{"code":0,"signal":null},"forced":false,"profileRemoved":true}}
+{"name":"neon-v2","startedAt":"2026-11-28T04:44:01.582Z","endedAt":"2026-11-28T04:44:14.597Z","sha256":"e882e9e2eef0bf36781b8b03ecec23eb81221fa8b33272cdc9de3e368f76394f","failures":[],"cleanup":{"pid":68892,"exit":{"code":0,"signal":null},"profileRemoved":true}}
+{"name":"empty-briefing-date","before":{"bytes":539012,"sha256":"33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"},"after":{"bytes":539012,"sha256":"33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"},"status":"unavailable","source":"cache-storage","nextPage":{"date":"2026-11-27","papers":40,"banner":"数据 2026-11-27 · 本地副本 · 暂未核实更新"}}
+{"name":"invalid-calendar-date","before":{"bytes":539012,"sha256":"33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"},"after":{"bytes":539012,"sha256":"33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"},"status":"unavailable","source":"cache-storage","nextPage":{"date":"2026-11-27","papers":40,"banner":"数据 2026-11-27 · 本地副本 · 暂未核实更新"}}
+{"name":"comment-wrapped-site-data-stub","before":{"bytes":539012,"sha256":"33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"},"after":{"bytes":539012,"sha256":"33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"},"status":"unavailable","source":"cache-storage","nextPage":{"date":"2026-11-27","papers":40,"banner":"数据 2026-11-27 · 本地副本 · 暂未核实更新"}}
+{"name":"valid-zero-papers","before":{"bytes":539012,"sha256":"33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"},"after":{"bytes":374679,"sha256":"37e4fcaf391cc4930b509b53e4fe95f7d0b5ce56fa52ae0e37b710aa52bd7a0a"},"status":"updated","source":"cache-storage","nextPage":{"date":"2026-11-28","papers":0,"banner":"数据 2026-11-28 · 本地副本 · 已核对，与服务器一致"}}
+{"os":"Windows 11 Pro","release":"10.0.26300","arch":"x64","node":"v24.14.0","chrome":{"protocolVersion":"1.3","product":"Chrome/158.0.8127.88","revision":"@0cefb18236a23db1ebb6b2bc040fbbaf8cbe759e","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/158.0.0.0 Safari/537.36","jsVersion":"15.8.62.31"}}
+==== UX PROBE [sol-s4] SUMMARY 46 PASS / 0 FAIL：F2a ✓  F2b ✓  F2c ✓  F2d ✓  F2e ✓  F2f ✓  F2g ✓  F2h ✓  F3a ✓  F3b ✓  F3b2 ✓  F3c ✓  F3d ✓  F3e ✓  F4a ✓  F4b ✓  F4c ✓  F4d ✓  F4e ✓  F5a ✓  F5b ✓  F5c ✓  F5d ✓  F5e ✓  F6a ✓  F6b ✓  F7a ✓  F7b ✓  F7c ✓  F7d ✓  F7e ✓  F10a ✓  F10b ✓  F10c ✓  F10d ✓  F11a ✓  F11b ✓  F11c ✓  F11d ✓  F9a ✓  F9b ✓  F9c ✓  F8a ✓  F8b ✓  F8c ✓  F8d ✓ ====
+     cleanup | browser pid=27724 exitCode=null signalCode=SIGTERM | 带 profile 标记的进程：收尾前=27724,60008,42724,38336,45396,55704,66752,44752 | 主进程结束后残留=无 | 逐 PID 结束=无 | 复查仍存活=无
+     cleanup | 临时目录 D:\claude-tmp\thoradar-sol-s4-ux-b6e080d9-c870-4a09-869d-f2ab1bea37ce\ux-harness-sol-s4 已清
+
+DevTools listening on ws://127.0.0.1:54110/devtools/browser/db5a0db2-9595-4161-ad89-e78add185068
+
+DevTools listening on ws://127.0.0.1:62288/devtools/browser/8a0caf51-7a9c-408b-a26e-dfbb827f124e
+
+hook: PostToolUse
+ succeeded in 924ms:
+
+worktree D:/trackeep/trackeep-product/trackeep-thoradar-smooth-T1128
+
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+**Verifying process termination by PID**
+**Narrowing root list output**
+hook: PreToolUse
+hook: PreToolUse
+hook: PostToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PostToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "Get-Content 'D:/trackeep/trackeep-console/trackeep-rulebook/rules/registries/roster.md' -TotalCount 110; rg --files 'D:/trackeep/trackeep-console' -g '*roster*' -g '*members*' -g '*codex-gpt*' -g '"'!node_modules'"' | Select-Object -First 30" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$e = '"'docs/tasks/T1128-SMOOTH/sol-s4'
+"'$browserPids = 74376,64420,14680,35300,10212,77804,59380,63456,49944,39944,50336,24256,7648,52316,68892,27724,60008,42724,38336,45396,55704,66752,44752
+"Get-Process -Id $($browserPids -join '"',')\" > \""'$e/process-recheck.stdout.txt"
+Get-Process -Id $browserPids -ErrorAction Continue 2>&1 | Out-File -FilePath "$e/process-recheck.stdout.txt" -Append -Width 160
+$live = @(Get-Process -Id $browserPids -ErrorAction SilentlyContinue)
+"live listed PIDs: $($live.Count)" | Add-Content "$e/process-recheck.stdout.txt"
+Get-Content "$e/process-recheck.stdout.txt" -Tail 5
+git -c core.safecrlf=false diff --no-index --check "$e/s3-baseline.sw.js" sw.js
+rg -n '"'inDataScript|isBriefingDate' sw.js
+rg -n 'empty-briefing-date|invalid-calendar-date|comment-wrapped' tests/smooth/verify-s3.mjs" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+ succeeded in 1029ms:
+岗位合同＝`jobspecs` 各章；本表＝登记面
+
+## 实体位置与端域约定
+
+- **实体存放位置**：Claude 端为 `D:/claude/agents/<名>.md`；Codex 端为 `~/.codex/agents/<名>.toml`（`TOML`（结构化配置文件））；Antigravity 端（别名 `agy`）为 `~/.gemini/antigravity-cli/agents/`——**席位实体尚未铺设（在册 0）**，铺席时按端域约定增注。
+- **使用方式**：本册为枢纽检索位。`Orchestrator`（主控任务调度席）按名派遣（`subagent_type: <名>`）。
+- **端域约定（登记扫描机读）**：下表「端差异」列标 `仅 Claude 端` 表示该岗只铺 Claude 端实体，标 `仅 Codex 端` 表示只铺 Codex 端实体，**无标记表示双端（Claude＋Codex）**（文件缺失即报断链）；Antigravity 端铺席后该列增注 `三端` 或 `仅 Antigravity 端`。
+
+## 岗位一览
+
+| 岗 | 职责一句 | 名（两端同名） | 端差异 |
+|---|---|---|---|
+| `builder` | 施工席（岗位卡＝`builder-jobspec`） | `trackeep-builder` |  |
+| `verifier` | 复核席（岗位卡＝`verifier-jobspec`） | `trackeep-verifier` |  |
+| `security-auditor` | 安全审计席（岗位卡＝`security-auditor-jobspec`） | `trackeep-security-auditor` |  |
+| `observer` | 第四角色：独立评估体系；阶段回顾触发（30 天／8 份／红线变更）见 observer-jobspec | `trackeep-observer` |  |
+| `doc-auditor` | 文档审查席（岗位卡＝`doc-auditor-jobspec`） | `trackeep-doc-auditor` | Claude 端由 PI（项目唯一决策人）调用触发 |
+| `doclaw-pro` | 文档规则法律整理员·执行档（岗位卡＝`doclaw-jobspec`） | `trackeep-doclaw-pro` | 仅 Claude 端 |
+| `doclaw-judge` | 文档规则法律整理员·语义复核档（岗位卡＝`doclaw-jobspec`） | `trackeep-doclaw-judge` | 仅 Claude 端 |
+| `doclaw-lite` | 文档规则法律整理员·机械档（机器复核；岗位卡＝`doclaw-jobspec`） | `trackeep-doclaw-lite` | 仅 Claude 端 |
+D:/trackeep/trackeep-console\trackeep-terminal\web\tests\fixtures\sessions\codex-gptwork.jsonl
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\guest-round5-input\source\web\tests\fixtures\sessions\codex-gptwork.jsonl
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\guest-round7-input-and-entry\source\web\tests\fixtures\sessions\codex-gptwork.jsonl
+
+hook: PostToolUse
+ succeeded in 1703ms:
+ NPM(K)    PM(M)      WS(M)     CPU(s)      Id  SI ProcessName
+ ------    -----      -----     ------      --  -- -----------
+     10     6.04       9.87       0.03   10212   1 bash
+
+live listed PIDs: 1
+9:function inDataScript(html, start, end) {
+35:function isBriefingDate(value) {
+54:  if (!inDataScript(html, start, end + DATA_END.length)) return null;
+61:    if (!isBriefingDate(data.briefing_date) || !Array.isArray(data.papers)) return null;
+30:  ['empty-briefing-date', healthy.replace(dataBlock[1], () => JSON.stringify({ ...zeroData, briefing_date: '' }))],
+31:  ['invalid-calendar-date', shell('const SITE_DATA = {"briefing_date":"2026-02-29","papers":[]} ;')],
+32:  ['comment-wrapped-site-data-stub', `<!doctype html><html><body><!-- ${start} const SITE_DATA = {"briefing_date":"${zeroData.briefing_date}","papers":[]}; ${end} --><p>Comment stub</p></body></html>`],
+
+hook: PostToolUse Completed
+hook: PostToolUse
+hook: PostToolUse Completed
+**Preparing report details**
+hook: PreToolUse
+hook: PreToolUse Completed
+apply patch
+patch: completed
+D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\docs\tasks\T1128-SMOOTH\sol-s4-report.md
+diff --git a/docs/tasks/T1128-SMOOTH/sol-s4-report.md b/docs/tasks/T1128-SMOOTH/sol-s4-report.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..7ec8169716212f47daa065c1f62b7643fdf40949
+--- /dev/null
++++ b/docs/tasks/T1128-SMOOTH/sol-s4-report.md
+@@ -0,0 +1,48 @@
++**干了什么**　胸科雷达拒绝把空日期、无效日历日期和 HTML 注释里的伪 `SITE_DATA` 写进首页缓存。两个 Neon 样本之后重新打开，仍读到健康版的 40 篇。合法零篇版仍能更新。  
++**PI 怎么亲手验**　打开[专项原始输出](sol-s4/after.stdout.txt)，搜索 `PASS comment-wrapped-site-data-stub`，看到 `before` 和 `after` 均为 539012 字节、SHA-256 相同，且 `nextPage.papers` 为 40。  
++**还剩什么坑**　本机施工验证已过，主控仍需安排 Neon 新会话复验。旧 Neon 脚本里的源码变异锚点需要随候选更新，两项旧变异还需要能单独触发原保护的样本。
++
++## 地图影响
++
++T1128-SMOOTH-S4 对应③.4 的 R2 返修。施工在指定隔离工作树完成。`sw.js` 的缓存写入校验要求数据标记位于同一真实内联脚本内，正式页面生成的数据块仍位于脚本开头。日期须通过 `YYYY-MM-DD` 格式与 UTC 日历往返校验。安装预取和后台核新共用这两项检查。施工测试在原六项上追加两个 Neon 样本和 `2026-02-29`。候选 `index.html` SHA-256 为 `33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def`，与开工前一致。[worker 差异](sol-s4/worker.diff.txt) [候选专项 JSON](sol-s4/after.json)
++
++S3 基线接受了两个 Neon 样本，分别拿 374669 B 和 184 B 替换 539012 B 的健康副本。S4 对两个样本都记录 `unavailable`，缓存前后字节数和 SHA-256 相同，下次从 Cache Storage 读取 `2026-11-27` 的 40 篇。非法闰日结果相同。合法零篇版写入后，下次从 Cache Storage 读到 `2026-11-28` 的 0 篇。[基线 JSON](sol-s4/before.json) [候选专项 JSON](sol-s4/after.json)
++
++## 遗留风险
++
++- S4 的新上下文保护也能拦住旧 Neon 试卷中用于倒置标记和空数据块的样本。本机重放中，三个旧变异仍被拒绝，其中两项在 S3 曾使样本进入缓存。S4 各自撤掉日期和脚本上下文校验后，专项对应样本均实际覆盖了健康缓存。[Neon V2 重放原始输出](sol-s4/neon-v2.stdout.txt) [日期负对照](sol-s4/no-date-guard.json) [脚本上下文负对照](sol-s4/no-script-guard.json)
++- 验证使用本机 Chrome 隔离配置和回环测试服务。线上、CDN 和真机未验。映射到候选工作树的 Neon V2 本机重放使用适配器，仅在内存更新一处依赖 S3 源码的变异锚点。两个探针均报 `preserved=true`，12 项正式检查均过。独立签收仍由主控安排。[重放适配器](sol-s4/replay-neon-v2.mjs) [Neon V2 重放 JSON](sol-s4/neon-v2.json)
++
++## 证据
++
++Windows 11 Pro x64 `10.0.26300`、Node `v24.14.0`、Chrome `158.0.8127.88`。基线和候选专项、负对照均使用同一施工脚本，跑次各 1，无随机种子。开工实测基线与委任状哈希一致。候选 SHA-256 为 `e882e9e2eef0bf36781b8b03ecec23eb81221fa8b33272cdc9de3e368f76394f`。本机记录中的浏览器 PID 已逐一复查。[PID 复查原始输出](sol-s4/process-recheck.stdout.txt)
++
++```powershell
++$e = 'docs/tasks/T1128-SMOOTH/sol-s4'
++node tests/smooth/verify-s3.mjs "$e/before.json" "$e/s3-baseline.sw.js"
++node tests/smooth/verify-s3.mjs "$e/after.json"
++node tests/smooth/verify-s3.mjs "$e/no-date-guard.json" "$e/no-date-guard.sw.js"
++node tests/smooth/verify-s3.mjs "$e/no-script-guard.json" "$e/no-script-guard.sw.js"
++node tests/smooth/verify-s1.mjs "$e/s1.json" none
++node tests/smooth/verify-s2.mjs "$e/s2.json" none
++node tests/ux/ux_probe.mjs --target index.html --base 73dd34e --label sol-s4
++node "$e/replay-neon-v2.mjs" "$e/neon-v2.json"
++```
++
++| 验证 | 通过 / 失败 | 退出码 | 原始证据 |
++| --- | --- | ---: | --- |
++| S3 基线，扩展专项 | 6 / 3，两个 Neon 样本和非法闰日变红 | 1 | [stdout](sol-s4/before.stdout.txt) · [stderr](sol-s4/before.stderr.txt) · [JSON](sol-s4/before.json) |
++| S4 候选，扩展专项 | 9 / 0，包含 S3 原六项 | 0 | [stdout](sol-s4/after.stdout.txt) · [stderr](sol-s4/after.stderr.txt) · [JSON](sol-s4/after.json) |
++| 撤回日期校验到原字符串检查 | 7 / 2，空日期和非法闰日变红 | 1 | [stdout](sol-s4/no-date-guard.stdout.txt) · [stderr](sol-s4/no-date-guard.stderr.txt) · [JSON](sol-s4/no-date-guard.json) |
++| 删除脚本上下文校验 | 8 / 1，注释包装样本变红 | 1 | [stdout](sol-s4/no-script-guard.stdout.txt) · [stderr](sol-s4/no-script-guard.stderr.txt) · [JSON](sol-s4/no-script-guard.json) |
++| S1 | 9 / 0 | 0 | [stdout](sol-s4/s1.stdout.txt) · [stderr](sol-s4/s1.stderr.txt) · [JSON](sol-s4/s1.json) |
++| S2 | 24 / 0 | 0 | [stdout](sol-s4/s2.stdout.txt) · [stderr](sol-s4/s2.stderr.txt) · [JSON](sol-s4/s2.json) |
++| UX | 46 / 0 | 0 | [stdout](sol-s4/ux.stdout.txt) · [stderr](sol-s4/ux.stderr.txt) · [运行记录](sol-s4/ux.run.json) |
++| Neon V2 本机重放 | 正式 12 / 0，两探针均保留缓存 | 0 | [stdout](sol-s4/neon-v2.stdout.txt) · [stderr](sol-s4/neon-v2.stderr.txt) · [JSON](sol-s4/neon-v2.json) |
++
++## 地图终态
++
++③.4 的 S4 候选与施工证据已交付，待独立复验。实读主控地图显示③.4 `in-progress-s4`，④ Neon V2 `completed-with-findings`，⑤ `blocked-on-s4`，⑤.9 `not-authorized`。地图由派单方回填。[唯一任务地图](/D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/task-map.md)
++
++DELIVERY-T1128-SMOOTH-S4
++已交付两处首页缓存校验修复及基线复现、负对照和回归证据。
+diff --git a/docs/tasks/T1128-SMOOTH/sol-s4/replay-neon-v2.mjs b/docs/tasks/T1128-SMOOTH/sol-s4/replay-neon-v2.mjs
+new file mode 100644
+index 0000000000000000000000000000000000000000..3d8b6a6846a95b85c29a4ba67b1c1896c903d94e
+--- /dev/null
++++ b/docs/tasks/T1128-SMOOTH/sol-s4/replay-neon-v2.mjs
+@@ -0,0 +1,28 @@
++import { registerHooks } from 'node:module';
++import { resolve } from 'node:path';
++import { fileURLToPath, pathToFileURL } from 'node:url';
++
++const output = process.argv[2];
++if (!output) throw new Error('Usage: node replay-neon-v2.mjs <output.json>');
++const verifier = pathToFileURL(resolve('../trackeep-thoradar-neon-v1/tests/neon-v2-verify.mjs')).href;
++const candidateLib = pathToFileURL(resolve('tests/aicls/lib.mjs')).href;
++const oldAnchor = String.raw`    if (typeof data.briefing_date !== \'string\' || !Array.isArray(data.papers)) return null;`;
++const newAnchor = '    if (!isBriefingDate(data.briefing_date) || !Array.isArray(data.papers)) return null;';
++
++// Read the candidate from this worktree. Update the source-text mutation anchor in memory.
++registerHooks({
++  resolve(specifier, context, nextResolve) {
++    const fromVerifier = context.parentURL === verifier && specifier === './aicls/lib.mjs';
++    return nextResolve(fromVerifier ? candidateLib : specifier, context);
++  },
++  load(url, context, nextLoad) {
++    const loaded = nextLoad(url, context);
++    if (url !== verifier) return loaded;
++    const source = Buffer.from(loaded.source).toString('utf8');
++    if (source.split(oldAnchor).length !== 2) throw new Error('Neon date anchor mismatch');
++    return { ...loaded, source: source.replace(oldAnchor, newAnchor) };
++  }
++});
++
++process.argv = [process.execPath, fileURLToPath(verifier), output];
++await import(verifier);
+diff --git a/sw.js b/sw.js
+index 66db83dff892d7d9e8deddbfb1f5f5ffc48ef460..4c353fa7be02102d1d738e8a9bfe726e0d2e97f2
+--- a/sw.js
++++ b/sw.js
+@@ -6,6 +6,38 @@
+ const statuses = new Map();
+ let refreshTail = Promise.resolve();
+ 
++function inDataScript(html, start, end) {
++  // A worker has no DOM. Skip HTML comments, quoted attributes and raw-text elements.
++  const tags = /<!--[\s\S]*?(?:--!?>|$)|<[!?][^>]*>|<(\/?)([a-z][\w:-]*)(?=[\t\n\f\r />])(?:[^"'<>]|"[^"]*"|'[^']*')*>/gi;
++  let templates = 0;
++  for (let tag; (tag = tags.exec(html)) && tag.index < start;) {
++    const name = tag[2]?.toLowerCase();
++    if (tags.lastIndex > start) return false;
++    if (name === 'template') templates = Math.max(0, templates + (tag[1] ? -1 : 1));
++    if (!name || tag[1]) continue;
++    if (name === 'plaintext') return false;
++    if (!/^(script|style|title|textarea|xmp|iframe|noembed|noframes|noscript)$/.test(name)) continue;
++
++    const close = new RegExp(`</${name}(?=[\\t\\n\\f\\r />])`, 'gi');
++    close.lastIndex = tags.lastIndex;
++    const closing = close.exec(html);
++    if (!closing) return false;
++    if (start < closing.index) {
++      // The generated data block starts the inline script, before any JavaScript or legacy comment.
++      return name === 'script' && templates === 0 && end <= closing.index &&
++        html.slice(tags.lastIndex, start).trim() === '';
++    }
++    tags.lastIndex = closing.index;
++  }
++  return false;
++}
++
++function isBriefingDate(value) {
++  if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value) || value.startsWith('0000')) return false;
++  const time = Date.parse(value);
++  return Number.isFinite(time) && new Date(time).toISOString().slice(0, 10) === value;
++}
++
+ async function fetchShell(url) {
+   const response = await fetch(url, {
+     cache: 'no-store', redirect: 'error', signal: AbortSignal.timeout(8000)
+@@ -19,13 +51,14 @@
+   const end = html.indexOf(DATA_END, dataStart);
+   if (start === -1 || end === -1 ||
+       !html.trimEnd().toLowerCase().endsWith('</html>')) return null;
++  if (!inDataScript(html, start, end + DATA_END.length)) return null;
+ 
+   const block = html.slice(dataStart, end).trim();
+   const declaration = /^const\s+SITE_DATA\s*=\s*(\{[\s\S]*\})\s*;?$/.exec(block);
+   if (!declaration) return null;
+   try {
+     const data = JSON.parse(declaration[1]);
+-    if (typeof data.briefing_date !== 'string' || !Array.isArray(data.papers)) return null;
++    if (!isBriefingDate(data.briefing_date) || !Array.isArray(data.papers)) return null;
+   } catch (_) {
+     return null;
+   }
+
+hook: PostToolUse
+hook: PostToolUse Completed
+**Verifying process creation and managing scratch data**
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$e = '"'docs/tasks/T1128-SMOOTH/sol-s4'
+Get-FileHash -Algorithm SHA256 sw.js,index.html,sw-retire.js,tests/smooth/verify-s3.mjs,tests/ux/ux_probe.mjs,'D:/trackeep/trackeep-product/trackeep-thoradar-neon-v1/tests/neon-v2-verify.mjs',\""'$e/s3-baseline.sw.js","$e/no-date-guard.sw.js","$e/no-script-guard.sw.js" | ForEach-Object { '"'{0}  {1}' -f "'$_.Hash.ToLowerInvariant(), $_.Path } | Tee-Object -FilePath "$e/hashes.stdout.txt"
+Get-Content "$e/worker.diff.stderr.txt"
+git status --short --branch' in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$e = '"'docs/tasks/T1128-SMOOTH/sol-s4'
+"'$known = @(74376,64420,14680,35300,10212,77804,59380,63456,49944,39944,50336,24256,7648,52316,68892,27724,60008,42724,38336,45396,55704,66752,44752)
+'"'Get-Process -Id "'$known -ErrorAction SilentlyContinue | Select-Object Id,ProcessName,StartTime'"' | Add-Content \""'$e/process-recheck.stdout.txt"
+Get-Process -Id $known -ErrorAction SilentlyContinue | Select-Object Id,ProcessName,StartTime | Format-List | Out-String | Add-Content "$e/process-recheck.stdout.txt"
+$chrome = @(Get-Process -Id $known -ErrorAction SilentlyContinue | Where-Object ProcessName -eq chrome)
+"live Chrome PIDs in listed set: $($chrome.Count)" | Add-Content "$e/process-recheck.stdout.txt"
+Get-Content "$e/process-recheck.stdout.txt" -Tail 12
+Get-Content "$e/ux.run.json"
+Get-ChildItem -LiteralPath (Join-Path $env:TEMP '"'thoradar-sol-s4-ux-b6e080d9-c870-4a09-869d-f2ab1bea37ce') -Recurse -File -Name | Select-Object -First 20" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+ succeeded in 860ms:
+e882e9e2eef0bf36781b8b03ecec23eb81221fa8b33272cdc9de3e368f76394f  D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\sw.js
+33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def  D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\index.html
+5ae38f2ba965f4e1b1d340da2ba5fadd8b58af82a1e271a02ddff97ab5686199  D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\sw-retire.js
+02cb18422e04e2847245bd79b22e5cc117a3f930e724d5d0192de63ce9eac705  D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\tests\smooth\verify-s3.mjs
+07184c836a0999e4258a16dcb1647394a69850a9e11593ae71f87cf7d14e141e  D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\tests\ux\ux_probe.mjs
+b4ebc7cc7ad5a4f49eff067cdb01ce48d514e75322b623a2accf2036c48b4fc5  D:\trackeep\trackeep-product\trackeep-thoradar-neon-v1\tests\neon-v2-verify.mjs
+900061dd45ad04e9f9c4391e5d2756f8b080a4bc4144ede9b913b6deabb5aa8b  D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\docs\tasks\T1128-SMOOTH\sol-s4\s3-baseline.sw.js
+e78a336372a349e3e561293572cbee4a28fc9994259ab18ca37716f052239e2f  D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\docs\tasks\T1128-SMOOTH\sol-s4\no-date-guard.sw.js
+7976934b55d8d3d865d8752e143242df64a0295f666c8a893b9157a9b9518de9  D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\docs\tasks\T1128-SMOOTH\sol-s4\no-script-guard.sw.js
+## HEAD (no branch)
+ M index.html
+?? docs/tasks/
+?? sw-retire.js
+?? sw.js
+?? tests/smooth/
+
+ succeeded in 823ms:
+   5 |  Get-Process -Id $browserPids -ErrorAction Continue 2>&1 | Out-File -F …
+     |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | 找不到进程标识符为 44752 的进程。
+
+ NPM(K)    PM(M)      WS(M)     CPU(s)      Id  SI ProcessName
+ ------    -----      -----     ------      --  -- -----------
+     10     6.04       9.87       0.03   10212   1 bash
+
+live listed PIDs: 1
+Get-Process -Id $known -ErrorAction SilentlyContinue | Select-Object Id,ProcessName,StartTime
+
+live Chrome PIDs in listed set: 0
+{
+  "command": "node tests/ux/ux_probe.mjs --target index.html --base 73dd34e --label sol-s4",
+  "candidateSha256": "e882e9e2eef0bf36781b8b03ecec23eb81221fa8b33272cdc9de3e368f76394f",
+  "exitCode": 0
+}
+baseline-73dd34e.html
+out-sol-s4\f1-steps.json
+out-sol-s4\f10-radar.json
+out-sol-s4\f11-layout.json
+out-sol-s4\f3-rows.json
+out-sol-s4\f4-fonts.json
+out-sol-s4\f5-detail.json
+out-sol-s4\f6-lang.json
+out-sol-s4\f7-narrow.json
+out-sol-s4\f8-diff.json
+
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+**Formatting Windows paths**
+**Preparing concise final output**
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$ErrorActionPreference = '"'Stop'
+"'$e = '"'docs/tasks/T1128-SMOOTH/sol-s4'
+"'$scratchName = '"'thoradar-sol-s4-ux-b6e080d9-c870-4a09-869d-f2ab1bea37ce'
+"'$tempRoot = (Resolve-Path -LiteralPath $env:TEMP).ProviderPath
+$target = (Resolve-Path -LiteralPath (Join-Path $tempRoot $scratchName)).ProviderPath
+if ((Split-Path -Path $target -Parent) -ne $tempRoot -or (Split-Path -Path $target -Leaf) -ne $scratchName) { throw '"'Unexpected UX scratch path' }
+"'$measurements = New-Item -ItemType Directory -Path "$e/ux-measurements"
+Copy-Item -LiteralPath @(Get-ChildItem -LiteralPath (Join-Path $target '"'out-sol-s4') -File -Filter '*.json' | ForEach-Object FullName) -Destination "'$measurements.FullName
+Remove-Item -LiteralPath $target -Recurse
+Write-Output "UX scratch still exists: $(Test-Path -LiteralPath $target)"
+Get-ChildItem -LiteralPath $measurements.FullName -Name
+@'"'
+const fs = require('node:fs');
+const d = 'docs/tasks/T1128-SMOOTH/';
+const raw = fs.readFileSync(d + 'sol-s4-report.md', 'utf8');
+const links = Array.from(raw.matchAll(/\\]\\((sol-s4\\/["'^)]+)'"\\)/g), match => match[1]);
+const bad = links.filter(link => "'!fs.existsSync(d + link));
+if (bad.length) throw new Error('"'Missing evidence files: ' + bad.join(', '));
+console.log('Report evidence links present: ' + links.length);
+const e = d + 'sol-s4/';
+const read = name => JSON.parse(fs.readFileSync(e + name + '.json', 'utf8'));
+const expected = {before:[6,3],after:[9,0],'no-date-guard':[7,2],'no-script-guard':[8,1],s1:[9,0],s2:[24,0]};
+for (const [name,[pass,fail]] of Object.entries(expected)) {
+  const row = read(name);
+  if (row.summary.passed "'!== pass || row.summary.failed !== fail) throw new Error('"'Summary mismatch: ' + name);
+  console.log(name, JSON.stringify(row.summary));
+}
+const neon = read('neon-v2');
+if (neon.extraProbes.length "'!== 2 || !neon.extraProbes.every(probe => probe.preserved) || neon.checks.length !== 12 || neon.checks.some(check => !check.pass)) throw new Error('"'Neon replay mismatch');
+const ux = fs.readFileSync(e + 'ux.stdout.txt','utf8');
+const summary = ux.match(/UX PROBE \\[sol-s4\\] SUMMARY 46 PASS \\/ 0 FAIL/);
+if ("'!summary) throw new Error('"'UX summary missing');
+console.log(summary[0]);
+'@ | node -
+if ("'$LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+git diff --check
+exit $LASTEXITCODE' in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+ succeeded in 1438ms:
+UX scratch still exists: False
+f1-steps.json
+f10-radar.json
+f11-layout.json
+f3-rows.json
+f4-fonts.json
+f5-detail.json
+f6-lang.json
+f7-narrow.json
+f8-diff.json
+Report evidence links present: 35
+before {"passed":6,"failed":3}
+after {"passed":9,"failed":0}
+no-date-guard {"passed":7,"failed":2}
+no-script-guard {"passed":8,"failed":1}
+s1 {"passed":9,"failed":0}
+s2 {"passed":24,"failed":0}
+UX PROBE [sol-s4] SUMMARY 46 PASS / 0 FAIL
+
+hook: PostToolUse
+hook: PostToolUse Completed
+**Updating report formatting and content**
+hook: PreToolUse
+hook: PreToolUse Completed
+apply patch
+patch: completed
+D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\docs\tasks\T1128-SMOOTH\sol-s4-report.md
+diff --git a/docs/tasks/T1128-SMOOTH/sol-s4-report.md b/docs/tasks/T1128-SMOOTH/sol-s4-report.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..d97903df203f3e9b65d001c58221a3dff3d80665
+--- /dev/null
++++ b/docs/tasks/T1128-SMOOTH/sol-s4-report.md
+@@ -0,0 +1,48 @@
++**干了什么**　胸科雷达拒绝把空日期、无效日历日期和 HTML 注释里的伪 `SITE_DATA` 写进首页缓存。两个 Neon 样本之后重新打开，仍读到健康版的 40 篇。合法零篇版仍能更新。  
++**PI 怎么亲手验**　打开[专项原始输出](sol-s4/after.stdout.txt)，搜索 `PASS comment-wrapped-site-data-stub`，看到 `before` 和 `after` 均为 539012 字节、SHA-256 相同，且 `nextPage.papers` 为 40。  
++**还剩什么坑**　本机施工验证已过，主控仍需安排 Neon 新会话复验。旧 Neon 脚本里的源码变异锚点需要随候选更新，两项旧变异还需要能单独触发原保护的样本。
++
++## 地图影响
++
++T1128-SMOOTH-S4 对应③.4 的 R2 返修。施工在指定隔离工作树完成。`sw.js` 的缓存写入校验要求数据标记位于同一真实内联脚本内，正式页面生成的数据块仍位于脚本开头。日期须通过 `YYYY-MM-DD` 格式与 UTC 日历往返校验。安装预取和后台核新共用这两项检查。施工测试在原六项上追加两个 Neon 样本和 `2026-02-29`。候选 `index.html` SHA-256 为 `33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def`，与开工前一致。[worker 差异](sol-s4/worker.diff.txt) [候选专项 JSON](sol-s4/after.json)
++
++S3 基线接受了两个 Neon 样本，分别拿 374669 B 和 184 B 替换 539012 B 的健康副本。S4 对两个样本都记录 `unavailable`，缓存前后字节数和 SHA-256 相同，下次从 Cache Storage 读取 `2026-11-27` 的 40 篇。非法闰日结果相同。合法零篇版写入后，下次从 Cache Storage 读到 `2026-11-28` 的 0 篇。[基线 JSON](sol-s4/before.json) [候选专项 JSON](sol-s4/after.json)
++
++## 遗留风险
++
++- S4 的新上下文保护也能拦住旧 Neon 试卷中用于倒置标记和空数据块的样本。本机重放中，三个旧变异仍被拒绝，其中两项在 S3 曾使样本进入缓存。S4 各自撤掉日期和脚本上下文校验后，专项对应样本均实际覆盖了健康缓存。[Neon V2 重放原始输出](sol-s4/neon-v2.stdout.txt) [日期负对照](sol-s4/no-date-guard.json) [脚本上下文负对照](sol-s4/no-script-guard.json)
++- 验证使用本机 Chrome 隔离配置和回环测试服务。线上、CDN 和真机未验。映射到候选工作树的 Neon V2 本机重放使用适配器，仅在内存更新一处依赖 S3 源码的变异锚点。两个探针均报 `preserved=true`，12 项正式检查均过。独立签收仍由主控安排。[重放适配器](sol-s4/replay-neon-v2.mjs) [Neon V2 重放 JSON](sol-s4/neon-v2.json)
++
++## 证据
++
++Windows 11 Pro x64 `10.0.26300`、Node `v24.14.0`、Chrome `158.0.8127.88`。基线和候选专项、负对照均使用同一施工脚本，跑次各 1，无随机种子。开工实测基线与委任状哈希一致。候选 SHA-256 为 `e882e9e2eef0bf36781b8b03ecec23eb81221fa8b33272cdc9de3e368f76394f`。逐一复查测试进程记录中的 PID，健在 Chrome 数为 0。[哈希原始输出](sol-s4/hashes.stdout.txt) [PID 复查原始输出](sol-s4/process-recheck.stdout.txt)
++
++```powershell
++$e = 'docs/tasks/T1128-SMOOTH/sol-s4'
++node tests/smooth/verify-s3.mjs "$e/before.json" "$e/s3-baseline.sw.js"
++node tests/smooth/verify-s3.mjs "$e/after.json"
++node tests/smooth/verify-s3.mjs "$e/no-date-guard.json" "$e/no-date-guard.sw.js"
++node tests/smooth/verify-s3.mjs "$e/no-script-guard.json" "$e/no-script-guard.sw.js"
++node tests/smooth/verify-s1.mjs "$e/s1.json" none
++node tests/smooth/verify-s2.mjs "$e/s2.json" none
++node tests/ux/ux_probe.mjs --target index.html --base 73dd34e --label sol-s4
++node "$e/replay-neon-v2.mjs" "$e/neon-v2.json"
++```
++
++| 验证 | 通过 / 失败 | 退出码 | 原始证据 |
++| --- | --- | ---: | --- |
++| S3 基线，扩展专项 | 6 / 3，两个 Neon 样本和非法闰日变红 | 1 | [stdout](sol-s4/before.stdout.txt) · [stderr](sol-s4/before.stderr.txt) · [JSON](sol-s4/before.json) |
++| S4 候选，扩展专项 | 9 / 0，包含 S3 原六项 | 0 | [stdout](sol-s4/after.stdout.txt) · [stderr](sol-s4/after.stderr.txt) · [JSON](sol-s4/after.json) |
++| 撤回日期校验到原字符串检查 | 7 / 2，空日期和非法闰日变红 | 1 | [stdout](sol-s4/no-date-guard.stdout.txt) · [stderr](sol-s4/no-date-guard.stderr.txt) · [JSON](sol-s4/no-date-guard.json) |
++| 删除脚本上下文校验 | 8 / 1，注释包装样本变红 | 1 | [stdout](sol-s4/no-script-guard.stdout.txt) · [stderr](sol-s4/no-script-guard.stderr.txt) · [JSON](sol-s4/no-script-guard.json) |
++| S1 | 9 / 0 | 0 | [stdout](sol-s4/s1.stdout.txt) · [stderr](sol-s4/s1.stderr.txt) · [JSON](sol-s4/s1.json) |
++| S2 | 24 / 0 | 0 | [stdout](sol-s4/s2.stdout.txt) · [stderr](sol-s4/s2.stderr.txt) · [JSON](sol-s4/s2.json) |
++| UX | 46 / 0 | 0 | [stdout](sol-s4/ux.stdout.txt) · [stderr](sol-s4/ux.stderr.txt) · [运行记录](sol-s4/ux.run.json) · [量测 JSON](sol-s4/ux-measurements/) |
++| Neon V2 本机重放 | 正式 12 / 0，两探针均保留缓存 | 0 | [stdout](sol-s4/neon-v2.stdout.txt) · [stderr](sol-s4/neon-v2.stderr.txt) · [JSON](sol-s4/neon-v2.json) |
++
++## 地图终态
++
++③.4 的 S4 候选与施工证据已交付，待独立复验。实读主控地图显示③.4 `in-progress-s4`，④ Neon V2 `completed-with-findings`，⑤ `blocked-on-s4`，⑤.9 `not-authorized`。地图由派单方回填。[唯一任务地图](/D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/task-map.md)
++
++DELIVERY-T1128-SMOOTH-S4
++已交付两处首页缓存校验修复及基线复现、负对照和回归证据。
+diff --git a/docs/tasks/T1128-SMOOTH/sol-s4/replay-neon-v2.mjs b/docs/tasks/T1128-SMOOTH/sol-s4/replay-neon-v2.mjs
+new file mode 100644
+index 0000000000000000000000000000000000000000..3d8b6a6846a95b85c29a4ba67b1c1896c903d94e
+--- /dev/null
++++ b/docs/tasks/T1128-SMOOTH/sol-s4/replay-neon-v2.mjs
+@@ -0,0 +1,28 @@
++import { registerHooks } from 'node:module';
++import { resolve } from 'node:path';
++import { fileURLToPath, pathToFileURL } from 'node:url';
++
++const output = process.argv[2];
++if (!output) throw new Error('Usage: node replay-neon-v2.mjs <output.json>');
++const verifier = pathToFileURL(resolve('../trackeep-thoradar-neon-v1/tests/neon-v2-verify.mjs')).href;
++const candidateLib = pathToFileURL(resolve('tests/aicls/lib.mjs')).href;
++const oldAnchor = String.raw`    if (typeof data.briefing_date !== \'string\' || !Array.isArray(data.papers)) return null;`;
++const newAnchor = '    if (!isBriefingDate(data.briefing_date) || !Array.isArray(data.papers)) return null;';
++
++// Read the candidate from this worktree. Update the source-text mutation anchor in memory.
++registerHooks({
++  resolve(specifier, context, nextResolve) {
++    const fromVerifier = context.parentURL === verifier && specifier === './aicls/lib.mjs';
++    return nextResolve(fromVerifier ? candidateLib : specifier, context);
++  },
++  load(url, context, nextLoad) {
++    const loaded = nextLoad(url, context);
++    if (url !== verifier) return loaded;
++    const source = Buffer.from(loaded.source).toString('utf8');
++    if (source.split(oldAnchor).length !== 2) throw new Error('Neon date anchor mismatch');
++    return { ...loaded, source: source.replace(oldAnchor, newAnchor) };
++  }
++});
++
++process.argv = [process.execPath, fileURLToPath(verifier), output];
++await import(verifier);
+diff --git a/sw.js b/sw.js
+index 66db83dff892d7d9e8deddbfb1f5f5ffc48ef460..4c353fa7be02102d1d738e8a9bfe726e0d2e97f2
+--- a/sw.js
++++ b/sw.js
+@@ -6,6 +6,38 @@
+ const statuses = new Map();
+ let refreshTail = Promise.resolve();
+ 
++function inDataScript(html, start, end) {
++  // A worker has no DOM. Skip HTML comments, quoted attributes and raw-text elements.
++  const tags = /<!--[\s\S]*?(?:--!?>|$)|<[!?][^>]*>|<(\/?)([a-z][\w:-]*)(?=[\t\n\f\r />])(?:[^"'<>]|"[^"]*"|'[^']*')*>/gi;
++  let templates = 0;
++  for (let tag; (tag = tags.exec(html)) && tag.index < start;) {
++    const name = tag[2]?.toLowerCase();
++    if (tags.lastIndex > start) return false;
++    if (name === 'template') templates = Math.max(0, templates + (tag[1] ? -1 : 1));
++    if (!name || tag[1]) continue;
++    if (name === 'plaintext') return false;
++    if (!/^(script|style|title|textarea|xmp|iframe|noembed|noframes|noscript)$/.test(name)) continue;
++
++    const close = new RegExp(`</${name}(?=[\\t\\n\\f\\r />])`, 'gi');
++    close.lastIndex = tags.lastIndex;
++    const closing = close.exec(html);
++    if (!closing) return false;
++    if (start < closing.index) {
++      // The generated data block starts the inline script, before any JavaScript or legacy comment.
++      return name === 'script' && templates === 0 && end <= closing.index &&
++        html.slice(tags.lastIndex, start).trim() === '';
++    }
++    tags.lastIndex = closing.index;
++  }
++  return false;
++}
++
++function isBriefingDate(value) {
++  if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value) || value.startsWith('0000')) return false;
++  const time = Date.parse(value);
++  return Number.isFinite(time) && new Date(time).toISOString().slice(0, 10) === value;
++}
++
+ async function fetchShell(url) {
+   const response = await fetch(url, {
+     cache: 'no-store', redirect: 'error', signal: AbortSignal.timeout(8000)
+@@ -19,13 +51,14 @@
+   const end = html.indexOf(DATA_END, dataStart);
+   if (start === -1 || end === -1 ||
+       !html.trimEnd().toLowerCase().endsWith('</html>')) return null;
++  if (!inDataScript(html, start, end + DATA_END.length)) return null;
+ 
+   const block = html.slice(dataStart, end).trim();
+   const declaration = /^const\s+SITE_DATA\s*=\s*(\{[\s\S]*\})\s*;?$/.exec(block);
+   if (!declaration) return null;
+   try {
+     const data = JSON.parse(declaration[1]);
+-    if (typeof data.briefing_date !== 'string' || !Array.isArray(data.papers)) return null;
++    if (!isBriefingDate(data.briefing_date) || !Array.isArray(data.papers)) return null;
+   } catch (_) {
+     return null;
+   }
+
+hook: PostToolUse
+hook: PostToolUse Completed
+**Clarifying code output formatting**
+codex
+**干了什么**　修复了空日期和注释内伪 `SITE_DATA` 覆盖胸科雷达首页缓存的问题。非法日期也会被拒绝，合法零篇版仍可正常更新。  
+**PI 怎么亲手验**　打开专项原始输出，搜索 `PASS comment-wrapped-site-data-stub`。前后缓存均为 539012 字节、SHA‑256 相同，`nextPage.papers` 为 40 即通过。[专项原始输出](D:/trackeep/trackeep-product/trackeep-thoradar-smooth-T1128/docs/tasks/T1128-SMOOTH/sol-s4/after.stdout.txt)  
+**还剩什么坑**　待 Neon 新会话独立复验。本机重放在内存更新了一处旧脚本的变异锚点，两个探针均报 `preserved=true`。两项旧变异的样本仍需调整，才能单独验证原保护。
+
+专项 9/9（含 S3 原六项）、S1 9/9、S2 24/24、UX 46/46。S3 基线能复现两个毒页覆盖缓存。分别撤掉两项新校验后，对应用例重新变红。运行命令、原始输出和候选哈希见报告。[sol-s4-report.md](D:/trackeep/trackeep-product/trackeep-thoradar-smooth-T1128/docs/tasks/T1128-SMOOTH/sol-s4-report.md)
+
+DELIVERY-T1128-SMOOTH-S4  
+已交付两处首页缓存校验修复，以及基线复现、负对照和回归证据。
+hook: Stop
+hook: Stop Completed
+tokens used
+89,322
+**干了什么**　修复了空日期和注释内伪 `SITE_DATA` 覆盖胸科雷达首页缓存的问题。非法日期也会被拒绝，合法零篇版仍可正常更新。  
+**PI 怎么亲手验**　打开专项原始输出，搜索 `PASS comment-wrapped-site-data-stub`。前后缓存均为 539012 字节、SHA‑256 相同，`nextPage.papers` 为 40 即通过。[专项原始输出](D:/trackeep/trackeep-product/trackeep-thoradar-smooth-T1128/docs/tasks/T1128-SMOOTH/sol-s4/after.stdout.txt)  
+**还剩什么坑**　待 Neon 新会话独立复验。本机重放在内存更新了一处旧脚本的变异锚点，两个探针均报 `preserved=true`。两项旧变异的样本仍需调整，才能单独验证原保护。
+
+专项 9/9（含 S3 原六项）、S1 9/9、S2 24/24、UX 46/46。S3 基线能复现两个毒页覆盖缓存。分别撤掉两项新校验后，对应用例重新变红。运行命令、原始输出和候选哈希见报告。[sol-s4-report.md](D:/trackeep/trackeep-product/trackeep-thoradar-smooth-T1128/docs/tasks/T1128-SMOOTH/sol-s4-report.md)
+
+DELIVERY-T1128-SMOOTH-S4  
+已交付两处首页缓存校验修复，以及基线复现、负对照和回归证据。

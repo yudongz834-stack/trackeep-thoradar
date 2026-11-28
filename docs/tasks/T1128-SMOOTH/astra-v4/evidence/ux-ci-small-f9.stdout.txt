@@ -1,0 +1,13 @@
+ux probe | Chrome/158.0.8127.88 | page=/index.html（受测件 D:\trackeep\trackeep-product\trackeep-thoradar-astra-v4\docs\tasks\T1128-SMOOTH\astra-v4\private-repo\index.html）| judge=true | label=ux-ci-small-f9
+页面概况：{"ready":"true","papers":2,"anchor":"2026-11-02","lang":"zh","site":"2026-11-02","degraded":0,"hasToggle":true}
+  [阅读可达性] 首屏条目 2/2，按钮「null」→ 展开 2/2｜第 13 篇 无 点击后 selected=pmid_42966824
+FAIL F9a F9a 阅读默认仍为前 12 篇，且有明确入口显示其余
+     ✗ 当前数据须超过 12 篇，才能验证第 13 篇可达
+     ✗ 默认应 12 篇且有「显示其余」钮；实得 2／钮 null
+FAIL F9b F9b 真鼠标点「显示其余」后所有在筛文献可达
+     ✗ 第 13 篇应可点击锁定并出详情
+PASS F9c F9c 阅读展开流页面零运行期异常
+
+==== UX PROBE [ux-ci-small-f9] SUMMARY 1 PASS / 2 FAIL：F9a ✗  F9b ✗  F9c ✓ ====
+     cleanup | browser pid=47284 exitCode=null signalCode=SIGTERM | 带 profile 标记的进程：收尾前=47284,50548,26608,44896,16304,32332,50880,46936,50876,50864,5932 | 主进程结束后残留=无 | 逐 PID 结束=无 | 复查仍存活=无
+     cleanup | 临时目录 D:\claude-tmp\a4-ux-q7_vh662\ux-harness-ux-ci-small-f9 已清

@@ -1,0 +1,32 @@
+{
+ "desktop": {
+  "n": 37,
+  "min": 6,
+  "max": 8,
+  "centerOwn": 37,
+  "lowMismatch": 0,
+  "lowFadeBad": 0,
+  "zeroLabels": 0,
+  "reviewN": 7,
+  "reviewShapeBad": 0
+ },
+ "mobile": {
+  "n": 37,
+  "min": 4.5,
+  "max": 6,
+  "centerOwn": 37,
+  "lowMismatch": 0,
+  "lowFadeBad": 0,
+  "zeroLabels": 0,
+  "reviewN": 7,
+  "reviewShapeBad": 0
+ },
+ "point": {
+  "x": 279.46875,
+  "y": 470.296875,
+  "id": "pmid_43095171"
+ },
+ "hitPass": true,
+ "keyboardId": "pmid_43085564",
+ "keyboardPass": true
+}

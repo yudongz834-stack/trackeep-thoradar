@@ -1,0 +1,18 @@
+{
+  "cwd": "D:\\trackeep\\trackeep-product\\trackeep-thoradar-astra-v4",
+  "argv": [
+    "node",
+    "tests/ux/ux_probe.mjs",
+    "--target",
+    "index.html",
+    "--only",
+    "F8",
+    "--label",
+    "ux-local-default-strict"
+  ],
+  "startUtc": "2026-11-28T08:02:56.831391+00:00",
+  "runs": 1,
+  "seed": null,
+  "exit": 1,
+  "endUtc": "2026-11-28T08:03:36.980230+00:00"
+}

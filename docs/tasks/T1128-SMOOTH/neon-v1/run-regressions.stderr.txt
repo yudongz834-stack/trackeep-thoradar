@@ -1,0 +1,14 @@
+node:internal/fs/promises:856
+  return await PromisePrototypeThen(
+         ^
+
+Error: ENOENT: no such file or directory, mkdir 'D:\trackeep\trackeep-product\trackeep-thoradar-neon-v1\docs\tasks\T1128-SMOOTH\sol-s2-regressions'
+    at async mkdir (node:internal/fs/promises:856:10)
+    at async file:///D:/trackeep/trackeep-product/trackeep-thoradar-neon-v1/tests/smooth/run-regressions.mjs:12:1 {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'mkdir',
+  path: 'D:\\trackeep\\trackeep-product\\trackeep-thoradar-neon-v1\\docs\\tasks\\T1128-SMOOTH\\sol-s2-regressions'
+}
+
+Node.js v24.14.0

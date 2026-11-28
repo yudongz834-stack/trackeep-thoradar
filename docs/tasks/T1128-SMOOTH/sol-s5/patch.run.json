@@ -1,0 +1,29 @@
+[
+  {
+    "exitCode": 0,
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ]
+  },
+  {
+    "exitCode": 0,
+    "command": [
+      "git",
+      "apply",
+      "--stat",
+      "docs/tasks/T1128-SMOOTH/sol-s5/candidate.diff"
+    ]
+  },
+  {
+    "exitCode": 0,
+    "command": [
+      "git",
+      "apply",
+      "--check",
+      "--reverse",
+      "docs/tasks/T1128-SMOOTH/sol-s5/candidate.diff"
+    ]
+  }
+]

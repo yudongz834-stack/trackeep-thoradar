@@ -1,0 +1,1154 @@
+{
+  "command": [
+    "node",
+    "tests/smooth/verify-s3.mjs",
+    "D:\\trackeep\\trackeep-product\\trackeep-thoradar-astra-v4\\docs\\tasks\\T1128-SMOOTH\\astra-v4\\evidence\\s3.json"
+  ],
+  "startedAt": "2026-11-28T08:01:35.279Z",
+  "runs": 1,
+  "seed": null,
+  "baseline": "28131f314f92a05227fd5923607d717c426da2c5",
+  "environment": {
+    "os": "Windows 11 Pro",
+    "release": "10.0.26300",
+    "arch": "x64",
+    "node": "v24.14.0",
+    "chrome": {
+      "protocolVersion": "1.3",
+      "product": "Chrome/158.0.8127.88",
+      "revision": "@0cefb18236a23db1ebb6b2bc040fbbaf8cbe759e",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/158.0.0.0 Safari/537.36",
+      "jsVersion": "15.8.62.31"
+    }
+  },
+  "sha256": {
+    "index.html": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706",
+    "sw.js": "e882e9e2eef0bf36781b8b03ecec23eb81221fa8b33272cdc9de3e368f76394f",
+    "tests/smooth/verify-s3.mjs": "02cb18422e04e2847245bd79b22e5cc117a3f930e724d5d0192de63ce9eac705"
+  },
+  "fixtures": {
+    "healthy": {
+      "bytes": 561509,
+      "sha256": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706"
+    },
+    "neon-empty-markers-stub": {
+      "bytes": 156,
+      "sha256": "11e2ff0add51cd0cf4f21b39010925b11df3fe7c0d388906c0c56468a3a16b74"
+    },
+    "missing-site-data-between-markers": {
+      "bytes": 191,
+      "sha256": "ee2fa9e8e7544a3264ba1b4f048645e89eab74427fd90b71cfe6d00355bed41c"
+    },
+    "invalid-json": {
+      "bytes": 175,
+      "sha256": "a2b05c202460c7ff9c7827de2df6964a6dee3b9df28ef0da04cc04e1a0461890"
+    },
+    "wrong-briefing-date-type": {
+      "bytes": 170,
+      "sha256": "1c093d2d421f563859063e2f75533d3343a1f8cdcac14f61b49d598334e7518e"
+    },
+    "wrong-papers-type": {
+      "bytes": 174,
+      "sha256": "37819c5d931a352dfb018c179bf861bc383c027baf0ff08f3a8dcb2adf8ad3b1"
+    },
+    "empty-briefing-date": {
+      "bytes": 374669,
+      "sha256": "d6059d73d7bb3c5d33fdd8ff465d22208222fe1aff0575f13380054aedce3204"
+    },
+    "invalid-calendar-date": {
+      "bytes": 175,
+      "sha256": "c64e053814dfff61c639cf10cac768f2bc6e0311f1e93a2236d24841e0feb73e"
+    },
+    "comment-wrapped-site-data-stub": {
+      "bytes": 184,
+      "sha256": "438c6d30e0336bc1b430df5c5870890928f92258c78606cfdd989076ef75bb1e"
+    },
+    "valid-zero-papers": {
+      "bytes": 374679,
+      "sha256": "4d90d465d21fa9a22585a8ae28929d29758935304f34aaad23caeef373da9567"
+    }
+  },
+  "checks": [
+    {
+      "name": "neon-empty-markers-stub",
+      "pass": true,
+      "detail": {
+        "before": {
+          "bytes": 561509,
+          "sha256": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706"
+        },
+        "first": {
+          "case": "neon-empty-markers-stub",
+          "loaderId": "507C2549CB04E4B8C9273AC30B2DFFA2",
+          "url": "http://127.0.0.1:64332/index.html",
+          "status": 200,
+          "fromServiceWorker": true,
+          "source": "cache-storage"
+        },
+        "firstPage": {
+          "date": "2026-11-28",
+          "papers": 43,
+          "banner": "数据 2026-11-28 · 本地副本 · 暂未核实更新"
+        },
+        "status": "unavailable",
+        "after": {
+          "bytes": 561509,
+          "sha256": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706"
+        },
+        "expected": {
+          "bytes": 561509,
+          "sha256": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706"
+        },
+        "requests": [
+          {
+            "name": "neon-empty-markers-stub",
+            "url": "/index.html",
+            "method": "GET",
+            "status": 200,
+            "mime": "text/html; charset=utf-8",
+            "pragma": "no-cache",
+            "at": "2026-11-28T08:01:36.142Z",
+            "bytes": 156,
+            "sha256": "11e2ff0add51cd0cf4f21b39010925b11df3fe7c0d388906c0c56468a3a16b74",
+            "finished": true
+          }
+        ],
+        "next": {
+          "case": "neon-empty-markers-stub",
+          "loaderId": "A8CC6B7AA1F64D1FDCC4C0E14F5695CB",
+          "url": "http://127.0.0.1:64332/?sw=1",
+          "status": 200,
+          "fromServiceWorker": true,
+          "source": "cache-storage"
+        },
+        "nextPage": {
+          "date": "2026-11-28",
+          "papers": 43,
+          "banner": "数据 2026-11-28 · 本地副本 · 暂未核实更新"
+        }
+      }
+    },
+    {
+      "name": "missing-site-data-between-markers",
+      "pass": true,
+      "detail": {
+        "before": {
+          "bytes": 561509,
+          "sha256": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706"
+        },
+        "first": {
+          "case": "missing-site-data-between-markers",
+          "loaderId": "18425DBAFDECAB5890CABEF37A542741",
+          "url": "http://127.0.0.1:64332/index.html",
+          "status": 200,
+          "fromServiceWorker": true,
+          "source": "cache-storage"
+        },
+        "firstPage": {
+          "date": "2026-11-28",
+          "papers": 43,
+          "banner": "数据 2026-11-28 · 本地副本 · 暂未核实更新"
+        },
+        "status": "unavailable",
+        "after": {
+          "bytes": 561509,
+          "sha256": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706"
+        },
+        "expected": {
+          "bytes": 561509,
+          "sha256": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706"
+        },
+        "requests": [
+          {
+            "name": "missing-site-data-between-markers",
+            "url": "/index.html",
+            "method": "GET",
+            "status": 200,
+            "mime": "text/html; charset=utf-8",
+            "pragma": "no-cache",
+            "at": "2026-11-28T08:01:37.223Z",
+            "bytes": 191,
+            "sha256": "ee2fa9e8e7544a3264ba1b4f048645e89eab74427fd90b71cfe6d00355bed41c",
+            "finished": true
+          }
+        ],
+        "next": {
+          "case": "missing-site-data-between-markers",
+          "loaderId": "8EF9C1D7C0DC606207174D0B45A4E57F",
+          "url": "http://127.0.0.1:64332/?sw=1",
+          "status": 200,
+          "fromServiceWorker": true,
+          "source": "cache-storage"
+        },
+        "nextPage": {
+          "date": "2026-11-28",
+          "papers": 43,
+          "banner": "数据 2026-11-28 · 本地副本 · 暂未核实更新"
+        }
+      }
+    },
+    {
+      "name": "invalid-json",
+      "pass": true,
+      "detail": {
+        "before": {
+          "bytes": 561509,
+          "sha256": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706"
+        },
+        "first": {
+          "case": "invalid-json",
+          "loaderId": "5771A0CF164C975D198FFE1F872B9EB9",
+          "url": "http://127.0.0.1:64332/index.html",
+          "status": 200,
+          "fromServiceWorker": true,
+          "source": "cache-storage"
+        },
+        "firstPage": {
+          "date": "2026-11-28",
+          "papers": 43,
+          "banner": "数据 2026-11-28 · 本地副本 · 暂未核实更新"
+        },
+        "status": "unavailable",
+        "after": {
+          "bytes": 561509,
+          "sha256": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706"
+        },
+        "expected": {
+          "bytes": 561509,
+          "sha256": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706"
+        },
+        "requests": [
+          {
+            "name": "invalid-json",
+            "url": "/index.html",
+            "method": "GET",
+            "status": 200,
+            "mime": "text/html; charset=utf-8",
+            "pragma": "no-cache",
+            "at": "2026-11-28T08:01:38.049Z",
+            "bytes": 175,
+            "sha256": "a2b05c202460c7ff9c7827de2df6964a6dee3b9df28ef0da04cc04e1a0461890",
+            "finished": true
+          }
+        ],
+        "next": {
+          "case": "invalid-json",
+          "loaderId": "7D193AD51CE9C6DEF741E9170972952C",
+          "url": "http://127.0.0.1:64332/?sw=1",
+          "status": 200,
+          "fromServiceWorker": true,
+          "source": "cache-storage"
+        },
+        "nextPage": {
+          "date": "2026-11-28",
+          "papers": 43,
+          "banner": "数据 2026-11-28 · 本地副本 · 暂未核实更新"
+        }
+      }
+    },
+    {
+      "name": "wrong-briefing-date-type",
+      "pass": true,
+      "detail": {
+        "before": {
+          "bytes": 561509,
+          "sha256": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706"
+        },
+        "first": {
+          "case": "wrong-briefing-date-type",
+          "loaderId": "9FFF4D5A417351CA6C28A365952090A2",
+          "url": "http://127.0.0.1:64332/index.html",
+          "status": 200,
+          "fromServiceWorker": true,
+          "source": "cache-storage"
+        },
+        "firstPage": {
+          "date": "2026-11-28",
+          "papers": 43,
+          "banner": "数据 2026-11-28 · 本地副本 · 暂未核实更新"
+        },
+        "status": "unavailable",
+        "after": {
+          "bytes": 561509,
+          "sha256": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706"
+        },
+        "expected": {
+          "bytes": 561509,
+          "sha256": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706"
+        },
+        "requests": [
+          {
+            "name": "wrong-briefing-date-type",
+            "url": "/index.html",
+            "method": "GET",
+            "status": 200,
+            "mime": "text/html; charset=utf-8",
+            "pragma": "no-cache",
+            "at": "2026-11-28T08:01:39.053Z",
+            "bytes": 170,
+            "sha256": "1c093d2d421f563859063e2f75533d3343a1f8cdcac14f61b49d598334e7518e",
+            "finished": true
+          }
+        ],
+        "next": {
+          "case": "wrong-briefing-date-type",
+          "loaderId": "EEDA4165A38F94A8588CC5A4CF025E3D",
+          "url": "http://127.0.0.1:64332/?sw=1",
+          "status": 200,
+          "fromServiceWorker": true,
+          "source": "cache-storage"
+        },
+        "nextPage": {
+          "date": "2026-11-28",
+          "papers": 43,
+          "banner": "数据 2026-11-28 · 本地副本 · 暂未核实更新"
+        }
+      }
+    },
+    {
+      "name": "wrong-papers-type",
+      "pass": true,
+      "detail": {
+        "before": {
+          "bytes": 561509,
+          "sha256": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706"
+        },
+        "first": {
+          "case": "wrong-papers-type",
+          "loaderId": "6D5772AA7D53FAD8BE941241E824C4DF",
+          "url": "http://127.0.0.1:64332/index.html",
+          "status": 200,
+          "fromServiceWorker": true,
+          "source": "cache-storage"
+        },
+        "firstPage": {
+          "date": "2026-11-28",
+          "papers": 43,
+          "banner": "数据 2026-11-28 · 本地副本 · 暂未核实更新"
+        },
+        "status": "unavailable",
+        "after": {
+          "bytes": 561509,
+          "sha256": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706"
+        },
+        "expected": {
+          "bytes": 561509,
+          "sha256": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706"
+        },
+        "requests": [
+          {
+            "name": "wrong-papers-type",
+            "url": "/index.html",
+            "method": "GET",
+            "status": 200,
+            "mime": "text/html; charset=utf-8",
+            "pragma": "no-cache",
+            "at": "2026-11-28T08:01:39.922Z",
+            "bytes": 174,
+            "sha256": "37819c5d931a352dfb018c179bf861bc383c027baf0ff08f3a8dcb2adf8ad3b1",
+            "finished": true
+          }
+        ],
+        "next": {
+          "case": "wrong-papers-type",
+          "loaderId": "DE1D87B6A24A2C5AC7437C8C29AE1E70",
+          "url": "http://127.0.0.1:64332/?sw=1",
+          "status": 200,
+          "fromServiceWorker": true,
+          "source": "cache-storage"
+        },
+        "nextPage": {
+          "date": "2026-11-28",
+          "papers": 43,
+          "banner": "数据 2026-11-28 · 本地副本 · 暂未核实更新"
+        }
+      }
+    },
+    {
+      "name": "empty-briefing-date",
+      "pass": true,
+      "detail": {
+        "before": {
+          "bytes": 561509,
+          "sha256": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706"
+        },
+        "first": {
+          "case": "empty-briefing-date",
+          "loaderId": "7A15BBF0C0DAAC5165A8806EFFEB42AF",
+          "url": "http://127.0.0.1:64332/index.html",
+          "status": 200,
+          "fromServiceWorker": true,
+          "source": "cache-storage"
+        },
+        "firstPage": {
+          "date": "2026-11-28",
+          "papers": 43,
+          "banner": "数据 2026-11-28 · 本地副本 · 暂未核实更新"
+        },
+        "status": "unavailable",
+        "after": {
+          "bytes": 561509,
+          "sha256": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706"
+        },
+        "expected": {
+          "bytes": 561509,
+          "sha256": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706"
+        },
+        "requests": [
+          {
+            "name": "empty-briefing-date",
+            "url": "/index.html",
+            "method": "GET",
+            "status": 200,
+            "mime": "text/html; charset=utf-8",
+            "pragma": "no-cache",
+            "at": "2026-11-28T08:01:40.824Z",
+            "bytes": 374669,
+            "sha256": "d6059d73d7bb3c5d33fdd8ff465d22208222fe1aff0575f13380054aedce3204",
+            "finished": true
+          }
+        ],
+        "next": {
+          "case": "empty-briefing-date",
+          "loaderId": "D81300BF50B02EF820AF3AE22BEF5542",
+          "url": "http://127.0.0.1:64332/?sw=1",
+          "status": 200,
+          "fromServiceWorker": true,
+          "source": "cache-storage"
+        },
+        "nextPage": {
+          "date": "2026-11-28",
+          "papers": 43,
+          "banner": "数据 2026-11-28 · 本地副本 · 暂未核实更新"
+        }
+      }
+    },
+    {
+      "name": "invalid-calendar-date",
+      "pass": true,
+      "detail": {
+        "before": {
+          "bytes": 561509,
+          "sha256": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706"
+        },
+        "first": {
+          "case": "invalid-calendar-date",
+          "loaderId": "D5620B80E799E96C0BEB3E2223136EFE",
+          "url": "http://127.0.0.1:64332/index.html",
+          "status": 200,
+          "fromServiceWorker": true,
+          "source": "cache-storage"
+        },
+        "firstPage": {
+          "date": "2026-11-28",
+          "papers": 43,
+          "banner": "数据 2026-11-28 · 本地副本 · 暂未核实更新"
+        },
+        "status": "unavailable",
+        "after": {
+          "bytes": 561509,
+          "sha256": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706"
+        },
+        "expected": {
+          "bytes": 561509,
+          "sha256": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706"
+        },
+        "requests": [
+          {
+            "name": "invalid-calendar-date",
+            "url": "/index.html",
+            "method": "GET",
+            "status": 200,
+            "mime": "text/html; charset=utf-8",
+            "pragma": "no-cache",
+            "at": "2026-11-28T08:01:41.677Z",
+            "bytes": 175,
+            "sha256": "c64e053814dfff61c639cf10cac768f2bc6e0311f1e93a2236d24841e0feb73e",
+            "finished": true
+          }
+        ],
+        "next": {
+          "case": "invalid-calendar-date",
+          "loaderId": "D09C210CE10EAA66F4D312F1DC47D87B",
+          "url": "http://127.0.0.1:64332/?sw=1",
+          "status": 200,
+          "fromServiceWorker": true,
+          "source": "cache-storage"
+        },
+        "nextPage": {
+          "date": "2026-11-28",
+          "papers": 43,
+          "banner": "数据 2026-11-28 · 本地副本 · 暂未核实更新"
+        }
+      }
+    },
+    {
+      "name": "comment-wrapped-site-data-stub",
+      "pass": true,
+      "detail": {
+        "before": {
+          "bytes": 561509,
+          "sha256": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706"
+        },
+        "first": {
+          "case": "comment-wrapped-site-data-stub",
+          "loaderId": "B2FC554E2478087490DF35FBAB26AEBE",
+          "url": "http://127.0.0.1:64332/index.html",
+          "status": 200,
+          "fromServiceWorker": true,
+          "source": "cache-storage"
+        },
+        "firstPage": {
+          "date": "2026-11-28",
+          "papers": 43,
+          "banner": "数据 2026-11-28 · 本地副本 · 暂未核实更新"
+        },
+        "status": "unavailable",
+        "after": {
+          "bytes": 561509,
+          "sha256": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706"
+        },
+        "expected": {
+          "bytes": 561509,
+          "sha256": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706"
+        },
+        "requests": [
+          {
+            "name": "comment-wrapped-site-data-stub",
+            "url": "/index.html",
+            "method": "GET",
+            "status": 200,
+            "mime": "text/html; charset=utf-8",
+            "pragma": "no-cache",
+            "at": "2026-11-28T08:01:42.536Z",
+            "bytes": 184,
+            "sha256": "438c6d30e0336bc1b430df5c5870890928f92258c78606cfdd989076ef75bb1e",
+            "finished": true
+          }
+        ],
+        "next": {
+          "case": "comment-wrapped-site-data-stub",
+          "loaderId": "1C91D30F5F7569180697ABB0EC8138D3",
+          "url": "http://127.0.0.1:64332/?sw=1",
+          "status": 200,
+          "fromServiceWorker": true,
+          "source": "cache-storage"
+        },
+        "nextPage": {
+          "date": "2026-11-28",
+          "papers": 43,
+          "banner": "数据 2026-11-28 · 本地副本 · 暂未核实更新"
+        }
+      }
+    },
+    {
+      "name": "valid-zero-papers",
+      "pass": true,
+      "detail": {
+        "before": {
+          "bytes": 561509,
+          "sha256": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706"
+        },
+        "first": {
+          "case": "valid-zero-papers",
+          "loaderId": "4737D4BEAEEEDE6982E856E4E213DD6D",
+          "url": "http://127.0.0.1:64332/index.html",
+          "status": 200,
+          "fromServiceWorker": true,
+          "source": "cache-storage"
+        },
+        "firstPage": {
+          "date": "2026-11-28",
+          "papers": 43,
+          "banner": "数据 2026-11-28 · 有新版，下次打开生效"
+        },
+        "status": "updated",
+        "after": {
+          "bytes": 374679,
+          "sha256": "4d90d465d21fa9a22585a8ae28929d29758935304f34aaad23caeef373da9567"
+        },
+        "expected": {
+          "bytes": 374679,
+          "sha256": "4d90d465d21fa9a22585a8ae28929d29758935304f34aaad23caeef373da9567"
+        },
+        "requests": [
+          {
+            "name": "valid-zero-papers",
+            "url": "/index.html",
+            "method": "GET",
+            "status": 200,
+            "mime": "text/html; charset=utf-8",
+            "pragma": "no-cache",
+            "at": "2026-11-28T08:01:43.369Z",
+            "bytes": 374679,
+            "sha256": "4d90d465d21fa9a22585a8ae28929d29758935304f34aaad23caeef373da9567",
+            "finished": true
+          }
+        ],
+        "next": {
+          "case": "valid-zero-papers",
+          "loaderId": "EA9E4295659AD45F5109BE1379323281",
+          "url": "http://127.0.0.1:64332/?sw=1",
+          "status": 200,
+          "fromServiceWorker": true,
+          "source": "cache-storage"
+        },
+        "nextPage": {
+          "date": "2026-11-28",
+          "papers": 0,
+          "banner": "数据 2026-11-28 · 本地副本 · 已核对，与服务器一致"
+        }
+      }
+    }
+  ],
+  "requests": [
+    {
+      "name": "healthy",
+      "url": "/index.html",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T08:01:36.110Z",
+      "bytes": 561509,
+      "sha256": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706",
+      "finished": true
+    },
+    {
+      "name": "neon-empty-markers-stub",
+      "url": "/index.html",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T08:01:36.142Z",
+      "bytes": 156,
+      "sha256": "11e2ff0add51cd0cf4f21b39010925b11df3fe7c0d388906c0c56468a3a16b74",
+      "finished": true
+    },
+    {
+      "name": "neon-empty-markers-stub",
+      "url": "/?sw=1",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T08:01:36.757Z",
+      "bytes": 156,
+      "sha256": "11e2ff0add51cd0cf4f21b39010925b11df3fe7c0d388906c0c56468a3a16b74",
+      "finished": true
+    },
+    {
+      "name": "healthy",
+      "url": "/index.html",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T08:01:37.193Z",
+      "bytes": 561509,
+      "sha256": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706",
+      "finished": true
+    },
+    {
+      "name": "missing-site-data-between-markers",
+      "url": "/index.html",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T08:01:37.223Z",
+      "bytes": 191,
+      "sha256": "ee2fa9e8e7544a3264ba1b4f048645e89eab74427fd90b71cfe6d00355bed41c",
+      "finished": true
+    },
+    {
+      "name": "missing-site-data-between-markers",
+      "url": "/?sw=1",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T08:01:37.731Z",
+      "bytes": 191,
+      "sha256": "ee2fa9e8e7544a3264ba1b4f048645e89eab74427fd90b71cfe6d00355bed41c",
+      "finished": true
+    },
+    {
+      "name": "healthy",
+      "url": "/index.html",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T08:01:38.027Z",
+      "bytes": 561509,
+      "sha256": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706",
+      "finished": true
+    },
+    {
+      "name": "invalid-json",
+      "url": "/index.html",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T08:01:38.049Z",
+      "bytes": 175,
+      "sha256": "a2b05c202460c7ff9c7827de2df6964a6dee3b9df28ef0da04cc04e1a0461890",
+      "finished": true
+    },
+    {
+      "name": "invalid-json",
+      "url": "/?sw=1",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T08:01:38.709Z",
+      "bytes": 175,
+      "sha256": "a2b05c202460c7ff9c7827de2df6964a6dee3b9df28ef0da04cc04e1a0461890",
+      "finished": true
+    },
+    {
+      "name": "healthy",
+      "url": "/index.html",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T08:01:39.019Z",
+      "bytes": 561509,
+      "sha256": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706",
+      "finished": true
+    },
+    {
+      "name": "wrong-briefing-date-type",
+      "url": "/index.html",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T08:01:39.053Z",
+      "bytes": 170,
+      "sha256": "1c093d2d421f563859063e2f75533d3343a1f8cdcac14f61b49d598334e7518e",
+      "finished": true
+    },
+    {
+      "name": "wrong-briefing-date-type",
+      "url": "/?sw=1",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T08:01:39.643Z",
+      "bytes": 170,
+      "sha256": "1c093d2d421f563859063e2f75533d3343a1f8cdcac14f61b49d598334e7518e",
+      "finished": true
+    },
+    {
+      "name": "healthy",
+      "url": "/index.html",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T08:01:39.901Z",
+      "bytes": 561509,
+      "sha256": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706",
+      "finished": true
+    },
+    {
+      "name": "wrong-papers-type",
+      "url": "/index.html",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T08:01:39.922Z",
+      "bytes": 174,
+      "sha256": "37819c5d931a352dfb018c179bf861bc383c027baf0ff08f3a8dcb2adf8ad3b1",
+      "finished": true
+    },
+    {
+      "name": "wrong-papers-type",
+      "url": "/?sw=1",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T08:01:40.543Z",
+      "bytes": 174,
+      "sha256": "37819c5d931a352dfb018c179bf861bc383c027baf0ff08f3a8dcb2adf8ad3b1",
+      "finished": true
+    },
+    {
+      "name": "healthy",
+      "url": "/index.html",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T08:01:40.801Z",
+      "bytes": 561509,
+      "sha256": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706",
+      "finished": true
+    },
+    {
+      "name": "empty-briefing-date",
+      "url": "/index.html",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T08:01:40.824Z",
+      "bytes": 374669,
+      "sha256": "d6059d73d7bb3c5d33fdd8ff465d22208222fe1aff0575f13380054aedce3204",
+      "finished": true
+    },
+    {
+      "name": "empty-briefing-date",
+      "url": "/?sw=1",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T08:01:41.401Z",
+      "bytes": 374669,
+      "sha256": "d6059d73d7bb3c5d33fdd8ff465d22208222fe1aff0575f13380054aedce3204",
+      "finished": true
+    },
+    {
+      "name": "healthy",
+      "url": "/index.html",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T08:01:41.655Z",
+      "bytes": 561509,
+      "sha256": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706",
+      "finished": true
+    },
+    {
+      "name": "invalid-calendar-date",
+      "url": "/index.html",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T08:01:41.677Z",
+      "bytes": 175,
+      "sha256": "c64e053814dfff61c639cf10cac768f2bc6e0311f1e93a2236d24841e0feb73e",
+      "finished": true
+    },
+    {
+      "name": "invalid-calendar-date",
+      "url": "/?sw=1",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T08:01:42.246Z",
+      "bytes": 175,
+      "sha256": "c64e053814dfff61c639cf10cac768f2bc6e0311f1e93a2236d24841e0feb73e",
+      "finished": true
+    },
+    {
+      "name": "healthy",
+      "url": "/index.html",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T08:01:42.515Z",
+      "bytes": 561509,
+      "sha256": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706",
+      "finished": true
+    },
+    {
+      "name": "comment-wrapped-site-data-stub",
+      "url": "/index.html",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T08:01:42.536Z",
+      "bytes": 184,
+      "sha256": "438c6d30e0336bc1b430df5c5870890928f92258c78606cfdd989076ef75bb1e",
+      "finished": true
+    },
+    {
+      "name": "comment-wrapped-site-data-stub",
+      "url": "/?sw=1",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T08:01:43.090Z",
+      "bytes": 184,
+      "sha256": "438c6d30e0336bc1b430df5c5870890928f92258c78606cfdd989076ef75bb1e",
+      "finished": true
+    },
+    {
+      "name": "healthy",
+      "url": "/index.html",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T08:01:43.346Z",
+      "bytes": 561509,
+      "sha256": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706",
+      "finished": true
+    },
+    {
+      "name": "valid-zero-papers",
+      "url": "/index.html",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T08:01:43.369Z",
+      "bytes": 374679,
+      "sha256": "4d90d465d21fa9a22585a8ae28929d29758935304f34aaad23caeef373da9567",
+      "finished": true
+    },
+    {
+      "name": "valid-zero-papers",
+      "url": "/?sw=1",
+      "method": "GET",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "pragma": "no-cache",
+      "at": "2026-11-28T08:01:43.924Z",
+      "bytes": 374679,
+      "sha256": "4d90d465d21fa9a22585a8ae28929d29758935304f34aaad23caeef373da9567",
+      "finished": true
+    }
+  ],
+  "documents": [
+    {
+      "case": "neon-empty-markers-stub",
+      "loaderId": "13E692F66D697A04FB67DDE9744A866A",
+      "url": "http://127.0.0.1:64332/driver",
+      "status": 200,
+      "fromServiceWorker": false,
+      "source": null
+    },
+    {
+      "case": "neon-empty-markers-stub",
+      "loaderId": "507C2549CB04E4B8C9273AC30B2DFFA2",
+      "url": "http://127.0.0.1:64332/index.html",
+      "status": 200,
+      "fromServiceWorker": true,
+      "source": "cache-storage"
+    },
+    {
+      "case": "neon-empty-markers-stub",
+      "loaderId": "A8CC6B7AA1F64D1FDCC4C0E14F5695CB",
+      "url": "http://127.0.0.1:64332/?sw=1",
+      "status": 200,
+      "fromServiceWorker": true,
+      "source": "cache-storage"
+    },
+    {
+      "case": "missing-site-data-between-markers",
+      "loaderId": "D33BBF9918A956C32F4456B5CEB185A2",
+      "url": "http://127.0.0.1:64332/driver",
+      "status": 200,
+      "fromServiceWorker": false,
+      "source": null
+    },
+    {
+      "case": "missing-site-data-between-markers",
+      "loaderId": "18425DBAFDECAB5890CABEF37A542741",
+      "url": "http://127.0.0.1:64332/index.html",
+      "status": 200,
+      "fromServiceWorker": true,
+      "source": "cache-storage"
+    },
+    {
+      "case": "missing-site-data-between-markers",
+      "loaderId": "8EF9C1D7C0DC606207174D0B45A4E57F",
+      "url": "http://127.0.0.1:64332/?sw=1",
+      "status": 200,
+      "fromServiceWorker": true,
+      "source": "cache-storage"
+    },
+    {
+      "case": "invalid-json",
+      "loaderId": "959593AD84A9645B81914736564DE3F2",
+      "url": "http://127.0.0.1:64332/driver",
+      "status": 200,
+      "fromServiceWorker": false,
+      "source": null
+    },
+    {
+      "case": "invalid-json",
+      "loaderId": "5771A0CF164C975D198FFE1F872B9EB9",
+      "url": "http://127.0.0.1:64332/index.html",
+      "status": 200,
+      "fromServiceWorker": true,
+      "source": "cache-storage"
+    },
+    {
+      "case": "invalid-json",
+      "loaderId": "7D193AD51CE9C6DEF741E9170972952C",
+      "url": "http://127.0.0.1:64332/?sw=1",
+      "status": 200,
+      "fromServiceWorker": true,
+      "source": "cache-storage"
+    },
+    {
+      "case": "wrong-briefing-date-type",
+      "loaderId": "FC4BC6455AC648FB2ECCA88F2158F0CC",
+      "url": "http://127.0.0.1:64332/driver",
+      "status": 200,
+      "fromServiceWorker": false,
+      "source": null
+    },
+    {
+      "case": "wrong-briefing-date-type",
+      "loaderId": "9FFF4D5A417351CA6C28A365952090A2",
+      "url": "http://127.0.0.1:64332/index.html",
+      "status": 200,
+      "fromServiceWorker": true,
+      "source": "cache-storage"
+    },
+    {
+      "case": "wrong-briefing-date-type",
+      "loaderId": "EEDA4165A38F94A8588CC5A4CF025E3D",
+      "url": "http://127.0.0.1:64332/?sw=1",
+      "status": 200,
+      "fromServiceWorker": true,
+      "source": "cache-storage"
+    },
+    {
+      "case": "wrong-papers-type",
+      "loaderId": "2F80C3866EF3178B22ECCAE783C720D6",
+      "url": "http://127.0.0.1:64332/driver",
+      "status": 200,
+      "fromServiceWorker": false,
+      "source": null
+    },
+    {
+      "case": "wrong-papers-type",
+      "loaderId": "6D5772AA7D53FAD8BE941241E824C4DF",
+      "url": "http://127.0.0.1:64332/index.html",
+      "status": 200,
+      "fromServiceWorker": true,
+      "source": "cache-storage"
+    },
+    {
+      "case": "wrong-papers-type",
+      "loaderId": "DE1D87B6A24A2C5AC7437C8C29AE1E70",
+      "url": "http://127.0.0.1:64332/?sw=1",
+      "status": 200,
+      "fromServiceWorker": true,
+      "source": "cache-storage"
+    },
+    {
+      "case": "empty-briefing-date",
+      "loaderId": "0EEFB82420517D0A2E90BF6E14940602",
+      "url": "http://127.0.0.1:64332/driver",
+      "status": 200,
+      "fromServiceWorker": false,
+      "source": null
+    },
+    {
+      "case": "empty-briefing-date",
+      "loaderId": "7A15BBF0C0DAAC5165A8806EFFEB42AF",
+      "url": "http://127.0.0.1:64332/index.html",
+      "status": 200,
+      "fromServiceWorker": true,
+      "source": "cache-storage"
+    },
+    {
+      "case": "empty-briefing-date",
+      "loaderId": "D81300BF50B02EF820AF3AE22BEF5542",
+      "url": "http://127.0.0.1:64332/?sw=1",
+      "status": 200,
+      "fromServiceWorker": true,
+      "source": "cache-storage"
+    },
+    {
+      "case": "invalid-calendar-date",
+      "loaderId": "1A1C65F0005A3FA7FC4F6BE4E890CEDF",
+      "url": "http://127.0.0.1:64332/driver",
+      "status": 200,
+      "fromServiceWorker": false,
+      "source": null
+    },
+    {
+      "case": "invalid-calendar-date",
+      "loaderId": "D5620B80E799E96C0BEB3E2223136EFE",
+      "url": "http://127.0.0.1:64332/index.html",
+      "status": 200,
+      "fromServiceWorker": true,
+      "source": "cache-storage"
+    },
+    {
+      "case": "invalid-calendar-date",
+      "loaderId": "D09C210CE10EAA66F4D312F1DC47D87B",
+      "url": "http://127.0.0.1:64332/?sw=1",
+      "status": 200,
+      "fromServiceWorker": true,
+      "source": "cache-storage"
+    },
+    {
+      "case": "comment-wrapped-site-data-stub",
+      "loaderId": "0255D98184CD540BA13460080A97AB92",
+      "url": "http://127.0.0.1:64332/driver",
+      "status": 200,
+      "fromServiceWorker": false,
+      "source": null
+    },
+    {
+      "case": "comment-wrapped-site-data-stub",
+      "loaderId": "B2FC554E2478087490DF35FBAB26AEBE",
+      "url": "http://127.0.0.1:64332/index.html",
+      "status": 200,
+      "fromServiceWorker": true,
+      "source": "cache-storage"
+    },
+    {
+      "case": "comment-wrapped-site-data-stub",
+      "loaderId": "1C91D30F5F7569180697ABB0EC8138D3",
+      "url": "http://127.0.0.1:64332/?sw=1",
+      "status": 200,
+      "fromServiceWorker": true,
+      "source": "cache-storage"
+    },
+    {
+      "case": "valid-zero-papers",
+      "loaderId": "D38FE5A9F56E0E9A08277BBF3AC030B0",
+      "url": "http://127.0.0.1:64332/driver",
+      "status": 200,
+      "fromServiceWorker": false,
+      "source": null
+    },
+    {
+      "case": "valid-zero-papers",
+      "loaderId": "4737D4BEAEEEDE6982E856E4E213DD6D",
+      "url": "http://127.0.0.1:64332/index.html",
+      "status": 200,
+      "fromServiceWorker": true,
+      "source": "cache-storage"
+    },
+    {
+      "case": "valid-zero-papers",
+      "loaderId": "EA9E4295659AD45F5109BE1379323281",
+      "url": "http://127.0.0.1:64332/?sw=1",
+      "status": 200,
+      "fromServiceWorker": true,
+      "source": "cache-storage"
+    }
+  ],
+  "remainingProfileProcesses": 0,
+  "endedAt": "2026-11-28T08:01:50.716Z",
+  "summary": {
+    "passed": 9,
+    "failed": 0
+  }
+}

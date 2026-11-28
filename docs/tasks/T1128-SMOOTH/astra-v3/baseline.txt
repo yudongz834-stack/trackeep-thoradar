@@ -1,0 +1,149 @@
+2026-11-28T12:59:20.4678537+08:00
+73dd34e65fce6661d74e595afc03df68e7d3f44f
+ M index.html
+?? astra-v3/
+?? sw-retire.js
+?? sw.js
+?? tests/neon-v1-verify.mjs
+?? tests/neon-v2-verify.mjs
+?? tests/smooth/
+
+Path : D:\trackeep\trackeep-product\trackeep-thoradar-neon-v1\index.html
+Hash : 33C50BEF723B0A3F32B51BC2D5927FF4391BB58EB474996F1A7D9DFF96BC1DEF
+
+Path : D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\index.html
+Hash : 33C50BEF723B0A3F32B51BC2D5927FF4391BB58EB474996F1A7D9DFF96BC1DEF
+
+
+Comparing files D:\TRACKEEP\TRACKEEP-PRODUCT\TRACKEEP-THORADAR-NEON-V1\index.html and D:\TRACKEEP\TRACKEEP-PRODUCT\TRACKEEP-THORADAR-SMOOTH-T1128\INDEX.HTML
+FC: no differences encountered
+
+fc.exit=0
+
+Path : D:\trackeep\trackeep-product\trackeep-thoradar-neon-v1\sw.js
+Hash : E882E9E2EEF0BF36781B8B03ECEC23EB81221FA8B33272CDC9DE3E368F76394F
+
+Path : D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\sw.js
+Hash : E882E9E2EEF0BF36781B8B03ECEC23EB81221FA8B33272CDC9DE3E368F76394F
+
+
+Comparing files D:\TRACKEEP\TRACKEEP-PRODUCT\TRACKEEP-THORADAR-NEON-V1\sw.js and D:\TRACKEEP\TRACKEEP-PRODUCT\TRACKEEP-THORADAR-SMOOTH-T1128\SW.JS
+FC: no differences encountered
+
+fc.exit=0
+
+Path : D:\trackeep\trackeep-product\trackeep-thoradar-neon-v1\sw-retire.js
+Hash : 5AE38F2BA965F4E1B1D340DA2BA5FADD8B58AF82A1E271A02DDFF97AB5686199
+
+Path : D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\sw-retire.js
+Hash : 5AE38F2BA965F4E1B1D340DA2BA5FADD8B58AF82A1E271A02DDFF97AB5686199
+
+
+Comparing files D:\TRACKEEP\TRACKEEP-PRODUCT\TRACKEEP-THORADAR-NEON-V1\sw-retire.js and D:\TRACKEEP\TRACKEEP-PRODUCT\TRACKEEP-THORADAR-SMOOTH-T1128\SW-RETIRE.JS
+FC: no differences encountered
+
+fc.exit=0
+
+Path : D:\trackeep\trackeep-product\trackeep-thoradar-neon-v1\tests\smooth\verify-s3.mjs
+Hash : 02CB18422E04E2847245BD79B22E5CC117A3F930E724D5D0192DE63CE9EAC705
+
+Path : D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\tests\smooth\verify-s3.mjs
+Hash : 02CB18422E04E2847245BD79B22E5CC117A3F930E724D5D0192DE63CE9EAC705
+
+
+Comparing files D:\TRACKEEP\TRACKEEP-PRODUCT\TRACKEEP-THORADAR-NEON-V1\TESTS\SMOOTH\verify-s3.mjs and D:\TRACKEEP\TRACKEEP-PRODUCT\TRACKEEP-THORADAR-SMOOTH-T1128\TESTS\SMOOTH\VERIFY-S3.MJS
+FC: no differences encountered
+
+fc.exit=0
+
+Path : D:\trackeep\trackeep-product\trackeep-thoradar-neon-v1\tests\smooth\verify-s1.mjs
+Hash : 6C93EDEBE199B9D502E72D42B729BC2DC96EE313307B6341FD5FA92F85C84DC4
+
+Path : D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\tests\smooth\verify-s1.mjs
+Hash : 6C93EDEBE199B9D502E72D42B729BC2DC96EE313307B6341FD5FA92F85C84DC4
+
+
+Comparing files D:\TRACKEEP\TRACKEEP-PRODUCT\TRACKEEP-THORADAR-NEON-V1\TESTS\SMOOTH\verify-s1.mjs and D:\TRACKEEP\TRACKEEP-PRODUCT\TRACKEEP-THORADAR-SMOOTH-T1128\TESTS\SMOOTH\VERIFY-S1.MJS
+FC: no differences encountered
+
+fc.exit=0
+
+Path : D:\trackeep\trackeep-product\trackeep-thoradar-neon-v1\tests\smooth\verify-s2.mjs
+Hash : 9266FC7518314073D3694D809CCA0E7C6E057DAA2C7FCB80BDB0D2A7D460EA48
+
+Path : D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\tests\smooth\verify-s2.mjs
+Hash : 9266FC7518314073D3694D809CCA0E7C6E057DAA2C7FCB80BDB0D2A7D460EA48
+
+
+Comparing files D:\TRACKEEP\TRACKEEP-PRODUCT\TRACKEEP-THORADAR-NEON-V1\TESTS\SMOOTH\verify-s2.mjs and D:\TRACKEEP\TRACKEEP-PRODUCT\TRACKEEP-THORADAR-SMOOTH-T1128\TESTS\SMOOTH\VERIFY-S2.MJS
+FC: no differences encountered
+
+fc.exit=0
+
+Path : D:\trackeep\trackeep-product\trackeep-thoradar-neon-v1\tests\ux\ux_probe.mjs
+Hash : 07184C836A0999E4258A16DCB1647394A69850A9E11593AE71F87CF7D14E141E
+
+Path : D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\tests\ux\ux_probe.mjs
+Hash : 07184C836A0999E4258A16DCB1647394A69850A9E11593AE71F87CF7D14E141E
+
+
+Comparing files D:\TRACKEEP\TRACKEEP-PRODUCT\TRACKEEP-THORADAR-NEON-V1\TESTS\UX\ux_probe.mjs and D:\TRACKEEP\TRACKEEP-PRODUCT\TRACKEEP-THORADAR-SMOOTH-T1128\TESTS\UX\UX_PROBE.MJS
+FC: no differences encountered
+
+fc.exit=0
+V2 index.html=33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def
+[
+  {
+    "mode": "empty-briefing-date",
+    "preserved": false,
+    "banner": "数据 2026-11-27 · 有新版，下次打开生效",
+    "cachedHash": "f13cfb12bdf230aa2788ddea5e6e3c97529fd669576f8e7acb43b0549fbdfbe4",
+    "cachedBytes": 374669,
+    "nextSnap": {
+      "doc": {
+        "loaderId": "AAF49BFD984D62347559DA12BEA46E4D",
+        "url": "http://127.0.0.1:61232/index.html",
+        "status": 200,
+        "fromServiceWorker": true,
+        "source": "cache-storage"
+      },
+      "snap": {
+        "date": "",
+        "papersLen": 0,
+        "points": 0,
+        "banner": "数据 2026-11-27 · 本地副本 · 已核对，与服务器一致"
+      }
+    }
+  },
+  {
+    "mode": "comment-wrapped-site-data-stub",
+    "preserved": false,
+    "banner": "数据 2026-11-27 · 有新版，下次打开生效",
+    "cachedHash": "438c6d30e0336bc1b430df5c5870890928f92258c78606cfdd989076ef75bb1e",
+    "cachedBytes": 184,
+    "nextSnap": {
+      "doc": {
+        "loaderId": "A476C5A0CDB286CD3983313AD17C9F8E",
+        "url": "http://127.0.0.1:61232/index.html",
+        "status": 200,
+        "fromServiceWorker": true,
+        "source": "cache-storage"
+      },
+      "snap": {
+        "date": null,
+        "papersLen": null,
+        "points": 0,
+        "banner": null
+      }
+    }
+  }
+]
+e882e9e2eef0bf36781b8b03ecec23eb81221fa8b33272cdc9de3e368f76394f  D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\sw.js
+33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def  D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\index.html
+5ae38f2ba965f4e1b1d340da2ba5fadd8b58af82a1e271a02ddff97ab5686199  D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\sw-retire.js
+02cb18422e04e2847245bd79b22e5cc117a3f930e724d5d0192de63ce9eac705  D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\tests\smooth\verify-s3.mjs
+07184c836a0999e4258a16dcb1647394a69850a9e11593ae71f87cf7d14e141e  D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\tests\ux\ux_probe.mjs
+b4ebc7cc7ad5a4f49eff067cdb01ce48d514e75322b623a2accf2036c48b4fc5  D:\trackeep\trackeep-product\trackeep-thoradar-neon-v1\tests\neon-v2-verify.mjs
+900061dd45ad04e9f9c4391e5d2756f8b080a4bc4144ede9b913b6deabb5aa8b  D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\docs\tasks\T1128-SMOOTH\sol-s4\s3-baseline.sw.js
+e78a336372a349e3e561293572cbee4a28fc9994259ab18ca37716f052239e2f  D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\docs\tasks\T1128-SMOOTH\sol-s4\no-date-guard.sw.js
+7976934b55d8d3d865d8752e143242df64a0295f666c8a893b9157a9b9518de9  D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\docs\tasks\T1128-SMOOTH\sol-s4\no-script-guard.sw.js

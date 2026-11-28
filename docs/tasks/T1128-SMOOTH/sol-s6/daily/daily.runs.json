@@ -1,0 +1,335 @@
+{
+  "scratch": "D:\\claude-tmp\\thoradar-s6-replay-OV5Unc",
+  "worktreeRemoved": true,
+  "runs": [
+    {
+      "id": "add-fixture",
+      "cwd": "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\.t1128-s6-worktree",
+      "command": [
+        "git",
+        "-c",
+        "core.hooksPath=NUL",
+        "-c",
+        "user.name=S6 fixture",
+        "-c",
+        "user.email=s6@example.invalid",
+        "worktree",
+        "add",
+        "--detach",
+        "D:\\claude-tmp\\thoradar-s6-replay-OV5Unc\\runner",
+        "28131f314f92a05227fd5923607d717c426da2c5^1"
+      ],
+      "expected": 0,
+      "exitCode": 0
+    },
+    {
+      "id": "candidate-diff",
+      "cwd": "D:\\claude-tmp\\thoradar-s6-replay-OV5Unc\\runner",
+      "command": [
+        "git",
+        "diff",
+        "--binary",
+        "495f2b4cd376e17b7bdd9769945b160c25f7a4d0",
+        "362a9d50f2f6cffafc398a1513a2bc0c4ffb5283",
+        "--"
+      ],
+      "expected": 0,
+      "exitCode": 0
+    },
+    {
+      "id": "candidate-diff-check",
+      "cwd": "D:\\claude-tmp\\thoradar-s6-replay-OV5Unc\\runner",
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "495f2b4cd376e17b7bdd9769945b160c25f7a4d0",
+        "362a9d50f2f6cffafc398a1513a2bc0c4ffb5283",
+        "--"
+      ],
+      "expected": 0,
+      "exitCode": 0
+    },
+    {
+      "id": "candidate-patch-reverse-check",
+      "cwd": "D:\\claude-tmp\\thoradar-s6-replay-OV5Unc\\runner",
+      "command": [
+        "git",
+        "apply",
+        "--reverse",
+        "--check",
+        "D:\\claude-tmp\\thoradar-s6-results-5106956e014a4c9bb3190e153e29efcc\\candidate.diff"
+      ],
+      "expected": 0,
+      "exitCode": 0
+    },
+    {
+      "id": "daily-clean-before",
+      "cwd": "D:\\claude-tmp\\thoradar-s6-replay-OV5Unc\\runner",
+      "command": [
+        "git",
+        "status",
+        "--porcelain=v1",
+        "-uall"
+      ],
+      "expected": 0,
+      "exitCode": 0
+    },
+    {
+      "id": "source-ci-daily",
+      "cwd": "D:\\claude-tmp\\thoradar-s6-replay-OV5Unc\\runner",
+      "command": [
+        "node",
+        "tests/smooth/verify-source.mjs",
+        "D:\\claude-tmp\\thoradar-s6-results-5106956e014a4c9bb3190e153e29efcc\\source-ci-daily.json",
+        "--ci"
+      ],
+      "expected": 0,
+      "exitCode": 0
+    },
+    {
+      "id": "source-local-daily",
+      "cwd": "D:\\claude-tmp\\thoradar-s6-replay-OV5Unc\\runner",
+      "command": [
+        "node",
+        "tests/smooth/verify-source.mjs",
+        "D:\\claude-tmp\\thoradar-s6-results-5106956e014a4c9bb3190e153e29efcc\\source-local-daily.json"
+      ],
+      "expected": 1,
+      "exitCode": 1
+    },
+    {
+      "id": "prepare-baseline",
+      "cwd": "D:\\claude-tmp\\thoradar-s6-replay-OV5Unc\\runner",
+      "command": [
+        "node",
+        "tests/smooth/prepare-ci-ux-baseline.mjs",
+        "24de35182562bc1d8fe0034838b409705d881974",
+        "D:\\claude-tmp\\thoradar-s6-replay-OV5Unc\\runner-temp\\smooth-ux-baseline.html"
+      ],
+      "expected": 0,
+      "exitCode": 0
+    },
+    {
+      "id": "ux-ci-daily",
+      "cwd": "D:\\claude-tmp\\thoradar-s6-replay-OV5Unc\\runner",
+      "command": [
+        "node",
+        "tests/ux/ux_probe.mjs",
+        "--target",
+        "index.html",
+        "--base-html",
+        "D:\\claude-tmp\\thoradar-s6-replay-OV5Unc\\runner-temp\\smooth-ux-baseline.html",
+        "--label",
+        "smooth-ci"
+      ],
+      "expected": 0,
+      "exitCode": 0
+    },
+    {
+      "id": "ux-ci-stale-parent",
+      "cwd": "D:\\claude-tmp\\thoradar-s6-replay-OV5Unc\\runner",
+      "command": [
+        "node",
+        "tests/ux/ux_probe.mjs",
+        "--target",
+        "index.html",
+        "--base-html",
+        "D:\\claude-tmp\\thoradar-s6-replay-OV5Unc\\runner-temp\\unmodified-parent.html",
+        "--only",
+        "F8",
+        "--label",
+        "s6-stale"
+      ],
+      "expected": 1,
+      "exitCode": 1
+    },
+    {
+      "id": "source-bad-json",
+      "cwd": "D:\\claude-tmp\\thoradar-s6-replay-OV5Unc\\runner",
+      "command": [
+        "node",
+        "tests/smooth/verify-source.mjs",
+        "D:\\claude-tmp\\thoradar-s6-results-5106956e014a4c9bb3190e153e29efcc\\source-bad-json.json",
+        "--ci"
+      ],
+      "expected": 1,
+      "exitCode": 1
+    },
+    {
+      "id": "source-invalid-date",
+      "cwd": "D:\\claude-tmp\\thoradar-s6-replay-OV5Unc\\runner",
+      "command": [
+        "node",
+        "tests/smooth/verify-source.mjs",
+        "D:\\claude-tmp\\thoradar-s6-results-5106956e014a4c9bb3190e153e29efcc\\source-invalid-date.json",
+        "--ci"
+      ],
+      "expected": 1,
+      "exitCode": 1
+    },
+    {
+      "id": "source-invalid-papers",
+      "cwd": "D:\\claude-tmp\\thoradar-s6-replay-OV5Unc\\runner",
+      "command": [
+        "node",
+        "tests/smooth/verify-source.mjs",
+        "D:\\claude-tmp\\thoradar-s6-results-5106956e014a4c9bb3190e153e29efcc\\source-invalid-papers.json",
+        "--ci"
+      ],
+      "expected": 1,
+      "exitCode": 1
+    },
+    {
+      "id": "source-initialization-change",
+      "cwd": "D:\\claude-tmp\\thoradar-s6-replay-OV5Unc\\runner",
+      "command": [
+        "node",
+        "tests/smooth/verify-source.mjs",
+        "D:\\claude-tmp\\thoradar-s6-results-5106956e014a4c9bb3190e153e29efcc\\source-initialization-change.json",
+        "--ci"
+      ],
+      "expected": 1,
+      "exitCode": 1
+    },
+    {
+      "id": "source-merge-change",
+      "cwd": "D:\\claude-tmp\\thoradar-s6-replay-OV5Unc\\runner",
+      "command": [
+        "node",
+        "tests/smooth/verify-source.mjs",
+        "D:\\claude-tmp\\thoradar-s6-results-5106956e014a4c9bb3190e153e29efcc\\source-merge-change.json",
+        "--ci"
+      ],
+      "expected": 1,
+      "exitCode": 1
+    },
+    {
+      "id": "source-dirty-feed",
+      "cwd": "D:\\claude-tmp\\thoradar-s6-replay-OV5Unc\\runner",
+      "command": [
+        "node",
+        "tests/smooth/verify-source.mjs",
+        "D:\\claude-tmp\\thoradar-s6-results-5106956e014a4c9bb3190e153e29efcc\\source-dirty-feed.json",
+        "--ci"
+      ],
+      "expected": 1,
+      "exitCode": 1
+    },
+    {
+      "id": "source-staged-feed",
+      "cwd": "D:\\claude-tmp\\thoradar-s6-replay-OV5Unc\\runner",
+      "command": [
+        "node",
+        "tests/smooth/verify-source.mjs",
+        "D:\\claude-tmp\\thoradar-s6-results-5106956e014a4c9bb3190e153e29efcc\\source-staged-feed.json",
+        "--ci"
+      ],
+      "expected": 1,
+      "exitCode": 1
+    },
+    {
+      "id": "prepare-old-data",
+      "cwd": "D:\\claude-tmp\\thoradar-s6-replay-OV5Unc\\runner",
+      "command": [
+        "node",
+        "tests/smooth/prepare-ci-ux-baseline.mjs",
+        "24de35182562bc1d8fe0034838b409705d881974",
+        "D:\\claude-tmp\\thoradar-s6-replay-OV5Unc\\runner-temp\\prepare-old-data.html"
+      ],
+      "expected": 1,
+      "exitCode": 1
+    },
+    {
+      "id": "prepare-wrong-block",
+      "cwd": "D:\\claude-tmp\\thoradar-s6-replay-OV5Unc\\runner",
+      "command": [
+        "node",
+        "tests/smooth/prepare-ci-ux-baseline.mjs",
+        "24de35182562bc1d8fe0034838b409705d881974",
+        "D:\\claude-tmp\\thoradar-s6-replay-OV5Unc\\runner-temp\\prepare-wrong-block.html"
+      ],
+      "expected": 1,
+      "exitCode": 1
+    },
+    {
+      "id": "prepare-self-baseline",
+      "cwd": "D:\\claude-tmp\\thoradar-s6-replay-OV5Unc\\runner",
+      "command": [
+        "node",
+        "tests/smooth/prepare-ci-ux-baseline.mjs",
+        "24de35182562bc1d8fe0034838b409705d881974",
+        "D:\\claude-tmp\\thoradar-s6-replay-OV5Unc\\runner-temp\\prepare-self-baseline.html"
+      ],
+      "expected": 1,
+      "exitCode": 1
+    },
+    {
+      "id": "prepare-wrong-sha",
+      "cwd": "D:\\claude-tmp\\thoradar-s6-replay-OV5Unc\\runner",
+      "command": [
+        "node",
+        "tests/smooth/prepare-ci-ux-baseline.mjs",
+        "0e36829a9dacebc2d6912c3a0d55edffc0460667",
+        "D:\\claude-tmp\\thoradar-s6-replay-OV5Unc\\runner-temp\\wrong-sha.html"
+      ],
+      "expected": 1,
+      "exitCode": 1
+    },
+    {
+      "id": "mutation-no-json-parser",
+      "cwd": "D:\\claude-tmp\\thoradar-s6-replay-OV5Unc\\runner",
+      "command": [
+        "node",
+        "tests/smooth/verify-source.mjs",
+        "D:\\claude-tmp\\thoradar-s6-results-5106956e014a4c9bb3190e153e29efcc\\mutation-no-json-parser.json",
+        "--ci"
+      ],
+      "expected": 0,
+      "exitCode": 0
+    },
+    {
+      "id": "mutation-no-baseline-guard",
+      "cwd": "D:\\claude-tmp\\thoradar-s6-replay-OV5Unc\\runner",
+      "command": [
+        "node",
+        "tests/smooth/prepare-ci-ux-baseline.mjs",
+        "24de35182562bc1d8fe0034838b409705d881974",
+        "D:\\claude-tmp\\thoradar-s6-replay-OV5Unc\\runner-temp\\mutant-baseline.html"
+      ],
+      "expected": 0,
+      "exitCode": 0
+    },
+    {
+      "id": "daily-clean-after",
+      "cwd": "D:\\claude-tmp\\thoradar-s6-replay-OV5Unc\\runner",
+      "command": [
+        "git",
+        "status",
+        "--porcelain=v1",
+        "-uall"
+      ],
+      "expected": 0,
+      "exitCode": 0
+    },
+    {
+      "id": "remove-fixture",
+      "cwd": "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\.t1128-s6-worktree",
+      "command": [
+        "git",
+        "-c",
+        "core.hooksPath=NUL",
+        "-c",
+        "user.name=S6 fixture",
+        "-c",
+        "user.email=s6@example.invalid",
+        "worktree",
+        "remove",
+        "--force",
+        "D:\\claude-tmp\\thoradar-s6-replay-OV5Unc\\runner"
+      ],
+      "expected": 0,
+      "exitCode": 0
+    }
+  ]
+}

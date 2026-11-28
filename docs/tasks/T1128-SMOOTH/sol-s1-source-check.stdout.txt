@@ -1,0 +1,3 @@
+PASS official SITE_DATA block is byte-identical after line-ending normalization 6d4a6663ea7089502f6115f206b3ee48663a43f4768ae4fee19f72c69523dc31
+PASS index.html patch is additive, with existing application and storage code intact
+PASS no forced lifecycle changes, auto reload, or prototype debug markers

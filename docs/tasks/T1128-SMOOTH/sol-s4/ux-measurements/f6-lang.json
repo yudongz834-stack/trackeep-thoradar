@@ -1,0 +1,34 @@
+{
+ "zh": {
+  "toggle": "筛选 · 时间窗 / 档位 / 专题 ▾",
+  "jlSummary": "按刊源筛选（点击展开）",
+  "metaSummary": "更多元数据（PMID／出版状态／预警／雷达日期／卷期／阵地／口径）",
+  "collOpen": "◈ 合集",
+  "langBtn": "EN",
+  "docTitle": "胸科雷达 · 滚动信号场",
+  "foot": "程序生成 · 无人审校 · 期刊与分区按注入字段原样展示 · 摘要仅供检索导读，临床判断请读原文 / 检索 ← → 切换 ESC 清除 粤ICP备2026184706号-1"
+ },
+ "en": {
+  "toggle": "Filters · window / tiers / topics ▾",
+  "jlSummary": "Filter by journal (click to expand)",
+  "metaSummary": "More metadata (PMID / publication status / watchlist / radar date / volume & issue / sector / scheme)",
+  "collOpen": "◈ Collections",
+  "langBtn": "中",
+  "docTitle": "ThorRadar · Rolling Signal Field",
+  "foot": "Auto-generated · not human-reviewed · journals and quartiles shown verbatim from injected fields · abstracts are for retrieval only — read the original paper before clinical decisions / search ← → switch ESC clear 粤ICP备2026184706号-1"
+ },
+ "enR": {
+  "toggle": "Filters · window / tiers / topics ▾",
+  "jlSummary": "Filter by journal (click to expand)",
+  "metaSummary": "More metadata (PMID / publication status / watchlist / radar date / volume & issue / sector / scheme)",
+  "collOpen": "◈ Collections",
+  "langBtn": "中",
+  "docTitle": "ThorRadar · Rolling Signal Field",
+  "foot": "Auto-generated · not human-reviewed · journals and quartiles shown verbatim from injected fields · abstracts are for retrieval only — read the original paper before clinical decisions / search ← → switch ESC clear 粤ICP备2026184706号-1"
+ },
+ "enScan": [
+  "aria-label:切换深色模式",
+  "文:· IF 5.3 · JCR Q1 · 2区",
+  "文:中"
+ ]
+}

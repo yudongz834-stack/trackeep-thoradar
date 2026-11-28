@@ -1,0 +1,14 @@
+FAIL retire uploads workers then index, refreshes eight URLs and verifies mapped bytes: Verification failed for https://thoradar.online/sw.js
+
+
+1 !== 0
+
+FAIL stale CDN content is polled again before publishing succeeds: Verification failed for https://thoradar.online/sw.js
+
+
+1 !== 0
+
+FAIL post-publish verification rejects wrong-md5: The input did not match the regular expression /Verification failed for https:\/\/www\.thoradar\.online\/sw/. Input:
+
+'Verification failed for https://thoradar.online/sw.js\n'
+

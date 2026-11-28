@@ -1,0 +1,11 @@
+{
+  "exitCode": 0,
+  "command": [
+    "git",
+    "-C",
+    "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128",
+    "apply",
+    "--check",
+    "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\.t1128-s6-worktree\\docs\\tasks\\T1128-SMOOTH\\sol-s6/daily/candidate.diff"
+  ]
+}

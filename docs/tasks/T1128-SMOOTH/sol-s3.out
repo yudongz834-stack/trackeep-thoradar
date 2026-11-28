@@ -1,0 +1,2591 @@
+OpenAI Codex v0.172.0
+--------
+workdir: D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+model: gpt-6.2-sol
+provider: openai
+approval: never
+sandbox: danger-full-access
+reasoning effort: xhigh
+reasoning summaries: concise
+session id: 01a2204c-36e0-71e2-a552-a8ff27bcceab
+--------
+user
+【委任状 T1128-SMOOTH-S3】你是 Trackeep 施工工程师，2 级（派遣方＝Orchestrator 1 级；PI＝0 级）。
+工作区 D:/trackeep/trackeep-product/trackeep-thoradar-smooth-T1128，写码只限此处。
+身份：你的席位（launcher）＝codex-gpt，正式名四元组以人册主力表为准——壳自报的品牌不是你的身份，不得照壳自称。
+本单点名档位＝gpt-6.2-sol；据将要执行的 codex-gpt.cmd 解析，你的真身＝gpt-6.2-sol。
+禁启外部 AI 代理进程；禁改 `ANTHROPIC_*` 等端点环境变量（席位端点由 launcher 焊死，会话内改＝偷换身份）、禁本进程内切模型、禁经第三方壳中转；登录态与凭证零碰触（唯 PI）；跨家对抗审／互查任意家皆可；可再派（组队自主权）——每派一个子席，向上回登记一行（任务号·四元组·一句话目标·工作区·写域），并把本钳位逐字传进子席委任状；派遣方可按单收紧为「本单禁再派」。
+你跑在 harness 里（cc/codex/agy）——再派机制与档映射以名册成员表为准（cc 席＝Agent 工具）；改码／施工一律在隔离副本（git worktree／独立靶场），不直接改工作树。
+清理进程只许按 PID 精确杀，永久禁止 taskkill /F /IM 与 Stop-Process -Name，杀完逐 PID 复查并贴原始输出。
+禁 git push。不打印任何 token 值。
+🔴 配置家 D:\claude 是活的生产数据，只读；旧主家已退役，勿再引用。
+变异恢复用 cp 备份文件，不用 git checkout（工作树可能有未提交成果）。
+纪律：不贴命令与原始输出的结论一律不采信；自报不作数，证据作数；禁伪修复。
+绿灯不是证据——判断测试守没守住，唯一办法是删掉被守的代码看它红不红。
+复现不了的写「未复现」，不许把推测写成事实。
+交付报告开头三行：干了什么（人话）／PI 怎么亲手验（一个物理动作：打开哪、点什么、看到什么算对）／还剩什么坑（空案写完整句，如『没坑，已逐条核』；禁写单字『无』）。
+
+【送达闸】你的【最终输出】里必须包含这一行原文（不是过程中说一次就算——
+-p 模式只把最终回答交给 Orchestrator，过程中的话Orchestrator 看不到）：
+DELIVERY-T1128-SMOOTH-S3
+并在它下一行用一句话复述你这次做的事。做不到这条，Orchestrator 会判任务书未送达并整单重发。
+
+【任务书全文】以下为正文，直接照做，不必再去读盘：
+DELIVERY-T1128-SMOOTH-S3
+键字段：目标目录=D:/trackeep/trackeep-product/trackeep-thoradar-smooth-T1128；任务号=T1128-SMOOTH-S3；交付=空数据标记毒页修复、专项与回归证据。
+轨道位置：胸科雷达顺畅改造·③.4 Sol S3 独立复核发现项返修。
+R级：R2
+判级理由：修复 Service Worker 缓存完整性校验漏口，属架构变更返修；不发布。
+签发：PI 原话「算了，现在直接执行吧，不重启了」（2026-11-28）及「加快速度」「快点，做快一点啦！」；只修 Neon V1 已证实的一项漏口，不扩需求。
+地形：仅改 `sw.js` 写入校验和 `tests/smooth/` 测试/证据；邻接 Cache Storage 健康副本与独立异常样本。
+领域卡：无
+经验卡：无卡。
+Run 版本键：岗位卡=builder-jobspec 现役正本；轨道版本=T1128-SMOOTH v1；基线=S2 index `33c50bef...1def`、sw `f8a4e2bc...a24`。
+
+## 唯一问题
+Neon 的独立样本：HTTP 200、`text/html`、按顺序含 `/*__THORADAR_DATA_START__*/` 与 `/*__THORADAR_DATA_END__*/`、以 `</html>` 结束，但正文只有 156B 的损坏壳，没有 `const SITE_DATA = ...`。当前 sw 接受并覆盖健康缓存。原始证据：`D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v1/neon-v1-verify.json` 的 `adversarial-empty-markers-stub`。
+
+## 只做这项修复
+- 写域仅 `D:/trackeep/trackeep-product/trackeep-thoradar-smooth-T1128/sw.js`、`tests/smooth/`、`docs/tasks/T1128-SMOOTH/`。其它只读，禁改 Neon 文件、被审证据、旧回归、CI、任务地图。
+- 在两个标记之间验证真实 `const SITE_DATA = <JSON>` 数据块：用 JSON.parse，不用 eval；对象必须含字符串 `briefing_date` 和数组 `papers`。允许合法的零篇数组，不得把零篇日误判为毒页。缺块、JSON 坏、字段类型错都拒缓存。
+- 保留现有状态码/basic/MIME/标记顺序/完整 HTML 校验，不放宽其它路径。
+- 把 Neon 的 156B 空标记样本加入施工自测；另加缺 SITE_DATA、坏 JSON、字段类型错与合法零篇样本。修复前应先复现红，修复后健康缓存字节不变；做一项删新校验变红的负对照。
+- 复跑 S1、S2 全套和 UX；原始 stdout/stderr/JSON、哈希、环境、时间落盘。AICLS/POOLUP 的 R08 既有失真继续如实登记，不改旧测试。
+- 不做其它改进，不 push/deploy/CDN，不碰真实凭证。尽快完成，若 10 分钟仍未修复，交当前证据并标未收口。
+
+交付 `sol-s3-report.md` 和证据，报告三行头、地图影响、遗留风险、证据、地图终态齐全。最终尾部复述 `DELIVERY-T1128-SMOOTH-S3`。
+
+hook: SessionStart
+hook: SessionStart
+hook: SessionStart Completed
+hook: SessionStart Completed
+hook: UserPromptSubmit
+hook: UserPromptSubmit Completed
+codex
+我先核对基线和 Neon 原始样本，在隔离工作树里复现缓存被覆盖，再修校验并跑专项、负对照和回归。
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "git status --short --branch
+git worktree list
+git log -4 --oneline
+rg --files -g 'AGENTS.md' -g 'package.json' -g '*smooth*' -g 'sw.js' -g 'sol*' -g '*ux*' -g '*s2*' -g '*s1*'" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "Get-Content -LiteralPath 'D:/trackeep/trackeep-console/trackeep-rulebook/rules/entries/safety-redlines.md'" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "Get-Content -LiteralPath 'D:/trackeep/trackeep-console/trackeep-rulebook/rules/README.md'" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+ succeeded in 1320ms:
+---
+id: safety-redlines
+名称: 安全红线（钥匙纪律·个人信息纪律）
+适用: 一切任务全程；跨模型／agent 调用前必扫
+别名: [钥匙, 密钥, token, API key, API 泄露, 个人信息, 身份信息, 隐私, PII]
+type: rule
+strength: required
+scope: global
+status: active
+version: 6.1
+domain: safety
+load: always
+enforced_by: [rb:redline-probe, file:D:\claude\hooks\trackeep-redline-guard.sh]
+---
+
+# 安全红线（钥匙纪律·个人信息纪律）
+
+## 红线
+
+**钥匙纪律——API 密钥不泄露**：
+
+- **存放**：只保存在 Windows 用户环境变量中，不写入任何文件。
+- **使用**：按需注入，不打印、不外传。
+- **派发前**：跨 `agent` 调用先清除敏感环境变量（子进程会继承密钥）——外派经 `dispatch.sh` 自动清除（见 `dispatch-protocol`）；内部派发无自动检查，发起方自行清除后再派。
+
+**个人信息纪律**：
+
+- **写入**：提示词、日志、报告删无关身份信息；必须指人时用接收方认不出本人的代号。
+- **存放**：配置与 AI 会话原件放服务读不到处；对外服务只给指定公开文件、关闭目录浏览（已知直链仍可读，公开面不放敏感件）。
+- **外发**：截图、会话摘录外发前同样去身份；确需实名的报告只在 PI 当次批准的对外定稿上署名。
+
+判据：接收方凭内容加已有背景，能否直接联系、定位或认出具体的人。
+
+其余安全红线不在本页：`.claude` 只读与禁 `adb` 由 `trackeep-redline-guard` 自动拦截；登录态与凭证零碰触由 `charter-template` 固定条款随派遣携带，接单方遵守。
+
+
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$p='"'D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v1/neon-v1-verify.json'; Select-String -LiteralPath "'$p -SimpleMatch '"'adversarial-empty-markers-stub' -Context 4,20" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+ succeeded in 1901ms:
+## HEAD (no branch)
+ M index.html
+?? docs/tasks/
+?? sw-retire.js
+?? sw.js
+?? tests/smooth/
+D:/trackeep/trackeep-product/trackeep-thoradar                 73dd34e [main]
+D:/trackeep/trackeep-product/trackeep-thoradar-neon-v1         73dd34e (detached HEAD)
+D:/trackeep/trackeep-product/trackeep-thoradar-smooth-T1128    73dd34e (detached HEAD)
+D:/trackeep/trackeep-product/trackeep-thoradar-wt/T1122-int    5217e86 [feat/t1122-int]
+D:/trackeep/trackeep-product/trackeep-thoradar-wt/T1122-pool   b54883b [feat/t1122-pool]
+D:/trackeep/trackeep-product/trackeep-thoradar-wt/T1122-shelf  b54883b [feat/t1122-shelf]
+D:/trackeep/trackeep-product/trackeep-thoradar-wt/T1125-aicls  06d08e8 [feat/t1125-aicls]
+D:/trackeep/trackeep-product/trackeep-thoradar-wt/T1125-poolup 05a748f [feat/t1125-poolup]
+D:/trackeep/trackeep-product/trackeep-thoradar-wt/T1127-ux     73dd34e [feat/t1127-ux]
+73dd34e T1127-UX2 整体比例调优：概览左栏280/窄桌面240、雷达盘420、主TAB高30，点径与阅读/手机结构不变；F11守三视口，UX46/46＋单A适用项全绿＋池外11/11＋旧集成16/16
+e3fcab9 T1127-UX 雷达标记缩小：桌面5-9px/手机75%、热区防抢点、低分淡化、0篇不占标签且综述形状保留；UX42/42＋变异3只全杀＋官方数据与筛选差分全绿
+287c1bc Merge remote-tracking branch 'origin/main' into feat/t1127-ux
+0ee8b9e T1127-UX 返修收口：双视图筛选默认收起且分视图记忆、密度钮归阅读、手机零横溢/顶栏不压主区、雷达随舞台缩放、页脚零空带、英文文案补齐、阅读可展开全部；UX探针38/38＋变异5只全杀＋单A19/19＋单B11/11＋旧考卷16/16
+sw.js
+tests\ux\ux_probe.mjs
+tests\smooth\verify-s2.mjs
+tests\smooth\verify-s1.mjs
+docs\tasks\T1128-SMOOTH\sol-s3-worker.diff.txt
+docs\tasks\T1128-SMOOTH\sol-s3-worker.diff.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s3-source.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s3-source.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s3-source.json
+docs\tasks\T1128-SMOOTH\sol-s3-s2.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s3-s2.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s3-s2.json
+docs\tasks\T1128-SMOOTH\sol-s3-s2-no-retire-cleanup.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s3-s2-no-retire-cleanup.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s3-s2-no-retire-cleanup.json
+docs\tasks\T1128-SMOOTH\sol-s3-s1.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s3-s1.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s3-s1.json
+docs\tasks\T1128-SMOOTH\sol-s3-s1-no-local-return.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s3-s1-no-local-return.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s3-s1-no-local-return.json
+docs\tasks\T1128-SMOOTH\sol-s3-s1-allow-truncated.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s3-s1-allow-truncated.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s3-s1-allow-truncated.json
+docs\tasks\T1128-SMOOTH\sol-s3-regressions.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s3-regressions.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s3-regressions\ux.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s3-regressions\ux.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s3-regressions\ux.json
+docs\tasks\T1128-SMOOTH\sol-s2-core-final-01.json
+docs\tasks\T1128-SMOOTH\sol-s2-core-draft.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s2-core-draft.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s2-core-draft.json
+docs\tasks\T1128-SMOOTH\sol-s2-core-02.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s2-core-02.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s2-core-02.json
+docs\tasks\T1128-SMOOTH\sol-s2-core-01.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s2-core-01.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s2-core-01.json
+docs\tasks\T1128-SMOOTH\sol-s1-source-check.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s1-report.md
+docs\tasks\T1128-SMOOTH\sol-s1-negative-truncated.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s1-negative-truncated.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s1-negative-truncated.json
+docs\tasks\T1128-SMOOTH\sol-s1-negative-local-return.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s1-negative-local-return.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s1-negative-local-return.json
+docs\tasks\T1128-SMOOTH\sol-s1-candidate-03.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s1-candidate-03.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s1-candidate-03.json
+docs\tasks\T1128-SMOOTH\sol-s1-candidate-02.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s1-candidate-02.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s1-candidate-02.json
+docs\tasks\T1128-SMOOTH\sol-s1-candidate-01.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s1-candidate-01.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s1-candidate-01.json
+docs\tasks\T1128-SMOOTH\run-sol-s2.ps1
+docs\tasks\T1128-SMOOTH\run-sol-s1.ps1
+docs\tasks\T1128-SMOOTH\main-s1-rerun.stdout.txt
+docs\tasks\T1128-SMOOTH\main-s1-rerun.stderr.txt
+docs\tasks\T1128-SMOOTH\main-s1-rerun.json
+docs\tasks\T1128-SMOOTH\sol-s2-mutation-truncated.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s2-mutation-truncated.json
+docs\tasks\T1128-SMOOTH\sol-s2-mutation-retire.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s2-mutation-retire.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s2-mutation-retire.json
+docs\tasks\T1128-SMOOTH\sol-s2-mutation-local-return.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s2-mutation-local-return.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s2-mutation-local-return.json
+docs\tasks\T1128-SMOOTH\sol-s2-matrix-pilot3.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s2-matrix-pilot3.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s2-matrix-pilot3.json
+docs\tasks\T1128-SMOOTH\sol-s2-matrix-pilot2.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s2-matrix-pilot2.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s2-matrix-pilot2.json
+docs\tasks\T1128-SMOOTH\sol-s2-matrix-draft.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s2-matrix-draft.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s2-matrix-draft.json
+docs\tasks\T1128-SMOOTH\sol-s2-matrix-02.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s2-matrix-02.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s2-matrix-02.json
+docs\tasks\T1128-SMOOTH\sol-s2-matrix-01.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s2-matrix-01.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s2-matrix-01.json
+docs\tasks\T1128-SMOOTH\sol-s3-negative.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s3-negative.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s3-negative-control.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s3-negative-control.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s3-final-s2.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s3-final-s2.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s3-final-s1.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s3-final-s1.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s3-final-s1.json
+docs\tasks\T1128-SMOOTH\sol-s3-final-regressions.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s3-final-regressions.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s2-core-final-02.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s2-core-final-02.json
+docs\tasks\T1128-SMOOTH\sol-s2-core-final-01.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s2-core-final-01.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s2-core-pilot2.json
+docs\tasks\T1128-SMOOTH\sol-s2-core-final-02.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s2-core-pilot2.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s2-core-pilot2.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s2-negative-retire-final.json
+docs\tasks\T1128-SMOOTH\sol-s2-negative-local-return.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s3-after.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s2-negative-local-return.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s3-after.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s2-negative-local-return.json
+docs\tasks\T1128-SMOOTH\sol-s2-negative-local-return-final.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s3-after.json
+docs\tasks\T1128-SMOOTH\sol-s2-negative-local-return-final.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s2-source.json
+docs\tasks\T1128-SMOOTH\sol-s2-negative-local-return-final.json
+docs\tasks\T1128-SMOOTH\sol-s2-source.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s2-report.md
+docs\tasks\T1128-SMOOTH\sol-s2-mutation-truncated.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s2-source.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s2-negative-truncated-final.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s2-negative-truncated-final.json
+docs\tasks\T1128-SMOOTH\sol-s2-negative-retire-final.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s2-negative-truncated.json
+docs\tasks\T1128-SMOOTH\sol-s2-negative-retire-final.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s2-negative-truncated.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s3-final-after.json
+docs\tasks\T1128-SMOOTH\sol-s3-before.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s3-before.json
+docs\tasks\T1128-SMOOTH\sol-s3-before.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s3-final-after.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s2-negative-truncated-final.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s3-final-after.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s3-final-before.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s3-final-before.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s2-negative-truncated.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s2-legacy-evidence\ux.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s2-legacy-evidence\ux.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s2-legacy-evidence\ux.json
+docs\tasks\T1128-SMOOTH\sol-s3-final-regressions\ux.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s3-final-regressions\ux.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s2-regressions\ux.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s2-regressions\ux.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s2-regressions\ux.json
+docs\tasks\T1128-SMOOTH\sol-s2-regressions-final\ux.stdout.txt
+docs\tasks\T1128-SMOOTH\sol-s2-regressions-final\ux.stderr.txt
+docs\tasks\T1128-SMOOTH\sol-s2-regressions-final\ux.json
+
+hook: PostToolUse
+hook: PostToolUse
+ succeeded in 1379ms:
+# Trackeep-Rulebook
+
+**Trackeep 全系统的法律与信息中转站**，以 AI 为第一读者：agent 可换、派遣系统可换，谱恒在。**本页即全部入口，空是故意的**——不给 agent 预装框架，规则按需来取，保持满血思维。
+
+1. **接到任务先问管家**——`entries/employment-law.md`（取法协议正本）。
+2. **想了解系统**——一屏地图＝`entries/handbook.md` §3；目录契约与生效裁决＝`CONTRACT.md`。
+
+hook: PostToolUse
+hook: PostToolUse
+ succeeded in 634ms:
+
+  D:\trackeep\trackeep-product\trackeep-thoradar\docs\tasks\T1128-SMOOTH\neon-v1\neon-v1-verify.json:137:      ],
+  D:\trackeep\trackeep-product\trackeep-thoradar\docs\tasks\T1128-SMOOTH\neon-v1\neon-v1-verify.json:138:      "nextNav
+Check": null
+  D:\trackeep\trackeep-product\trackeep-thoradar\docs\tasks\T1128-SMOOTH\neon-v1\neon-v1-verify.json:139:    },
+  D:\trackeep\trackeep-product\trackeep-thoradar\docs\tasks\T1128-SMOOTH\neon-v1\neon-v1-verify.json:140:    {
+> D:\trackeep\trackeep-product\trackeep-thoradar\docs\tasks\T1128-SMOOTH\neon-v1\neon-v1-verify.json:141:      "name": 
+"adversarial-empty-markers-stub",
+  D:\trackeep\trackeep-product\trackeep-thoradar\docs\tasks\T1128-SMOOTH\neon-v1\neon-v1-verify.json:142:      "pass": 
+false,
+  D:\trackeep\trackeep-product\trackeep-thoradar\docs\tasks\T1128-SMOOTH\neon-v1\neon-v1-verify.json:143:      "doc": {
+  D:\trackeep\trackeep-product\trackeep-thoradar\docs\tasks\T1128-SMOOTH\neon-v1\neon-v1-verify.json:144:        "loade
+rId": "735167BC1AE9A0A1E04DB94980103CB4",
+  D:\trackeep\trackeep-product\trackeep-thoradar\docs\tasks\T1128-SMOOTH\neon-v1\neon-v1-verify.json:145:        "url":
+ "http://127.0.0.1:62688/index.html",
+  D:\trackeep\trackeep-product\trackeep-thoradar\docs\tasks\T1128-SMOOTH\neon-v1\neon-v1-verify.json:146:        "statu
+s": 200,
+  D:\trackeep\trackeep-product\trackeep-thoradar\docs\tasks\T1128-SMOOTH\neon-v1\neon-v1-verify.json:147:        "fromS
+erviceWorker": true,
+  D:\trackeep\trackeep-product\trackeep-thoradar\docs\tasks\T1128-SMOOTH\neon-v1\neon-v1-verify.json:148:        "sourc
+e": "cache-storage"
+  D:\trackeep\trackeep-product\trackeep-thoradar\docs\tasks\T1128-SMOOTH\neon-v1\neon-v1-verify.json:149:      },
+  D:\trackeep\trackeep-product\trackeep-thoradar\docs\tasks\T1128-SMOOTH\neon-v1\neon-v1-verify.json:150:      "finalBa
+nner": {
+  D:\trackeep\trackeep-product\trackeep-thoradar\docs\tasks\T1128-SMOOTH\neon-v1\neon-v1-verify.json:151:        "date"
+: "2026-11-27",
+  D:\trackeep\trackeep-product\trackeep-thoradar\docs\tasks\T1128-SMOOTH\neon-v1\neon-v1-verify.json:152:        "point
+s": 37,
+  D:\trackeep\trackeep-product\trackeep-thoradar\docs\tasks\T1128-SMOOTH\neon-v1\neon-v1-verify.json:153:        "banne
+r": "数据 2026-11-27 · 有新版，下次打开生效"
+  D:\trackeep\trackeep-product\trackeep-thoradar\docs\tasks\T1128-SMOOTH\neon-v1\neon-v1-verify.json:154:      },
+  D:\trackeep\trackeep-product\trackeep-thoradar\docs\tasks\T1128-SMOOTH\neon-v1\neon-v1-verify.json:155:      "storage
+": {
+  D:\trackeep\trackeep-product\trackeep-thoradar\docs\tasks\T1128-SMOOTH\neon-v1\neon-v1-verify.json:156:        "regis
+trations": 1,
+  D:\trackeep\trackeep-product\trackeep-thoradar\docs\tasks\T1128-SMOOTH\neon-v1\neon-v1-verify.json:157:        "activ
+e": "activated",
+  D:\trackeep\trackeep-product\trackeep-thoradar\docs\tasks\T1128-SMOOTH\neon-v1\neon-v1-verify.json:158:        "names
+": [
+  D:\trackeep\trackeep-product\trackeep-thoradar\docs\tasks\T1128-SMOOTH\neon-v1\neon-v1-verify.json:159:          "tho
+radar-shell-v1"
+  D:\trackeep\trackeep-product\trackeep-thoradar\docs\tasks\T1128-SMOOTH\neon-v1\neon-v1-verify.json:160:        ],
+  D:\trackeep\trackeep-product\trackeep-thoradar\docs\tasks\T1128-SMOOTH\neon-v1\neon-v1-verify.json:161:        "hash"
+: "11e2ff0add51cd0cf4f21b39010925b11df3fe7c0d388906c0c56468a3a16b74",
+
+
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "Get-Content docs/tasks/T1128-SMOOTH/sol-s2-report.md -Tail 135
+Get-ChildItem -Force -Name AGENTS.md
+rg -n 'adversarial-empty-markers-stub' 'D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v1'" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "Get-Content 'D:/trackeep/trackeep-console/trackeep-rulebook/rules/entries/employment-law.md' -TotalCount 180
+Get-ChildItem docs/tasks/T1128-SMOOTH -Filter '*map*' | Select-Object Name" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "Get-Content -LiteralPath sw.js
+Get-FileHash index.html,sw.js
+Get-ChildItem tests/smooth | Select-Object Name,Length,LastWriteTime
+Get-ChildItem docs/tasks/T1128-SMOOTH -Filter 'sol-s3*' | Select-Object Name,Length,LastWriteTime
+Test-Path docs/tasks/T1128-SMOOTH/sol-s3-report.md" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+ succeeded in 1233ms:
+**干了什么**　补齐了胸科雷达首页副本的异常保护、退役退出和多日档案降级。读取中保留当前页面，核到的新版在下次打开时生效。\
+**PI 怎么亲手验**　打开第 2 轮 stdout，找到 `PASS archive-warning-persists-with-controlled-shell-on-mobile`。看 390×844 的 `persistent` 里仍有「实际只显示 2026-11-27 当日副本／历史档案不可用」，且 `recovered` 的提示已隐藏。[第 2 轮原始输出](sol-s2-matrix-02.stdout.txt)\
+**还剩什么坑**　AICLS 与 POOLUP 各有一项 R08 在基线和候选两边都搜到 0 篇，检索步骤仍未获得可判定证据。本机候选待 Neon 新会话复核，线上与真机未验。
+
+## 按哪几条干的
+
+- 执行 T1128-SMOOTH-S2 委任状和验收合同 v1。轨道位置为胸科雷达顺畅改造 ③.4，R2，理由是新增 Service Worker 异常与退役生命周期。签发为 PI 2026-11-28 原话「算了，现在直接执行吧，不重启了」，主控首例 9/9 后于 11:08 放行。施工席为 codex·GPT-6.2·Sol，岗位卡为现役 builder-jobspec，轨道版本为 T1128-SMOOTH v1，基线为 `73dd34e65fce6661d74e595afc03df68e7d3f44f` 加已放行 S1。领域卡无，经验无卡。
+- 按委任状和 `safety-redlines` v6.1，在指定隔离工作树施工。Chrome 使用独立临时配置，S2 各场景关闭各自隔离上下文。测试服务监听回环地址，AI POST 与跨域请求经过本地模拟。原有 UX、AICLS、POOLUP 和 S1 测试脚本沿用原件。
+
+## 地图影响
+
+- [sw.js](../../../sw.js) 以 `event.resultingClientId || event.clientId` 关联页面，安装和后台核新共用写入校验。只有 HTTP 200、basic、HTML MIME 正确、官方标记依序出现且 HTML 完整收尾的响应可以写入。核新及安装使用 `cache: 'no-store'`，请求跳过 HTTP 缓存且不向其写回。缓存打不开时走网络，写入失败时保留健康内容。
+- [sw-retire.js](../../../sw-retire.js) 立即 `skipWaiting()`，激活后清理 `thoradar-shell-` 缓存、注销并通知打开的页面。测试服务器在已注册的 `/sw.js` URL 返回退役脚本，以复现浏览器更新已有注册。触发退役后，原阅读页和选中条目保持，下一次普通打开由源站返回 v2。重装前用 `force-cache` 实际读到了旧 HTTP 副本，重装仍向源站拉取 v2 并写入 Cache Storage。`?sw=0` 保留单机注销和前缀清理。
+- [index.html](../../../index.html) 在启用缓存、退出或持有本站 worker 时显示日期和状态。默认本机状态节点留在顶栏以外并隐藏，零注册、零缓存。历史档案请求失败后，顶栏保留实际日期和降级提示，覆盖 1440×900 桌面与 390×844 手机视口。提示在切到阅读视图后仍可见，重新选单日或成功拉取档案时收起。源文件检查确认官方 `SITE_DATA`、`PAPERS` 初始化及 `mergePapers/inWindow` 文本与基线一致，比较统一了行尾。档案请求保持原网络路径。[源文件检查 JSON](sol-s2-source.json)
+
+## 遗留风险
+
+- AICLS 和 POOLUP 正式结果均为 39 通过、1 失败、0 跳过。R08 两套脚本都选中 `Mortality`，基线与候选均为 `list: 0, noQuery: 1`，原脚本判场景失真。该步骤尚未形成有效检索差分。UX 正式结果为 46 通过、0 失败。
+- Chrome 的 CDP 字面 `quotaSize: 0` 试跑仍可写，因此正式矩阵使用 1 字节总上限复现零可写空间。冷启动后 CDP 报告总上限 1 字节，已有注册占 3,908 字节，Cache Storage 占 0 字节，尝试写入 1 字节获原生 `QuotaExceededError`。API 不可用和拒绝访问用 CDP 文档注入及本地 worker 响应模拟，覆盖网页与 worker 的降级分支。[字面零试跑](sol-s2-matrix-pilot2.json) [正式配额证据](sol-s2-matrix-01.json) [CDP 配额接口](https://chromedevtools.github.io/devtools-protocol/tot/Storage/#method-overrideQuotaForOrigin)
+- 本机试验验证了 worker 核新不会把普通首页写入浏览器 HTTP 缓存。若普通导航此前已经被服务器的长 TTL 缓存，退役后走的是浏览器原生 HTTP 缓存策略。线上缓存头、CDN 收敛、线上跨日、国内直连、iOS、真机、多标签完整生命周期、常规 worker 升级激活全过程、90 天离线档案、UX3 和生产发布均未验。安装阶段更新健康缓存已验。验收合同记载的主仓架构地图漂移待主控整合阶段处理。
+
+## 证据
+
+Windows 11 Pro x64 `10.0.26300`，Node `v24.14.0`，Chrome `158.0.8127.88`，CDP `1.3`，种子无。核心和异常矩阵各独立重复两轮，开始、结束时刻和来源逐轮记录在 JSON。S1 脚本自带的随机文档标识仅用于判断是否换页，未用于生成输入或选择用例。CDP 离线时 worker 请求仍抵达回环服务器，两轮均由测试服务器实际断开 socket。另有独立用例在 CDP 联网时复测物理断开。两轮均保留健康副本的完整 SHA-256，且无未捕获页面或 worker 异常。
+
+```powershell
+pwsh -NoProfile -File docs/tasks/T1128-SMOOTH/run-sol-s2.ps1 -Suite s1 -RunId core-final-01
+pwsh -NoProfile -File docs/tasks/T1128-SMOOTH/run-sol-s2.ps1 -Suite s1 -RunId core-final-02
+pwsh -NoProfile -File docs/tasks/T1128-SMOOTH/run-sol-s2.ps1 -RunId matrix-01
+pwsh -NoProfile -File docs/tasks/T1128-SMOOTH/run-sol-s2.ps1 -RunId matrix-02
+pwsh -NoProfile -File docs/tasks/T1128-SMOOTH/run-sol-s2.ps1 -Suite s1 -RunId mutation-local-return -Mutation no-local-return
+pwsh -NoProfile -File docs/tasks/T1128-SMOOTH/run-sol-s2.ps1 -Suite s1 -RunId mutation-truncated -Mutation allow-truncated
+pwsh -NoProfile -File docs/tasks/T1128-SMOOTH/run-sol-s2.ps1 -RunId mutation-retire -Mutation no-retire-cleanup
+node tests/smooth/verify-source.mjs docs/tasks/T1128-SMOOTH/sol-s2-source.json
+node tests/smooth/run-regressions.mjs sol-s2-legacy-evidence
+```
+
+| 本机候选 | 原始结果 | 证据 |
+| --- | --- | --- |
+| S1 核心第 1 轮 | 9 通过，0 失败 | [JSON](sol-s2-core-final-01.json) · [stdout](sol-s2-core-final-01.stdout.txt) · [stderr](sol-s2-core-final-01.stderr.txt) |
+| S1 核心第 2 轮 | 9 通过，0 失败 | [JSON](sol-s2-core-final-02.json) · [stdout](sol-s2-core-final-02.stdout.txt) · [stderr](sol-s2-core-final-02.stderr.txt) |
+| S2 矩阵第 1 轮 | 24 通过，0 失败 | [JSON](sol-s2-matrix-01.json) · [stdout](sol-s2-matrix-01.stdout.txt) · [stderr](sol-s2-matrix-01.stderr.txt) |
+| S2 矩阵第 2 轮 | 24 通过，0 失败 | [JSON](sol-s2-matrix-02.json) · [stdout](sol-s2-matrix-02.stdout.txt) · [stderr](sol-s2-matrix-02.stderr.txt) |
+| 源文件、写域和语法 | 5 通过，0 失败 | [JSON](sol-s2-source.json) · [stdout](sol-s2-source.stdout.txt) · [stderr](sol-s2-source.stderr.txt) |
+
+负对照只改回环测试服务器内存中的响应。去掉缓存命中返回，提前出屏用例变红。允许截断写入，健康副本保护用例变红。去掉自毁清理，前缀缓存仍在，退役用例变红。三次都返回 1。
+
+| 负对照 | 原始结果 | 证据 |
+| --- | --- | --- |
+| 去掉缓存命中返回 | 3 通过，1 预期失败 | [JSON](sol-s2-mutation-local-return.json) · [stdout](sol-s2-mutation-local-return.stdout.txt) · [stderr](sol-s2-mutation-local-return.stderr.txt) |
+| 允许截断写入 | 7 通过，1 预期失败 | [JSON](sol-s2-mutation-truncated.json) · [stdout](sol-s2-mutation-truncated.stdout.txt) · [stderr](sol-s2-mutation-truncated.stderr.txt) |
+| 去掉自毁清理 | 1 通过，1 预期失败 | [JSON](sol-s2-mutation-retire.json) · [stdout](sol-s2-mutation-retire.stdout.txt) · [stderr](sol-s2-mutation-retire.stderr.txt) |
+
+既有回归的封装只设置各套临时目录并捕获输出，实际执行如下命令。UX 原生量测 JSON 在 [ux-measurements](sol-s2-legacy-evidence/ux-measurements/)。
+
+```powershell
+node tests/ux/ux_probe.mjs --target index.html --base 73dd34e --label sol-s2
+node tests/aicls/aicls_regress.mjs --target index.html --baseline 73dd34e --label sols2
+node tests/poolup/poolup_regress.mjs --target index.html --baseline 73dd34e --label sols2
+```
+
+| 既有回归 | 原始结果 | 证据 |
+| --- | --- | --- |
+| UX | 46 通过，0 失败，退出 0 | [JSON](sol-s2-legacy-evidence/ux.json) · [stdout](sol-s2-legacy-evidence/ux.stdout.txt) · [stderr](sol-s2-legacy-evidence/ux.stderr.txt) |
+| AICLS | 39 通过，1 失败，退出 1 | [JSON](sol-s2-legacy-evidence/aicls.json) · [stdout](sol-s2-legacy-evidence/aicls.stdout.txt) · [stderr](sol-s2-legacy-evidence/aicls.stderr.txt) |
+| POOLUP | 39 通过，1 失败，退出 1 | [JSON](sol-s2-legacy-evidence/poolup.json) · [stdout](sol-s2-legacy-evidence/poolup.stdout.txt) · [stderr](sol-s2-legacy-evidence/poolup.stderr.txt) |
+
+| 目标文件 | SHA-256 |
+| --- | --- |
+| `index.html` | `33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def` |
+| `sw.js` | `f8a4e2bc4d5d81964475580c012e825281f409a171782640ad5cbc68a07bca24` |
+| `sw-retire.js` | `5ae38f2ba965f4e1b1d340da2ba5fadd8b58af82a1e271a02ddff97ab5686199` |
+| `tests/smooth/verify-s1.mjs` | `6c93edebe199b9d502e72d42b729bc2dc96ee313307b6341fd5fa92f85c84dc4` |
+| `tests/smooth/verify-s2.mjs` | `9266fc7518314073d3694d809cca0e7c6e057daa2c7fcb80bdb0d2a7d460ea48` |
+
+## 地图终态
+
+③.4 的施工候选和证据已落在指定隔离工作树。地图仍显示 ③.4 `in-progress`、④ Neon 独立复核和 ⑤ 主控整合 `pending`、⑤.9 发布 `not-authorized`，由派遣方回填。正式回归所留 R08 红项随候选提交复核。[唯一任务地图](/D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/task-map.md)
+Get-ChildItem: 
+Line |
+   3 |  Get-ChildItem -Force -Name AGENTS.md
+     |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | 找不到路径“D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\AGENTS.md”，因为该路径不存在。
+D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v1\neon-v1-verify.json:141:      "name": "adversarial-empty-markers-stub",
+D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v1\neon-v1-verify.stdout.txt:4:FAIL adversarial-empty-markers-stub preserved=false banner="数据 2026-11-27 · 有新版，下次打开生效" hash=11e2ff0add51cd0cf4f21b39010925b11df3fe7c0d388906c0c56468a3a16b74
+D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v1\report.md:2:**PI 怎么亲手验**　打开 [neon-v1-verify.stdout.txt](neon-v1-verify.stdout.txt)，看第 1–4 行与第 6–8 行：必测三类异常全部 `PASS` 且原哈希保留，第 4 行 `FAIL adversarial-empty-markers-stub` 实证 156 字节空标记页面覆盖了 539KB 健康缓存（`preserved=false`，横幅误报「有新版，下次打开生效」），第 6–8 行三项负对照全部 `RED-CAUGHT` 变红。  
+D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v1\report.md:28:- **实际结果**：`sw.js` 接受该响应并覆盖 `thoradar-shell-v1` 中的 `/index.html`（缓存哈希变为 `11e2ff0add51cd0cf4f21b39010925b11df3fe7c0d388906c0c56468a3a16b74`，长度 `156` 字节），向当前页推送 `"数据 2026-11-27 · 有新版，下次打开生效"`；紧接着下一次导航 `/index.html` 从 `cache-storage` 渲染出 `date: null, points: 0, banner: null`（整页失效，且状态条消失）。证据见 [neon-v1-verify.json](neon-v1-verify.json) 中 `adversarial-empty-markers-stub`。
+D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v1\report.md:120:FAIL adversarial-empty-markers-stub preserved=false banner="数据 2026-11-27 · 有新版，下次打开生效" hash=11e2ff0add51cd0cf4f21b39010925b11df3fe7c0d388906c0c56468a3a16b74
+
+ succeeded in 932ms:
+---
+id: employment-law
+名称: 用工法（谁负责·怎么下单·怎么算做成）
+适用: 定岗组队、派活下单、验收收口全流程——分工怎么定、任务怎么派、事怎么算做完；三章各管一段，附录放格式件与登记表指针
+别名: [用工法, employment law, 用人法, 派工法, 谁负责, 怎么下单, 怎么算做成, agent-org, track, Track, dispatch-protocol, charter-template, ask-protocol, experience-pull, agent-trackeep-roster, 岗位与编制, 轨道, 派遣一页, 委任状模板, 取法协议, 经验拉取, 岗册×三端, 组织宪章, 三表, 部门制, 岗位表, 命名, 称谓, 命名规范, 编制, 组队, agent team, 阵型, 岗位制, 领域岗, 岗位库, 领域包, domain package, 复核官, org-growth, 成长预案, 扩建预案, 能力表, 换代认证, 立域门, 停用编制, 总协议, 协作总协议, 轨道协议, 守轨, keep, 委派, 任务分发, 子代理, 协作与派遣, 派遣, 参谋, dispatch-ops, 派法, 派遣命令, 派遣操作, 操作规程, 委任状, charter, 钳位, subagent 委任状, internal charter, 问管家, 取法, ask, ask_status, ask-ai, 六码, 六 verdict, 降级模式, 管家, 经验卡投递, 开工必读, experience pull, 沉淀回流]
+type: rule
+strength: required
+scope: global
+status: active
+version: 1.10
+domain: agent-collaboration
+load: always
+requires: [safety-redlines, work-pact, principles, doc-discipline, software-production-law]
+enforced_by: [lint:E20, lint:E21, lint:E23, rb:guard-tally#doorbell, file:D:\trackeep\trackeep-scripts\agent-launchers\dispatch.sh#gate, human:各席自照·派席方对表]
+coverage: 行为条全覆盖
+---
+
+# 用工法
+
+**新人从这里开始**：先读「总则」认清主律五问；**第一章 谁负责**（分工与组织）——谁能授权、谁施工、谁验收；**第二章 怎么下单**（派活与授权）——派第一单沿第二章开头的发单路线走，每步一个详读落点；**第三章 怎么算做成**（证据与收口）——事怎么算做完、怎么收口。规矩只在本书出现一次；附录只放格式件与登记表指针。
+
+## 总则
+
+**主律：循源守界，分席验实，依验结案。**（正本＝`work-pact`）
+
+**五常数（源、界、席、证、终）**：钉义与判别五问正本＝`work-pact`；本书两处补充——**分席**＝服从该案的干审分离要求；报告写明「未验」不使对象自动通过。**立新规矩先过五常数**。
+
+**安全红线永不压进公式**：正本＝`safety-redlines`；38 条显式保留清单见本书「禁区」。具体数字、签字人和例外仍是各条文参数，不从主律推算。
+
+---
+
+## 第一章 谁负责
+
+这一章管分工：谁下命令、谁干活、谁检查，岗位、编制和领域怎么定，立域怎么走。
+
+### 一、指挥链唯一
+
+链路唯一：`PI → Orchestrator（主控调度席）→ 被派方`，不设中间层。不可逆或红线相邻动作（生产部署、真机 `adb`（安卓调试桥）、红线区亲改、终审复算）亲办不下派，亲办≠豁免（仍先过授权与禁区）；封印（定版锁定）唯 PI。
+
+### 二、岗位与编制
+
+**岗位**是单个被派方的工种合同；**编制**是多席（独立执行单元）搭班预设。派席公式＝`岗位 × 领域卡 × 能力表`。两条原则：
+
+1. **组织的是知识不是权力**：领域与岗位两轴正交；派席时在委任状（席位授权与约束单）固定为指定版本键。
+2. **认岗位不绑模型**：岗位卡零型号名，型号事实取自机器登记（`manifest`）；写审分离按独立 `session`（会话上下文）判（判据见第三章「干审分开四件套」）。
+
+### 三、岗位卡十字段
+
+岗位卡必须包含以下固定字段：
+
+| 字段 | 约束 |
+|---|---|
+| `inputs` | 上岗输入清单 |
+| `outputs` | 交付物与回报格式 |
+| `obligations` | 必履职责 |
+| `forbidden` | 禁止事项（**越界作废**） |
+| `tool_permissions` | 工具绑定入口：各岗工具权限正文见《岗位册》对应章；机读工具面随壳与登记走，本书不双写 |
+| `evidence_required` | 证据与复核要求 |
+| `stop_conditions` | 立即停手条件 |
+| `escalation` | 上报路径 |
+| `conflict_of_interest` | 通用两条正本见本章 §八「利益冲突两条」 |
+| `budget` | 超限有机器痕迹，`token`（用量计数）计入一役一记 |
+
+其余岗位硬规：
+
+- `capabilities_required` 只收**底线四格**口径（在役可召唤／独立会话／能跑工具／上下文够）；受控词表＝**能力卡字段清单本身**（引字段不引自由词，引用清单外的名字＝机器拒）；特长归写单选型，不写进岗位卡。
+- **执行岗与制衡岗（复核、审计）永不合并**。
+- **全体席位共同三条**（正本居此，岗册只登记不复述）：①靶场（独立沙箱作业区）只建在 `TEMP`（系统临时工作目录）、禁入 git 库——仅限沙箱作业区，委任状明许的隔离工作区不受此限；②可写范围白名单外越界即交付作废（白名单由委任状给出）；③做一条保存一条——仅限有落盘授权的任务，零写权席位不带（细则正本见第二章「委任状：外派格式与内生简版」）。
+
+### 四、领域卡与装载
+
+这节管规矩随单到人。
+
+- **装载**：命中领域的活，写单时从书架（`registries/bookshelf.json`）挑领域卡排进任务书「领域卡」栏，把卡内义务条目装进任务书；一席可戴多张，所戴义务从开工起全部生效；未命中领域则裸派遣并记录。
+- **照办与照查**：承岗席逐条照做，`verifier` 逐条核对义务表，漏一条验收不过。义务装进任务书即机器痕迹（工具注入，或人工前置并标「人工装载」）；同 `harness`（代理运行壳）投递带指针，跨模型全文嵌入并带版本戳。
+- **卡是法条**：领域卡只载职责（必须／禁止），不载权限；卡与卡冲突按安全从严（越界作废与安全红线恒优先）；修改领域卡＝修改法律，须 PI 批准并附改动清单，不存在「维护即生效」；正文一真相源加指针，不复述他处正本。
+
+### 五、组队与配席
+
+这节管派几个人、怎么派。
+
+- **能单不组队**：单人可交付的活派一席；需互盲配两席；需独立裁决另设尾审；达到 **≥3 会话** 或 **≥3 任务书** 才动编制卡。组队先报代价，≥4 席或高档编制须 PI 批准。
+- **按序装配**：任务定性 → 领域卡（按单·0 到多张）→ 编制 → 验收档求交 → 选人。约束冲突时：安全红线 ＞ 岗位或领域硬约束 ＞ 编制 ＞ 验收档 ＞ 实绩（以验收记录为准）。R0/R1 主控自动撮合；R2 以上给候选方案，PI 拍板。
+- **缺人不硬凑**：无人取台账次优；仍无则报 PI 三选一（降档／裸派遣＋记录／不派），最多重试 2 次；禁止静默降编。
+- **口令六步**：「派 `<编制名>`」＝取法 → 解析编制卡 → 逐席选人 → 空跑检查（全席有人、委任状五要素齐、可写范围互斥、取法闭包、验收档可配——缺一不派半队）→ 生成委任状 → 并行派发逐席验送达；全席确认前不算开工。
+- **协作协议**：同岗多席互不通气（恒盲）；席位交接用磁盘文件并带最小交接头，不用口头。
+
+### 六、席位资格与命名纪律
+
+命名两条红线：引用只许自上而下（档案不得依赖型号名）；每层只在一处登记（同一语义两处登记必漂移）。
+
+- **任务号**：`T{MMDD}-{SLUG}-{席位码}{轮次}`；席位码注册制（`S`/`F`/`X`/`V`/`L`/`A`/`D`，新码先登记）；战役文件只带任务号，不带厂商名。
+- **正式名（四元组）**：`harness · model · type · effort`；记录、账本、委任状一律使用；撞名复述确认后再派；`mode` 不入四元组；`type` 写人话短形，精确 id 只留在 `manifest`。
+- **`session` 是第二核心身份**：同一四元组两次派遣视为两个 agent；写审分离的「不同人」按 `session` 判（判据见第三章「干审分开四件套」）。
+- **禁改集**：`wire` 枚举、`launcher` 三段公式、已铸任务号与 `UUID`，永不改、永不复用。
+- **禁用「公司」「部门」**：运行时与规则文本同禁。
+- **按名取人**（在册表见附录二）：主控从枢纽按名派遣（`subagent_type: <名>`），按登记岗位名取 `trackeep-` 前缀实体（两端同名）。端差异列：`仅 Claude 端`／`仅 Codex 端`／无标记＝双端，Antigravity 端铺席后增注 `三端` 或 `仅 Antigravity 端`；文件缺失即报断链，切换证明＝岗册表行经扫描器核验。`doclaw` 三档仅 Claude 端。监察按阶段触发（阈值取其岗位卡）；Claude 端文档审查席由 PI 调用触发。
+
+### 七、立域与成长
+
+- **准入**：新领域首役或裸派遣累积时，四项齐备才提议（PI 可直指）：至少 2 个异质任务实证、可复用资产、`owner` 与消费者、预写退役条件。查重在先：现有卡、委任状加段、规则模块能否覆盖，是否一次性任务。
+- **流程**：提议 → 查重 → 八原则审 → `doc-auditor` 五查 → PI 批 → 转在役。草稿标「待验证」，役毕转正或作废；三役未转正强制复审。
+- **事件复审**：`observer` 阶段回顾或事件触发时核验。同编制连败 2 次即复审；同岗缺人至少 2 次即提补员或立岗；复审决定改卡、停用或退役。
+- 未启用预案四类（能力表、换代认证、治理增长、停用编制）存档于历史设计，触发后按立域流程提案。领域卡模板与退役复审细则见 `registries/领域卡模板.md`。
+- **立法与进度纪律**：**立法冻结**——法条只在真事故后修，日常零修法单（没有事故单，就没有修法单）；**进度尺**——每日收口报「交付了什么真结果」，不报「法改了几行」。
+
+### 八、利益冲突两条
+
+通用两条（正本居此，岗位卡只登记不复述）：**不复核自己写的内容；不选自己的 `Verifier`。**
+
+---
+
+## 第二章 怎么下单
+
+这一章管派活（取法、判级、选席、填单、送达、开工）：发单、再派、组队、续线程、收卷或提交时，沿下面动线单向流从上往下走。
+
+### 一、发单路线（取法 → 判级签发 → 拆解选席 → 填单确认送达 → 开工 → 验收收卷）
+
+1. **取法**：先问管家取有效正本（详读本章 §九「取法协议」）。
+2. **判级签发**：R 级判级＋装载扫描，签字门落「签发」字段（详读本章 §二「判级与授权门」）。
+3. **拆解选席**：拆到叶子落任务地图、勾选契约、按名取人组队（详读本章 §三「地图门与地形」；选人与装配见第一章 §五「组队与配席」）。
+4. **填单确认送达**：写单＝装配（岗位卡×领域卡们×型号三样全排进任务书；型号自选时写理由）；写委任状（恒定钳位逐字复制，见附录一与本章 §八）；登记占位避撞（先占位再启动派发）；启动派发（点档位用档位名，点型号用型号名）；验送达（要求对方复述任务目标：**复述对＝送达；复述不出＝整单重发；没回话＝先查死活（本章 §十一），查无再重发**）。
+5. **开工**：先读经验卡（本章 §十），动手前过契约确认门（本章 §三 节末）。
+6. **验收收卷**：交收卷回执（规范形见第三章 §四「收卷与回报」）；沉淀见第三章 §五「复盘与经验回流」。
+
+**两个可见时点（进场确认 ≠ 最终回报）**：
+
+- **进场确认**（时点＝进场首次回复）：第一句先输出任务书顶部注入的送达暗号（机器码；自编暗号只作对人暗语，不得替代），然后复述一句你这一单要做什么。派单方验送达：复述不出即整单重发；**没回话不等于没送到**，不得混判（判据见本章 §十一）。
+- **最终回报**（时点＝任务最终输出）：交付报告开头三行＋送达暗号；暗号必须出现在最终输出（机器检索，缺即作废），细则见第三章 §四。
+- 只回最终文本的通道：进场确认合并进最终输出首句照抄（暗号＋复述两行作信封，置开头三行之前；**信封不算呈报正文，呈报首行仍是①行**——见第三章 §四），派单方在采用产物前完成验送达。
+
+（派发器四项机器保证——档位互拒、洗环境、暗号送达检查闸、写账本——见 `registries/端侧操作手册.md`；内生席不承接。）
+
+### 二、判级与授权门（R 级取最高）
+
+**步 0 形状判定与入口分档**：完成 R 级预判与执行形状预判；**步 0 即扫两轴**（硬触发表＋三问），两轴结果记入判级理由。**预判即终判**——轻入口（`R0`/`R1` 且单 agent）无第二道判级：五问审判＋签字门，契约用轻量简版，允许批次签发；全套入口（`R2`+／多席／探索型）在入口四步第 3 步正式判级，对步 0 预判确认或重算，取最高，四步全走。**探索型任务一律走全套入口。何时重算**：同条款版本＋同适用条件可复用，判级理由、适用事实或硬触发命中任一变化即重算。
+
+**入口四步**：①五问审判（要什么、为什么、怎么做、风险、验收怎么算）；②八原则审（正本见 `principles`）；③ R 级判级＋装载扫描（见本节与第一章 §四）；④签字门（复述意图 → PI 回复「发」→ 落任务书「签发」字段，授权原话＋日期留机器可查痕；**`R3` 或不可逆大改道**：门前须附独立席隔离上下文盲审的**最强**正反两栏（禁稻草人）＋一个关键问题并入裁决）。
+
+**勾选契约**：分型清单每项列「类型＋R 级预判」，PI 逐项打勾。勾＝目标＋授权，未勾＝非目标留档；**无勾不开工**；追加项走追加勾选，不许静默扩项。按类型动作：修复类勾了即开工；方案类走两轮勾；决策类由 PI 拍板不派工；研究类派调研席。
+
+**验收契约九字段**：目标与非目标、成功判据（附证伪方法）、失败判据、验证方法（验收环境清单——多机验一处＝假绿）、证据要求（**证据＝机器产物或结构化 verdict，裸声明不是证据**）、关键依赖、预算（超限即重审）、不可逆与回滚、需请示的变更。轻量简版 4 项：目标、成功判据（附证伪方法）、R 级＋判级理由、回滚。**契约成熟度**：探索型可先标「初版」，段③首轮启动升「定稿」（差异摘要入一役一记）；定稿后修改走第三章「返工与终态」的验收基准变更门。执行型直接定稿。
+
+**任务书纪律**：**自足**——禁止写「来找我」，写错的事实会被 100% 执行。**不可逆不许猜**——删数据、改权限、对外发布、花钱必须标「待 PI 裁决」停手，沉默替 PI 拍板＝越权。**判据先红后绿**——验收命令必须亲手跑过再进书；修复类修复前理应 FAIL，动手前就 PASS＝假绿，必须标红写明「修完才对得上」。
+
+**R 级判级（硬触发优先＋三问抬升，取最高）**——硬触发表先查，命中即取**下限等级**（不看命中数）：
+
+| 硬触发情形 | 下限等级 |
+|---|---|
+| 患者数据／诊疗相关 | `R3` |
+| 真实金融交易／资金操作 | `R3` |
+| 生产系统发布／密钥／账号 | `R3` |
+| 不可恢复删除或迁移 | `R3` |
+| 对外发布分发 | `≥R2` |
+| 共享状态／主分支／schema／权限 | `≥R2` |
+
+- **共享状态范围**：库内 `active` 法条正文、`schema` 正本、端侧生产卡、`bootstrap`（启动引导）块、派发门禁。可逆性只区分 `R0` 与 `R1`，**不下拉任何硬触发命中项**（「git 可逆」不是降级理由）。
+- **生产系统发布豁免**：自建单用户内部系统（`terminal-console`／App 等）的部署只豁免「生产发布」一格，其余硬触发逐项照查（涉患者数据仍为 `R3`）；部署仍须 PI 明令，「装」字令即终审。
+- **三问抬升（只抬不降）**：基线 `R1`，每命中一项升一级，上限 `R3`：① 有不可逆动作吗？② 碰真实数据、隐私或凭证吗？③ 对外发布多用户吗？**`R0` 须同时满足**：三问全不命中、纯实验、只读可重建（纯实验写自己的临时文件＝`R1`）。
+- **从严条款**：义务表安全权重高于当前判级时取较高者；答不上来按命中算；各来源取**较高者**；判级理由写入任务书（无命中也要写，**并标明哪几项是「猜的」**——补证本单沿用已签等级，拟降级留新事实重签再放行）。
+- **R3 之上的外部签字权**：涉及伦理审查（IRB）、法务或平台合规时签字权在体系外；轨道义务是**识别并停在门前**，PI 签字不替代外部审批。
+- **R 级义务**（按级累积适用；R2+ 复核判据见第三章「干审分开四件套」）：`R0` 只读可重建；`R1` 局部可逆（留 `diff`／`rollback`）；`R2` 共享状态（须独立复核）；`R3` PI 签字。
+- **R3 签字程序（间隔式二次确认）**：签前信息包 → 确认知悉 → **≥30 分钟**二次确认（治理默认值，PI 可调、可豁免；自确认知悉同版信息包起计）→ 签，无回应保持待签。两次确认须指向同一动作、影响范围与回滚条件；范围或关键风险改变则换包重确认；紧急豁免只豁等待，留 PI 原话、理由及时间。
+- **额度门（发单前第二道闸）**：目标席位余量须 **≥ 预估用量 ×2** 才准发；点名席位不足时报缺口走既定三档处置，不擅自换人。额度读数与巡检流程正本＝`trackeep-scripts` 额度巡检流程；订阅额度单列，不与按量混算。
+- **`Run` 版本固定（发单固定；第三章只凭同一份键验）**：六键——岗位卡版本→岗位卡；领域卡版本→领域卡；能力证据→能力表；`model`→模型；轨道护栏版本→轨道；验收基准→基线。键值以已验产物为准（空表或 `n/a` 不算已验）；控制面更新不追溯，`PASS` 须可溯版本；规则改版标过渡期，旧任务按旧规完成或显式迁移。
+- **装载表**（判级后装载；**本行为本章强制映射，另按在役领域卡判据补装**；归属单选、装载多选，冲突按安全从严）：
+
+| 轴 | 命中判据 | 装什么 |
+|---|---|---|
+| 产出物类型（横切） | 产出含软件／代码 | `software-production-law` |
+| 业务内容（纵切） | 科研写作 | `data-safety`＋`output-delivery` |
+| 业务内容（纵切） | 金融分析 | `data-safety`＋`software-production-law`（验证篇）＋`output-delivery` |
+
+表注：三行为强制映射；表外业务查在役领域卡（书架 `bookshelf.json`）补装，未命中裸派并记录（见第一章 §四）；新法或新领域卡走立域门（第一章 §七）。
+
+### 三、地图门与地形
+
+- **任务地图**：把任务拆到叶子（一轮可交付），产出**任务地图**，**唯一真相源为 `task-map` 保存到文件**，其余皆投影。节点以**轨道位置为行键**（步名只供人读），含：状态、授权态（勾选契约引用＋「已准／待准」一词）、依赖、役中违例计数（初值 0）、结果指针（报完必填，直达回执证据）。**图的写权在派单方**——执行席交结果、派单方回填；长单多席共用一张贯穿全程的图。退回或重派须回填原因（重派保留上一次退因）；收卷时把拆解叶子逐一对上，防整行删除后「剩下的都完了」仍为真。**并行写默认禁止**（只读侦查可并行）。派席撮合决策权正本见第一章 §五。**按类型分流**：按任务类型走 `handbook` 场景表路由。
+- **首部四字段（机器强制）**：正本与闸文见本章 §六「任务书四字段」。
+- **地形行（机器强制）**：`R级≠R1` 或任务有写入（含局部可逆写入）时，可写范围单须另加一行「地形」；`dispatch.sh` 地形门缺「地形」字样拒发（**不受 `OFFTRACK` 豁免**）；纯只读任务免；回执「地图影响」节规范形见第三章 §四，缺节收卷闸标红入账。
+
+hook: PostToolUse
+ succeeded in 1007ms:
+const CACHE_PREFIX = 'thoradar-shell-';
+const CACHE_NAME = `${CACHE_PREFIX}v1`;
+const SHELL_URL = new URL('/index.html', self.location.origin).href;
+const DATA_START = '/*__THORADAR_DATA_START__*/';
+const DATA_END = '/*__THORADAR_DATA_END__*/';
+const statuses = new Map();
+let refreshTail = Promise.resolve();
+
+async function fetchShell(url) {
+  const response = await fetch(url, {
+    cache: 'no-store', redirect: 'error', signal: AbortSignal.timeout(8000)
+  });
+  const mime = response.headers.get('Content-Type')?.split(';', 1)[0].trim().toLowerCase();
+  if (response.status !== 200 || response.type !== 'basic' || mime !== 'text/html') return null;
+
+  const html = await response.clone().text();
+  const start = html.indexOf(DATA_START);
+  const dataStart = start + DATA_START.length;
+  const end = html.indexOf(DATA_END, dataStart);
+  if (start === -1 || end === -1 ||
+      !html.trimEnd().toLowerCase().endsWith('</html>')) return null;
+
+  const block = html.slice(dataStart, end).trim();
+  const declaration = /^const\s+SITE_DATA\s*=\s*(\{[\s\S]*\})\s*;?$/.exec(block);
+  if (!declaration) return null;
+  try {
+    const data = JSON.parse(declaration[1]);
+    if (typeof data.briefing_date !== 'string' || !Array.isArray(data.papers)) return null;
+  } catch (_) {
+    return null;
+  }
+  return { response, html };
+}
+
+async function checkForUpdate(cache, url, displayed) {
+  try {
+    const fresh = await fetchShell(url);
+    if (!fresh) return 'unavailable';
+    const stored = await cache.match(SHELL_URL);
+    if (!stored || await stored.text() !== fresh.html) await cache.put(SHELL_URL, fresh.response);
+    return displayed && await displayed.text() !== fresh.html ? 'updated' : 'current';
+  } catch (_) {
+    return 'unavailable';
+  }
+}
+
+function remember(clientId, status) {
+  if (!clientId) return;
+  statuses.delete(clientId);
+  statuses.set(clientId, status);
+  if (statuses.size > 64) statuses.delete(statuses.keys().next().value);
+}
+
+function sendStatus(client, status) {
+  client?.postMessage({ type: 'thoradar-shell-state', status });
+}
+
+self.addEventListener('message', event => {
+  if (event.data?.type !== 'thoradar-shell-status' || event.source?.type !== 'window') return;
+  sendStatus(event.source, statuses.get(event.source.id) || 'unavailable');
+});
+
+self.addEventListener('install', event => {
+  event.waitUntil((async () => {
+    const cache = await caches.open(CACHE_NAME);
+    await checkForUpdate(cache, SHELL_URL);
+  })().catch(() => {}));
+});
+
+self.addEventListener('activate', event => {
+  event.waitUntil((async () => {
+    const names = await caches.keys();
+    await Promise.all(names.filter(name => name.startsWith(CACHE_PREFIX) && name !== CACHE_NAME)
+      .map(name => caches.delete(name)));
+  })().catch(() => {}));
+});
+
+self.addEventListener('fetch', event => {
+  const request = event.request;
+  if (request.method !== 'GET' || request.mode !== 'navigate') return;
+  const url = new URL(request.url);
+  if (url.origin !== self.location.origin || (url.pathname !== '/' && url.pathname !== '/index.html')) return;
+  // A single test opt-in is cacheable. Other query variants retain native navigation.
+  if (url.search && !(url.searchParams.size === 1 && url.searchParams.get('sw') === '1')) return;
+
+  const clientId = event.resultingClientId || event.clientId;
+  const lookup = (async () => {
+    const cache = await caches.open(CACHE_NAME);
+    const page = await cache.match(SHELL_URL);
+    return { cache, page, displayed: page?.clone() };
+  })().catch(() => null);
+
+  event.respondWith(lookup.then(entry => {
+    remember(clientId, entry?.page ? 'checking' : entry ? 'network' : 'fallback');
+    if (entry?.page) return entry.page;
+    return fetch(request);
+  }));
+
+  // Keep writes ordered when multiple tabs ask for a check. Cache hits never wait for this queue.
+  const refresh = refreshTail.then(async () => {
+    const entry = await lookup;
+    if (!entry) return;
+    let status = await checkForUpdate(entry.cache, request.url, entry.displayed);
+    if (!clientId) return;
+    if (!entry.displayed) {
+      if (status !== 'unavailable') return;
+      status = 'fallback';
+    }
+    remember(clientId, status);
+    sendStatus(await self.clients.get(clientId), status);
+  });
+  refreshTail = refresh.catch(() => {});
+  event.waitUntil(refreshTail);
+});
+
+Algorithm       Hash                                                                   Path
+---------       ----                                                                   ----
+SHA256          33C50BEF723B0A3F32B51BC2D5927FF4391BB58EB474996F1A7D9DFF96BC1DEF       D:\trackeep\trackeep-product\tr…
+SHA256          900061DD45AD04E9F9C4391E5D2756F8B080A4BC4144EDE9B913B6DEABB5AA8B       D:\trackeep\trackeep-product\tr…
+
+Name          : run-regressions.mjs
+Length        : 4104
+LastWriteTime : 2026/11/28 11:25:52
+
+
+Name          : verify-s1.mjs
+Length        : 19578
+LastWriteTime : 2026/11/28 11:00:58
+
+
+Name          : verify-s2.mjs
+Length        : 30984
+LastWriteTime : 2026/11/28 11:27:12
+
+
+Name          : verify-s3.mjs
+Length        : 10759
+LastWriteTime : 2026/11/28 11:55:29
+
+
+Name          : verify-source.mjs
+Length        : 3026
+LastWriteTime : 2026/11/28 11:28:03
+
+
+Name          : sol-s3-final-regressions
+Length        : 
+LastWriteTime : 2026/11/28 11:55:49
+
+
+Name          : sol-s3-regressions
+Length        : 
+LastWriteTime : 2026/11/28 11:54:04
+
+
+Name          : sol-s3-after.json
+Length        : 24388
+LastWriteTime : 2026/11/28 11:52:13
+
+
+Name          : sol-s3-after.stderr.txt
+Length        : 0
+LastWriteTime : 2026/11/28 11:51:54
+
+
+Name          : sol-s3-after.stdout.txt
+Length        : 9385
+LastWriteTime : 2026/11/28 11:52:13
+
+
+Name          : sol-s3-before.json
+Length        : 24037
+LastWriteTime : 2026/11/28 11:51:00
+
+
+Name          : sol-s3-before.stderr.txt
+Length        : 0
+LastWriteTime : 2026/11/28 11:50:42
+
+
+Name          : sol-s3-before.stdout.txt
+Length        : 9041
+LastWriteTime : 2026/11/28 11:51:00
+
+
+Name          : sol-s3-final-after.json
+Length        : 24394
+LastWriteTime : 2026/11/28 11:56:03
+
+
+Name          : sol-s3-final-after.stderr.txt
+Length        : 0
+LastWriteTime : 2026/11/28 11:55:46
+
+
+Name          : sol-s3-final-after.stdout.txt
+Length        : 9391
+LastWriteTime : 2026/11/28 11:56:03
+
+
+Name          : sol-s3-final-before.stderr.txt
+Length        : 0
+LastWriteTime : 2026/11/28 11:56:03
+
+
+Name          : sol-s3-final-before.stdout.txt
+Length        : 8192
+LastWriteTime : 2026/11/28 11:56:12
+
+
+Name          : sol-s3-final-regressions.stderr.txt
+Length        : 0
+LastWriteTime : 2026/11/28 11:55:47
+
+
+Name          : sol-s3-final-regressions.stdout.txt
+Length        : 0
+LastWriteTime : 2026/11/28 11:55:47
+
+
+Name          : sol-s3-final-s1.json
+Length        : 20716
+LastWriteTime : 2026/11/28 11:55:53
+
+
+Name          : sol-s3-final-s1.stderr.txt
+Length        : 100
+LastWriteTime : 2026/11/28 11:55:57
+
+
+Name          : sol-s3-final-s1.stdout.txt
+Length        : 9468
+LastWriteTime : 2026/11/28 11:55:57
+
+
+Name          : sol-s3-final-s2.stderr.txt
+Length        : 0
+LastWriteTime : 2026/11/28 11:55:57
+
+
+Name          : sol-s3-final-s2.stdout.txt
+Length        : 24576
+LastWriteTime : 2026/11/28 11:56:16
+
+
+Name          : sol-s3-negative-control.stderr.txt
+Length        : 0
+LastWriteTime : 2026/11/28 11:56:09
+
+
+Name          : sol-s3-negative-control.stdout.txt
+Length        : 696
+LastWriteTime : 2026/11/28 11:56:09
+
+
+Name          : sol-s3-negative.stderr.txt
+Length        : 0
+LastWriteTime : 2026/11/28 11:56:09
+
+
+Name          : sol-s3-negative.stdout.txt
+Length        : 4096
+LastWriteTime : 2026/11/28 11:56:16
+
+
+Name          : sol-s3-regressions.stderr.txt
+Length        : 0
+LastWriteTime : 2026/11/28 11:51:54
+
+
+Name          : sol-s3-regressions.stdout.txt
+Length        : 1652
+LastWriteTime : 2026/11/28 11:54:04
+
+
+Name          : sol-s3-s1-allow-truncated.json
+Length        : 17224
+LastWriteTime : 2026/11/28 11:53:10
+
+
+Name          : sol-s3-s1-allow-truncated.stderr.txt
+Length        : 100
+LastWriteTime : 2026/11/28 11:53:15
+
+
+Name          : sol-s3-s1-allow-truncated.stdout.txt
+Length        : 8075
+LastWriteTime : 2026/11/28 11:53:15
+
+
+Name          : sol-s3-s1-no-local-return.json
+Length        : 8481
+LastWriteTime : 2026/11/28 11:53:00
+
+
+Name          : sol-s3-s1-no-local-return.stderr.txt
+Length        : 100
+LastWriteTime : 2026/11/28 11:53:05
+
+
+Name          : sol-s3-s1-no-local-return.stdout.txt
+Length        : 4171
+LastWriteTime : 2026/11/28 11:53:05
+
+
+Name          : sol-s3-s1.json
+Length        : 20766
+LastWriteTime : 2026/11/28 11:52:01
+
+
+Name          : sol-s3-s1.stderr.txt
+Length        : 100
+LastWriteTime : 2026/11/28 11:52:06
+
+
+Name          : sol-s3-s1.stdout.txt
+Length        : 9518
+LastWriteTime : 2026/11/28 11:52:06
+
+
+Name          : sol-s3-s2-no-retire-cleanup.json
+Length        : 6302
+LastWriteTime : 2026/11/28 11:53:20
+
+
+Name          : sol-s3-s2-no-retire-cleanup.stderr.txt
+Length        : 100
+LastWriteTime : 2026/11/28 11:53:24
+
+
+Name          : sol-s3-s2-no-retire-cleanup.stdout.txt
+Length        : 2857
+LastWriteTime : 2026/11/28 11:53:24
+
+
+Name          : sol-s3-s2.json
+Length        : 97414
+LastWriteTime : 2026/11/28 11:52:45
+
+
+Name          : sol-s3-s2.stderr.txt
+Length        : 100
+LastWriteTime : 2026/11/28 11:52:50
+
+
+Name          : sol-s3-s2.stdout.txt
+Length        : 39729
+LastWriteTime : 2026/11/28 11:52:50
+
+
+Name          : sol-s3-source.json
+Length        : 13452
+LastWriteTime : 2026/11/28 11:52:56
+
+
+Name          : sol-s3-source.stderr.txt
+Length        : 0
+LastWriteTime : 2026/11/28 11:52:50
+
+
+Name          : sol-s3-source.stdout.txt
+Length        : 11580
+LastWriteTime : 2026/11/28 11:52:56
+
+
+Name          : sol-s3-worker.diff.stderr.txt
+Length        : 253
+LastWriteTime : 2026/11/28 11:54:11
+
+
+Name          : sol-s3-worker.diff.txt
+Length        : 993
+LastWriteTime : 2026/11/28 11:54:11
+
+False
+
+
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+**Reviewing process status and category**
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "Get-Content docs/tasks/T1128-SMOOTH/run-sol-s2.ps1
+Get-Content docs/tasks/T1128-SMOOTH/sol-s2-report.md -Tail 25
+rg -n -m 4 '33c50bef|f8a4e2bc|codex-gpt' docs/tasks/T1128-SMOOTH -g '*.md'" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command 'Get-Content tests/smooth/verify-s3.mjs
+Get-Content tests/smooth/run-regressions.mjs' in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "Get-Date -Format o
+Get-Content docs/tasks/T1128-SMOOTH/sol-s3-negative-control.stdout.txt
+Get-Content docs/tasks/T1128-SMOOTH/sol-s3-worker.diff.txt
+Get-Content docs/tasks/T1128-SMOOTH/sol-s3-final-s1.stderr.txt
+Get-ChildItem docs/tasks/T1128-SMOOTH -Filter 'sol-s3*' | Format-Table Name,Length,LastWriteTime -AutoSize
+rg -n --max-count 2 'adversarial-empty-markers-stub' 'D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v1' -g '*.mjs' -g '*.json'" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+ succeeded in 987ms:
+[CmdletBinding()]
+param(
+    [Parameter(Mandatory)]
+    [ValidatePattern('^[a-zA-Z0-9-]+$')]
+    [string]$RunId,
+    [ValidateSet('none', 'no-local-return', 'allow-truncated', 'no-retire-cleanup')]
+    [string]$Mutation = 'none',
+    [ValidateSet('s1', 's2')]
+    [string]$Suite = 's2'
+)
+
+$ErrorActionPreference = 'Stop'
+if (($Suite -eq 's1' -and $Mutation -eq 'no-retire-cleanup') -or
+    ($Suite -eq 's2' -and $Mutation -in @('no-local-return', 'allow-truncated'))) {
+    throw 'Mutation does not apply to the selected suite.'
+}
+$root = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..\..\..')).Path
+$harness = Join-Path $root "tests\smooth\verify-$Suite.mjs"
+$stem = Join-Path $PSScriptRoot "sol-s2-$RunId"
+$jsonPath = "$stem.json"
+$stdoutPath = "$stem.stdout.txt"
+$stderrPath = "$stem.stderr.txt"
+foreach ($item in @($jsonPath, $stdoutPath, $stderrPath)) {
+    if (Test-Path -LiteralPath $item) { throw "Evidence already exists at $item. Use a fresh RunId." }
+}
+$node = (Get-Command node -CommandType Application).Source
+$arguments = @(('"{0}"' -f $harness), ('"{0}"' -f $jsonPath), $Mutation)
+Write-Output "node tests/smooth/verify-$Suite.mjs docs/tasks/T1128-SMOOTH/sol-s2-$RunId.json $Mutation"
+$process = Start-Process -FilePath $node -ArgumentList $arguments -WorkingDirectory $root -WindowStyle Hidden `
+    -RedirectStandardOutput $stdoutPath -RedirectStandardError $stderrPath -Wait -PassThru
+Write-Output "ExitCode=$($process.ExitCode) JSON=$jsonPath Stdout=$stdoutPath Stderr=$stderrPath"
+exit $process.ExitCode
+既有回归的封装只设置各套临时目录并捕获输出，实际执行如下命令。UX 原生量测 JSON 在 [ux-measurements](sol-s2-legacy-evidence/ux-measurements/)。
+
+```powershell
+node tests/ux/ux_probe.mjs --target index.html --base 73dd34e --label sol-s2
+node tests/aicls/aicls_regress.mjs --target index.html --baseline 73dd34e --label sols2
+node tests/poolup/poolup_regress.mjs --target index.html --baseline 73dd34e --label sols2
+```
+
+| 既有回归 | 原始结果 | 证据 |
+| --- | --- | --- |
+| UX | 46 通过，0 失败，退出 0 | [JSON](sol-s2-legacy-evidence/ux.json) · [stdout](sol-s2-legacy-evidence/ux.stdout.txt) · [stderr](sol-s2-legacy-evidence/ux.stderr.txt) |
+| AICLS | 39 通过，1 失败，退出 1 | [JSON](sol-s2-legacy-evidence/aicls.json) · [stdout](sol-s2-legacy-evidence/aicls.stdout.txt) · [stderr](sol-s2-legacy-evidence/aicls.stderr.txt) |
+| POOLUP | 39 通过，1 失败，退出 1 | [JSON](sol-s2-legacy-evidence/poolup.json) · [stdout](sol-s2-legacy-evidence/poolup.stdout.txt) · [stderr](sol-s2-legacy-evidence/poolup.stderr.txt) |
+
+| 目标文件 | SHA-256 |
+| --- | --- |
+| `index.html` | `33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def` |
+| `sw.js` | `f8a4e2bc4d5d81964475580c012e825281f409a171782640ad5cbc68a07bca24` |
+| `sw-retire.js` | `5ae38f2ba965f4e1b1d340da2ba5fadd8b58af82a1e271a02ddff97ab5686199` |
+| `tests/smooth/verify-s1.mjs` | `6c93edebe199b9d502e72d42b729bc2dc96ee313307b6341fd5fa92f85c84dc4` |
+| `tests/smooth/verify-s2.mjs` | `9266fc7518314073d3694d809cca0e7c6e057daa2c7fcb80bdb0d2a7d460ea48` |
+
+## 地图终态
+
+③.4 的施工候选和证据已落在指定隔离工作树。地图仍显示 ③.4 `in-progress`、④ Neon 独立复核和 ⑤ 主控整合 `pending`、⑤.9 发布 `not-authorized`，由派遣方回填。正式回归所留 R08 红项随候选提交复核。[唯一任务地图](/D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/task-map.md)
+docs/tasks/T1128-SMOOTH\sol-s2-report.md:70:| `index.html` | `33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def` |
+docs/tasks/T1128-SMOOTH\sol-s2-report.md:71:| `sw.js` | `f8a4e2bc4d5d81964475580c012e825281f409a171782640ad5cbc68a07bca24` |
+
+hook: PostToolUse
+ succeeded in 1287ms:
+import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { createServer } from 'node:http';
+import { arch, release, tmpdir, version } from 'node:os';
+import { basename, dirname, join, resolve } from 'node:path';
+import { ROOT, connect, freePort, gitRead, launch, sha256, sleep } from '../aicls/lib.mjs';
+
+const [output, workerPath = join(ROOT, 'sw.js')] = process.argv.slice(2);
+if (!output) throw new Error('Usage: node tests/smooth/verify-s3.mjs <result.json> [worker.js]');
+const worker = await readFile(workerPath);
+const healthy = await readFile(join(ROOT, 'index.html'), 'utf8');
+const neon = '<!doctype html><html><head><title>Stub</title></head><body><!-- /*__THORADAR_DATA_START__*//*__THORADAR_DATA_END__*/ --><p>Corrupted shell</p></body></html>';
+const neonHash = '11e2ff0add51cd0cf4f21b39010925b11df3fe7c0d388906c0c56468a3a16b74';
+if (Buffer.byteLength(neon) !== 156 || sha256(neon) !== neonHash) throw new Error('Neon fixture bytes differ');
+
+const start = '/*__THORADAR_DATA_START__*/';
+const end = '/*__THORADAR_DATA_END__*/';
+const dataBlock = /const SITE_DATA = (\{[^\r\n]+\});\s*\/\*__THORADAR_DATA_END__\*\//.exec(healthy);
+if (!dataBlock) throw new Error('Healthy fixture has no official SITE_DATA');
+const data = JSON.parse(dataBlock[1]);
+const zeroData = { ...data, briefing_date: '2026-11-28', papers: [] };
+const zero = healthy.replace(dataBlock[1], () => JSON.stringify(zeroData));
+if (zero === healthy || data.papers.length === 0) throw new Error('Expected distinct populated and zero-paper editions');
+const shell = (block, after = '') => `<!doctype html><html><body><script>${start}\n${block}\n${end}\n${after}</script></body></html>`;
+const cases = [
+  ['neon-empty-markers-stub', neon],
+  ['missing-site-data-between-markers', shell('const OTHER = {};', 'const SITE_DATA = {"briefing_date":"2026-11-28","papers":[]};')],
+  ['invalid-json', shell('const SITE_DATA = {"briefing_date":"2026-11-28","papers":[],};')],
+  ['wrong-briefing-date-type', shell('const SITE_DATA = {"briefing_date":20261128,"papers":[]};')],
+  ['wrong-papers-type', shell('const SITE_DATA = {"briefing_date":"2026-11-28","papers":{}};')],
+  ['valid-zero-papers', zero]
+];
+const describe = body => ({ bytes: Buffer.byteLength(body), sha256: sha256(body) });
+const result = {
+  command: ['node', 'tests/smooth/verify-s3.mjs', ...process.argv.slice(2)], startedAt: new Date().toISOString(),
+  runs: 1, seed: null, baseline: gitRead(['rev-parse', 'HEAD']).trim(),
+  environment: { os: version(), release: release(), arch: arch(), node: process.version },
+  sha256: { 'index.html': sha256(healthy), 'sw.js': sha256(worker),
+    'tests/smooth/verify-s3.mjs': sha256(await readFile(new URL(import.meta.url))) },
+  fixtures: Object.fromEntries([['healthy', healthy], ...cases].map(([name, body]) => [name, describe(body)])),
+  checks: [], requests: [], documents: []
+};
+const mime = 'text/html; charset=utf-8';
+let upstream = ['healthy', healthy];
+const server = createServer((req, res) => {
+  const { pathname } = new URL(req.url, 'http://127.0.0.1');
+  const cacheControl = { 'Cache-Control': 'no-store' };
+  if (pathname === '/driver') {
+    res.writeHead(200, { ...cacheControl, 'Content-Type': mime });
+    return res.end('<!doctype html><title>S3 test driver</title>');
+  }
+  if (pathname === '/sw.js') {
+    res.writeHead(200, { ...cacheControl, 'Content-Type': 'text/javascript' });
+    return res.end(worker);
+  }
+  if (pathname !== '/index.html' && pathname !== '/') {
+    res.writeHead(404, cacheControl);
+    return res.end();
+  }
+  const [name, body] = upstream;
+  const request = { name, url: req.url, method: req.method, status: 200, mime,
+    pragma: req.headers.pragma ?? null, at: new Date().toISOString(), ...result.fixtures[name] };
+  result.requests.push(request);
+  res.once('finish', () => { request.finished = true; });
+  res.writeHead(200, { ...cacheControl, 'Content-Type': mime });
+  res.end(body);
+});
+
+async function until(label, read) {
+  const deadline = Date.now() + 10_000;
+  do {
+    const value = await read();
+    if (value) return value;
+    await sleep(40);
+  } while (Date.now() < deadline);
+  throw new Error('Timed out: ' + label);
+}
+
+function record(name, pass, detail) {
+  result.checks.push({ name, pass, detail });
+  console.log(`${pass ? 'PASS' : 'FAIL'} ${name} ${JSON.stringify(detail)}`);
+}
+
+const temp = resolve(tmpdir());
+const prefix = 'thoradar-sol-s3-chrome-';
+let profile, browser, cdp;
+try {
+  console.log('RUN ' + JSON.stringify(result));
+  await new Promise((done, fail) => {
+    server.once('error', fail);
+    server.listen(0, '127.0.0.1', done);
+  });
+  const origin = `http://127.0.0.1:${server.address().port}`;
+  profile = await mkdtemp(join(temp, prefix));
+  browser = await launch({ chrome: 'C:/Program Files/Google/Chrome/Application/chrome.exe',
+    profile, port: await freePort() });
+  cdp = await connect(browser.ver.webSocketDebuggerUrl);
+  result.environment.chrome = await cdp.send('Browser.getVersion');
+  console.log('BROWSER ' + JSON.stringify(result.environment.chrome));
+  const sessions = new Map();
+  cdp.on('Network.responseReceived', ({ type, loaderId, response }, session) => {
+    if (type === 'Document' && sessions.has(session)) {
+      result.documents.push({ case: sessions.get(session), loaderId, url: response.url,
+        status: response.status, fromServiceWorker: response.fromServiceWorker,
+        source: response.serviceWorkerResponseSource ?? null });
+    }
+  });
+
+  for (const fixture of cases) {
+    const [name] = fixture;
+    const { browserContextId } = await cdp.send('Target.createBrowserContext');
+    let sessionId;
+    try {
+      const { targetId } = await cdp.send('Target.createTarget', { url: 'about:blank', browserContextId });
+      ({ sessionId } = await cdp.send('Target.attachToTarget', { targetId, flatten: true }));
+      sessions.set(sessionId, name);
+      const send = (method, params) => cdp.send(method, params, sessionId);
+      await send('Page.enable');
+      await send('Network.enable');
+      await send('Page.addScriptToEvaluateOnNewDocument', { source: `
+        navigator.serviceWorker?.addEventListener('message', event => {
+          if (event.data?.type === 'thoradar-shell-state') window.s3Status = event.data.status;
+        });` });
+      async function evaluate(fn) {
+        const { result: value, exceptionDetails } = await send('Runtime.evaluate', {
+          expression: `(${fn})()`, awaitPromise: true, returnByValue: true
+        });
+        if (exceptionDetails) throw new Error(exceptionDetails.exception?.description ?? exceptionDetails.text);
+        return value.value;
+      }
+      async function navigate(path) {
+        const url = origin + path;
+        const { loaderId, errorText } = await send('Page.navigate', { url });
+        if (errorText) throw new Error(errorText);
+        const document = await until('document ' + path, () => result.documents.find(row => row.loaderId === loaderId));
+        await until('page loaded ' + path, () => evaluate(() =>
+          document.readyState === 'complete' && location.href).then(actual => actual === url).catch(() => false));
+        return document;
+      }
+      const cacheState = () => evaluate(async () => {
+        const cache = await caches.open('thoradar-shell-v1');
+        const response = await cache.match('/index.html');
+        const bytes = await response.arrayBuffer();
+        const digest = new Uint8Array(await crypto.subtle.digest('SHA-256', bytes));
+        return { bytes: bytes.byteLength, sha256: Array.from(digest, value => value.toString(16).padStart(2, '0')).join('') };
+      });
+      const pageState = () => evaluate(() => ({ date: typeof SITE_DATA === 'undefined' ? null : SITE_DATA.briefing_date,
+        papers: typeof SITE_DATA === 'undefined' ? null : SITE_DATA.papers.length,
+        banner: document.getElementById('shell-status')?.textContent ?? null }));
+
+      upstream = ['healthy', healthy];
+      await navigate('/driver');
+      await evaluate(async () => { await navigator.serviceWorker.register('/sw.js'); await navigator.serviceWorker.ready; });
+      const before = await cacheState();
+      const offset = result.requests.length;
+      upstream = fixture;
+      const first = await navigate('/index.html');
+      const status = await until('worker completed refresh', () => evaluate(() =>
+        ['current', 'updated', 'unavailable'].includes(window.s3Status) && window.s3Status));
+      const after = await cacheState();
+      const firstPage = await pageState();
+      const requests = result.requests.slice(offset);
+      const accepted = name === 'valid-zero-papers';
+      const expected = result.fixtures[accepted ? name : 'healthy'];
+      const next = await navigate('/?sw=1');
+      const nextPage = await pageState();
+      record(name, before.sha256 === result.fixtures.healthy.sha256 && first.source === 'cache-storage' &&
+        firstPage.date === data.briefing_date && requests.some(request => request.name === name &&
+          request.finished && request.pragma === 'no-cache') && status === (accepted ? 'updated' : 'unavailable') &&
+        after.sha256 === expected.sha256 && after.bytes === expected.bytes && next.source === 'cache-storage' &&
+        nextPage.date === (accepted ? zeroData.briefing_date : data.briefing_date) &&
+        nextPage.papers === (accepted ? 0 : data.papers.length),
+      { before, first, firstPage, status, after, expected, requests, next, nextPage });
+    } catch (error) {
+      console.error(error.stack);
+      record(name, false, { error: error.message });
+    } finally {
+      sessions.delete(sessionId);
+      await cdp.send('Target.disposeBrowserContext', { browserContextId });
+    }
+  }
+} catch (error) {
+  console.error(error.stack);
+  record('harness', false, { error: error.message });
+} finally {
+  try { await cdp?.send('Browser.close'); }
+  catch (error) { console.error('Browser.close: ' + error.message); }
+  cdp?.close();
+  if (browser) result.remainingProfileProcesses = await browser.stop();
+  if (server.listening) await new Promise(done => {
+    server.close(done);
+    server.closeAllConnections();
+  });
+  if (profile && dirname(resolve(profile)) === temp && basename(profile).startsWith(prefix)) {
+    await rm(profile, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
+  }
+  result.endedAt = new Date().toISOString();
+  result.summary = { passed: result.checks.filter(check => check.pass).length,
+    failed: result.checks.filter(check => !check.pass).length };
+  await writeFile(output, JSON.stringify(result, null, 2) + '\n', { flag: 'wx' });
+  console.log('SUMMARY ' + JSON.stringify(result.summary));
+  if (result.summary.failed || result.remainingProfileProcesses) process.exitCode = 1;
+}
+import { execFileSync, spawn } from 'node:child_process';
+import { createWriteStream } from 'node:fs';
+import { cp, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { arch, release, tmpdir, version } from 'node:os';
+import { basename, dirname, join, resolve } from 'node:path';
+import { finished } from 'node:stream/promises';
+import { ROOT, gitRead, sha256 } from '../aicls/lib.mjs';
+
+const name = process.argv[2] || 'sol-s2-regressions';
+if (!/^[a-zA-Z0-9-]+$/.test(name)) throw new Error('Use a single evidence directory name');
+const directory = join(ROOT, 'docs/tasks/T1128-SMOOTH', name);
+await mkdir(directory);
+const temp = resolve(tmpdir());
+const prefix = 'thoradar-sol-s2-regress-';
+const scratch = await mkdtemp(join(temp, prefix));
+const chrome = 'C:/Program Files/Google/Chrome/Application/chrome.exe';
+const chromeVersion = execFileSync('pwsh', ['-NoProfile', '-Command',
+  `(Get-Item -LiteralPath '${chrome}').VersionInfo.ProductVersion`], { encoding: 'utf8' }).trim();
+const metadata = {
+  target: Object.fromEntries(await Promise.all(['index.html', 'sw.js', 'sw-retire.js'].map(async file =>
+    [file, sha256(await readFile(join(ROOT, file)))]))),
+  baseline: gitRead(['rev-parse', '73dd34e']).trim(),
+  environment: { os: version(), release: release(), arch: arch(), node: process.version, chrome: chromeVersion },
+  runs: 1,
+  seed: null
+};
+
+const suites = [
+  ['ux', 'tests/ux/ux_probe.mjs', '--base', 'sol-s2'],
+  ['aicls', 'tests/aicls/aicls_regress.mjs', '--baseline', 'sols2'],
+  ['poolup', 'tests/poolup/poolup_regress.mjs', '--baseline', 'sols2']
+];
+async function run([name, script, baseArg, label]) {
+  const args = [script, '--target', 'index.html', baseArg, '73dd34e', '--label', label];
+  const home = join(scratch, name);
+  const env = { ...process.env, XREV_SCRATCH: home, AICLS_SCRATCH: home };
+  delete env.XREV_ONLY;
+  const stdout = join(directory, name + '.stdout.txt');
+  const stderr = join(directory, name + '.stderr.txt');
+  const stdoutStream = createWriteStream(stdout, { flags: 'wx' });
+  const stderrStream = createWriteStream(stderr, { flags: 'wx' });
+  const startedAt = new Date().toISOString();
+  console.log('RUN node ' + args.join(' '));
+  const child = spawn(process.execPath, args, { cwd: ROOT, env, windowsHide: true });
+  child.stdout.pipe(stdoutStream);
+  child.stderr.pipe(stderrStream);
+  const [{ exitCode, signal }] = await Promise.all([
+    new Promise((done, fail) => {
+      child.once('error', fail);
+      child.once('close', (exitCode, signal) => done({ exitCode, signal }));
+    }),
+    finished(stdoutStream), finished(stderrStream)
+  ]);
+  const log = await readFile(stdout, 'utf8');
+  const endedAt = new Date().toISOString();
+  if (name === 'ux') {
+    await cp(join(home, 'out-' + label), join(directory, 'ux-measurements'), { recursive: true })
+      .catch(error => { if (error.code !== 'ENOENT') throw error; });
+  }
+  const tests = Array.from(log.matchAll(/^(PASS|FAIL|SKIP)\s+(\S+)\s+(.*)$/gm), ([, result, id, title]) =>
+    ({ result, id, title }));
+  const summary = Object.fromEntries(['PASS', 'FAIL', 'SKIP'].map(key =>
+    [key, tests.filter(test => test.result === key).length]));
+  const reportedSummary = log.split(/\r?\n/).find(line => line.includes(' SUMMARY '));
+  const result = { ...metadata, scriptSha256: sha256(await readFile(join(ROOT, script))),
+    command: ['node', ...args], startedAt, endedAt, exitCode, signal, summary, reportedSummary, tests };
+  await writeFile(join(directory, name + '.json'), JSON.stringify(result, null, 2) + '\n');
+  console.log(`${name} exit=${exitCode} ${reportedSummary || JSON.stringify(summary)}`);
+  return exitCode;
+}
+
+const results = await Promise.allSettled(suites.map(run));
+for (const result of results) if (result.status === 'rejected') console.error(result.reason);
+if (dirname(resolve(scratch)) === temp && basename(scratch).startsWith(prefix)) {
+  await rm(scratch, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
+}
+if (results.some(result => result.status === 'rejected' || result.value !== 0)) process.exitCode = 1;
+
+ succeeded in 964ms:
+2026-11-28T11:57:28.6618371+08:00
+{"candidateSha256":"900061dd45ad04e9f9c4391e5d2756f8b080a4bc4144ede9b913b6deabb5aa8b","mutatedSha256":"0bee8f9201700624a076cb9b35d9250954130b63a464eec095c6f283e85ab14f","deleted":"  const block = html.slice(dataStart, end).trim();\n  const declaration = /^const\\s+SITE_DATA\\s*=\\s*(\\{[\\s\\S]*\\})\\s*;?$/.exec(block);\n  if (!declaration) return null;\n  try {\n    const data = JSON.parse(declaration[1]);\n    if (typeof data.briefing_date !== 'string' || !Array.isArray(data.papers)) return null;\n  } catch (_) {\n    return null;\n  }\n"}
+node tests/smooth/verify-s3.mjs docs/tasks/T1128-SMOOTH/sol-s3-negative.json D:\claude-tmp\thoradar-sol-s3-90ddb106-3feb-411e-8347-990522a21ab7.js
+diff --git a/D:/trackeep/trackeep-product/trackeep-thoradar-neon-v1/sw.js b/sw.js
+index 3f8df0d..612370f 100644
+--- a/D:/trackeep/trackeep-product/trackeep-thoradar-neon-v1/sw.js
++++ b/sw.js
+@@ -15,8 +15,19 @@ async function fetchShell(url) {
+ 
+   const html = await response.clone().text();
+   const start = html.indexOf(DATA_START);
+-  if (start === -1 || html.indexOf(DATA_END, start + DATA_START.length) === -1 ||
++  const dataStart = start + DATA_START.length;
++  const end = html.indexOf(DATA_END, dataStart);
++  if (start === -1 || end === -1 ||
+       !html.trimEnd().toLowerCase().endsWith('</html>')) return null;
++
++  const declaration = /^\s*const\s+SITE_DATA\s*=\s*(\{[\s\S]*\})\s*;?\s*$/.exec(html.slice(dataStart, end));
++  if (!declaration) return null;
++  try {
++    const data = JSON.parse(declaration[1]);
++    if (typeof data.briefing_date !== 'string' || !Array.isArray(data.papers)) return null;
++  } catch (_) {
++    return null;
++  }
+   return { response, html };
+ }
+ 
+
+DevTools listening on ws://127.0.0.1:52326/devtools/browser/222f14b3-1953-47f5-bca9-0c3a69b8c108
+
+Name                                   Length LastWriteTime
+----                                   ------ -------------
+sol-s3-final-regressions                      2026/11/28 11:55:49
+sol-s3-regressions                            2026/11/28 11:54:04
+sol-s3-after.json                      24388  2026/11/28 11:52:13
+sol-s3-after.stderr.txt                0      2026/11/28 11:51:54
+sol-s3-after.stdout.txt                9385   2026/11/28 11:52:13
+sol-s3-before.json                     24037  2026/11/28 11:51:00
+sol-s3-before.stderr.txt               0      2026/11/28 11:50:42
+sol-s3-before.stdout.txt               9041   2026/11/28 11:51:00
+sol-s3-final-after.json                24394  2026/11/28 11:56:03
+sol-s3-final-after.stderr.txt          0      2026/11/28 11:55:46
+sol-s3-final-after.stdout.txt          9391   2026/11/28 11:56:03
+sol-s3-final-before.stderr.txt         0      2026/11/28 11:56:03
+sol-s3-final-before.stdout.txt         8192   2026/11/28 11:56:12
+sol-s3-final-regressions.stderr.txt    0      2026/11/28 11:55:47
+sol-s3-final-regressions.stdout.txt    0      2026/11/28 11:55:47
+sol-s3-final-s1.json                   20716  2026/11/28 11:55:53
+sol-s3-final-s1.stderr.txt             100    2026/11/28 11:55:57
+sol-s3-final-s1.stdout.txt             9468   2026/11/28 11:55:57
+sol-s3-final-s2.stderr.txt             0      2026/11/28 11:55:57
+sol-s3-final-s2.stdout.txt             24576  2026/11/28 11:56:16
+sol-s3-negative-control.stderr.txt     0      2026/11/28 11:56:09
+sol-s3-negative-control.stdout.txt     696    2026/11/28 11:56:09
+sol-s3-negative.stderr.txt             0      2026/11/28 11:56:09
+sol-s3-negative.stdout.txt             4096   2026/11/28 11:56:16
+sol-s3-regressions.stderr.txt          0      2026/11/28 11:51:54
+sol-s3-regressions.stdout.txt          1652   2026/11/28 11:54:04
+sol-s3-s1-allow-truncated.json         17224  2026/11/28 11:53:10
+sol-s3-s1-allow-truncated.stderr.txt   100    2026/11/28 11:53:15
+sol-s3-s1-allow-truncated.stdout.txt   8075   2026/11/28 11:53:15
+sol-s3-s1-no-local-return.json         8481   2026/11/28 11:53:00
+sol-s3-s1-no-local-return.stderr.txt   100    2026/11/28 11:53:05
+sol-s3-s1-no-local-return.stdout.txt   4171   2026/11/28 11:53:05
+sol-s3-s1.json                         20766  2026/11/28 11:52:01
+sol-s3-s1.stderr.txt                   100    2026/11/28 11:52:06
+sol-s3-s1.stdout.txt                   9518   2026/11/28 11:52:06
+sol-s3-s2-no-retire-cleanup.json       6302   2026/11/28 11:53:20
+sol-s3-s2-no-retire-cleanup.stderr.txt 100    2026/11/28 11:53:24
+sol-s3-s2-no-retire-cleanup.stdout.txt 2857   2026/11/28 11:53:24
+sol-s3-s2.json                         97414  2026/11/28 11:52:45
+sol-s3-s2.stderr.txt                   100    2026/11/28 11:52:50
+sol-s3-s2.stdout.txt                   39729  2026/11/28 11:52:50
+sol-s3-source.json                     13452  2026/11/28 11:52:56
+sol-s3-source.stderr.txt               0      2026/11/28 11:52:50
+sol-s3-source.stdout.txt               11580  2026/11/28 11:52:56
+sol-s3-worker.diff.stderr.txt          253    2026/11/28 11:54:11
+sol-s3-worker.diff.txt                 993    2026/11/28 11:54:11
+
+D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v1\neon-v1-verify.json:141:      "name": "adversarial-empty-markers-stub",
+
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+**Setting up testing environment**
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "rg -n -A 35 -B 3 'async function launch|function stop|Stop-Process|taskkill' tests/aicls/lib.mjs tests/smooth/verify-s1.mjs tests/smooth/verify-s2.mjs
+rg -n 'codex-gpt' 'D:/trackeep/trackeep-console/trackeep-rulebook/rules/registries' -g '*.md' -g '*.json' -m 2" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$neon='"'D:/trackeep/trackeep-product/trackeep-thoradar-neon-v1/sw.js'; Get-FileHash -LiteralPath "'$neon, '"'index.html', 'sw.js', 'sw-retire.js', 'tests/smooth/verify-s1.mjs', 'tests/smooth/verify-s2.mjs', 'tests/smooth/verify-s3.mjs' | ForEach-Object { '{0}  {1}' -f "'$_.Hash.ToLowerInvariant(), $_.Path }
+$before=Get-Content -Raw docs/tasks/T1128-SMOOTH/sol-s3-before.json | ConvertFrom-Json; $before | Select-Object startedAt,endedAt,sha256,summary | ConvertTo-Json -Depth 5; $before.checks | ForEach-Object { '"'{0} {1} {2} {3}' -f "'$_.pass,$_.name,$_.detail.status,$_.detail.after.sha256 }
+rg -n '"'③\\.4|④|⑤\\.9' 'D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/task-map.md'" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+ exited 1 in 1270ms:
+tests/aicls/lib.mjs-189-export async function freePort(){return new Promise((res,rej)=>{const s=net.createServer();s.once('error',rej);s.listen(0,'127.0.0.1',()=>{const p=s.address().port;s.close(()=>res(p))})})}
+tests/aicls/lib.mjs-190-async function waitDevtools(port){const t0=Date.now();for(;;){try{const r=await fetch(`http://127.0.0.1:${port}/json/version`);if(r.ok)return await r.json()}catch(e){}if(Date.now()-t0>20000)throw new Error('浏览器 DevTools 端口 20s 未起');await sleep(250)}}
+tests/aicls/lib.mjs-191-const ps=cmd=>{try{return execFileSync('pwsh',['-NoProfile','-Command',cmd],{encoding:'utf8'})}catch(e){return ''}};
+tests/aicls/lib.mjs:192:export async function launch({chrome,profile,port,label}){
+tests/aicls/lib.mjs-193-  const tag=profile.replace(/\//g,'\\');   // 进程清理认人用：命令行里须含这段完整路径（通配符转义）
+tests/aicls/lib.mjs-194-  const escTag=tag.replace(/[[\]*?]/g,ch=>'`'+ch);
+tests/aicls/lib.mjs-195-  const probePids=()=>ps(`Get-CimInstance Win32_Process | Where-Object { $_.Name -match '^(chrome|msedge)' -and $_.CommandLine -like '*${escTag}*' } | Select-Object -ExpandProperty ProcessId`).split(/\r?\n/).map(x=>x.trim()).filter(x=>/^\d+$/.test(x));
+tests/aicls/lib.mjs-196-  const proc=spawn(chrome,chromeArgs(port,profile),{stdio:'ignore'});
+tests/aicls/lib.mjs-197-  const ver=await waitDevtools(port);
+tests/aicls/lib.mjs-198-  const stop=async()=>{   // 先按 PID 结束主进程，再逐 PID 复查残留（只认命令行带本 profile 的），逐 PID 结束后再复查一次并贴原始结果
+tests/aicls/lib.mjs-199-    const before=probePids();
+tests/aicls/lib.mjs-200-    if(proc.exitCode===null&&proc.signalCode===null){proc.kill();const t0=Date.now();while(proc.exitCode===null&&proc.signalCode===null&&Date.now()-t0<8000)await sleep(100)}
+tests/aicls/lib.mjs-201-    await sleep(1200);
+tests/aicls/lib.mjs-202-    const alive=probePids(),killed=[];
+tests/aicls/lib.mjs:203:    for(const pid of alive)ps(`Stop-Process -Id ${pid} -Force -ErrorAction SilentlyContinue`),killed.push(pid);
+tests/aicls/lib.mjs-204-    await sleep(500);
+tests/aicls/lib.mjs-205-    const still=probePids();
+tests/aicls/lib.mjs-206-    console.log(`     cleanup | browser pid=${proc.pid} exitCode=${proc.exitCode} signalCode=${proc.signalCode} | 带 profile 标记的进程：收尾前=${before.join(',')||'无'} | 主进程结束后残留=${alive.join(',')||'无'} | 逐 PID 结束=${killed.join(',')||'无'} | 复查仍存活=${still.join(',')||'无'}`);
+tests/aicls/lib.mjs-207-    return still.length;
+tests/aicls/lib.mjs-208-  };
+tests/aicls/lib.mjs-209-  return {proc,ver,stop};
+tests/aicls/lib.mjs-210-}
+tests/aicls/lib.mjs-211-
+tests/aicls/lib.mjs-212-// ---------- 页面侧小工具（经 evaluate 注入） ----------
+tests/aicls/lib.mjs-213-export const P={
+tests/aicls/lib.mjs-214-  view:v=>`(()=>{const b=document.querySelector('[data-proto-view="${v}"]');if(!b)return 'MISSING';b.click();return 'ok'})()`,
+tests/aicls/lib.mjs-215-  tab:n=>`(()=>{const b=document.querySelector('[data-proto-personal-tab="${n}"]');if(!b)return 'MISSING';b.click();return 'ok'})()`,
+tests/aicls/lib.mjs-216-  click:s=>`(()=>{const el=document.querySelector(${JSON.stringify(s)});if(!el)return 'MISSING:'+${JSON.stringify(s)};el.click();return 'ok'})()`,
+tests/aicls/lib.mjs-217-  type:(s,v)=>`(()=>{const el=document.querySelector(${JSON.stringify(s)});if(!el)return 'MISSING:'+${JSON.stringify(s)};el.focus();el.value=${JSON.stringify(v)};el.dispatchEvent(new Event('input',{bubbles:true}));return 'ok'})()`,
+tests/aicls/lib.mjs-218-  check:(s,on)=>`(()=>{const el=document.querySelector(${JSON.stringify(s)});if(!el)return 'MISSING:'+${JSON.stringify(s)};el.checked=${on?'true':'false'};el.dispatchEvent(new Event('change',{bubbles:true}));return 'ok'})()`,
+tests/aicls/lib.mjs-219-  key:(s,k)=>`(()=>{const el=document.querySelector(${JSON.stringify(s)});if(!el)return 'MISSING:'+${JSON.stringify(s)};el.dispatchEvent(new KeyboardEvent('keydown',{key:${JSON.stringify(k)},bubbles:true,cancelable:true}));return 'ok'})()`,
+tests/aicls/lib.mjs-220-};
+tests/aicls/lib.mjs-221-
+tests/aicls/lib.mjs-222-// ---------- 静态材料（统一 LF）：区块提取／新增行／内联脚本语法／I18N 键集 ----------
+tests/aicls/lib.mjs-223-export const between=(x,a,b)=>{const i=x.indexOf(a);const j=i>=0?x.indexOf(b,i):-1;return j>=0?x.slice(i,j+b.length):null};
+tests/aicls/lib.mjs-224-export const block=(text,marker)=>{const i=text.indexOf(marker);if(i<0)return null;const j=text.indexOf('\n}\n',i);return j>=0?text.slice(i,j+3):null};
+tests/aicls/lib.mjs-225-export const lineOf=(text,marker)=>text.split('\n').filter(l=>l.includes(marker)).join('\n');
+tests/aicls/lib.mjs-226-export function inlineScripts(html){const out=[];for(const m of html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g))out.push(m[1]);return out}
+tests/aicls/lib.mjs-227-export function readI18n(html){   // 从内联脚本里取 I18N 双表：返回 {zh:Map<键,值>,en:Map<键,值>}（值只认单／双引号字符串字面量）；取不到＝null（交给调用方报红）
+tests/aicls/lib.mjs-228-  const src=inlineScripts(html).join('\n');
+tests/aicls/lib.mjs-229-  const m=/const I18N=\{\s*zh:\{([\s\S]*?)\n\},\s*en:\{([\s\S]*?)\n\}\s*\n\};/.exec(src);
+tests/aicls/lib.mjs-230-  if(!m)return null;
+tests/aicls/lib.mjs-231-  const entry=body=>new Map([...body.matchAll(/(?:^|[,{\n])\s*'([^']+)'\s*:\s*(?:'((?:[^'\\]|\\.)*)'|"((?:[^"\\]|\\.)*)")/g)].map(x=>[x[1],x[2]!==undefined?x[2]:x[3]]));
+tests/aicls/lib.mjs-232-  const keyCount=body=>[...body.matchAll(/(?:^|[,{\n])\s*'([^']+)'\s*:/g)].length;
+tests/aicls/lib.mjs-233-  const zh=entry(m[1]),en=entry(m[2]);
+tests/aicls/lib.mjs-234-  return {zh,en,literal:{zh:zh.size===keyCount(m[1]),en:en.size===keyCount(m[2])}};
+tests/aicls/lib.mjs-235-}
+tests/aicls/lib.mjs-236-export {readFileSync,mkdirSync,rmSync,existsSync,join,resolve,normalize,dirname,tmpdir};
+
+hook: PostToolUse
+ succeeded in 1239ms:
+f8a4e2bc4d5d81964475580c012e825281f409a171782640ad5cbc68a07bca24  D:\trackeep\trackeep-product\trackeep-thoradar-neon-v1\sw.js
+33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def  D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\index.html
+900061dd45ad04e9f9c4391e5d2756f8b080a4bc4144ede9b913b6deabb5aa8b  D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\sw.js
+5ae38f2ba965f4e1b1d340da2ba5fadd8b58af82a1e271a02ddff97ab5686199  D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\sw-retire.js
+6c93edebe199b9d502e72d42b729bc2dc96ee313307b6341fd5fa92f85c84dc4  D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\tests\smooth\verify-s1.mjs
+9266fc7518314073d3694d809cca0e7c6e057daa2c7fcb80bdb0d2a7d460ea48  D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\tests\smooth\verify-s2.mjs
+585a9f3803238cfb18b80a490948f9e661fd6792dae09838c53d38f98a030ac7  D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\tests\smooth\verify-s3.mjs
+{
+  "startedAt": "2026-11-28T03:50:43.349Z",
+  "endedAt": "2026-11-28T03:51:00.883Z",
+  "sha256": {
+    "index.html": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def",
+    "sw.js": "f8a4e2bc4d5d81964475580c012e825281f409a171782640ad5cbc68a07bca24",
+    "tests/smooth/verify-s3.mjs": "3065a44a4db7c7225ab95b9bc1104106ac746dedd8a7e64f72f7a23bdd08f1dc"
+  },
+  "summary": {
+    "passed": 1,
+    "failed": 5
+  }
+}
+False neon-empty-markers-stub updated 11e2ff0add51cd0cf4f21b39010925b11df3fe7c0d388906c0c56468a3a16b74
+False missing-site-data-between-markers updated ee2fa9e8e7544a3264ba1b4f048645e89eab74427fd90b71cfe6d00355bed41c
+False invalid-json updated a2b05c202460c7ff9c7827de2df6964a6dee3b9df28ef0da04cc04e1a0461890
+False wrong-briefing-date-type updated 1c093d2d421f563859063e2f75533d3343a1f8cdcac14f61b49d598334e7518e
+False wrong-papers-type updated 37819c5d931a352dfb018c179bf861bc383c027baf0ff08f3a8dcb2adf8ad3b1
+True valid-zero-papers updated 37e4fcaf391cc4930b509b53e4fe95f7d0b5ce56fa52ae0e37b710aa52bd7a0a
+12:| ③.4 Sol S2 异常、退出、回归与说明 | rework-in-progress | C1 已准 | ③.3 | 0 | S2 核心/矩阵通过；Neon 证实空标记无 SITE_DATA 的 156B 毒壳可覆盖健康缓存，S3 单点返修任务 `bs76b7d4r`；R08 仍未验 |
+13:| ④ Neon V1 新会话独立复验 | completed-with-findings | C1 已准 | ③.4 | 0 | `neon-v1/report.md`：S1 9/9、S2 24/24、UX 46/46、指定异常与三项负对照通过；F1 空标记毒壳阻断，F2/F3 低危；两套旧回归未独立复跑，R08 失真未验 |
+14:| ⑤ 主控最终整合检查并写回主工作树 | pending | C1 已准 | ④ | 0 | 待整合差异、哈希与未验清单 |
+15:| ⑤.9 对外发布 | not-authorized | 待 PI 当次亲手 | ⑤ | 0 | 本役不执行 |
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+**Preparing test execution setup**
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "New-Item -ItemType Directory -Path 'docs/tasks/T1128-SMOOTH/sol-s3-recheck' -ErrorAction Stop | Select-Object -ExpandProperty FullName
+Get-Command pwsh,node | Select-Object Name,Version" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+ succeeded in 1362ms:
+D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\docs\tasks\T1128-SMOOTH\sol-s3-recheck
+
+Name     Version
+----     -------
+pwsh.exe 7.6.6.0
+node.exe 24.14.0.0
+
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$dest='"'docs/tasks/T1128-SMOOTH/sol-s3-recheck'
+node tests/smooth/verify-s1.mjs \""'$dest/s1.json" none 1> "$dest/s1.stdout.txt" 2> "$dest/s1.stderr.txt"
+$code=$LASTEXITCODE
+$code | Set-Content -LiteralPath "$dest/s1.exit.txt" -Encoding utf8
+Get-Content -LiteralPath "$dest/s1.stdout.txt" | Select-Object -Last 2
+exit $code' in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$ErrorActionPreference='"'Stop'
+"'$dest='"'docs/tasks/T1128-SMOOTH/sol-s3-recheck'
+"'$baseline='"'D:/trackeep/trackeep-product/trackeep-thoradar-neon-v1/sw.js'
+if ((Get-FileHash -LiteralPath "'$baseline).Hash -ne '"'f8a4e2bc4d5d81964475580c012e825281f409a171782640ad5cbc68a07bca24') { throw 'S2 baseline hash mismatch' }
+node tests/smooth/verify-s3.mjs \""'$dest/before.json" $baseline 1> "$dest/before.stdout.txt" 2> "$dest/before.stderr.txt"
+$beforeExit=$LASTEXITCODE
+node tests/smooth/verify-s3.mjs "$dest/after.json" 1> "$dest/after.stdout.txt" 2> "$dest/after.stderr.txt"
+$afterExit=$LASTEXITCODE
+[ordered]@{before=$beforeExit;after=$afterExit} | ConvertTo-Json | Set-Content -LiteralPath "$dest/special-exits.json" -Encoding utf8
+Get-Content -LiteralPath "$dest/before.stdout.txt","$dest/after.stdout.txt" | Select-String '"'"'^SUMMARY'"'
+if ("'$beforeExit -ne 1 -or $afterExit -ne 0) { exit 1 }' in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$dest='"'docs/tasks/T1128-SMOOTH/sol-s3-recheck'
+node tests/smooth/run-regressions.mjs sol-s3-recheck-regressions 1> \""'$dest/legacy.stdout.txt" 2> "$dest/legacy.stderr.txt"
+$code=$LASTEXITCODE
+$code | Set-Content -LiteralPath "$dest/legacy.exit.txt" -Encoding utf8
+Get-Content -LiteralPath "$dest/legacy.stdout.txt"
+exit $code' in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$dest='"'docs/tasks/T1128-SMOOTH/sol-s3-recheck'
+node tests/smooth/verify-s2.mjs \""'$dest/s2.json" none 1> "$dest/s2.stdout.txt" 2> "$dest/s2.stderr.txt"
+$code=$LASTEXITCODE
+$code | Set-Content -LiteralPath "$dest/s2.exit.txt" -Encoding utf8
+Get-Content -LiteralPath "$dest/s2.stdout.txt" | Select-Object -Last 2
+exit $code' in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+**Preparing mutation runner setup**
+codex
+工作树里已有一版修复。我核对了 S2 基线哈希和 Neon 的 156 B 样本，旧证据显示它确实覆盖了健康缓存。现在用同一份专项脚本重跑基线和候选版本。
+ succeeded in 12836ms:
+CLEANUP {"browserPid":21172,"exit":{"code":0,"signal":null},"forced":false,"profileRemoved":true}
+SUMMARY {"passed":9,"failed":0,"endedAt":"2026-11-28T03:58:29.382Z"}
+
+hook: PreToolUse
+hook: PreToolUse Completed
+apply patch
+patch: completed
+D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\docs\tasks\T1128-SMOOTH\sol-s3-recheck\run-no-data-validation.ps1
+diff --git a/docs/tasks/T1128-SMOOTH/sol-s3-recheck/run-no-data-validation.ps1 b/docs/tasks/T1128-SMOOTH/sol-s3-recheck/run-no-data-validation.ps1
+new file mode 100644
+index 0000000000000000000000000000000000000000..04a8408ddf4720698747e3b8443aa33028a66ede
+--- /dev/null
++++ b/docs/tasks/T1128-SMOOTH/sol-s3-recheck/run-no-data-validation.ps1
+@@ -0,0 +1,43 @@
++$ErrorActionPreference = 'Stop'
++$root = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '../../../..')).Path
++$destination = Join-Path $PSScriptRoot 'no-data-validation'
++$files = @('.json', '.stdout.txt', '.stderr.txt', '.run.json')
++foreach ($extension in $files) {
++    if (Test-Path -LiteralPath "$destination$extension") {
++        throw "Evidence already exists at $destination$extension"
++    }
++}
++
++$candidatePath = Join-Path $root 'sw.js'
++$candidate = [IO.File]::ReadAllText($candidatePath)
++$start = $candidate.IndexOf('  const block = html.slice(dataStart, end).trim();', [StringComparison]::Ordinal)
++$end = $candidate.IndexOf('  return { response, html };', [StringComparison]::Ordinal)
++if ($start -lt 0 -or $end -le $start) { throw 'Could not isolate the new data validation' }
++$deleted = $candidate.Substring($start, $end - $start)
++if (-not $deleted.Contains('JSON.parse(declaration[1])')) { throw 'Mutation did not remove JSON.parse' }
++$temporaryWorker = Join-Path ([IO.Path]::GetTempPath()) ('thoradar-sol-s3-' + [guid]::NewGuid() + '.js')
++
++try {
++    [IO.File]::WriteAllText($temporaryWorker, $candidate.Remove($start, $end - $start))
++    $test = Join-Path $root 'tests/smooth/verify-s3.mjs'
++    $command = @('node', $test, "$destination.json", $temporaryWorker)
++    $metadata = [ordered]@{
++        command = $command
++        candidateSha256 = (Get-FileHash -LiteralPath $candidatePath).Hash.ToLowerInvariant()
++        mutatedSha256 = (Get-FileHash -LiteralPath $temporaryWorker).Hash.ToLowerInvariant()
++        deleted = $deleted
++    }
++    node $test "$destination.json" $temporaryWorker 1> "$destination.stdout.txt" 2> "$destination.stderr.txt"
++    $metadata.exitCode = $LASTEXITCODE
++    $metadata | ConvertTo-Json -Depth 4 | Set-Content -LiteralPath "$destination.run.json" -Encoding utf8
++    $result = Get-Content -Raw -LiteralPath "$destination.json" | ConvertFrom-Json
++    $neon = $result.checks | Where-Object name -eq 'neon-empty-markers-stub'
++    if ($metadata.exitCode -ne 1 -or $result.summary.failed -ne 5 -or $result.summary.passed -ne 1 -or
++        -not $neon -or $neon.pass -or $neon.detail.after.sha256 -ne $result.fixtures.'neon-empty-markers-stub'.sha256) {
++        throw 'Expected the five rejected responses to re-enter the cache when validation was removed'
++    }
++    Get-Content -LiteralPath "$destination.stdout.txt" | Select-String '^SUMMARY'
++    Write-Output "Mutation exit $($metadata.exitCode); 156-byte Neon response replaced the healthy cache"
++} finally {
++    Remove-Item -LiteralPath $temporaryWorker -ErrorAction SilentlyContinue
++}
+
+hook: PostToolUse
+hook: PostToolUse Completed
+ succeeded in 38227ms:
+
+SUMMARY {"passed":1,"failed":5}
+SUMMARY {"passed":6,"failed":0}
+
+
+**Fixing directory count and testing property assignment**
+hook: PreToolUse
+hook: PreToolUse Completed
+apply patch
+patch: completed
+D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\docs\tasks\T1128-SMOOTH\sol-s3-recheck\run-no-data-validation.ps1
+hook: PostToolUse
+hook: PostToolUse Completed
+ succeeded in 43946ms:
+CLEANUP {"pid":23464,"exit":{"code":0,"signal":null},"forced":false,"profileRemoved":true}
+SUMMARY {"passed":24,"failed":0}
+
+**Verifying source and mutation states**
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$p='"'docs/tasks/T1128-SMOOTH/sol-s3-recheck'
+node tests/smooth/verify-source.mjs \""'$p/source.json" 1> "$p/source.stdout.txt" 2> "$p/source.stderr.txt"
+$code=$LASTEXITCODE
+$code | Set-Content -LiteralPath "$p/source.exit.txt" -Encoding utf8
+Get-Content -LiteralPath "$p/source.stdout.txt" | Select-Object -Last 1
+exit $code' in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$p='"'docs/tasks/T1128-SMOOTH/sol-s3-recheck'; "'$baseline='"'D:/trackeep/trackeep-product/trackeep-thoradar-neon-v1/sw.js'
+git -c core.autocrlf=false diff --no-index -- "'$baseline sw.js 1> "$p/worker.diff.txt" 2> "$p/worker.diff.stderr.txt"
+$code=$LASTEXITCODE
+$code | Set-Content -LiteralPath "$p/worker.diff.exit.txt" -Encoding utf8
+Get-Content -LiteralPath "$p/worker.diff.txt"
+if ($code -ne 1) { exit 1 }' in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "rg -n '主力表|gpt-6\\.2-sol|codex-gpt' 'D:/trackeep/trackeep-console/trackeep-rulebook/rules/registries' -g '*.md' -g '*.json' -m 2" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$p='"'docs/tasks/T1128-SMOOTH/sol-s3-recheck'; pwsh -NoProfile -File \""'$p/run-no-data-validation.ps1" 1> "$p/mutation-runner.stdout.txt" 2> "$p/mutation-runner.stderr.txt"; $code=$LASTEXITCODE; Get-Content -LiteralPath "$p/mutation-runner.stdout.txt","$p/mutation-runner.stderr.txt"; exit $code' in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+ succeeded in 1009ms:
+diff --git a/D:/trackeep/trackeep-product/trackeep-thoradar-neon-v1/sw.js b/sw.js
+index 3f8df0d..66db83d 100644
+--- a/D:/trackeep/trackeep-product/trackeep-thoradar-neon-v1/sw.js
++++ b/sw.js
+@@ -15,8 +15,20 @@ async function fetchShell(url) {
+ 
+   const html = await response.clone().text();
+   const start = html.indexOf(DATA_START);
+-  if (start === -1 || html.indexOf(DATA_END, start + DATA_START.length) === -1 ||
++  const dataStart = start + DATA_START.length;
++  const end = html.indexOf(DATA_END, dataStart);
++  if (start === -1 || end === -1 ||
+       !html.trimEnd().toLowerCase().endsWith('</html>')) return null;
++
++  const block = html.slice(dataStart, end).trim();
++  const declaration = /^const\s+SITE_DATA\s*=\s*(\{[\s\S]*\})\s*;?$/.exec(block);
++  if (!declaration) return null;
++  try {
++    const data = JSON.parse(declaration[1]);
++    if (typeof data.briefing_date !== 'string' || !Array.isArray(data.papers)) return null;
++  } catch (_) {
++    return null;
++  }
+   return { response, html };
+ }
+ 
+
+ succeeded in 1009ms:
+D:/trackeep/trackeep-console/trackeep-rulebook/rules/registries\能力卡.md:7:- model_id: gpt-6.2-sol
+D:/trackeep/trackeep-console/trackeep-rulebook/rules/registries\能力卡.md:11:备注：榜名 gpt-6.2-sol（manifest 标牌已更「GPT-6.2 Sol」·2026-11-27）
+
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse
+ succeeded in 2049ms:
+SUMMARY {"passed":5,"failed":0}
+
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+**Reviewing prior mutation checks**
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$p='"'docs/tasks/T1128-SMOOTH/sol-s3-recheck/s2-no-retire-cleanup'
+node tests/smooth/verify-s2.mjs \""'$p.json" no-retire-cleanup 1> "$p.stdout.txt" 2> "$p.stderr.txt"
+$code=$LASTEXITCODE
+$code | Set-Content -LiteralPath "$p.exit.txt" -Encoding utf8
+Get-Content -LiteralPath "$p.stdout.txt" | Select-Object -Last 2
+if ($code -ne 1) { exit 1 }' in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+ succeeded in 21167ms:
+
+SUMMARY {"passed":1,"failed":5}
+Mutation exit 1; 156-byte Neon response replaced the healthy cache
+
+
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$p='"'docs/tasks/T1128-SMOOTH/sol-s3-recheck/s1-allow-truncated'
+node tests/smooth/verify-s1.mjs \""'$p.json" allow-truncated 1> "$p.stdout.txt" 2> "$p.stderr.txt"
+$code=$LASTEXITCODE
+$code | Set-Content -LiteralPath "$p.exit.txt" -Encoding utf8
+Get-Content -LiteralPath "$p.stdout.txt" | Select-Object -Last 2
+if ($code -ne 1) { exit 1 }' in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$p='"'docs/tasks/T1128-SMOOTH/sol-s3-recheck/s1-no-local-return'
+node tests/smooth/verify-s1.mjs \""'$p.json" no-local-return 1> "$p.stdout.txt" 2> "$p.stderr.txt"
+$code=$LASTEXITCODE
+$code | Set-Content -LiteralPath "$p.exit.txt" -Encoding utf8
+Get-Content -LiteralPath "$p.stdout.txt" | Select-Object -Last 2
+if ($code -ne 1) { exit 1 }' in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+**Verifying test load and metadata**
+hook: PreToolUse
+hook: PreToolUse
+ succeeded in 9954ms:
+CLEANUP {"browserPid":72404,"exit":{"code":0,"signal":null},"forced":false,"profileRemoved":true}
+SUMMARY {"passed":3,"failed":1,"endedAt":"2026-11-28T03:59:48.389Z"}
+
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PostToolUse
+ succeeded in 10819ms:
+CLEANUP {"pid":74376,"exit":{"code":0,"signal":null},"forced":false,"profileRemoved":true}
+SUMMARY {"passed":1,"failed":1}
+
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$p='"'docs/tasks/T1128-SMOOTH/sol-s3-recheck'; Get-ChildItem -File "'$p | Format-Table Name,Length -AutoSize; Get-ChildItem -File '"'docs/tasks/T1128-SMOOTH/sol-s3-recheck-regressions' | Format-Table Name,Length -AutoSize
+foreach ("'$name in @('"'before','after','s1','s2','source')) { "'$f="$p/$name.json"; if (Test-Path -LiteralPath $f) { $d=Get-Content -Raw -LiteralPath $f | ConvertFrom-Json; [ordered]@{name=$name;summary=$d.summary;environment=$d.environment;sha256=$d.sha256} | ConvertTo-Json -Depth 4 -Compress } }' in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "rg --files 'D:/trackeep/trackeep-console/trackeep-rulebook' | rg '人册|builder-jobspec|roster|roster|人事|staff' 
+rg -n -m 3 --glob '*.md' 'codex.+Sol|主力表' 'D:/trackeep/trackeep-console/trackeep-rulebook/rules/entries'" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+hook: PostToolUse Completed
+ succeeded in 712ms:
+
+Name                            Length
+----                            ------
+after.json                       24396
+after.stderr.txt                     0
+after.stdout.txt                  9393
+before.json                      24113
+before.stderr.txt                    0
+before.stdout.txt                 9112
+legacy.stderr.txt                    0
+legacy.stdout.txt                    0
+mutation-runner.stderr.txt           0
+mutation-runner.stdout.txt         105
+no-data-validation.json          24204
+no-data-validation.run.json        938
+no-data-validation.stderr.txt        0
+no-data-validation.stdout.txt     9203
+run-no-data-validation.ps1        2574
+s1-allow-truncated.json          17226
+s1-allow-truncated.stderr.txt        0
+s1-allow-truncated.stdout.txt        0
+s1-no-local-return.exit.txt          3
+s1-no-local-return.json           8496
+s1-no-local-return.stderr.txt      100
+s1-no-local-return.stdout.txt     4186
+s1.exit.txt                          3
+s1.json                          20782
+s1.stderr.txt                      100
+s1.stdout.txt                     9534
+s2-no-retire-cleanup.exit.txt        3
+s2-no-retire-cleanup.json         6302
+s2-no-retire-cleanup.stderr.txt    100
+s2-no-retire-cleanup.stdout.txt   2857
+s2.exit.txt                          3
+s2.json                          97416
+s2.stderr.txt                      100
+s2.stdout.txt                    39731
+source.exit.txt                      3
+source.json                      18846
+source.stderr.txt                    0
+source.stdout.txt                16281
+special-exits.json                  36
+worker.diff.exit.txt                 3
+worker.diff.stderr.txt               0
+worker.diff.txt                   1018
+
+
+Name              Length
+----              ------
+aicls.stderr.txt       0
+aicls.stdout.txt       0
+poolup.stderr.txt      0
+poolup.stdout.txt      0
+ux.stderr.txt          0
+ux.stdout.txt          0
+
+{"name":"before","summary":{"passed":1,"failed":5},"environment":{"os":"Windows 11 Pro","release":"10.0.26300","arch":"x64","node":"v24.14.0","chrome":{"protocolVersion":"1.3","product":"Chrome/158.0.8127.88","revision":"@0cefb18236a23db1ebb6b2bc040fbbaf8cbe759e","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/158.0.0.0 Safari/537.36","jsVersion":"15.8.62.31"}},"sha256":{"index.html":"33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def","sw.js":"f8a4e2bc4d5d81964475580c012e825281f409a171782640ad5cbc68a07bca24","tests/smooth/verify-s3.mjs":"585a9f3803238cfb18b80a490948f9e661fd6792dae09838c53d38f98a030ac7"}}
+{"name":"after","summary":{"passed":6,"failed":0},"environment":{"os":"Windows 11 Pro","release":"10.0.26300","arch":"x64","node":"v24.14.0","chrome":{"protocolVersion":"1.3","product":"Chrome/158.0.8127.88","revision":"@0cefb18236a23db1ebb6b2bc040fbbaf8cbe759e","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/158.0.0.0 Safari/537.36","jsVersion":"15.8.62.31"}},"sha256":{"index.html":"33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def","sw.js":"900061dd45ad04e9f9c4391e5d2756f8b080a4bc4144ede9b913b6deabb5aa8b","tests/smooth/verify-s3.mjs":"585a9f3803238cfb18b80a490948f9e661fd6792dae09838c53d38f98a030ac7"}}
+{"name":"s1","summary":{"passed":9,"failed":0},"environment":{"os":"Windows 11 Pro","release":"10.0.26300","arch":"x64","node":"v24.14.0","chrome":{"protocolVersion":"1.3","product":"Chrome/158.0.8127.88","revision":"@0cefb18236a23db1ebb6b2bc040fbbaf8cbe759e","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/158.0.0.0 Safari/537.36","jsVersion":"15.8.62.31"}},"sha256":{"index.html":"33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def","sw.js":"900061dd45ad04e9f9c4391e5d2756f8b080a4bc4144ede9b913b6deabb5aa8b","tests/smooth/verify-s1.mjs":"6c93edebe199b9d502e72d42b729bc2dc96ee313307b6341fd5fa92f85c84dc4"}}
+{"name":"s2","summary":{"passed":24,"failed":0},"environment":{"os":"Windows 11 Pro","release":"10.0.26300","arch":"x64","node":"v24.14.0","chrome":{"protocolVersion":"1.3","product":"Chrome/158.0.8127.88","revision":"@0cefb18236a23db1ebb6b2bc040fbbaf8cbe759e","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/158.0.0.0 Safari/537.36","jsVersion":"15.8.62.31"}},"sha256":{"index.html":"33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def","sw.js":"900061dd45ad04e9f9c4391e5d2756f8b080a4bc4144ede9b913b6deabb5aa8b","sw-retire.js":"5ae38f2ba965f4e1b1d340da2ba5fadd8b58af82a1e271a02ddff97ab5686199","tests/smooth/verify-s2.mjs":"9266fc7518314073d3694d809cca0e7c6e057daa2c7fcb80bdb0d2a7d460ea48"}}
+{"name":"source","summary":{"passed":5,"failed":0},"environment":null,"sha256":null}
+
+hook: PostToolUse
+ exited 1 in 871ms:
+hook: PostToolUse
+ succeeded in 12222ms:
+CLEANUP {"browserPid":29932,"exit":{"code":0,"signal":null},"forced":false,"profileRemoved":true}
+SUMMARY {"passed":7,"failed":1,"endedAt":"2026-11-28T03:59:50.645Z"}
+
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+**Verifying report outputs**
+**Monitoring progress for results**
+hook: PostToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse
+hook: PreToolUse Completed
+hook: PostToolUse Completed
+hook: PreToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "Get-ChildItem -Name 'D:/trackeep/trackeep-console/trackeep-rulebook/rules/registries'; rg --files 'D:/trackeep/trackeep-console' -g '*人册*' -g '*roster*' -g '*manifest*' -g '*builder-jobspec*'" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+hook: PostToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$p='"'docs/tasks/T1128-SMOOTH/sol-s3-recheck'; "'$names=@('"'before','after','no-data-validation'); foreach("'$name in $names){ $d=Get-Content -Raw -LiteralPath "$p/$name.json" | ConvertFrom-Json; "$name $($d.startedAt) $($d.endedAt)"; foreach($c in $d.checks){ $x=$c.detail; '"'{0} {1} status={2} cache={3} B hash={4} nextDate={5} nextPapers={6} source={7}' -f "'$c.pass,$c.name,$x.status,$x.after.bytes,$x.after.sha256,$x.nextPage.date,$x.nextPage.papers,$x.next.source } }; Get-Content -LiteralPath "$p/no-data-validation.run.json"' in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+hook: PostToolUse Completed
+ succeeded in 4208ms:
+四卡
+端侧操作手册.md
+领域卡模板.md
+能力卡.md
+agents.md
+bookshelf.json
+charter-template.md
+consumers.md
+desktop-terminal-auth.md
+formations.md
+ports.md
+roster.md
+skills.md
+software-contract-template.md
+D:/trackeep/trackeep-console\trackeep-netguard\console\design-versions\original-claude\_ds_trackeep-design-system-a01e4820-f93f-4e9f-832b-f7314dcf8466__ds_manifest.json
+D:/trackeep/trackeep-console\trackeep-terminal\web\tests\console-acceptance.manifest.json
+D:/trackeep/trackeep-console\trackeep-terminal\web\tests\design-tokens.manifest.json
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\vm-runner-review\runner-review-r3\manifest-counterexamples.ps1
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\vm-runner-review\runner-review-r3\manifest-counterexamples.log
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1009-RESUME-MODEL\independent\archive-manifest.json
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\vm-runner-review\runner-review-r2\manifest-counterexamples.ps1
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\vm-runner-review\runner-review-r2\manifest-counterexamples.log
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\vm-runner-review\runner-review-r1\manifest-check-exact.txt
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\vm-runner-review\runner-review-r1\manifest-check-counterexamples.ps1
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\vm-runner-review\runner-review-r1\manifest-check-counterexamples.log
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\guest-round3-full\direct-results\retrieval-manifest.json
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\guest-round5-full\raw\retrieval-manifest.json
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\guest-round3-input\public-supplement-manifest.json
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\guest-round3-input\payload-manifest.json
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\guest-round1-native\retrieval-manifest.json
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\guest-round7-input-and-entry\payload-manifest.json
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\candidate\manifest.json
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\guest-round5-input\payload-manifest.json
+D:/trackeep/trackeep-console\trackeep-atlas\integration\gate-safety\rust-candidate-v5a-superseded-manifest.json
+D:/trackeep/trackeep-console\trackeep-atlas\integration\gate-safety\rust-candidate-v5-manifest.json
+D:/trackeep/trackeep-console\trackeep-atlas\integration\gate-safety\rust-candidate-v4-superseded-manifest.json
+D:/trackeep/trackeep-console\trackeep-atlas\integration\gate-safety\rust-candidate-v3-superseded-manifest.json
+D:/trackeep/trackeep-console\trackeep-atlas\integration\gate-safety\rust-candidate-v2-superseded-manifest.json
+D:/trackeep/trackeep-console\trackeep-atlas\integration\gate-safety\rust-candidate-v1-superseded-manifest.json
+D:/trackeep/trackeep-console\trackeep-atlas\integration\gate-safety\rust-candidate-manifest.json
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\targeted-browser-and-idle-trace-v2\browser\readback\input-manifest.json
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\guest-round5-input\public-supplement\payload-manifest.json
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\guest-round7-input-and-entry\source\web\tests\design-tokens.manifest.json
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\guest-round7-input-and-entry\source\web\tests\console-acceptance.manifest.json
+D:/trackeep/trackeep-console\trackeep-atlas\acceptance\frozen-manifest.json
+D:/trackeep/trackeep-console\trackeep-atlas\acceptance\frozen-manifest-v9.json
+D:/trackeep/trackeep-console\trackeep-atlas\acceptance\frozen-manifest-v8.json
+D:/trackeep/trackeep-console\trackeep-atlas\acceptance\frozen-manifest-v7.json
+D:/trackeep/trackeep-console\trackeep-atlas\acceptance\frozen-manifest-v6.json
+D:/trackeep/trackeep-console\trackeep-atlas\acceptance\frozen-manifest-v5.json
+D:/trackeep/trackeep-console\trackeep-atlas\acceptance\frozen-manifest-v4.json
+D:/trackeep/trackeep-console\trackeep-atlas\acceptance\frozen-manifest-v3.json
+D:/trackeep/trackeep-console\trackeep-atlas\acceptance\frozen-manifest-v2.json
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\guest-round1-full\direct-results\retrieval-manifest.json
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\guest-round7-input-and-entry\public\payload-manifest.json
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\installation-20261120-R8\independent-reviews\android\old-manifest.stdout
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\installation-20261120-R8\independent-reviews\android\old-manifest.stderr
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\installation-20261120-R8\independent-reviews\android\old-manifest.result.json
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\installation-20261120-R8\independent-reviews\android\new-manifest.stdout
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\installation-20261120-R8\independent-reviews\android\new-manifest.stderr
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\installation-20261120-R8\independent-reviews\android\new-manifest.result.json
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\guest-round5-input\source\web\tests\console-acceptance.manifest.json
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\guest-round5-input\source\web\tests\design-tokens.manifest.json
+D:/trackeep/trackeep-console\trackeep-atlas\evidence\gate-safety-execution\temporary-inputs-manifest.json
+D:/trackeep/trackeep-console\trackeep-atlas\evidence\map-acceptance-20261025\technical-manifest-cases-v1.json
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\guest-round8-input-and-entry\input-r8\public-supplement\payload-manifest.json
+D:/trackeep/trackeep-console\trackeep-atlas\evidence\gate-safety-execution\rust-v5\temporary-inputs-manifest.json
+D:/trackeep/trackeep-console\trackeep-atlas\evidence\gate-safety-execution\manifest.json
+D:/trackeep/trackeep-console\trackeep-atlas\evidence\gate-safety-execution\fixture-v6-regression\temporary-inputs-manifest.json
+D:/trackeep/trackeep-console\trackeep-atlas\evidence\map-acceptance-20261025\safety-11-code\technical-manifest-probes.json
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\guest-round8-original-symlink-supplement\actual\retrieval-manifest.json
+D:/trackeep/trackeep-console\trackeep-atlas\evidence\gate-safety-execution\rust-v4\temporary-inputs-manifest.json
+D:/trackeep/trackeep-console\trackeep-atlas\evidence\gate-safety-execution\final-files-manifest.json
+D:/trackeep/trackeep-console\trackeep-atlas\evidence\gate-safety-execution\current-document-89e9\temporary-inputs-manifest.json
+D:/trackeep/trackeep-console\trackeep-atlas\evidence\map-acceptance-20261025\safety-11\technical-manifest-probes.json
+D:/trackeep/trackeep-console\trackeep-atlas\evidence\map-acceptance-20261025\final-review-package18\shared\candidate-manifest18.json
+D:/trackeep/trackeep-console\trackeep-atlas\evidence\map-acceptance-20261025\final-review-package-scripts17\unchanged\shared\candidate-manifest16.json
+D:/trackeep/trackeep-console\trackeep-atlas\evidence\map-acceptance-20261025\final-review-package16\shared\candidate-manifest16.json
+D:/trackeep/trackeep-console\trackeep-atlas\evidence\map-acceptance-20261025\probe_technical_manifest11.py
+D:/trackeep/trackeep-console\trackeep-atlas\evidence\map-acceptance-20261025\probe_technical_manifest_final11.py
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\guest-round7-preflight-red\retrieval-manifest.json
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\guest-round8-full\direct\retrieval-manifest.json
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\guest-round8-input-and-entry\browser-entry-review\MUTATED_PUBLIC_COPY\payload-manifest.json
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\guest-round8-independent-final-reviews\native\external-captures\R8-stable-preflight-and-ttok\R8-public-payload-manifest.json
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\isolation-independent-completed-reviews\round4-reset-review-v2\empty-files\retrieved-r3-20261120-064817-bd5ff57be383471b9298982262f8ec1a\retrieval-manifest.json
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\isolation-independent-completed-reviews\round4-reset-review-v2\arbitrary-subset-without-journal-or-real-results\retrieved-r3-20261120-064817-bd5ff57be383471b9298982262f8ec1a\retrieval-manifest.json
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\isolation-independent-completed-reviews\round4-reset-review-v2\missing-archived-file\retrieved-r3-20261120-064817-bd5ff57be383471b9298982262f8ec1a\retrieval-manifest.json
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\isolation-independent-completed-reviews\round4-reset-review-v2\missing-files\retrieved-r3-20261120-064817-bd5ff57be383471b9298982262f8ec1a\retrieval-manifest.json
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\isolation-independent-completed-reviews\round4-reset-review-v2\valid-full\retrieved-r3-20261120-064817-bd5ff57be383471b9298982262f8ec1a\retrieval-manifest.json
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\isolation-independent-completed-reviews\round4-reset-review-v2\tampered-archived-file\retrieved-r3-20261120-064817-bd5ff57be383471b9298982262f8ec1a\retrieval-manifest.json
+D:/trackeep/trackeep-console\trackeep-terminal\evidence\T1120-T12-SYNC\isolation-independent-completed-reviews\round4-reset-review-v2\extra-unlisted-file\retrieved-r3-20261120-064817-bd5ff57be383471b9298982262f8ec1a\retrieval-manifest.json
+
+hook: PostToolUse
+ succeeded in 4158ms:
+before 11/28/2026 03:58:20 11/28/2026 03:58:39
+False neon-empty-markers-stub status=updated cache=156 B hash=11e2ff0add51cd0cf4f21b39010925b11df3fe7c0d388906c0c56468a3a16b74 nextDate= nextPapers= source=cache-storage
+False missing-site-data-between-markers status=updated cache=191 B hash=ee2fa9e8e7544a3264ba1b4f048645e89eab74427fd90b71cfe6d00355bed41c nextDate=2026-11-28 nextPapers=0 source=cache-storage
+False invalid-json status=updated cache=175 B hash=a2b05c202460c7ff9c7827de2df6964a6dee3b9df28ef0da04cc04e1a0461890 nextDate=2026-11-28 nextPapers=0 source=cache-storage
+False wrong-briefing-date-type status=updated cache=170 B hash=1c093d2d421f563859063e2f75533d3343a1f8cdcac14f61b49d598334e7518e nextDate=20261128 nextPapers=0 source=cache-storage
+False wrong-papers-type status=updated cache=174 B hash=37819c5d931a352dfb018c179bf861bc383c027baf0ff08f3a8dcb2adf8ad3b1 nextDate=2026-11-28 nextPapers= source=cache-storage
+True valid-zero-papers status=updated cache=374679 B hash=37e4fcaf391cc4930b509b53e4fe95f7d0b5ce56fa52ae0e37b710aa52bd7a0a nextDate=2026-11-28 nextPapers=0 source=cache-storage
+after 11/28/2026 03:58:39 11/28/2026 03:58:57
+True neon-empty-markers-stub status=unavailable cache=539012 B hash=33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def nextDate=2026-11-27 nextPapers=40 source=cache-storage
+True missing-site-data-between-markers status=unavailable cache=539012 B hash=33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def nextDate=2026-11-27 nextPapers=40 source=cache-storage
+True invalid-json status=unavailable cache=539012 B hash=33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def nextDate=2026-11-27 nextPapers=40 source=cache-storage
+True wrong-briefing-date-type status=unavailable cache=539012 B hash=33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def nextDate=2026-11-27 nextPapers=40 source=cache-storage
+True wrong-papers-type status=unavailable cache=539012 B hash=33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def nextDate=2026-11-27 nextPapers=40 source=cache-storage
+True valid-zero-papers status=updated cache=374679 B hash=37e4fcaf391cc4930b509b53e4fe95f7d0b5ce56fa52ae0e37b710aa52bd7a0a nextDate=2026-11-28 nextPapers=0 source=cache-storage
+no-data-validation 11/28/2026 03:59:23 11/28/2026 03:59:42
+False neon-empty-markers-stub status=updated cache=156 B hash=11e2ff0add51cd0cf4f21b39010925b11df3fe7c0d388906c0c56468a3a16b74 nextDate= nextPapers= source=cache-storage
+False missing-site-data-between-markers status=updated cache=191 B hash=ee2fa9e8e7544a3264ba1b4f048645e89eab74427fd90b71cfe6d00355bed41c nextDate=2026-11-28 nextPapers=0 source=cache-storage
+False invalid-json status=updated cache=175 B hash=a2b05c202460c7ff9c7827de2df6964a6dee3b9df28ef0da04cc04e1a0461890 nextDate=2026-11-28 nextPapers=0 source=cache-storage
+False wrong-briefing-date-type status=updated cache=170 B hash=1c093d2d421f563859063e2f75533d3343a1f8cdcac14f61b49d598334e7518e nextDate=20261128 nextPapers=0 source=cache-storage
+False wrong-papers-type status=updated cache=174 B hash=37819c5d931a352dfb018c179bf861bc383c027baf0ff08f3a8dcb2adf8ad3b1 nextDate=2026-11-28 nextPapers= source=cache-storage
+True valid-zero-papers status=updated cache=374679 B hash=37e4fcaf391cc4930b509b53e4fe95f7d0b5ce56fa52ae0e37b710aa52bd7a0a nextDate=2026-11-28 nextPapers=0 source=cache-storage
+{
+  "command": [
+    "node",
+    "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\tests\\smooth\\verify-s3.mjs",
+    "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\docs\\tasks\\T1128-SMOOTH\\sol-s3-recheck\\no-data-validation.json",
+    "D:\\claude-tmp\\thoradar-sol-s3-e7d4d6c2-3dc4-4467-9132-f4f64145ea9e.js"
+  ],
+  "candidateSha256": "900061dd45ad04e9f9c4391e5d2756f8b080a4bc4144ede9b913b6deabb5aa8b",
+  "mutatedSha256": "0bee8f9201700624a076cb9b35d9250954130b63a464eec095c6f283e85ab14f",
+  "deleted": "  const block = html.slice(dataStart, end).trim();\n  const declaration = /^const\\s+SITE_DATA\\s*=\\s*(\\{[\\s\\S]*\\})\\s*;?$/.exec(block);\n  if (!declaration) return null;\n  try {\n    const data = JSON.parse(declaration[1]);\n    if (typeof data.briefing_date !== 'string' || !Array.isArray(data.papers)) return null;\n  } catch (_) {\n    return null;\n  }\n",
+  "exitCode": 1
+}
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+**Reviewing test constraints and source integrity**
+**Noting recent progress**
+**Preparing detailed test report**
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "rg -n -A 18 -B 5 '主力|codex|Sol|GPT' 'D:/trackeep/trackeep-console/trackeep-rulebook/rules/registries/roster.md' -m 12" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$d='"'docs/tasks/T1128-SMOOTH'; Get-Date -Format o; Get-ChildItem -File \""'$d/sol-s3-recheck-regressions" | Format-Table Name,Length,LastWriteTime -AutoSize; Get-Content "$d/sol-s3-recheck/legacy.stdout.txt" -Tail 9; rg -n '"'R08|SUMMARY' \""'$d/sol-s3-regressions" -g '"'*.stdout.txt' -g '"'!ux.stdout.txt'"'" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+ succeeded in 1056ms:
+1-岗位合同＝`jobspecs` 各章；本表＝登记面
+2-
+3-## 实体位置与端域约定
+4-
+5:- **实体存放位置**：Claude 端为 `D:/claude/agents/<名>.md`；Codex 端为 `~/.codex/agents/<名>.toml`（`TOML`（结构化配置文件））；Antigravity 端（别名 `agy`）为 `~/.gemini/antigravity-cli/agents/`——**席位实体尚未铺设（在册 0）**，铺席时按端域约定增注。
+6-- **使用方式**：本册为枢纽检索位。`Orchestrator`（主控任务调度席）按名派遣（`subagent_type: <名>`）。
+7-- **端域约定（登记扫描机读）**：下表「端差异」列标 `仅 Claude 端` 表示该岗只铺 Claude 端实体，标 `仅 Codex 端` 表示只铺 Codex 端实体，**无标记表示双端（Claude＋Codex）**（文件缺失即报断链）；Antigravity 端铺席后该列增注 `三端` 或 `仅 Antigravity 端`。
+8-
+9-## 岗位一览
+10-
+11-| 岗 | 职责一句 | 名（两端同名） | 端差异 |
+12-|---|---|---|---|
+13-| `builder` | 施工席（岗位卡＝`builder-jobspec`） | `trackeep-builder` |  |
+14-| `verifier` | 复核席（岗位卡＝`verifier-jobspec`） | `trackeep-verifier` |  |
+15-| `security-auditor` | 安全审计席（岗位卡＝`security-auditor-jobspec`） | `trackeep-security-auditor` |  |
+16-| `observer` | 第四角色：独立评估体系；阶段回顾触发（30 天／8 份／红线变更）见 observer-jobspec | `trackeep-observer` |  |
+17-| `doc-auditor` | 文档审查席（岗位卡＝`doc-auditor-jobspec`） | `trackeep-doc-auditor` | Claude 端由 PI（项目唯一决策人）调用触发 |
+18-| `doclaw-pro` | 文档规则法律整理员·执行档（岗位卡＝`doclaw-jobspec`） | `trackeep-doclaw-pro` | 仅 Claude 端 |
+19-| `doclaw-judge` | 文档规则法律整理员·语义复核档（岗位卡＝`doclaw-jobspec`） | `trackeep-doclaw-judge` | 仅 Claude 端 |
+20-| `doclaw-lite` | 文档规则法律整理员·机械档（机器复核；岗位卡＝`doclaw-jobspec`） | `trackeep-doclaw-lite` | 仅 Claude 端 |
+
+hook: PostToolUse
+ succeeded in 1317ms:
+2026-11-28T12:00:34.9809947+08:00
+
+Name              Length LastWriteTime
+----              ------ -------------
+aicls.stderr.txt       0 2026/11/28 11:58:23
+aicls.stdout.txt       0 2026/11/28 11:58:23
+poolup.json         7182 2026/11/28 12:00:34
+poolup.stderr.txt      0 2026/11/28 11:58:23
+poolup.stdout.txt  13227 2026/11/28 12:00:34
+ux.json             7895 2026/11/28 12:00:21
+ux.stderr.txt          0 2026/11/28 11:58:23
+ux.stdout.txt      23311 2026/11/28 12:00:04
+
+docs/tasks/T1128-SMOOTH/sol-s3-regressions\poolup.stdout.txt:31:FAIL R08 检索框输入一个词（当场挑：搜得到、但搜不全）
+docs/tasks/T1128-SMOOTH/sol-s3-regressions\poolup.stdout.txt:36:PASS R08b 键盘 Esc 清除检索（列表应放宽）
+docs/tasks/T1128-SMOOTH/sol-s3-regressions\poolup.stdout.txt:105:==== POOLUP REGRESS [sols2] SUMMARY 39 PASS / 1 FAIL / 0 SKIP：R00 ✓  R01 ✓  R02 ✓  R03 ✓  R04 ✓  R05 ✓  R05b ✓  R06 ✓  R06b ✓  R07 ✓  R07b ✓  R08 ✗  R08b ✓  R09 ✓  R10 ✓  R11 ✓  R12 ✓  R13 ✓  R14 ✓  R15 ✓  R15b ✓  R15c ✓  R16 ✓  R17 ✓  R18 ✓  R19 ✓  R20 ✓  R20b ✓  R21 ✓  R22 ✓  R22b ✓  R23 ✓  R24 ✓  R25 ✓  R26 ✓  R27 ✓  R28 ✓  R29 ✓  R30 ✓  R99 ✓ ====
+docs/tasks/T1128-SMOOTH/sol-s3-regressions\aicls.stdout.txt:31:FAIL R08 检索框输入一个词（当场挑：搜得到、但搜不全）
+docs/tasks/T1128-SMOOTH/sol-s3-regressions\aicls.stdout.txt:36:PASS R08b 键盘 Esc 清除检索（列表应放宽）
+docs/tasks/T1128-SMOOTH/sol-s3-regressions\aicls.stdout.txt:105:==== AICLS REGRESS [sols2] SUMMARY 39 PASS / 1 FAIL / 0 SKIP：R00 ✓  R01 ✓  R02 ✓  R03 ✓  R04 ✓  R05 ✓  R05b ✓  R06 ✓  R06b ✓  R07 ✓  R07b ✓  R08 ✗  R08b ✓  R09 ✓  R10 ✓  R11 ✓  R12 ✓  R13 ✓  R14 ✓  R15 ✓  R15b ✓  R15c ✓  R16 ✓  R17 ✓  R18 ✓  R19 ✓  R20 ✓  R20b ✓  R21 ✓  R22 ✓  R22b ✓  R23 ✓  R24 ✓  R25 ✓  R26 ✓  R27 ✓  R28 ✓  R29 ✓  R30 ✓  R99 ✓ ====
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+ exited 1 in 137975ms:
+RUN node tests/ux/ux_probe.mjs --target index.html --base 73dd34e --label sol-s2
+RUN node tests/aicls/aicls_regress.mjs --target index.html --baseline 73dd34e --label sols2
+RUN node tests/poolup/poolup_regress.mjs --target index.html --baseline 73dd34e --label sols2
+ux exit=0 ==== UX PROBE [sol-s2] SUMMARY 46 PASS / 0 FAIL：F2a ✓  F2b ✓  F2c ✓  F2d ✓  F2e ✓  F2f ✓  F2g ✓  F2h ✓  F3a ✓  F3b ✓  F3b2 ✓  F3c ✓  F3d ✓  F3e ✓  F4a ✓  F4b ✓  F4c ✓  F4d ✓  F4e ✓  F5a ✓  F5b ✓  F5c ✓  F5d ✓  F5e ✓  F6a ✓  F6b ✓  F7a ✓  F7b ✓  F7c ✓  F7d ✓  F7e ✓  F10a ✓  F10b ✓  F10c ✓  F10d ✓  F11a ✓  F11b ✓  F11c ✓  F11d ✓  F9a ✓  F9b ✓  F9c ✓  F8a ✓  F8b ✓  F8c ✓  F8d ✓ ====
+poolup exit=1 ==== POOLUP REGRESS [sols2] SUMMARY 39 PASS / 1 FAIL / 0 SKIP：R00 ✓  R01 ✓  R02 ✓  R03 ✓  R04 ✓  R05 ✓  R05b ✓  R06 ✓  R06b ✓  R07 ✓  R07b ✓  R08 ✗  R08b ✓  R09 ✓  R10 ✓  R11 ✓  R12 ✓  R13 ✓  R14 ✓  R15 ✓  R15b ✓  R15c ✓  R16 ✓  R17 ✓  R18 ✓  R19 ✓  R20 ✓  R20b ✓  R21 ✓  R22 ✓  R22b ✓  R23 ✓  R24 ✓  R25 ✓  R26 ✓  R27 ✓  R28 ✓  R29 ✓  R30 ✓  R99 ✓ ====
+aicls exit=1 ==== AICLS REGRESS [sols2] SUMMARY 39 PASS / 1 FAIL / 0 SKIP：R00 ✓  R01 ✓  R02 ✓  R03 ✓  R04 ✓  R05 ✓  R05b ✓  R06 ✓  R06b ✓  R07 ✓  R07b ✓  R08 ✗  R08b ✓  R09 ✓  R10 ✓  R11 ✓  R12 ✓  R13 ✓  R14 ✓  R15 ✓  R15b ✓  R15c ✓  R16 ✓  R17 ✓  R18 ✓  R19 ✓  R20 ✓  R20b ✓  R21 ✓  R22 ✓  R22b ✓  R23 ✓  R24 ✓  R25 ✓  R26 ✓  R27 ✓  R28 ✓  R29 ✓  R30 ✓  R99 ✓ ====
+
+**Updating test and report procedures**
+**Compiling artifact inventory and error checks**
+codex
+专项 6/6、S1 9/9、S2 24/24 已跑完。删掉新校验后，156 B 样本再次覆盖缓存，五个拒绝用例都变红。合法零篇版仍能写入，并在下次打开时显示。
+hook: PreToolUse
+hook: PreToolUse Completed
+apply patch
+patch: completed
+D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\docs\tasks\T1128-SMOOTH\sol-s3-report.md
+diff --git a/docs/tasks/T1128-SMOOTH/sol-s3-recheck/run-no-data-validation.ps1 b/docs/tasks/T1128-SMOOTH/sol-s3-recheck/run-no-data-validation.ps1
+new file mode 100644
+index 0000000000000000000000000000000000000000..04a8408ddf4720698747e3b8443aa33028a66ede
+--- /dev/null
++++ b/docs/tasks/T1128-SMOOTH/sol-s3-recheck/run-no-data-validation.ps1
+@@ -0,0 +1,43 @@
++$ErrorActionPreference = 'Stop'
++$root = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '../../../..')).Path
++$destination = Join-Path $PSScriptRoot 'no-data-validation'
++$files = @('.json', '.stdout.txt', '.stderr.txt', '.run.json')
++foreach ($extension in $files) {
++    if (Test-Path -LiteralPath "$destination$extension") {
++        throw "Evidence already exists at $destination$extension"
++    }
++}
++
++$candidatePath = Join-Path $root 'sw.js'
++$candidate = [IO.File]::ReadAllText($candidatePath)
++$start = $candidate.IndexOf('  const block = html.slice(dataStart, end).trim();', [StringComparison]::Ordinal)
++$end = $candidate.IndexOf('  return { response, html };', [StringComparison]::Ordinal)
++if ($start -lt 0 -or $end -le $start) { throw 'Could not isolate the new data validation' }
++$deleted = $candidate.Substring($start, $end - $start)
++if (-not $deleted.Contains('JSON.parse(declaration[1])')) { throw 'Mutation did not remove JSON.parse' }
++$temporaryWorker = Join-Path ([IO.Path]::GetTempPath()) ('thoradar-sol-s3-' + [guid]::NewGuid() + '.js')
++
++try {
++    [IO.File]::WriteAllText($temporaryWorker, $candidate.Remove($start, $end - $start))
++    $test = Join-Path $root 'tests/smooth/verify-s3.mjs'
++    $command = @('node', $test, "$destination.json", $temporaryWorker)
++    $metadata = [ordered]@{
++        command = $command
++        candidateSha256 = (Get-FileHash -LiteralPath $candidatePath).Hash.ToLowerInvariant()
++        mutatedSha256 = (Get-FileHash -LiteralPath $temporaryWorker).Hash.ToLowerInvariant()
++        deleted = $deleted
++    }
++    node $test "$destination.json" $temporaryWorker 1> "$destination.stdout.txt" 2> "$destination.stderr.txt"
++    $metadata.exitCode = $LASTEXITCODE
++    $metadata | ConvertTo-Json -Depth 4 | Set-Content -LiteralPath "$destination.run.json" -Encoding utf8
++    $result = Get-Content -Raw -LiteralPath "$destination.json" | ConvertFrom-Json
++    $neon = $result.checks | Where-Object name -eq 'neon-empty-markers-stub'
++    if ($metadata.exitCode -ne 1 -or $result.summary.failed -ne 5 -or $result.summary.passed -ne 1 -or
++        -not $neon -or $neon.pass -or $neon.detail.after.sha256 -ne $result.fixtures.'neon-empty-markers-stub'.sha256) {
++        throw 'Expected the five rejected responses to re-enter the cache when validation was removed'
++    }
++    Get-Content -LiteralPath "$destination.stdout.txt" | Select-String '^SUMMARY'
++    Write-Output "Mutation exit $($metadata.exitCode); 156-byte Neon response replaced the healthy cache"
++} finally {
++    Remove-Item -LiteralPath $temporaryWorker -ErrorAction SilentlyContinue
++}
+diff --git a/docs/tasks/T1128-SMOOTH/sol-s3-report.md b/docs/tasks/T1128-SMOOTH/sol-s3-report.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..8620bdf25d163e44e5539ae4f5cc9417a4bfeca3
+--- /dev/null
++++ b/docs/tasks/T1128-SMOOTH/sol-s3-report.md
+@@ -0,0 +1,68 @@
++**干了什么**　修复了胸科雷达首页缓存写入校验。156 B 的空标记损坏页和另外四个坏样本均被拒绝，合法零篇版在下次打开时正常显示。  
++**PI 怎么亲手验**　点击专项原始输出，看到 `PASS neon-empty-markers-stub` 一行的 `before` 和 `after` 都是 `539012` 字节且 SHA-256 相同，就验到了健康副本被保留。[专项原始输出](sol-s3-recheck/after.stdout.txt)  
++**还剩什么坑**　AICLS 和 POOLUP 的 R08 仍因基线与候选均搜到零篇而无法判定。S3 施工自测完毕，待独立复核和主控整合。
++
++## 地图影响
++
++T1128-SMOOTH-S3 对应胸科雷达顺畅改造 ③.4 的 R2 返修。指定隔离工作树里已有 S3 候选和首轮证据，本轮核对基线后，使用同一版专项脚本复跑旧版、新版和删减版，并补齐正式回执。岗位卡为 `builder-jobspec`，轨道版本为 `T1128-SMOOTH v1`，委任席位为 `codex-gpt`，点名档位为 `gpt-6.2-sol`。
++
++`sw.js` 的 `fetchShell` 在现有 HTTP 200、`basic`、HTML MIME、标记顺序及 `</html>` 收尾检查后，提取两个标记之间的 `const SITE_DATA = …` 声明，用 `JSON.parse` 验证 JSON 对象并检查 `briefing_date` 是字符串、`papers` 是数组。安装预取与后台核新共用该函数。相对 S2 的生产代码差异限于这一处。[worker 差异](sol-s3-recheck/worker.diff.txt) [源文件检查](sol-s3-recheck/source.json)
++
++Neon 的 156 B 样本与独立证据中的 SHA-256 完全一致。旧版在收到 HTTP 200、`text/html` 响应后将 539,012 B 的健康副本换成了这 156 B，下次从 Cache Storage 读到损坏壳。候选版对五个异常输入均报告 `unavailable`，健康副本的长度和 SHA-256 在刷新前后完全一致，下次打开仍从 Cache Storage 显示 `2026-11-27` 的 40 篇。零篇用例更新为 `2026-11-28`，下次打开从 Cache Storage 读出 `papers.length === 0`。缺块用例在结束标记外放置了一个合法声明，验证了声明必须位于标记之间。[Neon 独立样本](/D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v1/neon-v1-verify.json:141) [基线 JSON](sol-s3-recheck/before.json) [候选 JSON](sol-s3-recheck/after.json)
++
++## 遗留风险
++
++- AICLS 和 POOLUP 各有一项 R08 原样失败。两套脚本都挑中 `Mortality`，基线和候选均报告 `list: 0, noQuery: 1`，因此这项检索差分仍未验证。[AICLS 原始输出](sol-s3-recheck-regressions/aicls.stdout.txt) [POOLUP 原始输出](sol-s3-recheck-regressions/poolup.stdout.txt)
++- 验证环境为本机 Chrome 和回环测试服务。线上、CDN 和真机未验。独立复核由主控另行验收。
++
++## 证据
++
++Windows 11 Pro x64 `10.0.26300`，Node `v24.14.0`，Chrome `158.0.8127.88`，CDP `1.3`，无随机种子。专项正式复跑从北京时间 `2026-11-28 11:58:20` 开始，负对照于 `11:59:42` 结束。各套精确 UTC 起止、命令、哈希及逐项结果在 JSON。旧三项负对照通过既有测试设施返回变异响应。S3 负对照只从临时 worker 文件删掉数据块检查，保留原来的 HTTP、MIME、标记与收尾检查。删除代码原文、变异 SHA-256 与实际退出码留在运行记录。[S3 负对照运行记录](sol-s3-recheck/no-data-validation.run.json)
++
++```powershell
++$e = 'docs/tasks/T1128-SMOOTH/sol-s3-recheck'
++$baseline = 'D:/trackeep/trackeep-product/trackeep-thoradar-neon-v1/sw.js'
++node tests/smooth/verify-s3.mjs "$e/before.json" $baseline
++node tests/smooth/verify-s3.mjs "$e/after.json"
++pwsh -NoProfile -File "$e/run-no-data-validation.ps1"
++node tests/smooth/verify-s1.mjs "$e/s1.json" none
++node tests/smooth/verify-s2.mjs "$e/s2.json" none
++node tests/smooth/verify-s1.mjs "$e/s1-no-local-return.json" no-local-return
++node tests/smooth/verify-s1.mjs "$e/s1-allow-truncated.json" allow-truncated
++node tests/smooth/verify-s2.mjs "$e/s2-no-retire-cleanup.json" no-retire-cleanup
++node tests/smooth/verify-source.mjs "$e/source.json"
++node tests/smooth/run-regressions.mjs sol-s3-recheck-regressions
++```
++
++| 验证 | 通过 / 失败 | 退出码 | 原始证据 |
++| --- | ---: | ---: | --- |
++| S3 修复前首轮 | 1 / 5 | 1 | [JSON](sol-s3-before.json) · [stdout](sol-s3-before.stdout.txt) · [stderr](sol-s3-before.stderr.txt) |
++| S3 基线正式复跑 | 1 / 5 | 1 | [JSON](sol-s3-recheck/before.json) · [stdout](sol-s3-recheck/before.stdout.txt) · [stderr](sol-s3-recheck/before.stderr.txt) |
++| S3 候选 | 6 / 0 | 0 | [JSON](sol-s3-recheck/after.json) · [stdout](sol-s3-recheck/after.stdout.txt) · [stderr](sol-s3-recheck/after.stderr.txt) |
++| S3 删新校验 | 1 / 5 | 1 | [JSON](sol-s3-recheck/no-data-validation.json) · [stdout](sol-s3-recheck/no-data-validation.stdout.txt) · [stderr](sol-s3-recheck/no-data-validation.stderr.txt) |
++| S1 核心 | 9 / 0 | 0 | [JSON](sol-s3-recheck/s1.json) · [stdout](sol-s3-recheck/s1.stdout.txt) · [stderr](sol-s3-recheck/s1.stderr.txt) |
++| S2 异常矩阵 | 24 / 0 | 0 | [JSON](sol-s3-recheck/s2.json) · [stdout](sol-s3-recheck/s2.stdout.txt) · [stderr](sol-s3-recheck/s2.stderr.txt) |
++| S1 去掉缓存命中返回 | 3 / 1 | 1 | [JSON](sol-s3-recheck/s1-no-local-return.json) · [stdout](sol-s3-recheck/s1-no-local-return.stdout.txt) · [stderr](sol-s3-recheck/s1-no-local-return.stderr.txt) |
++| S1 放行截断 | 7 / 1 | 1 | [JSON](sol-s3-recheck/s1-allow-truncated.json) · [stdout](sol-s3-recheck/s1-allow-truncated.stdout.txt) · [stderr](sol-s3-recheck/s1-allow-truncated.stderr.txt) |
++| S2 去掉退役清理 | 1 / 1 | 1 | [JSON](sol-s3-recheck/s2-no-retire-cleanup.json) · [stdout](sol-s3-recheck/s2-no-retire-cleanup.stdout.txt) · [stderr](sol-s3-recheck/s2-no-retire-cleanup.stderr.txt) |
++| 源文件检查 | 5 / 0 | 0 | [JSON](sol-s3-recheck/source.json) · [stdout](sol-s3-recheck/source.stdout.txt) · [stderr](sol-s3-recheck/source.stderr.txt) |
++| UX | 46 / 0 | 0 | [JSON](sol-s3-recheck-regressions/ux.json) · [stdout](sol-s3-recheck-regressions/ux.stdout.txt) · [stderr](sol-s3-recheck-regressions/ux.stderr.txt) · [量测 JSON](sol-s3-recheck-regressions/ux-measurements/) |
++| AICLS | 39 / 1 | 1 | [JSON](sol-s3-recheck-regressions/aicls.json) · [stdout](sol-s3-recheck-regressions/aicls.stdout.txt) · [stderr](sol-s3-recheck-regressions/aicls.stderr.txt) |
++| POOLUP | 39 / 1 | 1 | [JSON](sol-s3-recheck-regressions/poolup.json) · [stdout](sol-s3-recheck-regressions/poolup.stdout.txt) · [stderr](sol-s3-recheck-regressions/poolup.stderr.txt) |
++
++| 文件 | SHA-256 |
++| --- | --- |
++| `index.html` | `33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def` |
++| S2 `sw.js` 基线 | `f8a4e2bc4d5d81964475580c012e825281f409a171782640ad5cbc68a07bca24` |
++| S3 `sw.js` 候选 | `900061dd45ad04e9f9c4391e5d2756f8b080a4bc4144ede9b913b6deabb5aa8b` |
++| S3 删校验的临时 worker | `0bee8f9201700624a076cb9b35d9250954130b63a464eec095c6f283e85ab14f` |
++| `sw-retire.js` | `5ae38f2ba965f4e1b1d340da2ba5fadd8b58af82a1e271a02ddff97ab5686199` |
++| `tests/smooth/verify-s3.mjs` | `585a9f3803238cfb18b80a490948f9e661fd6792dae09838c53d38f98a030ac7` |
++| Neon 156 B 样本 | `11e2ff0add51cd0cf4f21b39010925b11df3fe7c0d388906c0c56468a3a16b74` |
++
++## 地图终态
++
++③.4 的 S3 修复与施工证据已交付，建议主控回填待独立复核。地图当前为 ③.4 `rework-in-progress`、④ `completed-with-findings`、⑤ `pending`、⑤.9 `not-authorized`。地图由主控回填。[唯一任务地图](/D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/task-map.md:12)
++
++DELIVERY-T1128-SMOOTH-S3
++已交付空标记损坏页的缓存写入修复，以及专项红绿、删校验负对照和既有回归证据。
+
+hook: PostToolUse
+hook: PostToolUse Completed
+**Verifying output and runtime data**
+hook: PostToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PostToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command 'git status --short --branch
+git diff --exit-code -- tests/ux tests/aicls tests/poolup
+git rev-parse --show-toplevel HEAD
+Get-FileHash -LiteralPath sw.js, index.html
+Test-Path -LiteralPath docs/tasks/T1128-SMOOTH/sol-s3-report.md' in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$d='"'docs/tasks/T1128-SMOOTH/sol-s3-recheck-regressions'; "'$versions=@('"'ux','aicls','poolup'); foreach("'$v in $versions){ $path="$d/$v.json"; if (Test-Path -LiteralPath $path){ $j=Get-Content -Raw -LiteralPath $path | ConvertFrom-Json; '"'{0} exit={1} {2} to {3}' -f "'$v,$j.exitCode,$j.startedAt,$j.endedAt; $j.reportedSummary; if ($v -ne '"'ux') { Select-String -Path \""'$d/$v.stdout.txt" -Pattern '"'"'^FAIL R08 '"' -Context 1,4 } } }; Get-ChildItem -LiteralPath \""'$d/ux-measurements" -File | Measure-Object | Select-Object Count' in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command "rg -n -A 5 -B 4 '主力表|人册' 'D:/trackeep/trackeep-console/trackeep-rulebook/rules/entries/employment-law.md'
+Get-Content -LiteralPath 'D:/trackeep/trackeep-console/trackeep-rulebook/rules/registries/能力卡.md' -TotalCount 14" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+ succeeded in 1814ms:
+## HEAD (no branch)
+ M index.html
+?? docs/tasks/
+?? sw-retire.js
+?? sw.js
+?? tests/smooth/
+D:/trackeep/trackeep-product/trackeep-thoradar-smooth-T1128
+73dd34e65fce6661d74e595afc03df68e7d3f44f
+
+Algorithm       Hash                                                                   Path
+---------       ----                                                                   ----
+SHA256          900061DD45AD04E9F9C4391E5D2756F8B080A4BC4144EDE9B913B6DEABB5AA8B       D:\trackeep\trackeep-product\tr…
+SHA256          33C50BEF723B0A3F32B51BC2D5927FF4391BB58EB474996F1A7D9DFF96BC1DEF       D:\trackeep\trackeep-product\tr…
+True
+
+
+hook: PostToolUse
+ succeeded in 848ms:
+# 能力卡
+
+> 四卡统一 2026-11-27·拆两半定稿：机器字段（model_id/display_name/harness/version）唯一正本＝agent-launchers/manifest.json＋manifest-ledger.json（哈希登记·改行须升号），本卡不再抄写（抄写必旧·当日下午已实证）。本卡＝人读注解唯一正本：五维分·价目·实绩·备注；model_id 为对接键。分数采样日 2026-11-27 14:05（源＝实分表 v1·已归档 rules/evidence/）。无榜留空。实绩不立栏（PI 2026-11-27 判·性价比低）：真账在验收记录（收货单／派遣账本），选型查记录；以后要快查＝机器从派遣账本生成战绩汇总，不手填。
+
+### GPT-6.2 Sol
+
+- model_id: gpt-6.2-sol
+
+五维分（2026-11-27 14:05）：综合 72.4 / 编程 72.6 / 科研 75.0 / 办公 69.7 / 问答 73.1
+价目（缓·入·出·¥/百万tok）：缓0.67·入13.32·出66.6
+备注：榜名 gpt-6.2-sol（manifest 标牌已更「GPT-6.2 Sol」·2026-11-27）
+
+### GPT-6.2 Astra
+
+
+ succeeded in 1038ms:
+ux exit=0 2026/11/28 3:58:23 to 2026/11/28 4:00:21
+==== UX PROBE [sol-s2] SUMMARY 46 PASS / 0 FAIL：F2a ✓  F2b ✓  F2c ✓  F2d ✓  F2e ✓  F2f ✓  F2g ✓  F2h ✓  F3a ✓  F3b ✓  F3b2 ✓  F3c ✓  F3d ✓  F3e ✓  F4a ✓  F4b ✓  F4c ✓  F4d ✓  F4e ✓  F5a ✓  F5b ✓  F5c ✓  F5d ✓  F5e ✓  F6a ✓  F6b ✓  F7a ✓  F7b ✓  F7c ✓  F7d ✓  F7e ✓  F10a ✓  F10b ✓  F10c ✓  F10d ✓  F11a ✓  F11b ✓  F11c ✓  F11d ✓  F9a ✓  F9b ✓  F9c ✓  F8a ✓  F8b ✓  F8c ✓  F8d ✓ ====
+aicls exit=1 2026/11/28 3:58:23 to 2026/11/28 4:00:37
+==== AICLS REGRESS [sols2] SUMMARY 39 PASS / 1 FAIL / 0 SKIP：R00 ✓  R01 ✓  R02 ✓  R03 ✓  R04 ✓  R05 ✓  R05b ✓  R06 ✓  R06b ✓  R07 ✓  R07b ✓  R08 ✗  R08b ✓  R09 ✓  R10 ✓  R11 ✓  R12 ✓  R13 ✓  R14 ✓  R15 ✓  R15b ✓  R15c ✓  R16 ✓  R17 ✓  R18 ✓  R19 ✓  R20 ✓  R20b ✓  R21 ✓  R22 ✓  R22b ✓  R23 ✓  R24 ✓  R25 ✓  R26 ✓  R27 ✓  R28 ✓  R29 ✓  R30 ✓  R99 ✓ ====
+
+  docs\tasks\T1128-SMOOTH\sol-s3-recheck-regressions\aicls.stdout.txt:30:     · 场景自检 基线 {"quick":"rct","list":1,"
+all":38}｜施工后 {"quick":"rct","list":1,"all":38}
+> docs\tasks\T1128-SMOOTH\sol-s3-recheck-regressions\aicls.stdout.txt:31:FAIL R08 检索框输入一个词（当场挑：搜得到、但
+搜不全）
+  docs\tasks\T1128-SMOOTH\sol-s3-recheck-regressions\aicls.stdout.txt:32:     · 快照 124136 字｜概览列表 0 篇｜界面文案
+件 79 个｜AI 请求 无｜NCBI 请求 无（后缀＋＝距上一个 ≥3s）｜确认框 0 次
+  docs\tasks\T1128-SMOOTH\sol-s3-recheck-regressions\aicls.stdout.txt:33:     · 场景自检 基线 {"query":"Mortality","lis
+t":0,"noQuery":1}｜施工后 {"query":"Mortality","list":0,"noQuery":1}
+  docs\tasks\T1128-SMOOTH\sol-s3-recheck-regressions\aicls.stdout.txt:34:     ✗ 场景失真：这一步之后概览列表是空的（基
+线 0 篇、施工后 0 篇）——筛选逻辑没真正被比到
+  docs\tasks\T1128-SMOOTH\sol-s3-recheck-regressions\aicls.stdout.txt:35:     ✗ 场景失真或两侧自检值不同（这一步没有真
+的改变什么，空对空比不出差异）：基线 {"query":"Mortality","list":0,"noQuery":1}｜施工后 {"query":"Mortality","list":0,"
+noQuery":1}
+poolup exit=1 2026/11/28 3:58:23 to 2026/11/28 4:00:34
+==== POOLUP REGRESS [sols2] SUMMARY 39 PASS / 1 FAIL / 0 SKIP：R00 ✓  R01 ✓  R02 ✓  R03 ✓  R04 ✓  R05 ✓  R05b ✓  R06 ✓  R06b ✓  R07 ✓  R07b ✓  R08 ✗  R08b ✓  R09 ✓  R10 ✓  R11 ✓  R12 ✓  R13 ✓  R14 ✓  R15 ✓  R15b ✓  R15c ✓  R16 ✓  R17 ✓  R18 ✓  R19 ✓  R20 ✓  R20b ✓  R21 ✓  R22 ✓  R22b ✓  R23 ✓  R24 ✓  R25 ✓  R26 ✓  R27 ✓  R28 ✓  R29 ✓  R30 ✓  R99 ✓ ====
+  docs\tasks\T1128-SMOOTH\sol-s3-recheck-regressions\poolup.stdout.txt:30:     · 场景自检 基线 {"quick":"rct","list":1,
+"all":38}｜施工后 {"quick":"rct","list":1,"all":38}
+> docs\tasks\T1128-SMOOTH\sol-s3-recheck-regressions\poolup.stdout.txt:31:FAIL R08 检索框输入一个词（当场挑：搜得到、但
+搜不全）
+  docs\tasks\T1128-SMOOTH\sol-s3-recheck-regressions\poolup.stdout.txt:32:     · 快照 123908 字｜概览列表 0 篇｜界面文
+案件 79 个｜AI 请求 无｜NCBI 请求 无（后缀＋＝距上一个 ≥3s）｜确认框 0 次
+  docs\tasks\T1128-SMOOTH\sol-s3-recheck-regressions\poolup.stdout.txt:33:     · 场景自检 基线 {"query":"Mortality","li
+st":0,"noQuery":1}｜施工后 {"query":"Mortality","list":0,"noQuery":1}
+  docs\tasks\T1128-SMOOTH\sol-s3-recheck-regressions\poolup.stdout.txt:34:     ✗ 场景失真：这一步之后概览列表是空的（基
+线 0 篇、施工后 0 篇）——筛选逻辑没真正被比到
+  docs\tasks\T1128-SMOOTH\sol-s3-recheck-regressions\poolup.stdout.txt:35:     ✗ 场景失真或两侧自检值不同（这一步没有真
+的改变什么，空对空比不出差异）：基线 {"query":"Mortality","list":0,"noQuery":1}｜施工后 {"query":"Mortality","list":0,"
+noQuery":1}
+
+Count : 9
+
+
+
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+**Verifying source cleanup and test reproduction**
+**Documenting report links and raw outputs**
+
+I’m making sure all report links use absolute Windows-style paths that render correctly, including raw commands and outputs per user request, and verifying cleanup commands and test artifact removal with clear summaries.
+**Verifying report and logs paths**
+hook: PreToolUse
+hook: PreToolUse Completed
+apply patch
+patch: completed
+D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\docs\tasks\T1128-SMOOTH\sol-s3-report.md
+diff --git a/docs/tasks/T1128-SMOOTH/sol-s3-recheck/run-no-data-validation.ps1 b/docs/tasks/T1128-SMOOTH/sol-s3-recheck/run-no-data-validation.ps1
+new file mode 100644
+index 0000000000000000000000000000000000000000..04a8408ddf4720698747e3b8443aa33028a66ede
+--- /dev/null
++++ b/docs/tasks/T1128-SMOOTH/sol-s3-recheck/run-no-data-validation.ps1
+@@ -0,0 +1,43 @@
++$ErrorActionPreference = 'Stop'
++$root = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '../../../..')).Path
++$destination = Join-Path $PSScriptRoot 'no-data-validation'
++$files = @('.json', '.stdout.txt', '.stderr.txt', '.run.json')
++foreach ($extension in $files) {
++    if (Test-Path -LiteralPath "$destination$extension") {
++        throw "Evidence already exists at $destination$extension"
++    }
++}
++
++$candidatePath = Join-Path $root 'sw.js'
++$candidate = [IO.File]::ReadAllText($candidatePath)
++$start = $candidate.IndexOf('  const block = html.slice(dataStart, end).trim();', [StringComparison]::Ordinal)
++$end = $candidate.IndexOf('  return { response, html };', [StringComparison]::Ordinal)
++if ($start -lt 0 -or $end -le $start) { throw 'Could not isolate the new data validation' }
++$deleted = $candidate.Substring($start, $end - $start)
++if (-not $deleted.Contains('JSON.parse(declaration[1])')) { throw 'Mutation did not remove JSON.parse' }
++$temporaryWorker = Join-Path ([IO.Path]::GetTempPath()) ('thoradar-sol-s3-' + [guid]::NewGuid() + '.js')
++
++try {
++    [IO.File]::WriteAllText($temporaryWorker, $candidate.Remove($start, $end - $start))
++    $test = Join-Path $root 'tests/smooth/verify-s3.mjs'
++    $command = @('node', $test, "$destination.json", $temporaryWorker)
++    $metadata = [ordered]@{
++        command = $command
++        candidateSha256 = (Get-FileHash -LiteralPath $candidatePath).Hash.ToLowerInvariant()
++        mutatedSha256 = (Get-FileHash -LiteralPath $temporaryWorker).Hash.ToLowerInvariant()
++        deleted = $deleted
++    }
++    node $test "$destination.json" $temporaryWorker 1> "$destination.stdout.txt" 2> "$destination.stderr.txt"
++    $metadata.exitCode = $LASTEXITCODE
++    $metadata | ConvertTo-Json -Depth 4 | Set-Content -LiteralPath "$destination.run.json" -Encoding utf8
++    $result = Get-Content -Raw -LiteralPath "$destination.json" | ConvertFrom-Json
++    $neon = $result.checks | Where-Object name -eq 'neon-empty-markers-stub'
++    if ($metadata.exitCode -ne 1 -or $result.summary.failed -ne 5 -or $result.summary.passed -ne 1 -or
++        -not $neon -or $neon.pass -or $neon.detail.after.sha256 -ne $result.fixtures.'neon-empty-markers-stub'.sha256) {
++        throw 'Expected the five rejected responses to re-enter the cache when validation was removed'
++    }
++    Get-Content -LiteralPath "$destination.stdout.txt" | Select-String '^SUMMARY'
++    Write-Output "Mutation exit $($metadata.exitCode); 156-byte Neon response replaced the healthy cache"
++} finally {
++    Remove-Item -LiteralPath $temporaryWorker -ErrorAction SilentlyContinue
++}
+diff --git a/docs/tasks/T1128-SMOOTH/sol-s3-report.md b/docs/tasks/T1128-SMOOTH/sol-s3-report.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..e924fcafc09d9fc2cebe74c58af3e7cf2a84ec55
+--- /dev/null
++++ b/docs/tasks/T1128-SMOOTH/sol-s3-report.md
+@@ -0,0 +1,68 @@
++**干了什么**　修复了胸科雷达首页缓存写入校验。156 B 的空标记损坏页和另外四个坏样本均被拒绝，合法零篇版在下次打开时正常显示。  
++**PI 怎么亲手验**　点击专项原始输出，看到 `PASS neon-empty-markers-stub` 一行的 `before` 和 `after` 都是 `539012` 字节且 SHA-256 相同，就验到了健康副本被保留。[专项原始输出](sol-s3-recheck/after.stdout.txt)  
++**还剩什么坑**　AICLS 和 POOLUP 的 R08 仍因基线与候选均搜到零篇而无法判定。S3 施工自测完毕，待独立复核和主控整合。
++
++## 地图影响
++
++T1128-SMOOTH-S3 对应胸科雷达顺畅改造 ③.4 的 R2 返修。指定隔离工作树里已有 S3 候选和首轮证据，本轮核对基线后，使用同一版专项脚本复跑旧版、新版和删减版，并补齐正式回执。岗位卡为 `builder-jobspec`，轨道版本为 `T1128-SMOOTH v1`，委任席位为 `codex-gpt`，点名档位为 `gpt-6.2-sol`。
++
++`sw.js` 的 `fetchShell` 在现有 HTTP 200、`basic`、HTML MIME、标记顺序及 `</html>` 收尾检查后，提取两个标记之间的 `const SITE_DATA = …` 声明，用 `JSON.parse` 验证 JSON 对象并检查 `briefing_date` 是字符串、`papers` 是数组。安装预取与后台核新共用该函数。相对 S2 的生产代码差异限于这一处。[worker 差异](sol-s3-recheck/worker.diff.txt) [源文件检查](sol-s3-recheck/source.json)
++
++Neon 的 156 B 样本与独立证据中的 SHA-256 完全一致。旧版在收到 HTTP 200、`text/html` 响应后将 539,012 B 的健康副本换成了这 156 B，下次从 Cache Storage 读到损坏壳。候选版对五个异常输入均报告 `unavailable`，健康副本的长度和 SHA-256 在刷新前后完全一致，下次打开仍从 Cache Storage 显示 `2026-11-27` 的 40 篇。零篇用例更新为 `2026-11-28`，下次打开从 Cache Storage 读出 `papers.length === 0`。缺块用例在结束标记外放置了一个合法声明，验证了声明必须位于标记之间。[Neon 独立样本](/D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v1/neon-v1-verify.json:141) [基线 JSON](sol-s3-recheck/before.json) [候选 JSON](sol-s3-recheck/after.json)
++
++## 遗留风险
++
++- AICLS 和 POOLUP 各有一项 R08 原样失败。两套脚本都挑中 `Mortality`，基线和候选均报告 `list: 0, noQuery: 1`，因此这项检索差分仍未验证。[AICLS 原始输出](sol-s3-recheck-regressions/aicls.stdout.txt) [POOLUP 原始输出](sol-s3-recheck-regressions/poolup.stdout.txt)
++- 验证环境为本机 Chrome 和回环测试服务。线上、CDN 和真机未验。独立复核由主控另行验收。
++
++## 证据
++
++Windows 11 Pro x64 `10.0.26300`，Node `v24.14.0`，Chrome `158.0.8127.88`，CDP `1.3`，无随机种子。专项正式复跑从北京时间 `2026-11-28 11:58:20` 开始，最后一套既有回归于 `12:00:37` 结束。各套精确 UTC 起止、命令、哈希及逐项结果在 JSON。旧三项负对照通过既有测试设施返回变异响应。S3 负对照只从临时 worker 文件删掉数据块检查，保留原来的 HTTP、MIME、标记与收尾检查。删除代码原文、变异 SHA-256 与实际退出码留在运行记录。[S3 负对照运行记录](sol-s3-recheck/no-data-validation.run.json) [既有回归汇总输出](sol-s3-recheck/legacy.stdout.txt)
++
++```powershell
++$e = 'docs/tasks/T1128-SMOOTH/sol-s3-recheck'
++$baseline = 'D:/trackeep/trackeep-product/trackeep-thoradar-neon-v1/sw.js'
++node tests/smooth/verify-s3.mjs "$e/before.json" $baseline
++node tests/smooth/verify-s3.mjs "$e/after.json"
++pwsh -NoProfile -File "$e/run-no-data-validation.ps1"
++node tests/smooth/verify-s1.mjs "$e/s1.json" none
++node tests/smooth/verify-s2.mjs "$e/s2.json" none
++node tests/smooth/verify-s1.mjs "$e/s1-no-local-return.json" no-local-return
++node tests/smooth/verify-s1.mjs "$e/s1-allow-truncated.json" allow-truncated
++node tests/smooth/verify-s2.mjs "$e/s2-no-retire-cleanup.json" no-retire-cleanup
++node tests/smooth/verify-source.mjs "$e/source.json"
++node tests/smooth/run-regressions.mjs sol-s3-recheck-regressions
++```
++
++| 验证 | 通过 / 失败 | 退出码 | 原始证据 |
++| --- | ---: | ---: | --- |
++| S3 修复前首轮 | 1 / 5 | — | [JSON](sol-s3-before.json) · [stdout](sol-s3-before.stdout.txt) · [stderr](sol-s3-before.stderr.txt) |
++| S3 基线正式复跑 | 1 / 5 | 1 | [JSON](sol-s3-recheck/before.json) · [stdout](sol-s3-recheck/before.stdout.txt) · [stderr](sol-s3-recheck/before.stderr.txt) |
++| S3 候选 | 6 / 0 | 0 | [JSON](sol-s3-recheck/after.json) · [stdout](sol-s3-recheck/after.stdout.txt) · [stderr](sol-s3-recheck/after.stderr.txt) |
++| S3 删新校验 | 1 / 5 | 1 | [JSON](sol-s3-recheck/no-data-validation.json) · [stdout](sol-s3-recheck/no-data-validation.stdout.txt) · [stderr](sol-s3-recheck/no-data-validation.stderr.txt) |
++| S1 核心 | 9 / 0 | 0 | [JSON](sol-s3-recheck/s1.json) · [stdout](sol-s3-recheck/s1.stdout.txt) · [stderr](sol-s3-recheck/s1.stderr.txt) |
++| S2 异常矩阵 | 24 / 0 | 0 | [JSON](sol-s3-recheck/s2.json) · [stdout](sol-s3-recheck/s2.stdout.txt) · [stderr](sol-s3-recheck/s2.stderr.txt) |
++| S1 去掉缓存命中返回 | 3 / 1 | 1 | [JSON](sol-s3-recheck/s1-no-local-return.json) · [stdout](sol-s3-recheck/s1-no-local-return.stdout.txt) · [stderr](sol-s3-recheck/s1-no-local-return.stderr.txt) |
++| S1 放行截断 | 7 / 1 | 1 | [JSON](sol-s3-recheck/s1-allow-truncated.json) · [stdout](sol-s3-recheck/s1-allow-truncated.stdout.txt) · [stderr](sol-s3-recheck/s1-allow-truncated.stderr.txt) |
++| S2 去掉退役清理 | 1 / 1 | 1 | [JSON](sol-s3-recheck/s2-no-retire-cleanup.json) · [stdout](sol-s3-recheck/s2-no-retire-cleanup.stdout.txt) · [stderr](sol-s3-recheck/s2-no-retire-cleanup.stderr.txt) |
++| 源文件检查 | 5 / 0 | 0 | [JSON](sol-s3-recheck/source.json) · [stdout](sol-s3-recheck/source.stdout.txt) · [stderr](sol-s3-recheck/source.stderr.txt) |
++| UX | 46 / 0 | 0 | [JSON](sol-s3-recheck-regressions/ux.json) · [stdout](sol-s3-recheck-regressions/ux.stdout.txt) · [stderr](sol-s3-recheck-regressions/ux.stderr.txt) · [量测 JSON](sol-s3-recheck-regressions/ux-measurements/) |
++| AICLS | 39 / 1 | 1 | [JSON](sol-s3-recheck-regressions/aicls.json) · [stdout](sol-s3-recheck-regressions/aicls.stdout.txt) · [stderr](sol-s3-recheck-regressions/aicls.stderr.txt) |
++| POOLUP | 39 / 1 | 1 | [JSON](sol-s3-recheck-regressions/poolup.json) · [stdout](sol-s3-recheck-regressions/poolup.stdout.txt) · [stderr](sol-s3-recheck-regressions/poolup.stderr.txt) |
++
++| 文件 | SHA-256 |
++| --- | --- |
++| `index.html` | `33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def` |
++| S2 `sw.js` 基线 | `f8a4e2bc4d5d81964475580c012e825281f409a171782640ad5cbc68a07bca24` |
++| S3 `sw.js` 候选 | `900061dd45ad04e9f9c4391e5d2756f8b080a4bc4144ede9b913b6deabb5aa8b` |
++| S3 删校验的临时 worker | `0bee8f9201700624a076cb9b35d9250954130b63a464eec095c6f283e85ab14f` |
++| `sw-retire.js` | `5ae38f2ba965f4e1b1d340da2ba5fadd8b58af82a1e271a02ddff97ab5686199` |
++| `tests/smooth/verify-s3.mjs` | `585a9f3803238cfb18b80a490948f9e661fd6792dae09838c53d38f98a030ac7` |
++| Neon 156 B 样本 | `11e2ff0add51cd0cf4f21b39010925b11df3fe7c0d388906c0c56468a3a16b74` |
++
++## 地图终态
++
++③.4 的 S3 修复与施工证据已交付，建议主控回填待独立复核。地图当前为 ③.4 `rework-in-progress`、④ `completed-with-findings`、⑤ `pending`、⑤.9 `not-authorized`。地图由主控回填。[唯一任务地图](/D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/task-map.md:12)
++
++DELIVERY-T1128-SMOOTH-S3
++已交付空标记损坏页的缓存写入修复，以及专项红绿、删校验负对照和既有回归证据。
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$report=Get-Item -LiteralPath '"'docs/tasks/T1128-SMOOTH/sol-s3-report.md'
+"'$text=Get-Content -LiteralPath $report.FullName -Raw
+$matches=[regex]::Matches($text,'"'\\]\\((["'^)]+)'"\\)')
+foreach("'$m in $matches){ $href=$m.Groups[1].Value -replace '"':\\d+"'$'"',''; "'$path=if($href -match '"'"'^/[A-Z]:/'"'){ "'$href.Substring(1) } else { Join-Path $report.DirectoryName $href }; if(-not (Test-Path -LiteralPath $path)) { throw "Missing link $href" } }
+if ($text -notmatch '"'(?m)"'^DELIVERY-T1128-SMOOTH-S3'"\\r?\\n["'^'"\\r\\n]+') { throw 'Delivery marker or restatement missing' }
+\"Checked "'$($matches.Count) report links and delivery marker"
+Get-Content -LiteralPath $report.FullName -TotalCount 3' in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$d='"'docs/tasks/T1128-SMOOTH/sol-s3-recheck'; rg -n '"'^SUMMARY|''^CLEANUP|profile 标记'"' \""'$d/before.stdout.txt" "$d/after.stdout.txt" "$d/no-data-validation.stdout.txt" "$d/s1.stdout.txt" "$d/s2.stdout.txt" "$d/legacy.stdout.txt"
+rg -n '"'逐 PID 结束=[0-9]|复查仍存活=[0-9]' 'docs/tasks/T1128-SMOOTH/sol-s3-recheck-regressions' -g '*.stdout.txt'" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+ succeeded in 777ms:
+Checked 1 report links and delivery marker
+**干了什么**　修复了胸科雷达首页缓存写入校验。156 B 的空标记损坏页和另外四个坏样本均被拒绝，合法零篇版在下次打开时正常显示。  
+**PI 怎么亲手验**　点击专项原始输出，看到 `PASS neon-empty-markers-stub` 一行的 `before` 和 `after` 都是 `539012` 字节且 SHA-256 相同，就验到了健康副本被保留。[专项原始输出](sol-s3-recheck/after.stdout.txt)  
+**还剩什么坑**　AICLS 和 POOLUP 的 R08 仍因基线与候选均搜到零篇而无法判定。S3 施工自测完毕，待独立复核和主控整合。
+
+hook: PostToolUse
+ exited 1 in 830ms:
+docs/tasks/T1128-SMOOTH/sol-s3-recheck/s1.stdout.txt:12:CLEANUP {"browserPid":21172,"exit":{"code":0,"signal":null},"forced":false,"profileRemoved":true}
+docs/tasks/T1128-SMOOTH/sol-s3-recheck/s1.stdout.txt:13:SUMMARY {"passed":9,"failed":0,"endedAt":"2026-11-28T03:58:29.382Z"}
+docs/tasks/T1128-SMOOTH/sol-s3-recheck/s2.stdout.txt:27:CLEANUP {"pid":23464,"exit":{"code":0,"signal":null},"forced":false,"profileRemoved":true}
+docs/tasks/T1128-SMOOTH/sol-s3-recheck/s2.stdout.txt:28:SUMMARY {"passed":24,"failed":0}
+docs/tasks/T1128-SMOOTH/sol-s3-recheck/before.stdout.txt:9:     cleanup | browser pid=51944 exitCode=0 signalCode=null | 带 profile 标记的进程：收尾前=无 | 主进程结束后残留=无 | 逐 PID 结束=无 | 复查仍存活=无
+docs/tasks/T1128-SMOOTH/sol-s3-recheck/before.stdout.txt:10:SUMMARY {"passed":1,"failed":5}
+docs/tasks/T1128-SMOOTH/sol-s3-recheck/no-data-validation.stdout.txt:9:     cleanup | browser pid=66740 exitCode=0 signalCode=null | 带 profile 标记的进程：收尾前=无 | 主进程结束后残留=无 | 逐 PID 结束=无 | 复查仍存活=无
+docs/tasks/T1128-SMOOTH/sol-s3-recheck/no-data-validation.stdout.txt:10:SUMMARY {"passed":1,"failed":5}
+docs/tasks/T1128-SMOOTH/sol-s3-recheck/after.stdout.txt:9:     cleanup | browser pid=59348 exitCode=0 signalCode=null | 带 profile 标记的进程：收尾前=无 | 主进程结束后残留=无 | 逐 PID 结束=无 | 复查仍存活=无
+docs/tasks/T1128-SMOOTH/sol-s3-recheck/after.stdout.txt:10:SUMMARY {"passed":6,"failed":0}
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+**Fixing match variable overwrite**
+**Preparing detailed final report**
+
+I’m thinking about how to meet the user’s request for precise raw output and commands, including raw excerpts with clear code blocks and verified report links, while keeping the output concise and avoiding restating too much. I want to include exact commands and relevant evidence, making sure overwriting issues like `$matches` are fixed and sensitive info like tokens are omitted.
+**Verifying source dates**
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$d='"'docs/tasks/T1128-SMOOTH/sol-s3-recheck'; "'$run=Get-Content -Raw -LiteralPath "$d/no-data-validation.run.json" | ConvertFrom-Json; if (Test-Path -LiteralPath $run.command[-1]) { throw '"'Temporary worker still present' }
+node --check sw.js
+if ("'$LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+node --check tests/smooth/verify-s3.mjs
+exit $LASTEXITCODE' in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+exec
+"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -Command '$report=Get-Item -LiteralPath '"'docs/tasks/T1128-SMOOTH/sol-s3-report.md'
+"'$content=Get-Content -LiteralPath $report.FullName -Raw
+$reportLinks=[regex]::Matches($content,'"'\\]\\((["'^)]+)'"\\)')
+foreach("'$link in $reportLinks){ $href=$link.Groups[1].Value -replace '"':\\d+"'$'"',''; "'$path=if($href -match '"'"'^/[A-Z]:/'"'){ "'$href.Substring(1) } else { Join-Path $report.DirectoryName $href }; if(-not (Test-Path -LiteralPath $path)) { throw "Missing link $href" } }
+if($reportLinks.Count -lt 40){ throw '"'Evidence table links are missing' }
+\"Checked "'$($reportLinks.Count) report links"
+rg -n --only-matching '"'"'^PASS neon-empty-markers-stub|''^PASS valid-zero-papers'"' 'docs/tasks/T1128-SMOOTH/sol-s3-recheck/after.stdout.txt'" in D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128
+ succeeded in 859ms:
+hook: PostToolUse
+ succeeded in 781ms:
+Checked 51 report links
+3:PASS neon-empty-markers-stub
+8:PASS valid-zero-papers
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+**Reviewing report and evidence handling**
+codex
+**干了什么**　交付了首页缓存校验修复。156 B 的空标记损坏页和另外四个异常样本均被拒绝，合法零篇版仍可缓存。  
+**PI 怎么亲手验**　点击专项原始输出，确认 `PASS neon-empty-markers-stub` 一行中 `before` 和 `after` 都是 `539012` 字节，SHA-256 相同。[专项原始输出](/D:/trackeep/trackeep-product/trackeep-thoradar-smooth-T1128/docs/tasks/T1128-SMOOTH/sol-s3-recheck/after.stdout.txt:3)  
+**还剩什么坑**　AICLS 和 POOLUP 的 R08 仍因基线与候选均搜到零篇而无法判定。③.4 施工自测完成，待独立复核和主控整合。
+
+沿用隔离工作树里已有的 S3 候选，用同一专项脚本重跑。S2 基线 1 通过、5 失败，S3 候选 6/6，删掉新校验后再次 1 通过、5 失败，156 B 样本重新覆盖了健康缓存。S1 9/9、S2 24/24、UX 46/46。执行命令、原始输出、JSON 和哈希均已落盘。[sol-s3-report.md](/D:/trackeep/trackeep-product/trackeep-thoradar-smooth-T1128/docs/tasks/T1128-SMOOTH/sol-s3-report.md)
+
+DELIVERY-T1128-SMOOTH-S3
+已交付空标记损坏页的缓存写入修复，并补齐修复前后、删校验负对照和回归证据。
+hook: Stop
+hook: Stop Completed
+tokens used
+95,728
+**干了什么**　交付了首页缓存校验修复。156 B 的空标记损坏页和另外四个异常样本均被拒绝，合法零篇版仍可缓存。  
+**PI 怎么亲手验**　点击专项原始输出，确认 `PASS neon-empty-markers-stub` 一行中 `before` 和 `after` 都是 `539012` 字节，SHA-256 相同。[专项原始输出](/D:/trackeep/trackeep-product/trackeep-thoradar-smooth-T1128/docs/tasks/T1128-SMOOTH/sol-s3-recheck/after.stdout.txt:3)  
+**还剩什么坑**　AICLS 和 POOLUP 的 R08 仍因基线与候选均搜到零篇而无法判定。③.4 施工自测完成，待独立复核和主控整合。
+
+沿用隔离工作树里已有的 S3 候选，用同一专项脚本重跑。S2 基线 1 通过、5 失败，S3 候选 6/6，删掉新校验后再次 1 通过、5 失败，156 B 样本重新覆盖了健康缓存。S1 9/9、S2 24/24、UX 46/46。执行命令、原始输出、JSON 和哈希均已落盘。[sol-s3-report.md](/D:/trackeep/trackeep-product/trackeep-thoradar-smooth-T1128/docs/tasks/T1128-SMOOTH/sol-s3-report.md)
+
+DELIVERY-T1128-SMOOTH-S3
+已交付空标记损坏页的缓存写入修复，并补齐修复前后、删校验负对照和回归证据。

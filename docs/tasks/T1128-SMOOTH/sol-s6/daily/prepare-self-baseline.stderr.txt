@@ -1,0 +1,8 @@
+file:///D:/claude-tmp/thoradar-s6-replay-OV5Unc/runner/tests/smooth/prepare-ci-ux-baseline.mjs:26
+  throw new Error('The UX baseline must contain the first-parent shell and the release SITE_DATA block');
+        ^
+
+Error: The UX baseline must contain the first-parent shell and the release SITE_DATA block
+    at file:///D:/claude-tmp/thoradar-s6-replay-OV5Unc/runner/tests/smooth/prepare-ci-ux-baseline.mjs:26:9
+
+Node.js v24.14.0

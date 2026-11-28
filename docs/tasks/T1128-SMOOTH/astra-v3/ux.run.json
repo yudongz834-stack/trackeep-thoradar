@@ -1,0 +1,349 @@
+{
+  "name": "ux",
+  "cwd": "D:\\trackeep\\trackeep-product\\trackeep-thoradar-neon-v1",
+  "argv": [
+    "C:\\Program Files\\nodejs\\node.EXE",
+    "tests/ux/ux_probe.mjs",
+    "--target",
+    "index.html",
+    "--base",
+    "73dd34e",
+    "--label",
+    "astrav3"
+  ],
+  "stdin": null,
+  "started": "2026-11-28T05:02:44.639480+00:00",
+  "observedChrome": [
+    {
+      "pid": 55956,
+      "parent": 69996,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842166.0974395,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "browser",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 22424,
+      "parent": 55956,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842166.4936306,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "--type=crashpad-handler",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 9248,
+      "parent": 55956,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842166.920997,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "--type=gpu-process",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 74460,
+      "parent": 55956,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842167.3119211,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "--type=utility",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 73060,
+      "parent": 55956,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842167.3251653,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "--type=utility",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 67980,
+      "parent": 55956,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842167.3273604,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 56936,
+      "parent": 55956,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842167.3303308,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 58072,
+      "parent": 55956,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842167.3326185,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 56348,
+      "parent": 55956,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842167.70148,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 69708,
+      "parent": 55956,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842167.7246933,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 23300,
+      "parent": 55956,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842167.7272413,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 55040,
+      "parent": 55956,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842167.7299757,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 26236,
+      "parent": 55956,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842170.4543433,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 47364,
+      "parent": 55956,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842170.4981592,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "--type=utility",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 63400,
+      "parent": 55956,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842177.190533,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 9160,
+      "parent": 55956,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842179.7242625,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "--type=utility",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 22160,
+      "parent": 55956,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842179.9336743,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "--type=utility",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 69416,
+      "parent": 55956,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842180.518444,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "--type=utility",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 22336,
+      "parent": 55956,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842180.6161816,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "--type=utility",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 74580,
+      "parent": 55956,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842181.1130276,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "--type=utility",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 64028,
+      "parent": 55956,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842182.0866225,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "--type=utility",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 63576,
+      "parent": 55956,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842182.1003935,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "--type=utility",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 48856,
+      "parent": 55956,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842197.1333241,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "--type=utility",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 58724,
+      "parent": 55956,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842197.1510344,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "--type=utility",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 29688,
+      "parent": 55956,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842198.8562553,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 59564,
+      "parent": 55956,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842203.432706,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 57828,
+      "parent": 55956,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842208.4559968,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 72284,
+      "parent": 55956,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842212.264497,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 57100,
+      "parent": 55956,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842220.383054,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 28796,
+      "parent": 55956,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842223.0652509,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 62796,
+      "parent": 55956,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842226.2566304,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 72264,
+      "parent": 55956,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842228.8912563,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 70108,
+      "parent": 55956,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842231.5096252,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 72096,
+      "parent": 55956,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842233.4727216,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 45752,
+      "parent": 55956,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842237.4419148,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 24152,
+      "parent": 55956,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842244.7277107,
+      "profile": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    }
+  ],
+  "XREV_SCRATCH": "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9",
+  "nodePid": 69996,
+  "exit": 0,
+  "profileExistsAfter": {
+    "D:\\claude-tmp\\T1128-astra-v3-ux-vu7sh6_9\\ux-harness-astrav3\\profile": false
+  },
+  "ended": "2026-11-28T05:04:37.168081+00:00"
+}

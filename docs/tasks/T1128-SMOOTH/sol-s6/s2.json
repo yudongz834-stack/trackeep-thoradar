@@ -1,0 +1,3452 @@
+{
+  "startedAt": "2026-11-28T07:34:45.742Z",
+  "runs": 1,
+  "seed": null,
+  "mutation": "none",
+  "baseline": "73dd34e65fce6661d74e595afc03df68e7d3f44f",
+  "environment": {
+    "os": "Windows 11 Pro",
+    "release": "10.0.26300",
+    "arch": "x64",
+    "node": "v24.14.0",
+    "chrome": {
+      "protocolVersion": "1.3",
+      "product": "Chrome/158.0.8127.88",
+      "revision": "@0cefb18236a23db1ebb6b2bc040fbbaf8cbe759e",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/158.0.0.0 Safari/537.36",
+      "jsVersion": "15.8.62.31"
+    }
+  },
+  "checks": [
+    {
+      "name": "healthy-cache-rejects-offline",
+      "pass": true,
+      "detail": {
+        "nav": {
+          "doc": {
+            "session": "response-matrix",
+            "url": "http://127.0.0.1:54961/index.html",
+            "loaderId": "D527745360F2A107444024F0EB282660",
+            "status": 200,
+            "fromServiceWorker": true,
+            "fromDiskCache": true,
+            "source": "cache-storage"
+          },
+          "page": {
+            "date": "2026-11-27",
+            "points": 37,
+            "status": {
+              "text": "数据 2026-11-27 · 本地副本 · 暂未核实更新",
+              "visible": true
+            },
+            "warning": {
+              "text": "历史档案拉取失败，已保留当前数据",
+              "visible": false
+            },
+            "view": "overview",
+            "timeOrigin": 1795851286995.7,
+            "viewport": [
+              1440,
+              900
+            ],
+            "days": 1,
+            "papers": 40,
+            "selected": "pmid_43085564"
+          }
+        },
+        "visible": {
+          "date": "2026-11-27",
+          "points": 37,
+          "status": {
+            "text": "数据 2026-11-27 · 本地副本 · 暂未核实更新",
+            "visible": true
+          },
+          "warning": {
+            "text": "历史档案拉取失败，已保留当前数据",
+            "visible": false
+          },
+          "view": "overview",
+          "timeOrigin": 1795851286995.7,
+          "viewport": [
+            1440,
+            900
+          ],
+          "days": 1,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "saved": {
+          "registrations": 1,
+          "active": "activated",
+          "waiting": null,
+          "controller": "http://127.0.0.1:54961/sw.js",
+          "names": [
+            "thoradar-shell-v1"
+          ],
+          "paths": [
+            "/index.html"
+          ],
+          "hash": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"
+        },
+        "upstream": [
+          {
+            "scenario": "response-matrix",
+            "url": "/index.html",
+            "method": "GET",
+            "startMs": 1795851286998,
+            "pragma": "no-cache",
+            "cacheControl": "no-cache",
+            "version": "offline",
+            "destroyedSocket": true
+          },
+          {
+            "scenario": "response-matrix",
+            "url": "/index.html",
+            "method": "GET",
+            "startMs": 1795851287000,
+            "pragma": "no-cache",
+            "cacheControl": "no-cache",
+            "version": "offline",
+            "destroyedSocket": true
+          }
+        ],
+        "offline": true,
+        "emulationNavigationError": null
+      }
+    },
+    {
+      "name": "healthy-cache-rejects-404",
+      "pass": true,
+      "detail": {
+        "nav": {
+          "doc": {
+            "session": "response-matrix",
+            "url": "http://127.0.0.1:54961/index.html",
+            "loaderId": "7DBD3DF1105C0AD1FCEED94FBA8B2C6C",
+            "status": 200,
+            "fromServiceWorker": true,
+            "fromDiskCache": true,
+            "source": "cache-storage"
+          },
+          "page": {
+            "date": "2026-11-27",
+            "points": 37,
+            "status": {
+              "text": "数据 2026-11-27 · 本地副本 · 暂未核实更新",
+              "visible": true
+            },
+            "warning": {
+              "text": "历史档案拉取失败，已保留当前数据",
+              "visible": false
+            },
+            "view": "overview",
+            "timeOrigin": 1795851287135.9,
+            "viewport": [
+              1440,
+              900
+            ],
+            "days": 1,
+            "papers": 40,
+            "selected": "pmid_43085564"
+          }
+        },
+        "visible": {
+          "date": "2026-11-27",
+          "points": 37,
+          "status": {
+            "text": "数据 2026-11-27 · 本地副本 · 暂未核实更新",
+            "visible": true
+          },
+          "warning": {
+            "text": "历史档案拉取失败，已保留当前数据",
+            "visible": false
+          },
+          "view": "overview",
+          "timeOrigin": 1795851287135.9,
+          "viewport": [
+            1440,
+            900
+          ],
+          "days": 1,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "saved": {
+          "registrations": 1,
+          "active": "activated",
+          "waiting": null,
+          "controller": "http://127.0.0.1:54961/sw.js",
+          "names": [
+            "thoradar-shell-v1"
+          ],
+          "paths": [
+            "/index.html"
+          ],
+          "hash": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"
+        },
+        "upstream": [
+          {
+            "scenario": "response-matrix",
+            "url": "/index.html",
+            "method": "GET",
+            "startMs": 1795851287138,
+            "pragma": "no-cache",
+            "cacheControl": "no-cache",
+            "version": "404",
+            "status": 404,
+            "mime": "text/html; charset=utf-8",
+            "finishedMs": 1795851287140
+          }
+        ],
+        "offline": null,
+        "emulationNavigationError": null
+      }
+    },
+    {
+      "name": "healthy-cache-rejects-500",
+      "pass": true,
+      "detail": {
+        "nav": {
+          "doc": {
+            "session": "response-matrix",
+            "url": "http://127.0.0.1:54961/index.html",
+            "loaderId": "D504AE49FC3687CDB1E2C2E27C601DA9",
+            "status": 200,
+            "fromServiceWorker": true,
+            "fromDiskCache": true,
+            "source": "cache-storage"
+          },
+          "page": {
+            "date": "2026-11-27",
+            "points": 37,
+            "status": {
+              "text": "数据 2026-11-27 · 本地副本 · 暂未核实更新",
+              "visible": true
+            },
+            "warning": {
+              "text": "历史档案拉取失败，已保留当前数据",
+              "visible": false
+            },
+            "view": "overview",
+            "timeOrigin": 1795851287212.7,
+            "viewport": [
+              1440,
+              900
+            ],
+            "days": 1,
+            "papers": 40,
+            "selected": "pmid_43085564"
+          }
+        },
+        "visible": {
+          "date": "2026-11-27",
+          "points": 37,
+          "status": {
+            "text": "数据 2026-11-27 · 本地副本 · 暂未核实更新",
+            "visible": true
+          },
+          "warning": {
+            "text": "历史档案拉取失败，已保留当前数据",
+            "visible": false
+          },
+          "view": "overview",
+          "timeOrigin": 1795851287212.7,
+          "viewport": [
+            1440,
+            900
+          ],
+          "days": 1,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "saved": {
+          "registrations": 1,
+          "active": "activated",
+          "waiting": null,
+          "controller": "http://127.0.0.1:54961/sw.js",
+          "names": [
+            "thoradar-shell-v1"
+          ],
+          "paths": [
+            "/index.html"
+          ],
+          "hash": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"
+        },
+        "upstream": [
+          {
+            "scenario": "response-matrix",
+            "url": "/index.html",
+            "method": "GET",
+            "startMs": 1795851287216,
+            "pragma": "no-cache",
+            "cacheControl": "no-cache",
+            "version": "500",
+            "status": 500,
+            "mime": "text/html; charset=utf-8",
+            "finishedMs": 1795851287218
+          }
+        ],
+        "offline": null,
+        "emulationNavigationError": null
+      }
+    },
+    {
+      "name": "healthy-cache-rejects-auth-html",
+      "pass": true,
+      "detail": {
+        "nav": {
+          "doc": {
+            "session": "response-matrix",
+            "url": "http://127.0.0.1:54961/index.html",
+            "loaderId": "D2FDD381559DD48857173D7F6963DA19",
+            "status": 200,
+            "fromServiceWorker": true,
+            "fromDiskCache": true,
+            "source": "cache-storage"
+          },
+          "page": {
+            "date": "2026-11-27",
+            "points": 37,
+            "status": {
+              "text": "数据 2026-11-27 · 本地副本 · 暂未核实更新",
+              "visible": true
+            },
+            "warning": {
+              "text": "历史档案拉取失败，已保留当前数据",
+              "visible": false
+            },
+            "view": "overview",
+            "timeOrigin": 1795851287280.5,
+            "viewport": [
+              1440,
+              900
+            ],
+            "days": 1,
+            "papers": 40,
+            "selected": "pmid_43085564"
+          }
+        },
+        "visible": {
+          "date": "2026-11-27",
+          "points": 37,
+          "status": {
+            "text": "数据 2026-11-27 · 本地副本 · 暂未核实更新",
+            "visible": true
+          },
+          "warning": {
+            "text": "历史档案拉取失败，已保留当前数据",
+            "visible": false
+          },
+          "view": "overview",
+          "timeOrigin": 1795851287280.5,
+          "viewport": [
+            1440,
+            900
+          ],
+          "days": 1,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "saved": {
+          "registrations": 1,
+          "active": "activated",
+          "waiting": null,
+          "controller": "http://127.0.0.1:54961/sw.js",
+          "names": [
+            "thoradar-shell-v1"
+          ],
+          "paths": [
+            "/index.html"
+          ],
+          "hash": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"
+        },
+        "upstream": [
+          {
+            "scenario": "response-matrix",
+            "url": "/index.html",
+            "method": "GET",
+            "startMs": 1795851287283,
+            "pragma": "no-cache",
+            "cacheControl": "no-cache",
+            "version": "auth-html",
+            "status": 200,
+            "mime": "text/html; charset=utf-8",
+            "finishedMs": 1795851287283
+          }
+        ],
+        "offline": null,
+        "emulationNavigationError": null
+      }
+    },
+    {
+      "name": "healthy-cache-rejects-auth-redirect",
+      "pass": true,
+      "detail": {
+        "nav": {
+          "doc": {
+            "session": "response-matrix",
+            "url": "http://127.0.0.1:54961/index.html",
+            "loaderId": "514193D03FD4B6A9C405CF77A5190D04",
+            "status": 200,
+            "fromServiceWorker": true,
+            "fromDiskCache": true,
+            "source": "cache-storage"
+          },
+          "page": {
+            "date": "2026-11-27",
+            "points": 37,
+            "status": {
+              "text": "数据 2026-11-27 · 本地副本 · 暂未核实更新",
+              "visible": true
+            },
+            "warning": {
+              "text": "历史档案拉取失败，已保留当前数据",
+              "visible": false
+            },
+            "view": "overview",
+            "timeOrigin": 1795851287350.8,
+            "viewport": [
+              1440,
+              900
+            ],
+            "days": 1,
+            "papers": 40,
+            "selected": "pmid_43085564"
+          }
+        },
+        "visible": {
+          "date": "2026-11-27",
+          "points": 37,
+          "status": {
+            "text": "数据 2026-11-27 · 本地副本 · 暂未核实更新",
+            "visible": true
+          },
+          "warning": {
+            "text": "历史档案拉取失败，已保留当前数据",
+            "visible": false
+          },
+          "view": "overview",
+          "timeOrigin": 1795851287350.8,
+          "viewport": [
+            1440,
+            900
+          ],
+          "days": 1,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "saved": {
+          "registrations": 1,
+          "active": "activated",
+          "waiting": null,
+          "controller": "http://127.0.0.1:54961/sw.js",
+          "names": [
+            "thoradar-shell-v1"
+          ],
+          "paths": [
+            "/index.html"
+          ],
+          "hash": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"
+        },
+        "upstream": [
+          {
+            "scenario": "response-matrix",
+            "url": "/index.html",
+            "method": "GET",
+            "startMs": 1795851287353,
+            "pragma": "no-cache",
+            "cacheControl": "no-cache",
+            "version": "auth-redirect",
+            "status": 302,
+            "mime": "text/html; charset=utf-8",
+            "finishedMs": 1795851287353
+          }
+        ],
+        "offline": null,
+        "emulationNavigationError": null
+      }
+    },
+    {
+      "name": "healthy-cache-rejects-truncated",
+      "pass": true,
+      "detail": {
+        "nav": {
+          "doc": {
+            "session": "response-matrix",
+            "url": "http://127.0.0.1:54961/index.html",
+            "loaderId": "052A5CE12AA54EB1FBCD78CE5B27BBC1",
+            "status": 200,
+            "fromServiceWorker": true,
+            "fromDiskCache": true,
+            "source": "cache-storage"
+          },
+          "page": {
+            "date": "2026-11-27",
+            "points": 37,
+            "status": {
+              "text": "数据 2026-11-27 · 本地副本 · 暂未核实更新",
+              "visible": true
+            },
+            "warning": {
+              "text": "历史档案拉取失败，已保留当前数据",
+              "visible": false
+            },
+            "view": "overview",
+            "timeOrigin": 1795851287647.2,
+            "viewport": [
+              1440,
+              900
+            ],
+            "days": 1,
+            "papers": 40,
+            "selected": "pmid_43085564"
+          }
+        },
+        "visible": {
+          "date": "2026-11-27",
+          "points": 37,
+          "status": {
+            "text": "数据 2026-11-27 · 本地副本 · 暂未核实更新",
+            "visible": true
+          },
+          "warning": {
+            "text": "历史档案拉取失败，已保留当前数据",
+            "visible": false
+          },
+          "view": "overview",
+          "timeOrigin": 1795851287647.2,
+          "viewport": [
+            1440,
+            900
+          ],
+          "days": 1,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "saved": {
+          "registrations": 1,
+          "active": "activated",
+          "waiting": null,
+          "controller": "http://127.0.0.1:54961/sw.js",
+          "names": [
+            "thoradar-shell-v1"
+          ],
+          "paths": [
+            "/index.html"
+          ],
+          "hash": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"
+        },
+        "upstream": [
+          {
+            "scenario": "response-matrix",
+            "url": "/index.html",
+            "method": "GET",
+            "startMs": 1795851287649,
+            "pragma": "no-cache",
+            "cacheControl": "no-cache",
+            "version": "truncated",
+            "status": 200,
+            "mime": "text/html; charset=utf-8",
+            "finishedMs": 1795851287651
+          }
+        ],
+        "offline": null,
+        "emulationNavigationError": null
+      }
+    },
+    {
+      "name": "healthy-cache-rejects-missing-start",
+      "pass": true,
+      "detail": {
+        "nav": {
+          "doc": {
+            "session": "response-matrix",
+            "url": "http://127.0.0.1:54961/index.html",
+            "loaderId": "B18FB772167BC91344640C37B1E4C052",
+            "status": 200,
+            "fromServiceWorker": true,
+            "fromDiskCache": true,
+            "source": "cache-storage"
+          },
+          "page": {
+            "date": "2026-11-27",
+            "points": 37,
+            "status": {
+              "text": "数据 2026-11-27 · 本地副本 · 暂未核实更新",
+              "visible": true
+            },
+            "warning": {
+              "text": "历史档案拉取失败，已保留当前数据",
+              "visible": false
+            },
+            "view": "overview",
+            "timeOrigin": 1795851287802.4,
+            "viewport": [
+              1440,
+              900
+            ],
+            "days": 1,
+            "papers": 40,
+            "selected": "pmid_43085564"
+          }
+        },
+        "visible": {
+          "date": "2026-11-27",
+          "points": 37,
+          "status": {
+            "text": "数据 2026-11-27 · 本地副本 · 暂未核实更新",
+            "visible": true
+          },
+          "warning": {
+            "text": "历史档案拉取失败，已保留当前数据",
+            "visible": false
+          },
+          "view": "overview",
+          "timeOrigin": 1795851287802.4,
+          "viewport": [
+            1440,
+            900
+          ],
+          "days": 1,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "saved": {
+          "registrations": 1,
+          "active": "activated",
+          "waiting": null,
+          "controller": "http://127.0.0.1:54961/sw.js",
+          "names": [
+            "thoradar-shell-v1"
+          ],
+          "paths": [
+            "/index.html"
+          ],
+          "hash": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"
+        },
+        "upstream": [
+          {
+            "scenario": "response-matrix",
+            "url": "/index.html",
+            "method": "GET",
+            "startMs": 1795851287804,
+            "pragma": "no-cache",
+            "cacheControl": "no-cache",
+            "version": "missing-start",
+            "status": 200,
+            "mime": "text/html; charset=utf-8",
+            "finishedMs": 1795851287808
+          }
+        ],
+        "offline": null,
+        "emulationNavigationError": null
+      }
+    },
+    {
+      "name": "healthy-cache-rejects-missing-end",
+      "pass": true,
+      "detail": {
+        "nav": {
+          "doc": {
+            "session": "response-matrix",
+            "url": "http://127.0.0.1:54961/index.html",
+            "loaderId": "E95D1B86489EB3268DDD8111F6CA1812",
+            "status": 200,
+            "fromServiceWorker": true,
+            "fromDiskCache": true,
+            "source": "cache-storage"
+          },
+          "page": {
+            "date": "2026-11-27",
+            "points": 37,
+            "status": {
+              "text": "数据 2026-11-27 · 本地副本 · 暂未核实更新",
+              "visible": true
+            },
+            "warning": {
+              "text": "历史档案拉取失败，已保留当前数据",
+              "visible": false
+            },
+            "view": "overview",
+            "timeOrigin": 1795851287900.5,
+            "viewport": [
+              1440,
+              900
+            ],
+            "days": 1,
+            "papers": 40,
+            "selected": "pmid_43085564"
+          }
+        },
+        "visible": {
+          "date": "2026-11-27",
+          "points": 37,
+          "status": {
+            "text": "数据 2026-11-27 · 本地副本 · 暂未核实更新",
+            "visible": true
+          },
+          "warning": {
+            "text": "历史档案拉取失败，已保留当前数据",
+            "visible": false
+          },
+          "view": "overview",
+          "timeOrigin": 1795851287900.5,
+          "viewport": [
+            1440,
+            900
+          ],
+          "days": 1,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "saved": {
+          "registrations": 1,
+          "active": "activated",
+          "waiting": null,
+          "controller": "http://127.0.0.1:54961/sw.js",
+          "names": [
+            "thoradar-shell-v1"
+          ],
+          "paths": [
+            "/index.html"
+          ],
+          "hash": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"
+        },
+        "upstream": [
+          {
+            "scenario": "response-matrix",
+            "url": "/index.html",
+            "method": "GET",
+            "startMs": 1795851287902,
+            "pragma": "no-cache",
+            "cacheControl": "no-cache",
+            "version": "missing-end",
+            "status": 200,
+            "mime": "text/html; charset=utf-8",
+            "finishedMs": 1795851287905
+          }
+        ],
+        "offline": null,
+        "emulationNavigationError": null
+      }
+    },
+    {
+      "name": "healthy-cache-rejects-wrong-mime",
+      "pass": true,
+      "detail": {
+        "nav": {
+          "doc": {
+            "session": "response-matrix",
+            "url": "http://127.0.0.1:54961/index.html",
+            "loaderId": "05C1C5C363B6219E2BA0A4AE92597296",
+            "status": 200,
+            "fromServiceWorker": true,
+            "fromDiskCache": true,
+            "source": "cache-storage"
+          },
+          "page": {
+            "date": "2026-11-27",
+            "points": 37,
+            "status": {
+              "text": "数据 2026-11-27 · 本地副本 · 暂未核实更新",
+              "visible": true
+            },
+            "warning": {
+              "text": "历史档案拉取失败，已保留当前数据",
+              "visible": false
+            },
+            "view": "overview",
+            "timeOrigin": 1795851287993.7,
+            "viewport": [
+              1440,
+              900
+            ],
+            "days": 1,
+            "papers": 40,
+            "selected": "pmid_43085564"
+          }
+        },
+        "visible": {
+          "date": "2026-11-27",
+          "points": 37,
+          "status": {
+            "text": "数据 2026-11-27 · 本地副本 · 暂未核实更新",
+            "visible": true
+          },
+          "warning": {
+            "text": "历史档案拉取失败，已保留当前数据",
+            "visible": false
+          },
+          "view": "overview",
+          "timeOrigin": 1795851287993.7,
+          "viewport": [
+            1440,
+            900
+          ],
+          "days": 1,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "saved": {
+          "registrations": 1,
+          "active": "activated",
+          "waiting": null,
+          "controller": "http://127.0.0.1:54961/sw.js",
+          "names": [
+            "thoradar-shell-v1"
+          ],
+          "paths": [
+            "/index.html"
+          ],
+          "hash": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"
+        },
+        "upstream": [
+          {
+            "scenario": "response-matrix",
+            "url": "/index.html",
+            "method": "GET",
+            "startMs": 1795851287996,
+            "pragma": "no-cache",
+            "cacheControl": "no-cache",
+            "version": "wrong-mime",
+            "status": 200,
+            "mime": "text/plain; name=text/html",
+            "finishedMs": 1795851287998
+          }
+        ],
+        "offline": null,
+        "emulationNavigationError": null
+      }
+    },
+    {
+      "name": "healthy-cache-rejects-203",
+      "pass": true,
+      "detail": {
+        "nav": {
+          "doc": {
+            "session": "response-matrix",
+            "url": "http://127.0.0.1:54961/index.html",
+            "loaderId": "BFF87F724F714E9280D8EBBA950E16D7",
+            "status": 200,
+            "fromServiceWorker": true,
+            "fromDiskCache": true,
+            "source": "cache-storage"
+          },
+          "page": {
+            "date": "2026-11-27",
+            "points": 37,
+            "status": {
+              "text": "数据 2026-11-27 · 本地副本 · 暂未核实更新",
+              "visible": true
+            },
+            "warning": {
+              "text": "历史档案拉取失败，已保留当前数据",
+              "visible": false
+            },
+            "view": "overview",
+            "timeOrigin": 1795851288109.5,
+            "viewport": [
+              1440,
+              900
+            ],
+            "days": 1,
+            "papers": 40,
+            "selected": "pmid_43085564"
+          }
+        },
+        "visible": {
+          "date": "2026-11-27",
+          "points": 37,
+          "status": {
+            "text": "数据 2026-11-27 · 本地副本 · 暂未核实更新",
+            "visible": true
+          },
+          "warning": {
+            "text": "历史档案拉取失败，已保留当前数据",
+            "visible": false
+          },
+          "view": "overview",
+          "timeOrigin": 1795851288109.5,
+          "viewport": [
+            1440,
+            900
+          ],
+          "days": 1,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "saved": {
+          "registrations": 1,
+          "active": "activated",
+          "waiting": null,
+          "controller": "http://127.0.0.1:54961/sw.js",
+          "names": [
+            "thoradar-shell-v1"
+          ],
+          "paths": [
+            "/index.html"
+          ],
+          "hash": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"
+        },
+        "upstream": [
+          {
+            "scenario": "response-matrix",
+            "url": "/index.html",
+            "method": "GET",
+            "startMs": 1795851288112,
+            "pragma": "no-cache",
+            "cacheControl": "no-cache",
+            "version": "203",
+            "status": 203,
+            "mime": "text/html; charset=utf-8",
+            "finishedMs": 1795851288114
+          }
+        ],
+        "offline": null,
+        "emulationNavigationError": null
+      }
+    },
+    {
+      "name": "healthy-cache-rejects-timeout",
+      "pass": true,
+      "detail": {
+        "nav": {
+          "doc": {
+            "session": "response-matrix",
+            "url": "http://127.0.0.1:54961/index.html",
+            "loaderId": "DFF880FFA9F2800111EA8A966189E5E9",
+            "status": 200,
+            "fromServiceWorker": true,
+            "fromDiskCache": true,
+            "source": "cache-storage"
+          },
+          "page": {
+            "date": "2026-11-27",
+            "points": 37,
+            "status": {
+              "text": "数据 2026-11-27 · 本地副本 · 核对更新中",
+              "visible": true
+            },
+            "warning": {
+              "text": "历史档案拉取失败，已保留当前数据",
+              "visible": false
+            },
+            "view": "overview",
+            "timeOrigin": 1795851288201.6,
+            "viewport": [
+              1440,
+              900
+            ],
+            "days": 1,
+            "papers": 40,
+            "selected": "pmid_43085564"
+          }
+        },
+        "visible": {
+          "date": "2026-11-27",
+          "points": 37,
+          "status": {
+            "text": "数据 2026-11-27 · 本地副本 · 暂未核实更新",
+            "visible": true
+          },
+          "warning": {
+            "text": "历史档案拉取失败，已保留当前数据",
+            "visible": false
+          },
+          "view": "overview",
+          "timeOrigin": 1795851288201.6,
+          "viewport": [
+            1440,
+            900
+          ],
+          "days": 1,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "saved": {
+          "registrations": 1,
+          "active": "activated",
+          "waiting": null,
+          "controller": "http://127.0.0.1:54961/sw.js",
+          "names": [
+            "thoradar-shell-v1"
+          ],
+          "paths": [
+            "/index.html"
+          ],
+          "hash": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"
+        },
+        "upstream": [
+          {
+            "scenario": "response-matrix",
+            "url": "/index.html",
+            "method": "GET",
+            "startMs": 1795851288204,
+            "pragma": "no-cache",
+            "cacheControl": "no-cache",
+            "version": "timeout",
+            "disconnectedMs": 1795851296216
+          }
+        ],
+        "offline": null,
+        "emulationNavigationError": null
+      }
+    },
+    {
+      "name": "socket-disconnect-fallback-actually-reaches-server",
+      "pass": true,
+      "detail": {
+        "nav": {
+          "doc": {
+            "session": "response-matrix",
+            "url": "http://127.0.0.1:54961/",
+            "loaderId": "26B36C093018FB88406EDA7246549DD2",
+            "status": 200,
+            "fromServiceWorker": true,
+            "fromDiskCache": true,
+            "source": "cache-storage"
+          },
+          "page": {
+            "date": "2026-11-27",
+            "points": 37,
+            "status": {
+              "text": "数据 2026-11-27 · 本地副本 · 暂未核实更新",
+              "visible": true
+            },
+            "warning": {
+              "text": "历史档案拉取失败，已保留当前数据",
+              "visible": false
+            },
+            "view": "overview",
+            "timeOrigin": 1795851296245.4,
+            "viewport": [
+              1440,
+              900
+            ],
+            "days": 1,
+            "papers": 40,
+            "selected": "pmid_43085564"
+          }
+        },
+        "visible": {
+          "date": "2026-11-27",
+          "points": 37,
+          "status": {
+            "text": "数据 2026-11-27 · 本地副本 · 暂未核实更新",
+            "visible": true
+          },
+          "warning": {
+            "text": "历史档案拉取失败，已保留当前数据",
+            "visible": false
+          },
+          "view": "overview",
+          "timeOrigin": 1795851296245.4,
+          "viewport": [
+            1440,
+            900
+          ],
+          "days": 1,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "saved": {
+          "registrations": 1,
+          "active": "activated",
+          "waiting": null,
+          "controller": "http://127.0.0.1:54961/sw.js",
+          "names": [
+            "thoradar-shell-v1"
+          ],
+          "paths": [
+            "/index.html"
+          ],
+          "hash": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"
+        },
+        "upstream": [
+          {
+            "scenario": "response-matrix",
+            "url": "/",
+            "method": "GET",
+            "startMs": 1795851296247,
+            "pragma": "no-cache",
+            "cacheControl": "no-cache",
+            "version": "offline",
+            "destroyedSocket": true
+          },
+          {
+            "scenario": "response-matrix",
+            "url": "/",
+            "method": "GET",
+            "startMs": 1795851296248,
+            "pragma": "no-cache",
+            "cacheControl": "no-cache",
+            "version": "offline",
+            "destroyedSocket": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "install-updates-existing-healthy-copy",
+      "pass": true,
+      "detail": {
+        "before": {
+          "date": "2026-11-27",
+          "points": 37,
+          "status": {
+            "text": "数据 2026-11-27 · 本地副本 · 已核对，与服务器一致",
+            "visible": true
+          },
+          "warning": {
+            "text": "历史档案拉取失败，已保留当前数据",
+            "visible": false
+          },
+          "view": "reading",
+          "timeOrigin": 1795851296966.6,
+          "viewport": [
+            1440,
+            900
+          ],
+          "days": 1,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "after": {
+          "date": "2026-11-27",
+          "points": 37,
+          "status": {
+            "text": "数据 2026-11-27 · 本地副本 · 已核对，与服务器一致",
+            "visible": true
+          },
+          "warning": {
+            "text": "历史档案拉取失败，已保留当前数据",
+            "visible": false
+          },
+          "view": "reading",
+          "timeOrigin": 1795851296966.6,
+          "viewport": [
+            1440,
+            900
+          ],
+          "days": 1,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "saved": {
+          "registrations": 1,
+          "active": "activated",
+          "waiting": "installed",
+          "controller": "http://127.0.0.1:54961/sw.js",
+          "names": [
+            "thoradar-shell-v1"
+          ],
+          "paths": [
+            "/index.html"
+          ],
+          "hash": "e83acf8ff52b04fef144cad2dd763ee1d3ff94c0c0ac315634394fb87c11403b"
+        },
+        "upstream": [
+          {
+            "scenario": "install-update",
+            "url": "/sw.js",
+            "method": "GET",
+            "startMs": 1795851297170,
+            "pragma": null,
+            "cacheControl": "max-age=0",
+            "version": "update",
+            "status": 200,
+            "mime": "text/javascript",
+            "finishedMs": 1795851297170
+          },
+          {
+            "scenario": "install-update",
+            "url": "/index.html",
+            "method": "GET",
+            "startMs": 1795851297178,
+            "pragma": "no-cache",
+            "cacheControl": "no-cache",
+            "version": "v2",
+            "status": 200,
+            "mime": "text/html; charset=utf-8",
+            "finishedMs": 1795851297179
+          }
+        ]
+      }
+    },
+    {
+      "name": "low-quota-native-write-fails-but-preserves-healthy-copy",
+      "pass": true,
+      "detail": {
+        "probe": {
+          "overrideBytes": 604548,
+          "probeBytes": 800000,
+          "browserQuota": {
+            "usage": 545199,
+            "quota": 604548,
+            "overrideActive": true,
+            "usageBreakdown": [
+              {
+                "storageType": "file_systems",
+                "usage": 0
+              },
+              {
+                "storageType": "indexeddb",
+                "usage": 0
+              },
+              {
+                "storageType": "cache_storage",
+                "usage": 539353
+              },
+              {
+                "storageType": "service_workers",
+                "usage": 5846
+              }
+            ]
+          },
+          "estimate": {
+            "quota": 10737963439,
+            "usage": 545199,
+            "usageDetails": {
+              "caches": 539353,
+              "serviceWorkerRegistrations": 5846
+            }
+          },
+          "write": "QuotaExceededError"
+        },
+        "nav": {
+          "doc": {
+            "session": "low-quota",
+            "url": "http://127.0.0.1:54961/",
+            "loaderId": "04EAA7A24BC0919856D03414D60696C9",
+            "status": 200,
+            "fromServiceWorker": true,
+            "fromDiskCache": true,
+            "source": "cache-storage"
+          },
+          "page": {
+            "date": "2026-11-27",
+            "points": 37,
+            "status": {
+              "text": "数据 2026-11-27 · 本地副本 · 暂未核实更新",
+              "visible": true
+            },
+            "warning": {
+              "text": "历史档案拉取失败，已保留当前数据",
+              "visible": false
+            },
+            "view": "overview",
+            "timeOrigin": 1795851297917.4,
+            "viewport": [
+              1440,
+              900
+            ],
+            "days": 1,
+            "papers": 40,
+            "selected": "pmid_43085564"
+          }
+        },
+        "visible": {
+          "date": "2026-11-27",
+          "points": 37,
+          "status": {
+            "text": "数据 2026-11-27 · 本地副本 · 暂未核实更新",
+            "visible": true
+          },
+          "warning": {
+            "text": "历史档案拉取失败，已保留当前数据",
+            "visible": false
+          },
+          "view": "overview",
+          "timeOrigin": 1795851297917.4,
+          "viewport": [
+            1440,
+            900
+          ],
+          "days": 1,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "saved": {
+          "registrations": 1,
+          "active": "activated",
+          "waiting": null,
+          "controller": "http://127.0.0.1:54961/sw.js",
+          "names": [
+            "thoradar-shell-v1"
+          ],
+          "paths": [
+            "/index.html"
+          ],
+          "hash": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"
+        },
+        "upstream": [
+          {
+            "scenario": "low-quota",
+            "url": "/",
+            "method": "GET",
+            "startMs": 1795851297919,
+            "pragma": "no-cache",
+            "cacheControl": "no-cache",
+            "version": "v3",
+            "status": 200,
+            "mime": "text/html; charset=utf-8",
+            "finishedMs": 1795851297922
+          }
+        ]
+      }
+    },
+    {
+      "name": "zero-quota-cold-start-keeps-native-site-usable",
+      "pass": true,
+      "detail": {
+        "probe": {
+          "overrideBytes": 1,
+          "probeBytes": 1,
+          "browserQuota": {
+            "usage": 5846,
+            "quota": 1,
+            "overrideActive": true,
+            "usageBreakdown": [
+              {
+                "storageType": "file_systems",
+                "usage": 0
+              },
+              {
+                "storageType": "indexeddb",
+                "usage": 0
+              },
+              {
+                "storageType": "cache_storage",
+                "usage": 0
+              },
+              {
+                "storageType": "service_workers",
+                "usage": 5846
+              }
+            ]
+          },
+          "estimate": {
+            "quota": 10737424086,
+            "usage": 5846,
+            "usageDetails": {
+              "serviceWorkerRegistrations": 5846
+            }
+          },
+          "write": "QuotaExceededError"
+        },
+        "first": {
+          "doc": {
+            "session": "zero-quota",
+            "url": "http://127.0.0.1:54961/index.html?sw=1",
+            "loaderId": "CD928D7537A0469DEEB301740D06643A",
+            "status": 200,
+            "fromServiceWorker": false,
+            "fromDiskCache": false,
+            "source": null
+          },
+          "page": {
+            "date": "2026-11-27",
+            "points": 37,
+            "status": {
+              "text": "数据 2026-11-27 · 联网打开",
+              "visible": true
+            },
+            "warning": {
+              "text": "历史档案拉取失败，已保留当前数据",
+              "visible": false
+            },
+            "view": "overview",
+            "timeOrigin": 1795851298162.7,
+            "viewport": [
+              1440,
+              900
+            ],
+            "days": 1,
+            "papers": 40,
+            "selected": "pmid_43085564"
+          }
+        },
+        "next": {
+          "doc": {
+            "session": "zero-quota",
+            "url": "http://127.0.0.1:54961/",
+            "loaderId": "30FBFE9729D48A8E61378A49F18701FA",
+            "status": 200,
+            "fromServiceWorker": true,
+            "fromDiskCache": false,
+            "source": "network"
+          },
+          "page": {
+            "date": "2026-11-27",
+            "points": 37,
+            "status": {
+              "text": "数据 2026-11-27 · 联网打开 · 本地副本不可用",
+              "visible": true
+            },
+            "warning": {
+              "text": "历史档案拉取失败，已保留当前数据",
+              "visible": false
+            },
+            "view": "overview",
+            "timeOrigin": 1795851298606.2,
+            "viewport": [
+              1440,
+              900
+            ],
+            "days": 1,
+            "papers": 40,
+            "selected": "pmid_43085564"
+          }
+        },
+        "visible": {
+          "date": "2026-11-27",
+          "points": 37,
+          "status": {
+            "text": "数据 2026-11-27 · 联网打开 · 本地副本不可用",
+            "visible": true
+          },
+          "warning": {
+            "text": "历史档案拉取失败，已保留当前数据",
+            "visible": false
+          },
+          "view": "overview",
+          "timeOrigin": 1795851298606.2,
+          "viewport": [
+            1440,
+            900
+          ],
+          "days": 1,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "saved": {
+          "registrations": 1,
+          "active": "activated",
+          "waiting": null,
+          "controller": "http://127.0.0.1:54961/sw.js",
+          "names": [
+            "thoradar-shell-v1"
+          ],
+          "paths": [],
+          "hash": null
+        }
+      }
+    },
+    {
+      "name": "service-worker-api-unavailable-keeps-native-site-usable",
+      "pass": true,
+      "detail": {
+        "first": {
+          "doc": {
+            "session": "sw-unavailable",
+            "url": "http://127.0.0.1:54961/index.html?sw=1",
+            "loaderId": "D437706E88BFA2BBF9B1E7AC4387D807",
+            "status": 200,
+            "fromServiceWorker": false,
+            "fromDiskCache": false,
+            "source": null
+          },
+          "page": {
+            "date": "2026-11-27",
+            "points": 37,
+            "status": {
+              "text": "数据 2026-11-27 · 联网打开 · 本地副本不可用",
+              "visible": true
+            },
+            "warning": {
+              "text": "历史档案拉取失败，已保留当前数据",
+              "visible": false
+            },
+            "view": "overview",
+            "timeOrigin": 1795851298854.6,
+            "viewport": [
+              1440,
+              900
+            ],
+            "days": 1,
+            "papers": 40,
+            "selected": "pmid_43085564"
+          }
+        },
+        "snapshot": {
+          "date": "2026-11-27",
+          "points": 37,
+          "status": {
+            "text": "数据 2026-11-27 · 联网打开 · 本地副本不可用",
+            "visible": true
+          },
+          "warning": {
+            "text": "历史档案拉取失败，已保留当前数据",
+            "visible": false
+          },
+          "view": "overview",
+          "timeOrigin": 1795851298854.6,
+          "viewport": [
+            1440,
+            900
+          ],
+          "days": 1,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "saved": {
+          "registrations": 0,
+          "active": null,
+          "waiting": null,
+          "controller": null,
+          "names": [],
+          "paths": [],
+          "hash": null
+        }
+      }
+    },
+    {
+      "name": "archive-warning-persists-with-service-worker-unavailable",
+      "pass": true,
+      "detail": {
+        "before": {
+          "date": "2026-11-27",
+          "points": 37,
+          "status": {
+            "text": "数据 2026-11-27 · 联网打开 · 本地副本不可用",
+            "visible": true
+          },
+          "warning": {
+            "text": "历史档案拉取失败，已保留当前数据",
+            "visible": false
+          },
+          "view": "overview",
+          "timeOrigin": 1795851298854.6,
+          "viewport": [
+            1440,
+            900
+          ],
+          "days": 1,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "initial": {
+          "date": "2026-11-27",
+          "points": 37,
+          "status": {
+            "text": "数据 2026-11-27 · 联网打开 · 本地副本不可用",
+            "visible": true
+          },
+          "warning": {
+            "text": "实际只显示 2026-11-27 当日副本／历史档案不可用",
+            "visible": true
+          },
+          "view": "overview",
+          "timeOrigin": 1795851298854.6,
+          "viewport": [
+            1440,
+            900
+          ],
+          "days": 7,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "persistent": {
+          "date": "2026-11-27",
+          "points": 37,
+          "status": {
+            "text": "数据 2026-11-27 · 联网打开 · 本地副本不可用",
+            "visible": true
+          },
+          "warning": {
+            "text": "实际只显示 2026-11-27 当日副本／历史档案不可用",
+            "visible": true
+          },
+          "view": "reading",
+          "timeOrigin": 1795851298854.6,
+          "viewport": [
+            1440,
+            900
+          ],
+          "days": 7,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "translated": {
+          "date": "2026-11-27",
+          "points": 37,
+          "status": {
+            "text": "Data 2026-11-27 · Opened over the network · Local copy unavailable",
+            "visible": true
+          },
+          "warning": {
+            "text": "Showing only the 2026-11-27 daily copy / Historical archive unavailable",
+            "visible": true
+          },
+          "view": "reading",
+          "timeOrigin": 1795851298854.6,
+          "viewport": [
+            1440,
+            900
+          ],
+          "days": 7,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "single": {
+          "date": "2026-11-27",
+          "points": 37,
+          "status": {
+            "text": "数据 2026-11-27 · 联网打开 · 本地副本不可用",
+            "visible": true
+          },
+          "warning": {
+            "text": "历史档案拉取失败，已保留当前数据",
+            "visible": false
+          },
+          "view": "reading",
+          "timeOrigin": 1795851298854.6,
+          "viewport": [
+            1440,
+            900
+          ],
+          "days": 1,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "retry": {
+          "date": "2026-11-27",
+          "points": 37,
+          "status": {
+            "text": "数据 2026-11-27 · 联网打开 · 本地副本不可用",
+            "visible": true
+          },
+          "warning": {
+            "text": "实际只显示 2026-11-27 当日副本／历史档案不可用",
+            "visible": true
+          },
+          "view": "reading",
+          "timeOrigin": 1795851298854.6,
+          "viewport": [
+            1440,
+            900
+          ],
+          "days": 7,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "recovered": {
+          "date": "2026-11-27",
+          "points": 37,
+          "status": {
+            "text": "数据 2026-11-27 · 联网打开 · 本地副本不可用",
+            "visible": true
+          },
+          "warning": {
+            "text": "历史档案拉取失败，已保留当前数据",
+            "visible": false
+          },
+          "view": "reading",
+          "timeOrigin": 1795851298854.6,
+          "viewport": [
+            1440,
+            900
+          ],
+          "days": 8,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "saved": {
+          "registrations": 0,
+          "active": null,
+          "waiting": null,
+          "controller": null,
+          "names": [],
+          "paths": [],
+          "hash": null
+        },
+        "upstream": [
+          {
+            "scenario": "sw-unavailable",
+            "url": "/data/radar_latest.json",
+            "method": "GET",
+            "startMs": 1795851299307,
+            "pragma": null,
+            "cacheControl": null,
+            "version": "unavailable",
+            "status": 503,
+            "mime": "application/json",
+            "finishedMs": 1795851299307
+          },
+          {
+            "scenario": "sw-unavailable",
+            "url": "/data/radar_latest.json",
+            "method": "GET",
+            "startMs": 1795851305764,
+            "pragma": null,
+            "cacheControl": null,
+            "version": "unavailable",
+            "status": 503,
+            "mime": "application/json",
+            "finishedMs": 1795851305764
+          },
+          {
+            "scenario": "sw-unavailable",
+            "url": "/data/radar_latest.json",
+            "method": "GET",
+            "startMs": 1795851305781,
+            "pragma": null,
+            "cacheControl": null,
+            "version": "available",
+            "status": 200,
+            "mime": "application/json",
+            "finishedMs": 1795851305782
+          }
+        ]
+      }
+    },
+    {
+      "name": "cache-storage-access-denied-keeps-native-site-usable",
+      "pass": true,
+      "detail": {
+        "first": {
+          "doc": {
+            "session": "cache-unavailable",
+            "url": "http://127.0.0.1:54961/index.html?sw=1",
+            "loaderId": "4DE85B7FC805208BA0C3DF8662C4F1A1",
+            "status": 200,
+            "fromServiceWorker": false,
+            "fromDiskCache": false,
+            "source": null
+          },
+          "page": {
+            "date": "2026-11-27",
+            "points": 37,
+            "status": {
+              "text": "数据 2026-11-27 · 联网打开 · 本地副本不可用",
+              "visible": true
+            },
+            "warning": {
+              "text": "历史档案拉取失败，已保留当前数据",
+              "visible": false
+            },
+            "view": "overview",
+            "timeOrigin": 1795851305999.7,
+            "viewport": [
+              1440,
+              900
+            ],
+            "days": 1,
+            "papers": 40,
+            "selected": "pmid_43085564"
+          }
+        },
+        "snapshot": {
+          "date": "2026-11-27",
+          "points": 37,
+          "status": {
+            "text": "数据 2026-11-27 · 联网打开 · 本地副本不可用",
+            "visible": true
+          },
+          "warning": {
+            "text": "历史档案拉取失败，已保留当前数据",
+            "visible": false
+          },
+          "view": "overview",
+          "timeOrigin": 1795851305999.7,
+          "viewport": [
+            1440,
+            900
+          ],
+          "days": 1,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "saved": {
+          "registrations": 0,
+          "active": null,
+          "waiting": null,
+          "controller": null,
+          "storageError": "SecurityError"
+        }
+      }
+    },
+    {
+      "name": "worker-cache-open-failure-falls-through-to-network",
+      "pass": true,
+      "detail": {
+        "first": {
+          "doc": {
+            "session": "worker-cache-unavailable",
+            "url": "http://127.0.0.1:54961/index.html?sw=1",
+            "loaderId": "B5C206C1CCEB0E8DF5631DD0C2C7EEF8",
+            "status": 200,
+            "fromServiceWorker": false,
+            "fromDiskCache": false,
+            "source": null
+          },
+          "page": {
+            "date": "2026-11-27",
+            "points": 37,
+            "status": {
+              "text": "数据 2026-11-27 · 联网打开",
+              "visible": true
+            },
+            "warning": {
+              "text": "历史档案拉取失败，已保留当前数据",
+              "visible": false
+            },
+            "view": "overview",
+            "timeOrigin": 1795851306710.4,
+            "viewport": [
+              1440,
+              900
+            ],
+            "days": 1,
+            "papers": 40,
+            "selected": "pmid_43085564"
+          }
+        },
+        "next": {
+          "doc": {
+            "session": "worker-cache-unavailable",
+            "url": "http://127.0.0.1:54961/",
+            "loaderId": "A70DDD3901AD8FC485CB8683EEFB931F",
+            "status": 200,
+            "fromServiceWorker": true,
+            "fromDiskCache": false,
+            "source": "network"
+          },
+          "page": {
+            "date": "2026-11-27",
+            "points": 37,
+            "status": {
+              "text": "数据 2026-11-27 · 联网打开 · 本地副本不可用",
+              "visible": true
+            },
+            "warning": {
+              "text": "历史档案拉取失败，已保留当前数据",
+              "visible": false
+            },
+            "view": "overview",
+            "timeOrigin": 1795851307175,
+            "viewport": [
+              1440,
+              900
+            ],
+            "days": 1,
+            "papers": 40,
+            "selected": "pmid_43085564"
+          }
+        },
+        "visible": {
+          "date": "2026-11-27",
+          "points": 37,
+          "status": {
+            "text": "数据 2026-11-27 · 联网打开 · 本地副本不可用",
+            "visible": true
+          },
+          "warning": {
+            "text": "历史档案拉取失败，已保留当前数据",
+            "visible": false
+          },
+          "view": "overview",
+          "timeOrigin": 1795851307175,
+          "viewport": [
+            1440,
+            900
+          ],
+          "days": 1,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "saved": {
+          "registrations": 1,
+          "active": "activated",
+          "waiting": null,
+          "controller": "http://127.0.0.1:54961/sw.js",
+          "names": [],
+          "paths": [],
+          "hash": null
+        }
+      }
+    },
+    {
+      "name": "archive-warning-persists-with-controlled-shell-on-mobile",
+      "pass": true,
+      "detail": {
+        "before": {
+          "date": "2026-11-27",
+          "points": 37,
+          "status": {
+            "text": "数据 2026-11-27 · 本地副本 · 已核对，与服务器一致",
+            "visible": true
+          },
+          "warning": {
+            "text": "历史档案拉取失败，已保留当前数据",
+            "visible": false
+          },
+          "view": "overview",
+          "timeOrigin": 1795851307979.4,
+          "viewport": [
+            390,
+            844
+          ],
+          "days": 1,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "initial": {
+          "date": "2026-11-27",
+          "points": 37,
+          "status": {
+            "text": "数据 2026-11-27 · 本地副本 · 已核对，与服务器一致",
+            "visible": true
+          },
+          "warning": {
+            "text": "实际只显示 2026-11-27 当日副本／历史档案不可用",
+            "visible": true
+          },
+          "view": "overview",
+          "timeOrigin": 1795851307979.4,
+          "viewport": [
+            390,
+            844
+          ],
+          "days": 7,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "persistent": {
+          "date": "2026-11-27",
+          "points": 37,
+          "status": {
+            "text": "数据 2026-11-27 · 本地副本 · 已核对，与服务器一致",
+            "visible": true
+          },
+          "warning": {
+            "text": "实际只显示 2026-11-27 当日副本／历史档案不可用",
+            "visible": true
+          },
+          "view": "reading",
+          "timeOrigin": 1795851307979.4,
+          "viewport": [
+            390,
+            844
+          ],
+          "days": 7,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "translated": {
+          "date": "2026-11-27",
+          "points": 37,
+          "status": {
+            "text": "Data 2026-11-27 · Local copy · Matches the server",
+            "visible": true
+          },
+          "warning": {
+            "text": "Showing only the 2026-11-27 daily copy / Historical archive unavailable",
+            "visible": true
+          },
+          "view": "reading",
+          "timeOrigin": 1795851307979.4,
+          "viewport": [
+            390,
+            844
+          ],
+          "days": 7,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "single": {
+          "date": "2026-11-27",
+          "points": 37,
+          "status": {
+            "text": "数据 2026-11-27 · 本地副本 · 已核对，与服务器一致",
+            "visible": true
+          },
+          "warning": {
+            "text": "历史档案拉取失败，已保留当前数据",
+            "visible": false
+          },
+          "view": "reading",
+          "timeOrigin": 1795851307979.4,
+          "viewport": [
+            390,
+            844
+          ],
+          "days": 1,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "retry": {
+          "date": "2026-11-27",
+          "points": 37,
+          "status": {
+            "text": "数据 2026-11-27 · 本地副本 · 已核对，与服务器一致",
+            "visible": true
+          },
+          "warning": {
+            "text": "实际只显示 2026-11-27 当日副本／历史档案不可用",
+            "visible": true
+          },
+          "view": "reading",
+          "timeOrigin": 1795851307979.4,
+          "viewport": [
+            390,
+            844
+          ],
+          "days": 7,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "recovered": {
+          "date": "2026-11-27",
+          "points": 37,
+          "status": {
+            "text": "数据 2026-11-27 · 本地副本 · 已核对，与服务器一致",
+            "visible": true
+          },
+          "warning": {
+            "text": "历史档案拉取失败，已保留当前数据",
+            "visible": false
+          },
+          "view": "reading",
+          "timeOrigin": 1795851307979.4,
+          "viewport": [
+            390,
+            844
+          ],
+          "days": 8,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "saved": {
+          "registrations": 1,
+          "active": "activated",
+          "waiting": null,
+          "controller": "http://127.0.0.1:54961/sw.js",
+          "names": [
+            "thoradar-shell-v1"
+          ],
+          "paths": [
+            "/index.html"
+          ],
+          "hash": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"
+        },
+        "upstream": [
+          {
+            "scenario": "archive-with-shell-mobile",
+            "url": "/data/radar_latest.json",
+            "method": "GET",
+            "startMs": 1795851308134,
+            "pragma": null,
+            "cacheControl": null,
+            "version": "unavailable",
+            "status": 503,
+            "mime": "application/json",
+            "finishedMs": 1795851308134
+          },
+          {
+            "scenario": "archive-with-shell-mobile",
+            "url": "/data/radar_latest.json",
+            "method": "GET",
+            "startMs": 1795851314587,
+            "pragma": null,
+            "cacheControl": null,
+            "version": "unavailable",
+            "status": 503,
+            "mime": "application/json",
+            "finishedMs": 1795851314587
+          },
+          {
+            "scenario": "archive-with-shell-mobile",
+            "url": "/data/radar_latest.json",
+            "method": "GET",
+            "startMs": 1795851314601,
+            "pragma": null,
+            "cacheControl": null,
+            "version": "available",
+            "status": 200,
+            "mime": "application/json",
+            "finishedMs": 1795851314602
+          }
+        ]
+      }
+    },
+    {
+      "name": "retirement-cleans-prefix-unregisters-and-notifies-open-reader",
+      "pass": true,
+      "detail": {
+        "before": {
+          "date": "2026-11-27",
+          "points": 37,
+          "status": {
+            "text": "数据 2026-11-27 · 本地副本 · 已核对，与服务器一致",
+            "visible": true
+          },
+          "warning": {
+            "text": "历史档案拉取失败，已保留当前数据",
+            "visible": false
+          },
+          "view": "reading",
+          "timeOrigin": 1795851315215.8,
+          "viewport": [
+            1440,
+            900
+          ],
+          "days": 1,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "after": {
+          "date": "2026-11-27",
+          "points": 37,
+          "status": {
+            "text": "数据 2026-11-27 · 本地副本已停用",
+            "visible": true
+          },
+          "warning": {
+            "text": "历史档案拉取失败，已保留当前数据",
+            "visible": false
+          },
+          "view": "reading",
+          "timeOrigin": 1795851315215.8,
+          "viewport": [
+            1440,
+            900
+          ],
+          "days": 1,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "initial": {
+          "registrations": 1,
+          "active": "activated",
+          "waiting": null,
+          "controller": "http://127.0.0.1:54961/sw.js",
+          "names": [
+            "thoradar-shell-v1",
+            "thoradar-shell-earlier-test-version",
+            "s2-unrelated-cache"
+          ],
+          "paths": [
+            "/index.html"
+          ],
+          "hash": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def"
+        },
+        "saved": {
+          "registrations": 0,
+          "active": null,
+          "waiting": null,
+          "controller": "http://127.0.0.1:54961/sw.js",
+          "names": [
+            "s2-unrelated-cache"
+          ],
+          "paths": [],
+          "hash": null
+        }
+      }
+    },
+    {
+      "name": "post-retirement-next-open-gets-current-edition-from-origin",
+      "pass": true,
+      "detail": {
+        "next": {
+          "doc": {
+            "session": "retirement",
+            "url": "http://127.0.0.1:54961/",
+            "loaderId": "CC1964B0419D82D03A6B3560072EE9C8",
+            "status": 200,
+            "fromServiceWorker": false,
+            "fromDiskCache": false,
+            "source": null
+          },
+          "page": {
+            "date": "2026-11-28",
+            "points": 37,
+            "status": {
+              "text": "",
+              "visible": false
+            },
+            "warning": {
+              "text": "历史档案拉取失败，已保留当前数据",
+              "visible": false
+            },
+            "view": "overview",
+            "timeOrigin": 1795851316483.7,
+            "viewport": [
+              1440,
+              900
+            ],
+            "days": 1,
+            "papers": 40,
+            "selected": "pmid_43085564"
+          }
+        },
+        "saved": {
+          "registrations": 0,
+          "active": null,
+          "waiting": null,
+          "controller": null,
+          "names": [
+            "s2-unrelated-cache"
+          ],
+          "paths": [],
+          "hash": null
+        },
+        "upstream": [
+          {
+            "scenario": "retirement",
+            "url": "/",
+            "method": "GET",
+            "startMs": 1795851316484,
+            "pragma": null,
+            "cacheControl": null,
+            "version": "v2",
+            "status": 200,
+            "mime": "text/html; charset=utf-8",
+            "finishedMs": 1795851316486
+          }
+        ]
+      }
+    },
+    {
+      "name": "reinstall-fetches-fresh-canonical-and-does-not-restore-stale-http-copy",
+      "pass": true,
+      "detail": {
+        "prime": "2026-11-27",
+        "stale": "2026-11-27",
+        "staleHit": true,
+        "reinstall": {
+          "doc": {
+            "session": "retirement",
+            "url": "http://127.0.0.1:54961/index.html?sw=1",
+            "loaderId": "A7C78FBC46E415EEE4F8BC363EF72068",
+            "status": 200,
+            "fromServiceWorker": false,
+            "fromDiskCache": false,
+            "source": null
+          },
+          "page": {
+            "date": "2026-11-28",
+            "points": 37,
+            "status": {
+              "text": "数据 2026-11-28 · 联网打开",
+              "visible": true
+            },
+            "warning": {
+              "text": "历史档案拉取失败，已保留当前数据",
+              "visible": false
+            },
+            "view": "overview",
+            "timeOrigin": 1795851316581,
+            "viewport": [
+              1440,
+              900
+            ],
+            "days": 1,
+            "papers": 40,
+            "selected": "pmid_43085564"
+          }
+        },
+        "saved": {
+          "registrations": 1,
+          "active": "activated",
+          "waiting": null,
+          "controller": null,
+          "names": [
+            "s2-unrelated-cache",
+            "thoradar-shell-v1"
+          ],
+          "paths": [
+            "/index.html"
+          ],
+          "hash": "e83acf8ff52b04fef144cad2dd763ee1d3ff94c0c0ac315634394fb87c11403b"
+        },
+        "again": {
+          "doc": {
+            "session": "retirement",
+            "url": "http://127.0.0.1:54961/",
+            "loaderId": "007817E28B482F7B9C07859968668824",
+            "status": 200,
+            "fromServiceWorker": true,
+            "fromDiskCache": true,
+            "source": "cache-storage"
+          },
+          "page": {
+            "date": "2026-11-28",
+            "points": 37,
+            "status": {
+              "text": "数据 2026-11-28 · 本地副本 · 已核对，与服务器一致",
+              "visible": true
+            },
+            "warning": {
+              "text": "历史档案拉取失败，已保留当前数据",
+              "visible": false
+            },
+            "view": "overview",
+            "timeOrigin": 1795851316676.1,
+            "viewport": [
+              1440,
+              900
+            ],
+            "days": 1,
+            "papers": 40,
+            "selected": "pmid_43085564"
+          }
+        },
+        "verified": {
+          "date": "2026-11-28",
+          "points": 37,
+          "status": {
+            "text": "数据 2026-11-28 · 本地副本 · 已核对，与服务器一致",
+            "visible": true
+          },
+          "warning": {
+            "text": "历史档案拉取失败，已保留当前数据",
+            "visible": false
+          },
+          "view": "overview",
+          "timeOrigin": 1795851316676.1,
+          "viewport": [
+            1440,
+            900
+          ],
+          "days": 1,
+          "papers": 40,
+          "selected": "pmid_43085564"
+        },
+        "upstream": [
+          {
+            "scenario": "retirement",
+            "url": "/index.html?sw=1",
+            "method": "GET",
+            "startMs": 1795851316582,
+            "pragma": null,
+            "cacheControl": null,
+            "version": "v2",
+            "status": 200,
+            "mime": "text/html; charset=utf-8",
+            "finishedMs": 1795851316583
+          },
+          {
+            "scenario": "retirement",
+            "url": "/sw.js",
+            "method": "GET",
+            "startMs": 1795851316634,
+            "pragma": null,
+            "cacheControl": "max-age=0",
+            "version": "regular",
+            "status": 200,
+            "mime": "text/javascript",
+            "finishedMs": 1795851316634
+          },
+          {
+            "scenario": "retirement",
+            "url": "/index.html",
+            "method": "GET",
+            "startMs": 1795851316642,
+            "pragma": "no-cache",
+            "cacheControl": "no-cache",
+            "version": "v2",
+            "status": 200,
+            "mime": "text/html; charset=utf-8",
+            "finishedMs": 1795851316643
+          },
+          {
+            "scenario": "retirement",
+            "url": "/",
+            "method": "GET",
+            "startMs": 1795851316678,
+            "pragma": "no-cache",
+            "cacheControl": "no-cache",
+            "version": "v2",
+            "status": 200,
+            "mime": "text/html; charset=utf-8",
+            "finishedMs": 1795851316679
+          }
+        ]
+      }
+    },
+    {
+      "name": "no-uncaught-page-or-worker-errors",
+      "pass": true,
+      "detail": {
+        "errors": []
+      }
+    }
+  ],
+  "requests": [
+    {
+      "scenario": "response-matrix",
+      "url": "/index.html?sw=1",
+      "method": "GET",
+      "startMs": 1795851286393,
+      "pragma": null,
+      "cacheControl": null,
+      "version": "v1",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851286396
+    },
+    {
+      "scenario": "response-matrix",
+      "url": "/sw.js",
+      "method": "GET",
+      "startMs": 1795851286944,
+      "pragma": null,
+      "cacheControl": "max-age=0",
+      "version": "regular",
+      "status": 200,
+      "mime": "text/javascript",
+      "finishedMs": 1795851286944
+    },
+    {
+      "scenario": "response-matrix",
+      "url": "/index.html",
+      "method": "GET",
+      "startMs": 1795851286952,
+      "pragma": "no-cache",
+      "cacheControl": "no-cache",
+      "version": "v1",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851286954
+    },
+    {
+      "scenario": "response-matrix",
+      "url": "/index.html",
+      "method": "GET",
+      "startMs": 1795851286998,
+      "pragma": "no-cache",
+      "cacheControl": "no-cache",
+      "version": "offline",
+      "destroyedSocket": true
+    },
+    {
+      "scenario": "response-matrix",
+      "url": "/index.html",
+      "method": "GET",
+      "startMs": 1795851287000,
+      "pragma": "no-cache",
+      "cacheControl": "no-cache",
+      "version": "offline",
+      "destroyedSocket": true
+    },
+    {
+      "scenario": "response-matrix",
+      "url": "/index.html",
+      "method": "GET",
+      "startMs": 1795851287138,
+      "pragma": "no-cache",
+      "cacheControl": "no-cache",
+      "version": "404",
+      "status": 404,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851287140
+    },
+    {
+      "scenario": "response-matrix",
+      "url": "/index.html",
+      "method": "GET",
+      "startMs": 1795851287216,
+      "pragma": "no-cache",
+      "cacheControl": "no-cache",
+      "version": "500",
+      "status": 500,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851287218
+    },
+    {
+      "scenario": "response-matrix",
+      "url": "/index.html",
+      "method": "GET",
+      "startMs": 1795851287283,
+      "pragma": "no-cache",
+      "cacheControl": "no-cache",
+      "version": "auth-html",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851287283
+    },
+    {
+      "scenario": "response-matrix",
+      "url": "/index.html",
+      "method": "GET",
+      "startMs": 1795851287353,
+      "pragma": "no-cache",
+      "cacheControl": "no-cache",
+      "version": "auth-redirect",
+      "status": 302,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851287353
+    },
+    {
+      "scenario": "response-matrix",
+      "url": "/index.html",
+      "method": "GET",
+      "startMs": 1795851287649,
+      "pragma": "no-cache",
+      "cacheControl": "no-cache",
+      "version": "truncated",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851287651
+    },
+    {
+      "scenario": "response-matrix",
+      "url": "/index.html",
+      "method": "GET",
+      "startMs": 1795851287804,
+      "pragma": "no-cache",
+      "cacheControl": "no-cache",
+      "version": "missing-start",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851287808
+    },
+    {
+      "scenario": "response-matrix",
+      "url": "/index.html",
+      "method": "GET",
+      "startMs": 1795851287902,
+      "pragma": "no-cache",
+      "cacheControl": "no-cache",
+      "version": "missing-end",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851287905
+    },
+    {
+      "scenario": "response-matrix",
+      "url": "/index.html",
+      "method": "GET",
+      "startMs": 1795851287996,
+      "pragma": "no-cache",
+      "cacheControl": "no-cache",
+      "version": "wrong-mime",
+      "status": 200,
+      "mime": "text/plain; name=text/html",
+      "finishedMs": 1795851287998
+    },
+    {
+      "scenario": "response-matrix",
+      "url": "/index.html",
+      "method": "GET",
+      "startMs": 1795851288112,
+      "pragma": "no-cache",
+      "cacheControl": "no-cache",
+      "version": "203",
+      "status": 203,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851288114
+    },
+    {
+      "scenario": "response-matrix",
+      "url": "/index.html",
+      "method": "GET",
+      "startMs": 1795851288204,
+      "pragma": "no-cache",
+      "cacheControl": "no-cache",
+      "version": "timeout",
+      "disconnectedMs": 1795851296216
+    },
+    {
+      "scenario": "response-matrix",
+      "url": "/sw.js",
+      "method": "GET",
+      "startMs": 1795851289815,
+      "pragma": null,
+      "cacheControl": "max-age=0",
+      "version": "regular",
+      "status": 200,
+      "mime": "text/javascript",
+      "finishedMs": 1795851289816
+    },
+    {
+      "scenario": "response-matrix",
+      "url": "/",
+      "method": "GET",
+      "startMs": 1795851296247,
+      "pragma": "no-cache",
+      "cacheControl": "no-cache",
+      "version": "offline",
+      "destroyedSocket": true
+    },
+    {
+      "scenario": "response-matrix",
+      "url": "/",
+      "method": "GET",
+      "startMs": 1795851296248,
+      "pragma": "no-cache",
+      "cacheControl": "no-cache",
+      "version": "offline",
+      "destroyedSocket": true
+    },
+    {
+      "scenario": "install-update",
+      "url": "/index.html?sw=1",
+      "method": "GET",
+      "startMs": 1795851296543,
+      "pragma": null,
+      "cacheControl": null,
+      "version": "v1",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851296544
+    },
+    {
+      "scenario": "install-update",
+      "url": "/sw.js",
+      "method": "GET",
+      "startMs": 1795851296908,
+      "pragma": null,
+      "cacheControl": "max-age=0",
+      "version": "regular",
+      "status": 200,
+      "mime": "text/javascript",
+      "finishedMs": 1795851296908
+    },
+    {
+      "scenario": "install-update",
+      "url": "/index.html",
+      "method": "GET",
+      "startMs": 1795851296915,
+      "pragma": "no-cache",
+      "cacheControl": "no-cache",
+      "version": "v1",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851296916
+    },
+    {
+      "scenario": "install-update",
+      "url": "/",
+      "method": "GET",
+      "startMs": 1795851296968,
+      "pragma": "no-cache",
+      "cacheControl": "no-cache",
+      "version": "v1",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851296969
+    },
+    {
+      "scenario": "install-update",
+      "url": "/sw.js",
+      "method": "GET",
+      "startMs": 1795851297170,
+      "pragma": null,
+      "cacheControl": "max-age=0",
+      "version": "update",
+      "status": 200,
+      "mime": "text/javascript",
+      "finishedMs": 1795851297170
+    },
+    {
+      "scenario": "install-update",
+      "url": "/index.html",
+      "method": "GET",
+      "startMs": 1795851297178,
+      "pragma": "no-cache",
+      "cacheControl": "no-cache",
+      "version": "v2",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851297179
+    },
+    {
+      "scenario": "low-quota",
+      "url": "/index.html?sw=1",
+      "method": "GET",
+      "startMs": 1795851297384,
+      "pragma": null,
+      "cacheControl": null,
+      "version": "v1",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851297386
+    },
+    {
+      "scenario": "low-quota",
+      "url": "/sw.js",
+      "method": "GET",
+      "startMs": 1795851297758,
+      "pragma": null,
+      "cacheControl": "max-age=0",
+      "version": "regular",
+      "status": 200,
+      "mime": "text/javascript",
+      "finishedMs": 1795851297760
+    },
+    {
+      "scenario": "low-quota",
+      "url": "/index.html",
+      "method": "GET",
+      "startMs": 1795851297769,
+      "pragma": "no-cache",
+      "cacheControl": "no-cache",
+      "version": "v1",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851297771
+    },
+    {
+      "scenario": "low-quota",
+      "url": "/",
+      "method": "GET",
+      "startMs": 1795851297819,
+      "pragma": "no-cache",
+      "cacheControl": "no-cache",
+      "version": "v1",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851297821
+    },
+    {
+      "scenario": "low-quota",
+      "url": "/",
+      "method": "GET",
+      "startMs": 1795851297919,
+      "pragma": "no-cache",
+      "cacheControl": "no-cache",
+      "version": "v3",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851297922
+    },
+    {
+      "scenario": "zero-quota",
+      "url": "/quota-setup",
+      "method": "GET",
+      "startMs": 1795851298141,
+      "pragma": null,
+      "cacheControl": null,
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851298141
+    },
+    {
+      "scenario": "zero-quota",
+      "url": "/favicon.ico",
+      "method": "GET",
+      "startMs": 1795851298158,
+      "pragma": null,
+      "cacheControl": null,
+      "status": 404,
+      "mime": "text/plain",
+      "finishedMs": 1795851298160
+    },
+    {
+      "scenario": "zero-quota",
+      "url": "/index.html?sw=1",
+      "method": "GET",
+      "startMs": 1795851298164,
+      "pragma": null,
+      "cacheControl": null,
+      "version": "v1",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851298168
+    },
+    {
+      "scenario": "zero-quota",
+      "url": "/sw.js",
+      "method": "GET",
+      "startMs": 1795851298545,
+      "pragma": null,
+      "cacheControl": "max-age=0",
+      "version": "regular",
+      "status": 200,
+      "mime": "text/javascript",
+      "finishedMs": 1795851298545
+    },
+    {
+      "scenario": "zero-quota",
+      "url": "/index.html",
+      "method": "GET",
+      "startMs": 1795851298555,
+      "pragma": "no-cache",
+      "cacheControl": "no-cache",
+      "version": "v1",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851298558
+    },
+    {
+      "scenario": "zero-quota",
+      "url": "/",
+      "method": "GET",
+      "startMs": 1795851298608,
+      "pragma": null,
+      "cacheControl": null,
+      "version": "v1",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851298610
+    },
+    {
+      "scenario": "zero-quota",
+      "url": "/",
+      "method": "GET",
+      "startMs": 1795851298610,
+      "pragma": "no-cache",
+      "cacheControl": "no-cache",
+      "version": "v1",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851298611
+    },
+    {
+      "scenario": "sw-unavailable",
+      "url": "/index.html?sw=1",
+      "method": "GET",
+      "startMs": 1795851298855,
+      "pragma": null,
+      "cacheControl": null,
+      "version": "v1",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851298857
+    },
+    {
+      "scenario": "sw-unavailable",
+      "url": "/data/radar_latest.json",
+      "method": "GET",
+      "startMs": 1795851299307,
+      "pragma": null,
+      "cacheControl": null,
+      "version": "unavailable",
+      "status": 503,
+      "mime": "application/json",
+      "finishedMs": 1795851299307
+    },
+    {
+      "scenario": "sw-unavailable",
+      "url": "/data/radar_latest.json",
+      "method": "GET",
+      "startMs": 1795851305764,
+      "pragma": null,
+      "cacheControl": null,
+      "version": "unavailable",
+      "status": 503,
+      "mime": "application/json",
+      "finishedMs": 1795851305764
+    },
+    {
+      "scenario": "sw-unavailable",
+      "url": "/data/radar_latest.json",
+      "method": "GET",
+      "startMs": 1795851305781,
+      "pragma": null,
+      "cacheControl": null,
+      "version": "available",
+      "status": 200,
+      "mime": "application/json",
+      "finishedMs": 1795851305782
+    },
+    {
+      "scenario": "cache-unavailable",
+      "url": "/index.html?sw=1",
+      "method": "GET",
+      "startMs": 1795851306001,
+      "pragma": null,
+      "cacheControl": null,
+      "version": "v1",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851306002
+    },
+    {
+      "scenario": "worker-cache-unavailable",
+      "url": "/index.html?sw=1",
+      "method": "GET",
+      "startMs": 1795851306711,
+      "pragma": null,
+      "cacheControl": null,
+      "version": "v1",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851306713
+    },
+    {
+      "scenario": "worker-cache-unavailable",
+      "url": "/sw.js",
+      "method": "GET",
+      "startMs": 1795851307127,
+      "pragma": null,
+      "cacheControl": "max-age=0",
+      "version": "blocked-cache",
+      "status": 200,
+      "mime": "text/javascript",
+      "finishedMs": 1795851307127
+    },
+    {
+      "scenario": "worker-cache-unavailable",
+      "url": "/",
+      "method": "GET",
+      "startMs": 1795851307177,
+      "pragma": null,
+      "cacheControl": null,
+      "version": "v1",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851307180
+    },
+    {
+      "scenario": "archive-with-shell-mobile",
+      "url": "/index.html?sw=1",
+      "method": "GET",
+      "startMs": 1795851307478,
+      "pragma": null,
+      "cacheControl": null,
+      "version": "v1",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851307480
+    },
+    {
+      "scenario": "archive-with-shell-mobile",
+      "url": "/sw.js",
+      "method": "GET",
+      "startMs": 1795851307921,
+      "pragma": null,
+      "cacheControl": "max-age=0",
+      "version": "regular",
+      "status": 200,
+      "mime": "text/javascript",
+      "finishedMs": 1795851307922
+    },
+    {
+      "scenario": "archive-with-shell-mobile",
+      "url": "/index.html",
+      "method": "GET",
+      "startMs": 1795851307935,
+      "pragma": "no-cache",
+      "cacheControl": "no-cache",
+      "version": "v1",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851307936
+    },
+    {
+      "scenario": "archive-with-shell-mobile",
+      "url": "/",
+      "method": "GET",
+      "startMs": 1795851307981,
+      "pragma": "no-cache",
+      "cacheControl": "no-cache",
+      "version": "v1",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851307983
+    },
+    {
+      "scenario": "archive-with-shell-mobile",
+      "url": "/data/radar_latest.json",
+      "method": "GET",
+      "startMs": 1795851308134,
+      "pragma": null,
+      "cacheControl": null,
+      "version": "unavailable",
+      "status": 503,
+      "mime": "application/json",
+      "finishedMs": 1795851308134
+    },
+    {
+      "scenario": "archive-with-shell-mobile",
+      "url": "/sw.js",
+      "method": "GET",
+      "startMs": 1795851309659,
+      "pragma": null,
+      "cacheControl": "max-age=0",
+      "version": "regular",
+      "status": 200,
+      "mime": "text/javascript",
+      "finishedMs": 1795851309659
+    },
+    {
+      "scenario": "archive-with-shell-mobile",
+      "url": "/data/radar_latest.json",
+      "method": "GET",
+      "startMs": 1795851314587,
+      "pragma": null,
+      "cacheControl": null,
+      "version": "unavailable",
+      "status": 503,
+      "mime": "application/json",
+      "finishedMs": 1795851314587
+    },
+    {
+      "scenario": "archive-with-shell-mobile",
+      "url": "/data/radar_latest.json",
+      "method": "GET",
+      "startMs": 1795851314601,
+      "pragma": null,
+      "cacheControl": null,
+      "version": "available",
+      "status": 200,
+      "mime": "application/json",
+      "finishedMs": 1795851314602
+    },
+    {
+      "scenario": "retirement",
+      "url": "/index.html?sw=1",
+      "method": "GET",
+      "startMs": 1795851314764,
+      "pragma": null,
+      "cacheControl": null,
+      "version": "v1",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851314766
+    },
+    {
+      "scenario": "retirement",
+      "url": "/sw.js",
+      "method": "GET",
+      "startMs": 1795851315146,
+      "pragma": null,
+      "cacheControl": "max-age=0",
+      "version": "regular",
+      "status": 200,
+      "mime": "text/javascript",
+      "finishedMs": 1795851315146
+    },
+    {
+      "scenario": "retirement",
+      "url": "/index.html",
+      "method": "GET",
+      "startMs": 1795851315157,
+      "pragma": "no-cache",
+      "cacheControl": "no-cache",
+      "version": "v1",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851315158
+    },
+    {
+      "scenario": "retirement",
+      "url": "/",
+      "method": "GET",
+      "startMs": 1795851315218,
+      "pragma": "no-cache",
+      "cacheControl": "no-cache",
+      "version": "v1",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851315219
+    },
+    {
+      "scenario": "retirement",
+      "url": "/sw.js",
+      "method": "GET",
+      "startMs": 1795851315454,
+      "pragma": null,
+      "cacheControl": "max-age=0",
+      "version": "retire",
+      "status": 200,
+      "mime": "text/javascript",
+      "finishedMs": 1795851315454
+    },
+    {
+      "scenario": "retirement",
+      "url": "/",
+      "method": "GET",
+      "startMs": 1795851316484,
+      "pragma": null,
+      "cacheControl": null,
+      "version": "v2",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851316486
+    },
+    {
+      "scenario": "retirement",
+      "url": "/index.html",
+      "method": "GET",
+      "startMs": 1795851316565,
+      "pragma": "no-cache",
+      "cacheControl": "no-cache",
+      "version": "v1",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851316566
+    },
+    {
+      "scenario": "retirement",
+      "url": "/index.html?sw=1",
+      "method": "GET",
+      "startMs": 1795851316582,
+      "pragma": null,
+      "cacheControl": null,
+      "version": "v2",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851316583
+    },
+    {
+      "scenario": "retirement",
+      "url": "/sw.js",
+      "method": "GET",
+      "startMs": 1795851316634,
+      "pragma": null,
+      "cacheControl": "max-age=0",
+      "version": "regular",
+      "status": 200,
+      "mime": "text/javascript",
+      "finishedMs": 1795851316634
+    },
+    {
+      "scenario": "retirement",
+      "url": "/index.html",
+      "method": "GET",
+      "startMs": 1795851316642,
+      "pragma": "no-cache",
+      "cacheControl": "no-cache",
+      "version": "v2",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851316643
+    },
+    {
+      "scenario": "retirement",
+      "url": "/",
+      "method": "GET",
+      "startMs": 1795851316678,
+      "pragma": "no-cache",
+      "cacheControl": "no-cache",
+      "version": "v2",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "finishedMs": 1795851316679
+    }
+  ],
+  "documents": [
+    {
+      "session": "response-matrix",
+      "url": "http://127.0.0.1:54961/index.html?sw=1",
+      "loaderId": "A04C4F0954CB5CD6AEDACB8F2E3FEC1E",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false,
+      "source": null
+    },
+    {
+      "session": "response-matrix",
+      "url": "http://127.0.0.1:54961/index.html",
+      "loaderId": "D527745360F2A107444024F0EB282660",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": true,
+      "source": "cache-storage"
+    },
+    {
+      "session": "response-matrix",
+      "url": "http://127.0.0.1:54961/index.html",
+      "loaderId": "7DBD3DF1105C0AD1FCEED94FBA8B2C6C",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": true,
+      "source": "cache-storage"
+    },
+    {
+      "session": "response-matrix",
+      "url": "http://127.0.0.1:54961/index.html",
+      "loaderId": "D504AE49FC3687CDB1E2C2E27C601DA9",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": true,
+      "source": "cache-storage"
+    },
+    {
+      "session": "response-matrix",
+      "url": "http://127.0.0.1:54961/index.html",
+      "loaderId": "D2FDD381559DD48857173D7F6963DA19",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": true,
+      "source": "cache-storage"
+    },
+    {
+      "session": "response-matrix",
+      "url": "http://127.0.0.1:54961/index.html",
+      "loaderId": "514193D03FD4B6A9C405CF77A5190D04",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": true,
+      "source": "cache-storage"
+    },
+    {
+      "session": "response-matrix",
+      "url": "http://127.0.0.1:54961/index.html",
+      "loaderId": "052A5CE12AA54EB1FBCD78CE5B27BBC1",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": true,
+      "source": "cache-storage"
+    },
+    {
+      "session": "response-matrix",
+      "url": "http://127.0.0.1:54961/index.html",
+      "loaderId": "B18FB772167BC91344640C37B1E4C052",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": true,
+      "source": "cache-storage"
+    },
+    {
+      "session": "response-matrix",
+      "url": "http://127.0.0.1:54961/index.html",
+      "loaderId": "E95D1B86489EB3268DDD8111F6CA1812",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": true,
+      "source": "cache-storage"
+    },
+    {
+      "session": "response-matrix",
+      "url": "http://127.0.0.1:54961/index.html",
+      "loaderId": "05C1C5C363B6219E2BA0A4AE92597296",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": true,
+      "source": "cache-storage"
+    },
+    {
+      "session": "response-matrix",
+      "url": "http://127.0.0.1:54961/index.html",
+      "loaderId": "BFF87F724F714E9280D8EBBA950E16D7",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": true,
+      "source": "cache-storage"
+    },
+    {
+      "session": "response-matrix",
+      "url": "http://127.0.0.1:54961/index.html",
+      "loaderId": "DFF880FFA9F2800111EA8A966189E5E9",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": true,
+      "source": "cache-storage"
+    },
+    {
+      "session": "response-matrix",
+      "url": "http://127.0.0.1:54961/",
+      "loaderId": "26B36C093018FB88406EDA7246549DD2",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": true,
+      "source": "cache-storage"
+    },
+    {
+      "session": "install-update",
+      "url": "http://127.0.0.1:54961/index.html?sw=1",
+      "loaderId": "FABFEEDAE8DA777893D18FA6E1F03DC7",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false,
+      "source": null
+    },
+    {
+      "session": "install-update",
+      "url": "http://127.0.0.1:54961/",
+      "loaderId": "FC5341E29C1F335B7F985CEFEBB41899",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": true,
+      "source": "cache-storage"
+    },
+    {
+      "session": "low-quota",
+      "url": "http://127.0.0.1:54961/index.html?sw=1",
+      "loaderId": "8BAD3F73AD3D647294BA25F7F7DF087C",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false,
+      "source": null
+    },
+    {
+      "session": "low-quota",
+      "url": "http://127.0.0.1:54961/",
+      "loaderId": "A9956F836A1D6013E504249E6A52A597",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": true,
+      "source": "cache-storage"
+    },
+    {
+      "session": "low-quota",
+      "url": "http://127.0.0.1:54961/",
+      "loaderId": "04EAA7A24BC0919856D03414D60696C9",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": true,
+      "source": "cache-storage"
+    },
+    {
+      "session": "zero-quota",
+      "url": "http://127.0.0.1:54961/quota-setup",
+      "loaderId": "453ADA7344B42EEDE628F9E4F49BA4AA",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false,
+      "source": null
+    },
+    {
+      "session": "zero-quota",
+      "url": "http://127.0.0.1:54961/index.html?sw=1",
+      "loaderId": "CD928D7537A0469DEEB301740D06643A",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false,
+      "source": null
+    },
+    {
+      "session": "zero-quota",
+      "url": "http://127.0.0.1:54961/",
+      "loaderId": "30FBFE9729D48A8E61378A49F18701FA",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false,
+      "source": "network"
+    },
+    {
+      "session": "sw-unavailable",
+      "url": "http://127.0.0.1:54961/index.html?sw=1",
+      "loaderId": "D437706E88BFA2BBF9B1E7AC4387D807",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false,
+      "source": null
+    },
+    {
+      "session": "cache-unavailable",
+      "url": "http://127.0.0.1:54961/index.html?sw=1",
+      "loaderId": "4DE85B7FC805208BA0C3DF8662C4F1A1",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false,
+      "source": null
+    },
+    {
+      "session": "worker-cache-unavailable",
+      "url": "http://127.0.0.1:54961/index.html?sw=1",
+      "loaderId": "B5C206C1CCEB0E8DF5631DD0C2C7EEF8",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false,
+      "source": null
+    },
+    {
+      "session": "worker-cache-unavailable",
+      "url": "http://127.0.0.1:54961/",
+      "loaderId": "A70DDD3901AD8FC485CB8683EEFB931F",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": false,
+      "source": "network"
+    },
+    {
+      "session": "archive-with-shell-mobile",
+      "url": "http://127.0.0.1:54961/index.html?sw=1",
+      "loaderId": "E75C583EDC4A59FCF3C5B91B36BD01DA",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false,
+      "source": null
+    },
+    {
+      "session": "archive-with-shell-mobile",
+      "url": "http://127.0.0.1:54961/",
+      "loaderId": "219D41D7714D0E9D7F7F4B3728088B93",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": true,
+      "source": "cache-storage"
+    },
+    {
+      "session": "retirement",
+      "url": "http://127.0.0.1:54961/index.html?sw=1",
+      "loaderId": "A89E6744A9C8E083FEB540D928991886",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false,
+      "source": null
+    },
+    {
+      "session": "retirement",
+      "url": "http://127.0.0.1:54961/",
+      "loaderId": "5254FCA3BD5AA5A5E50C163B94676573",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": true,
+      "source": "cache-storage"
+    },
+    {
+      "session": "retirement",
+      "url": "http://127.0.0.1:54961/",
+      "loaderId": "CC1964B0419D82D03A6B3560072EE9C8",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false,
+      "source": null
+    },
+    {
+      "session": "retirement",
+      "url": "http://127.0.0.1:54961/index.html?sw=1",
+      "loaderId": "A7C78FBC46E415EEE4F8BC363EF72068",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false,
+      "source": null
+    },
+    {
+      "session": "retirement",
+      "url": "http://127.0.0.1:54961/",
+      "loaderId": "007817E28B482F7B9C07859968668824",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": true,
+      "source": "cache-storage"
+    }
+  ],
+  "errors": [],
+  "sha256": {
+    "index.html": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def",
+    "sw.js": "e882e9e2eef0bf36781b8b03ecec23eb81221fa8b33272cdc9de3e368f76394f",
+    "sw-retire.js": "5ae38f2ba965f4e1b1d340da2ba5fadd8b58af82a1e271a02ddff97ab5686199",
+    "tests/smooth/verify-s2.mjs": "9266fc7518314073d3694d809cca0e7c6e057daa2c7fcb80bdb0d2a7d460ea48"
+  },
+  "fixtures": [
+    {
+      "date": "2026-11-27",
+      "hash": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def",
+      "bytes": 539012
+    },
+    {
+      "date": "2026-11-28",
+      "hash": "e83acf8ff52b04fef144cad2dd763ee1d3ff94c0c0ac315634394fb87c11403b",
+      "bytes": 539012
+    },
+    {
+      "date": "2026-11-29",
+      "hash": "a77b2c1df6deb852ac12c9518fd45da02bf84b2477cfbc4593024f53ad4d1fa7",
+      "bytes": 739017
+    }
+  ],
+  "retireResponseSha256": "5ae38f2ba965f4e1b1d340da2ba5fadd8b58af82a1e271a02ddff97ab5686199",
+  "origin": "http://127.0.0.1:54961",
+  "cleanup": {
+    "pid": 2164,
+    "exit": {
+      "code": 0,
+      "signal": null
+    },
+    "forced": false,
+    "profileRemoved": true
+  },
+  "endedAt": "2026-11-28T07:35:17.138Z",
+  "summary": {
+    "passed": 24,
+    "failed": 0
+  }
+}

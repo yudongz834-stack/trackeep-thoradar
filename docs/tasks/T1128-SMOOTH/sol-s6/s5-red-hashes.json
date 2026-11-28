@@ -1,0 +1,22 @@
+[
+  {
+    "Algorithm": "SHA256",
+    "Hash": "307B15BCD078C0149B82F7A1B50D3E1E6632D0D4E2345E48DD481E63AA44617D",
+    "Path": "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\docs\\tasks\\T1128-SMOOTH\\sol-s5\\reproduce-daily.mjs"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "1C090B446213EEF63AED3F8DDB2CEABAC21587875D2130EA7468AF95E3BB49B3",
+    "Path": "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\docs\\tasks\\T1128-SMOOTH\\sol-s5\\daily.run.json"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "8EE2A8A1BFBEA98727A7908095D4DAF137844FC1277A36C7079530261CD2343A",
+    "Path": "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\docs\\tasks\\T1128-SMOOTH\\sol-s5\\daily-source.stdout.txt"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "B234287FDB261F50F9DAD7F8E90F38A432C83BDF4E342A92F899A73293D94D80",
+    "Path": "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\docs\\tasks\\T1128-SMOOTH\\sol-s5\\daily-ux.stdout.txt"
+  }
+]

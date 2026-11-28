@@ -1,0 +1,8 @@
+{
+  "command": [
+    "python",
+    "-c",
+    "import json, pathlib, yaml\nwork = yaml.load(pathlib.Path('.github/workflows/deploy_oss.yml').read_text(encoding='utf-8'), Loader=yaml.BaseLoader)\njobs = work['jobs']\nverify, deploy = jobs['smooth-verify'], jobs['deploy-oss']\nassert deploy['needs'] == 'smooth-verify'\nassert verify['steps'][0]['with']['fetch-depth'] == '0'\nassert verify['steps'][0]['with']['ref'] == deploy['steps'][0]['with']['ref']\nprint(json.dumps({'checkout': verify['steps'][0]['with'], 'deployNeeds': deploy['needs'], 'runner': verify['runs-on'], 'verificationSteps': [step['name'] for step in verify['steps'] if 'run' in step]}, ensure_ascii=False, indent=2))"
+  ],
+  "exitCode": 0
+}

@@ -1,0 +1,25 @@
+{
+  "exitCode": 0,
+  "command": "Get-Process -Id <each PID from CLEANUP> -ErrorAction SilentlyContinue",
+  "pids": [
+    5000,
+    6048,
+    9560,
+    10524,
+    12464,
+    12516,
+    17036,
+    19012,
+    19544,
+    24084,
+    27832,
+    35376,
+    39100,
+    39144,
+    39148,
+    39524,
+    39840,
+    39872,
+    42544
+  ]
+}

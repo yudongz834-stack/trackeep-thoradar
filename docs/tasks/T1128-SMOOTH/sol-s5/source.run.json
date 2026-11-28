@@ -1,0 +1,4 @@
+{
+  "exitCode": 0,
+  "command": "node tests/smooth/verify-source.mjs docs/tasks/T1128-SMOOTH/sol-s5/source.json"
+}

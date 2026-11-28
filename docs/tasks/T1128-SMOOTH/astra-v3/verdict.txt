@@ -1,0 +1,22 @@
+empty-briefing-date: preserved=true  bytes=539012  next=cache-storage  date=2026-11-27  papers=40  counter=40 / 40  points=37
+comment-wrapped-site-data-stub: preserved=true  bytes=539012  next=cache-storage  date=2026-11-27  papers=40  counter=40 / 40  points=37
+mut-marker-order-naive: SURVIVED  cache=33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def
+mut-marker-order-orderless: SURVIVED  cache=33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def
+mut-mime: RED-CAUGHT  cache=e83acf8ff52b04fef144cad2dd763ee1d3ff94c0c0ac315634394fb87c11403b
+mut-status-503: RED-CAUGHT  cache=e83acf8ff52b04fef144cad2dd763ee1d3ff94c0c0ac315634394fb87c11403b
+mut-s3-site-data-guard: SURVIVED  cache=33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def
+s3: 9 PASS / 0 FAIL
+s1: 9 PASS / 0 FAIL
+s2: 24 PASS / 0 FAIL
+no-date-guard: 7 PASS / 2 FAIL
+no-script-guard: 8 PASS / 1 FAIL
+UX: 46 PASS / 0 FAIL
+independent: exit=0  observedChrome=50  survivingTestPID=0  remainingProfile=0
+s3: exit=0  observedChrome=46  survivingTestPID=0  remainingProfile=0
+no-date-guard: exit=1  observedChrome=46  survivingTestPID=0  remainingProfile=0
+no-script-guard: exit=1  observedChrome=46  survivingTestPID=0  remainingProfile=0
+s1: exit=0  observedChrome=15  survivingTestPID=0  remainingProfile=0
+s2: exit=0  observedChrome=47  survivingTestPID=0  remainingProfile=0
+ux: exit=0  observedChrome=36  survivingTestPID=0  remainingProfile=0
+render: exit=0  observedChrome=13  survivingTestPID=0  remainingProfile=0
+VERDICT PASS

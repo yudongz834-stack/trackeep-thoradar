@@ -1,0 +1,71 @@
+{
+ "o1": {
+  "视口宽": 390,
+  "文档宽": 390,
+  "右溢出": 0,
+  "filters": {
+   "display": "none",
+   "w": 0,
+   "h": 0,
+   "cols": "none"
+  },
+  "面板宽": 370,
+  "toggle": "筛选 · 时间窗 / 档位 / 专题 ▾",
+  "cards": 2
+ },
+ "o2": {
+  "视口宽": 390,
+  "文档宽": 390,
+  "右溢出": 0,
+  "filters": {
+   "display": "block",
+   "w": 368,
+   "h": 270.5,
+   "cols": "none"
+  },
+  "面板宽": 370,
+  "toggle": "收起筛选 ▴",
+  "cards": 2
+ },
+ "r1": {
+  "视口宽": 390,
+  "文档宽": 390,
+  "右溢出": 0,
+  "filters": {
+   "display": "none",
+   "w": 0,
+   "h": 0,
+   "cols": "minmax(230px, 0.9fr) minmax(280px, 1.3fr) minmax(230px, 1fr)"
+  },
+  "面板宽": 370,
+  "toggle": "筛选 · 时间窗 / 档位 / 专题 ▾",
+  "cards": 2
+ },
+ "r2": {
+  "视口宽": 390,
+  "文档宽": 390,
+  "右溢出": 0,
+  "filters": {
+   "display": "block",
+   "w": 368,
+   "h": 271.5,
+   "cols": "minmax(230px, 0.9fr) minmax(280px, 1.3fr) minmax(230px, 1fr)"
+  },
+  "面板宽": 370,
+  "toggle": "收起筛选 ▴",
+  "cards": 2
+ },
+ "r2cols": [
+  "quick-group:23+344",
+  "pool-mix-control:23+344",
+  "tier-block:23+344",
+  "window-control:23+344"
+ ],
+ "dark": {
+  "dk": true,
+  "odW": 390,
+  "ddGap": 0,
+  "ddCovered": [],
+  "ddSW": 1440
+ }
+}

@@ -1,0 +1,12 @@
+{
+  "cwd": "D:\\trackeep\\trackeep-product\\trackeep-thoradar-astra-v4",
+  "argv": [
+    "node",
+    "-v"
+  ],
+  "startUtc": "2026-11-28T08:06:01.953399+00:00",
+  "runs": 1,
+  "seed": null,
+  "exit": 0,
+  "endUtc": "2026-11-28T08:06:01.997841+00:00"
+}

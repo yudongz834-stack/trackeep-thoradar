@@ -1,0 +1,11 @@
+file:///D:/claude-tmp/thoradar-s6-replay-GG3uo1/runner/tests/smooth/prepare-ci-ux-baseline.mjs:11
+if (revision !== head) throw new Error('The release SHA must match the checked-out HEAD');
+                             ^
+
+Error: The release SHA must match the checked-out HEAD
+    at file:///D:/claude-tmp/thoradar-s6-replay-GG3uo1/runner/tests/smooth/prepare-ci-ux-baseline.mjs:11:30
+    at ModuleJob.run (node:internal/modules/esm/module_job:430:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:661:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.14.0

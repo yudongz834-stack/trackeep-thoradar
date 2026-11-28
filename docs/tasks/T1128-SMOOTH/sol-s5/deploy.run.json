@@ -1,0 +1,8 @@
+{
+  "exitCode": 0,
+  "command": [
+    "node",
+    "tests/smooth/verify-deploy.mjs",
+    "docs/tasks/T1128-SMOOTH/sol-s5/deploy.json"
+  ]
+}

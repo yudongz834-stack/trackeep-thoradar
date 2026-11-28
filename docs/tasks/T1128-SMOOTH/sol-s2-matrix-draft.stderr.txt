@@ -1,0 +1,10 @@
+
+DevTools listening on ws://127.0.0.1:62050/devtools/browser/cac95959-cae4-470e-ae6d-a3a370a9d590
+zero-quota-cold-start-keeps-native-site-usable Error: Timed out: banner 本地副本不可用
+    at until (file:///D:/trackeep/trackeep-product/trackeep-thoradar-smooth-T1128/tests/smooth/verify-s2.mjs:126:9)
+    at async file:///D:/trackeep/trackeep-product/trackeep-thoradar-smooth-T1128/tests/smooth/verify-s2.mjs:361:23
+    at async check (file:///D:/trackeep/trackeep-product/trackeep-thoradar-smooth-T1128/tests/smooth/verify-s2.mjs:131:20)
+    at async file:///D:/trackeep/trackeep-product/trackeep-thoradar-smooth-T1128/tests/smooth/verify-s2.mjs:355:5
+    at async withPage (file:///D:/trackeep/trackeep-product/trackeep-thoradar-smooth-T1128/tests/smooth/verify-s2.mjs:231:5)
+    at async verifyQuota (file:///D:/trackeep/trackeep-product/trackeep-thoradar-smooth-T1128/tests/smooth/verify-s2.mjs:354:3)
+    at async file:///D:/trackeep/trackeep-product/trackeep-thoradar-smooth-T1128/tests/smooth/verify-s2.mjs:554:13

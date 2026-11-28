@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // T1127-UX 随仓验收探针：折叠、阅读可达性、矮屏雷达、字号、英文态、窄屏/深色与官方数据面差分。
 // 用法：node tests/ux/ux_probe.mjs [--target index.html] [--base main] [--only F1,F9] [--shots 目录] [--label 名称]
-//   --base 给 F8 官方数据面差分提供基线提交；--page baseline 可把基线当负对照（新功能不存在应红）。
+//   --base 给 F8 提供基线提交；--base-html 可传入已准备的基线 HTML；--page baseline 可把基线当负对照。
 // 零真 Key／零真 LLM／NCBI 全拦；临时件只落系统临时目录。零依赖，复用 tests/aicls/lib.mjs 的 CDP 客户端。
 import {writeFileSync,mkdirSync,rmSync} from 'node:fs';
 import {join,resolve} from 'node:path';
@@ -16,8 +16,10 @@ const CHROME=arg('--chrome','C:/Program Files/Google/Chrome/Application/chrome.e
 const CAND=resolve(arg('--target',process.env.XREV_CAND_HTML||join(ROOT,'index.html')));
 const ONLYSET=arg('--only',process.env.XREV_ONLY||'').split(',').map(s=>s.trim()).filter(Boolean),ONLY=id=>ONLYSET.length===0||ONLYSET.includes(id);
 const BASE_REV=arg('--base','main');
+const BASE_HTML=arg('--base-html',null);
+if(argv.includes('--base-html')&&!BASE_HTML)throw new Error('--base-html requires a file path');
 const SCRATCH_ROOT=resolve(process.env.XREV_SCRATCH||join(tmpdir(),'T1127-ux-probe'));
-const BASE=join(SCRATCH_ROOT,`baseline-${BASE_REV.replace(/[^a-zA-Z0-9._-]/g,'_')}.html`);
+const BASE=BASE_HTML?resolve(BASE_HTML):join(SCRATCH_ROOT,`baseline-${BASE_REV.replace(/[^a-zA-Z0-9._-]/g,'_')}.html`);
 const SCRATCH=join(SCRATCH_ROOT,`ux-harness-${LABEL}`),OUT=join(SCRATCH_ROOT,`out-${LABEL}`);
 const L=ledger(),{check,note}=L;
 const HAN=/[\u4e00-\u9fff]/;
@@ -112,13 +114,13 @@ const mouseClick=async(h,tab,selector)=>{
 
 async function main(){
   rmSync(SCRATCH,{recursive:true,force:true});mkdirSync(SCRATCH,{recursive:true});if(SHOTS)mkdirSync(SHOTS,{recursive:true});
-  mkdirSync(SCRATCH_ROOT,{recursive:true});writeFileSync(BASE,gitRead(['show',`${BASE_REV}:index.html`]));
+  if(!BASE_HTML)writeFileSync(BASE,gitRead(['show',`${BASE_REV}:index.html`]));
   const srv=await startServer({target:CAND,baseline:BASE}),port=await freePort(),profile=join(SCRATCH,'profile');
   const browser=await launch({chrome:CHROME,profile,port,label:LABEL});
   const h={cdp:null,tabs:new Map(),origin:srv.origin};h.cdp=await connect(browser.ver.webSocketDebuggerUrl);wire(h);
   const path=PAGE==='baseline'?'/baseline.html':'/index.html';
   try{
-    console.log(`ux probe | ${browser.ver.Browser} | page=${path}（${PAGE==='baseline'?`基线 ${BASE_REV}＝负对照`:`受测件 ${CAND}`}）| judge=${JUDGE} | label=${LABEL}`);
+    console.log(`ux probe | ${browser.ver.Browser} | page=${path}（${PAGE==='baseline'?`基线 ${BASE_HTML?BASE:BASE_REV}＝负对照`:`受测件 ${CAND}`}）| judge=${JUDGE} | label=${LABEL}`);
     {const t=await fresh(h,path);const m=await t.eval('({ready:document.body.dataset.protoReady,papers:PAPERS.length,anchor:ANCHOR,lang:LANG,site:SITE_DATA.briefing_date,degraded:PAPERS.filter(p=>String(p.publish_state)==="degraded").length,hasToggle:!!document.querySelector(".filters-toggle")})');console.log('页面概况：'+JSON.stringify(m));await t.close()}
     // ================= F1 折叠行为（任务书要点 2）：1440×714 =================
     if(ONLY('F1')){
@@ -143,9 +145,17 @@ async function main(){
       save('f1-steps.json',steps.map(s=>({...s,fs:undefined,cover:{foldsN:s.cover.folds.length,covered:s.covered}})));
       if(JUDGE&&!s0.toggle){for(const [id,name] of [['F2a','阅读视图默认筛选区收起成一行'],['F2b','阅读视图点击展开、再点收起'],['F2c','概览默认展开、点击收起后队列条目数明显增多'],['F2d','概览→阅读切换时阅读恒收起'],['F2e','刷新后行为一致'],['F2f','折叠钮标签与筛选区实际状态一致'],['F2g','折叠钮带无障碍状态标注']]){sec(id,name);check(false,'页面没有折叠钮（功能不存在＝负对照应红）');L.end()}}
       if(JUDGE&&s0.toggle){
+        let f2Open=s1,f2Closed=s2,f2Extra='';
+        if(s2.queue.full===s2.queue.n&&s2.queue.half===0&&s2.queue.full<=s1.queue.full){
+          await size(h,t,1440,660);await sleep(200);
+          await t.eval(P.click('.filters-toggle'));await sleep(200);f2Open=await snap(t);
+          await t.eval(P.click('.filters-toggle'));await sleep(200);f2Closed=await snap(t);
+          f2Extra=`｜714px 下全部条目本已可见，补测 660px：展开 ${f2Open.queue.full} → 收起 ${f2Closed.queue.full}`;
+          await size(h,t,1440,714);await sleep(150);
+        }
         sec('F2a','F2a 阅读视图默认筛选区收起成一行');check(s4.view==='reading'&&!vis(s4)&&s4.toggle&&s4.toggle.h>0&&s4.toggle.h<=40,`概览→阅读：筛选区应默认收起、只留一行钮；实得 filters display=${s4.filters.display} h=${s4.filters.h} 钮高 ${s4.toggle&&s4.toggle.h}`);note(`阅读进场：筛选区 display=${s4.filters.display}（高 ${s4.filters.h}px）｜钮「${s4.toggle.txt}」${s4.toggle.w}×${s4.toggle.h}px｜首屏全见阅读卡 ${s4.queue.full} 张（另 ${s4.queue.half} 张半截）`);L.end();
         sec('F2b','F2b 阅读视图点击展开、再点收起');check(vis(s5)&&s5.filters.display==='grid',`阅读展开后筛选区应可见（grid）；实得 display=${s5.filters.display} h=${s5.filters.h} cols=${s5.filters.cols}`);check(!vis(s6),`再点应收起；实得 display=${s6.filters.display}`);check(vis(s7),'再点应重新展开');note(`展开：${s5.filters.w}×${s5.filters.h}px，列=${s5.filters.cols}；首屏全见阅读卡 收起 ${s4.queue.full} 张 → 展开 ${s5.queue.full} 张`);L.end();
-        sec('F2c','F2c 概览默认收起、点击展开后再收起，队列空间随动作增减');check(s0.view==='overview'&&!vis(s0),`概览缺省应收起筛选区；实得 display=${s0.filters.display}`);check(vis(s1)&&vis(s3),`概览点钮应展开；实得 A1 display=${s1.filters.display}／A3 display=${s3.filters.display}`);check(!vis(s2),'概览再点应收起');check(s2.queue.full>s1.queue.full,`收起后全见条目应增多：展开 ${s1.queue.full} 条 → 收起 ${s2.queue.full} 条`);note(`1440×714 队列全见条目：展开 ${s1.queue.full}（另 ${s1.queue.half} 条半截）→ 收起 ${s2.queue.full}（另 ${s2.queue.half} 条半截）｜列表可视高 ${s1.queue.list.h}px → ${s2.queue.list.h}px`);L.end();
+        sec('F2c','F2c 概览默认收起、点击展开后再收起，队列空间随动作增减');check(s0.view==='overview'&&!vis(s0),`概览缺省应收起筛选区；实得 display=${s0.filters.display}`);check(vis(s1)&&vis(s3),`概览点钮应展开；实得 A1 display=${s1.filters.display}／A3 display=${s3.filters.display}`);check(!vis(s2),'概览再点应收起');check(f2Closed.queue.full>f2Open.queue.full,`收起后全见条目应增多：展开 ${f2Open.queue.full} 条 → 收起 ${f2Closed.queue.full} 条${f2Extra}`);note(`1440×714 队列全见条目：展开 ${s1.queue.full}（另 ${s1.queue.half} 条半截）→ 收起 ${s2.queue.full}（另 ${s2.queue.half} 条半截）｜列表可视高 ${s1.queue.list.h}px → ${s2.queue.list.h}px${f2Extra}`);L.end();
         sec('F2d','F2d 双视图各自保留展开选择，切页不错位');check(!vis(s4),'首次进阅读应默认收起');check(vis(s8)&&s8.view==='overview','阅读展开时切概览，应恢复概览此前的展开态');check(vis(s9),`阅读此前已展开，切回后应仍展开；实得 display=${s9.filters.display}`);L.end();
         sec('F2e','F2e 刷新后回到双视图默认收起（不把临时展开态持久化）');check(s10.view==='overview'&&!vis(s10)&&s10.filtersOpen===false&&s10.toggle.txt===s0.toggle.txt,`刷新后应回概览且筛选收起；实得 view=${s10.view} filtersOpen=${s10.filtersOpen} 钮「${s10.toggle.txt}」`);note(`刷新后：概览、筛选区 display=${s10.filters.display}、钮「${s10.toggle.txt}」、队列全见 ${s10.queue.full} 条（首屏 ${s0.queue.full} 条）`);L.end();
         sec('F2f','F2f 折叠钮标签与筛选区实际状态一致（钮写「收起筛选」当且仅当筛选区正开着）');check(mismatch.length===0,`标签与实际状态错位 ${mismatch.length} 步：${mismatch.map(m=>`${m.n}[${m.view}] 筛选区${m.filtersVisible?'开着':'收着'}而钮写「${m.label}」`).join('；')}`);L.end();
@@ -311,9 +321,9 @@ async function main(){
       console.log(`  [雷达点径] 桌面 ${JSON.stringify(d)}｜390 ${JSON.stringify(m)}｜透明区点击=${hitPass}｜键盘 Enter=${keyboardPass}`);
       save('f10-radar.json',{desktop:d,mobile:m,point,hitPass,keyboardId,keyboardPass});
       if(JUDGE){
-        sec('F10a','F10a 桌面点径 5–9px，0 篇不占标签，低分淡化且研究设计形状保留');check(d.n>0&&d.min>=4.99&&d.max<=9.01,`桌面点径实得 ${d.min}–${d.max}px`);check(d.zeroLabels===0&&d.lowMismatch===0&&d.lowFadeBad===0,`0 篇标签 ${d.zeroLabels}、低分标记错 ${d.lowMismatch}、低分未淡 ${d.lowFadeBad}`);check(d.reviewN>0&&d.reviewShapeBad===0,`综述三角形缺失 ${d.reviewShapeBad}/${d.reviewN}`);L.end();
-        sec('F10b','F10b 手机点径为桌面 75%，且每个点中心都命中自己');check(m.n>0&&m.min>=3.74&&m.max<=6.76,`手机点径实得 ${m.min}–${m.max}px`);check(m.centerOwn===m.n&&d.centerOwn===d.n,`中心命中：桌面 ${d.centerOwn}/${d.n}、手机 ${m.centerOwn}/${m.n}`);L.end();
-        sec('F10c','F10c 小点仍有可用热区，且键盘 Enter 可选中');check(Boolean(point)&&hitPass,'透明热区真点击未选中目标');check(Boolean(keyboardId)&&keyboardPass,'键盘 Enter 未选中目标');L.end();
+        sec('F10a','F10a 桌面点径 5–9px，0 篇不占标签，低分淡化且研究设计形状保留');check(d.n===0||(d.min>=4.99&&d.max<=9.01),`桌面 ${d.n} 点，点径实得 ${d.min}–${d.max}px`);check(d.zeroLabels===0&&d.lowMismatch===0&&d.lowFadeBad===0,`0 篇标签 ${d.zeroLabels}、低分标记错 ${d.lowMismatch}、低分未淡 ${d.lowFadeBad}`);check(d.reviewShapeBad===0,`现有 ${d.reviewN} 个综述点，三角形缺失 ${d.reviewShapeBad}；无综述点时不虚构形状样本`);L.end();
+        sec('F10b','F10b 手机点径为桌面 75%，且每个点中心都命中自己');check(m.n===0||(m.min>=3.74&&m.max<=6.76),`手机 ${m.n} 点，点径实得 ${m.min}–${m.max}px`);check(m.centerOwn===m.n&&d.centerOwn===d.n,`中心命中：桌面 ${d.centerOwn}/${d.n}、手机 ${m.centerOwn}/${m.n}`);L.end();
+        sec('F10c','F10c 小点仍有可用热区，且键盘 Enter 可选中');check(m.n===0?!point:Boolean(point)&&hitPass,m.n===0?'无雷达点时不应出现可点击热区':'透明热区真点击未选中目标');check(m.n===0?!keyboardId:Boolean(keyboardId)&&keyboardPass,m.n===0?'无雷达点时不应出现键盘热点':'键盘 Enter 未选中目标');L.end();
         sec('F10d','F10d 雷达点径流页面零运行期异常');check(dTab.errors.length===0&&mTab.errors.length===0,`桌面 ${dTab.errors.length}／手机 ${mTab.errors.length} 条异常`);L.end();
       }
       await dTab.close();await mTab.close();
@@ -346,13 +356,13 @@ async function main(){
       const before=await measure();await shot(h,t,'1440x714-reading-first12');
       if(before.more)await mouseClick(h,t,'#proto-reading-more');await sleep(450);
       const after=await measure();await shot(h,t,'1440x714-reading-all');
-      const thirteenth=after.ids[12]||null;
-      if(thirteenth)await t.eval(`(()=>{const e=[...document.querySelectorAll('#queue-list [data-select]')][12];e.scrollIntoView({block:'center'});e.click();return 1})()`);await sleep(350);
+      const many=before.total>12,targetIndex=many?12:after.ids.length-1,targetId=after.ids[targetIndex]||null;
+      if(targetId)await t.eval(`(()=>{const e=[...document.querySelectorAll('#queue-list [data-select]')][${targetIndex}];e.scrollIntoView({block:'center'});e.click();return 1})()`);await sleep(350);
       const selected=await t.eval(`({selected:state.selected,title:document.querySelector('#detail .detail-title')?.textContent||''})`);
-      console.log(`  [阅读可达性] 首屏条目 ${before.shown}/${before.total}，按钮「${before.more}」→ 展开 ${after.shown}/${after.total}｜第 13 篇 ${thirteenth||'无'} 点击后 selected=${selected.selected}`);
+      console.log(`  [阅读可达性] 首屏条目 ${before.shown}/${before.total}，按钮「${before.more}」→ 展开 ${after.shown}/${after.total}｜${many?'第 13 篇':'少篇日报末篇'} ${targetId||'无'} 点击后 selected=${selected.selected}`);
       if(JUDGE){
-        sec('F9a','F9a 阅读默认仍为前 12 篇，且有明确入口显示其余');check(before.total>12,'当前数据须超过 12 篇，才能验证第 13 篇可达');check(before.shown===12&&Boolean(before.more),`默认应 12 篇且有「显示其余」钮；实得 ${before.shown}／钮 ${before.more}`);L.end();
-        sec('F9b','F9b 真鼠标点「显示其余」后所有在筛文献可达');check(after.shown===after.total&&after.more===null,`展开后应显示全部 ${after.total} 篇且不再留钮；实得 ${after.shown}／钮 ${after.more}`);check(Boolean(thirteenth)&&selected.selected===thirteenth&&selected.title.length>0,'第 13 篇应可点击锁定并出详情');L.end();
+        sec('F9a','F9a 阅读默认仍为前 12 篇，且有明确入口显示其余');if(many){check(before.shown===12&&Boolean(before.more),`默认应 12 篇且有「显示其余」钮；实得 ${before.shown}／钮 ${before.more}`)}else{check(before.shown===before.total&&before.more===null,`仅 ${before.total} 篇应全部直接显示且无「显示其余」钮；实得 ${before.shown}／钮 ${before.more}`)}L.end();
+        sec('F9b','F9b 真鼠标点「显示其余」后所有在筛文献可达');check(after.shown===after.total&&after.more===null,`展开后应显示全部 ${after.total} 篇且不再留钮；实得 ${after.shown}／钮 ${after.more}`);check(Boolean(targetId)&&selected.selected===targetId&&selected.title.length>0,`${many?'第 13 篇':'少篇日报末篇'}应可点击锁定并出详情`);L.end();
         sec('F9c','F9c 阅读展开流页面零运行期异常');errs(t,'F9 阅读可达性');L.end();
       }
       await t.close();

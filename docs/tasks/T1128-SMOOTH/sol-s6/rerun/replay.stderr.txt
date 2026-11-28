@@ -1,0 +1,146 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: The input did not match the regular expression /SUMMARY 46 PASS \/ 0 FAIL \/ 0 SKIP/. Input:
+
+'ux probe | Chrome/158.0.8127.88 | page=/index.html（受测件 D:\\claude-tmp\\thoradar-s6-replay-bIDDFp\\runner\\index.html）| judge=true | label=smooth-ci\n' +
+  '页面概况：{"ready":"true","papers":43,"anchor":"2026-11-28","lang":"zh","site":"2026-11-28","degraded":25,"hasToggle":true}\n' +
+  '  [A0 概览首屏（缺省）] {"view":"overview","filters":"隐","toggle":"筛选 · 时间窗 / 档位 / 专题 ▾","queue":"全见 5（≥90%可见 6）＋半截 1／共 43","topbar":58,"deck":620,"footer":"bottom=714 余 0px","scope":"383.7×383.7 台高383.7","盘盖住":"无","blipOut":0}\n' +
+  '  [A1 概览点折叠钮①] {"view":"overview","filters":"block 278×264","toggle":"收起筛选 ▴","queue":"全见 2（≥90%可见 2）＋半截 1／共 43","topbar":58,"deck":620,"footer":"bottom=714 余 0px","scope":"383.7×383.7 台高383.7","盘盖住":"无","blipOut":0}\n' +
+  '  [A2 概览点折叠钮②] {"view":"overview","filters":"隐","toggle":"筛选 · 时间窗 / 档位 / 专题 ▾","queue":"全见 5（≥90%可见 6）＋半截 1／共 43","topbar":58,"deck":620,"footer":"bottom=714 余 0px","scope":"383.7×383.7 台高383.7","盘盖住":"无","blipOut":0}\n' +
+  '  [A3 概览点折叠钮③] {"view":"overview","filters":"block 278×264","toggle":"收起筛选 ▴","queue":"全见 2（≥90%可见 2）＋半截 1／共 43","topbar":58,"deck":620,"footer":"bottom=714 余 0px","scope":"383.7×383.7 台高383.7","盘盖住":"无","blipOut":0}\n' +
+  '  [B1 切到阅读] {"view":"reading","filters":"隐","toggle":"筛选 · 时间窗 / 档位 / 专题 ▾","queue":"全见 2（≥90%可见 2）＋半截 2／共 13","topbar":58,"deck":620,"footer":"bottom=714 余 0px","scope":null,"盘盖住":null,"blipOut":0}\n' +
+  '  [B2 阅读点折叠钮（展开）] {"view":"reading","filters":"grid 1016×175.5","toggle":"收起筛选 ▴","queue":"全见 0（≥90%可见 2）＋半截 2／共 13","topbar":58,"deck":620,"footer":"bottom=714 余 0px","scope":null,"盘盖住":null,"blipOut":0}\n' +
+  '  [B3 阅读再点（收起）] {"view":"reading","filters":"隐","toggle":"筛选 · 时间窗 / 档位 / 专题 ▾","queue":"全见 2（≥90%可见 2）＋半截 2／共 13","topbar":58,"deck":620,"footer":"bottom=714 余 0px","scope":null,"盘盖住":null,"blipOut":0}\n' +
+  '  [B4 阅读再点（展开）] {"view":"reading","filters":"grid 1016×175.5","toggle":"收起筛选 ▴","queue":"全见 0（≥90%可见 2）＋半截 2／共 13","topbar":58,"deck":620,"footer":"bottom=714 余 0px","scope":null,"盘盖住":null,"blipOut":0}\n' +
+  '  [C1 阅读(展开)→切概览] {"view":"overview","filters":"block 278×264","toggle":"收起筛选 ▴","queue":"全见 2（≥90%可见 2）＋半截 1／共 43","topbar":58,"deck":620,"footer":"bottom=714 余 0px","scope":"383.7×383.7 台高383.7","盘盖住":"无","blipOut":0}\n' +
+  '  [C2 概览→切回阅读] {"view":"reading","filters":"grid 1016×175.5","toggle":"收起筛选 ▴","queue":"全见 0（≥90%可见 2）＋半截 2／共 13","topbar":58,"deck":620,"footer":"bottom=714 余 0px","scope":null,"盘盖住":null,"blipOut":0}\n' +
+  '  [D1 刷新后] {"view":"overview","filters":"隐","toggle":"筛选 · 时间窗 / 档位 / 专题 ▾","queue":"全见 5（≥90%可见 6）＋半截 1／共 43","topbar":58,"deck":620,"footer":"bottom=714 余 0px","scope":"383.7×383.7 台高383.7","盘盖住":"无","blipOut":0}\n' +
+  '  标签—状态矩阵：A0[overview] 筛选区隐 钮「筛选 · 时间窗 / 档位 / 专题 ▾」 ｜ A1[overview] 筛选区显 钮「收起筛选 ▴」 ｜ A2[overview] 筛选区隐 钮「筛选 · 时间窗 / 档位 / 专题 ▾」 ｜ A3[overview] 筛选区显 钮「收起筛选 ▴」 ｜ B1[reading] 筛选区隐 钮「筛选 · 时间窗 / 档位 / 专题 ▾」 ｜ B2[reading] 筛选区显 钮「收起筛选 ▴」 ｜ B3[reading] 筛选区隐 钮「筛选 · 时间窗 / 档位 / 专题 ▾」 ｜ B4[reading] 筛选区显 钮「收起筛选 ▴」 ｜ C1[overview] 筛选区显 钮「收起筛选 ▴」 ｜ C2[reading] 筛选区显 钮「收起筛选 ▴」 ｜ D1[overview] 筛选区隐 钮「筛选 · 时间窗 / 档位 / 专题 ▾」\n' +
+  'PASS F2a F2a 阅读视图默认筛选区收起成一行\n' +
+  '     · 阅读进场：筛选区 display=none（高 0px）｜钮「筛选 · 时间窗 / 档位 / 专题 ▾」166.3×30px｜首屏全见阅读卡 2 张（另 2 张半截）\n' +
+  'PASS F2b F2b 阅读视图点击展开、再点收起\n' +
+  '     · 展开：1016×175.5px，列=267.75px 386.75px 297.5px；首屏全见阅读卡 收起 2 张 → 展开 0 张\n' +
+  'PASS F2c F2c 概览默认收起、点击展开后再收起，队列空间随动作增减\n' +
+  '     · 1440×714 队列全见条目：展开 2（另 1 条半截）→ 收起 5（另 1 条半截）｜列表可视高 185px → 449px\n' +
+  'PASS F2d F2d 双视图各自保留展开选择，切页不错位\n' +
+  'PASS F2e F2e 刷新后回到双视图默认收起（不把临时展开态持久化）\n' +
+  '     · 刷新后：概览、筛选区 display=none、钮「筛选 · 时间窗 / 档位 / 专题 ▾」、队列全见 5 条（首屏 5 条）\n' +
+  'PASS F2f F2f 折叠钮标签与筛选区实际状态一致（钮写「收起筛选」当且仅当筛选区正开着）\n' +
+  'PASS F2g F2g 折叠钮带无障碍状态标注\n' +
+  'PASS F2h F2h 折叠流页面零运行期异常\n' +
+  '  [验收档 1440×714] 顶栏 58｜主区 620｜页脚 bottom=714（视口下余 0px，完整）｜盘 383.7×383.7（台高 383.7）｜盘盖住：无｜出盘点 0/36｜队列全见 开2(+1半)/收5(+1半)｜阅读首屏卡 2(+2半) 筛选区高 0｜摘要顶 458.2 按钮顶 1928.4\n' +
+  '  [主控截图档 1440×900] 顶栏 58｜主区 806｜页脚 bottom=900（视口下余 0px，完整）｜盘 420×420（台高 569.7）｜盘盖住：无｜出盘点 0/36｜队列全见 开4(+1半)/收8(+1半)｜阅读首屏卡 3(+1半) 筛选区高 0｜摘要顶 458.2 按钮顶 1928.4\n' +
+  '  [常见笔记本 1366×768] 顶栏 58｜主区 674｜页脚 bottom=768（视口下余 0px，完整）｜盘 420×420（台高 437.7）｜盘盖住：无｜出盘点 0/36｜队列全见 开3(+1半)/收6(+1半)｜阅读首屏卡 2(+2半) 筛选区高 0｜摘要顶 458.2 按钮顶 1928.4\n' +
+  '  [720p 1280×720] 顶栏 58｜主区 626｜页脚 bottom=720（视口下余 0px，完整）｜盘 389.7×389.7（台高 389.7）｜盘盖住：无｜出盘点 0/36｜队列全见 开2(+1半)/收6(+0半)｜阅读首屏卡 2(+2半) 筛选区高 0｜摘要顶 458.2 按钮顶 1928.4\n' +
+  '  [1080p@125% 1536×864] 顶栏 58｜主区 770｜页脚 bottom=864（视口下余 0px，完整）｜盘 420×420（台高 533.7）｜盘盖住：无｜出盘点 0/36｜队列全见 开4(+1半)/收7(+1半)｜阅读首屏卡 3(+1半) 筛选区高 0｜摘要顶 458.2 按钮顶 1928.4\n' +
+  '  [1080p 1920×1080] 顶栏 58｜主区 986｜页脚 bottom=1080（视口下余 0px，完整）｜盘 420×420（台高 749.7）｜盘盖住：无｜出盘点 0/36｜队列全见 开7(+1半)/收10(+1半)｜阅读首屏卡 4(+2半) 筛选区高 0｜摘要顶 458.2 按钮顶 1928.4\n' +
+  '  [更矮 1440×660] 顶栏 58｜主区 566｜页脚 bottom=660（视口下余 0px，完整）｜盘 329.7×329.7（台高 329.7）｜盘盖住：无｜出盘点 0/36｜队列全见 开1(+1半)/收5(+1半)｜阅读首屏卡 2(+2半) 筛选区高 0｜摘要顶 458.2 按钮顶 1928.4\n' +
+  '  [更矮 1440×600] 顶栏 58｜主区 506｜页脚 bottom=600（视口下余 0px，完整）｜盘 269.7×269.7（台高 269.7）｜盘盖住：无｜出盘点 0/36｜队列全见 开0(+1半)/收4(+1半)｜阅读首屏卡 2(+2半) 筛选区高 0｜摘要顶 458.2 按钮顶 1928.4\n' +
+  '  [选扇区 1440×714] 扇区=1｜刊源行「刊源：全部 · 阵地：胸外科与胸部肿瘤 清除」｜清除钮 disabled=false 盒 34×21@y554.5｜取样点被盘盖住 0%（盖住它的元素：）｜盘盖住：无\n' +
+  '  [选扇区 1440×900] 扇区=1｜刊源行「刊源：全部 · 阵地：胸外科与胸部肿瘤 清除」｜清除钮 disabled=false 盒 34×21@y740.5｜取样点被盘盖住 0%（盖住它的元素：）｜盘盖住：无\n' +
+  'PASS F3a F3a 视口高约 714px：页脚（临床免责声明）完整可见\n' +
+  '     · 1440×714：顶栏 58px＋主区 620px＋页脚 36px＝bottom 714，视口下余 0px｜页脚「程序生成 · 无人审校 · 期刊与分区按注入字段原样展示 · 摘要仅供检索导读，临床判断请读原文 / 检索 ← → 切换…」｜body overflow=auto\n' +
+  'PASS F3b F3b 视口高约 714px：雷达盘不截断下方控件（#jcat-folds 等）\n' +
+  '     · 1440×714 盘 383.7×383.7｜舞台高 383.7px（盘 380px 居中，舞台比盘矮就上下溢出）｜头 85.3px 脚 116px（阵地折叠钮 1 个）｜各控件被盖比例：toolbar 0%、clear 0%、selection 0%、jcatLegend 0%、jlSummary 0%、design 0%、scheme 0%、progress 0%｜阵地折叠钮 0%｜出盘点 0 个\n' +
+  'PASS F3b2 F3b2 视口高约 714px：选了扇区后「清除」钮点得到（没被雷达盘盖住）\n' +
+  '     · 1440×714：刊源行「刊源：全部 · 阵地：胸外科与胸部肿瘤 清除」清除钮盒 34×21@y554.5 被盖 0%｜真鼠标清除=true｜1440×900：刊源行「刊源：全部 · 阵地：胸外科与胸部肿瘤 清除」清除钮盒 34×21@y740.5 被盖 0%｜真鼠标清除=true\n' +
+  'PASS F3c F3c 720px 及以上各档视口：页脚可见、盘不盖控件\n' +
+  '     · 1440×714：顶栏 58·主区 620px·页脚余 0px·盘 383.7×383.7·台高 383.7px·盖 无·队列 开2/收5｜1440×900：顶栏 58·主区 806px·页脚余 0px·盘 420×420·台高 569.7px·盖 无·队列 开4/收8｜1366×768：顶栏 58·主区 674px·页脚余 0px·盘 420×420·台高 437.7px·盖 无·队列 开3/收6｜1280×720：顶栏 58·主区 626px·页脚余 0px·盘 389.7×389.7·台高 389.7px·盖 无·队列 开2/收6｜1536×864：顶栏 58·主区 770px·页脚余 0px·盘 420×420·台高 533.7px·盖 无·队列 开4/收7｜1920×1080：顶栏 58·主区 986px·页脚余 0px·盘 420×420·台高 749.7px·盖 无·队列 开7/收10\n' +
+  'PASS F3d F3d 页脚下方不留空带（主区高度按实际顶栏高扣减）\n' +
+  '     · 页脚下空带：1440×714＝0px、1440×900＝0px、1366×768＝0px、1280×720＝0px、1536×864＝0px、1920×1080＝0px、1440×660＝0px、1440×600＝0px\n' +
+  'PASS F3e F3e 多档视口流页面零运行期异常\n' +
+  '  [阅读·紧凑] 字号 {"cardTitle":"14px","cardTitleEn":"11px","cardFinding":"12px","cardFindingLabel":"8px","cardMeta":"9px","cardExtra":"11px","cardDomain":"10px","queueSmall":null,"detailExcerpt":"12px","detailTitle":"16px","detailJournalName":"11px","detailJournalMeta":"9px","badge":"9px","metaCellB":"10px","metaCellSmall":"8.5px","paused":"11px","deepStrong":"11px","deepBtn":"10px","actionBtn":"10px","excerptLabelB":"11px","excerptLabelSpan":"8px","honesty":null,"footer":"9px","toggle":"11px","tierChip":"10px","quickBtn":"9.5px","filterLabel":"10px","jlSummary":"11px","foldChip":"8px","designLegend":"9.5px","scopeLabel":"9px","toolbar":"9px","topbarName":"17px","viewBtn":"11px","scoreBox":"28px"}｜详情块序 detail-top > detail-journal > score-track > detail-title > badges > interpretation > detail-actions > meta-fold > detail-nav｜摘要首屏=true 按钮首屏=false\n' +
+  '  [阅读·沉浸] 字号 {"cardTitle":"21px","cardTitleEn":"12px","cardFinding":"14px","cardFindingLabel":"8px","cardMeta":"9px","cardExtra":"11px","cardDomain":"10px","queueSmall":null,"detailExcerpt":"12px","detailTitle":"16px","detailJournalName":"11px","detailJournalMeta":"9px","badge":"9px","metaCellB":"10px","metaCellSmall":"8.5px","paused":"11px","deepStrong":"11px","deepBtn":"10px","actionBtn":"10px","excerptLabelB":"11px","excerptLabelSpan":"8px","honesty":null,"footer":"9px","toggle":"11px","tierChip":"10px","quickBtn":"9.5px","filterLabel":"10px","jlSummary":"11px","foldChip":"8px","designLegend":"9.5px","scopeLabel":"9px","toolbar":"9px","topbarName":"17px","viewBtn":"11px","scoreBox":"28px"}｜详情块序 detail-top > detail-journal > score-track > detail-title > badges > interpretation > detail-actions > meta-fold > detail-nav｜摘要首屏=true 按钮首屏=false\n' +
+  '  [概览] 字号 {"cardTitle":"12px","cardTitleEn":null,"cardFinding":null,"cardFindingLabel":null,"cardMeta":null,"cardExtra":null,"cardDomain":null,"queueSmall":"9px","detailExcerpt":"12px","detailTitle":"16px","detailJournalName":"11px","detailJournalMeta":"9px","badge":"9px","metaCellB":"10px","metaCellSmall":"8.5px","paused":"11px","deepStrong":"11px","deepBtn":"10px","actionBtn":"10px","excerptLabelB":"11px","excerptLabelSpan":"8px","honesty":null,"footer":"9px","toggle":"11px","tierChip":"10px","quickBtn":"9.5px","filterLabel":"10px","jlSummary":"11px","foldChip":"8px","designLegend":"9.5px","scopeLabel":"9px","toolbar":"9px","topbarName":"17px","viewBtn":"11px","scoreBox":"28px"}｜详情块序 detail-top > detail-journal > score-track > detail-title > badges > interpretation > detail-actions > meta-fold > detail-nav｜摘要首屏=true 按钮首屏=false\n' +
+  'PASS F4a F4a 摘要正文字号未缩（详情卡摘要 12px）\n' +
+  '     · 详情卡摘要 .excerpt＝12px／行高 20.64px（父提交 12px／20.64px）｜摘要小标 11px｜作者结论/生成解读块 null｜操作钮 10px｜详情标题 16px（父提交 19px）\n' +
+  'PASS F4b F4b 阅读卡「一句话结论」字号未缩\n' +
+  '     · 一句话结论：紧凑 12px／沉浸 14px；附加块 11px；英文副标 紧凑 11px／沉浸 12px\n' +
+  'PASS F4c F4c 阅读卡标题：紧凑档降号，沉浸档大标题不被压\n' +
+  '     · 阅读卡标题：紧凑 14px（父提交 16px）、沉浸 21px（父提交 21px）｜沉浸档结论正文 14px\n' +
+  'PASS F4d F4d 详情卡摘要提前到首屏（1440×714），块序＝摘要→按钮→元数据折叠\n' +
+  '     · 1440×714 详情块序：detail-top > detail-journal > score-track > detail-title > badges > interpretation > detail-actions > meta-fold > detail-nav｜摘要顶 458.2px、首屏内可见 203.8px｜原文/题录按钮顶 2031.6px（首屏外：排在整段摘要之后）｜刊源行「Lancet Respir Med · 2026-Nov-26 · A 档 · IF 34.7 · JCR Q1 · 1区」\n' +
+  'PASS F4e F4e 字号流页面零运行期异常\n' +
+  '  [详情] 元数据折叠 open=false 格 11（可见 0）→点开 open=true 可见 11｜刊源图例 open=false 胶囊 27→点开 open=true 图例高 89｜漏斗 display=none｜说明书 display=none｜混排开关 title 有\n' +
+  '  [详情·解读暂停篇 43098161 clicked=true] 暂停块「解读暂停」 title="当前仅展示题录与原始摘要，不展示生成解读。"｜深评块「深评 · 默认关闭 深评 · 用我的 AI Key 解读本篇」 title 有(45字)｜深评钮 true 可点=true｜刊源图例展开时盘盖住：无\n' +
+  'PASS F5a F5a 元数据折叠：缺省收起、点开见 11 格、内容没丢\n' +
+  '     · 缺省 open=false（302×34px，标题「更多元数据（PMID／出版状态／预警／雷达日期／卷期／阵地／口径）」）→ 点开可见 11/11 格\n' +
+  'PASS F5b F5b 刊源图例折叠：缺省收起、点开见胶囊\n' +
+  '     · 缺省 open='... 5463 more characters
+
+    at file:///D:/trackeep/trackeep-product/trackeep-thoradar-smooth-T1128/.t1128-s6-worktree/docs/tasks/T1128-SMOOTH/sol-s6/replay-ci.mjs:157:10 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 'ux probe | Chrome/158.0.8127.88 | page=/index.html（受测件 D:\\claude-tmp\\thoradar-s6-replay-bIDDFp\\runner\\index.html）| judge=true | label=smooth-ci\n' +
+    '页面概况：{"ready":"true","papers":43,"anchor":"2026-11-28","lang":"zh","site":"2026-11-28","degraded":25,"hasToggle":true}\n' +
+    '  [A0 概览首屏（缺省）] {"view":"overview","filters":"隐","toggle":"筛选 · 时间窗 / 档位 / 专题 ▾","queue":"全见 5（≥90%可见 6）＋半截 1／共 43","topbar":58,"deck":620,"footer":"bottom=714 余 0px","scope":"383.7×383.7 台高383.7","盘盖住":"无","blipOut":0}\n' +
+    '  [A1 概览点折叠钮①] {"view":"overview","filters":"block 278×264","toggle":"收起筛选 ▴","queue":"全见 2（≥90%可见 2）＋半截 1／共 43","topbar":58,"deck":620,"footer":"bottom=714 余 0px","scope":"383.7×383.7 台高383.7","盘盖住":"无","blipOut":0}\n' +
+    '  [A2 概览点折叠钮②] {"view":"overview","filters":"隐","toggle":"筛选 · 时间窗 / 档位 / 专题 ▾","queue":"全见 5（≥90%可见 6）＋半截 1／共 43","topbar":58,"deck":620,"footer":"bottom=714 余 0px","scope":"383.7×383.7 台高383.7","盘盖住":"无","blipOut":0}\n' +
+    '  [A3 概览点折叠钮③] {"view":"overview","filters":"block 278×264","toggle":"收起筛选 ▴","queue":"全见 2（≥90%可见 2）＋半截 1／共 43","topbar":58,"deck":620,"footer":"bottom=714 余 0px","scope":"383.7×383.7 台高383.7","盘盖住":"无","blipOut":0}\n' +
+    '  [B1 切到阅读] {"view":"reading","filters":"隐","toggle":"筛选 · 时间窗 / 档位 / 专题 ▾","queue":"全见 2（≥90%可见 2）＋半截 2／共 13","topbar":58,"deck":620,"footer":"bottom=714 余 0px","scope":null,"盘盖住":null,"blipOut":0}\n' +
+    '  [B2 阅读点折叠钮（展开）] {"view":"reading","filters":"grid 1016×175.5","toggle":"收起筛选 ▴","queue":"全见 0（≥90%可见 2）＋半截 2／共 13","topbar":58,"deck":620,"footer":"bottom=714 余 0px","scope":null,"盘盖住":null,"blipOut":0}\n' +
+    '  [B3 阅读再点（收起）] {"view":"reading","filters":"隐","toggle":"筛选 · 时间窗 / 档位 / 专题 ▾","queue":"全见 2（≥90%可见 2）＋半截 2／共 13","topbar":58,"deck":620,"footer":"bottom=714 余 0px","scope":null,"盘盖住":null,"blipOut":0}\n' +
+    '  [B4 阅读再点（展开）] {"view":"reading","filters":"grid 1016×175.5","toggle":"收起筛选 ▴","queue":"全见 0（≥90%可见 2）＋半截 2／共 13","topbar":58,"deck":620,"footer":"bottom=714 余 0px","scope":null,"盘盖住":null,"blipOut":0}\n' +
+    '  [C1 阅读(展开)→切概览] {"view":"overview","filters":"block 278×264","toggle":"收起筛选 ▴","queue":"全见 2（≥90%可见 2）＋半截 1／共 43","topbar":58,"deck":620,"footer":"bottom=714 余 0px","scope":"383.7×383.7 台高383.7","盘盖住":"无","blipOut":0}\n' +
+    '  [C2 概览→切回阅读] {"view":"reading","filters":"grid 1016×175.5","toggle":"收起筛选 ▴","queue":"全见 0（≥90%可见 2）＋半截 2／共 13","topbar":58,"deck":620,"footer":"bottom=714 余 0px","scope":null,"盘盖住":null,"blipOut":0}\n' +
+    '  [D1 刷新后] {"view":"overview","filters":"隐","toggle":"筛选 · 时间窗 / 档位 / 专题 ▾","queue":"全见 5（≥90%可见 6）＋半截 1／共 43","topbar":58,"deck":620,"footer":"bottom=714 余 0px","scope":"383.7×383.7 台高383.7","盘盖住":"无","blipOut":0}\n' +
+    '  标签—状态矩阵：A0[overview] 筛选区隐 钮「筛选 · 时间窗 / 档位 / 专题 ▾」 ｜ A1[overview] 筛选区显 钮「收起筛选 ▴」 ｜ A2[overview] 筛选区隐 钮「筛选 · 时间窗 / 档位 / 专题 ▾」 ｜ A3[overview] 筛选区显 钮「收起筛选 ▴」 ｜ B1[reading] 筛选区隐 钮「筛选 · 时间窗 / 档位 / 专题 ▾」 ｜ B2[reading] 筛选区显 钮「收起筛选 ▴」 ｜ B3[reading] 筛选区隐 钮「筛选 · 时间窗 / 档位 / 专题 ▾」 ｜ B4[reading] 筛选区显 钮「收起筛选 ▴」 ｜ C1[overview] 筛选区显 钮「收起筛选 ▴」 ｜ C2[reading] 筛选区显 钮「收起筛选 ▴」 ｜ D1[overview] 筛选区隐 钮「筛选 · 时间窗 / 档位 / 专题 ▾」\n' +
+    'PASS F2a F2a 阅读视图默认筛选区收起成一行\n' +
+    '     · 阅读进场：筛选区 display=none（高 0px）｜钮「筛选 · 时间窗 / 档位 / 专题 ▾」166.3×30px｜首屏全见阅读卡 2 张（另 2 张半截）\n' +
+    'PASS F2b F2b 阅读视图点击展开、再点收起\n' +
+    '     · 展开：1016×175.5px，列=267.75px 386.75px 297.5px；首屏全见阅读卡 收起 2 张 → 展开 0 张\n' +
+    'PASS F2c F2c 概览默认收起、点击展开后再收起，队列空间随动作增减\n' +
+    '     · 1440×714 队列全见条目：展开 2（另 1 条半截）→ 收起 5（另 1 条半截）｜列表可视高 185px → 449px\n' +
+    'PASS F2d F2d 双视图各自保留展开选择，切页不错位\n' +
+    'PASS F2e F2e 刷新后回到双视图默认收起（不把临时展开态持久化）\n' +
+    '     · 刷新后：概览、筛选区 display=none、钮「筛选 · 时间窗 / 档位 / 专题 ▾」、队列全见 5 条（首屏 5 条）\n' +
+    'PASS F2f F2f 折叠钮标签与筛选区实际状态一致（钮写「收起筛选」当且仅当筛选区正开着）\n' +
+    'PASS F2g F2g 折叠钮带无障碍状态标注\n' +
+    'PASS F2h F2h 折叠流页面零运行期异常\n' +
+    '  [验收档 1440×714] 顶栏 58｜主区 620｜页脚 bottom=714（视口下余 0px，完整）｜盘 383.7×383.7（台高 383.7）｜盘盖住：无｜出盘点 0/36｜队列全见 开2(+1半)/收5(+1半)｜阅读首屏卡 2(+2半) 筛选区高 0｜摘要顶 458.2 按钮顶 1928.4\n' +
+    '  [主控截图档 1440×900] 顶栏 58｜主区 806｜页脚 bottom=900（视口下余 0px，完整）｜盘 420×420（台高 569.7）｜盘盖住：无｜出盘点 0/36｜队列全见 开4(+1半)/收8(+1半)｜阅读首屏卡 3(+1半) 筛选区高 0｜摘要顶 458.2 按钮顶 1928.4\n' +
+    '  [常见笔记本 1366×768] 顶栏 58｜主区 674｜页脚 bottom=768（视口下余 0px，完整）｜盘 420×420（台高 437.7）｜盘盖住：无｜出盘点 0/36｜队列全见 开3(+1半)/收6(+1半)｜阅读首屏卡 2(+2半) 筛选区高 0｜摘要顶 458.2 按钮顶 1928.4\n' +
+    '  [720p 1280×720] 顶栏 58｜主区 626｜页脚 bottom=720（视口下余 0px，完整）｜盘 389.7×389.7（台高 389.7）｜盘盖住：无｜出盘点 0/36｜队列全见 开2(+1半)/收6(+0半)｜阅读首屏卡 2(+2半) 筛选区高 0｜摘要顶 458.2 按钮顶 1928.4\n' +
+    '  [1080p@125% 1536×864] 顶栏 58｜主区 770｜页脚 bottom=864（视口下余 0px，完整）｜盘 420×420（台高 533.7）｜盘盖住：无｜出盘点 0/36｜队列全见 开4(+1半)/收7(+1半)｜阅读首屏卡 3(+1半) 筛选区高 0｜摘要顶 458.2 按钮顶 1928.4\n' +
+    '  [1080p 1920×1080] 顶栏 58｜主区 986｜页脚 bottom=1080（视口下余 0px，完整）｜盘 420×420（台高 749.7）｜盘盖住：无｜出盘点 0/36｜队列全见 开7(+1半)/收10(+1半)｜阅读首屏卡 4(+2半) 筛选区高 0｜摘要顶 458.2 按钮顶 1928.4\n' +
+    '  [更矮 1440×660] 顶栏 58｜主区 566｜页脚 bottom=660（视口下余 0px，完整）｜盘 329.7×329.7（台高 329.7）｜盘盖住：无｜出盘点 0/36｜队列全见 开1(+1半)/收5(+1半)｜阅读首屏卡 2(+2半) 筛选区高 0｜摘要顶 458.2 按钮顶 1928.4\n' +
+    '  [更矮 1440×600] 顶栏 58｜主区 506｜页脚 bottom=600（视口下余 0px，完整）｜盘 269.7×269.7（台高 269.7）｜盘盖住：无｜出盘点 0/36｜队列全见 开0(+1半)/收4(+1半)｜阅读首屏卡 2(+2半) 筛选区高 0｜摘要顶 458.2 按钮顶 1928.4\n' +
+    '  [选扇区 1440×714] 扇区=1｜刊源行「刊源：全部 · 阵地：胸外科与胸部肿瘤 清除」｜清除钮 disabled=false 盒 34×21@y554.5｜取样点被盘盖住 0%（盖住它的元素：）｜盘盖住：无\n' +
+    '  [选扇区 1440×900] 扇区=1｜刊源行「刊源：全部 · 阵地：胸外科与胸部肿瘤 清除」｜清除钮 disabled=false 盒 34×21@y740.5｜取样点被盘盖住 0%（盖住它的元素：）｜盘盖住：无\n' +
+    'PASS F3a F3a 视口高约 714px：页脚（临床免责声明）完整可见\n' +
+    '     · 1440×714：顶栏 58px＋主区 620px＋页脚 36px＝bottom 714，视口下余 0px｜页脚「程序生成 · 无人审校 · 期刊与分区按注入字段原样展示 · 摘要仅供检索导读，临床判断请读原文 / 检索 ← → 切换…」｜body overflow=auto\n' +
+    'PASS F3b F3b 视口高约 714px：雷达盘不截断下方控件（#jcat-folds 等）\n' +
+    '     · 1440×714 盘 383.7×383.7｜舞台高 383.7px（盘 380px 居中，舞台比盘矮就上下溢出）｜头 85.3px 脚 116px（阵地折叠钮 1 个）｜各控件被盖比例：toolbar 0%、clear 0%、selection 0%、jcatLegend 0%、jlSummary 0%、design 0%、scheme 0%、progress 0%｜阵地折叠钮 0%｜出盘点 0 个\n' +
+    'PASS F3b2 F3b2 视口高约 714px：选了扇区后「清除」钮点得到（没被雷达盘盖住）\n' +
+    '     · 1440×714：刊源行「刊源：全部 · 阵地：胸外科与胸部肿瘤 清除」清除钮盒 34×21@y554.5 被盖 0%｜真鼠标清除=true｜1440×900：刊源行「刊源：全部 · 阵地：胸外科与胸部肿瘤 清除」清除钮盒 34×21@y740.5 被盖 0%｜真鼠标清除=true\n' +
+    'PASS F3c F3c 720px 及以上各档视口：页脚可见、盘不盖控件\n' +
+    '     · 1440×714：顶栏 58·主区 620px·页脚余 0px·盘 383.7×383.7·台高 383.7px·盖 无·队列 开2/收5｜1440×900：顶栏 58·主区 806px·页脚余 0px·盘 420×420·台高 569.7px·盖 无·队列 开4/收8｜1366×768：顶栏 58·主区 674px·页脚余 0px·盘 420×420·台高 437.7px·盖 无·队列 开3/收6｜1280×720：顶栏 58·主区 626px·页脚余 0px·盘 389.7×389.7·台高 389.7px·盖 无·队列 开2/收6｜1536×864：顶栏 58·主区 770px·页脚余 0px·盘 420×420·台高 533.7px·盖 无·队列 开4/收7｜1920×1080：顶栏 58·主区 986px·页脚余 0px·盘 420×420·台高 749.7px·盖 无·队列 开7/收10\n' +
+    'PASS F3d F3d 页脚下方不留空带（主区高度按实际顶栏高扣减）\n' +
+    '     · 页脚下空带：1440×714＝0px、1440×900＝0px、1366×768＝0px、1280×720＝0px、1536×864＝0px、1920×1080＝0px、1440×660＝0px、1440×600＝0px\n' +
+    'PASS F3e F3e 多档视口流页面零运行期异常\n' +
+    '  [阅读·紧凑] 字号 {"cardTitle":"14px","cardTitleEn":"11px","cardFinding":"12px","cardFindingLabel":"8px","cardMeta":"9px","cardExtra":"11px","cardDomain":"10px","queueSmall":null,"detailExcerpt":"12px","detailTitle":"16px","detailJournalName":"11px","detailJournalMeta":"9px","badge":"9px","metaCellB":"10px","metaCellSmall":"8.5px","paused":"11px","deepStrong":"11px","deepBtn":"10px","actionBtn":"10px","excerptLabelB":"11px","excerptLabelSpan":"8px","honesty":null,"footer":"9px","toggle":"11px","tierChip":"10px","quickBtn":"9.5px","filterLabel":"10px","jlSummary":"11px","foldChip":"8px","designLegend":"9.5px","scopeLabel":"9px","toolbar":"9px","topbarName":"17px","viewBtn":"11px","scoreBox":"28px"}｜详情块序 detail-top > detail-journal > score-track > detail-title > badges > interpretation > detail-actions > meta-fold > detail-nav｜摘要首屏=true 按钮首屏=false\n' +
+    '  [阅读·沉浸] 字号 {"cardTitle":"21px","cardTitleEn":"12px","cardFinding":"14px","cardFindingLabel":"8px","cardMeta":"9px","cardExtra":"11px","cardDomain":"10px","queueSmall":null,"detailExcerpt":"12px","detailTitle":"16px","detailJournalName":"11px","detailJournalMeta":"9px","badge":"9px","metaCellB":"10px","metaCellSmall":"8.5px","paused":"11px","deepStrong":"11px","deepBtn":"10px","actionBtn":"10px","excerptLabelB":"11px","excerptLabelSpan":"8px","honesty":null,"footer":"9px","toggle":"11px","tierChip":"10px","quickBtn":"9.5px","filterLabel":"10px","jlSummary":"11px","foldChip":"8px","designLegend":"9.5px","scopeLabel":"9px","toolbar":"9px","topbarName":"17px","viewBtn":"11px","scoreBox":"28px"}｜详情块序 detail-top > detail-journal > score-track > detail-title > badges > interpretation > detail-actions > meta-fold > detail-nav｜摘要首屏=true 按钮首屏=false\n' +
+    '  [概览] 字号 {"cardTitle":"12px","cardTitleEn":null,"cardFinding":null,"cardFindingLabel":null,"cardMeta":null,"cardExtra":null,"cardDomain":null,"queueSmall":"9px","detailExcerpt":"12px","detailTitle":"16px","detailJournalName":"11px","detailJournalMeta":"9px","badge":"9px","metaCellB":"10px","metaCellSmall":"8.5px","paused":"11px","deepStrong":"11px","deepBtn":"10px","actionBtn":"10px","excerptLabelB":"11px","excerptLabelSpan":"8px","honesty":null,"footer":"9px","toggle":"11px","tierChip":"10px","quickBtn":"9.5px","filterLabel":"10px","jlSummary":"11px","foldChip":"8px","designLegend":"9.5px","scopeLabel":"9px","toolbar":"9px","topbarName":"17px","viewBtn":"11px","scoreBox":"28px"}｜详情块序 detail-top > detail-journal > score-track > detail-title > badges > interpretation > detail-actions > meta-fold > detail-nav｜摘要首屏=true 按钮首屏=false\n' +
+    'PASS F4a F4a 摘要正文字号未缩（详情卡摘要 12px）\n' +
+    '     · 详情卡摘要 .excerpt＝12px／行高 20.64px（父提交 12px／20.64px）｜摘要小标 11px｜作者结论/生成解读块 null｜操作钮 10px｜详情标题 16px（父提交 19px）\n' +
+    'PASS F4b F4b 阅读卡「一句话结论」字号未缩\n' +
+    '     · 一句话结论：紧凑 12px／沉浸 14px；附加块 11px；英文副标 紧凑 11px／沉浸 12px\n' +
+    'PASS F4c F4c 阅读卡标题：紧凑档降号，沉浸档大标题不被压\n' +
+    '     · 阅读卡标题：紧凑 14px（父提交 16px）、沉浸 21px（父提交 21px）｜沉浸档结论正文 14px\n' +
+    'PASS F4d F4d 详情卡摘要提前到首屏（1440×714），块序＝摘要→按钮→元数据折叠\n' +
+    '     · 1440×714 详情块序：detail-top > detail-journal > score-track > detail-title > badges > interpretation > detail-actions > meta-fold > detail-nav｜摘要顶 458.2px、首屏内可见 203.8px｜原文/题录按钮顶 2031.6px（首屏外：排在整段摘要之后）｜刊源行「Lancet Respir Med · 2026-Nov-26 · A 档 · IF 34.7 · JCR Q1 · 1区」\n' +
+    'PASS F4e F4e 字号流页面零运行期异常\n' +
+    '  [详情] 元数据折叠 open=false 格 11（可见 0）→点开 open=true 可见 11｜刊源图例 open=false 胶囊 27→点开 open=true 图例高 89｜漏斗 display=none｜说明书 display=none｜混排开关 title 有\n' +
+    '  [详情·解读暂停篇 43098161 clicked=true] 暂停块「解读暂停」 title="当前仅展示题录与原始摘要，不展示生成解读。"｜深评块「深评 · 默认关闭 深评 · 用我的 AI Key 解读本篇」 title 有(45字)｜深评钮 true 可点=true｜刊源图例展开时盘盖住：无\n' +
+    'PASS F5a F5a 元数据折叠：缺省收起、点开见 11 格、内容没丢\n' +
+    '     · 缺省 open=false（302×34px，标题「更多元数据（PMID／出版状态／预警／雷达日期／卷期／阵地／口径）」）→ 点开可见 11/11 格\n' +
+    'PASS F5b F5b 刊源图例折叠：缺省收起、点开见胶囊\n' +
+    '     · 缺省 open='... 5463 more characters,
+  expected: /SUMMARY 46 PASS \/ 0 FAIL \/ 0 SKIP/,
+  operator: 'match',
+  diff: 'simple'
+}
+
+Node.js v24.14.0

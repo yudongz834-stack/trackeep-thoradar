@@ -1,0 +1,20 @@
+{
+  "cwd": "D:\\trackeep\\trackeep-product\\trackeep-thoradar-astra-v4\\docs\\tasks\\T1128-SMOOTH\\astra-v4\\private-repo",
+  "argv": [
+    "node",
+    "tests/ux/ux_probe.mjs",
+    "--target",
+    "index.html",
+    "--base-html",
+    "D:\\trackeep\\trackeep-product\\trackeep-thoradar-astra-v4\\docs\\tasks\\T1128-SMOOTH\\astra-v4\\prepared-small.html",
+    "--only",
+    "F9",
+    "--label",
+    "ux-ci-small-f9"
+  ],
+  "startUtc": "2026-11-28T08:04:30.527605+00:00",
+  "runs": 1,
+  "seed": null,
+  "exit": 1,
+  "endUtc": "2026-11-28T08:05:04.384766+00:00"
+}

@@ -1,0 +1,23 @@
+{
+  "baseline": "28131f314f92a05227fd5923607d717c426da2c5",
+  "checks": [
+    {
+      "name": "official-data",
+      "pass": true,
+      "baselineSha256": "1b624d90aeaa7aee5684457c2781db377f2e4be0e3e8ed9fff96f3bee4c47653",
+      "candidateSha256": "1b624d90aeaa7aee5684457c2781db377f2e4be0e3e8ed9fff96f3bee4c47653"
+    },
+    {
+      "name": "official-paper-initialization",
+      "pass": true,
+      "baselineSha256": "f253bf84f3e0101f9b8f699f60167cfeaedd1a14716b5000ca4d83ec0a93ad17",
+      "candidateSha256": "f253bf84f3e0101f9b8f699f60167cfeaedd1a14716b5000ca4d83ec0a93ad17"
+    },
+    {
+      "name": "official-window-and-merge",
+      "pass": true,
+      "baselineSha256": "6aba436d17874eac447eb7e35be557de612ca9a7985f97ad262ad9e75e08c795",
+      "candidateSha256": "6aba436d17874eac447eb7e35be557de612ca9a7985f97ad262ad9e75e08c795"
+    }
+  ]
+}

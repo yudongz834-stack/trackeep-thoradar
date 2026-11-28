@@ -1,0 +1,11 @@
+source exit=1
+FAIL official-data {"name":"official-data","pass":false,"baselineSha256":"6d4a6663ea7089502f6115f206b3ee48663a43f4768ae4fee19f72c69523dc31","candidateSha256":"1b624d90aeaa7aee5684457c2781db377f2e4be0e3e8ed9fff96f3bee4c47653"}
+FAIL write-scope {"name":"write-scope","pass":false,"tracked":[".github/workflows/deploy_oss.yml","api/v1/daily.json","data/archive/2026-11-28.json","data/circuit_state.json","data/daily_briefing_2026-11-28.md","data/journal_health.json","data/prescreen_rejected/2026-11-28.json","data/push_log.json","data/radar_latest.json","data/regression/report.json","data/scope_gate_shadow.json","data/seen_dois.json","data/seen_pmids.json","data/status.json","data/toc_checkpoint.json","feed.xml","index.html"],"untracked":["sw-retire.js","sw.js","tests/smooth/deploy-mock.mjs","tests/smooth/run-regressions.mjs","tests/smooth/verify-deploy.mjs","tests/smooth/verify-s1.mjs","tests/smooth/verify-s2.mjs","tests/smooth/verify-s3.mjs","tests/smooth/verify-source.mjs"],"outOfScope":["api/v1/daily.json","data/archive/2026-11-28.json","data/circuit_state.json","data/daily_briefing_2026-11-28.md","data/journal_health.json","data/prescreen_rejected/2026-11-28.json","data/push_log.json","data/radar_latest.json","data/regression/report.json","data/scope_gate_shadow.json","data/seen_dois.json","data/seen_pmids.json","data/status.json","data/toc_checkpoint.json","feed.xml"]}
+SUMMARY {"passed":3,"failed":2}
+ux exit=1
+FAIL F8a F8a 官方面逐键差分：数据承载面（队列/盘点/扇区/标签/图例/折叠/计数/合集/阵地/主题/AI 设置）与父提交逐字一致
+FAIL F8b F8b 状态面差分：选中项/筛选结果/档位钮/时间窗/队列序 在 8 幕里与父提交逐字一致，且各动作在两边都真改了状态
+FAIL F8c F8c 详情卡各块内容（不管先后/折叠包裹/刊源行 IF 尾巴）与父提交逐字一致
+==== UX PROBE [s5-daily] SUMMARY 43 PASS / 3 FAIL：F2a ✓  F2b ✓  F2c ✓  F2d ✓  F2e ✓  F2f ✓  F2g ✓  F2h ✓  F3a ✓  F3b ✓  F3b2 ✓  F3c ✓  F3d ✓  F3e ✓  F4a ✓  F4b ✓  F4c ✓  F4d ✓  F4e ✓  F5a ✓  F5b ✓  F5c ✓  F5d ✓  F5e ✓  F6a ✓  F6b ✓  F7a ✓  F7b ✓  F7c ✓  F7d ✓  F7e ✓  F10a ✓  F10b ✓  F10c ✓  F10d ✓  F11a ✓  F11b ✓  F11c ✓  F11d ✓  F9a ✓  F9b ✓  F9c ✓  F8a ✗  F8b ✗  F8c ✗  F8d ✓ ====
+     cleanup | browser pid=39144 exitCode=null signalCode=SIGTERM | 带 profile 标记的进程：收尾前=39144,39100,39840,39524,39148,39872,9560,42544 | 主进程结束后残留=无 | 逐 PID 结束=无 | 复查仍存活=无
+     cleanup | 临时目录 D:\claude-tmp\thoradar-s5-daily-G7jGyO\ux\ux-harness-s5-daily 已清

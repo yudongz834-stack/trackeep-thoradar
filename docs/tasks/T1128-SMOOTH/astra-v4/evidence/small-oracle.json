@@ -1,0 +1,13 @@
+{
+  "historicalCommit": "7feecfac0534198244331e59bb22b4abefd5ebc4",
+  "historicalDate": "2026-11-02",
+  "paperCount": 2,
+  "replacedFields": [
+    "generated_at",
+    "briefing_date",
+    "funnel",
+    "papers"
+  ],
+  "shellBeforeSha256": "05aabc30a972639254a6accc68ec8a91c3d8d5378c9c554b588b60745baa3a34",
+  "preparedEqualsTarget": true
+}

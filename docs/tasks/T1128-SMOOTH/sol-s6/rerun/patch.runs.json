@@ -1,0 +1,38 @@
+[
+  {
+    "id": "check-patch-forward",
+    "command": [
+      "git",
+      "apply",
+      "--check",
+      "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\.t1128-s6-worktree\\docs\\tasks\\T1128-SMOOTH\\sol-s6\\rerun\\daily-final\\candidate.diff"
+    ],
+    "cwd": "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128",
+    "exitCode": 0
+  },
+  {
+    "id": "check-patch-reverse",
+    "command": [
+      "git",
+      "-C",
+      "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\.t1128-s6-worktree",
+      "apply",
+      "--reverse",
+      "--check",
+      "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\.t1128-s6-worktree\\docs\\tasks\\T1128-SMOOTH\\sol-s6\\rerun\\daily-final\\candidate.diff"
+    ],
+    "cwd": "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\.t1128-s6-worktree",
+    "exitCode": 0
+  },
+  {
+    "id": "check-patch-paths",
+    "command": [
+      "git",
+      "apply",
+      "--numstat",
+      "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\.t1128-s6-worktree\\docs\\tasks\\T1128-SMOOTH\\sol-s6\\rerun\\daily-final\\candidate.diff"
+    ],
+    "cwd": "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128",
+    "exitCode": 0
+  }
+]

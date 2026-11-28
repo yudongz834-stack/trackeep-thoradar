@@ -1,0 +1,22 @@
+{
+  "cwd": "D:\\trackeep\\trackeep-product\\trackeep-thoradar-astra-v4\\docs\\tasks\\T1128-SMOOTH\\astra-v4\\private-repo",
+  "argv": [
+    "git",
+    "-c",
+    "core.hooksPath=NUL",
+    "-c",
+    "commit.gpgsign=false",
+    "-c",
+    "user.name=A4 fixture",
+    "-c",
+    "user.email=a4@example.invalid",
+    "switch",
+    "--detach",
+    "28131f314f92a05227fd5923607d717c426da2c5^"
+  ],
+  "startUtc": "2026-11-28T08:01:35.712050+00:00",
+  "runs": 1,
+  "seed": null,
+  "exit": 0,
+  "endUtc": "2026-11-28T08:01:36.729299+00:00"
+}

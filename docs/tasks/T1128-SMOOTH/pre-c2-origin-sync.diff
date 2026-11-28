@@ -1,0 +1,394 @@
+diff --git a/README.md b/README.md
+index 4a508e0..9c368fa 100644
+--- a/README.md
++++ b/README.md
+@@ -12,7 +12,7 @@ LLM 精评（PICO 提取 + 反阳性偏倚条款）、四元组数值核验，
+   python thoradar_engine.py --self-test   # 离线自测
+   python thoradar_engine.py               # 正式运行（无 LLM_API_KEY 自动走启发式模式）
+   ```
+-- **全自动**：推到 GitHub 后配置 Secrets（见下），每天北京时间 07:30 自动更新（GitHub Pages 托管 `index.html`）。
++- **全自动**：推到 GitHub 后配置 Secrets（见下），每天北京时间 07:30 自动更新；日报管线成功后由 `deploy_oss.yml` 同步到阿里云 OSS（`thoradar.online`）。
+ 
+ ## 环境变量（GitHub Secrets 或本地环境变量）
+ 
+@@ -36,6 +36,14 @@ LLM 精评（PICO 提取 + 反阳性偏倚条款）、四元组数值核验，
+ | `index.html` | 派生视图 | 数据经标记区间注入（SITE_DATA 块勿手改） |
+ | 本地仓库 ↔ GitHub | 互为镜像 | 推送保持一致 |
+ 
++## 首页本地副本（T1128 本机候选）
++
++- 首次访问仍走原生网络/OSS/CDN；复访由 `sw.js` 从 Cache Storage 先打开 `/index.html`，后台核新，当前阅读页不自动刷新，新版在下次打开时生效。
++- 只处理同源 GET 的 `/` 与 `/index.html` 导航；AI、NCBI、POST、跨域、个性化 API 与个人 `localStorage` 不经过这层缓存。`SITE_DATA` 仍是唯一官方数据真相。
++- 写入前校验 HTTP 200、同源 basic 响应、HTML MIME、完整页面、真实内联脚本中的数据块、有效 `YYYY-MM-DD` 日期及 `papers` 数组；异常、截断、空壳、注释伪数据和错误响应不得覆盖健康副本。合法零篇日允许更新。
++- 弱网/离线只承诺当日首页副本，并显示实际数据日期与核新状态；多日档案拉取失败时持续提示，未新增 90 天离线缓存。`?sw=0` 可注销并清理本 origin 的前缀缓存，`sw-retire.js` 是服务端退役版。
++- **边界**：这是已通过本机独立复核的候选，尚未完成真机/线上验收。现行 `deploy_oss.yml` 尚未上传 `sw.js` 与 `sw-retire.js`，本轮也未修改 CI/CD；不能把单纯 push/deploy 当作该功能已经上线。发布接线与 CDN/线上验证须另行授权，发布动作唯 PI 亲手。
++
+ ## 诚实边界（读数据前必读）
+ 
+ - 全站**无人审校**：标题、结果陈述、疑点提示由程序与语言模型生成。数值核验为确定性文本比对（数值存在性＋语境锚，词边界级）；**语义核验为规则词面级**（四元组的人群限定词/终点指标词须在原摘要命中，未过即解读暂停）——能拦「限定人群/终点与摘要对不上」的错配，不能覆盖同义改写与隐蔽张冠李戴。重要文献请点开 PubMed 原文。
+@@ -49,6 +57,9 @@ LLM 精评（PICO 提取 + 反阳性偏倚条款）、四元组数值核验，
+ 
+ ```
+ index.html                  单文件网站（数据经标记区间注入，勿手改 SITE_DATA 块）
++sw.js                       首页本地副本 Service Worker（本机候选，未接入发布工作流）
++sw-retire.js                本地副本退役版（清前缀缓存并注销）
++tests/smooth/               本地先开、后台更新、异常拒缓存与退役回归
+ thoradar_engine.py          每日流水线引擎（采集→定级→预筛→精评→核验→状态覆盖→产出）
+ config/journals_taxonomy.json  期刊字典（身份/分区分开记录版本与年份）
+ tools/identity_check.py     期刊身份查新（NCBI NLM Catalog，退出码 0/1/2）
+diff --git a/docs/架构地图.md b/docs/架构地图.md
+index ed0cba7..8dda09e 100644
+--- a/docs/架构地图.md
++++ b/docs/架构地图.md
+@@ -19,7 +19,7 @@ GitHub Actions ── 每日 05:03 + 手动
+             ⑤ 产出：data/*.json＋daily_briefing md＋注入 index.html
+                      （空数据守卫：0 篇产出不覆盖线上非空数据——2026-11-07 限流跑洗站判例）
+                      （efetch 硬校验：有单零解析→非零退出，CI 五分钟自动重试接住）
+-      └─► 自动提交 [skip ci] → Pages 发布
++      └─► 自动提交 [skip ci] → deploy_oss.yml 同步阿里云 OSS（thoradar.online）
+    weekly_journal_qc.yml（周六）：journal_yield 产出表＋阵地周报
+    mesh_backstop.yml（月）：MeSH 兜底扫
+ ```
+@@ -27,6 +27,10 @@ GitHub Actions ── 每日 05:03 + 手动
+ ## 前端结构（index.html 单文件）
+ 
+ - **SITE_DATA 注入区**：引擎标记区间替换（论文集＋journal_meta＋journal_ids），此区一字不可手改
++- **首页本地副本（T1128 本机候选，未上线验收）**：`sw.js` 只拦截同源 GET 的 `/` 与 `/index.html` 导航；缓存命中先出屏、后台以 `no-store` 核新，当前页不自动刷新，下次打开生效。缓存键统一为 `/index.html`，不另存官方数据真相，不新增 90 天档案缓存，不触碰 AI/NCBI/POST/跨域/个性化 API 或个人 `localStorage`
++  - 写入前校验状态/basic/MIME/完整 HTML，并要求标记位于同一真实内联脚本、声明为可解析 `SITE_DATA`、`briefing_date` 是有效日历日、`papers` 是数组；空壳、坏 JSON、空/非法日期、注释伪数据均拒写，合法零篇允许
++  - 旧副本持续显示实际数据日期和核新状态；多日档案拉取失败时持续提示只显示当日副本。`?sw=0` 为单机退出，`sw-retire.js` 清 `thoradar-shell-` 前缀缓存并注销；核心验收在 `tests/smooth/`，独立复核在 `docs/tasks/T1128-SMOOTH/astra-v3/`
++  - **发布边界**：现行 `deploy_oss.yml` 尚未上传 `sw.js/sw-retire.js`，本轮不改 CI/CD；真机、iOS、国内直连、线上跨日、正常 SW 自身升级、多标签完整生命周期和 CDN 收敛未验。发布接线与线上验收另行授权，push/deploy/CDN 唯 PI 亲手
+ - **三视图切换（2026-11-07 三期交互改造，PI 选型 proto-a）**：顶栏 `#proto-view-switcher` 三段（01 概览/02 阅读/03 个性化），
+   `body[data-proto-view]` 三态驱动；键盘 roving tabindex＋Esc 分支（个性化态回概览、输入框 Esc 止于编辑层——closest 守卫＋stopPropagation 双保险）
+   - **概览**＝原主页：左队列＋雷达盘（美化：扇区色带＋形状编码信号点＋悬停摘要卡）＋右锁定详情
+@@ -77,8 +81,8 @@ Worker 模板已备 docs/cf-worker-ai-proxy.js）→ 3 分享码。不做：账
+ 4. 架构文档缺 → 本文件补位
+ 5. 移动端 390px 横向溢出：T1127-UX 复测概览/阅读默认与筛选展开均零溢出（`tests/ux/ux_probe.mjs` F7）；真机仍未验
+ 6. 文献 JSON 5.4MB（gzip 1.47MB）随文献增长拖首屏 → 拆分/分页待做（旧#2 细化）
+-7. 安全头 HSTS/CSP/XCTO 缺：GitHub Pages 不支持自定义响应头，只能上 Cloudflare 代理层换——架构决策挂起（PI 知情）
+-8. Enforce HTTPS 已开（2026-11-08 API 拨，http 301→https 实测）
++7. 现站发布链为阿里云 OSS＋CDN；HSTS/CSP/XCTO 与缓存头收敛须按当前线上配置复核，本轮未验，旧 GitHub Pages／Cloudflare 口径不再作为现状依据
++8. `deploy_oss.yml` 已对 `thoradar.online` 与 `www.thoradar.online` 做 HTTPS 200 预检；本地副本的发布上传、双域缓存头、精准刷新与退役链尚未接入，不能据此推断线上 SW 已可用
+ 
+ ## 红线备忘
+ 
+diff --git a/index.html b/index.html
+index def10c9..71794ea 100644
+--- a/index.html
++++ b/index.html
+@@ -594,6 +594,13 @@ body:not([data-proto-view="reading"]) .proto-density{display:none}       /* 密
+ @media(min-width:901px){
+   body[data-proto-view="overview"] .scope{width:min(100cqw,100cqh,420px)}
+ }
++/* 首页副本状态跟随顶栏，窄屏也能看到正在阅读的数据日期。 */
++.topbar:has(> :is(.shell-status,.window-hint)){height:auto;min-height:58px}
++.shell-status,.topbar>.window-hint{grid-column:1/-1;color:var(--text-2);font-size:12px;line-height:1.4;margin:0}
++@media(min-width:901px){
++  .topbar:has(> :is(.shell-status,.window-hint)){grid-template-rows:46px;row-gap:0;padding-bottom:6px}
++  .topbar:has(> :is(.shell-status,.window-hint))+.deck{height:calc(100vh - var(--proto-header-h,58px) - 36px)}
++}
+ </style>
+ </head>
+ <body>
+@@ -1563,6 +1570,7 @@ function renderTierFilters(base){
+   }).join('');
+ }
+ function renderWindow(){
++  renderRollHint();
+   $('#window-range').value=String(state.days);
+   $('#window-value').textContent=`${state.days} ${t('unit.days')}`;
+   if(!ANCHOR){$('#window-label').textContent=`${t('data.window')} — · ${state.days} ${t('unit.days')}`;return}
+@@ -3314,17 +3322,29 @@ $('#pool-refresh').addEventListener('click',()=>{if(!poolView)return;poolView.lo
+ $('#pool-mix-toggle').addEventListener('change',event=>{poolMix=event.target.checked===true;persistPoolMix();render()});   // 个人层开关：只重算派生视图，零网络、零官方写入
+ // ===== 懒加载（2026-11-08 数据瘦身）：默认窗=1 天只用内嵌 SITE_DATA，首屏 0 外部请求；
+ // 拖滑杆 >1 天/点击滑杆/启动时窗口偏好 >1 天才拉 radar_latest.json；单例 Promise 防重；
+-// 加载中骨架屏＋aria-busy；失败静默保留现有数据＋滑杆旁提示（可重试）。
+-let rollingPromise=null,rollHintTimer=null;
++// 加载中骨架屏＋aria-busy；失败保留当日数据，顶栏持续提示，可重试。
++let rollingPromise=null,rollingUnavailable=false;
++const rollHint=$('#window-hint'),rollHintParent=rollHint.parentNode,rollHintNext=rollHint.nextSibling;
+ function setRollBusy(on){
+   const skel=$('#rolling-skeleton'),list=$('#queue-list');
+   if(skel)skel.hidden=!on;   // hidden 属性开关（[hidden] 全局 !important），无 style.display
+   if(list){if(on)list.setAttribute('aria-busy','true');else list.removeAttribute('aria-busy')}
+ }
+-function showRollHint(){
+-  const hint=$('#window-hint');if(!hint)return;
+-  hint.hidden=false;
+-  clearTimeout(rollHintTimer);rollHintTimer=setTimeout(()=>{hint.hidden=true},6000);
++function renderRollHint(){
++  if(rollingUnavailable&&state.days>1){
++    const topbar=$('.topbar');
++    if(rollHint.parentNode!==topbar)topbar.append(rollHint);
++    const date=SITE_DATA.briefing_date||String(SITE_DATA.generated_at||'').slice(0,10)||ANCHOR;
++    const text=LANG==='en'
++      ? `Showing only the ${date} daily copy / Historical archive unavailable`
++      : `实际只显示 ${date} 当日副本／历史档案不可用`;
++    if(rollHint.textContent!==text)rollHint.textContent=text;
++    rollHint.hidden=false;
++  }else if(!rollHint.hidden){
++    rollHint.hidden=true;
++    rollHint.textContent=t('roll.fail');
++    rollHintParent.insertBefore(rollHint,rollHintNext);
++  }
+ }
+ function ensureRollingData(){
+   if(rollingPromise)return rollingPromise;
+@@ -3333,11 +3353,13 @@ function ensureRollingData(){
+     if(!response.ok)throw new Error('rolling window unavailable');
+     const payload=await response.json(),latest=Array.isArray(payload)?payload:payload?.papers;
+     if(!Array.isArray(latest))throw new Error('rolling window schema mismatch');
+-    PAPERS=mergePapers(latest);ANCHOR=findAnchor(PAPERS);renderHeader();render();
+-  }).catch(error=>{
++    PAPERS=mergePapers(latest);ANCHOR=findAnchor(PAPERS);
++    rollingUnavailable=false;
++    renderHeader();render();
++  }).catch(()=>{
+     rollingPromise=null;   // 失败放行重试：下次滑杆交互再拉
+-    console.info('滚动窗数据不可用，已静默降级为注入数据。');
+-    showRollHint();
++    rollingUnavailable=true;
++    renderRollHint();
+   }).finally(()=>{
+     setRollBusy(false);
+   });
+@@ -3545,5 +3567,96 @@ clsPrewarm();   // 已有 AI 分类缓存的回访用户：首帧先按内容哈
+   document.body.dataset.protoReady='true';
+ })();
+ </script>
++<div class="shell-status" id="shell-status" role="status" hidden></div>
++<script>
++(() => {
++  const { hostname, protocol, pathname, search, searchParams } = new URL(location.href);
++  if (pathname !== '/' && pathname !== '/index.html') return;
++  const disable = searchParams.getAll('sw').includes('0');
++  const optIn = searchParams.size === 1 && searchParams.get('sw') === '1';
++  const production = protocol === 'https:' && (hostname === 'thoradar.online' || hostname.endsWith('.thoradar.online'));
++  const local = ['localhost', '127.0.0.1', '[::1]'].includes(hostname);
++  let worker;
++  let storage;
++  try { worker = navigator.serviceWorker; } catch (_) {}
++  try { storage = window.caches; } catch (_) {}
++  const workerUrl = new URL('/sw.js', location.origin).href;
++  const retireUrl = new URL('/sw-retire.js', location.origin).href;
++  const controller = worker?.controller?.scriptURL === workerUrl ? worker.controller : null;
++  const canRegister = production || (local && optIn);
++  if (!disable && ((search && !optIn) || (!canRegister && !(local && controller)))) return;
++
++  const banner = document.getElementById('shell-status');
++  document.querySelector('.topbar').append(banner);
++  banner.hidden = false;
++  const labels = {
++    network: ['联网打开', 'Opened over the network'],
++    checking: ['本地副本 · 核对更新中', 'Local copy · Checking for updates'],
++    current: ['本地副本 · 已核对，与服务器一致', 'Local copy · Matches the server'],
++    updated: ['有新版，下次打开生效', 'Update available on your next visit'],
++    unavailable: ['本地副本 · 暂未核实更新', 'Local copy · Could not check for updates'],
++    fallback: ['联网打开 · 本地副本不可用', 'Opened over the network · Local copy unavailable'],
++    disabled: ['本地副本已停用', 'Local copy disabled'],
++    disableFailed: ['未能停用本地副本', 'Could not disable the local copy']
++  };
++  const date = SITE_DATA.briefing_date || String(SITE_DATA.generated_at || '').slice(0, 10);
++  let status = 'network';
++  function renderStatus() {
++    const english = LANG === 'en';
++    const dataDate = date || (english ? 'Unknown' : '日期未知');
++    banner.textContent = `${english ? 'Data' : '数据'} ${dataDate} · ${labels[status][english ? 1 : 0]}`;
++  }
++  function show(next) {
++    status = next;
++    renderStatus();
++  }
++  document.getElementById('lang-btn').addEventListener('click', renderStatus);
++  show('network');
++
++  if (disable) {
++    (async () => {
++      if (worker) {
++        const registrations = await worker.getRegistrations();
++        await Promise.all(registrations.map(registration => registration.unregister()));
++      }
++      if (storage) {
++        const names = await storage.keys();
++        await Promise.all(names.filter(name => name.startsWith('thoradar-shell-')).map(name => storage.delete(name)));
++      }
++      show('disabled');
++    })().catch(() => show('disableFailed'));
++    return;
++  }
++  if (!worker || !storage) {
++    show('fallback');
++    return;
++  }
++
++  let replyTimeout;
++  worker.addEventListener('message', event => {
++    if (event.data?.type === 'thoradar-shell-retired' &&
++        [workerUrl, retireUrl].includes(event.source?.scriptURL)) {
++      clearTimeout(replyTimeout);
++      show(event.data.unregistered && event.data.cleared ? 'disabled' : 'disableFailed');
++      return;
++    }
++    if (status === 'disabled' || status === 'disableFailed' || !controller ||
++        event.source !== controller || event.data?.type !== 'thoradar-shell-state') return;
++    const next = event.data.status;
++    if (!['network', 'checking', 'current', 'updated', 'unavailable', 'fallback'].includes(next)) return;
++    if (next !== 'checking') clearTimeout(replyTimeout);
++    show(next);
++  });
++  if (controller) {
++    show('checking');
++    replyTimeout = setTimeout(() => show('unavailable'), 12000);
++    try { controller.postMessage({ type: 'thoradar-shell-status' }); }
++    catch (_) { clearTimeout(replyTimeout); show('unavailable'); }
++  }
++  if (canRegister) worker.register(workerUrl, { updateViaCache: 'none' }).catch(() => {
++    if (!controller) show('fallback');
++  });
++})();
++</script>
+ </body>
+ </html>
+diff --git a/架构.md b/架构.md
+index 60d7b46..afa9ad4 100644
+--- a/架构.md
++++ b/架构.md
+@@ -2,13 +2,13 @@
+ 
+ <!-- ARCH-CHECK: generic -->
+ 
+-> **谁在什么时候对账**：`bash D:/dev/trackeep-scripts/tools/arch-scan.sh --root <本仓> --check`
+-> —— 由 `D:\AI-Projects\_收件箱\checkup-archmap.ps1` 逐仓跑，该脚本被 `每日体检.ps1` 第 8b 段调用
+-> （计划任务「每日体检-每日」）。**红的后果＝当天体检单上多一条红**，仅此而已。
++> **谁在什么时候对账**：`bash D:/trackeep/trackeep-scripts/tools/arch-scan.sh --root <本仓> --check`
++> —— 对账＝手跑 `arch-scan.sh --check`；原 `checkup-archmap.ps1` 探针已随全量体检 2026-11-14 删除。
++> **红的后果＝报告里多一条红**，仅此而已。
+ > ⚠ **本仓没有提交级或收口级硬闸**：地图过期不会阻止任何人提交、推送或收口。
+ > 全机唯一有硬闸的是 `terminal-console`（部署新版.ps1 闸⑨，红则拒绝发布）。
+ > 这行原本写的是「红则本仓不许收口」——**那是假的**，而且实测已让一位读者据此得出错误结论
+-> （T0912 役 A07 席查遍 `每日体检.ps1` 找不到 arch-scan 字样，当场断言「自动接线未查明」）。
++> （T0912 役 A07 席查遍当时体检脚本找不到 arch-scan 字样，当场断言「自动接线未查明」）。
+ > 围栏内的块由生成器整块覆盖，**手改无效**；围栏外归人写，工具一个字节不碰。
+ 
+ ---
+@@ -19,16 +19,18 @@
+ 
+ ## 二、出了问题去哪查
+ 
+-流水线整体/某段没产出→`thoradar_engine.py`（文件头六段注释即流程图：采集/定级/预筛/精评/核验/产出，`--days-back` 可调窗）；期刊定级或漏检→`tools/journal_qc.py`＋`config/journals_taxonomy.json`（五重主键：ISSN-L/P-ISSN/E-ISSN/NlmUniqueID/ISO 缩写）；检索式漂移→`tools/query_replay_audit.py`，召回率问题→`tools/recall_backtest.py`，身份核对→`tools/identity_check.py`；筛选数量口径→`docs/时差流程与筛选数量.md`；测试三件在 `tests/`（test_curation/test_journal_health/test_semantic_anchors）。产出面：`data/curated_literature.json`、`data/daily_briefing_<date>.md`、`index.html`（数据内嵌）。
++流水线整体/某段没产出→`thoradar_engine.py`（文件头六段注释即流程图：采集/定级/预筛/精评/核验/产出，`--days-back` 可调窗）；期刊定级或漏检→`tools/journal_qc.py`＋`config/journals_taxonomy.json`（五重主键：ISSN-L/P-ISSN/E-ISSN/NlmUniqueID/ISO 缩写）；检索式漂移→`tools/query_replay_audit.py`，召回率问题→`tools/recall_backtest.py`，身份核对→`tools/identity_check.py`；筛选数量口径→`docs/时差流程与筛选数量.md`；测试三件在 `tests/`（test_curation/test_journal_health/test_semantic_anchors）。产出面：`data/curated_literature.json`、`data/daily_briefing_<date>.md`、`index.html`（数据内嵌）。首页本地副本/核新/退役问题→`sw.js`、`sw-retire.js` 与 `tests/smooth/`；本役证据与未验边界→`docs/tasks/T1128-SMOOTH/`。
+ 
+ ## 三、想加功能往哪加
+ 
+-流水线段逻辑→`thoradar_engine.py` 对应段（改哪段对照文件头六段注释）；期刊表与定级→`config/journals_taxonomy.json`＋`tools/journal_qc.py`；旁路审计/回测→`tools/` 新件（命名与用法照现有四件）；产出物只进 `data/`，网站展示改 `index.html` 标记区间（引擎按标记区间注入替换，区间外的字节别动）。铁律：密钥只走环境变量（GitHub Secrets 或本机 env）；核验未通过 fail-closed 标注、不静默放行；成本熔断 `MAX_DAILY_COST_USD` 默认 0.10 美元。
++流水线段逻辑→`thoradar_engine.py` 对应段（改哪段对照文件头六段注释）；期刊表与定级→`config/journals_taxonomy.json`＋`tools/journal_qc.py`；旁路审计/回测→`tools/` 新件（命名与用法照现有四件）；产出物只进 `data/`，网站展示改 `index.html` 标记区间（引擎按标记区间注入替换，区间外的字节别动）。首页本地副本只改 `sw.js` 与 `tests/smooth/`，不复制 `SITE_DATA` 真相、不把普通 UI 调整变成缓存协议升级；退役改 `sw-retire.js`。铁律：密钥只走环境变量（GitHub Secrets 或本机 env）；核验未通过 fail-closed 标注、不静默放行；成本熔断 `MAX_DAILY_COST_USD` 默认 0.10 美元。
+ 
+ ## 四、各块之间怎么协调
+ 
+ `thoradar_engine.py` 是唯一驱动入口（本地手跑或 GitHub Actions 定时跑，Secrets 注入 LLM/NCBI key）：读 `config/` 做定级，调 PubMed 采集，落 `data/` 产出并注入 `index.html`；`tools/` 是旁路件（审计/回测/质控），不进主链、按需手跑。状态归属：`data/` 是唯一产出面，`期刊表/` 是本地资料面。与别的仓的关系：独立系统仓，不依赖本机其他 trackeep 件；消费方＝每日简报读者与网站访客（北京 05:03 日报计划任务）。
+ 
++T1128 本机候选新增 `sw.js`：首访仍走 OSS/CDN，复访只从 Cache Storage 先取 `/index.html`，后台核新且下次打开生效；官方数据仍由内嵌 `SITE_DATA` 唯一承载，异常/截断/空壳/非法日期/注释伪数据不得覆盖健康副本。`sw-retire.js` 负责清前缀缓存与注销。本轮只验当日首页副本，不新增 90 天档案缓存；现行 `deploy_oss.yml` 尚未上传两件 worker，CI/CD 未改，真机与线上未验，不能据此宣称功能已发布。
++
+ ---
+ 
+ ## 五、机器块（以下全部由 arch-scan 现算，勿手改）
+@@ -38,16 +40,19 @@
+ <!-- ARCH-FACTS:BEGIN:key=volume (generated by arch-scan, do not edit) -->
+ | 类型 | 文件数 | 行数 |
+ |---|---:|---:|
++| `.json` | 103 | 117966 |
++| `.md` | 88 | 20155 |
++| `.py` | 35 | 10420 |
+ | `.png` | 34 | — |
+-| `.md` | 34 | 6789 |
+-| `.json` | 27 | 43941 |
+-| `.html` | 16 | 7058 |
+-| `.py` | 8 | 3716 |
++| `.html` | 20 | 16610 |
++| `.yml` | 18 | 2964 |
++| `.mjs` | 11 | 3243 |
+ | `.csv` | 7 | —（数据件，行数不落值） |
+-| `.yml` | 3 | 132 |
+-| `.gitignore` | 1 | 14 |
+-| `.example` | 1 | 18 |
+-| **全仓（含无扩展名·不含本图）** | **131** | |
++| `.xml` | 2 | 365 |
++| `.txt` | 1 | 4 |
++| `.log` | 1 | —（逐日追加，行数不落值） |
++| `.js` | 1 | 62 |
++| **全仓（含无扩展名·不含本图）** | **326** | |
+ <!-- ARCH-FACTS:END:key=volume -->
+ 
+ ### 5.2 顶层结构
+@@ -55,14 +60,17 @@
+ <!-- ARCH-FACTS:BEGIN:key=layout (generated by arch-scan, do not edit) -->
+ | 顶层落点 | 文件数 | 主要类型 |
+ |---|---:|---|
+-| `design/` | 86 | .png .md .html  |
+-| `data/` | 28 | .json .md  |
+-| `tools/` | 4 | .py  |
+-| `tests/` | 3 | .py  |
+-| `.github/` | 3 | .yml  |
+-| `docs/` | 1 | .md  |
+-| `config/` | 1 | .json  |
+-| *（仓根散件）* | 5 | |
++| `data/` | 135 | .json .md  |
++| `design/` | 102 | .md .png .html  |
++| `tests/` | 22 | .py .mjs  |
++| `.playwright-cli/` | 15 | .yml .log  |
++| `tools/` | 14 | .py  |
++| `docs/` | 9 | .md .js  |
++| `.github/` | 4 | .yml  |
++| `config/` | 2 | .json .bak  |
++| `api/` | 2 | .json  |
++| `thoradar-skill/` | 1 | .md  |
++| *（仓根散件）* | 20 | |
+ <!-- ARCH-FACTS:END:key=layout -->
+ 
+ ### 5.3 入口点
+@@ -70,13 +78,35 @@
+ <!-- ARCH-FACTS:BEGIN:key=entrypoints (generated by arch-scan, do not edit) -->
+ | 入口 | 类别 |
+ |---|---|
++| `smoke_live.py` | 程序主入口 |
++| `test_dualsource.py` | 程序主入口 |
++| `test_dualsource_integration.py` | 程序主入口 |
++| `test_epmc_adapter.py` | 程序主入口 |
++| `test_grok_fix1_1108.py` | 程序主入口 |
++| `test_thoradar_dualsource.py` | 程序主入口 |
+ | `tests/test_curation.py` | 程序主入口 |
++| `tests/test_gate_files.py` | 程序主入口 |
++| `tests/test_inject_guard.py` | 程序主入口 |
+ | `tests/test_journal_health.py` | 程序主入口 |
++| `tests/test_pin_guard.py` | 程序主入口 |
++| `tests/test_push_notify.py` | 程序主入口 |
++| `tests/test_rate_gate.py` | 程序主入口 |
++| `tests/test_semantic_anchor_expansion.py` | 程序主入口 |
+ | `tests/test_semantic_anchors.py` | 程序主入口 |
++| `tests/test_subscribe_build.py` | 程序主入口 |
++| `tests/test_taxonomy_v4.py` | 程序主入口 |
+ | `thoradar_engine.py` | 程序主入口 |
+ | `tools/identity_check.py` | 程序主入口 |
+ | `tools/journal_qc.py` | 程序主入口 |
++| `tools/mcp_server.py` | 程序主入口 |
++| `tools/pin_export.py` | 程序主入口 |
++| `tools/pin_reconcile.py` | 程序主入口 |
++| `tools/push_notify.py` | 程序主入口 |
+ | `tools/query_replay_audit.py` | 程序主入口 |
++| `tools/roster_intake_check.py` | 程序主入口 |
++| `tools/shadow_rerun.py` | 程序主入口 |
++| `tools/subscribe_build.py` | 程序主入口 |
++| `tools/weekly_gate_columns.py` | 程序主入口 |
+ <!-- ARCH-FACTS:END:key=entrypoints -->
+ 
+ ### 5.4 跨块依赖（本仓点名了谁）
+@@ -91,8 +121,8 @@
+ | 项 | 值 |
+ |---|---|
+ | 首次提交 | 2026-10-15 |
+-| 最后一次提交（含纯文档） | 2026-10-25 |
+-| **最后一次改到非文档文件** | **2026-10-24** |
++| 最后一次提交（含纯文档） | 2026-11-27 |
++| **最后一次改到非文档文件** | **2026-11-27** |
+ 
+ > 本块不落提交总数、不落「近 N 天」统计——那类数字会因「刷新地图」这个动作本身而改变（活地图法 六.2）。
+ >

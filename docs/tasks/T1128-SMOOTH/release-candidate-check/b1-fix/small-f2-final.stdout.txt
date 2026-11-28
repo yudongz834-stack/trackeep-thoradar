@@ -1,0 +1,6 @@
+ux probe | Chrome/158.0.8127.88 | page=/index.html（受测件 D:\trackeep\trackeep-product\trackeep-thoradar-astra-v4\docs\tasks\T1128-SMOOTH\astra-v4\private-repo\index.html）| judge=true | label=b1-small-f2-final
+页面概况：{"ready":"true","papers":2,"anchor":"2026-11-02","lang":"zh","site":"2026-11-02","degraded":0,"hasToggle":true}
+
+==== UX PROBE [b1-small-f2-final] SUMMARY 0 PASS / 0 FAIL： ====
+     cleanup | browser pid=50492 exitCode=null signalCode=SIGTERM | 带 profile 标记的进程：收尾前=50492,41052,23900,44236,47068,48284,40624,45840,24772,39512,43492 | 主进程结束后残留=无 | 逐 PID 结束=无 | 复查仍存活=无
+     cleanup | 临时目录 D:\claude-tmp\T1128-b1-small-f2-final\ux-harness-b1-small-f2-final 已清

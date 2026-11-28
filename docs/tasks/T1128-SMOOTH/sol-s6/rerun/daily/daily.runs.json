@@ -1,0 +1,149 @@
+{
+  "scratch": "D:\\claude-tmp\\thoradar-s6-replay-bIDDFp",
+  "worktreeRemoved": true,
+  "runs": [
+    {
+      "id": "add-fixture",
+      "cwd": "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\.t1128-s6-worktree",
+      "command": [
+        "git",
+        "-c",
+        "core.hooksPath=NUL",
+        "-c",
+        "user.name=S6 fixture",
+        "-c",
+        "user.email=s6@example.invalid",
+        "worktree",
+        "add",
+        "--detach",
+        "D:\\claude-tmp\\thoradar-s6-replay-bIDDFp\\runner",
+        "28131f314f92a05227fd5923607d717c426da2c5^1"
+      ],
+      "expected": 0,
+      "exitCode": 0
+    },
+    {
+      "id": "candidate-diff",
+      "cwd": "D:\\claude-tmp\\thoradar-s6-replay-bIDDFp\\runner",
+      "command": [
+        "git",
+        "diff",
+        "--binary",
+        "e292d93462b1457495d83f46f53a7608f9c0f764",
+        "5465629e2228c2412f176520ccf16e51afd1c35a",
+        "--"
+      ],
+      "expected": 0,
+      "exitCode": 0
+    },
+    {
+      "id": "candidate-diff-check",
+      "cwd": "D:\\claude-tmp\\thoradar-s6-replay-bIDDFp\\runner",
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "e292d93462b1457495d83f46f53a7608f9c0f764",
+        "5465629e2228c2412f176520ccf16e51afd1c35a",
+        "--"
+      ],
+      "expected": 0,
+      "exitCode": 0
+    },
+    {
+      "id": "candidate-patch-reverse-check",
+      "cwd": "D:\\claude-tmp\\thoradar-s6-replay-bIDDFp\\runner",
+      "command": [
+        "git",
+        "apply",
+        "--reverse",
+        "--check",
+        "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\.t1128-s6-worktree\\docs\\tasks\\T1128-SMOOTH\\sol-s6\\rerun\\daily\\candidate.diff"
+      ],
+      "expected": 0,
+      "exitCode": 0
+    },
+    {
+      "id": "daily-clean-before",
+      "cwd": "D:\\claude-tmp\\thoradar-s6-replay-bIDDFp\\runner",
+      "command": [
+        "git",
+        "status",
+        "--porcelain=v1",
+        "-uall"
+      ],
+      "expected": 0,
+      "exitCode": 0
+    },
+    {
+      "id": "source-ci-daily",
+      "cwd": "D:\\claude-tmp\\thoradar-s6-replay-bIDDFp\\runner",
+      "command": [
+        "node",
+        "tests/smooth/verify-source.mjs",
+        "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\.t1128-s6-worktree\\docs\\tasks\\T1128-SMOOTH\\sol-s6\\rerun\\daily\\source-ci-daily.json",
+        "--ci"
+      ],
+      "expected": 0,
+      "exitCode": 0
+    },
+    {
+      "id": "source-local-daily",
+      "cwd": "D:\\claude-tmp\\thoradar-s6-replay-bIDDFp\\runner",
+      "command": [
+        "node",
+        "tests/smooth/verify-source.mjs",
+        "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\.t1128-s6-worktree\\docs\\tasks\\T1128-SMOOTH\\sol-s6\\rerun\\daily\\source-local-daily.json"
+      ],
+      "expected": 1,
+      "exitCode": 1
+    },
+    {
+      "id": "prepare-baseline",
+      "cwd": "D:\\claude-tmp\\thoradar-s6-replay-bIDDFp\\runner",
+      "command": [
+        "node",
+        "tests/smooth/prepare-ci-ux-baseline.mjs",
+        "65d3d5998499788d71f3ed6302c298241a94c961",
+        "D:\\claude-tmp\\thoradar-s6-replay-bIDDFp\\runner-temp\\smooth-ux-baseline.html"
+      ],
+      "expected": 0,
+      "exitCode": 0
+    },
+    {
+      "id": "ux-ci-daily",
+      "cwd": "D:\\claude-tmp\\thoradar-s6-replay-bIDDFp\\runner",
+      "command": [
+        "node",
+        "tests/ux/ux_probe.mjs",
+        "--target",
+        "index.html",
+        "--base-html",
+        "D:\\claude-tmp\\thoradar-s6-replay-bIDDFp\\runner-temp\\smooth-ux-baseline.html",
+        "--label",
+        "smooth-ci"
+      ],
+      "expected": 0,
+      "exitCode": 0
+    },
+    {
+      "id": "remove-fixture",
+      "cwd": "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\.t1128-s6-worktree",
+      "command": [
+        "git",
+        "-c",
+        "core.hooksPath=NUL",
+        "-c",
+        "user.name=S6 fixture",
+        "-c",
+        "user.email=s6@example.invalid",
+        "worktree",
+        "remove",
+        "--force",
+        "D:\\claude-tmp\\thoradar-s6-replay-bIDDFp\\runner"
+      ],
+      "expected": 0,
+      "exitCode": 0
+    }
+  ]
+}

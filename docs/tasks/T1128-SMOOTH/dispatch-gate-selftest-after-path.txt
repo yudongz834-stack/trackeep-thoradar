@@ -1,0 +1,89 @@
+[PASS] A-M1 git commit -m（提交信息）→ not-dispatch
+[PASS] A-M2 pytest -m（marker 表达式）→ not-dispatch
+[PASS] A-M3 python -m（模块名）→ not-dispatch
+[PASS] A-M4 grep -m（最大行数）＋白名单名在参数里 → not-dispatch
+[PASS] A-M5 curl -m（最大秒数）→ not-dispatch
+[PASS] A-M6 echo 含白名单名子串（非命令头）→ not-dispatch
+[PASS] A-M7 pnpm（npm-global 邻居非派遣器）→ not-dispatch
+[PASS] A-M8 裸 agent.cmd（无 cursor-agent 路径）→ not-dispatch
+[PASS] A-D1 attached 形 -m<值> → dispatch
+[PASS] A-D2 等号长形 --model=<值> → dispatch
+[PASS] A-D3 Windows 全路径启动器形 → dispatch
+[PASS] A-D4 pwsh -Command 包装壳内直派 → dispatch
+[PASS] A-D5 cursor-agent 路径 agent.cmd 引号形 → dispatch
+[PASS] A-D6 sep-short 引号值（prompt 里的 -m 不拆）→ dispatch 且型=gpt-6-astra
+[PASS] A-D7 非字面值 → dispatch 且 Literal=false（拒发判定面）
+[PASS] A-D8 dispatch.sh 通道形 → dispatch(dispatch-sh)
+[PASS] A-D9 多值歧义 → Ambiguous=true（fail-closed 判定面）
+[PASS] A-D10 Agent 工具形（ToolName）→ dispatch(agent-tool)
+[PASS] A-D11 R1：cmd /c 单引号载荷形（事故形直穿旧版）→ dispatch
+[PASS] A-D12 R1：cmd /S /c 旗标形 → dispatch
+[PASS] A-D13 V2：cmd /C 大小写归一 → dispatch
+[PASS] A-D14 红队BP22：链式 && 二段头不锚定旧版 → dispatch(segs=2)
+[PASS] A-D15 红队BP23：链式 ; 二段 → dispatch(segs=2)
+[PASS] A-D16 红队BP14：$'-m' 引号伪装剥壳 → dispatch 且型=gpt-6-extra
+[PASS] A-D17 链式全非派遣段 → not-dispatch（零打扰不破）
+[PASS] B1 事故名 gpt-6-extra → refuse（门口拒）
+[FAIL] B2 Verdict=refuse＋指路含 gpt-6-astra（补 Verdict 断言，红队 P2） | actual=refuse/gpt-6.2-astra,gpt-6.2-sol
+[PASS] B3 Verdict=refuse＋话术三样（补 Verdict 断言，红队 P2）
+[PASS] B4 cc-mimo 点档 sonnet → pass 且期望值从 .cmd 取（校验源=执行源）
+[PASS] B5 大小写错形 gpt-6-Astra → refuse（序数精确）
+[PASS] B6 cc-claude 整席豁免 → not-applicable
+[PASS] B7 service 席不归入名闸 → not-applicable
+[FAIL] B8 bus_aliases 在册名 → pass 且归一到 gpt-6-astra | actual=pass/gpt-6.2-astra
+[PASS] B9 .cmd 读不到 → error（fail-closed 拒派）
+[PASS] B10 同键无条件赋值两行 → error
+[PASS] B11 只有 REM/:: 注释行 → error
+[PASS] B12 条件执行段含 KEY= → error
+[PASS] B13 规范夹具恰一次 → pass 且值带章全形
+[PASS] C1 在账且账实相符 → pass
+[PASS] C2 账实不符（账记 A 执行 B）→ refuse
+[FAIL] C3 在册≠属于该席：mimo 型号给 codex-gpt → refuse | actual=error
+[FAIL] C4 bus_aliases 归一命中 → pass | actual=error
+[FAIL] C5 cc-claude CC 自生名 → 边界豁免 pass | actual=manifest 读不到（D:/dev/trackeep-scripts/agent-launchers/manifest.json）—— 入名闸 fail-closed，不当作在册
+[FAIL] C6 cc-claude 点在册跨家族名 → refuse（组合绑席） | actual=error
+[FAIL] C7 agy 内嵌档位形锁名 → pass | actual=error
+[FAIL] C8 cursor id 自带档位后缀 → pass | actual=error
+[FAIL] C9 查无此组合 → refuse＋近邻指路 | actual=error/
+[FAIL] C10 status=pending 新组合 → refuse | actual=manifest 读不到（D:/dev/trackeep-scripts/agent-launchers/manifest.json）—— 入名闸 fail-closed，不当作在册
+[PASS] C11 空账 → error（空账≠全放行）
+[FAIL] D1 事故名（带合规任务书）→ 2 且报因=入名闸＋指路 gpt-6-astra | actual=2/✗ 入名闸：「gpt-6-extra」不在册——codex-gpt 席在册的型号全名＝manifest model_registry 的 model_id 族（
+[FAIL] D2 在册在账＋合规任务书：W5 一道正门裸调必拒 → 2 且报因=入口形（指路 run-dispatch.ps1 -PromptFile） | actual=2/✗ 入名闸：「gpt-6-astra」不在册——codex-gpt 席在册的型号全名＝manifest model_re
+[PASS] D3 点档在册在账＋任务书：W5 裸调必拒（.cmd 账实核对移交正门 runner-hand）→ 2 且报因=入口形
+[PASS] D4 git -m 排除表（含白名单名子串）→ 0（零打扰）
+[PASS] D5 缺参一律拒（七条③，launcher/direct 同律）→ 2 且报因=缺型号参数
+[PASS] D6 非字面（$VAR）→ 2（冗余路径：该名不在册亦会被入名闸拒，不作非字面判别）
+[PASS] D7 大小写错形（带任务书）→ 2 且报因=入名闸
+[PASS] D8 Agent 工具形 → 0（redline-guard 辖区移交）
+[PASS] D9 dispatch.sh 通道形 → 0（通道内四闸辖区）
+[FAIL] D10 等号长形在册在账＋任务书：W5 裸调必拒 → 2 且报因=入口形 | actual=2/✗ 入名闸：「gpt-6-luna」不在册——codex-gpt 席在册的型号全名＝manifest model_reg
+[PASS] D11 多值歧义 → 2（fail-closed）
+[PASS] D12 白名单外命令 → 0（零打扰）
+[FAIL] D13 断言①：prompt 可见但清单缺项——W5 入口形先开火（委任状查移交正门）→ 2 且报因=入口形 | actual=2/✗ 入名闸：「gpt-6-astra」不在册——codex-gpt 席在册的型号全名＝manifest model_re
+[FAIL] D14 断言①：任务书不可见（无 prompt/stdin 形）——W5 入口形先开火 → 2 且报因=入口形 | actual=2/✗ 入名闸：「gpt-6-astra」不在册——codex-gpt 席在册的型号全名＝manifest model_re
+[FAIL] D15 断言①：argv 字面路径任务书——W5 裸调必拒（读文件查移交正门）→ 2 且报因=入口形 | actual=2/✗ 入名闸：「gpt-6-astra」不在册——codex-gpt 席在册的型号全名＝manifest model_re
+[FAIL] D16 断言①：写域单（R3）缺地形行——W5 入口形先开火（地形门同判移交正门）→ 2 且报因=入口形 | actual=2/✗ 入名闸：「gpt-6-astra」不在册——codex-gpt 席在册的型号全名＝manifest model_re
+[PASS] D17 R1/红队BP22：链式 && 二段事故名 → 2 且报因=入名闸
+[PASS] D18 红队BP23：链式 ; 二段合法单 → 0（逐段过闸不误伤）
+[PASS] D19 V2：cmd /C 剥壳后仍是裸启动器（案B §4.3 R3 同判）→ 2 且报因=入口形
+[PASS] D20 R3：launcher 缺参——W5 入口形先于逐段三闸开火 → 2 且报因=入口形
+[PASS] D21 R3：%VAR% 占位形＝非字面——W5 入口形先开火（字面值拦点移交正门 hand.nonliteral）→ 2 且报因=入口形
+[FAIL] PG01 防遮蔽判别：cc-claude 豁免链上 W5 入口形先开火（非字面唯一拦点判别移交正门）→ 2 且报因=入口形 | actual=2/✗ 派遣闸：型号参数不是字面值（$VAR/%VAR%/命令替换，闸看不真）——fail-closed 拒发（七条③）；请
+[PASS] PG03 fail-closed 边界：未闭合引号→parse-error+疑似→2 且报因=没跑成
+[FAIL] F1 形B：--brief-file 合法——W5 裸调必拒（读文件查九项移交正门）→ 2 且报因=入口形 | actual=2/✗ 入名闸：「gpt-6-astra」不在册——codex-gpt 席在册的型号全名＝manifest model_re
+[FAIL] F2 形B：--brief-file 读不到——W5 入口形先开火 → 2 且报因=入口形 | actual=2/✗ 入名闸：「gpt-6-astra」不在册——codex-gpt 席在册的型号全名＝manifest model_re
+[FAIL] F3 形B：cat 管道喂法 → 0（stdin-cat 路径解析读文件） | actual=2/✗ 入名闸：「gpt-6-astra」不在册——codex-gpt 席在册的型号全名＝manifest model_re
+[PASS] F4 形B：cat 管道读不到 → 2 且报因=读不到
+[FAIL] F5 形B：< 重定向喂法——W5 裸调必拒 → 2 且报因=入口形 | actual=2/✗ 入名闸：「gpt-6-astra」不在册——codex-gpt 席在册的型号全名＝manifest model_re
+[FAIL] F6 形C：「先 Read 路径」指针——W5 裸调必拒 → 2 且报因=入口形 | actual=2/✗ 入名闸：「gpt-6-astra」不在册——codex-gpt 席在册的型号全名＝manifest model_re
+[FAIL] F7 形C：指针读不到——W5 入口形先开火 → 2 且报因=入口形 | actual=2/✗ 入名闸：「gpt-6-astra」不在册——codex-gpt 席在册的型号全名＝manifest model_re
+[FAIL] F8 形B：--brief-file 缺值（解析不出）——W5 入口形先开火 → 2 且报因=入口形 | actual=2/✗ 入名闸：「gpt-6-astra」不在册——codex-gpt 席在册的型号全名＝manifest model_re
+[PASS] W1 接线红探：全放行账本下事故名端到端仍拒且报因=入名闸（摘入名闸接线即红）
+[PASS] W2 接线红探：跨席名（在册）端到端拒且报因=入口形（W5 先开火；组合账接线红探职能→函数级 C2/C3/C6/C9/C10，摘入口形接线即红）
+[PASS] W3 N-2 常驻：多行字面拼命令行 → 2 且报因=多行/长参（删 lint 调用即红）
+[PASS] R2-1 载入 fail-closed：缺 shared 件经挂载壳 → 2（一律拒发，出口无 1）
+[PASS] R2-2 载入 fail-closed：报因含载入失败（判据件缺失不静默）
+[FAIL] E1 红探：全放行账本下事故名仍被入名闸拒（删校验即红） | actual=ng=refuse cg=error
+[PASS] E2 红探：缺账本 → error（fail-closed 拒）
+============================================================
+SELFTEST SUMMARY: PASS=61 FAIL=26

@@ -1,0 +1,10 @@
+{
+  "command": [
+    "node",
+    "tests/smooth/verify-deploy.mjs",
+    "docs/tasks/T1128-SMOOTH/sol-s5/no-md5.json",
+    "D:\\claude-tmp\\thoradar-s5-no-md5-330c8edb6a8b4c22a7dfd88b5a33320c.yml"
+  ],
+  "removed": " || md5 != expected",
+  "exitCode": 1
+}

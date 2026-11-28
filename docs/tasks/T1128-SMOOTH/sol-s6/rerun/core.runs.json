@@ -1,0 +1,73 @@
+[
+  {
+    "name": "deploy",
+    "command": [
+      "node",
+      "tests/smooth/verify-deploy.mjs",
+      "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\.t1128-s6-worktree\\docs\\tasks\\T1128-SMOOTH\\sol-s6\\rerun\\deploy.json"
+    ],
+    "exitCode": 0,
+    "cwd": "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\.t1128-s6-worktree",
+    "XREV_SCRATCH": "D:\\claude-tmp\\thoradar-s6-core-tyc2m4ts.nyr"
+  },
+  {
+    "name": "source-local",
+    "command": [
+      "node",
+      "tests/smooth/verify-source.mjs",
+      "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\.t1128-s6-worktree\\docs\\tasks\\T1128-SMOOTH\\sol-s6\\rerun\\source-local.json"
+    ],
+    "exitCode": 0,
+    "cwd": "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\.t1128-s6-worktree",
+    "XREV_SCRATCH": "D:\\claude-tmp\\thoradar-s6-core-tyc2m4ts.nyr"
+  },
+  {
+    "name": "s1",
+    "command": [
+      "node",
+      "tests/smooth/verify-s1.mjs",
+      "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\.t1128-s6-worktree\\docs\\tasks\\T1128-SMOOTH\\sol-s6\\rerun\\s1.json"
+    ],
+    "exitCode": 0,
+    "cwd": "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\.t1128-s6-worktree",
+    "XREV_SCRATCH": "D:\\claude-tmp\\thoradar-s6-core-tyc2m4ts.nyr"
+  },
+  {
+    "name": "s2",
+    "command": [
+      "node",
+      "tests/smooth/verify-s2.mjs",
+      "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\.t1128-s6-worktree\\docs\\tasks\\T1128-SMOOTH\\sol-s6\\rerun\\s2.json"
+    ],
+    "exitCode": 0,
+    "cwd": "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\.t1128-s6-worktree",
+    "XREV_SCRATCH": "D:\\claude-tmp\\thoradar-s6-core-tyc2m4ts.nyr"
+  },
+  {
+    "name": "s3",
+    "command": [
+      "node",
+      "tests/smooth/verify-s3.mjs",
+      "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\.t1128-s6-worktree\\docs\\tasks\\T1128-SMOOTH\\sol-s6\\rerun\\s3.json"
+    ],
+    "exitCode": 0,
+    "cwd": "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\.t1128-s6-worktree",
+    "XREV_SCRATCH": "D:\\claude-tmp\\thoradar-s6-core-tyc2m4ts.nyr"
+  },
+  {
+    "name": "ux-local",
+    "command": [
+      "node",
+      "tests/ux/ux_probe.mjs",
+      "--target",
+      "index.html",
+      "--base",
+      "73dd34e",
+      "--label",
+      "s6-local-rerun"
+    ],
+    "exitCode": 0,
+    "cwd": "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\.t1128-s6-worktree",
+    "XREV_SCRATCH": "D:\\claude-tmp\\thoradar-s6-core-tyc2m4ts.nyr"
+  }
+]

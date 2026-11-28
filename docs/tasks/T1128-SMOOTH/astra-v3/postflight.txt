@@ -1,0 +1,87 @@
+2026-11-28T13:04:53.8293519+08:00
+
+Name         Length
+----         ------
+index.html   539012
+sw.js          5846
+sw-retire.js    832
+
+
+
+Path : D:\trackeep\trackeep-product\trackeep-thoradar-neon-v1\index.html
+Hash : 33C50BEF723B0A3F32B51BC2D5927FF4391BB58EB474996F1A7D9DFF96BC1DEF
+
+
+Comparing files D:\TRACKEEP\TRACKEEP-PRODUCT\TRACKEEP-THORADAR-NEON-V1\index.html and D:\TRACKEEP\TRACKEEP-PRODUCT\TRACKEEP-THORADAR-SMOOTH-T1128\INDEX.HTML
+FC: no differences encountered
+
+fc.exit=0
+
+Path : D:\trackeep\trackeep-product\trackeep-thoradar-neon-v1\sw.js
+Hash : E882E9E2EEF0BF36781B8B03ECEC23EB81221FA8B33272CDC9DE3E368F76394F
+
+
+Comparing files D:\TRACKEEP\TRACKEEP-PRODUCT\TRACKEEP-THORADAR-NEON-V1\sw.js and D:\TRACKEEP\TRACKEEP-PRODUCT\TRACKEEP-THORADAR-SMOOTH-T1128\SW.JS
+FC: no differences encountered
+
+fc.exit=0
+
+Path : D:\trackeep\trackeep-product\trackeep-thoradar-neon-v1\sw-retire.js
+Hash : 5AE38F2BA965F4E1B1D340DA2BA5FADD8B58AF82A1E271A02DDFF97AB5686199
+
+
+Comparing files D:\TRACKEEP\TRACKEEP-PRODUCT\TRACKEEP-THORADAR-NEON-V1\sw-retire.js and D:\TRACKEEP\TRACKEEP-PRODUCT\TRACKEEP-THORADAR-SMOOTH-T1128\SW-RETIRE.JS
+FC: no differences encountered
+
+fc.exit=0
+
+Path : D:\trackeep\trackeep-product\trackeep-thoradar-neon-v1\tests\smooth\verify-s3.mjs
+Hash : 02CB18422E04E2847245BD79B22E5CC117A3F930E724D5D0192DE63CE9EAC705
+
+
+Comparing files D:\TRACKEEP\TRACKEEP-PRODUCT\TRACKEEP-THORADAR-NEON-V1\TESTS\SMOOTH\verify-s3.mjs and D:\TRACKEEP\TRACKEEP-PRODUCT\TRACKEEP-THORADAR-SMOOTH-T1128\TESTS\SMOOTH\VERIFY-S3.MJS
+FC: no differences encountered
+
+fc.exit=0
+
+Path : D:\trackeep\trackeep-product\trackeep-thoradar-neon-v1\tests\smooth\verify-s1.mjs
+Hash : 6C93EDEBE199B9D502E72D42B729BC2DC96EE313307B6341FD5FA92F85C84DC4
+
+
+Comparing files D:\TRACKEEP\TRACKEEP-PRODUCT\TRACKEEP-THORADAR-NEON-V1\TESTS\SMOOTH\verify-s1.mjs and D:\TRACKEEP\TRACKEEP-PRODUCT\TRACKEEP-THORADAR-SMOOTH-T1128\TESTS\SMOOTH\VERIFY-S1.MJS
+FC: no differences encountered
+
+fc.exit=0
+
+Path : D:\trackeep\trackeep-product\trackeep-thoradar-neon-v1\tests\smooth\verify-s2.mjs
+Hash : 9266FC7518314073D3694D809CCA0E7C6E057DAA2C7FCB80BDB0D2A7D460EA48
+
+
+Comparing files D:\TRACKEEP\TRACKEEP-PRODUCT\TRACKEEP-THORADAR-NEON-V1\TESTS\SMOOTH\verify-s2.mjs and D:\TRACKEEP\TRACKEEP-PRODUCT\TRACKEEP-THORADAR-SMOOTH-T1128\TESTS\SMOOTH\VERIFY-S2.MJS
+FC: no differences encountered
+
+fc.exit=0
+
+Path : D:\trackeep\trackeep-product\trackeep-thoradar-neon-v1\tests\ux\ux_probe.mjs
+Hash : 07184C836A0999E4258A16DCB1647394A69850A9E11593AE71F87CF7D14E141E
+
+
+Comparing files D:\TRACKEEP\TRACKEEP-PRODUCT\TRACKEEP-THORADAR-NEON-V1\TESTS\UX\ux_probe.mjs and D:\TRACKEEP\TRACKEEP-PRODUCT\TRACKEEP-THORADAR-SMOOTH-T1128\TESTS\UX\UX_PROBE.MJS
+FC: no differences encountered
+
+fc.exit=0
+
+Path : D:\trackeep\trackeep-product\trackeep-thoradar-neon-v1\tests\neon-v2-verify.mjs
+Hash : B4EBC7CC7AD5A4F49EFF067CDB01CE48D514E75322B623A2ACCF2036C48B4FC5
+
+Path : D:\trackeep\trackeep-product\trackeep-thoradar-neon-v1\astra-v3\neon-v2-s4.mjs
+Hash : 5EB0D78289BCBBC36E05D0FCEF84A481228D7FEE512FDA3E1FCA73F5B95EEED1
+
+
+ M index.html
+?? astra-v3/
+?? sw-retire.js
+?? sw.js
+?? tests/neon-v1-verify.mjs
+?? tests/neon-v2-verify.mjs
+?? tests/smooth/

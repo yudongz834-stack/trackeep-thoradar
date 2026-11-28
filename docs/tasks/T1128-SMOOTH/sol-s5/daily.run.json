@@ -1,0 +1,31 @@
+{
+  "daily": "28131f314f92a05227fd5923607d717c426da2c5",
+  "gateBase": "73dd34e",
+  "runs": [
+    {
+      "name": "source",
+      "command": [
+        "node",
+        "tests/smooth/verify-source.mjs",
+        "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\docs\\tasks\\T1128-SMOOTH\\sol-s5\\daily-source.json"
+      ],
+      "exitCode": 1
+    },
+    {
+      "name": "ux",
+      "command": [
+        "node",
+        "tests/ux/ux_probe.mjs",
+        "--target",
+        "index.html",
+        "--base",
+        "73dd34e",
+        "--label",
+        "s5-daily"
+      ],
+      "exitCode": 1
+    }
+  ],
+  "candidateDate": "2026-11-27",
+  "dailyDate": "2026-11-28"
+}

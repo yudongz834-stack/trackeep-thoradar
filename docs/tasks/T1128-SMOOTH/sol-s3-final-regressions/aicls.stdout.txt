@@ -1,0 +1,4 @@
+aicls regress | Chrome/158.0.8127.88 | target=D:\trackeep\trackeep-product\trackeep-thoradar-smooth-T1128\index.html（sha256=33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def）| baseline=73dd34e（LF 件 sha256=19a5c27e68b63ae37a419e5c1849e9436da2953462952bc6d4240b8c0dcc1470）| label=sols2
+PASS R00 既有文案逐键不变（静态）：基线中英两表的每个键在施工后件里同名同值，仅白名单键除外；施工后新增键单列
+     · zh：基线 457 键｜施工后 457 键｜白名单内有意改动 无｜白名单外被改 0｜被删 0｜新增 0
+     · en：基线 457 键｜施工后 457 键｜白名单内有意改动 无｜白名单外被改 0｜被删 0｜新增 0

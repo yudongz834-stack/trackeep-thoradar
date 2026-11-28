@@ -1,0 +1,30 @@
+{
+  "parent": "6cc15075165b7932e5b5d50184eefd2619fe47f3",
+  "current": "bbd95eb0a0569f30f678ef8ed1f6d9e54351de70",
+  "expected": "16ff94f45ce4e27e0376be438e57eb8e1dfb721e38fb43bd7aae520d090c3835",
+  "prepared": "16ff94f45ce4e27e0376be438e57eb8e1dfb721e38fb43bd7aae520d090c3835",
+  "currentAsBaseline": "275de4ac5ba98efc4de403834499e6aadc3c81a45ecece18261f13b79e788172",
+  "oldBlock": "6d4a6663ea7089502f6115f206b3ee48663a43f4768ae4fee19f72c69523dc31",
+  "newBlock": "1b624d90aeaa7aee5684457c2781db377f2e4be0e3e8ed9fff96f3bee4c47653",
+  "parentWitnessInBaseline": true,
+  "parentWitnessInTarget": false,
+  "paths": [
+    "api/v1/daily.json",
+    "data/archive/2026-11-28.json",
+    "data/circuit_state.json",
+    "data/daily_briefing_2026-11-28.md",
+    "data/journal_health.json",
+    "data/prescreen_rejected/2026-11-28.json",
+    "data/push_log.json",
+    "data/radar_latest.json",
+    "data/regression/report.json",
+    "data/scope_gate_shadow.json",
+    "data/seen_dois.json",
+    "data/seen_pmids.json",
+    "data/status.json",
+    "data/toc_checkpoint.json",
+    "feed.xml",
+    "index.html"
+  ],
+  "identicalNonHtmlBlobs": 15
+}

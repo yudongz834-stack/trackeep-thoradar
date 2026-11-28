@@ -1,0 +1,8 @@
+{
+  "exitCode": 0,
+  "command": [
+    "python",
+    "-c",
+    "import yaml; from pathlib import Path; d = yaml.load(Path(\".github/workflows/deploy_oss.yml\").read_text(encoding=\"utf-8\"), Loader=yaml.BaseLoader); assert set(d[\"on\"]) == {\"workflow_dispatch\", \"workflow_run\"}; print(\"YAML parsed:\", list(d[\"jobs\"])); print(\"deploy-oss needs:\", d[\"jobs\"][\"deploy-oss\"][\"needs\"])"
+  ]
+}

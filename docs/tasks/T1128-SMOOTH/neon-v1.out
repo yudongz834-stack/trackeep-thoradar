@@ -1,0 +1,19 @@
+DELIVERY-T1128-SMOOTH-V1
+我对胸科雷达首页缓存本机候选执行了独立哈希核验、核心与 UX 重跑、四类异常对抗查错、三项内存负对照及 R08 原始证据判读，并交付了复核报告与全部原始输出。
+
+**干了什么**　核验独立树与被审树三件 SHA-256 与任务书一致后，亲自重跑 S1（9/9）、S2（24/24）、UX 原脚本（46/46），自建 Chrome/CDP 异常对抗与负对照脚本实测 3 类必测异常（全过）、1 类空标记坏壳（揪出缓存污染实测缺口）、白名单绕过/域名门禁（全过）与 3 项内存负对照（3/3 变红），并完成 AICLS/POOLUP R08 源码与原始日志判读。  
+**PI 怎么亲手验**　打开 [neon-v1-verify.stdout.txt](file:///D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v1/neon-v1-verify.stdout.txt)，确认前 3 行必测异常均 `PASS` 且原哈希 `33c50bef...` 未变，第 4 行 `FAIL adversarial-empty-markers-stub` 实证 156 字节空标记坏壳覆盖了 539KB 健康缓存，第 6–8 行三项负对照均 `RED-CAUGHT`。  
+**还剩什么坑**　存在两项阻断未清：① `sw.js` 的 `fetchShell` 未校验标记间存在有效 `SITE_DATA`，156 字节空标记坏壳可覆盖健康缓存导致下次导航 0 信号；② 受 11:41:06 硬预算及 `run-regressions.mjs` 在新工作树缺父目录报 `ENOENT` 限制，AICLS 与 POOLUP 两套回归未在本复核树独立重跑，且两者 R08 仍为测试失真未验。
+
+### 复核结论与阻断项
+- **结论**：**部分复核**（详单见 [report.md](file:///D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v1/report.md)）
+- **阻断项 1（高危·违反合同不变量 4）**：`sw.js:16-20` 仅校验 `DATA_START` 在 `DATA_END` 前与 `</html>` 结尾，不校验标记间存在合法 `SITE_DATA`。实测 HTTP 200 `text/html` 的 156 字节空标记壳覆写健康缓存（`33c50bef...` → `11e2ff0a...`），横幅误报「有新版，下次打开生效」，下次导航从 `cache-storage` 渲染出 `date: null, points: 0, banner: null`（见 [neon-v1-verify.json](file:///D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v1/neon-v1-verify.json)）。
+- **阻断项 2（未独立复跑 + R08 判读）**：`tests/smooth/run-regressions.mjs:12` 调用 `mkdir(directory)` 未传 `{ recursive: true }` 致 `ENOENT`（见 [run-regressions.stderr.txt](file:///D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v1/run-regressions.stderr.txt)），触达 11:41:06 硬预算未独立完成 AICLS/POOLUP 重跑。经核 `aicls_regress.mjs:90-92,135`、`poolup_regress.mjs:90-92,135` 与 S2 原始日志，R08 失败源于 `WORDPICK` 忽略 R07b 的 `state.quick`（选词 `Mortality` 在基线与候选两边均为 `list: 0, noQuery: 1`），属于**测试失真＋该步未验**（非产品差异），不可将 39/40 记为产品全绿。
+- **其余低危发现**：缓存未命中且 SW 受控时存在双源站全量 HTML 请求及短暂状态误闪（`sw.js:81-99`）；`run-regressions.mjs` 缺 `{ recursive: true }`。
+
+### 证据落点
+- 完整复核报告：[report.md](file:///D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v1/report.md)
+- 自建独立对抗与负对照脚本及输出：[neon-v1-verify.mjs](file:///D:/trackeep/trackeep-product/trackeep-thoradar-neon-v1/tests/neon-v1-verify.mjs) · [neon-v1-verify.json](file:///D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v1/neon-v1-verify.json) · [neon-v1-verify.stdout.txt](file:///D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v1/neon-v1-verify.stdout.txt)
+- 亲自重跑原始证据：[verify-s1.json](file:///D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v1/verify-s1.json)（9/9） · [verify-s2.json](file:///D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v1/verify-s2.json)（24/24） · [ux_probe.stdout.txt](file:///D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v1/ux_probe.stdout.txt)（46/46） · [index-diff.patch](file:///D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v1/index-diff.patch)
+
+DELIVERY-T1128-SMOOTH-V1

@@ -1,0 +1,724 @@
+{
+  "source": "Worktree index.html and sw.js served over loopback to Google Chrome via CDP",
+  "startedAt": "2026-11-28T07:17:34.898Z",
+  "baselineCommit": "73dd34e65fce6661d74e595afc03df68e7d3f44f",
+  "environment": {
+    "os": "Windows 11 Pro",
+    "release": "10.0.26300",
+    "arch": "x64",
+    "node": "v24.14.0",
+    "chrome": {
+      "protocolVersion": "1.3",
+      "product": "Chrome/158.0.8127.88",
+      "revision": "@0cefb18236a23db1ebb6b2bc040fbbaf8cbe759e",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/158.0.0.0 Safari/537.36",
+      "jsVersion": "15.8.62.31"
+    }
+  },
+  "runs": 1,
+  "mutation": "none",
+  "checks": [
+    {
+      "name": "native-default-zero-registrations-and-caches",
+      "pass": true,
+      "detail": {
+        "response": {
+          "type": "Document",
+          "loaderId": "52281D31A7A6F191BFA1F2015D558A44",
+          "url": "http://127.0.0.1:61043/index.html",
+          "status": 200,
+          "fromServiceWorker": false,
+          "fromDiskCache": false,
+          "serviceWorkerResponseSource": null
+        },
+        "page": {
+          "url": "http://127.0.0.1:61043/index.html",
+          "date": "2026-11-27",
+          "points": 37,
+          "banner": "",
+          "bannerInViewport": false,
+          "documentId": "37edd1da-0e15-4d48-90ef-c3db4af699b9",
+          "view": "overview",
+          "viewport": [
+            1418,
+            802
+          ],
+          "timeOriginMs": 1795850255595.1,
+          "domContentLoadedMs": 503.4000000001397,
+          "firstContentfulPaintMs": 1400
+        },
+        "storage": {
+          "registrations": 0,
+          "activated": false,
+          "controller": false,
+          "names": [],
+          "paths": [],
+          "cachedDate": null,
+          "complete": null
+        },
+        "nativeWorkerRequests": 0
+      }
+    },
+    {
+      "name": "opt-in-first-open-native-and-install-reloads",
+      "pass": true,
+      "detail": {
+        "response": {
+          "type": "Document",
+          "loaderId": "5A3CB8678852161A169A5F79813F45B3",
+          "url": "http://127.0.0.1:61043/index.html?sw=1",
+          "status": 200,
+          "fromServiceWorker": false,
+          "fromDiskCache": false,
+          "serviceWorkerResponseSource": null
+        },
+        "page": {
+          "url": "http://127.0.0.1:61043/index.html?sw=1",
+          "date": "2026-11-27",
+          "points": 37,
+          "banner": "数据 2026-11-27 · 联网打开",
+          "bannerInViewport": true,
+          "documentId": "6c87010c-5d21-41d7-b235-334772f299d4",
+          "view": "overview",
+          "viewport": [
+            1418,
+            802
+          ],
+          "timeOriginMs": 1795850257028.8,
+          "domContentLoadedMs": 173.9000000001397,
+          "firstContentfulPaintMs": 36
+        },
+        "storage": {
+          "registrations": 1,
+          "activated": true,
+          "controller": false,
+          "names": [
+            "thoradar-shell-v1"
+          ],
+          "paths": [
+            "/index.html"
+          ],
+          "cachedDate": "2026-11-27",
+          "complete": true
+        },
+        "installRequest": {
+          "origin": "site",
+          "method": "GET",
+          "url": "/index.html",
+          "startedAtMs": 1795850257211,
+          "cacheControl": "no-cache",
+          "pragma": "no-cache",
+          "variant": "v1",
+          "delayMs": 0,
+          "finishedAtMs": 1795850257211,
+          "status": 200
+        }
+      }
+    },
+    {
+      "name": "second-open-uses-cache-storage-before-slow-origin",
+      "pass": true,
+      "detail": {
+        "response": {
+          "type": "Document",
+          "loaderId": "3C42D70089962500C9DBD49571CA5497",
+          "url": "http://127.0.0.1:61043/index.html?sw=1",
+          "status": 200,
+          "fromServiceWorker": true,
+          "fromDiskCache": true,
+          "serviceWorkerResponseSource": "cache-storage"
+        },
+        "page": {
+          "url": "http://127.0.0.1:61043/index.html?sw=1",
+          "date": "2026-11-27",
+          "points": 37,
+          "banner": "数据 2026-11-27 · 本地副本 · 核对更新中",
+          "bannerInViewport": true,
+          "documentId": "219bebae-51d3-49a0-b740-d11139478c55",
+          "view": "overview",
+          "viewport": [
+            1418,
+            802
+          ],
+          "timeOriginMs": 1795850257252.4,
+          "domContentLoadedMs": 36.5,
+          "firstContentfulPaintMs": 68
+        },
+        "pendingAtSnapshot": true,
+        "paintAtMs": 1795850257320.4,
+        "refresh": {
+          "origin": "site",
+          "method": "GET",
+          "url": "/index.html?sw=1",
+          "startedAtMs": 1795850257254,
+          "cacheControl": "no-cache",
+          "pragma": "no-cache",
+          "variant": "v2",
+          "delayMs": 1500,
+          "finishedAtMs": 1795850258764,
+          "status": 200
+        }
+      }
+    },
+    {
+      "name": "background-update-keeps-document-and-reading-state",
+      "pass": true,
+      "detail": {
+        "page": {
+          "url": "http://127.0.0.1:61043/index.html?sw=1",
+          "date": "2026-11-27",
+          "points": 37,
+          "banner": "数据 2026-11-27 · 有新版，下次打开生效",
+          "bannerInViewport": true,
+          "documentId": "219bebae-51d3-49a0-b740-d11139478c55",
+          "view": "reading",
+          "viewport": [
+            1418,
+            802
+          ],
+          "timeOriginMs": 1795850257252.4,
+          "domContentLoadedMs": 36.5,
+          "firstContentfulPaintMs": 68
+        },
+        "storage": {
+          "registrations": 1,
+          "activated": true,
+          "controller": true,
+          "names": [
+            "thoradar-shell-v1"
+          ],
+          "paths": [
+            "/index.html"
+          ],
+          "cachedDate": "2026-11-28",
+          "complete": true
+        },
+        "refresh": {
+          "origin": "site",
+          "method": "GET",
+          "url": "/index.html?sw=1",
+          "startedAtMs": 1795850257254,
+          "cacheControl": "no-cache",
+          "pragma": "no-cache",
+          "variant": "v2",
+          "delayMs": 1500,
+          "finishedAtMs": 1795850258764,
+          "status": 200
+        }
+      }
+    },
+    {
+      "name": "third-open-root-uses-v2-and-reports-date-on-mobile",
+      "pass": true,
+      "detail": {
+        "response": {
+          "type": "Document",
+          "loaderId": "15371BEB8D78513EFD83E033A2F85E5B",
+          "url": "http://127.0.0.1:61043/",
+          "status": 200,
+          "fromServiceWorker": true,
+          "fromDiskCache": true,
+          "serviceWorkerResponseSource": "cache-storage"
+        },
+        "page": {
+          "url": "http://127.0.0.1:61043/",
+          "date": "2026-11-28",
+          "points": 37,
+          "banner": "数据 2026-11-28 · 本地副本 · 已核对，与服务器一致",
+          "bannerInViewport": true,
+          "documentId": "5040f740-bd80-46de-8fb4-d75e04d099eb",
+          "view": "overview",
+          "viewport": [
+            390,
+            844
+          ],
+          "timeOriginMs": 1795850258879,
+          "domContentLoadedMs": 128.20000000018626,
+          "firstContentfulPaintMs": 288
+        },
+        "mobile": {
+          "url": "http://127.0.0.1:61043/",
+          "date": "2026-11-28",
+          "points": 37,
+          "banner": "数据 2026-11-28 · 本地副本 · 已核对，与服务器一致",
+          "bannerInViewport": true,
+          "documentId": "5040f740-bd80-46de-8fb4-d75e04d099eb",
+          "view": "overview",
+          "viewport": [
+            390,
+            844
+          ],
+          "timeOriginMs": 1795850258879,
+          "domContentLoadedMs": 128.20000000018626,
+          "firstContentfulPaintMs": 288
+        },
+        "rootRequest": {
+          "origin": "site",
+          "method": "GET",
+          "url": "/",
+          "startedAtMs": 1795850258881,
+          "cacheControl": "no-cache",
+          "pragma": "no-cache",
+          "variant": "v2",
+          "delayMs": 0,
+          "finishedAtMs": 1795850258881,
+          "status": 200
+        }
+      }
+    },
+    {
+      "name": "ai-post-and-cross-origin-fetch-remain-native",
+      "pass": true,
+      "detail": {
+        "mock": {
+          "post": {
+            "result": "local mock"
+          },
+          "cross": "cross-origin local mock"
+        },
+        "postResponse": {
+          "type": "Fetch",
+          "loaderId": "15371BEB8D78513EFD83E033A2F85E5B",
+          "url": "http://127.0.0.1:61043/api/ai-probe",
+          "status": 200,
+          "fromServiceWorker": false,
+          "fromDiskCache": false,
+          "serviceWorkerResponseSource": null
+        },
+        "crossResponse": {
+          "type": "Fetch",
+          "loaderId": "15371BEB8D78513EFD83E033A2F85E5B",
+          "url": "http://127.0.0.1:61044/entrez/probe",
+          "status": 200,
+          "fromServiceWorker": false,
+          "fromDiskCache": false,
+          "serviceWorkerResponseSource": null
+        },
+        "postRequest": {
+          "origin": "site",
+          "method": "POST",
+          "url": "/api/ai-probe",
+          "startedAtMs": 1795850259199,
+          "cacheControl": null,
+          "pragma": null,
+          "bodyBytes": 2,
+          "fakeAuthorizationMatched": true,
+          "status": 200,
+          "finishedAtMs": 1795850259200
+        },
+        "crossRequest": {
+          "origin": "cross",
+          "method": "GET",
+          "url": "/entrez/probe",
+          "status": 200,
+          "startedAtMs": 1795850259202
+        }
+      }
+    },
+    {
+      "name": "truncated-html-cannot-overwrite-healthy-shell",
+      "pass": true,
+      "detail": {
+        "response": {
+          "type": "Document",
+          "loaderId": "2AD6DC7A08DA94A8DD3EA8549A328D23",
+          "url": "http://127.0.0.1:61043/index.html",
+          "status": 200,
+          "fromServiceWorker": true,
+          "fromDiskCache": true,
+          "serviceWorkerResponseSource": "cache-storage"
+        },
+        "page": {
+          "url": "http://127.0.0.1:61043/index.html",
+          "date": "2026-11-28",
+          "points": 37,
+          "banner": "数据 2026-11-28 · 本地副本 · 暂未核实更新",
+          "bannerInViewport": true,
+          "documentId": "19772181-1709-43a2-8beb-059839fb5c8b",
+          "view": "overview",
+          "viewport": [
+            390,
+            844
+          ],
+          "timeOriginMs": 1795850259220.7,
+          "domContentLoadedMs": 159.0999999998603,
+          "firstContentfulPaintMs": 92
+        },
+        "storage": {
+          "registrations": 1,
+          "activated": true,
+          "controller": true,
+          "names": [
+            "thoradar-shell-v1"
+          ],
+          "paths": [
+            "/index.html"
+          ],
+          "cachedDate": "2026-11-28",
+          "complete": true
+        },
+        "badRequest": {
+          "origin": "site",
+          "method": "GET",
+          "url": "/index.html",
+          "startedAtMs": 1795850259224,
+          "cacheControl": "no-cache",
+          "pragma": "no-cache",
+          "variant": "truncated",
+          "delayMs": 0,
+          "finishedAtMs": 1795850259224,
+          "status": 200
+        }
+      }
+    },
+    {
+      "name": "query-opt-out-clears-only-shell-caches-and-returns-to-network",
+      "pass": true,
+      "detail": {
+        "exit": {
+          "response": {
+            "type": "Document",
+            "loaderId": "4FFACD8E1A97DA59EBF5796AAA3C75BB",
+            "url": "http://127.0.0.1:61043/?sw=0",
+            "status": 200,
+            "fromServiceWorker": false,
+            "fromDiskCache": false,
+            "serviceWorkerResponseSource": null
+          },
+          "page": {
+            "url": "http://127.0.0.1:61043/?sw=0",
+            "date": "2026-11-28",
+            "points": 37,
+            "banner": "数据 2026-11-28 · 本地副本已停用",
+            "bannerInViewport": true,
+            "documentId": "06a34288-27b0-4653-a3fb-d7ff6590daad",
+            "view": "overview",
+            "viewport": [
+              390,
+              844
+            ],
+            "timeOriginMs": 1795850259459.4,
+            "domContentLoadedMs": 102.80000000004657,
+            "firstContentfulPaintMs": 132
+          }
+        },
+        "cleared": {
+          "registrations": 0,
+          "activated": false,
+          "controller": true,
+          "names": [
+            "sol-s1-unrelated"
+          ],
+          "paths": [],
+          "cachedDate": null,
+          "complete": null
+        },
+        "afterExit": {
+          "response": {
+            "type": "Document",
+            "loaderId": "783707C8CD4715B1C14710A82EDE74FE",
+            "url": "http://127.0.0.1:61043/",
+            "status": 200,
+            "fromServiceWorker": false,
+            "fromDiskCache": false,
+            "serviceWorkerResponseSource": null
+          },
+          "page": {
+            "url": "http://127.0.0.1:61043/",
+            "date": "2026-11-28",
+            "points": 37,
+            "banner": "",
+            "bannerInViewport": false,
+            "documentId": "91d112ec-abbc-459b-9b06-80e902398cb2",
+            "view": "overview",
+            "viewport": [
+              390,
+              844
+            ],
+            "timeOriginMs": 1795850259649.9,
+            "domContentLoadedMs": 94.19999999995343,
+            "firstContentfulPaintMs": 112
+          }
+        },
+        "finalStorage": {
+          "registrations": 0,
+          "activated": false,
+          "controller": false,
+          "names": [
+            "sol-s1-unrelated"
+          ],
+          "paths": [],
+          "cachedDate": null,
+          "complete": null
+        }
+      }
+    },
+    {
+      "name": "no-uncaught-page-errors",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "requests": [
+    {
+      "origin": "site",
+      "method": "GET",
+      "url": "/index.html",
+      "startedAtMs": 1795850255597,
+      "cacheControl": null,
+      "pragma": null,
+      "variant": "v1",
+      "delayMs": 0,
+      "finishedAtMs": 1795850255598,
+      "status": 200
+    },
+    {
+      "origin": "site",
+      "method": "GET",
+      "url": "/index.html?sw=1",
+      "startedAtMs": 1795850257029,
+      "cacheControl": null,
+      "pragma": null,
+      "variant": "v1",
+      "delayMs": 0,
+      "finishedAtMs": 1795850257029,
+      "status": 200
+    },
+    {
+      "origin": "site",
+      "method": "GET",
+      "url": "/sw.js",
+      "startedAtMs": 1795850257203,
+      "cacheControl": "max-age=0",
+      "pragma": null,
+      "status": 200,
+      "finishedAtMs": 1795850257203
+    },
+    {
+      "origin": "site",
+      "method": "GET",
+      "url": "/index.html",
+      "startedAtMs": 1795850257211,
+      "cacheControl": "no-cache",
+      "pragma": "no-cache",
+      "variant": "v1",
+      "delayMs": 0,
+      "finishedAtMs": 1795850257211,
+      "status": 200
+    },
+    {
+      "origin": "site",
+      "method": "GET",
+      "url": "/index.html?sw=1",
+      "startedAtMs": 1795850257254,
+      "cacheControl": "no-cache",
+      "pragma": "no-cache",
+      "variant": "v2",
+      "delayMs": 1500,
+      "finishedAtMs": 1795850258764,
+      "status": 200
+    },
+    {
+      "origin": "site",
+      "method": "GET",
+      "url": "/",
+      "startedAtMs": 1795850258881,
+      "cacheControl": "no-cache",
+      "pragma": "no-cache",
+      "variant": "v2",
+      "delayMs": 0,
+      "finishedAtMs": 1795850258881,
+      "status": 200
+    },
+    {
+      "origin": "site",
+      "method": "GET",
+      "url": "/sw.js",
+      "startedAtMs": 1795850258972,
+      "cacheControl": "max-age=0",
+      "pragma": null,
+      "status": 200,
+      "finishedAtMs": 1795850258973
+    },
+    {
+      "origin": "site",
+      "method": "POST",
+      "url": "/api/ai-probe",
+      "startedAtMs": 1795850259199,
+      "cacheControl": null,
+      "pragma": null,
+      "bodyBytes": 2,
+      "fakeAuthorizationMatched": true,
+      "status": 200,
+      "finishedAtMs": 1795850259200
+    },
+    {
+      "origin": "cross",
+      "method": "GET",
+      "url": "/entrez/probe",
+      "status": 200,
+      "startedAtMs": 1795850259202
+    },
+    {
+      "origin": "site",
+      "method": "GET",
+      "url": "/index.html",
+      "startedAtMs": 1795850259224,
+      "cacheControl": "no-cache",
+      "pragma": "no-cache",
+      "variant": "truncated",
+      "delayMs": 0,
+      "finishedAtMs": 1795850259224,
+      "status": 200
+    },
+    {
+      "origin": "site",
+      "method": "GET",
+      "url": "/?sw=0",
+      "startedAtMs": 1795850259461,
+      "cacheControl": null,
+      "pragma": null,
+      "variant": "v2",
+      "delayMs": 0,
+      "finishedAtMs": 1795850259461,
+      "status": 200
+    },
+    {
+      "origin": "site",
+      "method": "GET",
+      "url": "/",
+      "startedAtMs": 1795850259651,
+      "cacheControl": null,
+      "pragma": null,
+      "variant": "v2",
+      "delayMs": 0,
+      "finishedAtMs": 1795850259651,
+      "status": 200
+    }
+  ],
+  "browserErrors": [],
+  "sha256": {
+    "index.html": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def",
+    "sw.js": "e882e9e2eef0bf36781b8b03ecec23eb81221fa8b33272cdc9de3e368f76394f",
+    "tests/smooth/verify-s1.mjs": "6c93edebe199b9d502e72d42b729bc2dc96ee313307b6341fd5fa92f85c84dc4"
+  },
+  "fixtures": {
+    "v1": {
+      "date": "2026-11-27",
+      "sha256": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def",
+      "bytes": 539012
+    },
+    "v2": {
+      "date": "2026-11-28",
+      "sha256": "e83acf8ff52b04fef144cad2dd763ee1d3ff94c0c0ac315634394fb87c11403b",
+      "bytes": 539012
+    },
+    "truncated": {
+      "date": "2026-11-29",
+      "sha256": "e2a613ccec3531a89d77c30b211e3eb197aa0c00fe1c73f1905982f6a464a9f7",
+      "bytes": 539003
+    }
+  },
+  "servedWorkerSha256": "e882e9e2eef0bf36781b8b03ecec23eb81221fa8b33272cdc9de3e368f76394f",
+  "origins": {
+    "origin": "http://127.0.0.1:61043",
+    "crossOrigin": "http://127.0.0.1:61044"
+  },
+  "cleanup": {
+    "browserPid": 24084,
+    "exit": {
+      "code": 0,
+      "signal": null
+    },
+    "forced": false,
+    "profileRemoved": true
+  },
+  "endedAt": "2026-11-28T07:17:40.559Z",
+  "summary": {
+    "passed": 9,
+    "failed": 0
+  },
+  "network": [
+    {
+      "type": "Document",
+      "loaderId": "52281D31A7A6F191BFA1F2015D558A44",
+      "url": "http://127.0.0.1:61043/index.html",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false,
+      "serviceWorkerResponseSource": null
+    },
+    {
+      "type": "Document",
+      "loaderId": "5A3CB8678852161A169A5F79813F45B3",
+      "url": "http://127.0.0.1:61043/index.html?sw=1",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false,
+      "serviceWorkerResponseSource": null
+    },
+    {
+      "type": "Document",
+      "loaderId": "3C42D70089962500C9DBD49571CA5497",
+      "url": "http://127.0.0.1:61043/index.html?sw=1",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": true,
+      "serviceWorkerResponseSource": "cache-storage"
+    },
+    {
+      "type": "Document",
+      "loaderId": "15371BEB8D78513EFD83E033A2F85E5B",
+      "url": "http://127.0.0.1:61043/",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": true,
+      "serviceWorkerResponseSource": "cache-storage"
+    },
+    {
+      "type": "Fetch",
+      "loaderId": "15371BEB8D78513EFD83E033A2F85E5B",
+      "url": "http://127.0.0.1:61043/api/ai-probe",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false,
+      "serviceWorkerResponseSource": null
+    },
+    {
+      "type": "Fetch",
+      "loaderId": "15371BEB8D78513EFD83E033A2F85E5B",
+      "url": "http://127.0.0.1:61044/entrez/probe",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false,
+      "serviceWorkerResponseSource": null
+    },
+    {
+      "type": "Document",
+      "loaderId": "2AD6DC7A08DA94A8DD3EA8549A328D23",
+      "url": "http://127.0.0.1:61043/index.html",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": true,
+      "serviceWorkerResponseSource": "cache-storage"
+    },
+    {
+      "type": "Document",
+      "loaderId": "4FFACD8E1A97DA59EBF5796AAA3C75BB",
+      "url": "http://127.0.0.1:61043/?sw=0",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false,
+      "serviceWorkerResponseSource": null
+    },
+    {
+      "type": "Document",
+      "loaderId": "783707C8CD4715B1C14710A82EDE74FE",
+      "url": "http://127.0.0.1:61043/",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false,
+      "serviceWorkerResponseSource": null
+    }
+  ]
+}

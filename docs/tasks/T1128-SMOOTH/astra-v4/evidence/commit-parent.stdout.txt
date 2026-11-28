@@ -1,0 +1,13 @@
+[detached HEAD 6cc1507] A4 isolated parent with November 27 data and shell witness
+ 14 files changed, 2201 insertions(+), 39 deletions(-)
+ create mode 100644 sw-retire.js
+ create mode 100644 sw.js
+ create mode 100644 tests/smooth/deploy-mock.mjs
+ create mode 100644 tests/smooth/official-data.mjs
+ create mode 100644 tests/smooth/prepare-ci-ux-baseline.mjs
+ create mode 100644 tests/smooth/run-regressions.mjs
+ create mode 100644 tests/smooth/verify-deploy.mjs
+ create mode 100644 tests/smooth/verify-s1.mjs
+ create mode 100644 tests/smooth/verify-s2.mjs
+ create mode 100644 tests/smooth/verify-s3.mjs
+ create mode 100644 tests/smooth/verify-source.mjs

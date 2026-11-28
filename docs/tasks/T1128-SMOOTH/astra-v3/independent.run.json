@@ -1,0 +1,470 @@
+{
+  "name": "independent",
+  "cwd": "D:\\trackeep\\trackeep-product\\trackeep-thoradar-neon-v1\\tests",
+  "argv": [
+    "C:\\Program Files\\nodejs\\node.EXE",
+    "--input-type=module",
+    "-",
+    "D:\\trackeep\\trackeep-product\\trackeep-thoradar-neon-v1\\astra-v3\\independent.json"
+  ],
+  "stdin": "D:\\trackeep\\trackeep-product\\trackeep-thoradar-neon-v1\\astra-v3\\neon-v2-s4.mjs",
+  "started": "2026-11-28T05:00:17.282449+00:00",
+  "observedChrome": [
+    {
+      "pid": 47212,
+      "parent": 56432,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842018.7859013,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "browser",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 18156,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842019.166446,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=crashpad-handler",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 45860,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842019.9116807,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=gpu-process",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 49500,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842020.8122973,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=utility",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 42200,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842020.8821764,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=utility",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 9428,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842020.884699,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 59708,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842020.8871987,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 63020,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842020.8919928,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 67604,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842020.8944457,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 54072,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842020.8969648,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 54336,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842020.8996172,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 53480,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842020.901942,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 49732,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842020.9046657,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 9728,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842020.9071229,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 7900,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842025.0560975,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 51416,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842025.0584433,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 57864,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842025.0610576,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 26720,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842025.068126,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 38808,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842026.8213913,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 69256,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842026.83477,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 53800,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842026.8349867,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 48500,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842026.863305,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 48768,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842028.7002244,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 38524,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842028.7070272,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 37852,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842028.7072024,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 33840,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842028.7347896,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 63360,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842029.8948307,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 68612,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842029.9124289,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 62880,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842029.9198785,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 77188,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842029.9301124,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 49596,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842031.6833694,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 63580,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842031.688527,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 56996,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842031.7064283,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 30284,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842032.1242962,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 12416,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842033.1471431,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 52492,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842033.482451,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 6796,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842033.4961252,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 57988,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842033.508376,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 77368,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842035.2652853,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 64516,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842035.2678912,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 55152,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842035.271293,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 53772,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842035.2743933,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 29064,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842036.4219697,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 32452,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842036.424608,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 69816,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842036.4290028,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 40436,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842036.4319487,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 30844,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842037.6079578,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 21416,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842037.6088562,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 49876,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842037.6148684,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 16228,
+      "parent": 47212,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842037.6156802,
+      "profile": "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    }
+  ],
+  "nodePid": 56432,
+  "exit": 0,
+  "profileExistsAfter": {
+    "D:\\claude-tmp\\thoradar-neon-v2-1hXs2N": false
+  },
+  "ended": "2026-11-28T05:00:42.731010+00:00"
+}

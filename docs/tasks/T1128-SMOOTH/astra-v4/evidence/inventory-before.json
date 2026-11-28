@@ -1,0 +1,28 @@
+{
+  "hashes": {
+    "index.html": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706",
+    "sw.js": "e882e9e2eef0bf36781b8b03ecec23eb81221fa8b33272cdc9de3e368f76394f",
+    "sw-retire.js": "5ae38f2ba965f4e1b1d340da2ba5fadd8b58af82a1e271a02ddff97ab5686199",
+    ".github/workflows/deploy_oss.yml": "8dba459122bc2a7e42040fc493eb03146170989fbcfb88b6b383f5ff38485790",
+    ".github/workflows/daily_thoradar.yml": "5742c03dad8c1ac579536d1fd2ee1e74d3ef0e469dd6cba489e6076f97cbc417",
+    "tests/aicls/lib.mjs": "2fe1e1c7ee5feae954355dead5ab3c93a1d9a1d8bc9d7a849c97e749eb3f7570",
+    "tests/ux/ux_probe.mjs": "ba20380b681b288913647023c3a8fbb4e01c75dfb8cd83b650c466677d8b4f66",
+    "tests/smooth/deploy-mock.mjs": "069a166a465069d1e6407f804995fbb0496c3751a96b2ed6e806a9085180c4d1",
+    "tests/smooth/official-data.mjs": "62cc0192cf451c5fc13092182891e39f246c9531bcbb18be74821d42b7dfe4d3",
+    "tests/smooth/prepare-ci-ux-baseline.mjs": "a39a74a17b52a43c424d63ef5250ae932503852427c8edcb62623cd4fc1109f4",
+    "tests/smooth/run-regressions.mjs": "ddaf9a9b81c428244c485855ef2545035ce5dbfa586eefbaf8b596b15dbe3d6c",
+    "tests/smooth/verify-deploy.mjs": "00b90dcc6dacded12f00527791dec9440d5dd0c31a51ab9d2a04280f136f74e7",
+    "tests/smooth/verify-s1.mjs": "6c93edebe199b9d502e72d42b729bc2dc96ee313307b6341fd5fa92f85c84dc4",
+    "tests/smooth/verify-s2.mjs": "9266fc7518314073d3694d809cca0e7c6e057daa2c7fcb80bdb0d2a7d460ea48",
+    "tests/smooth/verify-s3.mjs": "02cb18422e04e2847245bd79b22e5cc117a3f930e724d5d0192de63ce9eac705",
+    "tests/smooth/verify-source.mjs": "eed657da7a58acc360ec9871846d65d9ec8b56f2929b7b44e6077d49f86d983d"
+  },
+  "head": "28131f314f92a05227fd5923607d717c426da2c5",
+  "briefingDate": "2026-11-28",
+  "count": 43,
+  "platform": "Windows-11-10.0.26300-SP0",
+  "node": "v24.14.0",
+  "git": "git version 2.53.0.windows.2",
+  "python": "3.13.15",
+  "chrome": "158.0.8127.88"
+}

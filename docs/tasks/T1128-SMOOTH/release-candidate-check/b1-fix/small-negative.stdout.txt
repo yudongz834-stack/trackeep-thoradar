@@ -1,0 +1,11 @@
+ux probe | Chrome/158.0.8127.88 | page=/index.html（受测件 D:\claude-tmp\T1128-b1-negative\index.html）| judge=true | label=b1-small-negative
+页面概况：{"ready":"true","papers":2,"anchor":"2026-11-02","lang":"zh","site":"2026-11-02","degraded":0,"hasToggle":true}
+  [阅读可达性] 首屏条目 1/2，按钮「显示其余 1 篇」→ 展开 2/2｜少篇日报末篇 pmid_42964587 点击后 selected=pmid_42964587
+FAIL F9a F9a 阅读默认仍为前 12 篇，且有明确入口显示其余
+     ✗ 仅 2 篇应全部直接显示且无「显示其余」钮；实得 1／钮 显示其余 1 篇
+PASS F9b F9b 真鼠标点「显示其余」后所有在筛文献可达
+PASS F9c F9c 阅读展开流页面零运行期异常
+
+==== UX PROBE [b1-small-negative] SUMMARY 2 PASS / 1 FAIL：F9a ✗  F9b ✓  F9c ✓ ====
+     cleanup | browser pid=48200 exitCode=null signalCode=SIGTERM | 带 profile 标记的进程：收尾前=48200,30216,50936,50900,48236,43828,28960,7632,5720,2916,36784 | 主进程结束后残留=无 | 逐 PID 结束=无 | 复查仍存活=无
+     cleanup | 临时目录 D:\claude-tmp\T1128-b1-negative-scratch\ux-harness-b1-small-negative 已清

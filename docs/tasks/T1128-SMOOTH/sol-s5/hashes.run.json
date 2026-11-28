@@ -1,0 +1,4 @@
+{
+  "exitCode": 0,
+  "command": "Get-FileHash index.html,sw.js,sw-retire.js"
+}

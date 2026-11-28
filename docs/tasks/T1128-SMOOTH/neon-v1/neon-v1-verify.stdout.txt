@@ -1,0 +1,10 @@
+PASS adversarial-reversed-markers preserved=true banner="数据 2026-11-27 · 本地副本 · 暂未核实更新" hash=33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def
+PASS adversarial-json-mime-valid-html preserved=true banner="数据 2026-11-27 · 本地副本 · 暂未核实更新" hash=33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def
+PASS adversarial-status-503-valid-html preserved=true banner="数据 2026-11-27 · 本地副本 · 暂未核实更新" hash=33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def
+FAIL adversarial-empty-markers-stub preserved=false banner="数据 2026-11-27 · 有新版，下次打开生效" hash=11e2ff0add51cd0cf4f21b39010925b11df3fe7c0d388906c0c56468a3a16b74
+PASS whitelist-and-bypass
+RED-CAUGHT neg-mut-marker-order input=reversed-markers banner="数据 2026-11-27 · 有新版，下次打开生效" hashChanged=true
+RED-CAUGHT neg-mut-mime input=json-mime-valid-html banner="数据 2026-11-27 · 有新版，下次打开生效" hashChanged=true
+RED-CAUGHT neg-mut-status-503 input=status-503-valid-html banner="数据 2026-11-27 · 有新版，下次打开生效" hashChanged=true
+PASS production-domain-gate
+NEON_DONE {"checksPassed":5,"checksFailed":1,"negCaughtRed":3,"negTotal":3}

@@ -1,0 +1,12 @@
+[
+  {
+    "Algorithm": "SHA256",
+    "Hash": "357647727BF7EF88FB5A3EA95457FD564F6CD994D6396333257D42C7BC657948",
+    "Path": "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\.t1128-s6-worktree\\docs\\tasks\\T1128-SMOOTH\\sol-s6\\rerun\\daily-final\\candidate.diff"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "357647727BF7EF88FB5A3EA95457FD564F6CD994D6396333257D42C7BC657948",
+    "Path": "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\.t1128-s6-worktree\\docs\\tasks\\T1128-SMOOTH\\sol-s6\\daily\\candidate.diff"
+  }
+]

@@ -1,0 +1,7 @@
+warning: in the working copy of 'api/v1/daily.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'data/circuit_state.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'data/push_log.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'data/regression/report.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'data/status.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'feed.xml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'data/daily_briefing_2026-11-28.md', LF will be replaced by CRLF the next time Git touches it

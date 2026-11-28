@@ -1,0 +1,932 @@
+{
+ "rows": [
+  {
+   "tag": "验收档",
+   "size": "1440×714",
+   "topbar": 58,
+   "deck": 620,
+   "footerBottom": 714,
+   "footerH": 36,
+   "gap": 0,
+   "footerOK": true,
+   "footTxt": "程序生成 · 无人审校 · 期刊与分区按注入字段原样展示 · 摘要仅供检索导读，临床判断请读原文 / 检索 ← → 切换",
+   "bodyOv": "auto",
+   "docSH": 714,
+   "scope": "383.7×383.7",
+   "stageH": 383.7,
+   "footH": 116,
+   "headH": 85.3,
+   "foldN": 1,
+   "covered": [],
+   "maxCovered": 0,
+   "cover": {
+    "toolbar": {
+     "y": 554,
+     "w": 718,
+     "h": 22,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "clear": {
+     "y": 554.5,
+     "w": 34,
+     "h": 21,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "selection": {
+     "y": 558.5,
+     "w": 45,
+     "h": 13,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "jcatLegend": {
+     "y": 601,
+     "w": 718,
+     "h": 20,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "jlSummary": {
+     "y": 628,
+     "w": 718,
+     "h": 16,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "design": {
+     "y": 648,
+     "w": 718,
+     "h": 14,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "scheme": {
+     "y": 126.3,
+     "w": 82,
+     "h": 28,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "progress": {
+     "y": 118.3,
+     "w": 73.8,
+     "h": 36,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "folds": [
+     {
+      "y": 578,
+      "w": 93,
+      "h": 18,
+      "inDisc": 0,
+      "covered": 0,
+      "tops": ""
+     }
+    ]
+   },
+   "blipOut": 0,
+   "qOpen": 2,
+   "qOpenHalf": 1,
+   "qClosed": 5,
+   "qClosedHalf": 1,
+   "filtersH": 264,
+   "hintH": 0,
+   "funnelH": 0,
+   "readCards": 2,
+   "readHalf": 2,
+   "readListH": 492,
+   "readFiltersH": 0,
+   "detailPanelH": 588,
+   "excerptY": 423.8,
+   "excerptIn": true,
+   "actionsY": 1254.6,
+   "metaGridH": 311
+  },
+  {
+   "tag": "主控截图档",
+   "size": "1440×900",
+   "topbar": 58,
+   "deck": 806,
+   "footerBottom": 900,
+   "footerH": 36,
+   "gap": 0,
+   "footerOK": true,
+   "footTxt": "程序生成 · 无人审校 · 期刊与分区按注入字段原样展示 · 摘要仅供检索导读，临床判断请读原文 / 检索 ← → 切换",
+   "bodyOv": "auto",
+   "docSH": 900,
+   "scope": "420×420",
+   "stageH": 569.7,
+   "footH": 116,
+   "headH": 85.3,
+   "foldN": 1,
+   "covered": [],
+   "maxCovered": 0,
+   "cover": {
+    "toolbar": {
+     "y": 740,
+     "w": 718,
+     "h": 22,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "clear": {
+     "y": 740.5,
+     "w": 34,
+     "h": 21,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "selection": {
+     "y": 744.5,
+     "w": 45,
+     "h": 13,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "jcatLegend": {
+     "y": 787,
+     "w": 718,
+     "h": 20,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "jlSummary": {
+     "y": 814,
+     "w": 718,
+     "h": 16,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "design": {
+     "y": 834,
+     "w": 718,
+     "h": 14,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "scheme": {
+     "y": 126.3,
+     "w": 82,
+     "h": 28,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "progress": {
+     "y": 118.3,
+     "w": 73.8,
+     "h": 36,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "folds": [
+     {
+      "y": 764,
+      "w": 93,
+      "h": 18,
+      "inDisc": 0,
+      "covered": 0,
+      "tops": ""
+     }
+    ]
+   },
+   "blipOut": 0,
+   "qOpen": 4,
+   "qOpenHalf": 1,
+   "qClosed": 8,
+   "qClosedHalf": 1,
+   "filtersH": 264,
+   "hintH": 0,
+   "funnelH": 0,
+   "readCards": 4,
+   "readHalf": 2,
+   "readListH": 678,
+   "readFiltersH": 0,
+   "detailPanelH": 774,
+   "excerptY": 423.8,
+   "excerptIn": true,
+   "actionsY": 1254.6,
+   "metaGridH": 311
+  },
+  {
+   "tag": "常见笔记本",
+   "size": "1366×768",
+   "topbar": 58,
+   "deck": 674,
+   "footerBottom": 768,
+   "footerH": 36,
+   "gap": 0,
+   "footerOK": true,
+   "footTxt": "程序生成 · 无人审校 · 期刊与分区按注入字段原样展示 · 摘要仅供检索导读，临床判断请读原文 / 检索 ← → 切换",
+   "bodyOv": "auto",
+   "docSH": 768,
+   "scope": "420×420",
+   "stageH": 437.7,
+   "footH": 116,
+   "headH": 85.3,
+   "foldN": 1,
+   "covered": [],
+   "maxCovered": 0,
+   "cover": {
+    "toolbar": {
+     "y": 608,
+     "w": 644,
+     "h": 22,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "clear": {
+     "y": 608.5,
+     "w": 34,
+     "h": 21,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "selection": {
+     "y": 612.5,
+     "w": 45,
+     "h": 13,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "jcatLegend": {
+     "y": 655,
+     "w": 644,
+     "h": 20,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "jlSummary": {
+     "y": 682,
+     "w": 644,
+     "h": 16,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "design": {
+     "y": 702,
+     "w": 644,
+     "h": 14,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "scheme": {
+     "y": 126.3,
+     "w": 82,
+     "h": 28,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "progress": {
+     "y": 118.3,
+     "w": 73.8,
+     "h": 36,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "folds": [
+     {
+      "y": 632,
+      "w": 93,
+      "h": 18,
+      "inDisc": 0,
+      "covered": 0,
+      "tops": ""
+     }
+    ]
+   },
+   "blipOut": 0,
+   "qOpen": 3,
+   "qOpenHalf": 1,
+   "qClosed": 6,
+   "qClosedHalf": 1,
+   "filtersH": 264,
+   "hintH": 0,
+   "funnelH": 0,
+   "readCards": 2,
+   "readHalf": 2,
+   "readListH": 546,
+   "readFiltersH": 0,
+   "detailPanelH": 642,
+   "excerptY": 423.8,
+   "excerptIn": true,
+   "actionsY": 1254.6,
+   "metaGridH": 311
+  },
+  {
+   "tag": "720p",
+   "size": "1280×720",
+   "topbar": 58,
+   "deck": 626,
+   "footerBottom": 720,
+   "footerH": 36,
+   "gap": 0,
+   "footerOK": true,
+   "footTxt": "程序生成 · 无人审校 · 期刊与分区按注入字段原样展示 · 摘要仅供检索导读，临床判断请读原文 / 检索 ← → 切换",
+   "bodyOv": "auto",
+   "docSH": 720,
+   "scope": "389.7×389.7",
+   "stageH": 389.7,
+   "footH": 116,
+   "headH": 85.3,
+   "foldN": 1,
+   "covered": [],
+   "maxCovered": 0,
+   "cover": {
+    "toolbar": {
+     "y": 560,
+     "w": 558,
+     "h": 22,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "clear": {
+     "y": 560.5,
+     "w": 34,
+     "h": 21,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "selection": {
+     "y": 564.5,
+     "w": 45,
+     "h": 13,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "jcatLegend": {
+     "y": 607,
+     "w": 558,
+     "h": 20,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "jlSummary": {
+     "y": 634,
+     "w": 558,
+     "h": 16,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "design": {
+     "y": 654,
+     "w": 558,
+     "h": 14,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "scheme": {
+     "y": 126.3,
+     "w": 82,
+     "h": 28,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "progress": {
+     "y": 118.3,
+     "w": 73.8,
+     "h": 36,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "folds": [
+     {
+      "y": 584,
+      "w": 93,
+      "h": 18,
+      "inDisc": 0,
+      "covered": 0,
+      "tops": ""
+     }
+    ]
+   },
+   "blipOut": 0,
+   "qOpen": 2,
+   "qOpenHalf": 1,
+   "qClosed": 6,
+   "qClosedHalf": 0,
+   "filtersH": 264,
+   "hintH": 0,
+   "funnelH": 0,
+   "readCards": 2,
+   "readHalf": 2,
+   "readListH": 498,
+   "readFiltersH": 0,
+   "detailPanelH": 594,
+   "excerptY": 423.8,
+   "excerptIn": true,
+   "actionsY": 1254.6,
+   "metaGridH": 311
+  },
+  {
+   "tag": "1080p@125%",
+   "size": "1536×864",
+   "topbar": 58,
+   "deck": 770,
+   "footerBottom": 864,
+   "footerH": 36,
+   "gap": 0,
+   "footerOK": true,
+   "footTxt": "程序生成 · 无人审校 · 期刊与分区按注入字段原样展示 · 摘要仅供检索导读，临床判断请读原文 / 检索 ← → 切换",
+   "bodyOv": "auto",
+   "docSH": 864,
+   "scope": "420×420",
+   "stageH": 533.7,
+   "footH": 116,
+   "headH": 85.3,
+   "foldN": 1,
+   "covered": [],
+   "maxCovered": 0,
+   "cover": {
+    "toolbar": {
+     "y": 704,
+     "w": 814,
+     "h": 22,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "clear": {
+     "y": 704.5,
+     "w": 34,
+     "h": 21,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "selection": {
+     "y": 708.5,
+     "w": 45,
+     "h": 13,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "jcatLegend": {
+     "y": 751,
+     "w": 814,
+     "h": 20,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "jlSummary": {
+     "y": 778,
+     "w": 814,
+     "h": 16,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "design": {
+     "y": 798,
+     "w": 814,
+     "h": 14,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "scheme": {
+     "y": 126.3,
+     "w": 82,
+     "h": 28,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "progress": {
+     "y": 118.3,
+     "w": 73.8,
+     "h": 36,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "folds": [
+     {
+      "y": 728,
+      "w": 93,
+      "h": 18,
+      "inDisc": 0,
+      "covered": 0,
+      "tops": ""
+     }
+    ]
+   },
+   "blipOut": 0,
+   "qOpen": 4,
+   "qOpenHalf": 1,
+   "qClosed": 7,
+   "qClosedHalf": 1,
+   "filtersH": 264,
+   "hintH": 0,
+   "funnelH": 0,
+   "readCards": 4,
+   "readHalf": 0,
+   "readListH": 642,
+   "readFiltersH": 0,
+   "detailPanelH": 738,
+   "excerptY": 423.8,
+   "excerptIn": true,
+   "actionsY": 1254.6,
+   "metaGridH": 311
+  },
+  {
+   "tag": "1080p",
+   "size": "1920×1080",
+   "topbar": 58,
+   "deck": 986,
+   "footerBottom": 1080,
+   "footerH": 36,
+   "gap": 0,
+   "footerOK": true,
+   "footTxt": "程序生成 · 无人审校 · 期刊与分区按注入字段原样展示 · 摘要仅供检索导读，临床判断请读原文 / 检索 ← → 切换",
+   "bodyOv": "auto",
+   "docSH": 1080,
+   "scope": "420×420",
+   "stageH": 749.7,
+   "footH": 116,
+   "headH": 85.3,
+   "foldN": 1,
+   "covered": [],
+   "maxCovered": 0,
+   "cover": {
+    "toolbar": {
+     "y": 920,
+     "w": 1078,
+     "h": 22,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "clear": {
+     "y": 920.5,
+     "w": 34,
+     "h": 21,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "selection": {
+     "y": 924.5,
+     "w": 45,
+     "h": 13,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "jcatLegend": {
+     "y": 967,
+     "w": 1078,
+     "h": 20,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "jlSummary": {
+     "y": 994,
+     "w": 1078,
+     "h": 16,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "design": {
+     "y": 1014,
+     "w": 1078,
+     "h": 14,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "scheme": {
+     "y": 126.3,
+     "w": 82,
+     "h": 28,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "progress": {
+     "y": 118.3,
+     "w": 73.8,
+     "h": 36,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "folds": [
+     {
+      "y": 944,
+      "w": 93,
+      "h": 18,
+      "inDisc": 0,
+      "covered": 0,
+      "tops": ""
+     }
+    ]
+   },
+   "blipOut": 0,
+   "qOpen": 7,
+   "qOpenHalf": 1,
+   "qClosed": 10,
+   "qClosedHalf": 1,
+   "filtersH": 264,
+   "hintH": 0,
+   "funnelH": 0,
+   "readCards": 4,
+   "readHalf": 2,
+   "readListH": 858,
+   "readFiltersH": 0,
+   "detailPanelH": 954,
+   "excerptY": 423.8,
+   "excerptIn": true,
+   "actionsY": 1254.6,
+   "metaGridH": 311
+  },
+  {
+   "tag": "更矮",
+   "size": "1440×660",
+   "topbar": 58,
+   "deck": 566,
+   "footerBottom": 660,
+   "footerH": 36,
+   "gap": 0,
+   "footerOK": true,
+   "footTxt": "程序生成 · 无人审校 · 期刊与分区按注入字段原样展示 · 摘要仅供检索导读，临床判断请读原文 / 检索 ← → 切换",
+   "bodyOv": "auto",
+   "docSH": 660,
+   "scope": "329.7×329.7",
+   "stageH": 329.7,
+   "footH": 116,
+   "headH": 85.3,
+   "foldN": 1,
+   "covered": [],
+   "maxCovered": 0,
+   "cover": {
+    "toolbar": {
+     "y": 500,
+     "w": 718,
+     "h": 22,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "clear": {
+     "y": 500.5,
+     "w": 34,
+     "h": 21,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "selection": {
+     "y": 504.5,
+     "w": 45,
+     "h": 13,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "jcatLegend": {
+     "y": 547,
+     "w": 718,
+     "h": 20,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "jlSummary": {
+     "y": 574,
+     "w": 718,
+     "h": 16,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "design": {
+     "y": 594,
+     "w": 718,
+     "h": 14,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "scheme": {
+     "y": 126.3,
+     "w": 82,
+     "h": 28,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "progress": {
+     "y": 118.3,
+     "w": 73.8,
+     "h": 36,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "folds": [
+     {
+      "y": 524,
+      "w": 93,
+      "h": 18,
+      "inDisc": 0,
+      "covered": 0,
+      "tops": ""
+     }
+    ]
+   },
+   "blipOut": 0,
+   "qOpen": 1,
+   "qOpenHalf": 1,
+   "qClosed": 5,
+   "qClosedHalf": 1,
+   "filtersH": 264,
+   "hintH": 0,
+   "funnelH": 0,
+   "readCards": 2,
+   "readHalf": 2,
+   "readListH": 438,
+   "readFiltersH": 0,
+   "detailPanelH": 534,
+   "excerptY": 423.8,
+   "excerptIn": true,
+   "actionsY": 1254.6,
+   "metaGridH": 311
+  },
+  {
+   "tag": "更矮",
+   "size": "1440×600",
+   "topbar": 58,
+   "deck": 506,
+   "footerBottom": 600,
+   "footerH": 36,
+   "gap": 0,
+   "footerOK": true,
+   "footTxt": "程序生成 · 无人审校 · 期刊与分区按注入字段原样展示 · 摘要仅供检索导读，临床判断请读原文 / 检索 ← → 切换",
+   "bodyOv": "auto",
+   "docSH": 600,
+   "scope": "269.7×269.7",
+   "stageH": 269.7,
+   "footH": 116,
+   "headH": 85.3,
+   "foldN": 1,
+   "covered": [],
+   "maxCovered": 0,
+   "cover": {
+    "toolbar": {
+     "y": 440,
+     "w": 718,
+     "h": 22,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "clear": {
+     "y": 440.5,
+     "w": 34,
+     "h": 21,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "selection": {
+     "y": 444.5,
+     "w": 45,
+     "h": 13,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "jcatLegend": {
+     "y": 487,
+     "w": 718,
+     "h": 20,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "jlSummary": {
+     "y": 514,
+     "w": 718,
+     "h": 16,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "design": {
+     "y": 534,
+     "w": 718,
+     "h": 14,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "scheme": {
+     "y": 126.3,
+     "w": 82,
+     "h": 28,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "progress": {
+     "y": 118.3,
+     "w": 73.8,
+     "h": 36,
+     "inDisc": 0,
+     "covered": 0,
+     "tops": ""
+    },
+    "folds": [
+     {
+      "y": 464,
+      "w": 93,
+      "h": 18,
+      "inDisc": 0,
+      "covered": 0,
+      "tops": ""
+     }
+    ]
+   },
+   "blipOut": 0,
+   "qOpen": 0,
+   "qOpenHalf": 1,
+   "qClosed": 4,
+   "qClosedHalf": 1,
+   "filtersH": 264,
+   "hintH": 0,
+   "funnelH": 0,
+   "readCards": 2,
+   "readHalf": 2,
+   "readListH": 378,
+   "readFiltersH": 0,
+   "detailPanelH": 474,
+   "excerptY": 423.8,
+   "excerptIn": true,
+   "actionsY": 1254.6,
+   "metaGridH": 311
+  }
+ ],
+ "sectorRows": [
+  {
+   "size": "1440×714",
+   "jcat": "1",
+   "toolbarTxt": "刊源：全部 · 阵地：胸外科与胸部肿瘤 清除",
+   "clearDisabled": false,
+   "clearCovered": 0,
+   "clearTops": "",
+   "clearRect": "34×21@y554.5",
+   "covered": [],
+   "clearWorked": true
+  },
+  {
+   "size": "1440×900",
+   "jcat": "1",
+   "toolbarTxt": "刊源：全部 · 阵地：胸外科与胸部肿瘤 清除",
+   "clearDisabled": false,
+   "clearCovered": 0,
+   "clearTops": "",
+   "clearRect": "34×21@y740.5",
+   "covered": [],
+   "clearWorked": true
+  }
+ ]
+}

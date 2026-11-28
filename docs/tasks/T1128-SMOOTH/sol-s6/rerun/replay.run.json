@@ -1,0 +1,12 @@
+{
+  "cwd": "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128",
+  "command": [
+    "node",
+    "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\.t1128-s6-worktree\\docs\\tasks\\T1128-SMOOTH\\sol-s6\\replay-ci.mjs",
+    "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\.t1128-s6-worktree",
+    "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128",
+    "D:\\trackeep\\trackeep-product\\trackeep-thoradar",
+    "D:\\trackeep\\trackeep-product\\trackeep-thoradar-smooth-T1128\\.t1128-s6-worktree\\docs\\tasks\\T1128-SMOOTH\\sol-s6\\rerun\\daily"
+  ],
+  "exitCode": 1
+}

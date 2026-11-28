@@ -1,0 +1,5 @@
+[detached HEAD bbd95eb] A4 replay November 28 release and fifteen historical daily objects
+ 16 files changed, 2180 insertions(+), 1392 deletions(-)
+ create mode 100644 data/archive/2026-11-28.json
+ create mode 100644 data/daily_briefing_2026-11-28.md
+ create mode 100644 data/prescreen_rejected/2026-11-28.json

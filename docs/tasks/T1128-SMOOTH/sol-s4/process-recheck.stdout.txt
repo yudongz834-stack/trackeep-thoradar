@@ -1,0 +1,120 @@
+Get-Process -Id 74376,64420,14680,35300,10212,77804,59380,63456,49944,39944,50336,24256,7648,52316,68892,27724,60008,42724,38336,45396,55704,66752,44752
+Get-Process: 
+Line |
+   5 |  Get-Process -Id $browserPids -ErrorAction Continue 2>&1 | Out-File -F …
+     |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | 找不到进程标识符为 74376 的进程。
+Get-Process: 
+Line |
+   5 |  Get-Process -Id $browserPids -ErrorAction Continue 2>&1 | Out-File -F …
+     |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | 找不到进程标识符为 64420 的进程。
+Get-Process: 
+Line |
+   5 |  Get-Process -Id $browserPids -ErrorAction Continue 2>&1 | Out-File -F …
+     |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | 找不到进程标识符为 14680 的进程。
+Get-Process: 
+Line |
+   5 |  Get-Process -Id $browserPids -ErrorAction Continue 2>&1 | Out-File -F …
+     |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | 找不到进程标识符为 35300 的进程。
+Get-Process: 
+Line |
+   5 |  Get-Process -Id $browserPids -ErrorAction Continue 2>&1 | Out-File -F …
+     |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | 找不到进程标识符为 77804 的进程。
+Get-Process: 
+Line |
+   5 |  Get-Process -Id $browserPids -ErrorAction Continue 2>&1 | Out-File -F …
+     |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | 找不到进程标识符为 59380 的进程。
+Get-Process: 
+Line |
+   5 |  Get-Process -Id $browserPids -ErrorAction Continue 2>&1 | Out-File -F …
+     |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | 找不到进程标识符为 63456 的进程。
+Get-Process: 
+Line |
+   5 |  Get-Process -Id $browserPids -ErrorAction Continue 2>&1 | Out-File -F …
+     |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | 找不到进程标识符为 49944 的进程。
+Get-Process: 
+Line |
+   5 |  Get-Process -Id $browserPids -ErrorAction Continue 2>&1 | Out-File -F …
+     |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | 找不到进程标识符为 39944 的进程。
+Get-Process: 
+Line |
+   5 |  Get-Process -Id $browserPids -ErrorAction Continue 2>&1 | Out-File -F …
+     |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | 找不到进程标识符为 50336 的进程。
+Get-Process: 
+Line |
+   5 |  Get-Process -Id $browserPids -ErrorAction Continue 2>&1 | Out-File -F …
+     |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | 找不到进程标识符为 24256 的进程。
+Get-Process: 
+Line |
+   5 |  Get-Process -Id $browserPids -ErrorAction Continue 2>&1 | Out-File -F …
+     |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | 找不到进程标识符为 7648 的进程。
+Get-Process: 
+Line |
+   5 |  Get-Process -Id $browserPids -ErrorAction Continue 2>&1 | Out-File -F …
+     |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | 找不到进程标识符为 52316 的进程。
+Get-Process: 
+Line |
+   5 |  Get-Process -Id $browserPids -ErrorAction Continue 2>&1 | Out-File -F …
+     |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | 找不到进程标识符为 68892 的进程。
+Get-Process: 
+Line |
+   5 |  Get-Process -Id $browserPids -ErrorAction Continue 2>&1 | Out-File -F …
+     |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | 找不到进程标识符为 27724 的进程。
+Get-Process: 
+Line |
+   5 |  Get-Process -Id $browserPids -ErrorAction Continue 2>&1 | Out-File -F …
+     |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | 找不到进程标识符为 60008 的进程。
+Get-Process: 
+Line |
+   5 |  Get-Process -Id $browserPids -ErrorAction Continue 2>&1 | Out-File -F …
+     |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | 找不到进程标识符为 42724 的进程。
+Get-Process: 
+Line |
+   5 |  Get-Process -Id $browserPids -ErrorAction Continue 2>&1 | Out-File -F …
+     |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | 找不到进程标识符为 38336 的进程。
+Get-Process: 
+Line |
+   5 |  Get-Process -Id $browserPids -ErrorAction Continue 2>&1 | Out-File -F …
+     |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | 找不到进程标识符为 45396 的进程。
+Get-Process: 
+Line |
+   5 |  Get-Process -Id $browserPids -ErrorAction Continue 2>&1 | Out-File -F …
+     |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | 找不到进程标识符为 55704 的进程。
+Get-Process: 
+Line |
+   5 |  Get-Process -Id $browserPids -ErrorAction Continue 2>&1 | Out-File -F …
+     |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | 找不到进程标识符为 66752 的进程。
+Get-Process: 
+Line |
+   5 |  Get-Process -Id $browserPids -ErrorAction Continue 2>&1 | Out-File -F …
+     |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | 找不到进程标识符为 44752 的进程。
+
+ NPM(K)    PM(M)      WS(M)     CPU(s)      Id  SI ProcessName
+ ------    -----      -----     ------      --  -- -----------
+     10     6.04       9.87       0.03   10212   1 bash
+
+live listed PIDs: 1
+Get-Process -Id $known -ErrorAction SilentlyContinue | Select-Object Id,ProcessName,StartTime
+
+live Chrome PIDs in listed set: 0

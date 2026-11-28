@@ -1,0 +1,442 @@
+{
+  "name": "s2",
+  "cwd": "D:\\trackeep\\trackeep-product\\trackeep-thoradar-neon-v1",
+  "argv": [
+    "C:\\Program Files\\nodejs\\node.EXE",
+    "tests/smooth/verify-s2.mjs",
+    "D:\\trackeep\\trackeep-product\\trackeep-thoradar-neon-v1\\astra-v3\\s2.json"
+  ],
+  "stdin": null,
+  "started": "2026-11-28T05:02:01.863292+00:00",
+  "observedChrome": [
+    {
+      "pid": 69688,
+      "parent": 31692,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842123.8740273,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "browser",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 55160,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842124.2490137,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=crashpad-handler",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 16152,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842125.2335935,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=gpu-process",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 59224,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842125.549686,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=utility",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 13804,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842126.2175312,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=utility",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 70376,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842126.220156,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 62872,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842126.2247472,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 10172,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842126.2273388,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 27880,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842126.229617,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 68972,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842126.231896,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 69224,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842126.2343075,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 30024,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842126.2366564,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 37020,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842126.2392745,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 68304,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842126.2415786,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 22316,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842136.970101,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 63404,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842136.9834645,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 9388,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842136.9867897,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 29324,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842137.0214071,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 56188,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842138.090356,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 74268,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842138.100614,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 75040,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842138.1035914,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 23396,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842138.1334035,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 7352,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842138.931281,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 60532,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842138.9446905,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 4596,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842138.9477599,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 47780,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842138.9808657,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 63504,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842139.942896,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 45616,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842139.9463336,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 72264,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842139.9490516,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 50564,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842139.9522996,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 58964,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842147.5887735,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 62724,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842147.6055725,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 14628,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842147.609108,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 36488,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842147.6321087,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 63664,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842148.2078004,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 2924,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842148.2267792,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 43036,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842148.2299027,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 46916,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842148.2531395,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 72056,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842149.0272403,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 73432,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842149.040748,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 20872,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842149.043524,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 11436,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842149.0704608,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 45688,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842154.7089872,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=utility",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 11480,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842156.6729891,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 18940,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842156.976851,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 76752,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842156.9824748,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 42664,
+      "parent": 69688,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842157.0053687,
+      "profile": "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    }
+  ],
+  "nodePid": 31692,
+  "exit": 0,
+  "profileExistsAfter": {
+    "D:\\claude-tmp\\thoradar-sol-s2-chrome-S0bBqO": false
+  },
+  "ended": "2026-11-28T05:02:44.632051+00:00"
+}

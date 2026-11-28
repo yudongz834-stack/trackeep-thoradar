@@ -1,0 +1,30 @@
+{
+  "verifiedUtc": "2026-11-28T08:08:19.112797+00:00",
+  "sourceHashesEqualBeforeAfter": true,
+  "mainAndIndependentHashesEqual": {
+    "index.html": true,
+    "sw.js": true,
+    "sw-retire.js": true,
+    ".github/workflows/deploy_oss.yml": true,
+    ".github/workflows/daily_thoradar.yml": true,
+    "tests/aicls/lib.mjs": true,
+    "tests/ux/ux_probe.mjs": true,
+    "tests/smooth/deploy-mock.mjs": true,
+    "tests/smooth/official-data.mjs": true,
+    "tests/smooth/prepare-ci-ux-baseline.mjs": true,
+    "tests/smooth/run-regressions.mjs": true,
+    "tests/smooth/verify-deploy.mjs": true,
+    "tests/smooth/verify-s1.mjs": true,
+    "tests/smooth/verify-s2.mjs": true,
+    "tests/smooth/verify-s3.mjs": true,
+    "tests/smooth/verify-source.mjs": true
+  },
+  "reportsSha256": {
+    "sol-s5-report.md": "9b4b5951e3c9efbe14e6dfa845593a71a680c92c0b557fe54f94f555e3cfe833",
+    "sol-s6-report.md": "5b06d922923051b29d1064d610d8eb1b71b773e5bf205175366cd467b519cabb",
+    "task-map.md": "aca1d4a87d976ac685f40dc7563672aac9cac8dd59eabd6caf902fa899eddb1a"
+  },
+  "reviewBasis": "local offline tests completed before comparing S5/S6 reports",
+  "observedPidsAbsent": 49,
+  "validatedSummaries": true
+}

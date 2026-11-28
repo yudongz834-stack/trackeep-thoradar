@@ -12,7 +12,7 @@ LLM 精评（PICO 提取 + 反阳性偏倚条款）、四元组数值核验，�
   python thoradar_engine.py --self-test   # 离线自测
   python thoradar_engine.py               # 正式运行（无 LLM_API_KEY 自动走启发式模式）
   ```
-- **全自动**：推到 GitHub 后配置 Secrets（见下），每天北京时间 07:30 自动更新（GitHub Pages 托管 `index.html`）。
+- **全自动**：推到 GitHub 后配置 Secrets（见下），每天北京时间 07:30 自动更新；日报管线成功后由 `deploy_oss.yml` 同步到阿里云 OSS（`thoradar.online`）。
 
 ## 环境变量（GitHub Secrets 或本地环境变量）
 
@@ -36,6 +36,15 @@ LLM 精评（PICO 提取 + 反阳性偏倚条款）、四元组数值核验，�
 | `index.html` | 派生视图 | 数据经标记区间注入（SITE_DATA 块勿手改） |
 | 本地仓库 ↔ GitHub | 互为镜像 | 推送保持一致 |
 
+## 首页本地副本（T1128）
+
+- 首次访问仍走原生网络/OSS/CDN；复访由 `sw.js` 从 Cache Storage 先打开 `/index.html`，后台核新，当前阅读页不自动刷新，新版在下次打开时生效。
+- 只处理同源 GET 的 `/` 与 `/index.html` 导航；AI、NCBI、POST、跨域、个性化 API 与个人 `localStorage` 不经过这层缓存。`SITE_DATA` 仍是唯一官方数据真相。
+- 写入前校验 HTTP 200、同源 basic 响应、HTML MIME、完整页面、真实内联脚本中的数据块、有效 `YYYY-MM-DD` 日期及 `papers` 数组；异常、截断、空壳、注释伪数据和错误响应不得覆盖健康副本。合法零篇日允许更新。
+- 弱网/离线只承诺当日首页副本，并显示实际数据日期与核新状态；多日档案拉取失败时持续提示，未新增 90 天离线缓存。`?sw=0` 可注销并清理本 origin 的前缀缓存，`sw-retire.js` 是服务端退役版。
+- `deploy_oss.yml` 会先跑发布模拟、源码检查、缓存回归和界面回归，再上传两件 worker；worker 强制 `no-store`，双域精准刷新后按 `Content-MD5` 验真。手动发布可选退役模式，把 `sw-retire.js` 发布到真实 `/sw.js` 地址；正常发布可恢复。
+- **边界**：发布链和日报验收已完成本机验证，线上是否生效须以实际发布后的双域验收为准；真机/iOS 和完整退役演练未验。push、deploy、CDN 刷新及退役演练唯 PI 亲手。
+
 ## 诚实边界（读数据前必读）
 
 - 全站**无人审校**：标题、结果陈述、疑点提示由程序与语言模型生成。数值核验为确定性文本比对（数值存在性＋语境锚，词边界级）；**语义核验为规则词面级**（四元组的人群限定词/终点指标词须在原摘要命中，未过即解读暂停）——能拦「限定人群/终点与摘要对不上」的错配，不能覆盖同义改写与隐蔽张冠李戴。重要文献请点开 PubMed 原文。
@@ -49,6 +58,9 @@ LLM 精评（PICO 提取 + 反阳性偏倚条款）、四元组数值核验，�
 
 ```
 index.html                  单文件网站（数据经标记区间注入，勿手改 SITE_DATA 块）
+sw.js                       首页本地副本 Service Worker
+sw-retire.js                本地副本退役版（清前缀缓存并注销）
+tests/smooth/               本地先开、后台更新、异常拒缓存、发布模拟与日报验收回归
 thoradar_engine.py          每日流水线引擎（采集→定级→预筛→精评→核验→状态覆盖→产出）
 config/journals_taxonomy.json  期刊字典（身份/分区分开记录版本与年份）
 tools/identity_check.py     期刊身份查新（NCBI NLM Catalog，退出码 0/1/2）

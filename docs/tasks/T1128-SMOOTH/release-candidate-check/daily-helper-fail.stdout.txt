@@ -1,0 +1,10 @@
+add-fixture exit=0 expected=0
+candidate-diff exit=0 expected=0
+candidate-diff-check exit=0 expected=0
+candidate-patch-reverse-check exit=0 expected=0
+daily-clean-before exit=0 expected=0
+source-ci-daily exit=0 expected=0
+source-local-daily exit=1 expected=1
+prepare-baseline exit=0 expected=0
+ux-ci-daily exit=0 expected=0
+remove-fixture exit=0 expected=0

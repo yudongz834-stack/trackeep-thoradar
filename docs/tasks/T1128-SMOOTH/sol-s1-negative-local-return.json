@@ -1,0 +1,298 @@
+{
+  "source": "Worktree index.html and sw.js served over loopback to Google Chrome via CDP",
+  "startedAt": "2026-11-28T03:03:00.322Z",
+  "baselineCommit": "73dd34e65fce6661d74e595afc03df68e7d3f44f",
+  "environment": {
+    "os": "Windows 11 Pro",
+    "release": "10.0.26300",
+    "arch": "x64",
+    "node": "v24.14.0",
+    "chrome": {
+      "protocolVersion": "1.3",
+      "product": "Chrome/158.0.8127.88",
+      "revision": "@0cefb18236a23db1ebb6b2bc040fbbaf8cbe759e",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/158.0.0.0 Safari/537.36",
+      "jsVersion": "15.8.62.31"
+    }
+  },
+  "runs": 1,
+  "mutation": "no-local-return",
+  "checks": [
+    {
+      "name": "native-default-zero-registrations-and-caches",
+      "pass": true,
+      "detail": {
+        "response": {
+          "type": "Document",
+          "loaderId": "B61A1277E46AD51B246D0DD7D6C44E5B",
+          "url": "http://127.0.0.1:53511/index.html",
+          "status": 200,
+          "fromServiceWorker": false,
+          "fromDiskCache": false,
+          "serviceWorkerResponseSource": null
+        },
+        "page": {
+          "url": "http://127.0.0.1:53511/index.html",
+          "date": "2026-11-27",
+          "points": 37,
+          "banner": "",
+          "bannerInViewport": false,
+          "documentId": "4accd540-f1cc-458f-93f6-cf0fdc62e0e1",
+          "view": "overview",
+          "viewport": [
+            1418,
+            802
+          ],
+          "timeOriginMs": 1795834981805.1,
+          "domContentLoadedMs": 506.10000002384186,
+          "firstContentfulPaintMs": 1312
+        },
+        "storage": {
+          "registrations": 0,
+          "activated": false,
+          "controller": false,
+          "names": [],
+          "paths": [],
+          "cachedDate": null,
+          "complete": null
+        },
+        "nativeWorkerRequests": 0
+      }
+    },
+    {
+      "name": "opt-in-first-open-native-and-install-reloads",
+      "pass": true,
+      "detail": {
+        "response": {
+          "type": "Document",
+          "loaderId": "0DCD3A2E3AD9C95D0FF4CF006CCD5142",
+          "url": "http://127.0.0.1:53511/index.html?sw=1",
+          "status": 200,
+          "fromServiceWorker": false,
+          "fromDiskCache": false,
+          "serviceWorkerResponseSource": null
+        },
+        "page": {
+          "url": "http://127.0.0.1:53511/index.html?sw=1",
+          "date": "2026-11-27",
+          "points": 37,
+          "banner": "数据 2026-11-27 · 联网打开",
+          "bannerInViewport": true,
+          "documentId": "62952655-8eff-4f1e-ae53-2cfa56d4749d",
+          "view": "overview",
+          "viewport": [
+            1418,
+            802
+          ],
+          "timeOriginMs": 1795834983166.3,
+          "domContentLoadedMs": 68.30000001192093,
+          "firstContentfulPaintMs": 80
+        },
+        "storage": {
+          "registrations": 1,
+          "activated": true,
+          "controller": false,
+          "names": [
+            "thoradar-shell-v1"
+          ],
+          "paths": [
+            "/index.html"
+          ],
+          "cachedDate": "2026-11-27",
+          "complete": true
+        },
+        "installRequest": {
+          "origin": "site",
+          "method": "GET",
+          "url": "/index.html",
+          "startedAtMs": 1795834983246,
+          "cacheControl": "no-cache",
+          "pragma": "no-cache",
+          "variant": "v1",
+          "delayMs": 0,
+          "finishedAtMs": 1795834983246,
+          "status": 200
+        }
+      }
+    },
+    {
+      "name": "second-open-uses-cache-storage-before-slow-origin",
+      "pass": false,
+      "detail": {
+        "response": {
+          "type": "Document",
+          "loaderId": "D443DE162C67495CBAB4E6532345296C",
+          "url": "http://127.0.0.1:53511/index.html?sw=1",
+          "status": 200,
+          "fromServiceWorker": true,
+          "fromDiskCache": true,
+          "serviceWorkerResponseSource": "http-cache"
+        },
+        "page": {
+          "url": "http://127.0.0.1:53511/index.html?sw=1",
+          "date": "2026-11-27",
+          "points": 37,
+          "banner": "数据 2026-11-27 · 本地副本 · 核对更新中",
+          "bannerInViewport": true,
+          "documentId": "0ee4ba07-4949-48bb-bbe8-afdda54ba468",
+          "view": "overview",
+          "viewport": [
+            1418,
+            802
+          ],
+          "timeOriginMs": 1795834983290.1,
+          "domContentLoadedMs": 41.90000003576279,
+          "firstContentfulPaintMs": 76
+        },
+        "pendingAtSnapshot": true,
+        "paintAtMs": 1795834983366.1,
+        "refresh": {
+          "origin": "site",
+          "method": "GET",
+          "url": "/index.html?sw=1",
+          "startedAtMs": 1795834983293,
+          "cacheControl": "no-cache",
+          "pragma": "no-cache",
+          "variant": "v2",
+          "delayMs": 1500,
+          "finishedAtMs": null
+        }
+      }
+    },
+    {
+      "name": "no-uncaught-page-errors",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "requests": [
+    {
+      "origin": "site",
+      "method": "GET",
+      "url": "/index.html",
+      "startedAtMs": 1795834981821,
+      "cacheControl": null,
+      "pragma": null,
+      "variant": "v1",
+      "delayMs": 0,
+      "finishedAtMs": 1795834981822,
+      "status": 200
+    },
+    {
+      "origin": "site",
+      "method": "GET",
+      "url": "/index.html?sw=1",
+      "startedAtMs": 1795834983167,
+      "cacheControl": null,
+      "pragma": null,
+      "variant": "v1",
+      "delayMs": 0,
+      "finishedAtMs": 1795834983167,
+      "status": 200
+    },
+    {
+      "origin": "site",
+      "method": "GET",
+      "url": "/sw.js",
+      "startedAtMs": 1795834983235,
+      "cacheControl": "max-age=0",
+      "pragma": null,
+      "status": 200,
+      "finishedAtMs": 1795834983235
+    },
+    {
+      "origin": "site",
+      "method": "GET",
+      "url": "/index.html",
+      "startedAtMs": 1795834983246,
+      "cacheControl": "no-cache",
+      "pragma": "no-cache",
+      "variant": "v1",
+      "delayMs": 0,
+      "finishedAtMs": 1795834983246,
+      "status": 200
+    },
+    {
+      "origin": "site",
+      "method": "GET",
+      "url": "/index.html?sw=1",
+      "startedAtMs": 1795834983293,
+      "cacheControl": "no-cache",
+      "pragma": "no-cache",
+      "variant": "v2",
+      "delayMs": 1500,
+      "finishedAtMs": null
+    }
+  ],
+  "browserErrors": [],
+  "sha256": {
+    "index.html": "923eca1f843037339b73d440587b075b59b3cc1a7f6867571c49f6cd608bfd6f",
+    "sw.js": "6d783246bcaba218ccaf98a2de8d450094b7949c970954f48b11ebcdb29ec898",
+    "tests/smooth/verify-s1.mjs": "6c93edebe199b9d502e72d42b729bc2dc96ee313307b6341fd5fa92f85c84dc4"
+  },
+  "fixtures": {
+    "v1": {
+      "date": "2026-11-27",
+      "sha256": "923eca1f843037339b73d440587b075b59b3cc1a7f6867571c49f6cd608bfd6f",
+      "bytes": 537501
+    },
+    "v2": {
+      "date": "2026-11-28",
+      "sha256": "bb26f1ea8962b6892e1133c58c8bdebcf2ce7863d4b657b0a80a2a7c656b7c57",
+      "bytes": 537501
+    },
+    "truncated": {
+      "date": "2026-11-29",
+      "sha256": "9dab0623ff69b6b393ce3353097d5090bf912a06600fd62bdf007bea1ad67c17",
+      "bytes": 537492
+    }
+  },
+  "servedWorkerSha256": "da42c6346a47be9535047e7a3faca46e1dd3a12ca664ffac543e24373c605129",
+  "origins": {
+    "origin": "http://127.0.0.1:53511",
+    "crossOrigin": "http://127.0.0.1:53513"
+  },
+  "cleanup": {
+    "browserPid": 68284,
+    "exit": {
+      "code": 0,
+      "signal": null
+    },
+    "forced": false,
+    "profileRemoved": true
+  },
+  "endedAt": "2026-11-28T03:03:03.850Z",
+  "summary": {
+    "passed": 3,
+    "failed": 1
+  },
+  "network": [
+    {
+      "type": "Document",
+      "loaderId": "B61A1277E46AD51B246D0DD7D6C44E5B",
+      "url": "http://127.0.0.1:53511/index.html",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false,
+      "serviceWorkerResponseSource": null
+    },
+    {
+      "type": "Document",
+      "loaderId": "0DCD3A2E3AD9C95D0FF4CF006CCD5142",
+      "url": "http://127.0.0.1:53511/index.html?sw=1",
+      "status": 200,
+      "fromServiceWorker": false,
+      "fromDiskCache": false,
+      "serviceWorkerResponseSource": null
+    },
+    {
+      "type": "Document",
+      "loaderId": "D443DE162C67495CBAB4E6532345296C",
+      "url": "http://127.0.0.1:53511/index.html?sw=1",
+      "status": 200,
+      "fromServiceWorker": true,
+      "fromDiskCache": true,
+      "serviceWorkerResponseSource": "http-cache"
+    }
+  ]
+}

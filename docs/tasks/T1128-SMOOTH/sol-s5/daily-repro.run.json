@@ -1,0 +1,8 @@
+{
+  "exitCode": 0,
+  "command": [
+    "node",
+    "docs/tasks/T1128-SMOOTH/sol-s5/reproduce-daily.mjs",
+    "docs/tasks/T1128-SMOOTH/sol-s5"
+  ]
+}

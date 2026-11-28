@@ -1,0 +1,38 @@
+tar: Cannot connect to D: resolve failed
+node:internal/errors:985
+  const err = new Error(message);
+              ^
+
+Error: Command failed: tar -xf D:\claude-tmp\thoradar-s5-daily-cehbhU\daily.tar -C D:\claude-tmp\thoradar-s5-daily-cehbhU\tree
+tar: Cannot connect to D: resolve failed
+
+    at genericNodeError (node:internal/errors:985:15)
+    at wrappedFn (node:internal/errors:539:14)
+    at checkExecSyncError (node:child_process:925:11)
+    at execFileSync (node:child_process:961:15)
+    at file:///D:/trackeep/trackeep-product/trackeep-thoradar-smooth-T1128/docs/tasks/T1128-SMOOTH/sol-s5/reproduce-daily.mjs:20:3 {
+  status: 128,
+  signal: null,
+  output: [
+    null,
+    Buffer(0) [Uint8Array] [],
+    Buffer(41) [Uint8Array] [
+      116,  97, 114,  58,  32,  67,  97, 110, 110,
+      111, 116,  32,  99, 111, 110, 110, 101,  99,
+      116,  32, 116, 111,  32,  68,  58,  32, 114,
+      101, 115, 111, 108, 118, 101,  32, 102,  97,
+      105, 108, 101, 100,  10
+    ]
+  ],
+  pid: 25348,
+  stdout: Buffer(0) [Uint8Array] [],
+  stderr: Buffer(41) [Uint8Array] [
+    116,  97, 114,  58,  32,  67,  97, 110, 110,
+    111, 116,  32,  99, 111, 110, 110, 101,  99,
+    116,  32, 116, 111,  32,  68,  58,  32, 114,
+    101, 115, 111, 108, 118, 101,  32, 102,  97,
+    105, 108, 101, 100,  10
+  ]
+}
+
+Node.js v24.14.0

@@ -1,0 +1,5 @@
+ .github/workflows/deploy_oss.yml |  197 ++++++++++++++++++++++++----
+ tests/smooth/verify-source.mjs   |    2 
+ tests/smooth/verify-deploy.mjs   |  269 ++++++++++++++++++++++++++++++++++++++
+ tests/smooth/deploy-mock.mjs     |   56 ++++++++
+ 4 files changed, 495 insertions(+), 29 deletions(-)

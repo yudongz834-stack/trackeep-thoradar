@@ -1,0 +1,9 @@
+
+DevTools listening on ws://127.0.0.1:64594/devtools/browser/01dc4f19-40be-49e8-a216-5f661b91061a
+Error: TypeError: Cannot read properties of null (reading 'getBoundingClientRect')
+    at <anonymous>:3:23
+    at <anonymous>:18:3
+    at evaluate (file:///D:/trackeep/trackeep-product/trackeep-thoradar-smooth-T1128/tests/smooth/verify-s1.mjs:146:31)
+    at async navigate (file:///D:/trackeep/trackeep-product/trackeep-thoradar-smooth-T1128/tests/smooth/verify-s1.mjs:207:28)
+    at async verify (file:///D:/trackeep/trackeep-product/trackeep-thoradar-smooth-T1128/tests/smooth/verify-s1.mjs:211:18)
+    at async file:///D:/trackeep/trackeep-product/trackeep-thoradar-smooth-T1128/tests/smooth/verify-s1.mjs:341:3

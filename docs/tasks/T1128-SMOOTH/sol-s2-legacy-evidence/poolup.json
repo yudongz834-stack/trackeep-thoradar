@@ -1,0 +1,240 @@
+{
+  "target": {
+    "index.html": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def",
+    "sw.js": "f8a4e2bc4d5d81964475580c012e825281f409a171782640ad5cbc68a07bca24",
+    "sw-retire.js": "5ae38f2ba965f4e1b1d340da2ba5fadd8b58af82a1e271a02ddff97ab5686199"
+  },
+  "baseline": "73dd34e65fce6661d74e595afc03df68e7d3f44f",
+  "environment": {
+    "os": "Windows 11 Pro",
+    "release": "10.0.26300",
+    "arch": "x64",
+    "node": "v24.14.0",
+    "chrome": "158.0.8127.88"
+  },
+  "runs": 1,
+  "seed": null,
+  "scriptSha256": "67e6e158af85c437735a71e95fc238cbab4b0d7674a013fe3d6dc9d57158e1b2",
+  "command": [
+    "node",
+    "tests/poolup/poolup_regress.mjs",
+    "--target",
+    "index.html",
+    "--baseline",
+    "73dd34e",
+    "--label",
+    "sols2"
+  ],
+  "startedAt": "2026-11-28T03:28:30.513Z",
+  "endedAt": "2026-11-28T03:30:36.918Z",
+  "exitCode": 1,
+  "signal": null,
+  "summary": {
+    "PASS": 39,
+    "FAIL": 1,
+    "SKIP": 0
+  },
+  "reportedSummary": "==== POOLUP REGRESS [sols2] SUMMARY 39 PASS / 1 FAIL / 0 SKIP：R00 ✓  R01 ✓  R02 ✓  R03 ✓  R04 ✓  R05 ✓  R05b ✓  R06 ✓  R06b ✓  R07 ✓  R07b ✓  R08 ✗  R08b ✓  R09 ✓  R10 ✓  R11 ✓  R12 ✓  R13 ✓  R14 ✓  R15 ✓  R15b ✓  R15c ✓  R16 ✓  R17 ✓  R18 ✓  R19 ✓  R20 ✓  R20b ✓  R21 ✓  R22 ✓  R22b ✓  R23 ✓  R24 ✓  R25 ✓  R26 ✓  R27 ✓  R28 ✓  R29 ✓  R30 ✓  R99 ✓ ====",
+  "tests": [
+    {
+      "result": "PASS",
+      "id": "R00",
+      "title": "既有文案逐键不变（静态）：基线中英两表的每个键在施工后件里同名同值，仅白名单键除外；施工后新增键单列"
+    },
+    {
+      "result": "PASS",
+      "id": "R01",
+      "title": "空库首屏（默认 1 天窗·零外部请求）"
+    },
+    {
+      "result": "PASS",
+      "id": "R02",
+      "title": "切到阅读视图"
+    },
+    {
+      "result": "PASS",
+      "id": "R03",
+      "title": "切到个性化·期刊合集分区"
+    },
+    {
+      "result": "PASS",
+      "id": "R04",
+      "title": "新建合集→编辑器里按缩写检索→勾 2 刊（当场挑本窗内有文章的名册刊）"
+    },
+    {
+      "result": "PASS",
+      "id": "R05",
+      "title": "合集重命名→启用→回概览（列表应只剩这 2 刊的文章）"
+    },
+    {
+      "result": "PASS",
+      "id": "R05b",
+      "title": "再点「官方全集」停用合集→回概览（列表应放宽）"
+    },
+    {
+      "result": "PASS",
+      "id": "R06",
+      "title": "点官方阵地扇区过滤（当场挑第一个点了还有文章的扇区；列表应收窄）"
+    },
+    {
+      "result": "PASS",
+      "id": "R06b",
+      "title": "点清除扇区过滤（列表应放宽）"
+    },
+    {
+      "result": "PASS",
+      "id": "R07",
+      "title": "关掉一个档位（当场挑第一个还有文章的档；列表应收窄）"
+    },
+    {
+      "result": "PASS",
+      "id": "R07b",
+      "title": "快筛（当场挑一个筛完还有文章的：RCT／队列／含试验号）"
+    },
+    {
+      "result": "FAIL",
+      "id": "R08",
+      "title": "检索框输入一个词（当场挑：搜得到、但搜不全）"
+    },
+    {
+      "result": "PASS",
+      "id": "R08b",
+      "title": "键盘 Esc 清除检索（列表应放宽）"
+    },
+    {
+      "result": "PASS",
+      "id": "R09",
+      "title": "时间滑杆拖到 7 天（触发历史档案加载）"
+    },
+    {
+      "result": "PASS",
+      "id": "R10",
+      "title": "新建阵地方案（期刊模式）→加阵地→按缩写检索指派 3 刊（当场挑现有筛选下还有文章的名册刊）→启用→回概览"
+    },
+    {
+      "result": "PASS",
+      "id": "R11",
+      "title": "方案编辑：转主题模式预览＋加 2 个主题词（关键词即算即用）→回概览"
+    },
+    {
+      "result": "PASS",
+      "id": "R12",
+      "title": "无 Key 点「保存并重分类」（只应出关键词结果、零 AI 调用）"
+    },
+    {
+      "result": "PASS",
+      "id": "R13",
+      "title": "转回期刊模式"
+    },
+    {
+      "result": "PASS",
+      "id": "R14",
+      "title": "书架：收藏「其余筛选下文章最多的一本刊」＋一本没有文章的刊→点「去概览只看书架」（列表应收窄到那一本刊）"
+    },
+    {
+      "result": "PASS",
+      "id": "R15",
+      "title": "书架筛选下：点顶栏书架钮关掉筛选（列表应放宽）"
+    },
+    {
+      "result": "PASS",
+      "id": "R15b",
+      "title": "再点顶栏书架钮重开筛选（列表应收窄）"
+    },
+    {
+      "result": "PASS",
+      "id": "R15c",
+      "title": "书架里取消收藏那本有文章的刊（只剩没文章的刊）→去概览＝空态→点「关闭书架筛选」"
+    },
+    {
+      "result": "PASS",
+      "id": "R16",
+      "title": "池外刊添加器：检索 NLM 目录→点候选→确认入册"
+    },
+    {
+      "result": "PASS",
+      "id": "R17",
+      "title": "池外刊题录面板冷开（按需拉 PubMed）"
+    },
+    {
+      "result": "PASS",
+      "id": "R18",
+      "title": "题录面板关掉再开（24 小时内走缓存）→关掉"
+    },
+    {
+      "result": "PASS",
+      "id": "R19",
+      "title": "移除池外刊（确认框）→回概览"
+    },
+    {
+      "result": "PASS",
+      "id": "R20",
+      "title": "切换英文界面→看合集分区与书架分区（英文态）"
+    },
+    {
+      "result": "PASS",
+      "id": "R20b",
+      "title": "切回中文→回概览"
+    },
+    {
+      "result": "PASS",
+      "id": "R21",
+      "title": "切深色模式"
+    },
+    {
+      "result": "PASS",
+      "id": "R22",
+      "title": "键盘：/ 聚焦检索→Esc 退出→→ 下一信号（选中篇应变）"
+    },
+    {
+      "result": "PASS",
+      "id": "R22b",
+      "title": "键盘：← 上一信号（选中篇应回到原来那篇）"
+    },
+    {
+      "result": "PASS",
+      "id": "R23",
+      "title": "写 AI 三件套（记住档）与一条主题后重载→测试连接"
+    },
+    {
+      "result": "PASS",
+      "id": "R24",
+      "title": "我的主题运行（PubMed＋AI 判官）→结果面板"
+    },
+    {
+      "result": "PASS",
+      "id": "R25",
+      "title": "关闭结果面板→查看最近一次结果（本地存档）→关闭"
+    },
+    {
+      "result": "PASS",
+      "id": "R26",
+      "title": "新建一条主题（表单）→保存"
+    },
+    {
+      "result": "PASS",
+      "id": "R27",
+      "title": "整页重载：持久化状态恢复（合集／方案／书架／语言／深色／时间窗／AI 配置）"
+    },
+    {
+      "result": "PASS",
+      "id": "R28",
+      "title": "时间滑杆拖到 90 天（全量历史档案）"
+    },
+    {
+      "result": "PASS",
+      "id": "R29",
+      "title": "删除主题／方案／合集（确认框）"
+    },
+    {
+      "result": "PASS",
+      "id": "R30",
+      "title": "删完回概览→再重载一次"
+    },
+    {
+      "result": "PASS",
+      "id": "R99",
+      "title": "全程：两侧页面运行期异常为零、施工后件全程零分类／深评请求、AI 请求都带种子里的假钥匙、每一步都执行到位"
+    }
+  ]
+}

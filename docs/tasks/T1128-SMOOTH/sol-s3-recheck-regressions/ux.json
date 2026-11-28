@@ -1,0 +1,270 @@
+{
+  "target": {
+    "index.html": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def",
+    "sw.js": "900061dd45ad04e9f9c4391e5d2756f8b080a4bc4144ede9b913b6deabb5aa8b",
+    "sw-retire.js": "5ae38f2ba965f4e1b1d340da2ba5fadd8b58af82a1e271a02ddff97ab5686199"
+  },
+  "baseline": "73dd34e65fce6661d74e595afc03df68e7d3f44f",
+  "environment": {
+    "os": "Windows 11 Pro",
+    "release": "10.0.26300",
+    "arch": "x64",
+    "node": "v24.14.0",
+    "chrome": "158.0.8127.88"
+  },
+  "runs": 1,
+  "seed": null,
+  "scriptSha256": "07184c836a0999e4258a16dcb1647394a69850a9e11593ae71f87cf7d14e141e",
+  "command": [
+    "node",
+    "tests/ux/ux_probe.mjs",
+    "--target",
+    "index.html",
+    "--base",
+    "73dd34e",
+    "--label",
+    "sol-s2"
+  ],
+  "startedAt": "2026-11-28T03:58:23.362Z",
+  "endedAt": "2026-11-28T04:00:21.124Z",
+  "exitCode": 0,
+  "signal": null,
+  "summary": {
+    "PASS": 46,
+    "FAIL": 0,
+    "SKIP": 0
+  },
+  "reportedSummary": "==== UX PROBE [sol-s2] SUMMARY 46 PASS / 0 FAIL：F2a ✓  F2b ✓  F2c ✓  F2d ✓  F2e ✓  F2f ✓  F2g ✓  F2h ✓  F3a ✓  F3b ✓  F3b2 ✓  F3c ✓  F3d ✓  F3e ✓  F4a ✓  F4b ✓  F4c ✓  F4d ✓  F4e ✓  F5a ✓  F5b ✓  F5c ✓  F5d ✓  F5e ✓  F6a ✓  F6b ✓  F7a ✓  F7b ✓  F7c ✓  F7d ✓  F7e ✓  F10a ✓  F10b ✓  F10c ✓  F10d ✓  F11a ✓  F11b ✓  F11c ✓  F11d ✓  F9a ✓  F9b ✓  F9c ✓  F8a ✓  F8b ✓  F8c ✓  F8d ✓ ====",
+  "tests": [
+    {
+      "result": "PASS",
+      "id": "F2a",
+      "title": "F2a 阅读视图默认筛选区收起成一行"
+    },
+    {
+      "result": "PASS",
+      "id": "F2b",
+      "title": "F2b 阅读视图点击展开、再点收起"
+    },
+    {
+      "result": "PASS",
+      "id": "F2c",
+      "title": "F2c 概览默认收起、点击展开后再收起，队列空间随动作增减"
+    },
+    {
+      "result": "PASS",
+      "id": "F2d",
+      "title": "F2d 双视图各自保留展开选择，切页不错位"
+    },
+    {
+      "result": "PASS",
+      "id": "F2e",
+      "title": "F2e 刷新后回到双视图默认收起（不把临时展开态持久化）"
+    },
+    {
+      "result": "PASS",
+      "id": "F2f",
+      "title": "F2f 折叠钮标签与筛选区实际状态一致（钮写「收起筛选」当且仅当筛选区正开着）"
+    },
+    {
+      "result": "PASS",
+      "id": "F2g",
+      "title": "F2g 折叠钮带无障碍状态标注"
+    },
+    {
+      "result": "PASS",
+      "id": "F2h",
+      "title": "F2h 折叠流页面零运行期异常"
+    },
+    {
+      "result": "PASS",
+      "id": "F3a",
+      "title": "F3a 视口高约 714px：页脚（临床免责声明）完整可见"
+    },
+    {
+      "result": "PASS",
+      "id": "F3b",
+      "title": "F3b 视口高约 714px：雷达盘不截断下方控件（#jcat-folds 等）"
+    },
+    {
+      "result": "PASS",
+      "id": "F3b2",
+      "title": "F3b2 视口高约 714px：选了扇区后「清除」钮点得到（没被雷达盘盖住）"
+    },
+    {
+      "result": "PASS",
+      "id": "F3c",
+      "title": "F3c 720px 及以上各档视口：页脚可见、盘不盖控件"
+    },
+    {
+      "result": "PASS",
+      "id": "F3d",
+      "title": "F3d 页脚下方不留空带（主区高度按实际顶栏高扣减）"
+    },
+    {
+      "result": "PASS",
+      "id": "F3e",
+      "title": "F3e 多档视口流页面零运行期异常"
+    },
+    {
+      "result": "PASS",
+      "id": "F4a",
+      "title": "F4a 摘要正文字号未缩（详情卡摘要 12px）"
+    },
+    {
+      "result": "PASS",
+      "id": "F4b",
+      "title": "F4b 阅读卡「一句话结论」字号未缩"
+    },
+    {
+      "result": "PASS",
+      "id": "F4c",
+      "title": "F4c 阅读卡标题：紧凑档降号，沉浸档大标题不被压"
+    },
+    {
+      "result": "PASS",
+      "id": "F4d",
+      "title": "F4d 详情卡摘要提前到首屏（1440×714），块序＝摘要→按钮→元数据折叠"
+    },
+    {
+      "result": "PASS",
+      "id": "F4e",
+      "title": "F4e 字号流页面零运行期异常"
+    },
+    {
+      "result": "PASS",
+      "id": "F5a",
+      "title": "F5a 元数据折叠：缺省收起、点开见 11 格、内容没丢"
+    },
+    {
+      "result": "PASS",
+      "id": "F5b",
+      "title": "F5b 刊源图例折叠：缺省收起、点开见胶囊"
+    },
+    {
+      "result": "PASS",
+      "id": "F5c",
+      "title": "F5c 管线漏斗撤下、说明书墙收起（开关留 title）"
+    },
+    {
+      "result": "PASS",
+      "id": "F5d",
+      "title": "F5d 双提示框改轻行后要点还在"
+    },
+    {
+      "result": "PASS",
+      "id": "F5e",
+      "title": "F5e 折叠流页面零运行期异常"
+    },
+    {
+      "result": "PASS",
+      "id": "F6a",
+      "title": "F6a 英文态下本单新增的界面文案跟着切语言"
+    },
+    {
+      "result": "PASS",
+      "id": "F6b",
+      "title": "F6b 语言流页面零运行期异常"
+    },
+    {
+      "result": "PASS",
+      "id": "F7a",
+      "title": "F7a 390 窄屏：阅读缺省收起、无横向溢出且顶栏不压主区"
+    },
+    {
+      "result": "PASS",
+      "id": "F7b",
+      "title": "F7b 390 窄屏：阅读点开筛选后不横向溢出、三块都落在面板内"
+    },
+    {
+      "result": "PASS",
+      "id": "F7c",
+      "title": "F7c 390 窄屏：概览不横向溢出且顶栏不压主区"
+    },
+    {
+      "result": "PASS",
+      "id": "F7d",
+      "title": "F7d 深色模式可切换、文档不横溢、页脚可见（1440×714）"
+    },
+    {
+      "result": "PASS",
+      "id": "F7e",
+      "title": "F7e 窄屏/深色流页面零运行期异常"
+    },
+    {
+      "result": "PASS",
+      "id": "F10a",
+      "title": "F10a 桌面点径 5–9px，0 篇不占标签，低分淡化且研究设计形状保留"
+    },
+    {
+      "result": "PASS",
+      "id": "F10b",
+      "title": "F10b 手机点径为桌面 75%，且每个点中心都命中自己"
+    },
+    {
+      "result": "PASS",
+      "id": "F10c",
+      "title": "F10c 小点仍有可用热区，且键盘 Enter 可选中"
+    },
+    {
+      "result": "PASS",
+      "id": "F10d",
+      "title": "F10d 雷达点径流页面零运行期异常"
+    },
+    {
+      "result": "PASS",
+      "id": "F11a",
+      "title": "F11a 桌面左栏 280px、雷达上限 420px、主 TAB 高 30px"
+    },
+    {
+      "result": "PASS",
+      "id": "F11b",
+      "title": "F11b 901–1180px 左栏 240px，雷达超过旧 380px 上限且不压下部"
+    },
+    {
+      "result": "PASS",
+      "id": "F11c",
+      "title": "F11c 手机单栏与盘宽不被桌面规则改变，TAB 同高且不横溢"
+    },
+    {
+      "result": "PASS",
+      "id": "F11d",
+      "title": "F11d 三种视口比例流页面零运行期异常"
+    },
+    {
+      "result": "PASS",
+      "id": "F9a",
+      "title": "F9a 阅读默认仍为前 12 篇，且有明确入口显示其余"
+    },
+    {
+      "result": "PASS",
+      "id": "F9b",
+      "title": "F9b 真鼠标点「显示其余」后所有在筛文献可达"
+    },
+    {
+      "result": "PASS",
+      "id": "F9c",
+      "title": "F9c 阅读展开流页面零运行期异常"
+    },
+    {
+      "result": "PASS",
+      "id": "F8a",
+      "title": "F8a 官方面逐键差分：数据承载面（队列/盘点/扇区/标签/图例/折叠/计数/合集/阵地/主题/AI 设置）与父提交逐字一致"
+    },
+    {
+      "result": "PASS",
+      "id": "F8b",
+      "title": "F8b 状态面差分：选中项/筛选结果/档位钮/时间窗/队列序 在 8 幕里与父提交逐字一致，且各动作在两边都真改了状态"
+    },
+    {
+      "result": "PASS",
+      "id": "F8c",
+      "title": "F8c 详情卡各块内容（不管先后/折叠包裹/刊源行 IF 尾巴）与父提交逐字一致"
+    },
+    {
+      "result": "PASS",
+      "id": "F8d",
+      "title": "F8d 差分流页面零运行期异常（两棵树）"
+    }
+  ]
+}

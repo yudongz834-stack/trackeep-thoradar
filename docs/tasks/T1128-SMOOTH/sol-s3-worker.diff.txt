@@ -1,0 +1,25 @@
+diff --git a/D:/trackeep/trackeep-product/trackeep-thoradar-neon-v1/sw.js b/sw.js
+index 3f8df0d..612370f 100644
+--- a/D:/trackeep/trackeep-product/trackeep-thoradar-neon-v1/sw.js
++++ b/sw.js
+@@ -15,8 +15,19 @@ async function fetchShell(url) {
+ 
+   const html = await response.clone().text();
+   const start = html.indexOf(DATA_START);
+-  if (start === -1 || html.indexOf(DATA_END, start + DATA_START.length) === -1 ||
++  const dataStart = start + DATA_START.length;
++  const end = html.indexOf(DATA_END, dataStart);
++  if (start === -1 || end === -1 ||
+       !html.trimEnd().toLowerCase().endsWith('</html>')) return null;
++
++  const declaration = /^\s*const\s+SITE_DATA\s*=\s*(\{[\s\S]*\})\s*;?\s*$/.exec(html.slice(dataStart, end));
++  if (!declaration) return null;
++  try {
++    const data = JSON.parse(declaration[1]);
++    if (typeof data.briefing_date !== 'string' || !Array.isArray(data.papers)) return null;
++  } catch (_) {
++    return null;
++  }
+   return { response, html };
+ }
+ 

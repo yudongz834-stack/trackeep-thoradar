@@ -1,0 +1,59 @@
+diff --git a/docs/tasks/T1128-SMOOTH/sol-s4/s3-baseline.sw.js b/sw.js
+index 66db83d..4c353fa 100644
+--- a/docs/tasks/T1128-SMOOTH/sol-s4/s3-baseline.sw.js
++++ b/sw.js
+@@ -6,6 +6,38 @@ const DATA_END = '/*__THORADAR_DATA_END__*/';
+ const statuses = new Map();
+ let refreshTail = Promise.resolve();
+ 
++function inDataScript(html, start, end) {
++  // A worker has no DOM. Skip HTML comments, quoted attributes and raw-text elements.
++  const tags = /<!--[\s\S]*?(?:--!?>|$)|<[!?][^>]*>|<(\/?)([a-z][\w:-]*)(?=[\t\n\f\r />])(?:[^"'<>]|"[^"]*"|'[^']*')*>/gi;
++  let templates = 0;
++  for (let tag; (tag = tags.exec(html)) && tag.index < start;) {
++    const name = tag[2]?.toLowerCase();
++    if (tags.lastIndex > start) return false;
++    if (name === 'template') templates = Math.max(0, templates + (tag[1] ? -1 : 1));
++    if (!name || tag[1]) continue;
++    if (name === 'plaintext') return false;
++    if (!/^(script|style|title|textarea|xmp|iframe|noembed|noframes|noscript)$/.test(name)) continue;
++
++    const close = new RegExp(`</${name}(?=[\\t\\n\\f\\r />])`, 'gi');
++    close.lastIndex = tags.lastIndex;
++    const closing = close.exec(html);
++    if (!closing) return false;
++    if (start < closing.index) {
++      // The generated data block starts the inline script, before any JavaScript or legacy comment.
++      return name === 'script' && templates === 0 && end <= closing.index &&
++        html.slice(tags.lastIndex, start).trim() === '';
++    }
++    tags.lastIndex = closing.index;
++  }
++  return false;
++}
++
++function isBriefingDate(value) {
++  if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value) || value.startsWith('0000')) return false;
++  const time = Date.parse(value);
++  return Number.isFinite(time) && new Date(time).toISOString().slice(0, 10) === value;
++}
++
+ async function fetchShell(url) {
+   const response = await fetch(url, {
+     cache: 'no-store', redirect: 'error', signal: AbortSignal.timeout(8000)
+@@ -19,13 +51,14 @@ async function fetchShell(url) {
+   const end = html.indexOf(DATA_END, dataStart);
+   if (start === -1 || end === -1 ||
+       !html.trimEnd().toLowerCase().endsWith('</html>')) return null;
++  if (!inDataScript(html, start, end + DATA_END.length)) return null;
+ 
+   const block = html.slice(dataStart, end).trim();
+   const declaration = /^const\s+SITE_DATA\s*=\s*(\{[\s\S]*\})\s*;?$/.exec(block);
+   if (!declaration) return null;
+   try {
+     const data = JSON.parse(declaration[1]);
+-    if (typeof data.briefing_date !== 'string' || !Array.isArray(data.papers)) return null;
++    if (!isBriefingDate(data.briefing_date) || !Array.isArray(data.papers)) return null;
+   } catch (_) {
+     return null;
+   }

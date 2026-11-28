@@ -1,0 +1,9 @@
+file:///D:/trackeep/trackeep-product/trackeep-thoradar-neon-v1/tests/neon-v1-verify.mjs:17
+  if (pos < 0 || source.indexOf(anchor, pos + anchor.length) !== -1) throw new Error('Anchor mismatch: ' + anchor);
+                                                                           ^
+
+Error: Anchor mismatch: html.indexOf(DATA_END, start + DATA_START.length) === -1
+    at replaceOnce (file:///D:/trackeep/trackeep-product/trackeep-thoradar-neon-v1/tests/neon-v1-verify.mjs:17:76)
+    at file:///D:/trackeep/trackeep-product/trackeep-thoradar-neon-v1/tests/neon-v1-verify.mjs:60:23
+
+Node.js v24.14.0

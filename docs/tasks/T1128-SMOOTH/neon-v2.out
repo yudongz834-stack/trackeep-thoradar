@@ -1,0 +1,37 @@
+root agent idle; waiting for 2 background task(s) to finish
+已核对候选文件哈希（`index.html`、`sw.js`、`sw-retire.js` 及 `tests/smooth/*` 均与 `trackeep-thoradar-smooth-T1128` 逐字节一致），并并行启动全部独立复验套件：
+- `neon-v1-verify.mjs` 原样试跑（已捕获因 S3 重构 `dataStart` 变量导致的第 60 行 `Anchor mismatch` 报错，原始输出已落盘）＋ `verify-s3`、`verify-s1`、`verify-s2`、`ux_probe`；
+- `aicls_regress.mjs` 与 `poolup_regress.mjs` 直跑（基线 `73dd34e`，标签 `neonv2`）；
+- 自建 `tests/neon-v2-verify.mjs`（覆盖 V1 四类异常与下次导航实测、S3 五类非法样本、合法零篇样本、四项内存负对照及额外边界探测）与 `verify-source.mjs`。
+
+等待三组后台测试完成后统一汇总证据并核对 S3 报告。
+`neon-v2-verify` 与 `verify-source` 已先完成（正等待 `task-20` 与 `task-21` 结束）：
+- `neon-v2-verify`：12/12 检查全过（V1 四类异常含 156B 空标记坏壳＋S3 五类非法样本全部拒绝覆盖且下次导航仍为 `2026-11-27 / 37 点`；合法零篇样本正确接受并切换为 `2026-11-28 / 0 篇`；白名单绕过与域名门禁通过）。
+- 负对照：`mut-mime`、`mut-status-503`、`mut-s3-site-data-guard` 三项全部 `RED-CAUGHT`（删掉 S3 新校验后 156B 空标记壳立刻复现 `nextDate=null, nextPoints=0`）；仅删 `mut-marker-order` 时因 `html.slice(dataStart, end)` 在 `end < dataStart` 下返回空串，仍被 S3 新校验二次拦住（纵深防御）。
+- 额外探测发现两个低危边界：`briefing_date: ""` 空串与注释包裹有效 `SITE_DATA` 的 184B 桩页会被放行。
+
+继续等待 `task-20`（S3/S1/S2/UX）与 `task-21`（AICLS/POOLUP 旧回归）结束。
+`task-20` 已完成：
+- `verify-s3`、`verify-s1`、`verify-s2`（24/24）、`ux_probe`（46/46）均已跑完落盘。
+- 正在等待最后一组后台任务 `task-21`（`aicls_regress.mjs` 与 `poolup_regress.mjs`）结束。
+已读完 S3 报告并核对其声明与哈希；等待 `neon-v2-verify` 补测及 R08／哈希／进程收尾核查（`task-42`）完成，随后落盘 `neon-v2/report.md`。
+**干了什么**　在独立复核树核对 S3 候选文件哈希与施工树逐字节一致后，亲自跑完 V1 原脚本试跑、自建 V2 对抗与负对照套件（12/12 通过、4 项核心防护负对照全部变红）、S3（6/6）、S1（9/9）、S2（24/24）、UX（46/46）以及 AICLS／POOLUP 两套旧回归直跑（均为 39/40 且 38 步差分零候选差异，仅 R08 因测试失真未验），证实 V1 高危阻断项 F1（156B 空标记毒壳覆盖缓存）已修复，并将完整报告与原始输出落盘。  
+**PI 怎么亲手验**　打开 [neon-v2-verify.stdout.txt](file:///D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v2/neon-v2-verify.stdout.txt)，确认第 4 行为 `PASS adversarial-empty-markers-stub preserved=true nextDate=2026-11-27 nextPoints=37`、第 10 行为 `PASS valid-zero-papers-accepted ... nextDate=2026-11-28 nextPapers=0`、第 15–18 行四项核心负对照均为 `RED-CAUGHT`（删去 S3 校验后即刻复现 `nextDate=null nextPoints=0`）；再打开 [report.md](file:///D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v2/report.md) 核查全套退出码与哈希。  
+**还剩什么坑**　本机候选口径下已无阻断项；遗留三项低危非阻断问题（V1 的 F2 冷缓存双请求／短闪、V1 的 F3 `run-regressions.mjs` 缺父目录 `ENOENT`、V2 新观察 F4 空串 `briefing_date` 与注释包裹有效 `SITE_DATA` 桩页边界），以及旧回归 R08 因测试选词失真未验和合同明示的真机／线上／90 天等未覆盖项。
+
+### 核心复验结论与证据摘要
+
+- **结论**：**有条件通过**（阻断项 0 项；未验项为 AICLS/POOLUP 的 R08 及合同明示未覆盖的真机／线上／90 天／发布项）。
+- **候选 SHA-256（复核前后与 S3 施工树逐字节一致）**：
+  - `index.html`：`33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def`
+  - `sw.js`：`900061dd45ad04e9f9c4391e5d2756f8b080a4bc4144ede9b913b6deabb5aa8b`
+  - `sw-retire.js`：`5ae38f2ba965f4e1b1d340da2ba5fadd8b58af82a1e271a02ddff97ab5686199`
+- **各套件实测结果**：
+  - `neon-v1-verify.mjs` 原样运行：退出码 `1`，因 S3 重构 `dataStart` 变量触发第 60 行 `Anchor mismatch`（非产品回归，证据见 [neon-v1-verify-verbatim.stderr.txt](file:///D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v2/neon-v1-verify-verbatim.stderr.txt)）。
+  - [neon-v2-verify.mjs](file:///D:/trackeep/trackeep-product/trackeep-thoradar-neon-v1/tests/neon-v2-verify.mjs)：退出码 `0`，**12 PASS / 0 FAIL**（V1 四类异常＋S3 五类非法样本全拒且下次导航均为 `2026-11-27 / 37 点`，合法零篇正确放行；4 项核心负对照 `mut-marker-order-orderless`、`mut-mime`、`mut-status-503`、`mut-s3-site-data-guard` 全部 `RED-CAUGHT`，另实证朴素 `mut-marker-order-naive` 被 S3 新校验纵深拦住；证据见 [neon-v2-verify.json](file:///D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v2/neon-v2-verify.json)）。
+  - S3 / S1 / S2 / UX：`verify-s3` **6/6**（[verify-s3.json](file:///D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v2/verify-s3.json)）、`verify-s1` **9/9**（[verify-s1.json](file:///D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v2/verify-s1.json)）、`verify-s2` **24/24**（[verify-s2.json](file:///D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v2/verify-s2.json)）、`ux_probe` **46/46**（[ux_probe.stdout.txt](file:///D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v2/ux_probe.stdout.txt)），退出码均为 `0`。
+  - 旧回归直跑：[aicls_regress.stdout.txt](file:///D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v2/aicls_regress.stdout.txt) 与 [poolup_regress.stdout.txt](file:///D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v2/poolup_regress.stdout.txt) 退出码均为 `1`，**39 PASS / 1 FAIL / 0 SKIP**，两套均确认「比对的 38 步里 38 步四样逐字一致且零新增调用，0 步有差异」，仅 R08 因两侧均为 `{"query":"Mortality","list":0,"noQuery":1}` 属测试失真未验。
+- **写域与清理核查**：S3 施工树、主仓产品文件、旧测试、验收合同与任务地图零写入；无残留 Chrome 进程；完整交付报告见 [report.md](file:///D:/trackeep/trackeep-product/trackeep-thoradar/docs/tasks/T1128-SMOOTH/neon-v2/report.md)。
+
+DELIVERY-T1128-SMOOTH-V2
+已完成胸科雷达 S3 返修的独立复验、四项内存负对照与 AICLS／POOLUP 旧回归直跑，给出「有条件通过」结论并将报告与全部原始输出落盘至 `neon-v2/`。

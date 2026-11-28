@@ -1,0 +1,136 @@
+{
+  "name": "render",
+  "cwd": "D:\\trackeep\\trackeep-product\\trackeep-thoradar-neon-v1",
+  "argv": [
+    "C:\\Program Files\\nodejs\\node.EXE",
+    "astra-v3/read-render.mjs",
+    "D:\\trackeep\\trackeep-product\\trackeep-thoradar-neon-v1\\astra-v3\\render.json"
+  ],
+  "stdin": null,
+  "started": "2026-11-28T05:02:56.507971+00:00",
+  "observedChrome": [
+    {
+      "pid": 55720,
+      "parent": 14064,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842177.18237,
+      "profile": "D:\\claude-tmp\\thoradar-astra-v3-render-cLAxBk",
+      "type": "browser",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 73584,
+      "parent": 55720,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842177.2488444,
+      "profile": "D:\\claude-tmp\\thoradar-astra-v3-render-cLAxBk",
+      "type": "--type=crashpad-handler",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 9684,
+      "parent": 55720,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842177.689486,
+      "profile": "D:\\claude-tmp\\thoradar-astra-v3-render-cLAxBk",
+      "type": "--type=gpu-process",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 67696,
+      "parent": 55720,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842177.7112808,
+      "profile": "D:\\claude-tmp\\thoradar-astra-v3-render-cLAxBk",
+      "type": "--type=utility",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 20992,
+      "parent": 55720,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842177.724914,
+      "profile": "D:\\claude-tmp\\thoradar-astra-v3-render-cLAxBk",
+      "type": "--type=utility",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 73544,
+      "parent": 55720,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842178.109624,
+      "profile": "D:\\claude-tmp\\thoradar-astra-v3-render-cLAxBk",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 65532,
+      "parent": 55720,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842178.1139836,
+      "profile": "D:\\claude-tmp\\thoradar-astra-v3-render-cLAxBk",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 63348,
+      "parent": 55720,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842178.116718,
+      "profile": "D:\\claude-tmp\\thoradar-astra-v3-render-cLAxBk",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 3720,
+      "parent": 55720,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842178.7218113,
+      "profile": "D:\\claude-tmp\\thoradar-astra-v3-render-cLAxBk",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 49244,
+      "parent": 55720,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842178.723918,
+      "profile": "D:\\claude-tmp\\thoradar-astra-v3-render-cLAxBk",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 14628,
+      "parent": 55720,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842178.726303,
+      "profile": "D:\\claude-tmp\\thoradar-astra-v3-render-cLAxBk",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 46168,
+      "parent": 55720,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842178.7289672,
+      "profile": "D:\\claude-tmp\\thoradar-astra-v3-render-cLAxBk",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    },
+    {
+      "pid": 39324,
+      "parent": 55720,
+      "exe": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "created": 1795842179.0146556,
+      "profile": "D:\\claude-tmp\\thoradar-astra-v3-render-cLAxBk",
+      "type": "--type=renderer",
+      "sameProcessAfter": false
+    }
+  ],
+  "nodePid": 14064,
+  "exit": 0,
+  "profileExistsAfter": {
+    "D:\\claude-tmp\\thoradar-astra-v3-render-cLAxBk": false
+  },
+  "ended": "2026-11-28T05:03:29.779097+00:00"
+}

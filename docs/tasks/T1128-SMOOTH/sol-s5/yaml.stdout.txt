@@ -1,0 +1,2 @@
+YAML parsed: ['smooth-verify', 'deploy-oss']
+deploy-oss needs: smooth-verify

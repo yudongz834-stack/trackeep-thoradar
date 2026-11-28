@@ -1,0 +1,13 @@
+diff --git a/tests/neon-v2-verify.mjs b/astra-v3/neon-v2-s4.mjs
+index 58dae9d..f40c168 100644
+--- a/tests/neon-v2-verify.mjs
++++ b/astra-v3/neon-v2-s4.mjs
+@@ -82,7 +82,7 @@ const s3GuardBlock = [
+   '  if (!declaration) return null;',
+   '  try {',
+   '    const data = JSON.parse(declaration[1]);',
+-  '    if (typeof data.briefing_date !== \'string\' || !Array.isArray(data.papers)) return null;',
++  '    if (!isBriefingDate(data.briefing_date) || !Array.isArray(data.papers)) return null;',
+   '  } catch (_) {',
+   '    return null;',
+   '  }'

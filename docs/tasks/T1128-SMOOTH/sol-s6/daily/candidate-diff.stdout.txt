@@ -1,0 +1,267 @@
+diff --git a/.github/workflows/deploy_oss.yml b/.github/workflows/deploy_oss.yml
+index db52756..79c8717 100644
+--- a/.github/workflows/deploy_oss.yml
++++ b/.github/workflows/deploy_oss.yml
+@@ -38,7 +38,7 @@ jobs:
+         run: node tests/smooth/verify-deploy.mjs "$env:RUNNER_TEMP/smooth-deploy.json"
+ 
+       - name: Verify source invariants
+-        run: node tests/smooth/verify-source.mjs "$env:RUNNER_TEMP/smooth-source.json"
++        run: node tests/smooth/verify-source.mjs "$env:RUNNER_TEMP/smooth-source.json" --ci
+ 
+       - name: Verify S1
+         run: node tests/smooth/verify-s1.mjs "$env:RUNNER_TEMP/smooth-s1.json"
+@@ -49,10 +49,13 @@ jobs:
+       - name: Verify S3
+         run: node tests/smooth/verify-s3.mjs "$env:RUNNER_TEMP/smooth-s3.json"
+ 
++      - name: Prepare UX baseline from the first parent
++        run: node tests/smooth/prepare-ci-ux-baseline.mjs "$env:GITHUB_SHA" "$env:RUNNER_TEMP/smooth-ux-baseline.html"
++
+       - name: Verify UX
+         run: |
+           $env:XREV_SCRATCH = Join-Path $env:RUNNER_TEMP 'smooth-ux'
+-          node tests/ux/ux_probe.mjs --target index.html --base 73dd34e --label smooth-ci
++          node tests/ux/ux_probe.mjs --target index.html --base-html "$env:RUNNER_TEMP/smooth-ux-baseline.html" --label smooth-ci
+ 
+   deploy-oss:
+     needs: smooth-verify
+diff --git a/tests/smooth/official-data.mjs b/tests/smooth/official-data.mjs
+new file mode 100644
+index 0000000..c55f3c6
+--- /dev/null
++++ b/tests/smooth/official-data.mjs
+@@ -0,0 +1,37 @@
++const startMarker = '/*__THORADAR_DATA_START__*/';
++const endMarker = '/*__THORADAR_DATA_END__*/';
++
++export function splitOfficialData(html) {
++  const start = html.indexOf(startMarker);
++  const end = html.indexOf(endMarker);
++  if (start < 0 || end < start + startMarker.length ||
++      start !== html.lastIndexOf(startMarker) || end !== html.lastIndexOf(endMarker)) {
++    throw new Error('Expected one ordered pair of SITE_DATA markers');
++  }
++  return {
++    before: html.slice(0, start),
++    block: html.slice(start, end + endMarker.length),
++    after: html.slice(end + endMarker.length)
++  };
++}
++
++export function parseOfficialData(block) {
++  const declaration = /^\s*const\s+SITE_DATA\s*=\s*(\{[\s\S]*\})\s*;?\s*$/.exec(
++    block.slice(startMarker.length, -endMarker.length)
++  );
++  if (!declaration) throw new Error('Expected a SITE_DATA JSON declaration between the markers');
++
++  let data;
++  try {
++    data = JSON.parse(declaration[1]);
++  } catch (error) {
++    throw new Error('Invalid SITE_DATA JSON', { cause: error });
++  }
++  const date = data.briefing_date;
++  if (typeof date !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(date) || date.startsWith('0000') ||
++      !Number.isFinite(Date.parse(date)) || new Date(date).toISOString().slice(0, 10) !== date) {
++    throw new Error('SITE_DATA.briefing_date must be a valid YYYY-MM-DD calendar date');
++  }
++  if (!Array.isArray(data.papers)) throw new Error('SITE_DATA.papers must be an array');
++  return data;
++}
+diff --git a/tests/smooth/prepare-ci-ux-baseline.mjs b/tests/smooth/prepare-ci-ux-baseline.mjs
+new file mode 100644
+index 0000000..015a06b
+--- /dev/null
++++ b/tests/smooth/prepare-ci-ux-baseline.mjs
+@@ -0,0 +1,32 @@
++import { readFile, writeFile } from 'node:fs/promises';
++import { join } from 'node:path';
++import { ROOT, gitRead, norm, sha256 } from '../aicls/lib.mjs';
++import { parseOfficialData, splitOfficialData } from './official-data.mjs';
++
++const [revision, output] = process.argv.slice(2);
++if (!revision || !output) {
++  throw new Error('Usage: node tests/smooth/prepare-ci-ux-baseline.mjs <release-sha> <baseline.html>');
++}
++const head = gitRead(['rev-parse', 'HEAD']).trim();
++if (revision !== head) throw new Error('The release SHA must match the checked-out HEAD');
++const parent = gitRead(['rev-parse', `${head}^1`]).trim();
++const currentHtml = gitRead(['show', `${head}:index.html`]);
++if (norm(await readFile(join(ROOT, 'index.html'), 'utf8')) !== norm(currentHtml)) {
++  throw new Error('The UX target index.html differs from the release revision');
++}
++
++const parentHtml = gitRead(['show', `${parent}:index.html`]);
++const parentPage = splitOfficialData(parentHtml);
++const currentPage = splitOfficialData(currentHtml);
++const currentData = parseOfficialData(currentPage.block);
++const baseline = parentPage.before + currentPage.block + parentPage.after;
++const prepared = splitOfficialData(baseline);
++if (prepared.before !== parentPage.before || prepared.after !== parentPage.after ||
++    prepared.block !== currentPage.block) {
++  throw new Error('The UX baseline must contain the first-parent shell and the release SITE_DATA block');
++}
++
++await writeFile(output, baseline, { flag: 'wx' });
++console.log(JSON.stringify({ revision, parent, output, briefingDate: currentData.briefing_date,
++  paperCount: currentData.papers.length, parentDataSha256: sha256(parentPage.block),
++  releaseDataSha256: sha256(currentPage.block), baselineSha256: sha256(baseline) }));
+diff --git a/tests/smooth/verify-deploy.mjs b/tests/smooth/verify-deploy.mjs
+index b7bee80..5e0d3c5 100644
+--- a/tests/smooth/verify-deploy.mjs
++++ b/tests/smooth/verify-deploy.mjs
+@@ -65,13 +65,17 @@ await test('Windows Node 24 gate runs the real checks in order before the same r
+     assert.doesNotMatch(job, /continue-on-error:|always\(\)|success\(\)\s*\|\|/);
+   }
+   let previous = -1;
+-  for (const suffix of ['deploy', 'source', 's1', 's2', 's3']) {
+-    const command = `run: node tests/smooth/verify-${suffix}.mjs "$env:RUNNER_TEMP/smooth-${suffix}.json"`;
++  const commands = [
++    ...['deploy', 'source', 's1', 's2', 's3'].map(suffix =>
++      `run: node tests/smooth/verify-${suffix}.mjs "$env:RUNNER_TEMP/smooth-${suffix}.json"${suffix === 'source' ? ' --ci' : ''}`),
++    'run: node tests/smooth/prepare-ci-ux-baseline.mjs "$env:GITHUB_SHA" "$env:RUNNER_TEMP/smooth-ux-baseline.html"',
++    'node tests/ux/ux_probe.mjs --target index.html --base-html "$env:RUNNER_TEMP/smooth-ux-baseline.html" --label smooth-ci'
++  ];
++  for (const command of commands) {
+     const current = verifyJob.indexOf(command + '\n');
+     assert.ok(current > previous, `missing or out of order: ${command}`);
+     previous = current;
+   }
+-  assert.ok(verifyJob.indexOf('node tests/ux/ux_probe.mjs --target index.html --base 73dd34e --label smooth-ci\n') > previous);
+   assert.match(verifyJob, /\$env:XREV_SCRATCH = Join-Path \$env:RUNNER_TEMP 'smooth-ux'/);
+   assert.doesNotMatch(verifyJob, /run-regressions|tests\/(aicls|poolup)\/|secrets\./);
+ });
+diff --git a/tests/smooth/verify-source.mjs b/tests/smooth/verify-source.mjs
+index 168867e..1f0fc71 100644
+--- a/tests/smooth/verify-source.mjs
++++ b/tests/smooth/verify-source.mjs
+@@ -2,19 +2,39 @@ import { execFileSync } from 'node:child_process';
+ import { readFile, writeFile } from 'node:fs/promises';
+ import { join } from 'node:path';
+ import { ROOT, gitRead, norm, sha256 } from '../aicls/lib.mjs';
++import { parseOfficialData, splitOfficialData } from './official-data.mjs';
+ 
+-const output = process.argv[2];
+-if (!output) throw new Error('Usage: node tests/smooth/verify-source.mjs <result.json>');
++const [output, mode, ...extra] = process.argv.slice(2);
++if (!output || (mode !== undefined && mode !== '--ci') || extra.length) {
++  throw new Error('Usage: node tests/smooth/verify-source.mjs <result.json> [--ci]');
++}
++const ci = mode === '--ci';
++const c1Baseline = '73dd34e';
++const scopeBaseline = ci ? 'HEAD' : c1Baseline;
+ const paths = ['index.html', 'sw.js', 'sw-retire.js', 'tests/smooth/verify-s1.mjs',
+-  'tests/smooth/verify-s2.mjs', 'tests/smooth/run-regressions.mjs', 'tests/smooth/verify-source.mjs'];
+-const candidate = await readFile(join(ROOT, 'index.html'), 'utf8');
+-const baseline = gitRead(['show', '73dd34e:index.html']);
++  'tests/smooth/verify-s2.mjs', 'tests/smooth/run-regressions.mjs', 'tests/smooth/verify-source.mjs',
++  'tests/smooth/official-data.mjs', 'tests/smooth/prepare-ci-ux-baseline.mjs', 'tests/ux/ux_probe.mjs'];
++const candidate = norm(await readFile(join(ROOT, 'index.html'), 'utf8'));
++const baseline = norm(gitRead(['show', `${c1Baseline}:index.html`]));
+ const sections = [
+-  ['official-data', '/*__THORADAR_DATA_START__*/', '/*__THORADAR_DATA_END__*/'],
+   ['official-paper-initialization', 'const INJECTED_PAPERS=', 'let PAPERS=INJECTED_PAPERS.slice();'],
+   ['official-window-and-merge', 'function inWindow(p){', 'const windowPapers=()=>PAPERS.filter(inWindow);']
+ ];
+ const checks = [];
++try {
++  const block = splitOfficialData(candidate).block;
++  if (ci) {
++    const data = parseOfficialData(block);
++    checks.push({ name: 'official-data', pass: true, briefingDate: data.briefing_date,
++      paperCount: data.papers.length, candidateSha256: sha256(block) });
++  } else {
++    const original = splitOfficialData(baseline).block;
++    checks.push({ name: 'official-data', pass: original === block,
++      baselineSha256: sha256(original), candidateSha256: sha256(block) });
++  }
++} catch (error) {
++  checks.push({ name: 'official-data', pass: false, error: error.message });
++}
+ for (const [name, start, end] of sections) {
+   const extract = source => {
+     const from = source.indexOf(start);
+@@ -22,22 +42,26 @@ for (const [name, start, end] of sections) {
+     if (from < 0 || to < 0) throw new Error('Section missing: ' + name);
+     return source.slice(from, to + end.length);
+   };
+-  const from = extract(norm(baseline));
+-  const to = extract(norm(candidate));
++  const from = extract(baseline);
++  const to = extract(candidate);
+   checks.push({ name, pass: from === to, baselineSha256: sha256(from), candidateSha256: sha256(to) });
+ }
+ 
+-const tracked = gitRead(['diff', '--name-only', '73dd34e', '--']).trim().split(/\r?\n/).filter(Boolean);
+-const untracked = gitRead(['ls-files', '--others', '--exclude-standard']).trim().split(/\r?\n/).filter(Boolean);
+-const outOfScope = [...tracked, ...untracked].filter(path =>
+-  !['index.html', 'sw.js', 'sw-retire.js', '.github/workflows/deploy_oss.yml'].includes(path) &&
++const changed = (...args) => gitRead(['diff', '--name-only', '--no-renames', '-z', ...args, '--'])
++  .split('\0').filter(Boolean);
++const tracked = ci ? [...new Set([...changed('--cached', 'HEAD'), ...changed()])] : changed(c1Baseline);
++const untracked = gitRead(['ls-files', '--others', '--exclude-standard', '-z']).split('\0').filter(Boolean);
++const outOfScope = [...new Set([...tracked, ...untracked])].filter(path =>
++  !['index.html', 'sw.js', 'sw-retire.js', '.github/workflows/deploy_oss.yml', 'tests/ux/ux_probe.mjs'].includes(path) &&
+   !path.startsWith('tests/smooth/') && !path.startsWith('docs/tasks/T1128-SMOOTH/'));
+ checks.push({ name: 'write-scope', pass: outOfScope.length === 0, tracked, untracked, outOfScope });
+ const syntax = paths.slice(1).map(path => {
+   execFileSync(process.execPath, ['--check', path], { cwd: ROOT, stdio: 'inherit' });
+   return path;
+ });
+-execFileSync('git', ['diff', '--check', '73dd34e', '--'], { cwd: ROOT, stdio: 'inherit' });
++for (const args of ci ? [['--cached', scopeBaseline], []] : [[scopeBaseline]]) {
++  execFileSync('git', ['diff', '--check', ...args, '--'], { cwd: ROOT, stdio: 'inherit' });
++}
+ checks.push({ name: 'node-syntax-and-git-diff-check', pass: true, syntax });
+ for (const check of checks) console.log((check.pass ? 'PASS ' : 'FAIL ') + check.name + ' ' + JSON.stringify(check));
+ const files = Object.fromEntries(await Promise.all(paths.map(async path =>
+@@ -46,5 +70,6 @@ console.log('SHA256 ' + JSON.stringify(files));
+ const summary = { passed: checks.filter(check => check.pass).length, failed: checks.filter(check => !check.pass).length };
+ console.log('SUMMARY ' + JSON.stringify(summary));
+ await writeFile(output, JSON.stringify({ timestamp: new Date().toISOString(), runs: 1, seed: null,
+-  baseline: gitRead(['rev-parse', '73dd34e']).trim(), checks, files, summary }, null, 2) + '\n', { flag: 'wx' });
++  mode: ci ? 'ci' : 'local', baseline: gitRead(['rev-parse', c1Baseline]).trim(),
++  scopeBaseline: gitRead(['rev-parse', scopeBaseline]).trim(), checks, files, summary }, null, 2) + '\n', { flag: 'wx' });
+ if (summary.failed) process.exitCode = 1;
+diff --git a/tests/ux/ux_probe.mjs b/tests/ux/ux_probe.mjs
+index 4c25b38..de98f9a 100644
+--- a/tests/ux/ux_probe.mjs
++++ b/tests/ux/ux_probe.mjs
+@@ -1,7 +1,7 @@
+ #!/usr/bin/env node
+ // T1127-UX 随仓验收探针：折叠、阅读可达性、矮屏雷达、字号、英文态、窄屏/深色与官方数据面差分。
+ // 用法：node tests/ux/ux_probe.mjs [--target index.html] [--base main] [--only F1,F9] [--shots 目录] [--label 名称]
+-//   --base 给 F8 官方数据面差分提供基线提交；--page baseline 可把基线当负对照（新功能不存在应红）。
++//   --base 给 F8 提供基线提交；--base-html 可传入已准备的基线 HTML；--page baseline 可把基线当负对照。
+ // 零真 Key／零真 LLM／NCBI 全拦；临时件只落系统临时目录。零依赖，复用 tests/aicls/lib.mjs 的 CDP 客户端。
+ import {writeFileSync,mkdirSync,rmSync} from 'node:fs';
+ import {join,resolve} from 'node:path';
+@@ -16,8 +16,10 @@ const CHROME=arg('--chrome','C:/Program Files/Google/Chrome/Application/chrome.e
+ const CAND=resolve(arg('--target',process.env.XREV_CAND_HTML||join(ROOT,'index.html')));
+ const ONLYSET=arg('--only',process.env.XREV_ONLY||'').split(',').map(s=>s.trim()).filter(Boolean),ONLY=id=>ONLYSET.length===0||ONLYSET.includes(id);
+ const BASE_REV=arg('--base','main');
++const BASE_HTML=arg('--base-html',null);
++if(argv.includes('--base-html')&&!BASE_HTML)throw new Error('--base-html requires a file path');
+ const SCRATCH_ROOT=resolve(process.env.XREV_SCRATCH||join(tmpdir(),'T1127-ux-probe'));
+-const BASE=join(SCRATCH_ROOT,`baseline-${BASE_REV.replace(/[^a-zA-Z0-9._-]/g,'_')}.html`);
++const BASE=BASE_HTML?resolve(BASE_HTML):join(SCRATCH_ROOT,`baseline-${BASE_REV.replace(/[^a-zA-Z0-9._-]/g,'_')}.html`);
+ const SCRATCH=join(SCRATCH_ROOT,`ux-harness-${LABEL}`),OUT=join(SCRATCH_ROOT,`out-${LABEL}`);
+ const L=ledger(),{check,note}=L;
+ const HAN=/[\u4e00-\u9fff]/;
+@@ -112,13 +114,13 @@ const mouseClick=async(h,tab,selector)=>{
+ 
+ async function main(){
+   rmSync(SCRATCH,{recursive:true,force:true});mkdirSync(SCRATCH,{recursive:true});if(SHOTS)mkdirSync(SHOTS,{recursive:true});
+-  mkdirSync(SCRATCH_ROOT,{recursive:true});writeFileSync(BASE,gitRead(['show',`${BASE_REV}:index.html`]));
++  if(!BASE_HTML)writeFileSync(BASE,gitRead(['show',`${BASE_REV}:index.html`]));
+   const srv=await startServer({target:CAND,baseline:BASE}),port=await freePort(),profile=join(SCRATCH,'profile');
+   const browser=await launch({chrome:CHROME,profile,port,label:LABEL});
+   const h={cdp:null,tabs:new Map(),origin:srv.origin};h.cdp=await connect(browser.ver.webSocketDebuggerUrl);wire(h);
+   const path=PAGE==='baseline'?'/baseline.html':'/index.html';
+   try{
+-    console.log(`ux probe | ${browser.ver.Browser} | page=${path}（${PAGE==='baseline'?`基线 ${BASE_REV}＝负对照`:`受测件 ${CAND}`}）| judge=${JUDGE} | label=${LABEL}`);
++    console.log(`ux probe | ${browser.ver.Browser} | page=${path}（${PAGE==='baseline'?`基线 ${BASE_HTML?BASE:BASE_REV}＝负对照`:`受测件 ${CAND}`}）| judge=${JUDGE} | label=${LABEL}`);
+     {const t=await fresh(h,path);const m=await t.eval('({ready:document.body.dataset.protoReady,papers:PAPERS.length,anchor:ANCHOR,lang:LANG,site:SITE_DATA.briefing_date,degraded:PAPERS.filter(p=>String(p.publish_state)==="degraded").length,hasToggle:!!document.querySelector(".filters-toggle")})');console.log('页面概况：'+JSON.stringify(m));await t.close()}
+     // ================= F1 折叠行为（任务书要点 2）：1440×714 =================
+     if(ONLY('F1')){

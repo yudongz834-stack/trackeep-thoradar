@@ -1,0 +1,43 @@
+[
+  {
+    "command": [
+      "node",
+      "tests/smooth/verify-s3.mjs",
+      "docs/tasks/T1128-SMOOTH/sol-s5/s3.json"
+    ],
+    "exitCode": 0,
+    "name": "s3"
+  },
+  {
+    "command": [
+      "node",
+      "tests/smooth/verify-s1.mjs",
+      "docs/tasks/T1128-SMOOTH/sol-s5/s1.json"
+    ],
+    "exitCode": 0,
+    "name": "s1"
+  },
+  {
+    "command": [
+      "node",
+      "tests/smooth/verify-s2.mjs",
+      "docs/tasks/T1128-SMOOTH/sol-s5/s2.json"
+    ],
+    "exitCode": 0,
+    "name": "s2"
+  },
+  {
+    "command": [
+      "node",
+      "tests/ux/ux_probe.mjs",
+      "--target",
+      "index.html",
+      "--base",
+      "73dd34e",
+      "--label",
+      "sol-s5"
+    ],
+    "exitCode": 0,
+    "name": "ux"
+  }
+]

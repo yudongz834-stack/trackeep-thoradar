@@ -1,0 +1,5 @@
+{
+  "candidateSha256": "e882e9e2eef0bf36781b8b03ecec23eb81221fa8b33272cdc9de3e368f76394f",
+  "exitCode": 0,
+  "command": "node tests/smooth/verify-s2.mjs \"$e/s2.json\" none"
+}

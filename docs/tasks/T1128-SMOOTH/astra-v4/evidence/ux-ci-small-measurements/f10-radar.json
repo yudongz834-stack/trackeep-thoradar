@@ -1,0 +1,28 @@
+{
+ "desktop": {
+  "n": 0,
+  "min": null,
+  "max": null,
+  "centerOwn": 0,
+  "lowMismatch": 0,
+  "lowFadeBad": 0,
+  "zeroLabels": 0,
+  "reviewN": 0,
+  "reviewShapeBad": 0
+ },
+ "mobile": {
+  "n": 0,
+  "min": null,
+  "max": null,
+  "centerOwn": 0,
+  "lowMismatch": 0,
+  "lowFadeBad": 0,
+  "zeroLabels": 0,
+  "reviewN": 0,
+  "reviewShapeBad": 0
+ },
+ "point": null,
+ "hitPass": false,
+ "keyboardId": null,
+ "keyboardPass": false
+}

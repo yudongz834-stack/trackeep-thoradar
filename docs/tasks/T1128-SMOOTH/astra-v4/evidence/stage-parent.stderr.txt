@@ -1,0 +1,12 @@
+warning: in the working copy of 'index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'sw-retire.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'sw.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/smooth/deploy-mock.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/smooth/official-data.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/smooth/prepare-ci-ux-baseline.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/smooth/run-regressions.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/smooth/verify-deploy.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/smooth/verify-s1.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/smooth/verify-s2.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/smooth/verify-s3.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/smooth/verify-source.mjs', LF will be replaced by CRLF the next time Git touches it

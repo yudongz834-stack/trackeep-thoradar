@@ -1,0 +1,21 @@
+COMMAND Get-Process -Id <each PID from CLEANUP> -ErrorAction SilentlyContinue
+PID 5000 absent
+PID 6048 absent
+PID 9560 absent
+PID 10524 absent
+PID 12464 absent
+PID 12516 absent
+PID 17036 absent
+PID 19012 absent
+PID 19544 absent
+PID 24084 absent
+PID 27832 absent
+PID 35376 absent
+PID 39100 absent
+PID 39144 absent
+PID 39148 absent
+PID 39524 absent
+PID 39840 absent
+PID 39872 absent
+PID 42544 absent
+Checked 19 PIDs

@@ -1,0 +1,14 @@
+{
+  "cwd": "D:\\trackeep\\trackeep-product\\trackeep-thoradar-astra-v4\\docs\\tasks\\T1128-SMOOTH\\astra-v4\\private-repo",
+  "argv": [
+    "node",
+    "tests/smooth/verify-source.mjs",
+    "D:\\trackeep\\trackeep-product\\trackeep-thoradar-astra-v4\\docs\\tasks\\T1128-SMOOTH\\astra-v4\\evidence\\source-ci-bad-date.json",
+    "--ci"
+  ],
+  "startUtc": "2026-11-28T08:01:47.591328+00:00",
+  "runs": 1,
+  "seed": null,
+  "exit": 1,
+  "endUtc": "2026-11-28T08:01:48.801701+00:00"
+}

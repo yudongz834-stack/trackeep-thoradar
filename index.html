@@ -594,6 +594,13 @@ body:not([data-proto-view="reading"]) .proto-density{display:none}       /* 密�
 @media(min-width:901px){
   body[data-proto-view="overview"] .scope{width:min(100cqw,100cqh,420px)}
 }
+/* 首页副本状态跟随顶栏，窄屏也能看到正在阅读的数据日期。 */
+.topbar:has(> :is(.shell-status,.window-hint)){height:auto;min-height:58px}
+.shell-status,.topbar>.window-hint{grid-column:1/-1;color:var(--text-2);font-size:12px;line-height:1.4;margin:0}
+@media(min-width:901px){
+  .topbar:has(> :is(.shell-status,.window-hint)){grid-template-rows:46px;row-gap:0;padding-bottom:6px}
+  .topbar:has(> :is(.shell-status,.window-hint))+.deck{height:calc(100vh - var(--proto-header-h,58px) - 36px)}
+}
 </style>
 </head>
 <body>
@@ -1563,6 +1570,7 @@ function renderTierFilters(base){
   }).join('');
 }
 function renderWindow(){
+  renderRollHint();
   $('#window-range').value=String(state.days);
   $('#window-value').textContent=`${state.days} ${t('unit.days')}`;
   if(!ANCHOR){$('#window-label').textContent=`${t('data.window')} — · ${state.days} ${t('unit.days')}`;return}
@@ -3314,17 +3322,29 @@ $('#pool-refresh').addEventListener('click',()=>{if(!poolView)return;poolView.lo
 $('#pool-mix-toggle').addEventListener('change',event=>{poolMix=event.target.checked===true;persistPoolMix();render()});   // 个人层开关：只重算派生视图，零网络、零官方写入
 // ===== 懒加载（2026-11-08 数据瘦身）：默认窗=1 天只用内嵌 SITE_DATA，首屏 0 外部请求；
 // 拖滑杆 >1 天/点击滑杆/启动时窗口偏好 >1 天才拉 radar_latest.json；单例 Promise 防重；
-// 加载中骨架屏＋aria-busy；失败静默保留现有数据＋滑杆旁提示（可重试）。
-let rollingPromise=null,rollHintTimer=null;
+// 加载中骨架屏＋aria-busy；失败保留当日数据，顶栏持续提示，可重试。
+let rollingPromise=null,rollingUnavailable=false;
+const rollHint=$('#window-hint'),rollHintParent=rollHint.parentNode,rollHintNext=rollHint.nextSibling;
 function setRollBusy(on){
   const skel=$('#rolling-skeleton'),list=$('#queue-list');
   if(skel)skel.hidden=!on;   // hidden 属性开关（[hidden] 全局 !important），无 style.display
   if(list){if(on)list.setAttribute('aria-busy','true');else list.removeAttribute('aria-busy')}
 }
-function showRollHint(){
-  const hint=$('#window-hint');if(!hint)return;
-  hint.hidden=false;
-  clearTimeout(rollHintTimer);rollHintTimer=setTimeout(()=>{hint.hidden=true},6000);
+function renderRollHint(){
+  if(rollingUnavailable&&state.days>1){
+    const topbar=$('.topbar');
+    if(rollHint.parentNode!==topbar)topbar.append(rollHint);
+    const date=SITE_DATA.briefing_date||String(SITE_DATA.generated_at||'').slice(0,10)||ANCHOR;
+    const text=LANG==='en'
+      ? `Showing only the ${date} daily copy / Historical archive unavailable`
+      : `实际只显示 ${date} 当日副本／历史档案不可用`;
+    if(rollHint.textContent!==text)rollHint.textContent=text;
+    rollHint.hidden=false;
+  }else if(!rollHint.hidden){
+    rollHint.hidden=true;
+    rollHint.textContent=t('roll.fail');
+    rollHintParent.insertBefore(rollHint,rollHintNext);
+  }
 }
 function ensureRollingData(){
   if(rollingPromise)return rollingPromise;
@@ -3333,11 +3353,13 @@ function ensureRollingData(){
     if(!response.ok)throw new Error('rolling window unavailable');
     const payload=await response.json(),latest=Array.isArray(payload)?payload:payload?.papers;
     if(!Array.isArray(latest))throw new Error('rolling window schema mismatch');
-    PAPERS=mergePapers(latest);ANCHOR=findAnchor(PAPERS);renderHeader();render();
-  }).catch(error=>{
+    PAPERS=mergePapers(latest);ANCHOR=findAnchor(PAPERS);
+    rollingUnavailable=false;
+    renderHeader();render();
+  }).catch(()=>{
     rollingPromise=null;   // 失败放行重试：下次滑杆交互再拉
-    console.info('滚动窗数据不可用，已静默降级为注入数据。');
-    showRollHint();
+    rollingUnavailable=true;
+    renderRollHint();
   }).finally(()=>{
     setRollBusy(false);
   });
@@ -3543,6 +3565,97 @@ clsPrewarm();   // 已有 AI 分类缓存的回访用户：首帧先按内容哈
   (function(){const dens=document.querySelector('.proto-density'),head=document.querySelector('.queue-panel .coll-head');if(dens&&head)head.insertBefore(dens,head.firstChild)})();
   protoSetView('overview');
   document.body.dataset.protoReady='true';
+})();
+</script>
+<div class="shell-status" id="shell-status" role="status" hidden></div>
+<script>
+(() => {
+  const { hostname, protocol, pathname, search, searchParams } = new URL(location.href);
+  if (pathname !== '/' && pathname !== '/index.html') return;
+  const disable = searchParams.getAll('sw').includes('0');
+  const optIn = searchParams.size === 1 && searchParams.get('sw') === '1';
+  const production = protocol === 'https:' && (hostname === 'thoradar.online' || hostname.endsWith('.thoradar.online'));
+  const local = ['localhost', '127.0.0.1', '[::1]'].includes(hostname);
+  let worker;
+  let storage;
+  try { worker = navigator.serviceWorker; } catch (_) {}
+  try { storage = window.caches; } catch (_) {}
+  const workerUrl = new URL('/sw.js', location.origin).href;
+  const retireUrl = new URL('/sw-retire.js', location.origin).href;
+  const controller = worker?.controller?.scriptURL === workerUrl ? worker.controller : null;
+  const canRegister = production || (local && optIn);
+  if (!disable && ((search && !optIn) || (!canRegister && !(local && controller)))) return;
+
+  const banner = document.getElementById('shell-status');
+  document.querySelector('.topbar').append(banner);
+  banner.hidden = false;
+  const labels = {
+    network: ['联网打开', 'Opened over the network'],
+    checking: ['本地副本 · 核对更新中', 'Local copy · Checking for updates'],
+    current: ['本地副本 · 已核对，与服务器一致', 'Local copy · Matches the server'],
+    updated: ['有新版，下次打开生效', 'Update available on your next visit'],
+    unavailable: ['本地副本 · 暂未核实更新', 'Local copy · Could not check for updates'],
+    fallback: ['联网打开 · 本地副本不可用', 'Opened over the network · Local copy unavailable'],
+    disabled: ['本地副本已停用', 'Local copy disabled'],
+    disableFailed: ['未能停用本地副本', 'Could not disable the local copy']
+  };
+  const date = SITE_DATA.briefing_date || String(SITE_DATA.generated_at || '').slice(0, 10);
+  let status = 'network';
+  function renderStatus() {
+    const english = LANG === 'en';
+    const dataDate = date || (english ? 'Unknown' : '日期未知');
+    banner.textContent = `${english ? 'Data' : '数据'} ${dataDate} · ${labels[status][english ? 1 : 0]}`;
+  }
+  function show(next) {
+    status = next;
+    renderStatus();
+  }
+  document.getElementById('lang-btn').addEventListener('click', renderStatus);
+  show('network');
+
+  if (disable) {
+    (async () => {
+      if (worker) {
+        const registrations = await worker.getRegistrations();
+        await Promise.all(registrations.map(registration => registration.unregister()));
+      }
+      if (storage) {
+        const names = await storage.keys();
+        await Promise.all(names.filter(name => name.startsWith('thoradar-shell-')).map(name => storage.delete(name)));
+      }
+      show('disabled');
+    })().catch(() => show('disableFailed'));
+    return;
+  }
+  if (!worker || !storage) {
+    show('fallback');
+    return;
+  }
+
+  let replyTimeout;
+  worker.addEventListener('message', event => {
+    if (event.data?.type === 'thoradar-shell-retired' &&
+        [workerUrl, retireUrl].includes(event.source?.scriptURL)) {
+      clearTimeout(replyTimeout);
+      show(event.data.unregistered && event.data.cleared ? 'disabled' : 'disableFailed');
+      return;
+    }
+    if (status === 'disabled' || status === 'disableFailed' || !controller ||
+        event.source !== controller || event.data?.type !== 'thoradar-shell-state') return;
+    const next = event.data.status;
+    if (!['network', 'checking', 'current', 'updated', 'unavailable', 'fallback'].includes(next)) return;
+    if (next !== 'checking') clearTimeout(replyTimeout);
+    show(next);
+  });
+  if (controller) {
+    show('checking');
+    replyTimeout = setTimeout(() => show('unavailable'), 12000);
+    try { controller.postMessage({ type: 'thoradar-shell-status' }); }
+    catch (_) { clearTimeout(replyTimeout); show('unavailable'); }
+  }
+  if (canRegister) worker.register(workerUrl, { updateViaCache: 'none' }).catch(() => {
+    if (!controller) show('fallback');
+  });
 })();
 </script>
 </body>

@@ -1,0 +1,18 @@
+{
+  "checkout": {
+    "ref": "${{ github.sha }}",
+    "fetch-depth": "0",
+    "persist-credentials": "false"
+  },
+  "deployNeeds": "smooth-verify",
+  "runner": "windows-latest",
+  "verificationSteps": [
+    "Check deployment workflow and simulate publishing",
+    "Verify source invariants",
+    "Verify S1",
+    "Verify S2",
+    "Verify S3",
+    "Prepare UX baseline from the first parent",
+    "Verify UX"
+  ]
+}

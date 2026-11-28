@@ -1,0 +1,57 @@
+{
+  "officialDaily": "28131f314f92a05227fd5923607d717c426da2c5",
+  "s5Fixture": "6fb35075a602f0dd88d6ddb4cf2939d899e81a44",
+  "s6Fixture": "bcc6bb48706f6aa6b13a184f1aa61cb83eeba37b",
+  "parent": "005262b839505fac78cc161e4db80a403ee07f70",
+  "daily": "b07792631173b9595361a5dca95b48bf490f2132",
+  "dailyPaths": [
+    "api/v1/daily.json",
+    "data/archive/2026-11-28.json",
+    "data/circuit_state.json",
+    "data/daily_briefing_2026-11-28.md",
+    "data/journal_health.json",
+    "data/prescreen_rejected/2026-11-28.json",
+    "data/push_log.json",
+    "data/radar_latest.json",
+    "data/regression/report.json",
+    "data/scope_gate_shadow.json",
+    "data/seen_dois.json",
+    "data/seen_pmids.json",
+    "data/status.json",
+    "data/toc_checkpoint.json",
+    "feed.xml",
+    "index.html"
+  ],
+  "parentMarker": "<meta name=\"s6-fixture-parent\" content=\"first-parent-shell\">",
+  "prepare": {
+    "revision": "b07792631173b9595361a5dca95b48bf490f2132",
+    "parent": "005262b839505fac78cc161e4db80a403ee07f70",
+    "output": "D:\\claude-tmp\\thoradar-s6-replay-GG3uo1\\runner-temp\\smooth-ux-baseline.html",
+    "briefingDate": "2026-11-28",
+    "paperCount": 43,
+    "parentDataSha256": "6d4a6663ea7089502f6115f206b3ee48663a43f4768ae4fee19f72c69523dc31",
+    "releaseDataSha256": "1b624d90aeaa7aee5684457c2781db377f2e4be0e3e8ed9fff96f3bee4c47653",
+    "baselineSha256": "8b0817cd525f73e66f8778a2ff7b01c6f2cdd1bb0bcb9a08d97be2da1ef6a7f3"
+  },
+  "c1Before": {
+    "index.html": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def",
+    "sw.js": "e882e9e2eef0bf36781b8b03ecec23eb81221fa8b33272cdc9de3e368f76394f",
+    "sw-retire.js": "5ae38f2ba965f4e1b1d340da2ba5fadd8b58af82a1e271a02ddff97ab5686199"
+  },
+  "c1After": {
+    "index.html": "33c50bef723b0a3f32b51bc2d5927ff4391bb58eb474996f1a7d9dff96bc1def",
+    "sw.js": "e882e9e2eef0bf36781b8b03ecec23eb81221fa8b33272cdc9de3e368f76394f",
+    "sw-retire.js": "5ae38f2ba965f4e1b1d340da2ba5fadd8b58af82a1e271a02ddff97ab5686199"
+  },
+  "releaseBefore": {
+    "index.html": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706",
+    "sw.js": "e882e9e2eef0bf36781b8b03ecec23eb81221fa8b33272cdc9de3e368f76394f",
+    "sw-retire.js": "5ae38f2ba965f4e1b1d340da2ba5fadd8b58af82a1e271a02ddff97ab5686199"
+  },
+  "releaseAfter": {
+    "index.html": "27ba018a9a3b4936ec734820af8cb505262bd55f41ae382047615f0a58d7c706",
+    "sw.js": "e882e9e2eef0bf36781b8b03ecec23eb81221fa8b33272cdc9de3e368f76394f",
+    "sw-retire.js": "5ae38f2ba965f4e1b1d340da2ba5fadd8b58af82a1e271a02ddff97ab5686199"
+  },
+  "oracleRejectedUnguardedStaleBaseline": true
+}

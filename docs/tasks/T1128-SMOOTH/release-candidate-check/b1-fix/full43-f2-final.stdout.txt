@@ -1,0 +1,6 @@
+ux probe | Chrome/158.0.8127.88 | page=/index.html（受测件 D:\trackeep\trackeep-product\trackeep-thoradar\index.html）| judge=true | label=b1-full43-f2-final
+页面概况：{"ready":"true","papers":43,"anchor":"2026-11-28","lang":"zh","site":"2026-11-28","degraded":25,"hasToggle":true}
+
+==== UX PROBE [b1-full43-f2-final] SUMMARY 0 PASS / 0 FAIL： ====
+     cleanup | browser pid=40616 exitCode=null signalCode=SIGTERM | 带 profile 标记的进程：收尾前=40616,35936,12060,17572,47364,44568,32344,45976,49664,46352,10692 | 主进程结束后残留=无 | 逐 PID 结束=无 | 复查仍存活=无
+     cleanup | 临时目录 D:\claude-tmp\T1128-b1-full43-f2-final\ux-harness-b1-full43-f2-final 已清
