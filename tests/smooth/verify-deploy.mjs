@@ -184,7 +184,10 @@ try {
   await writeFile(join(scratch, 'publish.sh'), [
     'set -e', 'mock_bin="$RUNNER_TEMP/bin"',
     'if [[ "$OSTYPE" == msys* ]]; then mock_bin=$(cygpath -u "$mock_bin"); fi',
-    'export PATH="$mock_bin:$PATH"', deployScript
+    'export PATH="$mock_bin:$PATH"',
+    '# Hosted Windows may prefer the system curl.exe over a no-extension PATH mock.',
+    'curl() { "$mock_bin/curl" "$@"; }',
+    deployScript
   ].join('\n'));
 
   for (const retire of [false, true]) {
